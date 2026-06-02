@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bluebook — Digital SAT Practice</title>
+<style>
+  .exit-btn {
+  background: #e2e8f0; color: #475569;
+  padding: 10px 24px; border-radius: 26px;
+  font-size: 14px; font-weight: 700;
+  margin-top: 10px;
+}
+  /* ============ BASE ============ */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #2a2a2a;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  input { font-family: inherit; }
+
+  /* ============ APP LAYOUT ============ */
+  #app { height: 100vh; display: flex; flex-direction: column; }
+
+  /* Top header */
+  .header {
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px dashed #888;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    flex-shrink: 0;
+  }
+  .header-left { display: flex; flex-direction: column; gap: 4px; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1a1a1a; }
+  .section-sub {
+    font-size: 13px; color: #555;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .directions-btn {
+    background: none; border: none; color: #1a1a1a;
+    text-decoration: underline; font-size: 13px; cursor: pointer;
+    padding: 0;
+  }
+  .directions-btn:hover { color: #0066cc; }
+
+  .header-center {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .timer {
+    font-size: 22px; font-weight: 700; letter-spacing: 1px;
+    font-variant-numeric: tabular-nums;
+  }
+  .timer-hide {
+    font-size: 11px; color: #444;
+    border: 1px solid #888; border-radius: 14px;
+    padding: 3px 10px; background: #fff;
+  }
+
+  .header-right { display: flex; gap: 22px; align-items: center; }
+  .tool-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    font-size: 11px; color: #1a1a1a;
+  }
+  .tool-btn:hover { color: #0066cc; }
+  .tool-btn .icon { font-size: 20px; line-height: 1; }
+
+  /* ============ MAIN CONTENT (Two columns) ============ */
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    background: #fff;
+  }
+  .pane {
+    flex: 1;
+    padding: 40px 60px;
+    overflow-y: auto;
+    font-size: 17px;
+    line-height: 1.55;
+    color: #1a1a1a;
+  }
+  .pane.left {
+    border-right: 2px dashed #888;
+  }
+
+  .passage { font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.6; }
+  .passage p { margin-bottom: 12px; }
+  .passage .source {
+    font-size: 14px; color: #555; font-style: italic;
+    margin-bottom: 14px;
+  }
+  .passage .underline { text-decoration: underline; }
+  .passage table {
+    border-collapse: collapse; margin: 16px 0;
+    font-family: Georgia, serif; font-size: 15px;
+  }
+  .passage table caption {
+    font-weight: 700; padding: 6px; font-size: 14px;
+    text-align: left; margin-bottom: 4px;
+  }
+  .passage table th, .passage table td {
+    border: 1px solid #555; padding: 6px 12px; text-align: center;
+  }
+  .passage table th { background: #eaeaea; }
+
+  /* Math figures */
+  .figure {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .figure svg { max-width: 100%; height: auto; }
+  .fig-caption { font-size: 13px; color: #555; margin-top: 6px; font-style: italic; }
+
+  /* ============ QUESTION PANE ============ */
+  .q-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+  }
+  .q-number {
+    background: #1a1a1a; color: #fff;
+    padding: 4px 10px;
+    font-weight: 700; font-size: 15px;
+    border-radius: 2px;
+  }
+  .mark-review {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px;
+    border: 1px solid #1a1a1a;
+    padding: 3px 10px;
+    border-radius: 14px;
+    background: #fff;
+  }
+  .mark-review.marked { background: #fff3cd; }
+  .mark-review .flag { font-size: 14px; }
+  .mark-review.marked .flag { color: #d9534f; }
+
+  .abc-toggle {
+    margin-left: auto;
+    border: 1px solid #1a1a1a;
+    padding: 3px 8px;
+    border-radius: 14px;
+    font-size: 13px;
+    background: #fff;
+  }
+  .abc-toggle.active { background: #1a1a1a; color: #fff; }
+
+  .q-prompt {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .q-prompt p { margin-bottom: 10px; }
+
+  /* Choices */
+  .choices { display: flex; flex-direction: column; gap: 10px; }
+  .choice {
+    display: flex;
+    align-items: stretch;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .choice:hover { background: #f0f4ff; }
+  .choice.selected { background: #cfe2ff; border-color: #0a58ca; }
+  .choice.eliminated .choice-text { text-decoration: line-through; color: #888; }
+  .choice-letter {
+    width: 38px;
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1.5px solid #1a1a1a;
+    font-weight: 700;
+    background: #fafafa;
+  }
+  .choice.selected .choice-letter { background: #0a58ca; color: #fff; border-color: #0a58ca; }
+  .choice-text {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .choice-eliminate {
+    width: 38px; display: flex; align-items: center; justify-content: center;
+    border-left: 1px solid #ccc;
+    font-size: 13px;
+    color: #555;
+    background: #fafafa;
+  }
+  .choice-eliminate:hover { background: #ffe9e9; color: #a00; }
+  .choice.eliminated .choice-eliminate { background: #fff3f3; color: #a00; font-weight: 700; }
+
+  /* Grid-in (student-produced response) */
+  .gridin-wrap { margin-top: 6px; }
+  .gridin {
+    width: 280px;
+    padding: 12px 14px;
+    font-size: 18px;
+    border: 1.5px solid #1a1a1a;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .gridin-preview {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #444;
+    min-height: 22px;
+  }
+  .gridin-preview b { color: #1a1a1a; }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    height: 64px;
+    background: #1a1a1a;
+    color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px;
+    flex-shrink: 0;
+  }
+  .footer-name { font-size: 14px; }
+  .nav-pill {
+    background: #fff; color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 18px;
+    font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-pill:hover { background: #ddd; }
+  .footer-buttons { display: flex; gap: 14px; }
+  .nav-btn {
+    background: #0a58ca; color: #fff;
+    padding: 9px 26px;
+    border-radius: 22px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .nav-btn:hover { background: #0747a6; }
+  .nav-btn:disabled { background: #555; cursor: not-allowed; }
+
+  /* ============ MODALS ============ */
+  .overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 100;
+  }
+  .overlay.show { display: flex; }
+  .modal {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 720px;
+    width: 90%;
+    max-height: 84vh;
+    overflow-y: auto;
+    padding: 32px 36px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .modal h2 { font-size: 22px; margin-bottom: 14px; }
+  .modal p { margin-bottom: 10px; line-height: 1.55; }
+  .modal-close {
+    background: #0a58ca; color: #fff;
+    padding: 9px 22px;
+    border-radius: 22px;
+    font-weight: 700;
+    margin-top: 16px;
+  }
+
+  /* Question navigator popup */
+  .nav-modal {
+    background: #fff;
+    border-radius: 10px;
+    width: 560px;
+    max-width: 92%;
+    padding: 24px 26px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .nav-modal h3 {
+    font-size: 17px; margin-bottom: 14px;
+    text-align: center;
+    border-bottom: 1px solid #888; padding-bottom: 12px;
+  }
+  .nav-legend {
+    display: flex; justify-content: center; gap: 22px;
+    font-size: 12px; color: #444;
+    margin-bottom: 16px;
+  }
+  .nav-legend span { display: flex; align-items: center; gap: 6px; }
+  .legend-box {
+    width: 18px; height: 18px;
+    display: inline-block;
+    border-radius: 3px;
+  }
+  .legend-box.current { background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 3px, #fff 3px, #fff 6px); border: 1px solid #1a1a1a; }
+  .legend-box.unanswered { background: #fff; border: 1px dashed #555; }
+  .legend-box.answered { background: #0a58ca; }
+  .legend-box.marked { background: #fff; border: 1px dashed #555; position: relative; }
+  .legend-box.marked::after {
+    content: "🚩"; font-size: 10px;
+    position: absolute; top: -6px; right: -4px;
+  }
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .nav-cell {
+    aspect-ratio: 1;
+    border: 1px dashed #555;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 600;
+    position: relative;
+    background: #fff;
+  }
+  .nav-cell.answered { background: #0a58ca; color: #fff; border: 1px solid #0a58ca; }
+  .nav-cell.current {
+    background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 3px, #fff 3px, #fff 6px);
+    color: #1a1a1a;
+    border: 1.5px solid #1a1a1a;
+  }
+  .nav-cell.current.answered {
+    background: repeating-linear-gradient(45deg, #0a58ca, #0a58ca 3px, #fff 3px, #fff 6px);
+  }
+  .nav-cell.marked::after {
+    content: "🚩"; font-size: 12px;
+    position: absolute; top: -8px; right: -4px;
+  }
+  .nav-cell:hover { box-shadow: 0 0 0 2px #0a58ca; }
+  .nav-actions {
+    display: flex; justify-content: center; gap: 12px;
+    margin-top: 8px;
+  }
+  .nav-action-btn {
+    border: 1.5px solid #0a58ca;
+    color: #0a58ca;
+    padding: 8px 18px;
+    border-radius: 22px;
+    font-weight: 600; font-size: 13px;
+    background: #fff;
+  }
+  .nav-action-btn.primary { background: #0a58ca; color: #fff; }
+
+  /* Calculator */
+  .calc-modal {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 20px;
+    width: 320px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 100px; right: 40px;
+  }
+  .calc-modal h4 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .calc-display {
+    width: 100%; padding: 12px; font-size: 22px; text-align: right;
+    border: 1px solid #1a1a1a; border-radius: 6px;
+    margin-bottom: 10px; font-family: "SF Mono", Consolas, monospace;
+    background: #fafafa;
+  }
+  .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .calc-grid button {
+    padding: 12px; font-size: 16px; border: 1px solid #888; border-radius: 6px;
+    background: #fff;
+  }
+  .calc-grid button:hover { background: #e5e5e5; }
+  .calc-grid button.op { background: #ffeac2; }
+  .calc-grid button.eq { background: #0a58ca; color: #fff; }
+
+  /* Reference sheet */
+  .ref-modal { width: 700px; max-width: 92%; }
+  .ref-modal table { width: 100%; }
+
+  /* Results */
+  .results-modal { max-width: 800px; }
+  .score-display {
+    display: flex; justify-content: space-around;
+    margin: 20px 0; padding: 20px;
+    background: #f0f4ff; border-radius: 10px;
+  }
+  .score-block { text-align: center; }
+  .score-num { font-size: 42px; font-weight: 700; color: #0a58ca; }
+  .score-label { font-size: 14px; color: #555; }
+  .module-result {
+    margin: 16px 0; padding: 12px;
+    border-left: 4px solid #0a58ca;
+    background: #fafafa;
+  }
+  .review-row {
+    display: grid;
+    grid-template-columns: 50px 1fr 80px 80px;
+    gap: 8px;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+    align-items: center;
+  }
+  .review-row.correct { background: #e8f5e9; }
+  .review-row.incorrect { background: #ffebee; }
+  .review-row.skipped { background: #fff3e0; }
+
+  /* Start screen */
+  .start-screen {
+    position: fixed; inset: 0;
+    background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 200;
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+  }
+  .start-screen h1 { font-size: 36px; margin-bottom: 12px; color: #0a58ca; }
+  .start-screen h2 { font-size: 20px; margin-bottom: 20px; color: #444; font-weight: 400; }
+  .start-info {
+    max-width: 600px; text-align: left;
+    background: #f4f4f4; padding: 20px 24px; border-radius: 10px;
+    margin: 16px 0;
+  }
+  .start-info ul { padding-left: 22px; line-height: 1.7; }
+  .start-btn {
+    background: #0a58ca; color: #fff;
+    padding: 14px 36px;
+    border-radius: 26px;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 18px;
+  }
+
+  /* Inline math */
+  .frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: 0.9em; }
+  .frac > span:first-child { border-bottom: 1.5px solid currentColor; padding: 0 4px; }
+  .frac > span:last-child { padding: 0 4px; }
+  sup { font-size: 0.7em; vertical-align: super; }
+  sub { font-size: 0.7em; vertical-align: sub; }
+
+  /* Module break screen */
+  .break-screen {
+    position: fixed; inset: 0;
+    background: #1a1a1a; color: #fff;
+    display: none; align-items: center; justify-content: center;
+    z-index: 150;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+  .break-screen.show { display: flex; }
+  .break-screen h1 { font-size: 42px; margin-bottom: 12px; }
+  .break-timer { font-size: 64px; font-weight: 700; margin: 20px 0; font-variant-numeric: tabular-nums; }
+  .break-btn {
+    background: #0a58ca; color: #fff;
+    padding: 14px 32px; border-radius: 26px;
+    font-size: 16px; font-weight: 700;
+    margin-top: 16px;
+  }
+
+  /* Annotation highlight */
+  .pane.left ::selection { background: #ffeb3b; }
+</style>
+</head>
+<body>
+
+<!-- ==================== START SCREEN ==================== -->
+<div class="start-screen" id="startScreen">
+  <h1>Digital SAT Practice Test</h1>
+  <h2>Bluebook-style Mock Exam</h2>
+  <div class="start-info">
+    <p><strong>About this practice test:</strong></p>
+    <ul>
+      <li><strong>Reading & Writing:</strong> 2 modules × 27 questions (32 minutes each)</li>
+      <li><strong>Math:</strong> 2 modules × 22 questions (35 minutes each)</li>
+      <li>A 10-minute break occurs between sections</li>
+      <li>Tools available: timer, calculator, reference sheet, mark-for-review, answer eliminator</li>
+      <li>Highlight passages by selecting text in the left pane</li>
+    </ul>
+    <p style="margin-top:12px; font-size: 13px; color:#666;"><em>Note: This is an unofficial practice test. Questions are original, designed to match the format and difficulty of the College Board Digital SAT.</em></p>
+  </div>
+  <button class="start-btn" onclick="startTest()">Begin Test →</button>
+  <button class="exit-btn" onclick="window.ReactNativeWebView && window.ReactNativeWebView.postMessage('EXIT_TEST')">Exit to App</button>
+</div>
+
+<!-- ==================== MAIN APP ==================== -->
+<div id="app" style="display:none;">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="section-title" id="sectionTitle">Section 1, Module 1: Reading and Writing</div>
+      <div class="section-sub">
+        <button class="directions-btn" onclick="showDirections()">Directions ▾</button>
+      </div>
+    </div>
+    <div class="header-center">
+      <div class="timer" id="timer">32:00</div>
+      <button class="timer-hide" onclick="toggleTimer()">Hide</button>
+    </div>
+    <div class="header-right">
+      <button class="tool-btn" onclick="showReference()" id="refBtn" style="display:none;">
+        <span class="icon">📐</span><span>Reference</span>
+      </button>
+      <button class="tool-btn" onclick="toggleCalc()" id="calcBtn" style="display:none;">
+        <span class="icon">🧮</span><span>Calculator</span>
+      </button>
+      <button class="tool-btn" onclick="alert('Annotation tool: select text in the left pane to highlight it.')">
+        <span class="icon">✎</span><span>Annotate</span>
+      </button>
+      <button class="tool-btn" onclick="showHelp()">
+        <span class="icon">⋯</span><span>More</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="pane left" id="leftPane">
+      <!-- Passage / stimulus -->
+    </div>
+    <div class="pane right" id="rightPane">
+      <!-- Question -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Test Taker</div>
+    <button class="nav-pill" onclick="openNav()">
+      <span id="navLabel">Question 1 of 27</span>
+      <span>▾</span>
+    </button>
+    <div class="footer-buttons">
+      <button class="nav-btn" id="backBtn" onclick="prevQ()">Back</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextQ()">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODALS ==================== -->
+<div class="overlay" id="directionsOverlay">
+  <div class="modal" id="directionsModal">
+    <h2>Directions</h2>
+    <div id="directionsContent"></div>
+    <button class="modal-close" onclick="closeOverlay('directionsOverlay')">Close</button>
+  </div>
+</div>
+
+<div class="overlay" id="navOverlay">
+  <div class="nav-modal">
+    <h3 id="navTitle">Section 1, Module 1: Reading and Writing</h3>
+    <div class="nav-legend">
+      <span><span class="legend-box current"></span>Current</span>
+      <span><span class="legend-box unanswered"></span>Unanswered</span>
+      <span><span class="legend-box answered"></span>Answered</span>
+      <span><span class="legend-box marked"></span>For Review</span>
+    </div>
+    <div class="nav-grid" id="navGrid"></div>
+    <div class="nav-actions">
+      <button class="nav-action-btn" onclick="closeOverlay('navOverlay')">Close</button>
+      <button class="nav-action-btn primary" onclick="goToReview()">Go to Review Page</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="refOverlay">
+  <div class="modal ref-modal">
+    <h2>Reference Sheet</h2>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+      <div>
+        <p><b>Area / Volume:</b></p>
+        <p>A = πr²&nbsp;&nbsp;&nbsp;C = 2πr</p>
+        <p>A = lw&nbsp;&nbsp;&nbsp;A = ½bh</p>
+        <p>V = lwh</p>
+        <p>V = πr²h</p>
+        <p>V = <span class="frac"><span>4</span><span>3</span></span>πr³</p>
+        <p>V = <span class="frac"><span>1</span><span>3</span></span>πr²h</p>
+        <p>V = <span class="frac"><span>1</span><span>3</span></span>lwh</p>
+      </div>
+      <div>
+        <p><b>Special Triangles:</b></p>
+        <p>30-60-90: sides x, x√3, 2x</p>
+        <p>45-45-90: sides x, x, x√2</p>
+        <p style="margin-top:10px;"><b>Circle:</b> 360° = 2π radians</p>
+        <p><b>Sum of angles in triangle:</b> 180°</p>
+        <p><b>Pythagorean:</b> a² + b² = c²</p>
+      </div>
+    </div>
+    <button class="modal-close" onclick="closeOverlay('refOverlay')">Close</button>
+  </div>
+</div>
+
+<div class="overlay" id="helpOverlay">
+  <div class="modal">
+    <h2>More Options</h2>
+    <p>• Use <b>Mark for Review</b> (flag icon next to the question number) to flag questions you want to return to.</p>
+    <p>• Use the <b>ABC eliminator</b> (top right of question) to cross out answer choices you've ruled out.</p>
+    <p>• Click <b>Question X of N</b> at the bottom to open the navigator and jump to any question.</p>
+    <p>• <b>Highlight text</b> by clicking and dragging over passage text (left pane).</p>
+    <p>• On the math section, click <b>Calculator</b> or <b>Reference</b> sheet for help.</p>
+    <button class="modal-close" onclick="closeOverlay('helpOverlay')">Close</button>
+  </div>
+</div>
+
+<!-- Calculator -->
+<div id="calcWindow" class="calc-modal" style="display:none;">
+  <h4>Calculator <button onclick="toggleCalc()" style="font-size:16px;">×</button></h4>
+  <input class="calc-display" id="calcDisplay" readonly value="0">
+  <div class="calc-grid">
+    <button onclick="calc('C')">C</button>
+    <button onclick="calc('(')">(</button>
+    <button onclick="calc(')')">)</button>
+    <button class="op" onclick="calc('/')">÷</button>
+    <button onclick="calc('7')">7</button>
+    <button onclick="calc('8')">8</button>
+    <button onclick="calc('9')">9</button>
+    <button class="op" onclick="calc('*')">×</button>
+    <button onclick="calc('4')">4</button>
+    <button onclick="calc('5')">5</button>
+    <button onclick="calc('6')">6</button>
+    <button class="op" onclick="calc('-')">−</button>
+    <button onclick="calc('1')">1</button>
+    <button onclick="calc('2')">2</button>
+    <button onclick="calc('3')">3</button>
+    <button class="op" onclick="calc('+')">+</button>
+    <button onclick="calc('0')">0</button>
+    <button onclick="calc('.')">.</button>
+    <button onclick="calc('^')">^</button>
+    <button class="eq" onclick="calc('=')">=</button>
+  </div>
+</div>
+
+<!-- Break screen -->
+<div class="break-screen" id="breakScreen">
+  <h1>Break Time</h1>
+  <p>You may take a 10-minute break. The next section will begin when the timer reaches zero or you click "Resume."</p>
+  <div class="break-timer" id="breakTimer">10:00</div>
+  <button class="break-btn" onclick="endBreak()">Resume Testing →</button>
+</div>
+
+<!-- Results -->
+<div class="overlay" id="resultsOverlay">
+  <div class="modal results-modal">
+    <h2>Test Results</h2>
+    <div class="score-display">
+      <div class="score-block">
+        <div class="score-num" id="rwScore">—</div>
+        <div class="score-label">Reading & Writing</div>
+      </div>
+      <div class="score-block">
+        <div class="score-num" id="mathScore">—</div>
+        <div class="score-label">Math</div>
+      </div>
+      <div class="score-block">
+        <div class="score-num" id="totalScore">—</div>
+        <div class="score-label">Total (out of 1600)</div>
+      </div>
+    </div>
+    <div id="resultsBreakdown"></div>
+    <button class="modal-close" onclick="closeOverlay('resultsOverlay')">Close</button>
+  </div>
+</div>
+
+<script>
+/* =====================================================
+   QUESTION DATABASE
+   ===================================================== */
+
+const RW_DIRECTIONS = `
+  <p>The questions in this section address a number of important reading and writing skills. Each question includes one or more passages, which may include a table or graph. Read each passage and question carefully, and then choose the best answer to the question based on the passage(s).</p>
+  <p>All questions in this section are multiple-choice with four answer choices. Each question has a single best answer.</p>
+`;
+
+const MATH_DIRECTIONS = `
+  <p>The questions in this section address a number of important math skills.</p>
+  <p>Use of a calculator is permitted for all questions. A reference sheet, calculator, and these directions can be accessed throughout the test.</p>
+  <p>Unless otherwise indicated:</p>
+  <ul style="margin-left:20px;">
+    <li>All variables and expressions represent real numbers.</li>
+    <li>Figures provided are drawn to scale.</li>
+    <li>All figures lie in a plane.</li>
+    <li>The domain of a given function is the set of all real numbers x for which f(x) is a real number.</li>
+  </ul>
+  <p>For multiple-choice questions, solve each problem, choose the correct answer from the choices provided, and then click on the appropriate answer.</p>
+  <p>For student-produced response questions, solve each problem and enter your answer in the box.</p>
+`;
+
+// ============ READING & WRITING — MODULE 1 (27 questions) ============
+const rwModule1 = [
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>While many early astronomers believed the universe was ______ — fixed in form and unchanging — Edwin Hubble's 1929 observations of redshifted galaxies provided compelling evidence that the cosmos is expanding.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['static', 'volatile', 'compact', 'chaotic'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>The novelist's later works are noticeably more ______ than her earlier fiction; whereas her debut novel sprawled across five hundred pages, her recent novellas rarely exceed one hundred.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['ornate', 'compressed', 'derivative', 'enigmatic'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>In her ethnographic study, anthropologist Dr. Lin notes that gift exchange in the community is rarely ______ : a gift creates a social debt that the recipient is expected to repay, often through a return gift of comparable value.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['ceremonial', 'gratuitous', 'reciprocal', 'unconditional'],
+    answer: 3,
+  },
+  {
+    type: 'mc',
+    domain: 'Text Structure & Purpose',
+    passage: `<p>The following text is from Kate Chopin's 1899 novel <i>The Awakening</i>.</p>
+      <p>A green and yellow parrot, which hung in a cage outside the door, kept repeating over and over: "Allez vous-en! Allez vous-en! Sapristi! That's all right!" He could speak a little Spanish, and also a language which nobody understood, unless it was the mockingbird that hung on the other side of the door, whistling his fluty notes out upon the breeze with maddening persistence.</p>`,
+    prompt: `What is the main purpose of the text?`,
+    choices: [
+      'To introduce a setting through the eccentric soundscape of two caged birds.',
+      'To describe a conflict between two animals.',
+      'To criticize the practice of keeping caged birds.',
+      'To suggest that the parrot speaks more clearly than the mockingbird.'
+    ],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Central Ideas',
+    passage: `<p>Recent fieldwork in the Atacama Desert has uncovered microbial colonies thriving in soils once thought too arid to support life. By extracting trace moisture from morning fog and metabolizing minerals in the rock, these extremophiles maintain stable populations across decades of drought. The discovery has prompted astrobiologists to reconsider what conditions might support microbial life elsewhere in the solar system, particularly on Mars, whose surface chemistry shares striking similarities with the Atacama.</p>`,
+    prompt: `Which choice best states the main idea of the text?`,
+    choices: [
+      'The Atacama Desert is the driest place on Earth.',
+      'Microbes discovered in the Atacama may inform the search for life on Mars.',
+      'Mars and the Atacama have identical surface chemistry.',
+      'Extremophiles cannot survive without liquid water.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Command of Evidence (textual)',
+    passage: `<p>The following text is adapted from a novel. The narrator describes her neighbor, Mrs. Vance.</p>
+      <p>Mrs. Vance kept her garden the way other women kept ledgers: every leaf accounted for, every blossom approved in advance. She did not so much grow flowers as audit them. A petal out of place was, to her, a small moral failing — not in the flower, you understand, but in herself, for having permitted it.</p>`,
+    prompt: `Which choice best describes the function of the underlined portion in the text as a whole?`,
+    underline: 'She did not so much grow flowers as audit them.',
+    choices: [
+      'It introduces a contradiction the narrator will later resolve.',
+      'It crystallizes the narrator\'s characterization of Mrs. Vance as exacting and controlling.',
+      'It suggests Mrs. Vance is a former accountant.',
+      'It implies the narrator disapproves of gardening generally.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Command of Evidence (quantitative)',
+    passage: `<p>A researcher studying the effect of soil acidity on tomato yield grew four groups of tomato plants in soils with pH levels of 5.0, 6.0, 7.0, and 8.0. After ten weeks, she recorded the average yield (kg per plant) for each group.</p>
+      <table>
+        <caption>Average Tomato Yield by Soil pH</caption>
+        <tr><th>Soil pH</th><th>Average Yield (kg)</th></tr>
+        <tr><td>5.0</td><td>1.2</td></tr>
+        <tr><td>6.0</td><td>3.8</td></tr>
+        <tr><td>7.0</td><td>4.1</td></tr>
+        <tr><td>8.0</td><td>2.0</td></tr>
+      </table>
+      <p>The researcher hypothesized that tomato plants produce the highest yields in slightly acidic to neutral soils.</p>`,
+    prompt: `Which choice best uses data from the table to support the researcher's hypothesis?`,
+    choices: [
+      'Plants grown at pH 5.0 produced 1.2 kg per plant, the lowest yield in the study.',
+      'Plants grown at pH 6.0 and 7.0 produced higher yields (3.8 and 4.1 kg) than plants grown at pH 5.0 or 8.0.',
+      'Plants grown at pH 8.0 produced 2.0 kg per plant.',
+      'The total yield across all four groups was 11.1 kg.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Inferences',
+    passage: `<p>The Hadley cell is a large-scale atmospheric circulation pattern in which warm air rises near the equator, flows poleward at high altitude, descends near 30° latitude, and returns to the equator near the surface. The descending dry air at 30° latitude is associated with the world's major desert belts. Some climate models predict that as global temperatures rise, the Hadley cell will expand poleward, shifting the descending branch toward higher latitudes. If this prediction is accurate, ______</p>`,
+    prompt: `Which choice most logically completes the text?`,
+    choices: [
+      'tropical rainforests near the equator would expand toward the poles.',
+      'regions currently at 30° latitude would experience increased rainfall.',
+      'arid conditions could develop in regions currently north and south of today\'s deserts.',
+      'the equatorial regions would cool while the poles warm.'
+    ],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Inferences',
+    passage: `<p>Archaeologists excavating a 4,000-year-old settlement in the Indus Valley have found that nearly every household contained a small set of standardized stone weights. The weights varied in size but conformed to a consistent ratio system across households and even across distant cities in the region. No royal palace or central treasury has yet been identified at the site.</p>`,
+    prompt: `Based on the text, which choice is the most logical inference about the Indus Valley civilization?`,
+    choices: [
+      'The civilization was politically centralized under a single ruler.',
+      'Trade and commerce were widespread and may have been regulated through shared standards.',
+      'The civilization had no written language.',
+      'Households produced their own stone weights independently.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Cross-text Connections',
+    passage: `<p><b>Text 1</b><br>Economist Pia Romero argues that universal basic income (UBI) would reduce poverty without significantly discouraging work. Drawing on pilot studies in Finland and Kenya, she contends that recipients generally continued to seek employment, using the cash transfer as a buffer against precarity rather than a substitute for wages.</p>
+      <p><b>Text 2</b><br>Economist David Tanaka concedes that short-term pilot programs show modest labor-market effects but cautions that they may not generalize. A permanent, large-scale UBI funded through new taxation, he argues, could shift workers' long-run expectations in ways that smaller, time-limited experiments cannot capture.</p>`,
+    prompt: `Based on the texts, how would Tanaka (Text 2) most likely respond to Romero's argument in Text 1?`,
+    choices: [
+      'By agreeing that pilot studies decisively settle the question.',
+      'By questioning whether evidence from limited pilot programs can predict the effects of a permanent national policy.',
+      'By arguing that UBI has no effect on labor markets in any context.',
+      'By proposing that UBI should be replaced with targeted welfare programs.'
+    ],
+    answer: 1,
+  },
+  // ---- Standard English Conventions ----
+  {
+    type: 'mc',
+    domain: 'Form, Structure, Sense',
+    passage: `<p>The Sumatran rhinoceros, the smallest of the living rhinoceros species, ______ now critically endangered, with fewer than eighty individuals estimated to remain in the wild.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['being', 'is', 'are', 'to be'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Punctuation',
+    passage: `<p>Although she had trained for the marathon for months, Anika still felt anxious on race ______ what if she had not prepared enough?</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['day:', 'day,', 'day', 'day, but'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Punctuation',
+    passage: `<p>The composer ______ best known for her chamber music, has recently begun writing for full orchestra.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['Hanako Sato,', 'Hanako Sato', 'Hanako Sato;', 'Hanako Sato:'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Subject-verb agreement',
+    passage: `<p>The collection of letters between the two poets ______ now housed in the university's special collections library.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['are', 'is', 'have been', 'were'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Pronoun-antecedent',
+    passage: `<p>Each of the violinists in the chamber ensemble brought ______ own instrument to the rehearsal.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['their', 'her', 'his or her', 'his'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Verb tense',
+    passage: `<p>By the time the geologist arrived at the field site in 2019, the river ______ a new course through the canyon for nearly a decade.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['had been carving', 'is carving', 'carves', 'carved'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Boundaries / Run-ons',
+    passage: `<p>The new commuter rail line is expected to reduce traffic on the interstate ______ critics argue that its construction cost was excessive.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['however,', '; however,', ', however', 'however'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Boundaries (commas, semicolons)',
+    passage: `<p>The exhibition features works by three contemporary sculptors: Lila Marsh, who works in bronze ______ Tomás Reyes, who works in glass; and Wen Liu, who works in reclaimed wood.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: [',', ';', ':', '—'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Possessives',
+    passage: `<p>The two researchers presented ______ findings at the conference last spring.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['there', 'they\'re', 'their', 'theirs'],
+    answer: 2,
+  },
+  // ---- Expression of Ideas ----
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>Solar panel efficiency has improved dramatically over the past two decades. ______ , the cost of installation has dropped, making rooftop solar accessible to many middle-income households.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['However', 'In contrast', 'Meanwhile', 'For example'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>The novel was praised by critics for its inventive structure. ______ , it failed to find a wide readership and was out of print within five years.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['Consequently', 'Nevertheless', 'Similarly', 'In addition'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>Honeybees communicate the location of food sources through a series of movements called the waggle dance. ______ , the angle and duration of the dance encode the direction and distance of the food relative to the hive.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['Nevertheless', 'Specifically', 'In contrast', 'Otherwise'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Rhetorical Synthesis',
+    passage: `<p>While researching for a paper, a student has taken the following notes:</p>
+      <ul>
+        <li>The okapi (<i>Okapia johnstoni</i>) is a forest mammal native to the Democratic Republic of the Congo.</li>
+        <li>It has distinctive zebra-like stripes on its hindquarters.</li>
+        <li>Despite the stripes, its closest living relative is the giraffe.</li>
+        <li>It was unknown to Western science until 1901.</li>
+        <li>Today, it is classified as endangered.</li>
+      </ul>
+      <p>The student wants to emphasize the okapi's surprising taxonomic relationship. Which choice best uses the notes to accomplish this goal?</p>`,
+    prompt: `Which choice best uses the notes to accomplish the student's goal?`,
+    choices: [
+      'The okapi, native to the Congo, was unknown to Western science until 1901.',
+      'Although its zebra-like stripes might suggest otherwise, the endangered okapi is most closely related not to zebras but to giraffes.',
+      'The okapi is classified as endangered and lives in the forests of the Democratic Republic of the Congo.',
+      'Discovered by Western scientists in 1901, the okapi has striking zebra-like stripes on its hindquarters.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Rhetorical Synthesis',
+    passage: `<p>While researching for a paper, a student has taken the following notes:</p>
+      <ul>
+        <li>Composer Florence Price (1887–1953) was born in Little Rock, Arkansas.</li>
+        <li>In 1933, the Chicago Symphony Orchestra performed her Symphony in E minor.</li>
+        <li>This made her the first Black woman to have a symphony performed by a major American orchestra.</li>
+        <li>After her death, many of her scores were lost.</li>
+        <li>Several were rediscovered in an abandoned house in 2009.</li>
+      </ul>
+      <p>The student wants to introduce Florence Price's historical significance to an audience unfamiliar with her work. Which choice best uses the notes to accomplish this goal?</p>`,
+    prompt: `Which choice best uses the notes to accomplish the student's goal?`,
+    choices: [
+      'Some of Florence Price\'s scores were rediscovered in an abandoned house in 2009.',
+      'Florence Price was born in 1887 in Little Rock, Arkansas, and died in 1953.',
+      'Florence Price, born in 1887, became the first Black woman to have a symphony performed by a major American orchestra when the Chicago Symphony premiered her Symphony in E minor in 1933.',
+      'In 1933, the Chicago Symphony Orchestra performed a symphony.'
+    ],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>The diplomat's remarks, though carefully measured in public, were ______ in the private cables she sent to her ministry, where she described the negotiations as a "disaster in slow motion."</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['effusive', 'candid', 'evasive', 'tentative'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Central Ideas',
+    passage: `<p>The following text is from a 1922 essay by Virginia Woolf.</p>
+      <p>For it would seem—her case proved it—that we write, not with the fingers, but with the whole person. The nerve which controls the pen winds itself about every fibre of our being, threads the heart, pierces the liver. Though this be wisdom we know not whence, the cost of writing — even of the most ephemeral journalism — is more than most accountants reckon.</p>`,
+    prompt: `Which choice best states the main idea of the text?`,
+    choices: [
+      'Writing is a purely intellectual exercise.',
+      'Writing involves the writer\'s whole being and exacts a hidden personal cost.',
+      'Journalism is more taxing than other forms of writing.',
+      'Writers should be paid better wages.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Text Structure & Purpose',
+    passage: `<p>For decades, paleontologists assumed that the tyrannosaurids' famously small forelimbs were vestigial — relics of evolution with no significant function. Recent biomechanical analyses, however, suggest these arms could generate substantial force relative to their size and may have been used during mating, prey handling, or rising from a prone position. The "useless arms" narrative, it turns out, may have been more cultural caricature than scientific conclusion.</p>`,
+    prompt: `What is the main purpose of the text?`,
+    choices: [
+      'To argue that tyrannosaurids did not actually have small forelimbs.',
+      'To describe a shift in scientific understanding of the function of tyrannosaurid forelimbs.',
+      'To explain why paleontologists are unreliable.',
+      'To compare tyrannosaurids with modern reptiles.'
+    ],
+    answer: 1,
+  }
+];
+
+// ============ READING & WRITING — MODULE 2 (27 questions) ============
+const rwModule2 = [
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>The committee's report was so ______ in its language — full of qualifications and hedged conclusions — that journalists struggled to identify any clear recommendation.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['lucid', 'equivocal', 'concise', 'fervent'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>Although the painting was initially dismissed as a copy, a recent infrared analysis revealed underdrawings consistent with the artist's known technique, ______ its attribution.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['undermining', 'corroborating', 'obscuring', 'redefining'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Text Structure & Purpose',
+    passage: `<p>The following text is adapted from a short story.</p>
+      <p>The lighthouse keeper kept three notebooks: one for the weather, one for the ships, and one for himself. The first he submitted to the harbormaster each month. The second was reviewed each year by the maritime authority. The third he buried, one page at a time, beneath the stones at the base of the tower. No one had ever asked to see it. No one ever would.</p>`,
+    prompt: `What is the main function of the underlined sentence in the text?`,
+    underline: 'No one had ever asked to see it. No one ever would.',
+    choices: [
+      'It suggests the keeper resents his lack of recognition.',
+      'It underscores the private nature of the third notebook and the keeper\'s certainty of its privacy.',
+      'It establishes that the keeper is paranoid about being watched.',
+      'It implies the keeper is being deliberately secretive.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Central Ideas',
+    passage: `<p>Critics of standardized testing often argue that such exams reduce learning to memorization. Education researcher Dr. Marisol Cruz challenges this view, contending that well-designed standardized assessments can in fact require complex reasoning, inference, and synthesis. The problem, she argues, lies not with standardization itself but with poorly written items — which exist in classroom tests as much as in national exams. In her view, dismissing all standardized testing as superficial conflates the format with its execution.</p>`,
+    prompt: `Which choice best states the main idea of the text?`,
+    choices: [
+      'Standardized testing should be abolished.',
+      'Cruz argues that criticisms of standardized testing often confuse the format with the quality of the questions themselves.',
+      'Memorization is essential to standardized testing.',
+      'Classroom tests are more reliable than standardized exams.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Command of Evidence (textual)',
+    passage: `<p>The following text is from George Eliot's 1871 novel <i>Middlemarch</i>. Dorothea Brooke, a young idealistic woman, has just married the older scholar Mr. Casaubon.</p>
+      <p>Permanent rebellion, the disorder of a life without some loving reverent resolve, was not possible to her; but she was now in an active state of mind for which her mind was inadequately furnished. For we are all of us born in moral stupidity, taking the world as an udder to feed our supreme selves.</p>`,
+    prompt: `Which choice best describes the function of the second sentence in the text?`,
+    choices: [
+      'It provides a specific example of Dorothea\'s behavior.',
+      'It broadens the focus from Dorothea\'s particular state to a general claim about human nature.',
+      'It contradicts the assertion made in the first sentence.',
+      'It introduces a new character whose perspective differs from Dorothea\'s.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Command of Evidence (quantitative)',
+    passage: `<p>A team of marine biologists studied the average length (in centimeters) of three populations of a coastal fish species in regions with different water temperatures.</p>
+      <table>
+        <caption>Average Fish Length by Region</caption>
+        <tr><th>Region</th><th>Avg. Water Temp (°C)</th><th>Avg. Fish Length (cm)</th></tr>
+        <tr><td>North</td><td>10</td><td>42</td></tr>
+        <tr><td>Central</td><td>16</td><td>33</td></tr>
+        <tr><td>South</td><td>22</td><td>26</td></tr>
+      </table>
+      <p>The biologists hypothesize that fish in this species grow larger in colder waters.</p>`,
+    prompt: `Which choice most effectively uses data from the table to support the hypothesis?`,
+    choices: [
+      'In the North region, where water averages 10°C, average fish length is 42 cm — larger than in the warmer Central (33 cm) and South (26 cm) regions.',
+      'In the South region, water temperature is 22°C.',
+      'Fish in the Central region averaged 33 cm in length.',
+      'All three regions had different water temperatures.'
+    ],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Inferences',
+    passage: `<p>Researchers studying the migration of monarch butterflies have found that individuals making the multigenerational journey south to Mexico rely on a combination of solar position and a magnetic compass to navigate. In experiments where butterflies were placed in arenas with artificially shifted magnetic fields, the insects oriented in directions consistent with the shifted fields rather than their natural southward heading. Crucially, this magnetic orientation only occurred under conditions of overcast skies.</p>`,
+    prompt: `Based on the text, which choice best completes the following statement: "The experiments suggest that ______"`,
+    choices: [
+      'monarch butterflies cannot navigate at all without the sun.',
+      'monarch butterflies use the magnetic compass primarily as a backup when solar cues are unavailable.',
+      'monarch butterflies prefer overcast conditions for migration.',
+      'monarch butterflies\' magnetic sense overrides solar information in clear weather.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Inferences',
+    passage: `<p>In the late nineteenth century, the city of Paris underwent extensive renovation under Baron Haussmann, whose project widened streets, demolished medieval neighborhoods, and replaced them with broad boulevards. Historians have long debated Haussmann's motives. While he publicly emphasized improvements in sanitation, traffic flow, and aesthetics, some scholars note that the new boulevards also made it considerably harder for residents to erect the kinds of barricades that had been central to popular uprisings in 1830 and 1848. ______</p>`,
+    prompt: `Which choice most logically completes the text?`,
+    choices: [
+      'Haussmann therefore opposed all forms of political dissent.',
+      'These scholars argue that political and security considerations likely shaped the renovations alongside the official rationales.',
+      'Sanitation, however, was the only real motivation for the project.',
+      'The renovations had no measurable effect on the city.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Cross-text Connections',
+    passage: `<p><b>Text 1</b><br>Historian Anya Petrov argues that the printing press, by enabling mass production of texts, was the decisive technology that drove the Protestant Reformation. Without cheap pamphlets in vernacular languages, she contends, Luther's ideas could not have spread quickly enough to escape suppression.</p>
+      <p><b>Text 2</b><br>Historian Karim El-Sayed agrees that the printing press accelerated the Reformation's spread but emphasizes that long-standing political tensions between local rulers and the papacy created the conditions in which Luther's ideas could be politically protected. Without sympathetic princes willing to shield Luther, he argues, no quantity of pamphlets would have sufficed.</p>`,
+    prompt: `Based on the texts, El-Sayed (Text 2) would most likely respond to Petrov's argument by:`,
+    choices: [
+      'Denying that the printing press played any role in the Reformation.',
+      'Acknowledging the importance of print while arguing that political conditions were equally necessary.',
+      'Insisting that vernacular pamphlets were unnecessary.',
+      'Claiming that Luther\'s ideas were unimportant.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Cross-text Connections',
+    passage: `<p><b>Text 1</b><br>In a recent paper, neuroscientist Dr. Lena Park argues that the adolescent brain's slow-developing prefrontal cortex explains why teenagers are prone to risk-taking: the regions that weigh long-term consequences mature later than those that drive reward-seeking.</p>
+      <p><b>Text 2</b><br>Developmental psychologist Dr. Adrian Voss agrees that neural development matters but contends that adolescent risk-taking is largely context-dependent — sharply elevated in the presence of peers and sharply reduced when teenagers are alone or with trusted adults. He argues that brain-based explanations cannot account for this variability.</p>`,
+    prompt: `Based on the texts, how would Voss most likely respond to Park's argument?`,
+    choices: [
+      'By agreeing that brain maturation fully explains adolescent risk-taking.',
+      'By arguing that brain maturation cannot, by itself, explain why risk-taking varies so much with social context.',
+      'By denying that adolescent risk-taking exists.',
+      'By proposing that adolescents should be treated as adults under the law.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Form, Structure, Sense',
+    passage: `<p>Although the experiment was repeated five times under controlled conditions, none of the trials ______ the original result reported in the 2019 paper.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['reproduce', 'reproduces', 'reproduced', 'is reproducing'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Punctuation',
+    passage: `<p>The 2023 documentary about the lost city of ______ widely praised for its archival footage, won three festival awards.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['Petra,', 'Petra', 'Petra;', 'Petra:'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Boundaries',
+    passage: `<p>The microbiologist made an unusual ______ a bacterial strain that thrives on industrial solvents.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['discovery,', 'discovery', 'discovery:', 'discovery, and'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Subject-verb agreement',
+    passage: `<p>Neither the conductor nor the musicians ______ comfortable with the tempo chosen for the final movement.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['is', 'has been', 'was', 'are'],
+    answer: 3,
+  },
+  {
+    type: 'mc',
+    domain: 'Possessives / Apostrophes',
+    passage: `<p>Despite ______ small size, the hummingbird's heart can beat over a thousand times per minute during flight.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['its', 'it\'s', 'its\'', 'their'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Verb form',
+    passage: `<p>If the city council had approved the funding last year, construction on the new library ______ already.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['would have begun', 'will begin', 'began', 'begins'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Modifier placement',
+    passage: `<p>______ , the geneticist identified a mutation that had been overlooked in earlier studies.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: [
+      'Reviewing the sequencing data carefully',
+      'The sequencing data being reviewed carefully',
+      'Having been reviewed carefully',
+      'Carefully reviewing, the sequencing data'
+    ],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Punctuation (commas in series)',
+    passage: `<p>The trail crosses three distinct ______ a coastal grassland, a temperate rainforest, and an alpine tundra.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['ecosystems,', 'ecosystems', 'ecosystems:', 'ecosystems;'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Pronouns',
+    passage: `<p>The committee announced that ______ would issue a final report by the end of the year.</p>`,
+    prompt: `Which choice completes the text so that it conforms to the conventions of Standard English?`,
+    choices: ['they', 'it', 'them', 'those'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>Many readers assume that haiku are governed by a strict 5-7-5 syllable rule. ______ , the form's traditional Japanese rules concern the count of "on" — a unit roughly but not exactly equivalent to a syllable.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['Therefore', 'In fact', 'Similarly', 'Otherwise'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>The startup's initial product was a productivity app aimed at college students. ______ , when early users repeatedly requested features for managing client work, the founders pivoted to focus on freelancers.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['As a result', 'Likewise', 'However', 'For instance'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Transitions',
+    passage: `<p>Most species of bamboo flower only once every several decades. ______ , when they do flower, every plant of the same species worldwide tends to flower simultaneously — a phenomenon known as gregarious flowering.</p>`,
+    prompt: `Which choice completes the text with the most logical transition?`,
+    choices: ['Even more remarkably', 'Conversely', 'Otherwise', 'Similarly'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Rhetorical Synthesis',
+    passage: `<p>While researching for a paper, a student has taken the following notes:</p>
+      <ul>
+        <li>The mantis shrimp has 16 types of color photoreceptors in its eyes.</li>
+        <li>Humans have only 3 types.</li>
+        <li>Despite this, recent studies suggest mantis shrimp are not better at distinguishing colors than humans.</li>
+        <li>Instead, they may use a simpler, faster system to identify colors without comparing them in detail.</li>
+      </ul>
+      <p>The student wants to emphasize a counterintuitive finding about mantis shrimp vision. Which choice best uses the notes to accomplish this goal?</p>`,
+    prompt: `Which choice best uses the notes to accomplish the student's goal?`,
+    choices: [
+      'The mantis shrimp has 16 types of color photoreceptors, while humans have only 3.',
+      'Although the mantis shrimp has 16 types of color photoreceptors compared to humans\' 3, recent studies suggest it is not actually better at distinguishing colors.',
+      'Recent studies on mantis shrimp vision have been conducted.',
+      'Mantis shrimp may use a simpler, faster system to identify colors.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Rhetorical Synthesis',
+    passage: `<p>While researching, a student has compiled the following notes:</p>
+      <ul>
+        <li>Ada Lovelace (1815–1852) was a British mathematician.</li>
+        <li>She wrote detailed notes on Charles Babbage's proposed Analytical Engine.</li>
+        <li>In one note, she described an algorithm for the Engine to compute Bernoulli numbers.</li>
+        <li>This is often considered the first published algorithm intended for a machine.</li>
+        <li>The Analytical Engine was never actually built in Lovelace's lifetime.</li>
+      </ul>
+      <p>The student wants to emphasize Lovelace's significance to the history of computing. Which choice best uses the notes to accomplish this goal?</p>`,
+    prompt: `Which choice best uses the notes to accomplish the student's goal?`,
+    choices: [
+      'Ada Lovelace, a British mathematician, lived from 1815 to 1852.',
+      'Ada Lovelace wrote notes on the Analytical Engine, which was never built in her lifetime.',
+      'Ada Lovelace\'s algorithm for computing Bernoulli numbers on Babbage\'s Analytical Engine is often regarded as the first published algorithm intended for a machine.',
+      'Charles Babbage proposed the Analytical Engine.'
+    ],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Words in Context',
+    passage: `<p>The reviewer praised the memoir for its ______ tone — neither sentimental nor cold, but observing the author's own past with a quiet, level honesty.</p>`,
+    prompt: `Which choice completes the text with the most logical and precise word or phrase?`,
+    choices: ['saccharine', 'detached', 'measured', 'bombastic'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Central Ideas',
+    passage: `<p>Some economists view minimum-wage laws as straightforwardly raising the cost of low-skilled labor, predicting that employers will respond by hiring fewer workers. Empirical studies in the 1990s, however, complicated this picture: comparisons of neighboring areas across state lines, where one state raised its minimum wage and another did not, often found little or no employment effect. More recent meta-analyses suggest the size of the effect depends heavily on local labor market conditions, the size of the wage increase, and the time horizon studied.</p>`,
+    prompt: `Which choice best states the main idea of the text?`,
+    choices: [
+      'Minimum-wage laws always reduce employment.',
+      'Empirical research suggests the employment effects of minimum-wage laws are context-dependent rather than uniform.',
+      'Economists no longer study minimum-wage laws.',
+      'The 1990s studies disproved all economic theory.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Text Structure & Purpose',
+    passage: `<p>The following text is adapted from a 2018 essay on urban design.</p>
+      <p>A well-designed sidewalk is rarely noticed; a badly designed one is rarely forgotten. The first is a kind of generosity — the city anticipating where its residents will want to walk, and quietly making that walking possible. The second is a small daily insult, repeated each time a resident steps off a curb that should not have been there.</p>`,
+    prompt: `What is the main purpose of the text?`,
+    choices: [
+      'To argue that sidewalks are the most important feature of a city.',
+      'To contrast good and bad sidewalk design as examples of how urban infrastructure shapes daily experience.',
+      'To recommend specific construction materials for sidewalks.',
+      'To criticize a particular city government.'
+    ],
+    answer: 1,
+  }
+];
+
+// ============ MATH — MODULE 1 (22 questions) ============
+const mathModule1 = [
+  {
+    type: 'mc',
+    domain: 'Algebra',
+    passage: ``,
+    prompt: `<p>If 3x + 7 = 22, what is the value of x?</p>`,
+    choices: ['3', '5', '7', '15'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Algebra',
+    passage: ``,
+    prompt: `<p>The function f is defined by f(x) = 2x − 5. What is the value of f(8)?</p>`,
+    choices: ['3', '11', '13', '21'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Algebra (Systems)',
+    passage: ``,
+    prompt: `<p>Solve the system of equations:</p>
+      <p style="margin-left:20px;">2x + y = 11<br>x − y = 1</p>
+      <p>What is the value of x?</p>`,
+    choices: ['2', '3', '4', '5'],
+    answer: 2,
+  },
+  {
+    type: 'gridin',
+    domain: 'Linear Equations',
+    passage: ``,
+    prompt: `<p>If <span class="frac"><span>x</span><span>4</span></span> + 3 = 10, what is the value of x?</p>`,
+    answer: '28',
+    accept: ['28'],
+  },
+  {
+    type: 'mc',
+    domain: 'Ratios / Percentages',
+    passage: ``,
+    prompt: `<p>A store discounts a $80 jacket by 25%. After the discount, an additional 10% off is applied at checkout. What is the final price?</p>`,
+    choices: ['$52.00', '$54.00', '$56.00', '$60.00'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Ratios / Percentages',
+    passage: ``,
+    prompt: `<p>If 12 is p percent of 75, what is the value of p?</p>`,
+    choices: ['9', '12', '16', '20'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Linear Functions (graph)',
+    figure: `<svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#222"/></marker>
+        </defs>
+        <line x1="20" y1="110" x2="260" y2="110" stroke="#222" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="140" y1="200" x2="140" y2="20" stroke="#222" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="265" y="115" font-size="12">x</text>
+        <text x="146" y="20" font-size="12">y</text>
+        <g stroke="#bbb" stroke-width="0.5">
+          <line x1="60" y1="20" x2="60" y2="200"/><line x1="100" y1="20" x2="100" y2="200"/>
+          <line x1="180" y1="20" x2="180" y2="200"/><line x1="220" y1="20" x2="220" y2="200"/>
+          <line x1="20" y1="50" x2="260" y2="50"/><line x1="20" y1="80" x2="260" y2="80"/>
+          <line x1="20" y1="140" x2="260" y2="140"/><line x1="20" y1="170" x2="260" y2="170"/>
+        </g>
+        <line x1="40" y1="170" x2="240" y2="50" stroke="#0a58ca" stroke-width="2"/>
+        <circle cx="140" cy="110" r="3" fill="#0a58ca"/>
+        <text x="146" y="124" font-size="11" fill="#0a58ca">(0, 0)</text>
+        <text x="200" y="76" font-size="11" fill="#0a58ca">(3, 2)</text>
+      </svg>`,
+    figCaption: 'Line passes through (0, 0) and (3, 2).',
+    prompt: `<p>The graph of a linear function in the xy-plane passes through the origin and the point (3, 2). What is the slope of the line?</p>`,
+    choices: ['<span class="frac"><span>2</span><span>3</span></span>', '<span class="frac"><span>3</span><span>2</span></span>', '2', '3'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Linear Functions',
+    prompt: `<p>The function f is defined by f(x) = mx + 9, where m is a constant. If f(4) = 21, what is the value of m?</p>`,
+    choices: ['2', '3', '4', '5'],
+    answer: 1,
+  },
+  {
+    type: 'gridin',
+    domain: 'Geometry — Triangles',
+    figure: `<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,150 220,150 130,30" fill="none" stroke="#222" stroke-width="2"/>
+        <text x="20" y="160" font-size="14">A</text>
+        <text x="225" y="160" font-size="14">B</text>
+        <text x="125" y="22" font-size="14">C</text>
+        <text x="80" y="170" font-size="13">12</text>
+        <text x="170" y="170" font-size="13">12</text>
+        <text x="60" y="95" font-size="12">x°</text>
+        <text x="190" y="95" font-size="12">x°</text>
+        <text x="123" y="55" font-size="12">40°</text>
+      </svg>`,
+    figCaption: 'Isosceles triangle ABC with AC = BC and angle C = 40°.',
+    prompt: `<p>In triangle ABC above, AC = BC and the measure of angle C is 40°. What is the value of x?</p>`,
+    answer: '70',
+    accept: ['70'],
+  },
+  {
+    type: 'mc',
+    domain: 'Geometry — Circles',
+    figure: `<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="120" cy="100" r="70" fill="none" stroke="#222" stroke-width="2"/>
+        <line x1="120" y1="100" x2="190" y2="100" stroke="#0a58ca" stroke-width="2"/>
+        <circle cx="120" cy="100" r="2.5" fill="#222"/>
+        <text x="115" y="115" font-size="13">O</text>
+        <text x="155" y="95" font-size="13" fill="#0a58ca">r</text>
+      </svg>`,
+    figCaption: 'Circle with center O and radius r.',
+    prompt: `<p>A circle has a radius of 6. What is its area, in square units, in terms of π?</p>`,
+    choices: ['12π', '24π', '36π', '72π'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Quadratics',
+    prompt: `<p>What are the solutions to x² − 7x + 12 = 0?</p>`,
+    choices: ['x = 2 and x = 6', 'x = 3 and x = 4', 'x = −3 and x = −4', 'x = 1 and x = 12'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Quadratics',
+    prompt: `<p>The function h is defined by h(x) = (x − 3)² − 16. For what values of x does h(x) = 0?</p>`,
+    choices: ['x = −7 and x = 1', 'x = −1 and x = 7', 'x = 3 and x = 19', 'x = 13 and x = 19'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Exponential Functions',
+    prompt: `<p>A bacterial culture begins with 200 cells and doubles every 3 hours. Which function P models the number of cells in the culture after t hours?</p>`,
+    choices: [
+      'P(t) = 200 · 2<sup>t</sup>',
+      'P(t) = 200 · 2<sup>t/3</sup>',
+      'P(t) = 200 · 3<sup>t/2</sup>',
+      'P(t) = 200 + 2t'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Statistics — Mean/Median',
+    prompt: `<p>The list below shows the number of books read by each of 7 students last month: 3, 4, 4, 5, 6, 8, 12. What is the median number of books read?</p>`,
+    choices: ['4', '5', '6', '7'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Statistics — Inference',
+    prompt: `<p>A survey of 400 randomly selected adults in a large city found that 60% support a proposed transit expansion. The survey reports a margin of error of ±4 percentage points at the 95% confidence level. Which of the following is the best interpretation of this result?</p>`,
+    choices: [
+      'Exactly 60% of all adults in the city support the proposal.',
+      'It is plausible that the true level of support in the city is between 56% and 64%.',
+      'Fewer than 56% of city adults support the proposal.',
+      'Surveying more adults would necessarily increase support for the proposal.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Data Analysis — Table',
+    passage: `<p>The table shows the number of items sold at a small bookstore over four weeks.</p>
+      <table>
+        <tr><th>Week</th><th>Books</th><th>Stationery</th></tr>
+        <tr><td>1</td><td>120</td><td>45</td></tr>
+        <tr><td>2</td><td>140</td><td>50</td></tr>
+        <tr><td>3</td><td>110</td><td>60</td></tr>
+        <tr><td>4</td><td>150</td><td>55</td></tr>
+      </table>`,
+    prompt: `<p>What is the average (arithmetic mean) number of books sold per week over the four weeks?</p>`,
+    choices: ['125', '130', '135', '140'],
+    answer: 1,
+  },
+  {
+    type: 'gridin',
+    domain: 'Linear Equations',
+    prompt: `<p>If 5(x − 2) = 3x + 8, what is the value of x?</p>`,
+    answer: '9',
+    accept: ['9'],
+  },
+  {
+    type: 'mc',
+    domain: 'Functions',
+    prompt: `<p>If g(x) = x² + 2x − 3, what is g(−4)?</p>`,
+    choices: ['−11', '5', '11', '21'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Geometry — Right Triangle',
+    figure: `<svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,160 220,160 40,40" fill="none" stroke="#222" stroke-width="2"/>
+        <rect x="40" y="146" width="14" height="14" fill="none" stroke="#222" stroke-width="1.5"/>
+        <text x="22" y="38" font-size="14">A</text>
+        <text x="22" y="178" font-size="14">B</text>
+        <text x="225" y="178" font-size="14">C</text>
+        <text x="14" y="105" font-size="13">9</text>
+        <text x="125" y="178" font-size="13">12</text>
+        <text x="135" y="95" font-size="13">?</text>
+      </svg>`,
+    figCaption: 'Right triangle with legs 9 and 12.',
+    prompt: `<p>In the right triangle shown, the legs measure 9 and 12. What is the length of the hypotenuse?</p>`,
+    choices: ['13', '14', '15', '21'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Linear Inequalities',
+    prompt: `<p>Which value of x is a solution to the inequality 4x − 7 > 13?</p>`,
+    choices: ['x = 4', 'x = 5', 'x = 6', 'x = 7'],
+    answer: 3,
+  },
+  {
+    type: 'mc',
+    domain: 'Word Problem',
+    prompt: `<p>A car rental company charges a flat fee of $30 plus $0.20 per mile driven. Which function C gives the total cost in dollars for renting the car and driving m miles?</p>`,
+    choices: ['C(m) = 30m + 0.20', 'C(m) = 30 + 0.20m', 'C(m) = 0.20(30 + m)', 'C(m) = 30(0.20 + m)'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Algebra — Equivalent Expressions',
+    prompt: `<p>Which expression is equivalent to (2x + 3)(x − 5)?</p>`,
+    choices: ['2x² − 13x − 15', '2x² − 7x − 15', '2x² + 7x − 15', '2x² − 7x + 15'],
+    answer: 1,
+  },
+];
+
+// ============ MATH — MODULE 2 (22 questions) ============
+const mathModule2 = [
+  {
+    type: 'mc',
+    domain: 'Quadratics',
+    prompt: `<p>The function f is defined by f(x) = −2(x − 5)² + 18. What is the maximum value of f(x)?</p>`,
+    choices: ['−18', '5', '13', '18'],
+    answer: 3,
+  },
+  {
+    type: 'mc',
+    domain: 'Systems of Equations',
+    prompt: `<p>If 3x + 2y = 18 and x = 2y, what is the value of y?</p>`,
+    choices: ['<span class="frac"><span>9</span><span>4</span></span>', '<span class="frac"><span>9</span><span>2</span></span>', '3', '6'],
+    answer: 0,
+  },
+  {
+    type: 'gridin',
+    domain: 'Exponents',
+    prompt: `<p>If x<sup>3</sup> = 64 and x > 0, what is the value of x<sup>2</sup>?</p>`,
+    answer: '16',
+    accept: ['16'],
+  },
+  {
+    type: 'mc',
+    domain: 'Rational Equations',
+    prompt: `<p>If <span class="frac"><span>2</span><span>x</span></span> + <span class="frac"><span>3</span><span>x</span></span> = 10, what is the value of x?</p>`,
+    choices: ['<span class="frac"><span>1</span><span>2</span></span>', '<span class="frac"><span>5</span><span>10</span></span>', '<span class="frac"><span>1</span><span>5</span></span>', '2'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Circles in xy-plane',
+    prompt: `<p>The equation of a circle in the xy-plane is (x − 4)² + (y + 3)² = 25. What are the coordinates of the center of the circle?</p>`,
+    choices: ['(−4, 3)', '(4, −3)', '(4, 3)', '(−4, −3)'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Trigonometry',
+    figure: `<svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,160 220,160 40,40" fill="none" stroke="#222" stroke-width="2"/>
+        <rect x="40" y="146" width="14" height="14" fill="none" stroke="#222" stroke-width="1.5"/>
+        <text x="22" y="38" font-size="14">A</text>
+        <text x="22" y="178" font-size="14">B</text>
+        <text x="225" y="178" font-size="14">C</text>
+        <text x="14" y="105" font-size="13">8</text>
+        <text x="125" y="178" font-size="13">6</text>
+        <text x="135" y="100" font-size="13">10</text>
+      </svg>`,
+    figCaption: 'Right triangle ABC with right angle at B; AB = 8, BC = 6, AC = 10.',
+    prompt: `<p>In the right triangle shown, what is the value of sin(A)?</p>`,
+    choices: ['<span class="frac"><span>3</span><span>5</span></span>', '<span class="frac"><span>4</span><span>5</span></span>', '<span class="frac"><span>3</span><span>4</span></span>', '<span class="frac"><span>5</span><span>3</span></span>'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Polynomials',
+    prompt: `<p>If (x + 2) is a factor of the polynomial p(x) = x³ + kx² − 5x − 6, what is the value of k?</p>`,
+    choices: ['−2', '0', '2', '4'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Word Problem — Mixture',
+    prompt: `<p>A chemist mixes a 20% saline solution with a 50% saline solution to produce 30 liters of a 40% saline solution. How many liters of the 20% solution did she use?</p>`,
+    choices: ['5', '10', '15', '20'],
+    answer: 1,
+  },
+  {
+    type: 'gridin',
+    domain: 'Probability',
+    prompt: `<p>A bag contains 4 red marbles, 5 blue marbles, and 3 green marbles. If one marble is selected at random, what is the probability that it is blue? Give your answer as a decimal.</p>`,
+    answer: '0.4167',
+    accept: ['5/12', '.4167', '0.4167', '.4166', '0.4166', '.416'],
+  },
+  {
+    type: 'mc',
+    domain: 'Linear Functions',
+    prompt: `<p>Line ℓ has a slope of −3 and passes through the point (2, 7). Which of the following is an equation of line ℓ?</p>`,
+    choices: ['y = −3x + 13', 'y = −3x + 1', 'y = 3x + 1', 'y = −3x − 7'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Geometry — Volume',
+    figure: `<svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="130" cy="40" rx="60" ry="14" fill="none" stroke="#222" stroke-width="2"/>
+        <line x1="70" y1="40" x2="70" y2="130" stroke="#222" stroke-width="2"/>
+        <line x1="190" y1="40" x2="190" y2="130" stroke="#222" stroke-width="2"/>
+        <path d="M 70,130 A 60,14 0 0 0 190,130" fill="none" stroke="#222" stroke-width="2"/>
+        <path d="M 70,130 A 60,14 0 0 1 190,130" fill="none" stroke="#222" stroke-width="1" stroke-dasharray="3 3"/>
+        <text x="125" y="33" font-size="12">r = 5</text>
+        <text x="198" y="90" font-size="12">h = 12</text>
+      </svg>`,
+    figCaption: 'Cylinder with radius 5 and height 12.',
+    prompt: `<p>A cylindrical tank has a radius of 5 feet and a height of 12 feet. What is its volume, in cubic feet, in terms of π?</p>`,
+    choices: ['60π', '120π', '300π', '600π'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Functions — Transformations',
+    prompt: `<p>The function f(x) is shifted 3 units to the right and 2 units up to produce g(x). Which equation expresses g in terms of f?</p>`,
+    choices: ['g(x) = f(x − 3) + 2', 'g(x) = f(x + 3) − 2', 'g(x) = f(x − 3) − 2', 'g(x) = f(x + 3) + 2'],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Exponential Decay',
+    prompt: `<p>The mass M, in grams, of a radioactive sample after t years is modeled by M(t) = 80(0.5)<sup>t/10</sup>. What does the value 80 represent?</p>`,
+    choices: [
+      'The half-life of the substance in years.',
+      'The initial mass of the sample in grams.',
+      'The annual decay rate.',
+      'The mass of the sample after 10 years.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Statistics — Scatter Plot',
+    figure: `<svg viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30" y1="190" x2="270" y2="190" stroke="#222"/>
+        <line x1="30" y1="190" x2="30" y2="20" stroke="#222"/>
+        <text x="148" y="210" font-size="11">Study Time (hours)</text>
+        <text x="6" y="105" font-size="11" transform="rotate(-90 12 105)">Test Score</text>
+        <circle cx="60" cy="160" r="3"/><circle cx="80" cy="150" r="3"/>
+        <circle cx="100" cy="135" r="3"/><circle cx="120" cy="120" r="3"/>
+        <circle cx="140" cy="110" r="3"/><circle cx="160" cy="95" r="3"/>
+        <circle cx="180" cy="80" r="3"/><circle cx="200" cy="70" r="3"/>
+        <circle cx="220" cy="60" r="3"/><circle cx="240" cy="45" r="3"/>
+        <line x1="55" y1="165" x2="245" y2="42" stroke="#0a58ca" stroke-width="1.5" stroke-dasharray="4 3"/>
+      </svg>`,
+    figCaption: 'Scatter plot of study time vs. test score with line of best fit.',
+    prompt: `<p>The scatter plot above shows the relationship between study time and test score for 10 students. Which of the following best describes this relationship?</p>`,
+    choices: [
+      'A strong positive linear association',
+      'A strong negative linear association',
+      'No association',
+      'A non-linear association'
+    ],
+    answer: 0,
+  },
+  {
+    type: 'mc',
+    domain: 'Geometry — Similar Triangles',
+    prompt: `<p>Two similar triangles have corresponding sides in the ratio 2 : 5. If the area of the smaller triangle is 12 square units, what is the area of the larger triangle, in square units?</p>`,
+    choices: ['30', '60', '75', '108'],
+    answer: 2,
+  },
+  {
+    type: 'gridin',
+    domain: 'Algebra',
+    prompt: `<p>If <span class="frac"><span>x + 2</span><span>3</span></span> = <span class="frac"><span>x − 4</span><span>5</span></span>, what is the value of x?</p>`,
+    answer: '-11',
+    accept: ['-11'],
+  },
+  {
+    type: 'mc',
+    domain: 'Quadratic Word Problem',
+    prompt: `<p>A ball is thrown upward from a height of 6 feet with an initial velocity of 40 feet per second. Its height, in feet, after t seconds is given by h(t) = −16t² + 40t + 6. After approximately how many seconds does the ball reach its maximum height?</p>`,
+    choices: ['0.6', '1.0', '1.25', '2.0'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Absolute Value',
+    prompt: `<p>What is the solution set to |2x − 3| = 7?</p>`,
+    choices: ['{−5, 2}', '{−2, 5}', '{2, 5}', '{−5, −2}'],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Lines — Parallel/Perpendicular',
+    prompt: `<p>Line m has the equation y = <span class="frac"><span>2</span><span>3</span></span>x + 5. Line n is perpendicular to line m and passes through the point (4, 1). What is the slope of line n?</p>`,
+    choices: ['<span class="frac"><span>2</span><span>3</span></span>', '−<span class="frac"><span>2</span><span>3</span></span>', '<span class="frac"><span>3</span><span>2</span></span>', '−<span class="frac"><span>3</span><span>2</span></span>'],
+    answer: 3,
+  },
+  {
+    type: 'mc',
+    domain: 'Statistics — Standard Deviation',
+    prompt: `<p>Two datasets A and B each contain 10 numbers. Dataset A has values clustered tightly around its mean of 50, while Dataset B has values widely spread around the same mean of 50. Which of the following must be true?</p>`,
+    choices: [
+      'Dataset A has a larger standard deviation than Dataset B.',
+      'Dataset B has a larger standard deviation than Dataset A.',
+      'The two datasets have equal standard deviations.',
+      'Standard deviation cannot be compared without more information.'
+    ],
+    answer: 1,
+  },
+  {
+    type: 'mc',
+    domain: 'Geometry — Angles',
+    figure: `<svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="60" x2="260" y2="60" stroke="#222" stroke-width="2"/>
+        <line x1="20" y1="120" x2="260" y2="120" stroke="#222" stroke-width="2"/>
+        <line x1="60" y1="20" x2="240" y2="150" stroke="#222" stroke-width="2"/>
+        <text x="248" y="56" font-size="11">ℓ</text>
+        <text x="248" y="116" font-size="11">m</text>
+        <text x="160" y="50" font-size="12">110°</text>
+        <text x="155" y="138" font-size="12">x°</text>
+      </svg>`,
+    figCaption: 'Parallel lines ℓ and m cut by a transversal.',
+    prompt: `<p>In the figure shown, lines ℓ and m are parallel. What is the value of x?</p>`,
+    choices: ['70', '90', '110', '120'],
+    answer: 2,
+  },
+  {
+    type: 'mc',
+    domain: 'Word Problem — Rate',
+    prompt: `<p>A printer can print 24 pages per minute. If the printer runs continuously, how many minutes will it take to print a 540-page document?</p>`,
+    choices: ['18', '20', '22.5', '24'],
+    answer: 2,
+  },
+];
+
+/* =====================================================
+   APP STATE
+   ===================================================== */
+const SECTIONS = [
+  { name: 'Reading and Writing', module: 1, label: 'Section 1, Module 1: Reading and Writing', time: 32 * 60, questions: rwModule1, directions: RW_DIRECTIONS, math: false },
+  { name: 'Reading and Writing', module: 2, label: 'Section 1, Module 2: Reading and Writing', time: 32 * 60, questions: rwModule2, directions: RW_DIRECTIONS, math: false },
+  { name: 'Math', module: 1, label: 'Section 2, Module 1: Math', time: 35 * 60, questions: mathModule1, directions: MATH_DIRECTIONS, math: true },
+  { name: 'Math', module: 2, label: 'Section 2, Module 2: Math', time: 35 * 60, questions: mathModule2, directions: MATH_DIRECTIONS, math: true },
+];
+
+let state = {
+  sectionIdx: 0,
+  qIdx: 0,
+  answers: [], // answers[sectionIdx][qIdx] = answer
+  marked: [],  // marked[sectionIdx][qIdx] = bool
+  eliminated: [], // eliminated[sectionIdx][qIdx] = Set of indexes
+  timer: 0,
+  timerInterval: null,
+  timerHidden: false,
+  abcMode: false,
+  breakInterval: null,
+};
+
+function initState() {
+  state.answers = SECTIONS.map(s => Array(s.questions.length).fill(null));
+  state.marked = SECTIONS.map(s => Array(s.questions.length).fill(false));
+  state.eliminated = SECTIONS.map(s => s.questions.map(() => new Set()));
+}
+
+/* =====================================================
+   FLOW
+   ===================================================== */
+function startTest() {
+  initState();
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+  loadSection();
+}
+
+function loadSection() {
+  const section = SECTIONS[state.sectionIdx];
+  document.getElementById('sectionTitle').textContent = section.label;
+  state.qIdx = 0;
+  state.timer = section.time;
+
+  // tools visibility
+  document.getElementById('refBtn').style.display = section.math ? 'flex' : 'none';
+  document.getElementById('calcBtn').style.display = section.math ? 'flex' : 'none';
+  document.getElementById('calcWindow').style.display = 'none';
+
+  startTimer();
+  renderQuestion();
+}
+
+function startTimer() {
+  if (state.timerInterval) clearInterval(state.timerInterval);
+  updateTimerDisplay();
+  state.timerInterval = setInterval(() => {
+    state.timer--;
+    updateTimerDisplay();
+    if (state.timer <= 0) {
+      clearInterval(state.timerInterval);
+      endModule();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(state.timer / 60);
+  const s = state.timer % 60;
+  const display = state.timerHidden ? '⏱ Hidden' : `${m}:${s.toString().padStart(2, '0')}`;
+  document.getElementById('timer').textContent = display;
+}
+
+function toggleTimer() {
+  state.timerHidden = !state.timerHidden;
+  updateTimerDisplay();
+}
+
+function renderQuestion() {
+  const section = SECTIONS[state.sectionIdx];
+  const q = section.questions[state.qIdx];
+  const left = document.getElementById('leftPane');
+  const right = document.getElementById('rightPane');
+
+  // LEFT pane
+  let leftHTML = '';
+  if (q.passage) {
+    let passage = q.passage;
+    if (q.underline) {
+      passage = passage.replace(q.underline, `<span class="underline">${q.underline}</span>`);
+    }
+    leftHTML += `<div class="passage">${passage}</div>`;
+  }
+  if (q.figure) {
+    leftHTML += `<div class="figure">${q.figure}`;
+    if (q.figCaption) leftHTML += `<div class="fig-caption">${q.figCaption}</div>`;
+    leftHTML += `</div>`;
+  }
+  if (!q.passage && !q.figure) {
+    leftHTML = `<div style="color:#888; font-style:italic; margin-top:20px;">No passage or figure for this question. Read the question in the right pane.</div>`;
+  }
+  left.innerHTML = leftHTML;
+
+  // RIGHT pane
+  const marked = state.marked[state.sectionIdx][state.qIdx];
+  let rightHTML = `
+    <div class="q-header">
+      <div class="q-number">${state.qIdx + 1}</div>
+      <button class="mark-review ${marked ? 'marked' : ''}" onclick="toggleMark()">
+        <span class="flag">${marked ? '🚩' : '⚐'}</span>
+        <span>Mark for Review</span>
+      </button>
+      ${q.type === 'mc' ? `<button class="abc-toggle ${state.abcMode ? 'active' : ''}" onclick="toggleAbcMode()">ABC</button>` : ''}
+    </div>
+    <div class="q-prompt">${q.prompt}</div>
+  `;
+
+  if (q.type === 'mc') {
+    const selected = state.answers[state.sectionIdx][state.qIdx];
+    const eliminated = state.eliminated[state.sectionIdx][state.qIdx];
+    rightHTML += `<div class="choices">`;
+    const letters = ['A', 'B', 'C', 'D'];
+    q.choices.forEach((c, i) => {
+      const isSelected = selected === i;
+      const isElim = eliminated.has(i);
+      rightHTML += `
+        <div class="choice ${isSelected ? 'selected' : ''} ${isElim ? 'eliminated' : ''}" onclick="selectChoice(${i})">
+          <div class="choice-letter">${letters[i]}</div>
+          <div class="choice-text">${c}</div>
+          ${state.abcMode ? `<div class="choice-eliminate" onclick="event.stopPropagation(); eliminateChoice(${i})">${isElim ? 'Undo' : letters[i]}</div>` : ''}
+        </div>
+      `;
+    });
+    rightHTML += `</div>`;
+  } else if (q.type === 'gridin') {
+    const cur = state.answers[state.sectionIdx][state.qIdx] || '';
+    rightHTML += `
+      <div class="gridin-wrap">
+        <input class="gridin" id="gridinInput" placeholder="Enter answer" value="${cur}" oninput="updateGridIn(this.value)">
+        <div class="gridin-preview" id="gridinPreview">
+          ${cur ? `Answer preview: <b>${cur}</b>` : 'You may enter an integer, decimal, or fraction (e.g., 5/12).'}
+        </div>
+      </div>
+    `;
+  }
+  right.innerHTML = rightHTML;
+
+  // Footer
+  document.getElementById('navLabel').textContent = `Question ${state.qIdx + 1} of ${section.questions.length}`;
+  document.getElementById('backBtn').disabled = state.qIdx === 0;
+  document.getElementById('nextBtn').textContent = (state.qIdx === section.questions.length - 1) ? 'Next →' : 'Next';
+}
+
+function selectChoice(i) {
+  state.answers[state.sectionIdx][state.qIdx] = i;
+  renderQuestion();
+}
+
+function eliminateChoice(i) {
+  const set = state.eliminated[state.sectionIdx][state.qIdx];
+  if (set.has(i)) set.delete(i); else set.add(i);
+  renderQuestion();
+}
+
+function updateGridIn(value) {
+  state.answers[state.sectionIdx][state.qIdx] = value;
+  const preview = document.getElementById('gridinPreview');
+  if (value) preview.innerHTML = `Answer preview: <b>${value}</b>`;
+  else preview.textContent = 'You may enter an integer, decimal, or fraction (e.g., 5/12).';
+}
+
+function toggleMark() {
+  state.marked[state.sectionIdx][state.qIdx] = !state.marked[state.sectionIdx][state.qIdx];
+  renderQuestion();
+}
+
+function toggleAbcMode() {
+  state.abcMode = !state.abcMode;
+  renderQuestion();
+}
+
+function nextQ() {
+  const section = SECTIONS[state.sectionIdx];
+  if (state.qIdx < section.questions.length - 1) {
+    state.qIdx++;
+    renderQuestion();
+  } else {
+    endModule();
+  }
+}
+
+function prevQ() {
+  if (state.qIdx > 0) {
+    state.qIdx--;
+    renderQuestion();
+  }
+}
+
+function endModule() {
+  if (state.timerInterval) clearInterval(state.timerInterval);
+
+  // If we have another module to do
+  if (state.sectionIdx < SECTIONS.length - 1) {
+    // After module 2 (RW finished) and after module 4 (test done), and break between RW and Math
+    if (state.sectionIdx === 1) {
+      // Show break screen between RW and Math
+      showBreak();
+    } else {
+      state.sectionIdx++;
+      loadSection();
+    }
+  } else {
+    showResults();
+  }
+}
+
+function showBreak() {
+  const screen = document.getElementById('breakScreen');
+  screen.classList.add('show');
+  let remaining = 10 * 60;
+  document.getElementById('breakTimer').textContent = '10:00';
+  state.breakInterval = setInterval(() => {
+    remaining--;
+    const m = Math.floor(remaining / 60);
+    const s = remaining % 60;
+    document.getElementById('breakTimer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+    if (remaining <= 0) {
+      endBreak();
+    }
+  }, 1000);
+}
+
+function endBreak() {
+  if (state.breakInterval) clearInterval(state.breakInterval);
+  document.getElementById('breakScreen').classList.remove('show');
+  state.sectionIdx++;
+  loadSection();
+}
+
+/* =====================================================
+   MODALS & TOOLS
+   ===================================================== */
+function showDirections() {
+  document.getElementById('directionsContent').innerHTML = SECTIONS[state.sectionIdx].directions;
+  document.getElementById('directionsOverlay').classList.add('show');
+}
+
+function showReference() {
+  document.getElementById('refOverlay').classList.add('show');
+}
+
+function showHelp() {
+  document.getElementById('helpOverlay').classList.add('show');
+}
+
+function closeOverlay(id) {
+  document.getElementById(id).classList.remove('show');
+}
+
+function openNav() {
+  const section = SECTIONS[state.sectionIdx];
+  document.getElementById('navTitle').textContent = section.label;
+  const grid = document.getElementById('navGrid');
+  let html = '';
+  section.questions.forEach((q, i) => {
+    const answered = state.answers[state.sectionIdx][i] !== null && state.answers[state.sectionIdx][i] !== '';
+    const marked = state.marked[state.sectionIdx][i];
+    const current = i === state.qIdx;
+    html += `<div class="nav-cell ${answered ? 'answered' : ''} ${current ? 'current' : ''} ${marked ? 'marked' : ''}" onclick="jumpTo(${i})">${i+1}</div>`;
+  });
+  grid.innerHTML = html;
+  document.getElementById('navOverlay').classList.add('show');
+}
+
+function jumpTo(i) {
+  state.qIdx = i;
+  closeOverlay('navOverlay');
+  renderQuestion();
+}
+
+function goToReview() {
+  closeOverlay('navOverlay');
+  if (confirm('Are you ready to end this module and move on? You will not be able to return.')) {
+    endModule();
+  }
+}
+
+/* Calculator */
+let calcExpr = '';
+function calc(v) {
+  const d = document.getElementById('calcDisplay');
+  if (v === 'C') { calcExpr = ''; d.value = '0'; return; }
+  if (v === '=') {
+    try {
+      let expr = calcExpr.replace(/\^/g, '**');
+      const result = Function('"use strict"; return (' + expr + ')')();
+      d.value = result;
+      calcExpr = String(result);
+    } catch { d.value = 'Error'; calcExpr = ''; }
+    return;
+  }
+  calcExpr += v;
+  d.value = calcExpr;
+}
+function toggleCalc() {
+  const c = document.getElementById('calcWindow');
+  c.style.display = c.style.display === 'none' ? 'block' : 'none';
+}
+
+/* =====================================================
+   SCORING
+   ===================================================== */
+function showResults() {
+  document.getElementById('app').style.display = 'none';
+
+  let rwCorrect = 0, rwTotal = 0;
+  let mathCorrect = 0, mathTotal = 0;
+  let breakdown = '';
+
+  SECTIONS.forEach((section, sIdx) => {
+    let correct = 0;
+    let rows = '';
+    section.questions.forEach((q, qIdx) => {
+      const userAns = state.answers[sIdx][qIdx];
+      let isCorrect = false;
+      let userDisplay = '—';
+      let correctDisplay = '';
+
+      if (q.type === 'mc') {
+        const letters = ['A','B','C','D'];
+        if (userAns !== null) userDisplay = letters[userAns];
+        correctDisplay = letters[q.answer];
+        isCorrect = userAns === q.answer;
+      } else {
+        if (userAns) userDisplay = userAns;
+        correctDisplay = q.answer;
+        if (userAns) {
+          const norm = String(userAns).trim().toLowerCase();
+          isCorrect = (q.accept || [q.answer]).some(a => String(a).trim().toLowerCase() === norm);
+        }
+      }
+      if (isCorrect) correct++;
+      const rowClass = userAns === null || userAns === '' ? 'skipped' : (isCorrect ? 'correct' : 'incorrect');
+      rows += `<div class="review-row ${rowClass}"><b>${qIdx+1}</b><span>${q.domain || ''}</span><span>You: ${userDisplay}</span><span>Ans: ${correctDisplay}</span></div>`;
+    });
+
+    if (section.name === 'Reading and Writing') { rwCorrect += correct; rwTotal += section.questions.length; }
+    else { mathCorrect += correct; mathTotal += section.questions.length; }
+
+    breakdown += `
+      <div class="module-result">
+        <h3>${section.label}</h3>
+        <p><b>${correct} / ${section.questions.length} correct</b></p>
+        <details><summary style="cursor:pointer; color:#0a58ca;">Show question-by-question review</summary>
+          <div style="margin-top:8px;">${rows}</div>
+        </details>
+      </div>
+    `;
+  });
+
+  // Approximate score scaling: each section out of 800; linear from correct count.
+  const rwScale = rwTotal > 0 ? Math.round(200 + (rwCorrect / rwTotal) * 600) : 200;
+  const mathScale = mathTotal > 0 ? Math.round(200 + (mathCorrect / mathTotal) * 600) : 200;
+  document.getElementById('rwScore').textContent = rwScale;
+  document.getElementById('mathScore').textContent = mathScale;
+  document.getElementById('totalScore').textContent = rwScale + mathScale;
+  document.getElementById('resultsBreakdown').innerHTML = breakdown;
+  document.getElementById('resultsOverlay').classList.add('show');
+}
+
+</script>
+</body>
+</html>
