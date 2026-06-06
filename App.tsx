@@ -1452,6 +1452,7 @@ const sendBotMessage = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        console.log("API KEY:", process.env.EXPO_PUBLIC_GROQ_API_KEY);
 "Authorization": `Bearer ${process.env.EXPO_PUBLIC_GROQ_API_KEY}`
       },
       body: JSON.stringify({
