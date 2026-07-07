@@ -1,0 +1,75 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /users/{userId} {
+      allow read, create, update: if isOwner(userId);
+    }
+
+    match /sm2Items/{userId}/items/{itemId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    match /usedQuestions/{userId} {
+      allow read, create, update: if isOwner(userId);
+    }
+
+    match /badges/{userId} {
+      allow read, create, update: if isOwner(userId);
+    }
+
+    match /tiers/{userId} {
+      allow read: if isOwner(userId);
+    }
+
+    match /dailyUsage/{userId} {
+      allow read, create, update: if isOwner(userId);
+    }
+
+    match /streaks/{userId} {
+      allow read, create, update: if isOwner(userId);
+    }
+
+    match /scores/{scoreId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /lessons/{lessonId} {
+      allow read: if true;
+    }
+
+    match /classes/{classId} {
+      allow read: if true;
+    }
+
+    match /testimonials/{testimonialId} {
+      allow read: if true;
+      allow create: if signedIn();
+    }
+
+    match /globalStats/{docId} {
+      allow read: if true;
+      allow create, update: if signedIn();
+    }
+
+    match /feedback/{feedbackId} {
+      allow create: if signedIn();
+    }
+
+    match /helpRequests/{requestId} {
+      allow create: if signedIn();
+    }
+
+    match /bookings/{bookingId} {
+      allow create: if signedIn();
+    }
+  }
+}
