@@ -9,8 +9,71 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == uid;
     }
 
+    function isAdmin() {
+      return signedIn() && request.auth.token.email == "admin@ascendsat.com";
+    }
+
+    // Teacher/Organization Portal — an org's admins/teachers are stored as
+    // denormalized uid arrays directly on the organizations doc (rather than
+    // a members subcollection) specifically so these two checks can be a
+    // single get() each; every org-scoped collection below calls one of
+    // these instead of re-deriving admin/teacher status its own way.
+    // `orgId != null` short-circuits before the get() — independent
+    // educators' classes have orgId==null, and get() on a non-existent
+    // document path throws rather than returning falsy, so every caller
+    // (including read rules on an independent educator's own class) needs
+    // this guard, not just the write-gating call sites.
+    function isOrgAdmin(orgId) {
+      return orgId != null && signedIn()
+        && get(/databases/$(database)/documents/organizations/$(orgId)).data.adminUids.hasAny([request.auth.uid]);
+    }
+    // Deliberately admin+teacher ONLY — this is consulted from write rules
+    // (orgClasses create, orgClassCodes create), so Analysts must never be
+    // included here. See isOrgReader below for the read-only counterpart.
+    function isOrgMember(orgId) {
+      return orgId != null && signedIn()
+        && (get(/databases/$(database)/documents/organizations/$(orgId)).data.adminUids.hasAny([request.auth.uid])
+            || get(/databases/$(database)/documents/organizations/$(orgId)).data.teacherUids.hasAny([request.auth.uid]));
+    }
+    // Grants READ visibility to Analysts on top of isOrgMember's admin+
+    // teacher access — never referenced from a write rule, so an Analyst
+    // stays structurally unable to write anywhere in this app regardless of
+    // what the client UI does or doesn't hide.
+    function isOrgReader(orgId) {
+      return isOrgMember(orgId)
+        || (orgId != null && signedIn()
+            && get(/databases/$(database)/documents/organizations/$(orgId)).data.analystUids.hasAny([request.auth.uid]));
+    }
+
     match /users/{userId} {
       allow read, create, update: if isOwner(userId);
+    }
+
+    // Mobile app's gamification profile (xp/level/badges) — server-authoritative,
+    // written only by api/mobile-award.js via the Admin SDK (bypasses these
+    // rules), never directly by the client. See mobile/src/shared/gamification.ts
+    // for why: unlike web's client-side awardXp, mobile's client cannot
+    // self-award XP.
+    match /users/{userId}/mobileGame/{docId} {
+      allow read: if isOwner(userId);
+      allow write: if false;
+    }
+
+    // One-time-use marker per scoreId so api/mobile-award.js can't be replayed
+    // to double-award XP for the same lesson. Same server-only pattern as the
+    // raffle progress/entries docs below.
+    match /users/{userId}/awardedScores/{scoreId} {
+      allow read, write: if false;
+    }
+
+    // Email-verification codes (api/auth-email.js) — server-only for the
+    // same reason as awardedScores above, but the stakes are higher here: if
+    // the client SDK could read this, an already-authenticated-but-
+    // unverified user could read their own code straight out of Firestore
+    // and "verify" without ever opening the email, defeating the point of
+    // verification entirely.
+    match /emailVerifyCodes/{userId} {
+      allow read, write: if false;
     }
 
     match /sm2Items/{userId}/items/{itemId} {
@@ -25,29 +88,25 @@ service cloud.firestore {
       allow read, create, update: if isOwner(userId);
     }
 
-    match /tiers/{userId} {
-      allow read: if isOwner(userId);
-    }
-
-    match /dailyUsage/{userId} {
-      allow read, create, update: if isOwner(userId);
-    }
-
     match /streaks/{userId} {
       allow read, create, update: if isOwner(userId);
     }
 
     match /scores/{scoreId} {
       allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
-      allow read, update, delete: if signedIn() && resource.data.userId == request.auth.uid;
+      allow read: if isAdmin() || (signedIn() && resource.data.userId == request.auth.uid);
+      allow update, delete: if signedIn() && resource.data.userId == request.auth.uid;
     }
 
     match /lessons/{lessonId} {
       allow read: if true;
     }
 
-    match /classes/{classId} {
+    // Image-rich questions authored via the admin PDF importer, merged into the
+    // live question bank alongside the Google Sheet + AP seed rows.
+    match /questionBank/{questionId} {
       allow read: if true;
+      allow create, update, delete: if isAdmin();
     }
 
     match /testimonials/{testimonialId} {
@@ -55,21 +114,391 @@ service cloud.firestore {
       allow create: if signedIn();
     }
 
+    match /promotions/{promotionId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Admin-managed raffles (title/description/prize/thresholds), same shape
+    // as promotions.
+    match /raffles/{raffleId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+
+      // One-time invite codes: an inviter mints their own (unused) codes for
+      // a raffle — that's a legitimate self-write, same as the old shared
+      // referralCode. Only the api/referral.js Vercel function (Admin SDK,
+      // bypasses rules) can ever flip `used` to true — a client updating its
+      // own code doc can't forge a claim because "who joined" is recorded by
+      // that server call, not by this field alone.
+      match /codes/{codeId} {
+        allow read: if isOwner(resource.data.inviterUid);
+        allow create: if signedIn()
+          && request.resource.data.inviterUid == request.auth.uid
+          && request.resource.data.used == false;
+        allow update, delete: if false;
+      }
+
+      // Fraud-sensitive — only the Vercel function (Admin SDK) ever writes
+      // these. The inviter can read their own progress doc, and only the
+      // admin can read raffle entries.
+      match /progress/{inviterUid} {
+        allow read: if isOwner(inviterUid);
+        allow write: if false;
+      }
+
+      match /entries/{inviterUid} {
+        allow read: if isAdmin();
+        allow write: if false;
+      }
+    }
+
+    // Friend leaderboard — separate, standing mechanism from the raffle's
+    // one-time invite codes above (those are raffle-lifecycle-scoped; this
+    // is reusable indefinitely, closer to the old single-referralCode
+    // pattern). Opt-in: a leaderboardEntries doc only exists for users who
+    // turned the toggle on, and its stats (xp/streak) are only reachable by
+    // whoever already knows the uid — which a stranger can only learn via
+    // the owner's leaderboardCode, exchanged through leaderboardCodes below.
+    match /leaderboardEntries/{userId} {
+      allow read: if signedIn();
+      allow create, update, delete: if isOwner(userId);
+    }
+
+    // code -> uid lookup so a follower can resolve a pasted code without
+    // ever being able to read the users/{uid} doc directly (that collection
+    // stays owner-only read). Doc ID is the code itself; immutable once
+    // created so a code can't be reassigned out from under someone who
+    // already has it.
+    match /leaderboardCodes/{code} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // One-directional follow list, same per-user-subcollection-as-top-level-
+    // collection convention as sm2Items above.
+    match /leaderboardFollows/{userId}/follows/{followedUid} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // Teacher/Organization Portal — a school, district, tutoring company,
+    // nonprofit, or corporation. Stays unusable (see orgClasses' create
+    // rule, which requires status=="approved") until an AscendSAT admin
+    // approves it, so a random signup can't claim to represent a real
+    // organization. Any signed-in user can read the collection so a teacher
+    // can search/select an org to request joining; individual org documents
+    // don't expose anything sensitive.
+    //
+    // status is a 5-state workflow (Phase 2a, was 3 states in Phase 1):
+    // "emailVerificationRequired" (the doc's initial state at signup,
+    // before AscendSAT admin review even starts) -> "underReview" ->
+    // "moreInfoRequired" (admin needs more, see moreInfoNote) <-> "underReview"
+    // (org admin resubmits) -> "approved" | "rejected". Only isAdmin() can
+    // move to "approved"/"rejected"/"underReview" from "emailVerification
+    // Required"/nothing; an org's own admin can self-serve the one
+    // moreInfoRequired->underReview resubmit transition (see the update
+    // rule's second clause) without waiting on isAdmin() for that specific
+    // back-and-forth.
+    match /organizations/{orgId} {
+      allow read: if signedIn();
+      // The app's own signup funnel already gates onboarding on email
+      // verification (OTP for password accounts, the IdP's own verification
+      // for Google/Microsoft) before a user can ever reach this screen, so
+      // an org's real starting state is derived straight from the ID
+      // token's own email_verified claim rather than a client-asserted
+      // field — a freshly-verified account skips straight to underReview.
+      allow create: if signedIn()
+        && request.resource.data.createdByUid == request.auth.uid
+        && request.resource.data.adminUids == [request.auth.uid]
+        && request.resource.data.authorizedConfirmed == true
+        && ((request.auth.token.email_verified == true && request.resource.data.status == "underReview")
+            || (request.auth.token.email_verified != true && request.resource.data.status == "emailVerificationRequired"));
+      allow update: if isAdmin()
+        || (isOrgAdmin(orgId) && request.resource.data.status == resource.data.status)
+        || (isOrgAdmin(orgId) && resource.data.status == "moreInfoRequired" && request.resource.data.status == "underReview");
+      allow delete: if false;
+    }
+
+    // A teacher's request to join an EXISTING org (as opposed to creating a
+    // new one, where they become its first admin directly). The actual
+    // approval — writing role/roles/organizationId onto a DIFFERENT user's
+    // doc — is a cross-user write no rule here can express safely, so that
+    // happens server-side via api/org.js (Admin SDK); this collection just
+    // holds the request itself.
+    match /orgJoinRequests/{requestId} {
+      allow create: if signedIn()
+        && request.resource.data.teacherUid == request.auth.uid
+        && request.resource.data.status == "pending";
+      allow read: if signedIn()
+        && (resource.data.teacherUid == request.auth.uid || isOrgAdmin(resource.data.orgId));
+      // Two distinct writers: the org admin approving/rejecting (any status
+      // transition, same as Phase 1), or the requester themselves cancelling
+      // their OWN still-pending request — a same-user write a rule CAN
+      // express safely, unlike approve/reject which touch a different
+      // user's doc (that stays server-side, api/org.js).
+      allow update: if (isOrgAdmin(resource.data.orgId) && request.resource.data.teacherUid == resource.data.teacherUid)
+        || (isOwner(resource.data.teacherUid)
+            && resource.data.status == "pending"
+            && request.resource.data.status == "cancelled"
+            && request.resource.data.orgId == resource.data.orgId
+            && request.resource.data.teacherUid == resource.data.teacherUid);
+      allow delete: if false;
+    }
+
+    // classId + "_" + studentUid lookup mapping a class's join code to the
+    // class — kept as its own single-getDoc-only collection, deliberately
+    // NOT a field queried directly on orgClasses. If orgClasses itself were
+    // broadly readable so a joining student could query by code, that same
+    // read rule would let any signed-in user list every class in every org
+    // (Firestore evaluates list queries against the read rule, not just
+    // individual gets) — this mirrors leaderboardCodes above for the same
+    // reason.
+    match /orgClassCodes/{code} {
+      allow read: if signedIn();
+      // Mirrors orgClasses' own create rule: an independent educator's class
+      // (orgId==null) needs a code too, with no org membership to check.
+      allow create: if signedIn()
+        && request.resource.data.createdByUid == request.auth.uid
+        && (request.resource.data.orgId == null || isOrgMember(request.resource.data.orgId));
+      allow update, delete: if false;
+    }
+
+    match /orgClasses/{classId} {
+      allow read: if signedIn()
+        && (resource.data.teacherUids.hasAny([request.auth.uid])
+            || isOrgReader(resource.data.orgId)
+            || exists(/databases/$(database)/documents/orgClassMemberships/$(classId + "_" + request.auth.uid)));
+      // Independent educators (orgId==null) can always create a class for
+      // themselves — no org, so no approval gate applies. Org-affiliated
+      // classes still require org membership + an approved org, unchanged
+      // from Phase 1.
+      allow create: if signedIn()
+        && request.resource.data.createdByUid == request.auth.uid
+        && request.resource.data.teacherUids.hasAny([request.auth.uid])
+        && (
+          request.resource.data.orgId == null
+          || (isOrgMember(request.resource.data.orgId)
+              && get(/databases/$(database)/documents/organizations/$(request.resource.data.orgId)).data.status == "approved")
+        );
+      allow update: if signedIn()
+        && (resource.data.teacherUids.hasAny([request.auth.uid]) || isOrgAdmin(resource.data.orgId));
+      allow delete: if false;
+    }
+
+    // Doc ID is always classId + "_" + studentUid — makes "already a member"
+    // a rules-level guarantee (a repeat create on an existing ID is rejected
+    // as an unauthorized update) rather than a client-side race.
+    match /orgClassMemberships/{membershipId} {
+      allow read: if signedIn()
+        && (resource.data.studentUid == request.auth.uid
+            || get(/databases/$(database)/documents/orgClasses/$(resource.data.classId)).data.teacherUids.hasAny([request.auth.uid])
+            || isOrgReader(resource.data.orgId));
+      // orgId==null (independent educator's class) always allows joining;
+      // an org-affiliated class respects that org's allowClassCodeJoin
+      // toggle. Uses .get(key, true) rather than dot-accessing the field
+      // directly — a straight `.data.allowClassCodeJoin != false` THROWS
+      // (not "false", an actual rules-evaluation error) when the field is
+      // simply absent from the document, e.g. a Phase 1 org or a Phase 2a
+      // org that hasn't been through the setup wizard yet, and an error
+      // anywhere in this expression denies the whole write. .get() with a
+      // default is the only way to get real missing-field-means-allowed
+      // behavior instead of accidentally denying everyone.
+      allow create: if signedIn()
+        && request.resource.data.studentUid == request.auth.uid
+        && membershipId == request.resource.data.classId + "_" + request.auth.uid
+        && request.resource.data.status == "active"
+        && (
+          request.resource.data.orgId == null
+          || get(/databases/$(database)/documents/organizations/$(request.resource.data.orgId)).data.get('allowClassCodeJoin', true) != false
+        );
+      // Three distinct writers: a teacher/admin re-adding a removed student
+      // (any status transition, Phase 1 behavior, unchanged), or the student
+      // themselves leaving their own active membership — but only when the
+      // org has explicitly turned that on (default OFF). Same .get(key,
+      // default) reasoning as allowClassCodeJoin above — the difference
+      // here is just which way the default falls.
+      allow update: if signedIn()
+        && (
+          get(/databases/$(database)/documents/orgClasses/$(resource.data.classId)).data.teacherUids.hasAny([request.auth.uid])
+          || isOrgAdmin(resource.data.orgId)
+          || (isOwner(resource.data.studentUid)
+              && resource.data.status == "active"
+              && request.resource.data.status == "removed"
+              && (
+                resource.data.orgId == null
+                || get(/databases/$(database)/documents/organizations/$(resource.data.orgId)).data.get('allowSelfLeaveClass', false) == true
+              ))
+        );
+      allow delete: if false;
+    }
+
+    // A teacher's practice-preset assignment for a class — completion is
+    // derived from scores.assignmentId (see scores rule below), not tracked
+    // here directly.
+    match /orgAssignments/{assignmentId} {
+      allow read: if signedIn();
+      // A teacher of the target class, or any admin of the org it belongs
+      // to (an org admin doesn't have to personally teach a class to manage
+      // its assignments).
+      allow create, update: if signedIn()
+        && (get(/databases/$(database)/documents/orgClasses/$(request.resource.data.classId)).data.teacherUids.hasAny([request.auth.uid])
+            || isOrgAdmin(request.resource.data.orgId));
+      allow delete: if false;
+    }
+
+    // Org-level educator/admin invitations (Phase 2a) — email-targeted, NOT
+    // a generic passcode: redeeming one requires the signed-in account's own
+    // email to match `email` on the invite (enforced in api/org.js's
+    // acceptOrgInvite, since acceptance is a cross-user write — appends the
+    // invitee's uid to a DIFFERENT doc's array — that no rule here can
+    // express safely, same reasoning as orgJoinRequests' approve/reject).
+    // Doc ID is the code itself, a 22-char random token (materially higher
+    // entropy than the 5-letter class code, since this one is bound to a
+    // real person's email rather than being handed out verbally in class).
+    match /orgInvites/{code} {
+      // Deliberately public: an unauthenticated visitor who just clicked the
+      // invite link needs to see "You've been invited to [Org]" before
+      // signing in. This is single-doc-by-unguessable-token access — same
+      // trust model as a password-reset link — and is never listable (no
+      // `list`-enabling rule exists here), so it can't be enumerated.
+      allow get: if true;
+      allow list: if false;
+      allow create: if isOrgAdmin(request.resource.data.orgId)
+        && request.resource.data.invitedByUid == request.auth.uid
+        && request.resource.data.status == "pending";
+      allow update: if isOrgAdmin(resource.data.orgId); // revoke only, client enforces status=="revoked"
+      allow delete: if false;
+    }
+
+    // Display/audit label only ("Jane — Program Manager" in the Teachers
+    // list) — actual permissions always come from organizations'
+    // adminUids/teacherUids/analystUids arrays, never from this doc. Written
+    // only by api/org.js's acceptOrgInvite (Admin SDK), never the client.
+    match /organizations/{orgId}/orgMembers/{uid} {
+      allow read: if isOrgAdmin(orgId) || isOwner(uid);
+      allow write: if false;
+    }
+
+    // 1:1 Paid Tutoring — a tutor's public profile (bio/Calendly link).
+    // Pricing/offerings live separately in classOfferings now (purchases
+    // aren't tied to a specific tutor — see below), so this is just the
+    // tutor's own identity/contact info. Publicly readable; write access is
+    // the tutor themself or isAdmin() (granting the role in the first place
+    // creates the stub doc server-side via api/tutor.js, which uses the
+    // Admin SDK and bypasses this rule entirely — this clause only matters
+    // for later client edits).
+    match /tutors/{tutorUid} {
+      allow read: if signedIn();
+      allow write: if isOwner(tutorUid) || isAdmin();
+    }
+
+    // The shared class catalog (e.g. "SAT Tutoring" $25, "AP Math Tutoring"
+    // $25) — admin-managed since it maps directly to Stripe products/prices
+    // the admin creates in the Stripe Dashboard, and isn't owned by any one
+    // tutor (a purchase gets matched to a tutor afterward, see
+    // tutorPurchases below). Publicly readable so a student can see what's
+    // for sale before buying.
+    match /classOfferings/{offeringId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // One doc per completed Stripe purchase (doc ID = Stripe session ID,
+    // written by stripe-webhook.js via the Admin SDK — bypasses these
+    // rules). Starts unmatched (matched: false, matchedTutorUid: null);
+    // api/tutor.js's matchTutor is what an admin uses to assign a tutor,
+    // which is also what actually creates/credits the tutorRelationships
+    // doc. allow write: if false keeps the match itself tamper-proof from
+    // the client, same reasoning as the credit balances above. The student
+    // can read their own purchase (to show the "we're matching you with a
+    // tutor" pending state); isAdmin() can read all of them (the matching
+    // queue).
+    match /tutorPurchases/{purchaseId} {
+      allow read: if signedIn() && (resource.data.studentUid == request.auth.uid || isAdmin());
+      allow write: if false;
+    }
+
+    // A student<->tutor relationship's credit balance (messageCreditsRemaining,
+    // sessionsRemaining, qaUnlockedAt) — server-authoritative only. Granted
+    // by the Stripe webhook on a completed purchase; sessionsRemaining is
+    // spent and qaUnlockedAt is first set by api/tutor.js's sendMeetingLink
+    // (the tutor's "I sent the Google Meet link" action); messageCredits
+    // Remaining is spent by sendQaMessage. All three run transactionally via
+    // the Admin SDK, which bypasses these rules. allow write: if false here
+    // is what makes the balance tamper-proof from the client, same
+    // reasoning as orgClassMemberships' server-only fields and the raffle
+    // progress docs above. isAdmin() can read every relationship (not just
+    // ones it's a party to) for the admin "Tutoring Messages" oversight
+    // view.
+    match /tutorRelationships/{relId} {
+      allow read: if signedIn()
+        && (resource.data.studentUid == request.auth.uid || resource.data.tutorUid == request.auth.uid || isAdmin());
+      allow write: if false;
+
+      // Free-form logistics chat ("plan a meeting" + where the tutor's
+      // sendMeetingLink action posts the Google Meet link) — doesn't touch
+      // credits, so it's a plain direct client write/read like any simple
+      // chat (the meeting-link message itself is the one exception, posted
+      // server-side by sendMeetingLink since that call also has to spend a
+      // session credit and set qaUnlockedAt in the same transaction — but
+      // the collection's rules don't need to know that; a server write via
+      // the Admin SDK bypasses these rules the same way a client write
+      // would satisfy them).
+      match /schedulingMessages/{msgId} {
+        allow read: if signedIn()
+          && (get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.studentUid == request.auth.uid
+              || get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.tutorUid == request.auth.uid
+              || isAdmin());
+        allow create: if signedIn()
+          && request.resource.data.senderUid == request.auth.uid
+          && (get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.studentUid == request.auth.uid
+              || get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.tutorUid == request.auth.uid);
+        allow update, delete: if false;
+      }
+
+      // The credit-metered "ask a question" thread — written only by
+      // api/tutor.js's sendQaMessage (Admin SDK), which is what actually
+      // enforces the 20-message quota (and the qaUnlockedAt gate)
+      // atomically; the client can only read.
+      match /qaMessages/{msgId} {
+        allow read: if signedIn()
+          && (get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.studentUid == request.auth.uid
+              || get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.tutorUid == request.auth.uid
+              || isAdmin());
+        allow write: if false;
+      }
+    }
+
     match /globalStats/{docId} {
       allow read: if true;
       allow create, update: if signedIn();
     }
 
+    // Admin-authored "what's new" popup shown once per user (see users/{uid}.lastSeenUpdateAt).
+    match /config/{docId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
     match /feedback/{feedbackId} {
       allow create: if signedIn();
+      allow read: if isAdmin();
     }
 
     match /helpRequests/{requestId} {
       allow create: if signedIn();
+      allow read: if isAdmin();
     }
 
-    match /bookings/{bookingId} {
-      allow create: if signedIn();
+    // Admin-only export dumps (e.g. real-user email lists for mailing) —
+    // always written server-side via the Admin SDK, which bypasses these
+    // rules entirely; this just locks out any client-side read/write of
+    // what could be a large blob of real user PII.
+    match /adminExports/{docId} {
+      allow read: if isAdmin();
+      allow write: if false;
     }
+
   }
 }

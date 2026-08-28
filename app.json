@@ -2,7 +2,8 @@
   "expo": {
     "name": "AscendSAT",
     "slug": "AscendSAT",
-    "version": "1.0.0",
+    "version": "3.2.3",
+    "scheme": "ascendsat",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "userInterfaceStyle": "light",
@@ -21,6 +22,7 @@
     },
     "web": {
       "icon": "./assets/logo.png",
+      "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
     "plugins": [

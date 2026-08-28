@@ -55,34 +55,40 @@ exports.sendBookingReminders = functions.pubsub.schedule('every 5 minutes').onRu
 });
 const Groq = require("groq-sdk");
 
-exports.casperChat = functions.https.onCall(async (data, context) => {
-  const { messages } = data;
+exports.casperChat = functions
+  .runWith({ secrets: ["GROQ_API_KEY"] })
+  .https.onCall(async (data, context) => {
+  if (!context.auth) {
+    throw new functions.https.HttpsError("unauthenticated", "You must be signed in to use this feature.");
+  }
+
+  const { messages, maxTokens, model, responseFormat } = data;
 
   if (!messages || !Array.isArray(messages)) {
     throw new functions.https.HttpsError("invalid-argument", "Messages required");
   }
 
-  const groq = new Groq({ apiKey: functions.config().groq.key });
+  // Only permit models the client is allowed to request (keeps the callable from
+  // being an open relay). Defaults to the fast text model used by Casper.
+  const ALLOWED_MODELS = new Set([
+    "llama-3.1-8b-instant",
+    "openai/gpt-oss-120b",
+  ]);
+  const chosenModel = typeof model === "string" && ALLOWED_MODELS.has(model)
+    ? model
+    : "llama-3.1-8b-instant";
+
+  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
   try {
     const response = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",
-      max_tokens: 1000,
-      messages: [
-        {
-          role: "system",
-          content: `You are Casper, an expert SAT tutor assistant built into the AscendSAT app. You help students with:
-- SAT Math (Algebra, Advanced Math, Data Analysis, Geometry & Trigonometry)
-- SAT Reading & Writing (Information and Ideas, Craft & Structure, Expression of Ideas, Standard English Conventions)
-- SAT vocabulary
-- Test strategy and time management
-Keep responses concise, encouraging, and focused on SAT prep. Always be positive and supportive.`,
-        },
-        ...messages,
-      ],
+      model: chosenModel,
+      max_tokens: typeof maxTokens === "number" ? maxTokens : 1000,
+      messages,
+      ...(responseFormat === "json" ? { response_format: { type: "json_object" } } : {}),
     });
 
-    return { reply: response.choices[0].message.content };
+    return { reply: response.choices?.[0]?.message?.content || "" };
   } catch (e) {
     throw new functions.https.HttpsError("internal", e.message);
   }

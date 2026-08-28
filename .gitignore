@@ -41,3 +41,12 @@ yarn-error.*
 /android
 .vercel
 .env
+
+# Firebase Admin SDK service-account keys (used by one-off scripts/*.js and
+# seed-test-accounts.js) — grants full unrestricted backend access, never commit
+service-account.json
+*serviceAccount*.json
+*firebase-adminsdk*.json
+
+# Real user PII exports (e.g. export-real-user-emails.js's output) — never commit
+*.csv
