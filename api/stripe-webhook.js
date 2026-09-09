@@ -1,15 +1,18 @@
 // Vercel serverless function receiving Stripe's checkout.session.completed
-// webhook for 1:1 Paid Tutoring purchases. Verifies Stripe's signature
-// against the RAW request body — bodyParser is disabled below because
-// Stripe signs the exact bytes it sent; a JSON-parsed-then-reserialized
-// body won't reproduce the same signature even for a legitimate event.
-// Idempotent on the Stripe session id (doc ID on tutorPurchases), so a
-// retried webhook delivery can't double-record the same purchase.
+// webhook for 1:1 Paid Tutoring purchases made through a Stripe Payment
+// Link (created directly in the Stripe Dashboard — there's no in-app
+// checkout flow or catalog at all; see App.tsx's TUTOR_PAYMENT_LINKS).
+// Verifies Stripe's signature against the RAW request body — bodyParser is
+// disabled below because Stripe signs the exact bytes it sent; a
+// JSON-parsed-then-reserialized body won't reproduce the same signature
+// even for a legitimate event. Idempotent on the Stripe session id (doc ID
+// on tutorPurchases), so a retried webhook delivery can't double-record
+// the same purchase.
 //
 // Only records the purchase as unmatched — no tutor is chosen at checkout
-// time (see api/tutor.js's header for why), so this never touches
-// tutorRelationships directly. An admin's matchTutor call is what actually
-// grants the credits once a tutor is assigned.
+// time, so this never touches tutorRelationships directly. An admin's
+// matchTutor call (api/tutor.js) is what actually grants the credits once
+// a tutor is assigned.
 //
 // Configure in the Stripe Dashboard: an endpoint pointed at
 // https://ascendsat.com/api/stripe-webhook, subscribed to
@@ -18,6 +21,13 @@
 
 const Stripe = require("stripe");
 const { db, FieldValue } = require("./_firebaseAdmin");
+
+// Every purchase — regardless of which Payment Link/subject was used —
+// grants the same fixed amount. There's no per-offering config anywhere
+// in-app to read this from (deliberately: pricing/products live entirely
+// in Stripe), so it's just a constant here.
+const MESSAGE_CREDITS_PER_CLASS = 20;
+const SESSIONS_PER_CLASS = 1;
 
 module.exports.config = { api: { bodyParser: false } };
 
@@ -31,32 +41,42 @@ function readRawBody(req) {
 }
 
 // Creates the unmatched purchase record only — no tutor is known at
-// checkout time anymore (see api/tutor.js's header), so this can't credit
-// a tutorRelationships doc directly the way it used to. An admin's
-// matchTutor call is what actually grants these credits once a tutor is
-// assigned; this function's job is just to record that the purchase
-// happened, exactly once, so it's ready to be matched.
-async function recordUnmatchedPurchase(stripeSessionId, studentUid, offeringId, studentName, offeringLabel) {
+// checkout time, so this can't credit a tutorRelationships doc directly.
+// An admin's matchTutor call is what actually grants these credits once a
+// tutor is assigned; this function's job is just to record that the
+// purchase happened, exactly once, so it's ready to be matched.
+//
+// studentUid comes from the Payment Link's client_reference_id (the app
+// appends ?client_reference_id=<uid> when opening the link — see
+// buyClassOffering in App.tsx) rather than custom Checkout Session
+// metadata, since Payment Links are static/shared URLs with no per-request
+// server call to attach metadata to. studentName and offeringLabel are
+// both derived server-side (via the Admin SDK and a Stripe API lookup)
+// instead of trusting client-supplied values, since neither is available
+// from the Payment Link flow at all.
+async function recordUnmatchedPurchase(stripe, stripeSessionId, studentUid) {
   const purchaseRef = db.collection("tutorPurchases").doc(stripeSessionId);
-  const offeringRef = db.collection("classOfferings").doc(offeringId);
 
-  await db.runTransaction(async (tx) => {
-    const [purchaseSnap, offeringSnap] = await Promise.all([tx.get(purchaseRef), tx.get(offeringRef)]);
-    if (purchaseSnap.exists) return; // already processed this Stripe session — safe no-op on retry
+  const existing = await purchaseRef.get();
+  if (existing.exists) return; // already processed this Stripe session — safe no-op on retry
 
-    const offering = offeringSnap.exists ? offeringSnap.data() : {};
+  const [userSnap, lineItems] = await Promise.all([
+    db.collection("users").doc(studentUid).get(),
+    stripe.checkout.sessions.listLineItems(stripeSessionId, { expand: ["data.price.product"] }),
+  ]);
 
-    tx.set(purchaseRef, {
-      studentUid,
-      offeringId,
-      offeringLabel: offeringLabel || offering.label || "",
-      messageCreditsGranted: offering.messageCreditsPerClass || 20,
-      sessionsGranted: 1,
-      ...(studentName ? { studentName } : {}),
-      matched: false,
-      matchedTutorUid: null,
-      createdAt: FieldValue.serverTimestamp(),
-    });
+  const studentName = userSnap.exists ? userSnap.data().name || "" : "";
+  const offeringLabel = lineItems.data[0]?.price?.product?.name || lineItems.data[0]?.description || "";
+
+  await purchaseRef.set({
+    studentUid,
+    offeringLabel,
+    messageCreditsGranted: MESSAGE_CREDITS_PER_CLASS,
+    sessionsGranted: SESSIONS_PER_CLASS,
+    ...(studentName ? { studentName } : {}),
+    matched: false,
+    matchedTutorUid: null,
+    createdAt: FieldValue.serverTimestamp(),
   });
 }
 
@@ -80,17 +100,16 @@ module.exports = async (req, res) => {
 
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
-    const studentUid = session.metadata?.studentUid;
-    const offeringId = session.metadata?.offeringId;
-    const studentName = session.metadata?.studentName;
-    const offeringLabel = session.metadata?.offeringLabel;
-    if (studentUid && offeringId) {
+    const studentUid = session.client_reference_id;
+    if (studentUid) {
       try {
-        await recordUnmatchedPurchase(session.id, studentUid, offeringId, studentName, offeringLabel);
+        await recordUnmatchedPurchase(stripe, session.id, studentUid);
       } catch (e) {
         console.log("Record unmatched purchase error:", e.message);
         return res.status(500).json({ error: "Could not record purchase" });
       }
+    } else {
+      console.log("Checkout session completed with no client_reference_id — ignoring:", session.id);
     }
   }
 

@@ -26,6 +26,11 @@ const { admin, db } = require("./_firebaseAdmin");
 
 const ADMIN_EMAIL = "admin@ascendsat.com";
 const ALLOWED_CONTENT_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+// 1:1 Tutoring Q&A image attachments — deliberately narrower than the
+// general list above (no webp/gif): the product only wants to accept
+// png/heic/jpg here, so a client-side rejection ("we don't accept that
+// format") is backed by the same restriction server-side.
+const TUTOR_QA_IMAGE_CONTENT_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/heic", "image/heif"];
 const MAX_BYTES = 4 * 1024 * 1024;
 
 module.exports = async (req, res) => {
@@ -60,7 +65,7 @@ module.exports = async (req, res) => {
   }
   const { path, contentType, dataBase64 } = body || {};
   if (!path || !dataBase64) return res.status(400).json({ error: "Missing path or file data" });
-  if (contentType && !ALLOWED_CONTENT_TYPES.includes(contentType)) {
+  if (contentType && !ALLOWED_CONTENT_TYPES.includes(contentType) && !TUTOR_QA_IMAGE_CONTENT_TYPES.includes(contentType)) {
     return res.status(400).json({ error: "Unsupported image type" });
   }
 
@@ -78,6 +83,20 @@ module.exports = async (req, res) => {
       const authUser = await admin.auth().getUser(uid);
       if (authUser.email !== ADMIN_EMAIL) {
         return res.status(403).json({ error: "Admin only" });
+      }
+    } else if (path.startsWith("tutor-qa-images/")) {
+      // 1:1 Tutoring Q&A attachments — path shape is
+      // tutor-qa-images/{relId}/{uid}/{filename}; re-verify the caller is
+      // actually a participant (student or tutor) on that exact
+      // relationship, same fraud-model as api/tutor.js's own actions.
+      if (contentType && !TUTOR_QA_IMAGE_CONTENT_TYPES.includes(contentType)) {
+        return res.status(400).json({ error: "We don't accept that file format — please upload a PNG, HEIC, or JPG." });
+      }
+      const relId = path.split("/")[1];
+      const relSnap = await db.collection("tutorRelationships").doc(relId || "").get();
+      const rel = relSnap.exists ? relSnap.data() : {};
+      if (rel.studentUid !== uid && rel.tutorUid !== uid) {
+        return res.status(403).json({ error: "Not part of this conversation" });
       }
     } else {
       return res.status(400).json({ error: "Unrecognized upload path" });
