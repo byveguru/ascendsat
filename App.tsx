@@ -102,6 +102,12 @@ import {
 } from "./lib/aiTutorAnalysis";
 import { DIAGNOSTIC_EXAM_QUESTIONS } from "./diagnosticExamQuestions";
 import { scoreDiagnosticWithIrt, buildPracticeResponseBuckets, updateAbilityEstimate } from "./lib/diagnosticScoring";
+import { computeMasteryForDomain, buildProveMasteryPlan } from "./lib/masteryEngine";
+import { sanitizeQuestionId } from "./lib/mistakeDna";
+import {
+  PROJECTION_STYLE_EVIDENCE_WEIGHT, PROJECTION_STYLE_META, DEFAULT_PROJECTION_STYLE,
+  computeProjectionConfidence, explainProjectionChange, isMeaningfulProjectionChange,
+} from "./lib/scoreProjection";
 import { VOCAB_LIST } from "./vocab";
 import { motion, createTheme } from "./theme";
 import { auth, db } from "./firebase";
@@ -300,59 +306,38 @@ const ListIcon = ({ name, color = "#64748b", size = 16 }) => (
   </View>
 );
 
-// Publishable keys are meant to be public (unlike the secret key, which
-// only ever lives server-side as a Vercel env var) — safe to ship in the
-// client bundle, same trust level as firebase.js's config.
-const STRIPE_PUBLISHABLE_KEY = "pk_live_51TkqMYBp80o2Bh0U2j4ZSZqGHGIydUl9m9klLHEnpGPYhyyC6k3m8iNAN4K715iPvdA16M0NdgJSFV1vxyby8P0A00FlhjwxBL";
+// 1:1 Paid Tutoring — every purchasable class is a Stripe Payment Link
+// created directly in the Stripe Dashboard (no in-app catalog/checkout
+// logic at all). Add/remove/reprice classes there; update this list to
+// match. Each button appends ?client_reference_id=<studentUid> when
+// opened (see buyClassOffering) so stripe-webhook.js can attribute the
+// purchase to the right student — Payment Links are static/shared URLs
+// with no per-request server call to attach that some other way.
+const TUTOR_PAYMENT_LINKS = [
+  { id: "ap-math", label: "AP Math Class", url: "https://buy.stripe.com/bJedR82QHfMQ08J8jL7IY00" },
+  { id: "sat-prep", label: "SAT Prep Class", url: "https://buy.stripe.com/3cI6oGezp1W09Jj9nP7IY01" },
+];
 
-// 1:1 Paid Tutoring — Stripe's embedded Checkout form, mounted inline via
-// @stripe/react-stripe-js. Web-only: that library needs a browser DOM
-// (window/document) to load Stripe.js and mount an iframe, which native's
-// JS engine doesn't have — buyClassOffering only ever opens this on
-// Platform.OS === "web" (native keeps the hosted-redirect flow), and this
-// component doubly guards the same way so it's inert if ever reached
-// elsewhere. The stripe-js/react-stripe-js requires are deferred inside the
-// web-only branch (not top-level imports) so their module code never
-// executes — not just goes unused — on native. No tutor is involved here —
-// matching happens after purchase (see api/tutor.js's matchTutor).
-const EmbeddedTutorCheckout = ({ offering, callTutorApi, studentName, onClose, isLight }) => {
-  const [stripePromise, setStripePromise] = useState(null);
+// The only image types a Q&A question's attachments accept — matches
+// api/upload.js's TUTOR_QA_IMAGE_CONTENT_TYPES exactly (server re-validates
+// too, this is just so the rejection message shows up instantly rather than
+// after a round trip).
+const TUTOR_QA_ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/heic", "image/heif"];
+const TUTOR_QA_MAX_IMAGES = 2;
 
-  useEffect(() => {
-    if (Platform.OS !== "web") return;
-    const { loadStripe } = require("@stripe/stripe-js");
-    setStripePromise(loadStripe(STRIPE_PUBLISHABLE_KEY));
-  }, []);
-
-  const fetchClientSecret = useCallback(async () => {
-    const result = await callTutorApi("createCheckoutSession", { offeringId: offering.id, studentName, embedded: true });
-    if (!result?.ok || !result.clientSecret) throw new Error(result?.error || "Could not start checkout");
-    return result.clientSecret;
-  }, [offering.id, studentName, callTutorApi]);
-
-  if (Platform.OS !== "web" || !stripePromise) return null;
-  const { EmbeddedCheckoutProvider, EmbeddedCheckout } = require("@stripe/react-stripe-js");
-
-  return (
-    <Modal visible transparent animationType="fade" onRequestClose={onClose}>
-      <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.6)", alignItems: "center", justifyContent: "center", padding: 20 }}>
-        <View style={{ backgroundColor: isLight ? "#fff" : "#0b1020", borderRadius: 16, width: "100%", maxWidth: 480, maxHeight: "90%", overflow: "hidden" }}>
-          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", padding: 16, borderBottomWidth: 1, borderBottomColor: isLight ? "#e2e8f0" : "#1e293b" }}>
-            <Text style={{ fontWeight: "800", fontSize: 15, color: isLight ? "#0f172a" : "#fff" }}>Buy {offering.label}</Text>
-            <TouchableOpacity onPress={onClose}>
-              <AppIcon name="x" size={20} color={isLight ? "#0f172a" : "#fff"} />
-            </TouchableOpacity>
-          </View>
-          <ScrollView style={{ maxHeight: 620 }}>
-            <EmbeddedCheckoutProvider stripe={stripePromise} options={{ fetchClientSecret }}>
-              <EmbeddedCheckout />
-            </EmbeddedCheckoutProvider>
-          </ScrollView>
-        </View>
-      </View>
-    </Modal>
-  );
-};
+// Quick-fill chips shown next to the free-tutor-request text box — just
+// convenience taps that drop their label into the input, not a validated
+// enum (the request is stored/read everywhere as free text).
+const TUTOR_HELP_TOPIC_SUGGESTIONS = [
+  "SAT Math",
+  "SAT Reading & Writing",
+  "ACT Math",
+  "ACT English",
+  "ACT Science",
+  "AP Calculus AB",
+  "AP Chemistry",
+  "AP US History",
+];
 
 // Locked-state day cell for study-plan previews (before diagnostic/personalization
 // is done) — a diagonal-stripe pattern reads as "not available yet" instead of the
@@ -3611,7 +3596,7 @@ const ORG_TYPE_OPTIONS = [
   { id: "other", label: "Other" },
 ];
 
-const WebLayout = ({ isLight, userName, setView, transitionToView, viewTransitionAnim, viewSlideAnim, setDesmosVisible, handleLogout, desmosVisible, activeView, children, onLoadTestimonials, onLoadPromotions, onLoadLeaderboard, onLoadLessons, onOpenGames, onOpenDrills, onOpenStructuralDrills, onOpenFullTest, onOpenFeedback, onOpenDiagnostic, drillsTab, autopilotActive, onEndAutopilot, autopilotLabel, toolUsage, userProfile, scoreHistory, dockMode = "home-only", activeTest = "sat", activeTestLabel = "SAT", onSwitchTest, testSwitching = false, testSwitchLabel = "", pendingVerification, verifyResent, onResendVerification, onCheckVerification, activeRole = "student", orgDetails = null, tourVisible = false, onTourClose = () => {}, isGuest = false, onStartUpgrade = () => {}, onGuestBlocked = () => {} }) => {
+const WebLayout = ({ isLight, userName, setView, transitionToView, viewTransitionAnim, viewSlideAnim, setDesmosVisible, handleLogout, desmosVisible, activeView, children, onLoadTestimonials, onLoadPromotions, onLoadLeaderboard, onLoadLessons, onOpenGames, onOpenDrills, onOpenStructuralDrills, onOpenFullTest, onOpenFeedback, onOpenDiagnostic, drillsTab, autopilotActive, onEndAutopilot, autopilotLabel, toolUsage, userProfile, scoreHistory, dockMode = "home-only", activeTest = "sat", activeTestLabel = "SAT", onSwitchTest, testSwitching = false, testSwitchLabel = "", pendingVerification, verifyResent, onResendVerification, onCheckVerification, activeRole = "student", orgDetails = null, tourVisible = false, onTourClose = () => {}, isGuest = false, onStartUpgrade = () => {}, onGuestBlocked = () => {}, hasUnreadTutorMessages = false, showProjectionStyleModal = false, onSelectProjectionStyle = () => {} }) => {
   const P = getAppPalette(isLight);
   const GOLD = accentColorFor(isLight);
   const GOLD_GLOW = accentGlowFor(isLight);
@@ -3675,9 +3660,9 @@ const WebLayout = ({ isLight, userName, setView, transitionToView, viewTransitio
     { id: "orgSettings", label: "Organization Settings", icon: "settings", onPress: () => navGo("orgSettings") },
     { id: "orgBilling", label: "Billing", icon: "credit-card", onPress: () => navGo("orgBilling") },
   ];
-  // 1:1 Paid Tutoring — Overview only for now (Phase 1: role + profile
-  // editing) and Students (chat). Scheduling itself happens via Calendly +
-  // the chat's "Send Meeting Link" action, not an in-app booking screen.
+  // 1:1 Paid Tutoring — Overview (role + profile editing) and Students
+  // (chat). Scheduling happens entirely inside the chat's "Plan a Meeting"
+  // tab + "Send Meeting Link" action, not an in-app booking screen.
   const NAV_TUTOR = [
     { id: "tutorOverview", label: "Overview", icon: "home", onPress: () => navGo("tutorOverview") },
     { id: "tutorStudents", label: "Students", icon: "users", onPress: () => navGo("tutorStudents") },
@@ -3979,12 +3964,26 @@ const WebLayout = ({ isLight, userName, setView, transitionToView, viewTransitio
         zIndex: 100,
         flexDirection: "column",
       }}>
-        <TouchableOpacity onPress={() => navGo("home")} style={{ paddingHorizontal: 16, marginBottom: 16, flexDirection: "row", alignItems: "center", gap: 8 }}>
-          <Image source={require("./logo.png")} style={{ width: 28, height: 28, borderRadius: 6 }} resizeMode="contain" />
-          <Text style={{ color: P.text0, fontSize: 15, fontWeight: "800", letterSpacing: -0.3 }}>
-            Ascend<Text style={{ color: GOLD }}>{activeTestLabel}</Text>
-          </Text>
-        </TouchableOpacity>
+        <View style={{ paddingHorizontal: 16, marginBottom: 16, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <TouchableOpacity onPress={() => navGo("home")} style={{ flexDirection: "row", alignItems: "center", gap: 8, flexShrink: 1 }}>
+            <Image source={require("./logo.png")} style={{ width: 28, height: 28, borderRadius: 6 }} resizeMode="contain" />
+            <Text style={{ color: P.text0, fontSize: 15, fontWeight: "800", letterSpacing: -0.3 }} numberOfLines={1}>
+              Ascend<Text style={{ color: GOLD }}>{activeTestLabel}</Text>
+            </Text>
+          </TouchableOpacity>
+          {/* 1:1 Paid Tutoring — persistent quick-access icon into the chat
+              list, visible on every screen for both roles (always the list,
+              never the individual chat, per how this was scoped). */}
+          <TouchableOpacity
+            onPress={() => navGo(activeRole === "tutor" ? "tutorStudents" : "studentTutoring")}
+            style={{ width: 30, height: 30, borderRadius: 8, alignItems: "center", justifyContent: "center", backgroundColor: P.bg0, borderWidth: 1, borderColor: P.border0 }}
+          >
+            <AppIcon name="message-circle" size={16} color={GOLD} />
+            {hasUnreadTutorMessages && (
+              <View style={{ position: "absolute", top: -2, right: -2, width: 9, height: 9, borderRadius: 5, backgroundColor: "#ef4444", borderWidth: 1.5, borderColor: P.bg0 }} />
+            )}
+          </TouchableOpacity>
+        </View>
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, minHeight: 0 }}>
           {activeRole === "teacher" ? (
             <>
@@ -4069,6 +4068,55 @@ const WebLayout = ({ isLight, userName, setView, transitionToView, viewTransitio
         />
       </View>
       <ProductTour visible={tourVisible} isLight={isLight} P={P} onClose={onTourClose} />
+      <ProjectionStyleModal
+        visible={showProjectionStyleModal}
+        isLight={isLight}
+        onSelect={onSelectProjectionStyle}
+      />
+    </View>
+  );
+};
+
+// AI Projected Score Intelligence — one-time preference prompt. Rendered
+// inside WebLayout (mounted by every view via webLayoutProps) rather than
+// wired into the numbered onboarding step wizard, since that wizard has
+// several branches that hard-reference exact step indices and inserting a
+// new one safely would mean touching all of them. Conservative is labeled
+// (Recommended) per product direction, but Balanced is what a student gets
+// if they dismiss without choosing (matches the spec's "Balanced is the
+// default" — the recommendation nudges the choice without forcing it).
+// Forces an explicit choice — no skip/dismiss path, and no option is
+// pre-selected or visually styled as "already chosen" (a colored border on
+// the recommended card would read as a selection state, not a suggestion).
+// Conservative is called out as recommended through its label text only
+// ("Conservative (Recommended)"), which every option shares the same
+// neutral, un-highlighted card styling around.
+const ProjectionStyleModal = ({ visible, isLight, onSelect }) => {
+  if (!visible) return null;
+  const P = getAppPalette(isLight);
+  const styles_ = ["conservative", "balanced", "optimistic"];
+  return (
+    <View style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "#00000066", alignItems: "center", justifyContent: "center", zIndex: 999, padding: 20 }}>
+      <View style={{ backgroundColor: P.bg1, borderRadius: 20, padding: 24, width: "100%", maxWidth: 460, borderWidth: 1, borderColor: P.border0 }}>
+        <Text style={{ color: P.text0, fontSize: 18, fontWeight: "800", marginBottom: 6 }}>How should AscendSAT project your score?</Text>
+        <Text style={{ color: P.text2, fontSize: 12.5, marginBottom: 18, lineHeight: 18 }}>
+          This changes how much evidence we require before your projection moves — not the evidence itself. Pick one to continue; you can change it anytime in Settings.
+        </Text>
+        {styles_.map((style) => {
+          const meta = PROJECTION_STYLE_META[style];
+          return (
+            <TouchableOpacity
+              key={style}
+              activeOpacity={0.85}
+              onPress={() => onSelect(style)}
+              style={{ borderWidth: 1.5, borderColor: P.border0, backgroundColor: "transparent", borderRadius: 14, padding: 16, marginBottom: 10 }}
+            >
+              <Text style={{ color: P.text0, fontWeight: "800", fontSize: 14.5 }}>{meta.label}</Text>
+              <Text style={{ color: P.text2, fontSize: 12, marginTop: 4, lineHeight: 17 }}>{meta.description}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </View>
   );
 };
@@ -4224,33 +4272,18 @@ const [themeMode, setThemeMode] = useState("light");
   /* 1:1 PAID TUTORING */
   const [tutorProfile, setTutorProfile] = useState(null);
   const [tutorProfileLoading, setTutorProfileLoading] = useState(false);
-  // offerings: [{ id, label, priceCents (string, dollars, for the input), stripePriceId }]
-  // — a tutor's class catalog (e.g. "SAT Tutoring", "AP Math Tutoring"),
-  // each backed by its own Stripe Price. All offerings feed the same
-  // shared credit pool on tutorRelationships (see api/tutor.js) — the
-  // offering only decides what Stripe actually charges, not separate
-  // tracking afterward. No offerings field anymore — pricing moved to the
-  // shared classOfferings catalog since a purchase isn't tied to a
-  // specific tutor until an admin matches it.
-  const [tutorProfileDraft, setTutorProfileDraft] = useState({ bio: "", calendlyLink: "", active: true });
+  const [tutorProfileDraft, setTutorProfileDraft] = useState({ bio: "", active: true });
   const [tutorProfileSaving, setTutorProfileSaving] = useState(false);
-  // Student side — the shared class catalog (admin-managed), what the
-  // student has bought but isn't matched to a tutor yet, and what they ARE
-  // matched to. Three separate lists because they render as three separate
-  // sections on studentTutoring.
-  const [classOfferings, setClassOfferings] = useState([]);
-  const [classOfferingsLoading, setClassOfferingsLoading] = useState(false);
+  // Student side — what the student has bought but isn't matched to a
+  // tutor yet, and what they ARE matched to. Two separate lists because
+  // they render as two separate sections on studentTutoring; there's no
+  // in-app class catalog to load (see TUTOR_PAYMENT_LINKS above).
   const [myPendingPurchases, setMyPendingPurchases] = useState([]);
   // Keyed by tutorUid; each entry also carries a resolved tutorName (a
   // relationship doc only stores tutorUid, and tutors/{uid} is a second
   // read — see loadMyTutorRelationships) since the student never picked
   // this tutor themselves and has no other way to know who it is.
   const [myTutorRelationships, setMyTutorRelationships] = useState({});
-  const [tutorCheckoutLoadingId, setTutorCheckoutLoadingId] = useState(null);
-  // Web-only embedded Stripe Checkout modal — { id, label } of the
-  // classOffering being purchased while the modal is open, null when
-  // closed. No tutor involved — matching happens after purchase.
-  const [embeddedCheckoutOffering, setEmbeddedCheckoutOffering] = useState(null);
   // Tutor side — every student who's bought a class.
   const [tutorRelationshipsList, setTutorRelationshipsList] = useState([]);
   const [tutorRelationshipsListLoading, setTutorRelationshipsListLoading] = useState(false);
@@ -4260,11 +4293,23 @@ const [themeMode, setThemeMode] = useState("light");
   const [unmatchedPurchasesLoading, setUnmatchedPurchasesLoading] = useState(false);
   const [allTutorsForMatching, setAllTutorsForMatching] = useState([]);
   const [matchingPurchaseId, setMatchingPurchaseId] = useState(null);
-  // Admin — Manage Class Offerings (the Stripe-backed catalog).
-  const [adminClassOfferings, setAdminClassOfferings] = useState([]);
-  const [adminClassOfferingsLoading, setAdminClassOfferingsLoading] = useState(false);
-  const [newOfferingDraft, setNewOfferingDraft] = useState({ label: "", priceCents: "", stripePriceId: "", messageCreditsPerClass: "20" });
-  const [savingNewOffering, setSavingNewOffering] = useState(false);
+  // Admin — which relationship's "Reassign" tutor-picker is expanded, on
+  // the Tutoring Messages screen (general reassignment, any relationship,
+  // not just ones flagged tutorUnavailable).
+  const [reassignPickerRelId, setReassignPickerRelId] = useState(null);
+  // Admin — the other half of the "Match Students" queue: relationships a
+  // tutor has flagged unavailable, waiting for a replacement tutor.
+  const [unavailableRelationships, setUnavailableRelationships] = useState([]);
+  const [unavailableRelationshipsLoading, setUnavailableRelationshipsLoading] = useState(false);
+  const [reassigningRelId, setReassigningRelId] = useState(null);
+  const [markingUnavailableRelId, setMarkingUnavailableRelId] = useState(null);
+  // config/tutoring.paymentsEnabled — admin toggle between the existing
+  // Stripe-paid flow and a free "request a tutor, we match you" flow (same
+  // matching step either way). Defaults true (today's existing behavior)
+  // until the admin has ever touched the toggle.
+  const [tutoringPaymentsEnabled, setTutoringPaymentsEnabled] = useState(true);
+  const [requestingFreeTutor, setRequestingFreeTutor] = useState(false);
+  const [freeTutorHelpTopic, setFreeTutorHelpTopic] = useState("");
   // Chat — one shared screen ("tutorChat") used by both the student and the
   // tutor, parameterized by which relationship is open. Two tabs:
   // "scheduling" (unlimited, direct writes) and "qa" (credit-metered,
@@ -4277,11 +4322,12 @@ const [themeMode, setThemeMode] = useState("light");
   const [tutorChatMessagesLoading, setTutorChatMessagesLoading] = useState(false);
   const [tutorChatInput, setTutorChatInput] = useState("");
   const [tutorChatSending, setTutorChatSending] = useState(false);
-  // The tutor's own Calendly link, shown to a student once matched — set
-  // when openTutorChat is called from the student side (studentTutoring
-  // already has the tutor's profile loaded); null/unused on the tutor's own
-  // view of the chat and in admin's read-only view.
-  const [activeTutorChatCalendlyLink, setActiveTutorChatCalendlyLink] = useState("");
+  // Up to 2 image attachments for the student's next Q&A question — holds
+  // the picked-but-not-yet-uploaded asset (uri/blob/contentType/name) so a
+  // preview can show before Send actually uploads them (see
+  // uploadImageAsset + TUTOR_QA_ACCEPTED_IMAGE_TYPES).
+  const [qaAttachedImages, setQaAttachedImages] = useState([]);
+  const [qaImagesUploading, setQaImagesUploading] = useState(false);
   // Tutor-only "Send Meeting Link" action in the Plan a Meeting tab — see
   // api/tutor.js's sendMeetingLink for what this actually does
   // (transactionally spends a session credit and, first time only, opens
@@ -4292,12 +4338,43 @@ const [themeMode, setThemeMode] = useState("light");
   // screen with the composer/Send Meeting Link action hidden, rather than
   // building a parallel chat UI.
   const [isAdminViewingChat, setIsAdminViewingChat] = useState(false);
+  // Red dot on the sidebar chat icon — true when any tutorRelationships doc
+  // the user is a participant in has a lastMessageAt newer than their own
+  // last-read marker on that doc (studentLastReadAt/tutorLastReadAt, set
+  // when they open that relationship's chat — see the mark-as-read effect
+  // below). Computed globally (not tied to the tutorChat screen) so it's
+  // accurate from any page.
+  const [hasUnreadTutorMessages, setHasUnreadTutorMessages] = useState(false);
   const [adminTutorRelationships, setAdminTutorRelationships] = useState([]);
   const [adminTutorRelationshipsLoading, setAdminTutorRelationshipsLoading] = useState(false);
-  // AscendSAT-admin console (Manage Tutors) — grant the tutor role by email.
+  // AscendSAT-admin console (Manage Tutors) — grant the tutor role by email,
+  // and list every tutor account that's ever been granted one.
   const [tutorGrantEmail, setTutorGrantEmail] = useState("");
   const [tutorGrantLoading, setTutorGrantLoading] = useState(false);
   const [tutorGrantMessage, setTutorGrantMessage] = useState("");
+  const [manageTutorsList, setManageTutorsList] = useState([]);
+  const [manageTutorsListLoading, setManageTutorsListLoading] = useState(false);
+  // Student roster for the Manage Tutors screen: rosterByTutor maps
+  // tutorUid -> that tutor's active (non-completed) students; waitlist is
+  // every tutorPurchases doc still unmatched (the same set the "Match
+  // Students" queue works off of — there's no separate waitlist collection,
+  // see loadManageTutorsList).
+  const [tutorRosterByTutor, setTutorRosterByTutor] = useState({});
+  const [tutorWaitlist, setTutorWaitlist] = useState([]);
+  // Admin dashboard tutoring-overview counters — see loadManageTutorsList.
+  const [tutorRequestedCount, setTutorRequestedCount] = useState(0);
+  const [tutorOpenSpots, setTutorOpenSpots] = useState(0);
+  const [removingTutorUid, setRemovingTutorUid] = useState(null);
+  // Per-tutor capacity override (default 2 students, see api/tutor.js's
+  // DEFAULT_TUTOR_CAPACITY) — keyed by tutorUid so each row's input is
+  // independent; only populated once the admin starts editing a row.
+  const [tutorCapacityDraft, setTutorCapacityDraft] = useState({});
+  const [savingCapacityUid, setSavingCapacityUid] = useState(null);
+  // Tutor's own "Complete" flow — type-to-confirm rather than a bare button,
+  // so it can't be triggered by a stray tap.
+  const [completingRelId, setCompletingRelId] = useState(null);
+  const [completeConfirmText, setCompleteConfirmText] = useState("");
+  const [completingInFlight, setCompletingInFlight] = useState(false);
 
   /* TEACHER/ORG PORTAL */
   const [orgSignupForm, setOrgSignupForm] = useState({
@@ -4522,6 +4599,26 @@ const transitionToView = (newView, direction = 1) => {
   });
 };
 
+// Guards against viewTransitionAnim/viewSlideAnim getting stuck at 0
+// (invisible) forever. transitionToView fades them 1→0, calls setView(),
+// then fades 0→1 as part of one continuous animation — but the app also
+// has plenty of plain setView() calls that don't go through
+// transitionToView at all (e.g. the whole admin console, openTutorChat,
+// openTutorChatAsAdmin). If one of those fires while the values happen to
+// be sitting at 0 from an unrelated prior transition, every WebLayout-
+// wrapped screen after that renders with opacity: 0 — content invisible,
+// but the sidebar (outside that animated wrapper) still shows fine. That
+// was the actual bug behind "Match Students is blank" and "admin can't see
+// messages". isTransitioning.current is only true while transitionToView's
+// own animation is actually in flight, so this only ever snaps the values
+// back for a *plain* setView() — a real transitionToView fade is untouched.
+useEffect(() => {
+  if (!isTransitioning.current) {
+    viewTransitionAnim.setValue(1);
+    viewSlideAnim.setValue(1);
+  }
+}, [view]);
+
 const heroAnim = useRef(new Animated.Value(0)).current;
 const isNative = Platform.OS !== "web";
 const heroLine1Anim = useRef(new Animated.Value(0)).current;
@@ -4714,6 +4811,15 @@ const [domainHub, setDomainHub] = useState(null);
   /* SCORE HISTORY */
   const [scoreHistory, setScoreHistory] = useState([]);
   const [historyLoading, setHistoryLoading] = useState(false);
+  // Hide-not-delete for past quizzes (Score History) — students can hide a
+  // quiz from their own default list without losing the underlying data
+  // (still counts toward mastery/analytics/streaks, same as before). A
+  // second "Hidden" tab on the same screen lists exactly what's hidden, so
+  // nothing is ever truly inaccessible, just decluttered.
+  const [historyShowHidden, setHistoryShowHidden] = useState(false);
+  const [historyHideBusyId, setHistoryHideBusyId] = useState(null);
+  const [selectedHistoryEntry, setSelectedHistoryEntry] = useState(null);
+  const [historyExpandedIndex, setHistoryExpandedIndex] = useState(null);
 
   /* AUTOPILOT SESSION ENGINE */
   const [autopilotEnabled, setAutopilotEnabled] = useState(false);
@@ -4732,6 +4838,27 @@ const [domainHub, setDomainHub] = useState(null);
   // alone made them wider than their card and let the right edge clip off.
   const [growthColumnWidth, setGrowthColumnWidth] = useState(0);
 
+  /* PROVE MASTERY */
+  const [proveMasteryDomain, setProveMasteryDomain] = useState(null);
+  const [proveMasteryPhase, setProveMasteryPhase] = useState("intro"); // intro | testing | verifying | result
+  const [proveMasteryPlan, setProveMasteryPlan] = useState(null);
+  const [proveMasteryQuestions, setProveMasteryQuestions] = useState([]);
+  const [proveMasteryAnswers, setProveMasteryAnswers] = useState([]);
+  const [proveMasteryCurrentQ, setProveMasteryCurrentQ] = useState(0);
+  const [proveMasteryVerdict, setProveMasteryVerdict] = useState(null);
+  const [proveMasteryError, setProveMasteryError] = useState(null);
+
+  /* WEAKNESS -> STRENGTH TIMELINE */
+  // Keyed by domain so switching between domains on the Growth screen
+  // doesn't refetch one already loaded this session.
+  const [masteryTimelines, setMasteryTimelines] = useState({});
+  const [masteryTimelineLoading, setMasteryTimelineLoading] = useState(false);
+
+  /* AI PROJECTED SCORE INTELLIGENCE */
+  const [scoreProjectionHistory, setScoreProjectionHistory] = useState(null); // null = not loaded yet, [] = loaded/empty
+  const [projectionStyleModalVisible, setProjectionStyleModalVisible] = useState(false);
+  const [projectionStyleModalDismissed, setProjectionStyleModalDismissed] = useState(false);
+
 /* AI STUDY BOT */
 const [studyBotVisible, setStudyBotVisible] = useState(false);
 const [botMessages, setBotMessages] = useState([
@@ -4739,6 +4866,11 @@ const [botMessages, setBotMessages] = useState([
 ]);
 const [botInput, setBotInput] = useState("");
 const [botLoading, setBotLoading] = useState(false);
+// Set from Casper's own hidden [[resolved: yes/no]] self-assessment tag
+// (see sendBotMessage) — highlights the always-visible "Talk to a tutor"
+// button rather than gating its existence.
+const [botStuckSignal, setBotStuckSignal] = useState(false);
+const [escalatingToTutor, setEscalatingToTutor] = useState(false);
 const botScrollRef = useRef(null);
 // Teach-the-AI-student session: { concept, questionId, messages[], input, loading, awarded }
 const [teachBack, setTeachBack] = useState(null);
@@ -4747,6 +4879,9 @@ const [teachBack, setTeachBack] = useState(null);
 const [globalStats, setGlobalStats] = useState({ totalUsers: 0, totalQuestionsAnswered: 0 });
 const [adminAnalytics, setAdminAnalytics] = useState(null);
 const [adminAnalyticsLoading, setAdminAnalyticsLoading] = useState(false);
+const [userDirectory, setUserDirectory] = useState([]);
+const [userDirectoryLoading, setUserDirectoryLoading] = useState(false);
+const [userDirectorySort, setUserDirectorySort] = useState({ key: "lastActiveAt", dir: "desc" });
 
 /* STREAK */
 const [streakData, setStreakData] = useState({ currentStreak: 0, longestStreak: 0, lastActiveDate: null });
@@ -5000,6 +5135,11 @@ const [sm2Items, setSm2Items] = useState({});
 
 /* AI MISTAKE EXPLANATIONS */
 const [aiExplanations, setAiExplanations] = useState({});
+// "Mistake DNA" — cached questionInsights/{sanitizedQuestionId} reads,
+// keyed by the UNSANITIZED questionId (matches how q.id/makeQuestionId is
+// used everywhere else in this file). null = fetched but no doc/no data;
+// undefined = not fetched yet.
+const [questionInsightsCache, setQuestionInsightsCache] = useState({});
 
 /* AI DAILY PLAN */
 const [dailyPlanItems, setDailyPlanItems] = useState([]);
@@ -5051,17 +5191,18 @@ useEffect(() => {
     setScreen("orgInviteLanding");
   }
 
-  // Stripe Checkout return (?tutorCheckout=success|cancel) — the redirect
-  // target after buying a class (api/tutor.js's createCheckoutSession).
-  // Credits are granted by stripe-webhook.js independently of this redirect
-  // completing, so this is purely a confirmation + refresh, not the source
-  // of truth for whether the purchase succeeded.
+  // Optional return redirect after paying via a Stripe Payment Link
+  // (?tutorCheckout=success|cancel) — only fires if a link's "after
+  // payment" setting is configured to redirect here; nothing depends on
+  // it. The purchase itself is recorded by stripe-webhook.js independently
+  // of this redirect ever happening, so this is purely a confirmation +
+  // refresh, not the source of truth for whether it succeeded.
   const tutorCheckoutParam = query.get("tutorCheckout");
   if (tutorCheckoutParam && !tutorCheckoutHandledRef.current && userId) {
     tutorCheckoutHandledRef.current = true;
     if (tutorCheckoutParam === "success") {
-      showAlert("Payment received!", "Your class credits will appear in a moment.");
-      loadMyTutorRelationships();
+      showAlert("Payment received!", "We'll match you with a tutor shortly.");
+      loadMyPendingPurchases();
     }
     setScreen("app");
     setView("studentTutoring");
@@ -5236,11 +5377,10 @@ useEffect(() => {
     loadAllOrgClasses();
   }
   if (view === "tutorOverview") { loadTutorProfile(); loadTutorRelationshipsList(); }
-  if (view === "studentTutoring") { loadClassOfferings(); loadMyTutorRelationships(); loadMyPendingPurchases(); }
+  if (view === "studentTutoring") { loadMyTutorRelationships(); loadMyPendingPurchases(); }
   if (view === "tutorStudents") loadTutorRelationshipsList();
-  if (view === "adminTutoringMessages") loadAdminTutorRelationships();
-  if (view === "adminMatchStudents") loadUnmatchedPurchases();
-  if (view === "adminClassOfferings") loadAdminClassOfferings();
+  if (view === "adminTutoringMessages") { loadAdminTutorRelationships(); loadUnmatchedPurchases(); }
+  if (view === "adminMatchStudents") { loadUnmatchedPurchases(); loadUnavailableRelationships(); }
   // One-time redirect into the setup wizard right after an org clears
   // approval — fires here (rather than at each of the many sign-in/routing
   // call sites that land on orgOverview) since this effect already reruns
@@ -5470,6 +5610,7 @@ const completeOAuthSignIn = async (cred, method) => {
     if (isNewAccount) {
       await bumpGlobalSignup(statsRef, statsSnap);
       await applyPendingReferralCode();
+      notifyAdminOfSignup();
     }
   } catch (e) {}
   const profile = await loadUserProfile(cred.user.uid);
@@ -5581,6 +5722,7 @@ const completeSignIn = async (uid, userEmail) => {
     if (isNewAccount) {
       await bumpGlobalSignup(statsRef, statsSnap);
       await applyPendingReferralCode();
+      notifyAdminOfSignup();
     }
   } catch (e) {}
   const profile = await loadUserProfile(uid);
@@ -5872,7 +6014,7 @@ const completeMagicLinkWebIfPresent = async () => {
   };
 
   // 1:1 Paid Tutoring — tutors/{uid} is the tutor's own public profile
-  // (bio/Calendly link/active); firestore.rules lets the tutor write it
+  // (bio/active); firestore.rules lets the tutor write it
   // directly (isOwner(tutorUid)), same as any other self-owned doc, so this
   // is a plain client read/write unlike the credit balances in
   // tutorRelationships (those stay server-only, see api/tutor.js).
@@ -5886,7 +6028,6 @@ const completeMagicLinkWebIfPresent = async () => {
       if (data) {
         setTutorProfileDraft({
           bio: data.bio || "",
-          calendlyLink: data.calendlyLink || "",
           active: data.active !== false,
         });
       }
@@ -5904,7 +6045,6 @@ const completeMagicLinkWebIfPresent = async () => {
         doc(db, "tutors", userId),
         {
           bio: tutorProfileDraft.bio.trim(),
-          calendlyLink: tutorProfileDraft.calendlyLink.trim(),
           active: tutorProfileDraft.active,
         },
         { merge: true }
@@ -5915,19 +6055,6 @@ const completeMagicLinkWebIfPresent = async () => {
       showAlert("Error", "Could not save your tutor profile.");
     }
     setTutorProfileSaving(false);
-  };
-
-  // Student side — the shared class catalog (admin-managed via
-  // classOfferings, see the admin "Manage Class Offerings" screen).
-  const loadClassOfferings = async () => {
-    setClassOfferingsLoading(true);
-    try {
-      const snapshot = await getDocs(query(collection(db, "classOfferings"), where("active", "==", true)));
-      setClassOfferings(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
-    } catch (e) {
-      console.log("Load class offerings error:", e.message);
-    }
-    setClassOfferingsLoading(false);
   };
 
   // A student's own purchases still waiting for an admin to match them to
@@ -5957,7 +6084,6 @@ const completeMagicLinkWebIfPresent = async () => {
           try {
             const tutorSnap = await getDoc(doc(db, "tutors", rel.tutorUid));
             rel.tutorName = tutorSnap.exists() ? tutorSnap.data().displayName || "Tutor" : "Tutor";
-            rel.tutorCalendlyLink = tutorSnap.exists() ? tutorSnap.data().calendlyLink || "" : "";
           } catch (e) {
             rel.tutorName = "Tutor";
           }
@@ -5970,54 +6096,60 @@ const completeMagicLinkWebIfPresent = async () => {
     }
   };
 
-  // Kicks off payment for one class offering — no tutor involved, matching
-  // happens afterward (see api/tutor.js's matchTutor). On web this opens
-  // the embedded Stripe Checkout modal (see EmbeddedTutorCheckout below) —
-  // the modal itself calls createCheckoutSession lazily via
-  // fetchClientSecret. Native has no DOM to embed a Stripe iframe into, so
-  // it keeps the original flow: fetch a hosted Checkout URL and hand off to
-  // the system browser. Either way, the purchase lands as an unmatched
-  // tutorPurchases record via stripe-webhook.js once payment completes, not
-  // from this function.
-  const buyClassOffering = async (offeringId, offeringLabel) => {
-    if (!offeringId || tutorCheckoutLoadingId) return;
-    if (Platform.OS === "web") {
-      setEmbeddedCheckoutOffering({ id: offeringId, label: offeringLabel || "a class" });
-      return;
-    }
-    setTutorCheckoutLoadingId(offeringId);
-    try {
-      const result = await callTutorApi("createCheckoutSession", { offeringId, studentName: userProfile?.name || userName || "" });
-      if (result?.ok && result.url) {
-        await Linking.openURL(result.url);
-      } else {
-        showAlert("Error", result?.error || "Could not start checkout.");
-      }
-    } catch (e) {
-      console.log("Buy class offering error:", e.message);
-      showAlert("Error", "Could not start checkout.");
-    }
-    setTutorCheckoutLoadingId(null);
+  // Opens a Stripe Payment Link directly — no backend call, no in-app
+  // checkout at all. Appends client_reference_id so stripe-webhook.js can
+  // attribute the resulting purchase to this student (see
+  // TUTOR_PAYMENT_LINKS' comment for why that's the mechanism instead of
+  // custom metadata). Matching to a tutor happens afterward, admin-side.
+  const buyClassOffering = (paymentLinkUrl) => {
+    if (!paymentLinkUrl || !userId) return;
+    const separator = paymentLinkUrl.includes("?") ? "&" : "?";
+    Linking.openURL(`${paymentLinkUrl}${separator}client_reference_id=${encodeURIComponent(userId)}`);
   };
 
   // Tutor side — every relationship (student who's bought at least one
-  // class) for the signed-in tutor.
+  // class) for the signed-in tutor. Excludes anything this tutor has
+  // removed from their own screen (hiddenByTutor — see hideStudentAction;
+  // purely a per-tutor view filter, the admin/student sides ignore it
+  // entirely), and sorts most-recent-conversation-activity first
+  // (lastMessageAt, updated by every send — scheduling, Q&A, or meeting
+  // link — regardless of which side sent it, same "most recent chat on
+  // top" convention as any standard messaging inbox).
   const loadTutorRelationshipsList = async () => {
     if (!userId) return;
     setTutorRelationshipsListLoading(true);
     try {
       const snapshot = await getDocs(query(collection(db, "tutorRelationships"), where("tutorUid", "==", userId)));
-      setTutorRelationshipsList(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+      const toMillis = (ts) => (ts?.seconds ? ts.seconds * 1000 : (ts?.toMillis ? ts.toMillis() : 0));
+      const rels = snapshot.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((r) => !r.hiddenByTutor)
+        .sort((a, b) => toMillis(b.lastMessageAt) - toMillis(a.lastMessageAt));
+      setTutorRelationshipsList(rels);
     } catch (e) {
       console.log("Load tutor relationships error:", e.message);
     }
     setTutorRelationshipsListLoading(false);
   };
 
-  const openTutorChat = (relId, otherName, calendlyLink = "") => {
+  // Tutor-only "remove from my screen" — a pure declutter action, not
+  // Complete: doesn't free the capacity slot, doesn't notify anyone,
+  // doesn't touch credits/messages. Firestore rules allow a tutor to set
+  // only this field (and tutorLastReadAt) directly, same narrow carve-out
+  // as the unread-message marker, since it can't affect anyone else's data.
+  const hideStudentAction = async (relId) => {
+    try {
+      await updateDoc(doc(db, "tutorRelationships", relId), { hiddenByTutor: true });
+      setTutorRelationshipsList((prev) => prev.filter((r) => r.id !== relId));
+    } catch (e) {
+      console.log("Hide student error:", e.message);
+      showAlert("Error", "Could not remove that student from your screen.");
+    }
+  };
+
+  const openTutorChat = (relId, otherName) => {
     setActiveTutorChatRelId(relId);
     setActiveTutorChatOtherName(otherName);
-    setActiveTutorChatCalendlyLink(calendlyLink);
     setIsAdminViewingChat(false);
     setTutorChatTab("scheduling");
     setTutorChatInput("");
@@ -6030,25 +6162,27 @@ const completeMagicLinkWebIfPresent = async () => {
   const openTutorChatAsAdmin = (relId, otherName) => {
     setActiveTutorChatRelId(relId);
     setActiveTutorChatOtherName(otherName);
-    setActiveTutorChatCalendlyLink("");
     setIsAdminViewingChat(true);
     setTutorChatTab("scheduling");
     setView("tutorChat");
   };
 
-  // "Plan a meeting" — unlimited, direct client write (firestore.rules lets
-  // either participant create here, no quota to enforce).
+  // "Plan a meeting" — unlimited, no credits — but routed through
+  // api/tutor.js's sendSchedulingMessage (not a direct client addDoc
+  // anymore) specifically so the server can email the other participant;
+  // firestore.rules' allow write: if false on this subcollection now
+  // reflects that (see the rules comment there).
   const sendTutorSchedulingMessage = async () => {
     const text = tutorChatInput.trim();
     if (!text || !activeTutorChatRelId || tutorChatSending) return;
     setTutorChatSending(true);
     try {
-      await addDoc(collection(db, "tutorRelationships", activeTutorChatRelId, "schedulingMessages"), {
-        senderUid: userId,
-        text,
-        createdAt: serverTimestamp(),
-      });
-      setTutorChatInput("");
+      const result = await callTutorApi("sendSchedulingMessage", { relId: activeTutorChatRelId, text });
+      if (result?.ok) {
+        setTutorChatInput("");
+      } else {
+        showAlert("Error", result?.error || "Could not send message.");
+      }
     } catch (e) {
       console.log("Send scheduling message error:", e.message);
       showAlert("Error", "Could not send message.");
@@ -6056,25 +6190,101 @@ const completeMagicLinkWebIfPresent = async () => {
     setTutorChatSending(false);
   };
 
+  // Student-only: picks up to TUTOR_QA_MAX_IMAGES images to attach to the
+  // next Q&A question. Validates the file type client-side against
+  // TUTOR_QA_ACCEPTED_IMAGE_TYPES before queuing it — api/upload.js
+  // re-checks the exact same list server-side (via its
+  // tutor-qa-images/ path), this is just so a bad file gets an instant,
+  // friendly rejection instead of a round trip. Falls back to sniffing the
+  // filename extension when the browser/OS reports no MIME type at all
+  // (some pickers do this for HEIC specifically).
+  const pickQaImage = async () => {
+    if (qaAttachedImages.length >= TUTOR_QA_MAX_IMAGES) {
+      showAlert("Limit reached", `You can attach up to ${TUTOR_QA_MAX_IMAGES} images per question.`);
+      return;
+    }
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({ mediaTypes: ImagePicker.MediaTypeOptions.Images, quality: 0.8 });
+      if (result.canceled) return;
+      const asset = result.assets[0];
+      const blob = await (await fetch(asset.uri)).blob();
+      const nameOrUri = asset.fileName || asset.uri || "";
+      const contentType = (blob.type || "").toLowerCase() || (
+        /\.heic$/i.test(nameOrUri) ? "image/heic" :
+        /\.jpe?g$/i.test(nameOrUri) ? "image/jpeg" :
+        /\.png$/i.test(nameOrUri) ? "image/png" : ""
+      );
+      if (!TUTOR_QA_ACCEPTED_IMAGE_TYPES.includes(contentType)) {
+        showAlert("File format not accepted", "We don't accept that file format. Please upload a PNG, HEIC, or JPG image.");
+        return;
+      }
+      setQaAttachedImages((prev) => [...prev, { uri: asset.uri, blob, contentType }]);
+    } catch (e) {
+      console.log("Pick QA image error:", e.message);
+      showAlert("Error", "Could not select that image.");
+    }
+  };
+
+  const removeQaImage = (index) => {
+    setQaAttachedImages((prev) => prev.filter((_, i) => i !== index));
+  };
+
   // "Ask a question" — routed through api/tutor.js's sendQaMessage, which is
-  // what actually enforces the 20-per-class quota (a direct client write
-  // here is blocked by firestore.rules).
+  // what actually enforces the question limit (20-per-class credits in paid
+  // mode, or the 5-message free-mode cap — a direct client write here is
+  // blocked by firestore.rules either way). Uploads any attached images
+  // first (reusing uploadImageAsset, the same helper org-logo/question-
+  // figure uploads already use) and sends their URLs alongside the text.
+  // Images can only ever go out attached to an actual message — there's no
+  // image-only send, by design (the Send button stays disabled with no
+  // text regardless of attachments — see the composer below).
   const sendTutorQaMessage = async () => {
     const text = tutorChatInput.trim();
     if (!text || !activeTutorChatRelId || tutorChatSending) return;
     setTutorChatSending(true);
     try {
-      const result = await callTutorApi("sendQaMessage", { relId: activeTutorChatRelId, text });
+      let imageUrls = [];
+      if (qaAttachedImages.length > 0) {
+        setQaImagesUploading(true);
+        imageUrls = await Promise.all(
+          qaAttachedImages.map((img, i) => {
+            const ext = img.contentType === "image/png" ? "png" : img.contentType.includes("heic") ? "heic" : "jpg";
+            const path = `tutor-qa-images/${activeTutorChatRelId}/${userId}/${Date.now()}_${i}.${ext}`;
+            return uploadImageAsset(path, img.blob, img.contentType);
+          })
+        );
+        setQaImagesUploading(false);
+      }
+      const result = await callTutorApi("sendQaMessage", { relId: activeTutorChatRelId, text, images: imageUrls });
       if (result?.ok) {
         setTutorChatInput("");
+        setQaAttachedImages([]);
       } else {
         showAlert("Error", result?.error || "Could not send message.");
       }
     } catch (e) {
       console.log("Send Q&A message error:", e.message);
-      showAlert("Error", "Could not send message.");
+      showAlert("Error", e.message || "Could not send message.");
     }
+    setQaImagesUploading(false);
     setTutorChatSending(false);
+  };
+
+  // Web-only: Enter sends the message, Shift+Enter inserts a newline
+  // instead (the TextInput below is `multiline`, so Shift+Enter's default
+  // browser behavior already does the right thing — this only needs to
+  // intercept a bare Enter and redirect it to Send instead of a newline).
+  // Native platforms fall through to RN's own default multiline behavior,
+  // untouched, since there's no equivalent physical-keyboard convention to
+  // hook there.
+  const handleTutorChatComposerKeyPress = (e) => {
+    if (Platform.OS !== "web") return;
+    const native = e.nativeEvent || {};
+    if (native.key === "Enter" && !native.shiftKey) {
+      if (typeof e.preventDefault === "function") e.preventDefault();
+      if (tutorChatTab === "qa") sendTutorQaMessage();
+      else sendTutorSchedulingMessage();
+    }
   };
 
   // Tutor-only: "I sent the Google Meet link" — routed through
@@ -6126,15 +6336,32 @@ const completeMagicLinkWebIfPresent = async () => {
 
   // Admin's "Match Students" queue — purchases waiting for a tutor, plus
   // every granted tutor account to assign one from.
+  // Also computes each tutor's current load/capacity (see
+  // loadManageTutorsList's identical computation) so both the Match
+  // Students and Needs Reassignment sections can show who has room and
+  // gray out anyone already full — the server re-checks this regardless
+  // (api/tutor.js's getTutorLoad/getTutorCapacity), this is just so the
+  // admin isn't clicking blind.
   const loadUnmatchedPurchases = async () => {
     setUnmatchedPurchasesLoading(true);
     try {
-      const [purchaseSnapshot, tutorSnapshot] = await Promise.all([
+      const [purchaseSnapshot, tutorSnapshot, relSnapshot] = await Promise.all([
         getDocs(query(collection(db, "tutorPurchases"), where("matched", "==", false))),
         getDocs(collection(db, "tutors")),
+        getDocs(collection(db, "tutorRelationships")),
       ]);
+      const loadByTutor = {};
+      relSnapshot.docs.forEach((d) => {
+        const rel = d.data();
+        if (rel.completed) return;
+        loadByTutor[rel.tutorUid] = (loadByTutor[rel.tutorUid] || 0) + 1;
+      });
       setUnmatchedPurchases(purchaseSnapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
-      setAllTutorsForMatching(tutorSnapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+      setAllTutorsForMatching(
+        tutorSnapshot.docs
+          .map((d) => ({ id: d.id, ...d.data(), load: loadByTutor[d.id] || 0 }))
+          .filter((t) => t.active !== false)
+      );
     } catch (e) {
       console.log("Load unmatched purchases error:", e.message);
     }
@@ -6162,57 +6389,117 @@ const completeMagicLinkWebIfPresent = async () => {
     setMatchingPurchaseId(null);
   };
 
-  // Admin's "Manage Class Offerings" — the Stripe-backed catalog, direct
-  // client writes since firestore.rules already gates classOfferings on
-  // isAdmin(), same pattern as approveOrganization's direct updateDoc.
-  const loadAdminClassOfferings = async () => {
-    setAdminClassOfferingsLoading(true);
+  // Admin's "Match Students" queue, other half: relationships whose tutor
+  // has marked themselves unavailable (api/tutor.js's markTutorUnavailable),
+  // waiting for a replacement. Reuses the same allTutorsForMatching list
+  // loadUnmatchedPurchases already populates.
+  const loadUnavailableRelationships = async () => {
+    setUnavailableRelationshipsLoading(true);
     try {
-      const snapshot = await getDocs(collection(db, "classOfferings"));
-      setAdminClassOfferings(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
+      const snapshot = await getDocs(query(collection(db, "tutorRelationships"), where("tutorUnavailable", "==", true)));
+      setUnavailableRelationships(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })));
     } catch (e) {
-      console.log("Load admin class offerings error:", e.message);
+      console.log("Load unavailable relationships error:", e.message);
     }
-    setAdminClassOfferingsLoading(false);
+    setUnavailableRelationshipsLoading(false);
   };
 
-  const saveNewOffering = async () => {
-    const priceDollars = parseFloat(newOfferingDraft.priceCents);
-    const priceCents = Number.isFinite(priceDollars) && priceDollars > 0 ? Math.round(priceDollars * 100) : 0;
-    const label = newOfferingDraft.label.trim();
-    const stripePriceId = newOfferingDraft.stripePriceId.trim();
-    const credits = parseInt(newOfferingDraft.messageCreditsPerClass, 10) || 20;
-    if (!label || priceCents <= 0 || !stripePriceId) {
-      showAlert("Missing info", "Label, price, and Stripe Price ID are all required.");
-      return;
-    }
-    setSavingNewOffering(true);
+  // Assigns a replacement tutor to a relationship flagged unavailable —
+  // routed through api/tutor.js's reassignTutor, which swaps tutorUid on
+  // the SAME relationship doc (so the new tutor inherits the existing
+  // schedulingMessages/qaMessages, credits, and unlock state untouched).
+  const reassignTutorAction = async (relId, newTutorUid) => {
+    if (reassigningRelId) return;
+    setReassigningRelId(relId);
     try {
-      await addDoc(collection(db, "classOfferings"), {
-        label,
-        priceCents,
-        stripePriceId,
-        messageCreditsPerClass: credits,
-        active: true,
-        createdAt: serverTimestamp(),
-      });
-      setNewOfferingDraft({ label: "", priceCents: "", stripePriceId: "", messageCreditsPerClass: "20" });
-      await loadAdminClassOfferings();
+      const result = await callTutorApi("reassignTutor", { relId, newTutorUid });
+      if (result?.ok) {
+        await loadUnavailableRelationships();
+      } else {
+        showAlert("Error", result?.error || "Could not reassign that relationship.");
+      }
     } catch (e) {
-      console.log("Save new offering error:", e.message);
-      showAlert("Error", "Could not save that offering.");
+      console.log("Reassign tutor error:", e.message);
+      showAlert("Error", "Could not reassign that relationship.");
     }
-    setSavingNewOffering(false);
+    setReassigningRelId(null);
   };
 
-  const toggleOfferingActive = async (offeringId, active) => {
+  // Tutor-only: flags one of their own relationships as needing a
+  // replacement tutor. Fires the admin alert email server-side (see
+  // api/tutor.js's markTutorUnavailable) — no client-side email step here.
+  const markTutorUnavailableAction = async (relId) => {
+    if (markingUnavailableRelId) return;
+    setMarkingUnavailableRelId(relId);
     try {
-      await updateDoc(doc(db, "classOfferings", offeringId), { active });
-      setAdminClassOfferings((prev) => prev.map((o) => (o.id === offeringId ? { ...o, active } : o)));
+      const result = await callTutorApi("markTutorUnavailable", { relId });
+      if (result?.ok) {
+        await loadTutorRelationshipsList();
+        showAlert("Marked unavailable", "AscendSAT has been notified and will match this student with a new tutor.");
+      } else {
+        showAlert("Error", result?.error || "Could not mark this relationship unavailable.");
+      }
     } catch (e) {
-      console.log("Toggle offering error:", e.message);
-      showAlert("Error", "Could not update that offering.");
+      console.log("Mark tutor unavailable error:", e.message);
+      showAlert("Error", "Could not mark this relationship unavailable.");
     }
+    setMarkingUnavailableRelId(null);
+  };
+
+  // Student-facing counterpart to buyClassOffering, used only while
+  // config/tutoring.paymentsEnabled is false (see the studentTutoring view)
+  // — routed through api/tutor.js's requestFreeTutor, which re-checks that
+  // flag server-side so this can't be called to get a free tutor while
+  // payments are actually on.
+  const requestFreeTutorAction = async () => {
+    const helpTopic = freeTutorHelpTopic.trim();
+    if (requestingFreeTutor || !helpTopic) return;
+    setRequestingFreeTutor(true);
+    try {
+      const result = await callTutorApi("requestFreeTutor", { helpTopic });
+      if (result?.ok) {
+        setFreeTutorHelpTopic("");
+        await loadMyPendingPurchases();
+      } else {
+        showAlert("Error", result?.error || "Could not request a tutor right now.");
+      }
+    } catch (e) {
+      console.log("Request free tutor error:", e.message);
+      showAlert("Error", "Could not request a tutor right now.");
+    }
+    setRequestingFreeTutor(false);
+  };
+
+  // Casper "Talk to a tutor" escalation — deliberately a SEPARATE action from
+  // requestFreeTutor rather than that same call with a bypass flag, so
+  // there's no client-reachable way to skip the Stripe gate on a normal
+  // request. Always creates a free/unlimited waitlist entry regardless of
+  // config/tutoring.paymentsEnabled — a support safety net, not a paid-flow
+  // substitute (see api/tutor.js's handleEscalateCasperToTutor). The
+  // student's recently-missed questions are computed server-side (from the
+  // real scores collection, not trusted client state) — see
+  // getRecentWrongAnswersForStudent in api/tutor.js.
+  const escalateToTutorAction = async () => {
+    if (escalatingToTutor) return;
+    setEscalatingToTutor(true);
+    try {
+      const transcript = botMessages.slice(-20).map((m) => ({ role: m.role, content: m.content }));
+      const result = await callTutorApi("escalateCasperToTutor", { transcript });
+      if (result?.ok) {
+        setBotMessages((prev) => [...prev, { role: "assistant", content: "I've connected you with a tutor — check the Tutoring tab, we'll email you once you're matched." }]);
+        setBotStuckSignal(false);
+        // A showAlert confirmation too (not just the Casper message above) —
+        // this same action is also reachable from the practice-quiz tool bar,
+        // where the Casper panel isn't open to show that message in.
+        showAlert("Connected!", "We've matched your request with a tutor — check the Tutoring tab, and check your email (including spam) once you're matched.");
+      } else {
+        showAlert("Error", result?.error || "Could not connect you with a tutor right now.");
+      }
+    } catch (e) {
+      console.log("Escalate to tutor error:", e.message);
+      showAlert("Error", "Could not connect you with a tutor right now.");
+    }
+    setEscalatingToTutor(false);
   };
 
   // Admin-only: grants the tutor role to an existing account by email — a
@@ -6229,6 +6516,7 @@ const completeMagicLinkWebIfPresent = async () => {
       if (result?.ok) {
         setTutorGrantMessage(`Granted tutor role to ${trimmed}.`);
         setTutorGrantEmail("");
+        await loadManageTutorsList();
       } else {
         setTutorGrantMessage(result?.error || "Could not grant tutor role.");
       }
@@ -6237,6 +6525,130 @@ const completeMagicLinkWebIfPresent = async () => {
       setTutorGrantMessage("Could not grant tutor role.");
     }
     setTutorGrantLoading(false);
+  };
+
+  // Every tutor account that's ever been granted the role — tutors/{uid} is
+  // public-read per firestore.rules, so this is a plain unfiltered list.
+  // Also computes each tutor's current load (active relationships, i.e. not
+  // marked completed) against their capacity (default 2, admin-overridable
+  // — see api/tutor.js's DEFAULT_TUTOR_CAPACITY/getTutorLoad, which this
+  // mirrors) so the admin can see who has room before assigning a match.
+  const loadManageTutorsList = async () => {
+    setManageTutorsListLoading(true);
+    try {
+      const [tutorSnapshot, relSnapshot, purchaseSnapshot] = await Promise.all([
+        getDocs(collection(db, "tutors")),
+        getDocs(collection(db, "tutorRelationships")),
+        getDocs(collection(db, "tutorPurchases")),
+      ]);
+      const loadByTutor = {};
+      const rosterByTutor = {};
+      relSnapshot.docs.forEach((d) => {
+        const rel = d.data();
+        if (rel.completed) return;
+        loadByTutor[rel.tutorUid] = (loadByTutor[rel.tutorUid] || 0) + 1;
+        if (!rosterByTutor[rel.tutorUid]) rosterByTutor[rel.tutorUid] = [];
+        rosterByTutor[rel.tutorUid].push({
+          id: d.id,
+          studentName: rel.studentName || "Student",
+          helpTopic: rel.helpTopic || "",
+          tutorUnavailable: !!rel.tutorUnavailable,
+        });
+      });
+      const activeTutors = tutorSnapshot.docs
+        .map((d) => ({ id: d.id, ...d.data(), load: loadByTutor[d.id] || 0 }))
+        .filter((t) => t.active !== false);
+      const allPurchases = purchaseSnapshot.docs.map((d) => ({ id: d.id, ...d.data() }));
+      setManageTutorsList(
+        tutorSnapshot.docs.map((d) => ({ id: d.id, ...d.data(), load: loadByTutor[d.id] || 0 }))
+      );
+      setTutorRosterByTutor(rosterByTutor);
+      setTutorWaitlist(allPurchases.filter((p) => !p.matched));
+      // "Requested" is every tutorPurchases doc ever created (matched or
+      // not) — total demand, not just what's currently waiting. "Open
+      // spots" only counts active tutors — a removed tutor's stale
+      // capacity shouldn't read as room to match into.
+      setTutorRequestedCount(allPurchases.length);
+      setTutorOpenSpots(
+        activeTutors.reduce((sum, t) => {
+          const capacity = typeof t.capacity === "number" && t.capacity > 0 ? t.capacity : 2;
+          return sum + Math.max(capacity - t.load, 0);
+        }, 0)
+      );
+    } catch (e) {
+      console.log("Load manage tutors list error:", e.message);
+    }
+    setManageTutorsListLoading(false);
+  };
+
+  // Admin-only: the inverse of grantTutorRole — see api/tutor.js's
+  // removeTutorRole for what this actually does (revokes the role, marks
+  // tutors/{uid} inactive, leaves existing relationships/history alone).
+  const removeTutorRole = async (tutorUid) => {
+    setRemovingTutorUid(tutorUid);
+    try {
+      const result = await callTutorApi("removeTutorRole", { tutorUid });
+      if (result?.ok) {
+        await loadManageTutorsList();
+      } else {
+        showAlert("Error", result?.error || "Could not remove that tutor.");
+      }
+    } catch (e) {
+      console.log("Remove tutor role error:", e.message);
+      showAlert("Error", "Could not remove that tutor.");
+    }
+    setRemovingTutorUid(null);
+  };
+
+  // Admin-only: overrides a tutor's default 2-student capacity — see
+  // api/tutor.js's setTutorCapacity/DEFAULT_TUTOR_CAPACITY.
+  const setTutorCapacityAction = async (tutorUid) => {
+    const draft = tutorCapacityDraft[tutorUid];
+    const parsed = Number(draft);
+    if (!draft || !Number.isInteger(parsed) || parsed < 1) {
+      showAlert("Invalid capacity", "Enter a whole number of at least 1.");
+      return;
+    }
+    setSavingCapacityUid(tutorUid);
+    try {
+      const result = await callTutorApi("setTutorCapacity", { tutorUid, capacity: parsed });
+      if (result?.ok) {
+        setTutorCapacityDraft((prev) => { const next = { ...prev }; delete next[tutorUid]; return next; });
+        await loadManageTutorsList();
+      } else {
+        showAlert("Error", result?.error || "Could not update capacity.");
+      }
+    } catch (e) {
+      console.log("Set tutor capacity error:", e.message);
+      showAlert("Error", "Could not update capacity.");
+    }
+    setSavingCapacityUid(null);
+  };
+
+  // Tutor-only: closes out an engagement (frees the capacity slot) once the
+  // student has typed the literal word "Complete" to confirm — see
+  // api/tutor.js's completeRelationship, which re-checks that exact text
+  // server-side too.
+  const completeRelationshipAction = async (relId) => {
+    if (completeConfirmText.trim() !== "Complete") {
+      showAlert("Not confirmed", 'Type "Complete" exactly to confirm.');
+      return;
+    }
+    setCompletingInFlight(true);
+    try {
+      const result = await callTutorApi("completeRelationship", { relId, confirmText: completeConfirmText.trim() });
+      if (result?.ok) {
+        setCompletingRelId(null);
+        setCompleteConfirmText("");
+        await loadTutorRelationshipsList();
+      } else {
+        showAlert("Error", result?.error || "Could not complete this relationship.");
+      }
+    } catch (e) {
+      console.log("Complete relationship error:", e.message);
+      showAlert("Error", "Could not complete this relationship.");
+    }
+    setCompletingInFlight(false);
   };
 
   const saveUserProfile = async (uid, data, test = activeTestRef.current) => {
@@ -6618,6 +7030,22 @@ const completeMagicLinkWebIfPresent = async () => {
     return unsubscribe;
   }, []);
 
+  // Admin's payments-on/off toggle for 1:1 Tutoring (config/tutoring —
+  // same public-read/admin-write collection as the "what's new" popup, see
+  // firestore.rules' config/{docId} match). Live-subscribed, not a one-shot
+  // read, so an admin flipping it updates every open student's
+  // studentTutoring screen immediately without a refresh. Missing doc =
+  // enabled (today's existing paid behavior), matching api/tutor.js's
+  // isTutoringPaymentsEnabled default.
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      doc(db, "config", "tutoring"),
+      (snap) => setTutoringPaymentsEnabled(snap.exists() ? snap.data().paymentsEnabled !== false : true),
+      (e) => console.log("Tutoring config load error:", e.message)
+    );
+    return unsubscribe;
+  }, []);
+
   /* ---------------- 1:1 PAID TUTORING CHAT ---------------- */
 
   // Live message list for whichever tab is open on the tutorChat screen —
@@ -6652,6 +7080,49 @@ const completeMagicLinkWebIfPresent = async () => {
     });
     return () => unsubscribe();
   }, [activeTutorChatRelId, view]);
+
+  // Global unread-message watcher for the sidebar red dot — active for the
+  // whole session (not just while the chat screen is open), since a new
+  // message can arrive any time. Watches every tutorRelationships doc the
+  // signed-in user is a participant in, on either side (a plain query can't
+  // OR studentUid/tutorUid, so this runs two listeners and merges them).
+  useEffect(() => {
+    if (!userId) { setHasUnreadTutorMessages(false); return; }
+    let studentSideUnread = false;
+    let tutorSideUnread = false;
+    const recompute = () => setHasUnreadTutorMessages(studentSideUnread || tutorSideUnread);
+    const anyUnread = (docs, readField) =>
+      docs.some((d) => {
+        const data = d.data();
+        if (!data.lastMessageAt) return false;
+        return !data[readField] || data.lastMessageAt.toMillis() > data[readField].toMillis();
+      });
+    const unsubStudent = onSnapshot(query(collection(db, "tutorRelationships"), where("studentUid", "==", userId)), (snap) => {
+      studentSideUnread = anyUnread(snap.docs, "studentLastReadAt");
+      recompute();
+    });
+    const unsubTutor = onSnapshot(query(collection(db, "tutorRelationships"), where("tutorUid", "==", userId)), (snap) => {
+      tutorSideUnread = anyUnread(snap.docs, "tutorLastReadAt");
+      recompute();
+    });
+    return () => { unsubStudent(); unsubTutor(); };
+  }, [userId]);
+
+  // Marks the open chat's relationship as read for whichever side the user
+  // is on, the moment its doc first loads for this screen visit — a direct
+  // client write is safe here (firestore.rules only lets each participant
+  // touch their own *LastReadAt field, nothing else) so it doesn't need a
+  // server round-trip like the credit-affecting actions do. Depends on
+  // !!activeTutorChatRel rather than the object itself so later balance
+  // updates on the same doc don't re-fire this.
+  useEffect(() => {
+    if (!activeTutorChatRelId || view !== "tutorChat" || isAdminViewingChat || !activeTutorChatRel) return;
+    const isStudentSide = activeTutorChatRel.studentUid === userId;
+    const isTutorSide = activeTutorChatRel.tutorUid === userId;
+    if (!isStudentSide && !isTutorSide) return;
+    const field = isStudentSide ? "studentLastReadAt" : "tutorLastReadAt";
+    updateDoc(doc(db, "tutorRelationships", activeTutorChatRelId), { [field]: serverTimestamp() }).catch((e) => console.log("Mark tutor chat read error:", e.message));
+  }, [activeTutorChatRelId, view, isAdminViewingChat, !!activeTutorChatRel]);
 
   useEffect(() => {
   if (screen === "landing") {
@@ -6793,6 +7264,34 @@ useEffect(() => {
 
   const makeQuestionId = (q) => `${q.domain}||${q.difficulty}||${(q.question || "").slice(0, 60)}`;
 
+  // "Mistake DNA" per-attempt log — a flat, queryable collection alongside
+  // the existing `scores` docs, since Firestore can't query "which scores
+  // docs have a `questions` array entry with this id" (array-contains needs
+  // exact value match, and userAnswer varies per doc). Written best-effort
+  // from every place a scores doc gets saved, mirroring the existing
+  // fire-and-forget callReferralApi/awardXp pattern — never blocks the
+  // actual save. Callers are responsible for only passing entries with a
+  // REAL question behind them (id/domain from an actual question-bank
+  // item) — several saveActivityScore call sites (teach-back, etc.) pass
+  // synthetic placeholder objects with no real question text, which would
+  // otherwise all hash to the same fake id and pollute co-occurrence data.
+  const logQuestionAttempts = (entries) => {
+    if (!userId) return;
+    const usable = (entries || []).filter((e) => e && e.questionId && e.domain);
+    if (!usable.length) return;
+    Promise.all(
+      usable.map((e) =>
+        addDoc(collection(db, "questionAttempts"), {
+          questionId: e.questionId,
+          domain: e.domain,
+          userId,
+          correct: !!e.correct,
+          createdAt: serverTimestamp(),
+        })
+      )
+    ).catch((err) => console.log("Question attempt log error:", err.message));
+  };
+
   const loadSm2Items = async (uid) => {
     const resolvedUid = uid || userId;
     if (!resolvedUid) return;
@@ -6818,6 +7317,32 @@ useEffect(() => {
   const saveScore = async (finalScore, questions, answers, totalTime) => {
     if (!userId) return;
     try {
+      const questionsPayload = questions.map((q, i) => {
+        const qid = makeQuestionId(q);
+        // FRQ rows have no choices/answer — Firestore rejects `undefined` fields,
+        // so store the grading result shape instead.
+        if (q.format === "frq") {
+          const grade = frqGrades[i];
+          return {
+            id: qid, question: q.question, format: "frq", rubric: q.rubric || "",
+            userText: buildFrqAnswerTextFromParts(q, frqTexts[i]), points: grade?.points ?? 0, maxPoints: grade?.maxPoints ?? 1,
+            explanation: grade?.feedback || "", domain: q.domain, difficulty: q.difficulty || "Medium",
+            questionType: "FRQ", timeSpent: questionTimes[i] || 0,
+          };
+        }
+        return {
+          id: qid,
+          question: q.question,
+          choices: q.choices,
+          correctAnswer: q.answer,
+          userAnswer: answers[i] ?? -1,
+          explanation: q.explanation,
+          domain: q.domain,
+          difficulty: q.difficulty,
+          questionType: q.questionType,
+          timeSpent: questionTimes[i] || 0,
+        };
+      });
       const scoreRef = await addDoc(collection(db, "scores"), {
         userId,
         testType: activeTestRef.current,
@@ -6833,37 +7358,32 @@ useEffect(() => {
           apClass: sectionForDomain(questions[0]?.domain)?.id || null,
           apScore: activeCfg.sectionScoreFromAccuracy(questions.length ? finalScore / questions.length : 0),
         } : {}),
-        questions: questions.map((q, i) => {
-          const qid = makeQuestionId(q);
-          // FRQ rows have no choices/answer — Firestore rejects `undefined` fields,
-          // so store the grading result shape instead.
-          if (q.format === "frq") {
-            const grade = frqGrades[i];
-            return {
-              id: qid, question: q.question, format: "frq", rubric: q.rubric || "",
-              userText: buildFrqAnswerTextFromParts(q, frqTexts[i]), points: grade?.points ?? 0, maxPoints: grade?.maxPoints ?? 1,
-              explanation: grade?.feedback || "", domain: q.domain, difficulty: q.difficulty || "Medium",
-              questionType: "FRQ", timeSpent: questionTimes[i] || 0,
-            };
-          }
-          return {
-            id: qid,
-            question: q.question,
-            choices: q.choices,
-            correctAnswer: q.answer,
-            userAnswer: answers[i] ?? -1,
-            explanation: q.explanation,
-            domain: q.domain,
-            difficulty: q.difficulty,
-            questionType: q.questionType,
-            timeSpent: questionTimes[i] || 0,
-          };
-        }),
+        questions: questionsPayload,
         createdAt: serverTimestamp(),
         ...(activeAssignmentIdRef.current ? { assignmentId: activeAssignmentIdRef.current } : {}),
       });
       callReferralApi("credit", { scoreId: scoreRef.id });
       updateDoc(doc(db, "users", userId), { lastActiveAt: serverTimestamp(), questionsAnsweredTotal: increment(questions.length) }).catch(() => {});
+      logQuestionAttempts(questionsPayload.map((q) => ({
+        questionId: q.id,
+        domain: q.domain,
+        correct: q.format === "frq" ? q.points >= q.maxPoints : q.userAnswer === q.correctAnswer,
+      })));
+
+      // Widen the skillStats refresh (previously Autopilot-only) to regular
+      // quizzes too, so mastery/org "weakest domain" reports reflect all
+      // practice, not just Autopilot sessions. loadScoreHistory() runs right
+      // after every saveScore call site anyway, so this is a best-effort
+      // immediate update — it'll be superseded by the authoritative reload.
+      const updatedHistory = [{ questions: questionsPayload, createdAt: { seconds: Math.floor(Date.now() / 1000) } }, ...scoreHistory];
+      const skillScores = computeSkillScoresFromHistory(updatedHistory);
+      const skillStats = {};
+      skillScores.forEach((s) => {
+        skillStats[s.domain] = { accuracy: s.accuracy, total: s.total, priority: Math.round(s.priority * 100) / 100, masteryPct: s.masteryPct, confidence: s.confidence, status: s.status };
+      });
+      logMasteryTransitions(skillScores, userProfile?.skillStats);
+      updateDoc(doc(db, "users", userId), testScopedPayload({ skillStats })).catch(() => {});
+      setUserProfile((prev) => ({ ...(prev || {}), skillStats }));
     } catch (e) {
       console.log("Failed to save score:", e.message);
     }
@@ -6891,6 +7411,26 @@ useEffect(() => {
     }
     setHistoryLoading(false);
   };
+
+  // Hide/unhide a past quiz — never deletes it. `scores` docs already allow
+  // an owner to update their own doc (firestore.rules: resource.data.userId
+  // == request.auth.uid), so no rule change is needed for this one extra
+  // field. Updates local state optimistically so the card moves
+  // tabs immediately instead of waiting on a full reload.
+  const toggleQuizHidden = async (entry) => {
+    if (historyHideBusyId === entry.id) return;
+    setHistoryHideBusyId(entry.id);
+    const nextHidden = !entry.hidden;
+    try {
+      await updateDoc(doc(db, "scores", entry.id), { hidden: nextHidden });
+      setScoreHistory((prev) => prev.map((e) => (e.id === entry.id ? { ...e, hidden: nextHidden } : e)));
+    } catch (e) {
+      console.log("Toggle quiz hidden error:", e.message);
+      showAlert("Error", "Could not update that quiz right now.");
+    }
+    setHistoryHideBusyId(null);
+  };
+
 const loadUsedQuestions = async (uid) => {
   const resolvedUid = uid || userId;
   if (!resolvedUid) return;
@@ -8570,6 +9110,7 @@ const loadAdminQuestions = async () => {
   useEffect(() => {
     if (view === "admin" && isAdmin) {
       loadAdminUserAnalytics();
+      loadManageTutorsList();
     }
   }, [view, isAdmin]);
 
@@ -8744,6 +9285,14 @@ const computeSessionXp = (questions, sessionPercent, streakCount) => {
         createdAt: serverTimestamp(),
       });
       updateDoc(doc(db, "users", userId), { lastActiveAt: serverTimestamp(), questionsAnsweredTotal: increment(total) }).catch(() => {});
+      // Only entries with real question text — several callers (teach-back,
+      // daily question) pass synthetic placeholder objects with no `question`
+      // field, which would otherwise all hash to the same fake questionId.
+      logQuestionAttempts(
+        questionsForXp
+          .filter((q) => q.question)
+          .map((q) => ({ questionId: makeQuestionId(q), domain: q.domain, correct: q.userAnswer === q.correctAnswer }))
+      );
     } catch (e) {
       console.log("Save activity score error:", e.message);
     }
@@ -8829,16 +9378,108 @@ const checkAndAwardBadges = async (freshHistory, freshStreak) => {
 // saved theta/sem as a fixed prior (sequential Bayesian update — see
 // lib/diagnosticScoring.ts). No-ops for AP (no IRT diagnostic exists) or
 // before any diagnostic has been taken.
+// AI Projected Score Intelligence: re-derives the section ability estimate
+// from the ORIGINAL diagnostic prior (never chains estimate-over-estimate,
+// per updateAbilityEstimate's own design) every time new evidence comes in,
+// then layers three things on top that didn't exist before: a categorical
+// confidence label (not just a numeric range), a real explanation for any
+// meaningful move, and a persisted history of the milestones (not every
+// wiggle). `projectionStyle` only changes how much correct-answer evidence
+// is weighted (PROJECTION_STYLE_EVIDENCE_WEIGHT's positiveMultiplier — wrong
+// answers always weigh in at 1.0 regardless of style) — it never adds or
+// subtracts points.
 const recomputeAbilityEstimate = async (freshHistory) => {
   if (!userId) return;
   const diag = userProfile?.diagnostic;
   if (!diag?.thetaValues || !diag?.semValues) return;
   try {
-    const buckets = buildPracticeResponseBuckets(freshHistory || scoreHistory, activeCfg);
+    const history = freshHistory || scoreHistory;
+    const style = PROJECTION_STYLE_EVIDENCE_WEIGHT[userProfile?.projectionStyle] ? userProfile.projectionStyle : DEFAULT_PROJECTION_STYLE;
+    const evidenceWeight = PROJECTION_STYLE_EVIDENCE_WEIGHT[style];
+    const now = Date.now();
+    const buckets = buildPracticeResponseBuckets(history, activeCfg, now, 21, evidenceWeight);
     const updated = updateAbilityEstimate(diag.thetaValues, diag.semValues, buckets, activeCfg);
-    await saveUserProfile(userId, {
-      currentAbilityEstimate: { ...updated, updatedAt: new Date().toISOString() },
+
+    // Confidence + explainability inputs — all derived from the same
+    // history already loaded for everything else on this screen, no new
+    // Firestore reads.
+    const skillScores = computeSkillScoresFromHistory(history);
+    const domainsWithSufficientMastery = skillScores.filter((s) => s.confidence === "medium" || s.confidence === "high").length;
+    const difficultiesSeen = new Set();
+    const daysSeen = new Set();
+    let timedCount = 0, untimedCount = 0, totalResponses = 0, lastTs = 0, hasFullPracticeTest = false;
+    history.forEach((entry) => {
+      if (entry.source === "fullTest") hasFullPracticeTest = true;
+      const ts = entry.createdAt?.seconds ? entry.createdAt.seconds * 1000 : (entry.createdAt?.toDate ? entry.createdAt.toDate().getTime() : 0);
+      if (ts > 0) { daysSeen.add(new Date(ts).toDateString()); if (ts > lastTs) lastTs = ts; }
+      (entry.questions || []).forEach((q) => {
+        const sec = activeCfg.sections.find((s) => s.domains.includes(q.domain));
+        if (!sec || !sec.inComposite) return;
+        totalResponses++;
+        if (q.timeSpent > 0) timedCount++; else untimedCount++;
+        if (q.difficulty) difficultiesSeen.add(q.difficulty);
+      });
     });
+    const { confidence } = computeProjectionConfidence({
+      totalResponses,
+      distinctDays: daysSeen.size,
+      hasTimedResponses: timedCount > 0,
+      hasUntimedResponses: untimedCount > 0,
+      difficultyBandsCovered: difficultiesSeen.size,
+      domainsWithSufficientMastery,
+      totalDomains: skillScores.length,
+      hasFullPracticeTest,
+      daysSinceLastActivity: lastTs > 0 ? Math.round((now - lastTs) / 86400000) : null,
+    });
+
+    const nextTotal = activeCfg.compositeFromSections(
+      activeCfg.sections.filter((s) => s.inComposite).map((s) => updated.sectionScores[s.label] || 0)
+    );
+    const prevEstimate = userProfile?.currentAbilityEstimate || null;
+    // Compare against the last LOGGED milestone, not the last raw recompute
+    // — otherwise a string of sub-threshold moves in the same direction
+    // could each individually look "not meaningful" and never get recorded,
+    // even though they add up to a real change.
+    const compositeAtLastLog = prevEstimate?.compositeAtLastLog ?? null;
+    const confidenceAtLastLog = prevEstimate?.confidenceAtLastLog ?? null;
+    const domainSnapshotAtLastLog = prevEstimate?.domainSnapshotAtLastLog || null;
+
+    const meaningful = isMeaningfulProjectionChange(compositeAtLastLog, nextTotal, confidenceAtLastLog, confidence);
+
+    const nextEstimate = {
+      ...updated,
+      total: nextTotal,
+      confidence,
+      projectionStyle: style,
+      updatedAt: new Date().toISOString(),
+      compositeAtLastLog: meaningful ? nextTotal : compositeAtLastLog,
+      confidenceAtLastLog: meaningful ? confidence : confidenceAtLastLog,
+      domainSnapshotAtLastLog: meaningful
+        ? Object.fromEntries(skillScores.map((s) => [s.domain, { accuracy: s.accuracy, masteryPct: s.masteryPct }]))
+        : domainSnapshotAtLastLog,
+    };
+    await saveUserProfile(userId, { currentAbilityEstimate: nextEstimate });
+
+    if (meaningful && userId) {
+      const domainDeltas = skillScores.map((s) => {
+        const prev = domainSnapshotAtLastLog?.[s.domain];
+        const deltaAccuracy = prev ? s.accuracy - prev.accuracy : 0;
+        const deltaMasteryPct = prev && prev.masteryPct != null && s.masteryPct != null ? s.masteryPct - prev.masteryPct : null;
+        return { domain: s.domain, deltaAccuracy, deltaMasteryPct, direction: deltaAccuracy > 2 ? "up" : deltaAccuracy < -2 ? "down" : "flat" };
+      });
+      const explanation = explainProjectionChange(compositeAtLastLog, nextTotal, domainDeltas);
+      addDoc(collection(db, "scoreProjectionHistory", userId, "entries"), {
+        testType: activeTestRef.current,
+        total: nextTotal,
+        sectionScores: updated.sectionScores,
+        confidenceRange: updated.confidenceRange,
+        confidence,
+        projectionStyle: style,
+        reason: explanation?.text || null,
+        direction: explanation?.direction || (compositeAtLastLog == null ? "initial" : nextTotal > compositeAtLastLog ? "up" : nextTotal < compositeAtLastLog ? "down" : "flat"),
+        createdAt: serverTimestamp(),
+      }).catch(() => {});
+    }
   } catch (e) {
     console.log("Ability estimate error:", e.message);
   }
@@ -8933,6 +9574,7 @@ const submitFullTest = () => {
   if (nextIndex >= FULL_TEST_MODULE_ORDER.length) {
     setFullTestPhase("results");
     updateStreak();
+    persistFullTestResult([...fullTestAllResults, ...moduleResults]);
     return;
   }
 
@@ -8956,6 +9598,104 @@ const submitFullTest = () => {
   } else {
     setFullTestModuleIndex(nextIndex);
     setFullTestPhase("moduleComplete");
+  }
+};
+
+// Full-length practice tests previously computed a Score Report screen and
+// discarded it — never written to Firestore, so they were invisible to
+// scoreHistory/Growth/streak-priority/org-reports/mastery even though they're
+// a student's richest single evidence source. Mirrors saveScore's shape (one
+// doc for the whole test, not one-per-question like Autopilot) and the Score
+// Report screen's own sectionCards/estTotal math so persisted numbers match
+// what's displayed. Full tests are MCQ-only today (no FRQ module exists), so
+// no FRQ branch is needed here unlike saveScore.
+const persistFullTestResult = async (allQ) => {
+  if (!userId || !allQ || allQ.length === 0) return;
+  try {
+    const sectionCards = [];
+    activeCfg.sections.forEach((s) => {
+      const qs = allQ.filter((fq) => s.domains.includes(fq.domain));
+      if (!qs.length) return;
+      const correct = qs.filter((fq) => fq.userAnswer === fq.answer).length;
+      sectionCards.push({ label: s.label, score: activeCfg.sectionScoreFromAccuracy(correct / qs.length), correct, total: qs.length, inComposite: s.inComposite });
+    });
+    const estTotal = activeCfg.compositeFromSections(sectionCards.filter((c) => c.inComposite).map((c) => c.score));
+    const totalCorrect = allQ.filter((fq) => fq.userAnswer === fq.answer).length;
+    const domains = [...new Set(allQ.map((fq) => fq.domain).filter(Boolean))];
+    const difficulties = [...new Set(allQ.map((fq) => fq.difficulty).filter(Boolean))];
+
+    const questionsPayload = allQ.map((fq) => ({
+      id: makeQuestionId(fq),
+      question: fq.question,
+      choices: fq.choices,
+      correctAnswer: fq.answer,
+      userAnswer: fq.userAnswer ?? -1,
+      explanation: fq.explanation,
+      domain: fq.domain,
+      difficulty: fq.difficulty,
+      questionType: fq.questionType,
+      // No per-question timer exists for full-length tests today (only the
+      // module-level countdown) — 0 is an honest "not measured", not a
+      // fabricated value. computeSkillScoresFromHistory already treats
+      // timeSpent<=0 as "not timed" and excludes it from avgTime.
+      timeSpent: 0,
+    }));
+
+    const scoreRef = await addDoc(collection(db, "scores"), {
+      userId,
+      testType: activeTestRef.current,
+      score: totalCorrect,
+      total: allQ.length,
+      percent: Math.round((totalCorrect / allQ.length) * 100),
+      domains,
+      difficulties,
+      section: "Full Test",
+      source: "fullTest",
+      compositeScore: estTotal,
+      sectionScores: sectionCards,
+      timeSeconds: 0,
+      questions: questionsPayload,
+      createdAt: serverTimestamp(),
+    });
+    callReferralApi("credit", { scoreId: scoreRef.id });
+    logQuestionAttempts(questionsPayload.map((q) => ({
+      questionId: q.id,
+      domain: q.domain,
+      correct: q.userAnswer === q.correctAnswer,
+    })));
+
+    const newEntry = {
+      id: scoreRef.id,
+      userId,
+      testType: activeTestRef.current,
+      score: totalCorrect,
+      total: allQ.length,
+      percent: Math.round((totalCorrect / allQ.length) * 100),
+      domains,
+      difficulties,
+      source: "fullTest",
+      compositeScore: estTotal,
+      sectionScores: sectionCards,
+      questions: questionsPayload,
+      createdAt: { seconds: Math.floor(Date.now() / 1000) },
+    };
+    const updatedHistory = [newEntry, ...scoreHistory];
+    setScoreHistory(updatedHistory);
+
+    const skillScores = computeSkillScoresFromHistory(updatedHistory);
+    const skillStats = {};
+    skillScores.forEach((s) => {
+      skillStats[s.domain] = { accuracy: s.accuracy, total: s.total, priority: Math.round(s.priority * 100) / 100, masteryPct: s.masteryPct, confidence: s.confidence, status: s.status };
+    });
+    logMasteryTransitions(skillScores, userProfile?.skillStats);
+    await updateDoc(doc(db, "users", userId), testScopedPayload({ skillStats, lastActiveAt: serverTimestamp(), questionsAnsweredTotal: increment(allQ.length) }));
+    setUserProfile((prev) => ({ ...(prev || {}), skillStats }));
+    // Full-length tests are the richest single evidence source (many
+    // questions, real difficulty spread) — previously invisible to the
+    // ability estimate entirely, since this path never persisted before.
+    await recomputeAbilityEstimate(updatedHistory);
+  } catch (e) {
+    console.log("Failed to save full test result:", e.message);
   }
 };
 
@@ -9618,12 +10358,19 @@ const sendBotMessage = async () => {
             role: "system",
             content: `After your reply, on its own final line, silently tag the single skill domain the student's LAST message is about, from this exact list: ${domainList.join(", ")}. Format exactly: [[topic: <exact domain name or NONE>]]. This line is stripped before the student sees it — never mention it or refer to it in your visible reply.`,
           }] : []),
+          {
+            role: "system",
+            content: `After that, on its own final line, silently self-assess whether your reply actually resolved the student's question (not just responded to it) — say no if you're still explaining, if the student seems confused or is repeating the question, or if this really needs a human tutor. Format exactly: [[resolved: yes]] or [[resolved: no]]. This line is stripped before the student sees it — never mention it or refer to it in your visible reply.`,
+          },
           ...newMessages.map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.content })),
     ], { maxTokens: 1000 });
 
     const rawReply = reply || "Sorry, I couldn't get a response. Try again!";
-    const tagMatch = rawReply.match(/\[\[topic:\s*([^\]]+?)\s*\]\]\s*$/i);
-    const displayReply = (tagMatch ? rawReply.slice(0, tagMatch.index).trim() : rawReply) || "Sorry, I couldn't get a response. Try again!";
+    const resolvedMatch = rawReply.match(/\[\[resolved:\s*(yes|no)\s*\]\]\s*$/i);
+    const withoutResolvedTag = resolvedMatch ? rawReply.slice(0, resolvedMatch.index).trim() : rawReply;
+    setBotStuckSignal(resolvedMatch ? resolvedMatch[1].toLowerCase() === "no" : false);
+    const tagMatch = withoutResolvedTag.match(/\[\[topic:\s*([^\]]+?)\s*\]\]\s*$/i);
+    const displayReply = (tagMatch ? withoutResolvedTag.slice(0, tagMatch.index).trim() : withoutResolvedTag) || "Sorry, I couldn't get a response. Try again!";
     setBotMessages(prev => [...prev, { role: "assistant", content: displayReply }]);
 
     const taggedDomain = tagMatch?.[1]?.trim();
@@ -10402,8 +11149,14 @@ const loadAdminFeedback = async () => {
     if (!hasDiagnosticScores()) return null;
     const { mathScore, rwScore, total, sectionScores, targetScore, pointsNeeded, daysLeft, gapContext } = generateStudyPlan();
     const confidenceRange = userProfile?.currentAbilityEstimate?.confidenceRange || userProfile?.diagnostic?.confidenceRange || null;
+    // Categorical confidence only exists once the ability estimate has run
+    // at least once (needs a real diagnostic + practice evidence) — a
+    // diagnostic-only snapshot with no practice yet has no basis for a
+    // High/Medium/Low label, so it's left null rather than guessed.
+    const confidence = userProfile?.currentAbilityEstimate?.confidence || null;
+    const projectionStyle = PROJECTION_STYLE_EVIDENCE_WEIGHT[userProfile?.projectionStyle] ? userProfile.projectionStyle : DEFAULT_PROJECTION_STYLE;
     return {
-      mathScore, rwScore, total, targetScore, pointsNeeded, daysLeft, gapContext, confidenceRange,
+      mathScore, rwScore, total, targetScore, pointsNeeded, daysLeft, gapContext, confidenceRange, confidence, projectionStyle,
       ...(activeTest !== "sat" ? { sectionScores } : {}),
     };
   };
@@ -10422,7 +11175,10 @@ const loadAdminFeedback = async () => {
   // is for tasks where getting it right matters more than speed and there's no
   // fallback if the model flubs it — FRQ grading and wrong-answer root-cause
   // analysis both hand a student a grade/explanation they'll act on directly.
-  const GROQ_MODEL_FAST = "llama-3.1-8b-instant";
+  // llama-3.1-8b-instant started 404ing ("model_not_found") for this account
+  // around 2026-09 (Groq moved it behind an Enterprise-only plan tier) —
+  // gpt-oss-20b is the fastest/cheapest currently-available replacement.
+  const GROQ_MODEL_FAST = "openai/gpt-oss-20b";
   const GROQ_MODEL_REASONING = "openai/gpt-oss-120b";
 
   const callGroqChat = async (messages, { maxTokens = 1000, model = GROQ_MODEL_FAST } = {}) => {
@@ -10558,6 +11314,43 @@ const loadAdminFeedback = async () => {
     } catch (e) {
       console.log("Tutor API error:", e.message);
       return { ok: false };
+    }
+  };
+
+  // Admin-only user directory (name/email/questions/time-spent/last-active/
+  // signup date) — server-side because firestore.rules' users/{uid} read is
+  // owner-only with no isAdmin() bypass (see api/tutor.js's
+  // handleGetUserDirectory for why that wasn't loosened instead). Routed
+  // through callTutorApi/api/tutor.js rather than its own file — this
+  // project is already at Vercel Hobby's 12-serverless-function cap.
+  const loadUserDirectory = async () => {
+    if (!isAdmin) return;
+    setUserDirectoryLoading(true);
+    try {
+      const result = await callTutorApi("getUserDirectory");
+      if (result?.ok) {
+        setUserDirectory(result.users || []);
+      } else {
+        console.log("User directory load error:", result?.error);
+      }
+    } catch (e) {
+      console.log("User directory load error:", e.message);
+    }
+    setUserDirectoryLoading(false);
+  };
+
+  // Fire-and-forget: alerts ascendsat@gmail.com whenever a genuinely new
+  // account is created (see api/notify-signup.js). Deliberately not awaited
+  // by any caller — this must never delay or break the signup flow it's
+  // attached to.
+  const NOTIFY_SIGNUP_API_URL = (Platform.OS === "web" && !isLocalWebDev ? "" : "https://ascendsat.vercel.app") + "/api/notify-signup";
+  const notifyAdminOfSignup = async () => {
+    try {
+      const headers = { "Content-Type": "application/json" };
+      if (auth.currentUser) headers.Authorization = `Bearer ${await auth.currentUser.getIdToken()}`;
+      await fetch(NOTIFY_SIGNUP_API_URL, { method: "POST", headers, body: JSON.stringify({}) });
+    } catch (e) {
+      console.log("Notify signup error:", e.message);
     }
   };
 
@@ -10819,6 +11612,23 @@ const loadAdminFeedback = async () => {
     }
   };
 
+  // "Mistake DNA" — lazy per-card fetch of the precomputed cross-student
+  // co-occurrence doc (api/cron-daily.js writes these nightly). Unlike
+  // fetchWrongAnswerExplanation above, this is a passive read of an
+  // already-computed doc, not an AI call — no loading/error UI needed
+  // beyond simply not rendering the card until data (or a null "no data
+  // yet") comes back.
+  const loadQuestionInsight = async (questionId) => {
+    if (questionInsightsCache[questionId] !== undefined) return;
+    try {
+      const snap = await getDoc(doc(db, "questionInsights", sanitizeQuestionId(questionId)));
+      setQuestionInsightsCache((prev) => ({ ...prev, [questionId]: snap.exists() ? snap.data() : null }));
+    } catch (e) {
+      console.log("Load question insight error:", e.message);
+      setQuestionInsightsCache((prev) => ({ ...prev, [questionId]: null }));
+    }
+  };
+
   const fetchWrongAnswerExplanation = async (m) => {
     const questionId = m.id || makeQuestionId(m);
     const cachedRaw = aiExplanations[questionId]?.analysis || userProfile?.aiExplanations?.[questionId];
@@ -10920,15 +11730,20 @@ const loadAdminFeedback = async () => {
     const now = Date.now();
     return activeCfg.allDomains.map(domain => {
       let total = 0, correct = 0, totalTime = 0, timedCount = 0, lastSeen = 0;
+      const masteryEntries = [];
       (history || []).forEach(entry => {
         if (!entry.questions) return;
+        const ts = entry.createdAt?.seconds ? entry.createdAt.seconds * 1000 : (entry.completedAt?.seconds ? entry.completedAt.seconds * 1000 : (entry.completedAt || 0));
         entry.questions.forEach(q => {
           if (q.domain !== domain) return;
           total++;
-          if (q.userAnswer === q.correctAnswer) correct++;
+          const isCorrect = q.userAnswer === q.correctAnswer;
+          if (isCorrect) correct++;
           if (q.timeSpent > 0) { totalTime += q.timeSpent; timedCount++; }
-          const ts = entry.createdAt?.seconds ? entry.createdAt.seconds * 1000 : (entry.completedAt?.seconds ? entry.completedAt.seconds * 1000 : (entry.completedAt || 0));
           if (ts > lastSeen) lastSeen = ts;
+          if (ts > 0) {
+            masteryEntries.push({ correct: isCorrect, difficulty: q.difficulty, timestamp: ts, questionId: q.id || q.questionId, format: q.format });
+          }
         });
       });
       const accuracy = total > 0 ? correct / total : 0.5;
@@ -10938,11 +11753,121 @@ const loadAdminFeedback = async () => {
       const weaknessScore = 1 - accuracy;
       const slowScore = Math.min(1, avgTime / 120);
       const priority = (weaknessScore * 0.6) + (slowScore * 0.2) + (recencyBonus * 0.2);
-      return { domain, accuracy: Math.round(accuracy * 100), avgTime: Math.round(avgTime), total, priority };
+      // Mastery Engine 2.0: a richer, difficulty/recency/confidence-aware
+      // score layered on top of the legacy accuracy/priority fields above —
+      // additive only, every existing consumer of this return shape (the
+      // legacy fields) keeps working unchanged. previousStatus comes from
+      // the last-persisted skillStats so "proved"/"mastered" domains don't
+      // get silently un-verified by a single bad session (see deriveStatus
+      // in lib/masteryEngine.js) — only a detected regression flips that.
+      const previousStatus = userProfile?.skillStats?.[domain]?.status || null;
+      const mastery = computeMasteryForDomain(masteryEntries, now, { previousStatus });
+      return {
+        domain, accuracy: Math.round(accuracy * 100), avgTime: Math.round(avgTime), total, priority,
+        masteryPct: mastery.masteryPct, confidence: mastery.confidence, status: mastery.status,
+        masteryBreakdown: mastery.breakdown, hardAttempts: mastery.hardAttempts, hardAccuracy: mastery.hardAccuracy,
+        distinctDays: mastery.distinctDays, daysSinceLast: mastery.daysSinceLast, regressed: mastery.regressed,
+      };
     }).sort((a, b) => b.priority - a.priority);
   };
 
   const computeSkillScores = () => computeSkillScoresFromHistory(scoreHistory);
+
+  // Weakness -> Strength: an append-only log of status changes, written only
+  // at the moment a domain's status actually flips (not on every render —
+  // computeSkillScoresFromHistory runs far too often for that). Called from
+  // each of the three skillStats write paths (saveScore, Autopilot, full
+  // test) right before they overwrite skillStats, so `previousSkillStats`
+  // is always the pre-update snapshot. Fire-and-forget, matching the
+  // best-effort write pattern already used for XP/streak updates elsewhere.
+  const logMasteryTransitions = (skillScores, previousSkillStats) => {
+    if (!userId) return;
+    skillScores.forEach((s) => {
+      if (!s.status || !s.total) return;
+      const prevStatus = previousSkillStats?.[s.domain]?.status || null;
+      if (s.status === prevStatus) return;
+      addDoc(collection(db, "masteryEvents", userId, "events"), {
+        domain: s.domain,
+        testType: activeTestRef.current,
+        type: "status_change",
+        fromStatus: prevStatus,
+        toStatus: s.status,
+        masteryPctAtTransition: s.masteryPct,
+        confidenceAtTransition: s.confidence,
+        createdAt: serverTimestamp(),
+      }).catch(() => {});
+    });
+  };
+
+  // Loads a domain's transition history for the Weakness -> Strength
+  // timeline, cached per-domain so switching back to an already-viewed
+  // domain in the same session doesn't refetch. Needs the composite index
+  // declared in firestore.indexes.json (domain asc, createdAt asc) — if
+  // that hasn't been deployed yet, this fails closed to an empty timeline
+  // rather than crashing the Growth screen.
+  const loadMasteryTimeline = async (domain) => {
+    if (!userId || !domain || masteryTimelines[domain]) return;
+    setMasteryTimelineLoading(true);
+    try {
+      const q = query(
+        collection(db, "masteryEvents", userId, "events"),
+        where("domain", "==", domain),
+        orderBy("createdAt", "asc")
+      );
+      const snap = await getDocs(q);
+      const events = snap.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((e) => (e.testType || "sat") === activeTestRef.current);
+      setMasteryTimelines((prev) => ({ ...prev, [domain]: events }));
+    } catch (e) {
+      console.log("Mastery timeline load error:", e.message);
+      setMasteryTimelines((prev) => ({ ...prev, [domain]: [] }));
+    }
+    setMasteryTimelineLoading(false);
+  };
+
+  useEffect(() => {
+    if (view === "growth" && selectedGrowthDomain) loadMasteryTimeline(selectedGrowthDomain);
+  }, [view, selectedGrowthDomain, userId]);
+
+  // Loads the Projected Score History (only the milestones recomputeAbilityEstimate
+  // actually logged, not every quiz — see isMeaningfulProjectionChange). Cached
+  // for the session; ordered by a single-field index (createdAt) so no new
+  // composite index is needed, with testType filtered client-side the same
+  // way loadScoreHistory already does for `scores`.
+  const loadScoreProjectionHistory = async () => {
+    if (!userId) return;
+    try {
+      const q = query(collection(db, "scoreProjectionHistory", userId, "entries"), orderBy("createdAt", "asc"));
+      const snap = await getDocs(q);
+      const entries = snap.docs
+        .map((d) => ({ id: d.id, ...d.data() }))
+        .filter((e) => (e.testType || "sat") === activeTestRef.current);
+      setScoreProjectionHistory(entries);
+    } catch (e) {
+      console.log("Score projection history load error:", e.message);
+      setScoreProjectionHistory([]);
+    }
+  };
+
+  useEffect(() => {
+    if (userId && (view === "growth" || view === "home") && scoreProjectionHistory === null) loadScoreProjectionHistory();
+  }, [view, userId, scoreProjectionHistory]);
+
+  // One-time preference prompt, shown the first time a projected score
+  // actually exists and the student hasn't chosen a style yet — not baked
+  // into the numbered onboarding step wizard (too many existing branches
+  // hard-reference exact step indices), but functionally the same "ask once,
+  // right when it's relevant" moment the product asks for.
+  useEffect(() => {
+    if (
+      screen === "app" && userId && userProfile && !userProfile.projectionStyle &&
+      !projectionStyleModalDismissed && !projectionStyleModalVisible &&
+      typeof hasDiagnosticScores === "function" && hasDiagnosticScores()
+    ) {
+      setProjectionStyleModalVisible(true);
+    }
+  }, [screen, userId, userProfile?.projectionStyle, projectionStyleModalDismissed]);
 
   // barKey -> domain name for the active test (inverse of cfg.domainToBarKey).
   const DOMAIN_BAR_MAP = Object.fromEntries(
@@ -10977,7 +11902,12 @@ const loadAdminFeedback = async () => {
       const weaknessScore = barVal > 0 ? (7 - barVal) / 7 : 0.5;
       const priority = weaknessScore * 0.7 + seedBoost;
       const accuracy = barVal > 0 ? Math.round((barVal / 7) * 100) : 50;
-      return { domain, accuracy, avgTime: 60, total: 0, priority };
+      // Cold start has zero real evidence — a self-reported 1-7 confidence
+      // bar is a fine seed for the legacy accuracy/priority fields (used for
+      // ordering what to practice first), but Mastery Engine 2.0 must never
+      // report a mastery% or non-insufficient confidence from a self-report
+      // alone, or "Avoid false precision" is violated on day one.
+      return { domain, accuracy, avgTime: 60, total: 0, priority, masteryPct: null, confidence: "insufficient", status: "weak", masteryBreakdown: null, hardAttempts: 0, hardAccuracy: null, distinctDays: 0, daysSinceLast: null, regressed: false };
     }).sort((a, b) => b.priority - a.priority);
   };
 
@@ -10987,6 +11917,15 @@ const loadAdminFeedback = async () => {
     return getColdStartSkillScores();
   };
 
+  // Mastery-aware ordering: a domain the Mastery Engine has flagged
+  // needsReview (regression on a previously proved/mastered skill) jumps to
+  // the very front — that's a "revisit now" signal stronger than raw
+  // priority. A domain that's already proved/mastered sinks to the back
+  // (behind even low-data unmeasured domains) since it's already earned its
+  // practice time — this is "when a skill should be removed from
+  // high-priority practice," not "never see it again" (see the periodic
+  // maintenance nudge in getNextActivity below, which deliberately still
+  // surfaces these occasionally).
   const getEffectiveWeakAreas = () => {
     const skillScores = getPrioritizedSkillScores();
     const personWeak = [...new Set([
@@ -10995,7 +11934,9 @@ const loadAdminFeedback = async () => {
     ])].filter((w) => SAT_DOMAINS_LIST.includes(w));
 
     const measured = skillScores.filter((s) => s.total >= 5).sort((a, b) => b.priority - a.priority);
-    const measuredDomains = measured.map((s) => s.domain);
+    const needsReviewDomains = measured.filter((s) => s.status === "needsReview").map((s) => s.domain);
+    const activeDomains = measured.filter((s) => s.status !== "needsReview" && s.status !== "proved" && s.status !== "mastered").map((s) => s.domain);
+    const masteredDomains = measured.filter((s) => s.status === "proved" || s.status === "mastered").map((s) => s.domain);
     const unmeasuredDomains = skillScores
       .filter((s) => s.total < 5)
       .sort((a, b) => {
@@ -11010,13 +11951,220 @@ const loadAdminFeedback = async () => {
 
     const seen = new Set();
     const result = [];
-    [...measuredDomains, ...unmeasuredDomains, ...personWeak].forEach((domain) => {
+    [...needsReviewDomains, ...activeDomains, ...unmeasuredDomains, ...masteredDomains, ...personWeak].forEach((domain) => {
       if (domain && !seen.has(domain)) {
         seen.add(domain);
         result.push(domain);
       }
     });
     return result;
+  };
+
+  /* ================================================================
+     PROVE MASTERY — dynamically verifies a "remediated" domain rather
+     than trusting the client-computed masteryPct alone. The final
+     VERIFIED/NOT_YET_VERIFIED verdict comes from api/prove-mastery.js
+     (server-side, re-reading Firestore itself), not from this client
+     code — see finishProveMasteryCheck below.
+     ================================================================ */
+
+  const getMasteryEntriesForDomain = (domain, history) => {
+    const entries = [];
+    (history || []).forEach((entry) => {
+      if (!entry.questions) return;
+      const ts = entry.createdAt?.seconds ? entry.createdAt.seconds * 1000 : (entry.completedAt?.seconds ? entry.completedAt.seconds * 1000 : (entry.completedAt || 0));
+      if (ts <= 0) return;
+      entry.questions.forEach((q) => {
+        if (q.domain !== domain) return;
+        entries.push({ correct: q.userAnswer === q.correctAnswer, difficulty: q.difficulty, timestamp: ts, questionId: q.id || q.questionId, format: q.format });
+      });
+    });
+    return entries;
+  };
+
+  // Reuses the existing 7-value LLM-generated root-cause taxonomy already
+  // cached in userProfile.aiExplanations (lib/aiTutorAnalysis.ts's RootCause)
+  // rather than inventing a new one. "resolvedSince" is a best-effort proxy:
+  // no timestamp is stored on an aiExplanations entry, so this checks
+  // whether the most recent attempt at that exact question came back correct.
+  const getDomainRootCauses = (domain, history, explanationsMap) => {
+    const domainQuestionIds = new Set();
+    const attemptsByQid = {};
+    (history || []).forEach((entry) => {
+      const ts = entry.createdAt?.seconds ? entry.createdAt.seconds * 1000 : 0;
+      (entry.questions || []).forEach((q) => {
+        if (q.domain !== domain) return;
+        const qid = q.id || q.questionId;
+        if (!qid) return;
+        domainQuestionIds.add(qid);
+        (attemptsByQid[qid] || (attemptsByQid[qid] = [])).push({ correct: q.userAnswer === q.correctAnswer, ts });
+      });
+    });
+    const rootCauses = [];
+    Object.entries(explanationsMap || {}).forEach(([qid, analysis]) => {
+      if (!domainQuestionIds.has(qid) || !analysis?.rootCause) return;
+      const attempts = (attemptsByQid[qid] || []).slice().sort((a, b) => a.ts - b.ts);
+      const last = attempts[attempts.length - 1];
+      rootCauses.push({ rootCause: analysis.rootCause, resolvedSince: last ? last.correct : false });
+    });
+    return rootCauses;
+  };
+
+  const getDomainAvailableFormats = (domain) => {
+    const bank = AP_DOMAIN_SET.has(domain) ? [...questionBank, ...AP_QUESTION_BANK_FLAT] : questionBank;
+    return [...new Set(bank.filter((q) => q.domain === domain).map((q) => q.format || "mcq"))];
+  };
+
+  const generateProveMasteryPlan = (domain) => {
+    const entries = getMasteryEntriesForDomain(domain, scoreHistory);
+    const rootCauses = getDomainRootCauses(domain, scoreHistory, userProfile?.aiExplanations);
+    const availableFormats = getDomainAvailableFormats(domain);
+    return buildProveMasteryPlan({ entries, now: Date.now(), rootCauses, availableFormats });
+  };
+
+  // Picks real questions from the live bank matching the plan's per-dimension
+  // targets — reuses startQuiz's exact bank-union convention (App.tsx's
+  // combinedBank pattern) rather than a new selector. No fixed question
+  // count beyond what the plan says is needed to cover flagged dimensions.
+  const selectProveMasteryQuestions = (domain, plan) => {
+    const makeId = (q) => `${q.domain}||${q.difficulty}||${(q.question || "").slice(0, 60)}`;
+    const combinedBank = AP_DOMAIN_SET.has(domain) ? [...questionBank, ...AP_QUESTION_BANK_FLAT] : questionBank;
+    const domainBank = combinedBank.filter((q) => q.domain === domain);
+    const wrongIds = wrongAnswerIds[section] || new Set();
+    const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
+    const picked = [];
+    const pickedIds = new Set();
+    const pickFrom = (pool, count) => {
+      let added = 0;
+      shuffle(pool).forEach((q) => {
+        if (added >= count || picked.length >= plan.questionCount) return;
+        const qid = makeId(q);
+        if (pickedIds.has(qid)) return;
+        pickedIds.add(qid);
+        picked.push(q);
+        added++;
+      });
+    };
+
+    (plan.targets || []).forEach((target) => {
+      let pool = domainBank;
+      if (target.difficulty) pool = pool.filter((q) => q.difficulty === target.difficulty);
+      if (target.format) pool = pool.filter((q) => (q.format || "mcq") === target.format);
+      if (target.questionSource === "new") pool = pool.filter((q) => q.questionType !== "Used" && !wrongIds.has(makeId(q)));
+      if (pool.length === 0 && target.difficulty) pool = domainBank.filter((q) => q.difficulty === target.difficulty); // widen: drop format/source lock
+      if (pool.length === 0) pool = domainBank; // widen further: any question in-domain
+      pickFrom(pool, target.count);
+    });
+
+    // Backfill from the general domain pool if targeted picks came up short
+    // (e.g. the bank is thin for a specific difficulty/format combination).
+    if (picked.length < plan.questionCount) pickFrom(domainBank, plan.questionCount - picked.length);
+
+    return picked.slice(0, plan.questionCount);
+  };
+
+  const beginProveMasteryCheck = (domain) => {
+    const plan = generateProveMasteryPlan(domain);
+    const questions = selectProveMasteryQuestions(domain, plan);
+    if (questions.length === 0) {
+      setProveMasteryError("Not enough questions available in the bank for this domain yet — try again once more practice content is added.");
+      return;
+    }
+    setProveMasteryPlan(plan);
+    setProveMasteryQuestions(questions);
+    setProveMasteryAnswers(new Array(questions.length).fill(-1));
+    setProveMasteryCurrentQ(0);
+    setProveMasteryError(null);
+    setProveMasteryPhase("testing");
+  };
+
+  const answerProveMasteryQuestion = (choiceIdx) => {
+    setProveMasteryAnswers((prev) => {
+      const next = [...prev];
+      next[proveMasteryCurrentQ] = choiceIdx;
+      return next;
+    });
+  };
+
+  // Same proxy pattern as callReferralApi/callAuthEmailApi — a Vercel
+  // function using the Admin SDK + manual ID-token verification (api/_auth.js),
+  // not a Firebase Cloud Function (this project stays on the Spark plan).
+  const PROVE_MASTERY_API_URL = (Platform.OS === "web" && !isLocalWebDev ? "" : "https://ascendsat.vercel.app") + "/api/prove-mastery";
+
+  const callProveMasteryApi = async (action, extra = {}) => {
+    if (!auth.currentUser) return { ok: false, error: "not-signed-in" };
+    try {
+      const idToken = await auth.currentUser.getIdToken();
+      const res = await fetch(PROVE_MASTERY_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ action, ...extra }),
+      });
+      return await res.json();
+    } catch (e) {
+      console.log("Prove Mastery API error:", e.message);
+      return { ok: false, error: e.message };
+    }
+  };
+
+  // Writes a normal (real, per-question) scores doc — same as any other
+  // quiz — so this attempt becomes durable evidence like everything else,
+  // then hands the scoreId to the server route, which re-reads that exact
+  // doc itself and computes the trusted verdict. The client never decides
+  // VERIFIED on its own.
+  const finishProveMasteryCheck = async () => {
+    setProveMasteryPhase("verifying");
+    const domain = proveMasteryDomain;
+    const questions = proveMasteryQuestions;
+    const answers = proveMasteryAnswers;
+    const correctCount = questions.filter((q, i) => answers[i] === q.answer).length;
+
+    try {
+      const questionsPayload = questions.map((q, i) => ({
+        id: makeQuestionId(q), question: q.question, choices: q.choices, correctAnswer: q.answer,
+        userAnswer: answers[i] ?? -1, explanation: q.explanation, domain: q.domain, difficulty: q.difficulty,
+        questionType: q.questionType, timeSpent: 0,
+      }));
+      const scoreRef = await addDoc(collection(db, "scores"), {
+        userId,
+        testType: activeTestRef.current,
+        score: correctCount,
+        total: questions.length,
+        percent: Math.round((correctCount / questions.length) * 100),
+        domains: [domain],
+        difficulties: [...new Set(questions.map((q) => q.difficulty))],
+        section: sectionLabelForDomain(domain),
+        source: "proveMastery",
+        timeSeconds: 0,
+        questions: questionsPayload,
+        createdAt: serverTimestamp(),
+      });
+      callReferralApi("credit", { scoreId: scoreRef.id });
+      updateDoc(doc(db, "users", userId), { lastActiveAt: serverTimestamp(), questionsAnsweredTotal: increment(questions.length) }).catch(() => {});
+      logQuestionAttempts(questionsPayload.map((q) => ({
+        questionId: q.id,
+        domain: q.domain,
+        correct: q.userAnswer === q.correctAnswer,
+      })));
+
+      const updatedHistory = [{ questions: questionsPayload, createdAt: { seconds: Math.floor(Date.now() / 1000) } }, ...scoreHistory];
+      setScoreHistory(updatedHistory);
+
+      const result = await callProveMasteryApi("submitAttempt", { domain, scoreId: scoreRef.id, testType: activeTestRef.current });
+      if (!result?.ok) {
+        setProveMasteryVerdict({ verdict: "NOT_YET_VERIFIED", reason: "Couldn't reach the verification service — your answers were saved, but try again shortly to get a verdict.", dimensions: [] });
+      } else {
+        setProveMasteryVerdict(result);
+        if (result.verdict === "VERIFIED") {
+          setUserProfile((prev) => ({ ...(prev || {}), skillStats: { ...(prev?.skillStats || {}), [domain]: { ...(prev?.skillStats?.[domain] || {}), status: "proved" } } }));
+        }
+      }
+    } catch (e) {
+      console.log("Prove Mastery submit error:", e.message);
+      setProveMasteryVerdict({ verdict: "NOT_YET_VERIFIED", reason: "Something went wrong saving your attempt. Please try again.", dimensions: [] });
+    }
+    setProveMasteryPhase("result");
   };
 
   const buildUserContextForAI = () => {
@@ -11111,11 +12259,16 @@ const loadAdminFeedback = async () => {
         priority: stored?.priority ?? s.priority,
       };
     });
+    // Mastery Engine 2.0 lookup by domain — lets getNextActivity below tie
+    // difficulty escalation and maintenance nudges to real mastery status
+    // instead of only the short-term fatigue/streak heuristic.
+    const skillScoresByDomain = Object.fromEntries(skillScores.map((s) => [s.domain, s]));
     const recentMistakes = getRecentQuestionResults(history, 12).filter(r => !r.correct);
     const sess = autopilotSessionRef.current;
     return {
       weakSkills,
       skillScores,
+      skillScoresByDomain,
       recentMistakes,
       recentResults: sess.recentResults,
       fatigue: sess.fatigue,
@@ -11134,6 +12287,21 @@ const loadAdminFeedback = async () => {
     const effectiveWeak = userState.effectiveWeakAreas || [];
     let skill = effectiveWeak[0] || userState.skillScores[0]?.domain || "Algebra";
 
+    // Maintenance nudge: a skill Prove Mastery already verified doesn't need
+    // active drilling, but spaced-repetition literature (and this app's own
+    // SM-2 system) says even mastered material decays without occasional
+    // reinforcement. getEffectiveWeakAreas already sinks proved/mastered
+    // domains to the back of the queue, so without this they'd almost never
+    // get picked — every 15th question, surface the stalest one instead.
+    if (userState.sessionQuestionCount > 0 && userState.sessionQuestionCount % 15 === 14) {
+      const maintenanceCandidates = (userState.skillScores || [])
+        .filter((s) => (s.status === "proved" || s.status === "mastered") && s.total > 0)
+        .sort((a, b) => (b.daysSinceLast ?? 0) - (a.daysSinceLast ?? 0));
+      if (maintenanceCandidates.length > 0) {
+        return { view: "drills", skill: maintenanceCandidates[0].domain, difficulty: 3 };
+      }
+    }
+
     const lastTwo = userState.recentResults.slice(-2);
     if (lastTwo.length === 2 && !lastTwo[0].correct && !lastTwo[1].correct && lastTwo[0].skill === lastTwo[1].skill) {
       return { view: "drills", skill: lastTwo[0].skill, difficulty: clampDiff(difficulty - 1) };
@@ -11151,6 +12319,19 @@ const loadAdminFeedback = async () => {
       view = "games";
     } else if (userState.sessionQuestionCount % 6 === 5) {
       view = "practice";
+    }
+
+    // Tie difficulty to the CHOSEN skill's real mastery status, not just the
+    // last few answers — "ready for more difficult material" (remediated+)
+    // should start at Hard rather than climbing there by luck, and "weak"
+    // shouldn't jump to Hard purely off a lucky 3-correct streak.
+    const chosenSkillScore = userState.skillScoresByDomain?.[skill];
+    if (chosenSkillScore) {
+      if (["remediated", "proved", "mastered"].includes(chosenSkillScore.status)) {
+        difficulty = Math.max(difficulty, 3);
+      } else if (chosenSkillScore.status === "weak") {
+        difficulty = Math.min(difficulty, 2);
+      }
     }
 
     return { view, skill, difficulty: clampDiff(difficulty) };
@@ -11197,6 +12378,7 @@ const loadAdminFeedback = async () => {
     });
     callReferralApi("credit", { scoreId: autopilotScoreRef.id });
     updateDoc(doc(db, "users", userId), { lastActiveAt: serverTimestamp(), questionsAnsweredTotal: increment(1) }).catch(() => {});
+    if (q.question) logQuestionAttempts([{ questionId, domain: q.domain, correct }]);
 
     const newEntry = {
       score: correct ? 1 : 0,
@@ -11212,11 +12394,13 @@ const loadAdminFeedback = async () => {
     const skillScores = computeSkillScoresFromHistory(updatedHistory);
     const skillStats = {};
     skillScores.forEach(s => {
-      skillStats[s.domain] = { accuracy: s.accuracy, total: s.total, priority: Math.round(s.priority * 100) / 100 };
+      skillStats[s.domain] = { accuracy: s.accuracy, total: s.total, priority: Math.round(s.priority * 100) / 100, masteryPct: s.masteryPct, confidence: s.confidence, status: s.status };
     });
+    logMasteryTransitions(skillScores, userProfile?.skillStats);
     try {
       await updateDoc(doc(db, "users", userId), testScopedPayload({ skillStats, lastAutopilotAt: serverTimestamp() }));
       setUserProfile(prev => ({ ...(prev || {}), skillStats }));
+      await recomputeAbilityEstimate(updatedHistory);
     } catch (e) {
       console.log("Autopilot skill stats save error:", e.message);
     }
@@ -13416,6 +14600,15 @@ const nextTypeRaceWord = () => {
     phase: "showing", qIdx: 0, showExplanation: false,
   });
   const demoCycleCountRef = React.useRef(0);
+  // renderDemo/renderTryIt are called from long-lived setTimeout chains set
+  // up inside effects that only depend on [screen] (so the demo/try-it
+  // auto-cycle doesn't restart every time something unrelated re-renders).
+  // Those effect closures freeze whatever `isLight` was at the moment the
+  // effect first ran, so a later dark-mode toggle never reaches them if they
+  // read the `isLight` state variable directly — a ref is the fix, since its
+  // `.current` is always read fresh regardless of which stale closure calls in.
+  const isLightRef = React.useRef(isLight);
+  React.useEffect(() => { isLightRef.current = isLight; }, [isLight]);
 
   const LANDING_DOMAINS = [
     { name: "Craft and Structure", tag: "R&W", color: "#4ade80" },
@@ -13481,7 +14674,7 @@ const nextTypeRaceWord = () => {
     const q = DEMO_QUESTIONS[st.qIdx];
     const letters = ["A", "B", "C", "D"];
     const diffColor = q.difficulty === "Hard" ? "#dc2626" : q.difficulty === "Medium" ? "#d97706" : "#16a34a";
-    const light = isLight;
+    const light = isLightRef.current;
     const cardBg = light ? "#fff" : "#0f1829";
     const textColor = light ? "#0f172a" : "#f1f5f9";
     const subColor = light ? "#64748b" : "#94a3b8";
@@ -13853,7 +15046,7 @@ const nextTypeRaceWord = () => {
     const selected = st.answers[qi];
     const revealed = st.revealed[qi];
     const letters = ["A","B","C","D"];
-    const light = isLight;
+    const light = isLightRef.current;
     const cardBg = light ? "#fff" : "#0f1829";
     const textColor = light ? "#0f172a" : "#f1f5f9";
     const subColor = light ? "#64748b" : "#94a3b8";
@@ -13979,6 +15172,16 @@ const nextTypeRaceWord = () => {
     t = setTimeout(run, 700);
     return () => clearTimeout(t);
   }, [screen]);
+
+  // Re-paints immediately on a dark-mode toggle (renderDemo already has the
+  // equivalent effect above) — without this, the try-it widget only picks
+  // up the new theme on the student's next interaction with it, since
+  // isLightRef.current alone fixes STALE closures but doesn't make anything
+  // repaint proactively.
+  React.useEffect(() => {
+    if (Platform.OS !== "web" || screen !== "landing") return;
+    renderTryIt();
+  }, [isLight, screen]);
 
   /* ── "Plateau Break" cold open timeline (web landing only) ── */
   React.useEffect(() => {
@@ -17229,6 +18432,7 @@ if (screen === "verifyEmail") {
               await bumpGlobalSignup(statsRef, statsSnap);
             } catch (e) {}
             await applyPendingReferralCode();
+            notifyAdminOfSignup();
             if (joinClassCodeInput.trim()) await joinOrgClassByCode(joinClassCodeInput, cred.user.uid);
             setScreen("verifyEmail");
           } catch (e) { handleError(e); }
@@ -17286,6 +18490,7 @@ if (screen === "verifyEmail") {
               $set_once: { signup_date: new Date().toISOString(), signup_method: 'email', signup_role: 'teacher' },
             });
             posthog.capture('user_registered', { method: 'email', role: 'teacher' });
+            notifyAdminOfSignup();
             await callAuthEmailApi("sendCode");
             setScreen("verifyEmail");
           } catch (e) { handleError(e); }
@@ -17330,6 +18535,7 @@ if (screen === "verifyEmail") {
               $set_once: { signup_date: new Date().toISOString(), signup_method: 'email', signup_role: 'orgAdmin' },
             });
             posthog.capture('user_registered', { method: 'email', role: 'orgAdmin' });
+            notifyAdminOfSignup();
             await callAuthEmailApi("sendCode");
             setScreen("verifyEmail");
           } catch (e) { handleError(e); }
@@ -19552,6 +20758,17 @@ if (screen === "verifyEmail") {
               <Text style={bb.tmToolIconGlyph}>⋮</Text>
               <Text style={bb.tmToolIconLabel}>More</Text>
             </TouchableOpacity>
+            {/* Standalone escalate button, not the full Casper chat/hint bot —
+                this quiz shell (both practice and full-length tests) deliberately
+                hides Casper to prevent AI-assisted answers mid-quiz. Scoped to
+                untimed practice only, not full-length tests, which stay locked
+                down to simulate real exam conditions. */}
+            {view === "practice" && (
+              <TouchableOpacity style={bb.tmToolIconBtn} onPress={escalateToTutorAction} disabled={escalatingToTutor}>
+                <AppIcon name="user-check" size={18} color="#222" />
+                <Text style={bb.tmToolIconLabel}>{escalatingToTutor ? "Connecting..." : "Talk to a tutor"}</Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
 
@@ -19796,7 +21013,7 @@ if (screen === "verifyEmail") {
   // the AP class dashboard instead — practice/diagnostic/lessons for a specific
   // class if one is open, or Home to pick a class otherwise.
   const isAp = activeTest === "ap";
-  const webLayoutProps = { isLight, userName: userProfile?.name || userName, setView, transitionToView, viewTransitionAnim, viewSlideAnim, setDesmosVisible, handleLogout, desmosVisible, onLoadTestimonials: loadTestimonials, onLoadPromotions: loadPromotions, onLoadLeaderboard: loadLeaderboard, drillsTab,
+  const webLayoutProps = { isLight, userName: userProfile?.name || userName, setView, transitionToView, viewTransitionAnim, viewSlideAnim, setDesmosVisible, handleLogout, desmosVisible, onLoadTestimonials: loadTestimonials, onLoadPromotions: loadPromotions, onLoadLeaderboard: loadLeaderboard, drillsTab, hasUnreadTutorMessages,
     onLoadLessons: guestGate(() => { if (isAp) { setView("home"); return; } loadLessons(); setView("lessons"); }),
     onOpenGames: guestGate(() => { if (isAp) { setView("home"); return; } setGameMode(null); setView("games"); }),
     onOpenDrills: guestGate(() => { if (isAp) { setView("home"); return; } setDrillsTab("timed"); setConceptDrillMode(null); setView("drills"); }),
@@ -19807,6 +21024,13 @@ if (screen === "verifyEmail") {
     onOpenFeedback: openFeedbackPage,
     onOpenDiagnostic: guestGate(() => { if (isAp) { if (activeApClassRef.current) startApPractice(activeApClassRef.current, { diagnostic: true }); else setView("home"); return; } openDiagnostic(); }),
     autopilotActive, onEndAutopilot: endAutopilotSession, autopilotLabel, toolUsage: userProfile?.toolUsage, userProfile, scoreHistory, dockMode: getDockMode(), activeTest, activeTestLabel: activeCfg.label, onSwitchTest: switchActiveTest, testSwitching, testSwitchLabel, activeRole, orgDetails,
+    showProjectionStyleModal: projectionStyleModalVisible,
+    onSelectProjectionStyle: async (style) => {
+      setProjectionStyleModalVisible(false);
+      setProjectionStyleModalDismissed(true);
+      await saveUserProfile(userId, { projectionStyle: style });
+      await recomputeAbilityEstimate(scoreHistory);
+    },
     pendingVerification, verifyResent,
     onResendVerification: async () => {
       try {
@@ -20004,6 +21228,21 @@ if (screen === "verifyEmail") {
               <Text style={{ color: P.text0, fontWeight: "800", fontSize: 15 }}>Casper</Text>
               <Text style={{ color: subtitleColor, fontSize: 10 }}>Your AscendSAT Study Bot</Text>
             </View>
+            <TouchableOpacity
+              onPress={escalateToTutorAction}
+              disabled={escalatingToTutor}
+              style={{
+                paddingHorizontal: 8,
+                paddingVertical: 5,
+                borderRadius: 8,
+                backgroundColor: botStuckSignal ? accent : "transparent",
+                opacity: escalatingToTutor ? 0.6 : 1,
+              }}
+            >
+              <Text style={{ color: botStuckSignal ? "#0b1020" : P.text2, fontSize: 11, fontWeight: botStuckSignal ? "800" : "400" }}>
+                {escalatingToTutor ? "Connecting..." : "Talk to a tutor"}
+              </Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={() => setBotMessages([{ role: "assistant", content: `Hi! I'm Casper. Ask me anything about the ${activeCfg.label}!` }])} style={{ paddingHorizontal: 6 }}><Text style={{ color: P.text2, fontSize: 11 }}>Clear</Text></TouchableOpacity>
             <TouchableOpacity onPress={() => setStudyBotVisible(false)} style={{ paddingHorizontal: 6 }}><Text style={{ color: P.text1, fontSize: 18 }}>✕</Text></TouchableOpacity>
           </View>
@@ -24944,7 +26183,7 @@ if (screen === "verifyEmail") {
         <ScrollView style={{ flex: 1, backgroundColor: P.bg0, padding: 20 }} contentContainerStyle={{ paddingBottom: 60 }}>
           <ScreenTitle icon="home" title="Tutor Overview" color={P.text0} iconColor={GOLD} />
           <Text style={{ color: P.text2, fontSize: 14, marginBottom: 20 }}>
-            Students buy classes from a shared catalog — an admin matches them to you afterward. Set up your bio and Calendly link below so you're ready once someone's matched.
+            Students buy classes from a shared catalog — an admin matches them to you afterward. Set up your bio below so you're ready once someone's matched.
           </Text>
 
           {tutorRelationshipsList.length > 0 && (
@@ -24988,17 +26227,6 @@ if (screen === "verifyEmail") {
                 multiline
               />
 
-              <Text style={{ color: P.text0, fontWeight: "700", fontSize: 13, marginBottom: 6 }}>Calendly link</Text>
-              <Text style={{ color: P.text2, fontSize: 12, marginBottom: 8 }}>Shown to a student once they've bought a class, so they can book the time you agreed on in chat.</Text>
-              <TextInput
-                style={{ backgroundColor: P.bg0, borderRadius: 10, borderWidth: 1, borderColor: P.border0, color: P.text0, padding: 12, marginBottom: 20 }}
-                value={tutorProfileDraft.calendlyLink}
-                onChangeText={(t) => setTutorProfileDraft((prev) => ({ ...prev, calendlyLink: t }))}
-                placeholder="https://calendly.com/..."
-                placeholderTextColor={P.text2}
-                autoCapitalize="none"
-              />
-
               <TouchableOpacity
                 onPress={saveTutorProfile}
                 disabled={tutorProfileSaving}
@@ -25033,14 +26261,19 @@ if (screen === "verifyEmail") {
                   <Text style={{ color: P.text0, fontWeight: "800", fontSize: 16 }}>{rel.tutorName}</Text>
                   <View style={{ marginTop: 10, backgroundColor: P.bg0, borderRadius: 10, padding: 10 }}>
                     <Text style={{ color: P.text0, fontSize: 13, fontWeight: "700" }}>
-                      {rel.qaUnlockedAt ? `${rel.messageCreditsRemaining ?? 0} question${rel.messageCreditsRemaining === 1 ? "" : "s"} remaining` : "Plan a meeting to unlock questions"}
+                      {!rel.qaUnlockedAt ? "Plan a meeting to unlock questions" : rel.unlimited ? "Unlimited questions" : `${rel.messageCreditsRemaining ?? 0} question${rel.messageCreditsRemaining === 1 ? "" : "s"} remaining`}
                     </Text>
                     <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>
-                      {rel.sessionsRemaining ?? 0} session credit{rel.sessionsRemaining === 1 ? "" : "s"} remaining
+                      {rel.unlimited ? "Unlimited session credits" : `${rel.sessionsRemaining ?? 0} session credit${rel.sessionsRemaining === 1 ? "" : "s"} remaining`}
                     </Text>
                   </View>
+                  {rel.tutorUnavailable ? (
+                    <View style={{ marginTop: 10, backgroundColor: "#fef3c7", borderRadius: 10, padding: 10 }}>
+                      <Text style={{ color: "#92400e", fontSize: 12, fontWeight: "700" }}>Your tutor is currently unavailable — we're matching you with a new one.</Text>
+                    </View>
+                  ) : null}
                   <TouchableOpacity
-                    onPress={() => openTutorChat(rel.id, rel.tutorName, rel.tutorCalendlyLink || "")}
+                    onPress={() => openTutorChat(rel.id, rel.tutorName)}
                     style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, alignItems: "center", marginTop: 12 }}
                   >
                     <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>Message {rel.tutorName}</Text>
@@ -25057,47 +26290,68 @@ if (screen === "verifyEmail") {
                   <ActivityIndicator color={GOLD} />
                   <View style={{ flex: 1 }}>
                     <Text style={{ color: P.text0, fontWeight: "700", fontSize: 14 }}>Matching you with a tutor for {p.offeringLabel || "your class"}</Text>
-                    <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>This usually only takes a bit — check back soon.</Text>
+                    <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>
+                      {p.unlimited
+                        ? "We'll send you an email when you're matched with a tutor. Make sure to check your spam!"
+                        : "This usually only takes a bit — check back soon."}
+                    </Text>
                   </View>
                 </View>
               ))}
             </View>
           ) : null}
 
-          <Text style={{ color: P.text0, fontWeight: "800", fontSize: 15, marginBottom: 10 }}>Buy a Class</Text>
-          {classOfferingsLoading ? (
-            <Text style={{ color: P.text2 }}>Loading...</Text>
-          ) : classOfferings.length === 0 ? (
-            <EmptyState P={P} icon="user-check" title="No classes available yet" sub="Check back soon." />
-          ) : (
-            classOfferings.map((offering) => {
-              const buying = tutorCheckoutLoadingId === offering.id;
-              return (
-                <TouchableOpacity
-                  key={offering.id}
-                  onPress={() => buyClassOffering(offering.id, offering.label)}
-                  disabled={buying}
-                  style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 10, borderWidth: 1, borderColor: P.border0, flexDirection: "row", justifyContent: "space-between", alignItems: "center", opacity: buying ? 0.6 : 1 }}
-                >
-                  <View>
-                    <Text style={{ color: P.text0, fontWeight: "700", fontSize: 15 }}>{offering.label}</Text>
-                    <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>1 session + {offering.messageCreditsPerClass ?? 20} questions</Text>
-                  </View>
-                  <Text style={{ color: GOLD, fontWeight: "800", fontSize: 16 }}>{buying ? "Opening..." : `$${(offering.priceCents / 100).toFixed(2)}`}</Text>
-                </TouchableOpacity>
-              );
-            })
-          )}
+          {tutoringPaymentsEnabled ? (
+            <>
+              <Text style={{ color: P.text0, fontWeight: "800", fontSize: 15, marginBottom: 10 }}>Buy a Class</Text>
+              {TUTOR_PAYMENT_LINKS.length === 0 ? (
+                <EmptyState P={P} icon="user-check" title="No classes available yet" sub="Check back soon." />
+              ) : (
+                TUTOR_PAYMENT_LINKS.map((link) => (
+                  <TouchableOpacity
+                    key={link.id}
+                    onPress={() => buyClassOffering(link.url)}
+                    style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, paddingHorizontal: 16, marginBottom: 10, alignItems: "center" }}
+                  >
+                    <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>Buy {link.label}</Text>
+                  </TouchableOpacity>
+                ))
+              )}
+            </>
+          ) : myPendingPurchases.length === 0 ? (
+            <>
+              <Text style={{ color: P.text0, fontWeight: "800", fontSize: 15, marginBottom: 10 }}>Request a Tutor</Text>
+              <Text style={{ color: P.text2, fontSize: 13, marginBottom: 12 }}>Type what you need help with. Or click one of these courses:</Text>
+              <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
+                {TUTOR_HELP_TOPIC_SUGGESTIONS.map((topic) => (
+                  <TouchableOpacity
+                    key={topic}
+                    onPress={() => setFreeTutorHelpTopic(topic)}
+                    style={{ backgroundColor: P.bg1, borderRadius: 20, paddingVertical: 6, paddingHorizontal: 14, borderWidth: 1, borderColor: P.border0 }}
+                  >
+                    <Text style={{ color: P.text1, fontSize: 12.5, fontWeight: "700" }}>{topic}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+              <TextInput
+                value={freeTutorHelpTopic}
+                onChangeText={setFreeTutorHelpTopic}
+                placeholder="e.g. AP Calculus AB — related rates"
+                placeholderTextColor={P.text2}
+                multiline
+                style={{ backgroundColor: P.bg1, borderRadius: 10, borderWidth: 1, borderColor: P.border0, color: P.text0, paddingHorizontal: 12, paddingVertical: 10, marginBottom: 12, minHeight: 44 }}
+              />
+              <TouchableOpacity
+                onPress={requestFreeTutorAction}
+                disabled={requestingFreeTutor || !freeTutorHelpTopic.trim()}
+                style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, alignItems: "center", opacity: requestingFreeTutor || !freeTutorHelpTopic.trim() ? 0.5 : 1 }}
+              >
+                <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>{requestingFreeTutor ? "Requesting..." : "Request a Tutor"}</Text>
+              </TouchableOpacity>
+            </>
+          ) : null}
         </ScrollView>
-        {embeddedCheckoutOffering ? (
-          <EmbeddedTutorCheckout
-            offering={embeddedCheckoutOffering}
-            callTutorApi={callTutorApi}
-            studentName={userProfile?.name || userName || ""}
-            isLight={isLight}
-            onClose={() => setEmbeddedCheckoutOffering(null)}
-          />
-        ) : null}
+        {renderCasperFloating()}
       </WebLayout>
     );
   }
@@ -25119,38 +26373,198 @@ if (screen === "verifyEmail") {
             <EmptyState P={P} icon="users" title="No students yet" sub="Once someone buys a class, they'll show up here." />
           ) : (
             tutorRelationshipsList.map((rel) => (
-              <View key={rel.id} style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: P.border0 }}>
-                <Text style={{ color: P.text0, fontWeight: "800", fontSize: 16 }}>{rel.studentName || "Student"}</Text>
+              <View key={rel.id} style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: P.border0, opacity: rel.completed ? 0.6 : 1 }}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <Text style={{ color: P.text0, fontWeight: "800", fontSize: 16 }}>{rel.studentName || "Student"}</Text>
+                  <TouchableOpacity
+                    onPress={() => showAlert(
+                      "Remove from your screen?",
+                      `${rel.studentName || "This student"} will be removed from your Students list. This only affects your own view — it doesn't end the engagement, free your capacity slot, or notify anyone.`,
+                      [
+                        { text: "Cancel", style: "cancel" },
+                        { text: "Remove", style: "destructive", onPress: () => hideStudentAction(rel.id) },
+                      ]
+                    )}
+                    hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                  >
+                    <AppIcon name="x" size={18} color={P.text2} />
+                  </TouchableOpacity>
+                </View>
+                {rel.helpTopic ? (
+                  <Text style={{ color: P.text1, fontSize: 13, fontWeight: "700", marginTop: 4 }}>Needs help with: {rel.helpTopic}</Text>
+                ) : null}
+                {Array.isArray(rel.recentWrongAnswers) && rel.recentWrongAnswers.length > 0 ? (
+                  <View style={{ marginTop: 8 }}>
+                    <Text style={{ color: P.text1, fontSize: 12, fontWeight: "700", marginBottom: 4 }}>Recently missed:</Text>
+                    {rel.recentWrongAnswers.map((w, wi) => (
+                      <View key={w.id || wi} style={{ backgroundColor: P.bg0, borderRadius: 8, padding: 10, marginBottom: 6 }}>
+                        <Text style={{ color: P.text0, fontSize: 12.5, marginBottom: 6 }}>{w.question}</Text>
+                        {w.choices.map((c, ci) => (
+                          <View
+                            key={ci}
+                            style={[
+                              styles.reviewChoice,
+                              { paddingVertical: 6, paddingHorizontal: 10, marginBottom: 4 },
+                              ci === w.correctAnswer && styles.reviewCorrect,
+                              ci === w.userAnswer && ci !== w.correctAnswer && styles.reviewWrong,
+                            ]}
+                          >
+                            <Text style={{ color: P.text1, fontSize: 12 }}>{["A", "B", "C", "D"][ci] || ci + 1}. {c}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    ))}
+                  </View>
+                ) : null}
+                {rel.source === "casperEscalation" && Array.isArray(rel.casperTranscript) && rel.casperTranscript.length > 0 ? (
+                  <View style={{ marginTop: 8, backgroundColor: P.bg0, borderRadius: 8, padding: 10, maxHeight: 160 }}>
+                    <Text style={{ color: P.text1, fontSize: 12, fontWeight: "700", marginBottom: 4 }}>Escalated from Casper chat:</Text>
+                    <ScrollView style={{ maxHeight: 130 }}>
+                      {rel.casperTranscript.map((m, i) => (
+                        <Text key={i} style={{ color: P.text2, fontSize: 12, marginBottom: 4 }}>
+                          <Text style={{ fontWeight: "700" }}>{m.role === "assistant" ? "Casper: " : "Student: "}</Text>
+                          {m.content}
+                        </Text>
+                      ))}
+                    </ScrollView>
+                  </View>
+                ) : null}
                 <Text style={{ color: P.text2, fontSize: 13, marginTop: 4 }}>
-                  {rel.qaUnlockedAt ? `${rel.messageCreditsRemaining ?? 0} question${rel.messageCreditsRemaining === 1 ? "" : "s"} left` : "Not unlocked yet"} · {rel.sessionsRemaining ?? 0} session credit{rel.sessionsRemaining === 1 ? "" : "s"}
+                  {rel.completed
+                    ? "Completed"
+                    : !rel.qaUnlockedAt
+                    ? "Not unlocked yet"
+                    : rel.unlimited
+                    ? `${rel.freeQuestionsAsked ?? 0}/5 questions used`
+                    : `${rel.messageCreditsRemaining ?? 0} question${rel.messageCreditsRemaining === 1 ? "" : "s"} left`}
+                  {!rel.completed && !rel.unlimited ? ` · ${rel.sessionsRemaining ?? 0} session credit${rel.sessionsRemaining === 1 ? "" : "s"}` : ""}
                 </Text>
-                <TouchableOpacity
-                  onPress={() => openTutorChat(rel.id, rel.studentName || "Student")}
-                  style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, alignItems: "center", marginTop: 12 }}
-                >
-                  <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>Message {rel.studentName || "Student"}</Text>
-                </TouchableOpacity>
+                {rel.tutorUnavailable ? (
+                  <View style={{ marginTop: 8, backgroundColor: "#fef3c7", borderRadius: 10, padding: 10 }}>
+                    <Text style={{ color: "#92400e", fontSize: 12, fontWeight: "700" }}>Marked unavailable — waiting for admin to reassign.</Text>
+                  </View>
+                ) : null}
+                {rel.unlimited && !rel.completed && (rel.freeQuestionsAsked ?? 0) >= 5 ? (
+                  <View style={{ marginTop: 8, backgroundColor: "#fef3c7", borderRadius: 10, padding: 10 }}>
+                    <Text style={{ color: "#92400e", fontSize: 12, fontWeight: "700" }}>This student has used all 5 free questions — wrap up and mark Complete when you're done.</Text>
+                  </View>
+                ) : null}
+                {!rel.completed && (
+                  <TouchableOpacity
+                    onPress={() => openTutorChat(rel.id, rel.studentName || "Student")}
+                    style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, alignItems: "center", marginTop: 12 }}
+                  >
+                    <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>Message {rel.studentName || "Student"}</Text>
+                  </TouchableOpacity>
+                )}
+                {!rel.tutorUnavailable && !rel.completed && (
+                  <TouchableOpacity
+                    onPress={() => showAlert(
+                      "Mark unavailable?",
+                      `${rel.studentName || "This student"} will be told you're unavailable and matched with a new tutor. They'll keep this full conversation.`,
+                      [
+                        { text: "Cancel", style: "cancel" },
+                        { text: "Mark Unavailable", style: "destructive", onPress: () => markTutorUnavailableAction(rel.id) },
+                      ]
+                    )}
+                    disabled={markingUnavailableRelId === rel.id}
+                    style={{ borderRadius: 10, paddingVertical: 10, alignItems: "center", marginTop: 8, borderWidth: 1, borderColor: P.border0, opacity: markingUnavailableRelId === rel.id ? 0.6 : 1 }}
+                  >
+                    <Text style={{ color: P.text2, fontWeight: "700", fontSize: 13 }}>{markingUnavailableRelId === rel.id ? "Marking..." : "Currently Unavailable"}</Text>
+                  </TouchableOpacity>
+                )}
+                {!rel.completed && (
+                  completingRelId === rel.id ? (
+                    <View style={{ marginTop: 8, backgroundColor: P.bg0, borderRadius: 10, padding: 12, borderWidth: 1, borderColor: P.border0 }}>
+                      <Text style={{ color: P.text0, fontSize: 12.5, marginBottom: 8 }}>
+                        This frees up your slot for a new student. Type "Complete" to confirm.
+                      </Text>
+                      <TextInput
+                        style={{ backgroundColor: P.bg1, borderRadius: 8, borderWidth: 1, borderColor: P.border0, color: P.text0, paddingHorizontal: 10, paddingVertical: 8, marginBottom: 8 }}
+                        value={completeConfirmText}
+                        onChangeText={setCompleteConfirmText}
+                        placeholder="Complete"
+                        placeholderTextColor={P.text2}
+                        autoCapitalize="none"
+                      />
+                      <View style={{ flexDirection: "row", gap: 8 }}>
+                        <TouchableOpacity
+                          onPress={() => { setCompletingRelId(null); setCompleteConfirmText(""); }}
+                          style={{ flex: 1, borderRadius: 8, paddingVertical: 10, alignItems: "center", borderWidth: 1, borderColor: P.border0 }}
+                        >
+                          <Text style={{ color: P.text2, fontWeight: "700", fontSize: 13 }}>Cancel</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => completeRelationshipAction(rel.id)}
+                          disabled={completingInFlight || completeConfirmText.trim() !== "Complete"}
+                          style={{ flex: 1, backgroundColor: "#7f1d1d", borderRadius: 8, paddingVertical: 10, alignItems: "center", opacity: completingInFlight || completeConfirmText.trim() !== "Complete" ? 0.5 : 1 }}
+                        >
+                          <Text style={{ color: "#fff", fontWeight: "800", fontSize: 13 }}>{completingInFlight ? "Completing..." : "Confirm Complete"}</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  ) : (
+                    <TouchableOpacity
+                      onPress={() => { setCompletingRelId(rel.id); setCompleteConfirmText(""); }}
+                      style={{ borderRadius: 10, paddingVertical: 10, alignItems: "center", marginTop: 8, borderWidth: 1, borderColor: P.border0 }}
+                    >
+                      <Text style={{ color: P.text2, fontWeight: "700", fontSize: 13 }}>Complete</Text>
+                    </TouchableOpacity>
+                  )
+                )}
               </View>
             ))
           )}
         </ScrollView>
+        {renderCasperFloating()}
       </WebLayout>
     );
   }
+
+  // Shared by tutorChat's message list — Firestore's serverTimestamp() comes
+  // back as null on the client's own optimistic write until the server
+  // confirms it, so all three tolerate a missing timestamp rather than
+  // throwing on `.toDate()`.
+  const isSameCalendarDay = (tsA, tsB) => {
+    const a = tsA?.toDate ? tsA.toDate() : tsA ? new Date(tsA) : null;
+    const b = tsB?.toDate ? tsB.toDate() : tsB ? new Date(tsB) : null;
+    if (!a || !b) return false;
+    return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  };
+  const formatMessageTime = (ts) => {
+    const d = ts?.toDate ? ts.toDate() : ts ? new Date(ts) : null;
+    if (!d) return "";
+    return d.toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+  };
+  const formatDateHeader = (ts) => {
+    const d = ts?.toDate ? ts.toDate() : ts ? new Date(ts) : null;
+    if (!d) return "";
+    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(today.getDate() - 1);
+    if (isSameCalendarDay(d, today)) return "Today";
+    if (isSameCalendarDay(d, yesterday)) return "Yesterday";
+    return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+  };
 
   if (view === "tutorChat") {
     const P = getPalette(isLight);
     const GOLD = accentColorFor(isLight);
     const isStudentSide = !isAdminViewingChat && (activeTutorChatRel ? activeTutorChatRel.studentUid === userId : role !== "tutor");
     const isTutorSide = !isAdminViewingChat && activeTutorChatRel && activeTutorChatRel.tutorUid === userId;
+    const isFreeRelationship = !!activeTutorChatRel?.unlimited;
     const creditsRemaining = activeTutorChatRel?.messageCreditsRemaining ?? 0;
+    const freeQuestionsAsked = activeTutorChatRel?.freeQuestionsAsked ?? 0;
     const qaUnlocked = !!activeTutorChatRel?.qaUnlockedAt;
-    // Two distinct locked states for the student's composer: the tutor
+    // Three distinct locked states for the student's composer: the tutor
     // hasn't confirmed a meeting yet (qaUnlockedAt unset — no amount of
-    // credits helps until that happens), vs. unlocked but the 20 are used
-    // up (buy another class).
+    // credits helps until that happens); unlocked but the paid 20-per-class
+    // credits are used up (buy another class); or unlocked but the
+    // free-mode 5-question cap is hit (needs a new tutor, not more credits
+    // — see FREE_QUESTION_LIMIT in api/tutor.js).
     const qaNotYetUnlocked = isStudentSide && !qaUnlocked;
-    const qaOutOfCredits = isStudentSide && qaUnlocked && creditsRemaining <= 0;
+    const qaOutOfCredits = isStudentSide && qaUnlocked && !isFreeRelationship && creditsRemaining <= 0;
+    const qaFreeLimitReached = isStudentSide && qaUnlocked && isFreeRelationship && freeQuestionsAsked >= 5;
     return (
       <WebLayout {...webLayoutProps} activeView={role === "tutor" ? "tutorStudents" : "studentTutoring"}>
         <View style={{ flex: 1, backgroundColor: P.bg0, padding: 20 }}>
@@ -25178,15 +26592,6 @@ if (screen === "verifyEmail") {
             </TouchableOpacity>
           </View>
 
-          {tutorChatTab === "scheduling" && isStudentSide && activeTutorChatCalendlyLink ? (
-            <TouchableOpacity
-              onPress={() => Linking.openURL(activeTutorChatCalendlyLink)}
-              style={{ backgroundColor: P.bg1, borderRadius: 12, padding: 14, marginBottom: 14, borderWidth: 1, borderColor: P.border0, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}
-            >
-              <Text style={{ color: P.text0, fontWeight: "700", fontSize: 13 }}>Once you've agreed on a time, book it on your tutor's Calendly</Text>
-              <AppIcon name="external-link" size={16} color={GOLD} />
-            </TouchableOpacity>
-          ) : null}
 
           <ScrollView style={{ flex: 1, backgroundColor: P.bg1, borderRadius: 14, borderWidth: 1, borderColor: P.border0, padding: 12 }} contentContainerStyle={{ paddingBottom: 8 }}>
             {tutorChatMessagesLoading ? (
@@ -25196,23 +26601,49 @@ if (screen === "verifyEmail") {
                 {tutorChatTab === "qa" ? "No questions yet." : "No messages yet — say hi and figure out a time to meet."}
               </Text>
             ) : (
-              tutorChatMessages.map((msg) => {
+              tutorChatMessages.map((msg, i) => {
                 const mine = !isAdminViewingChat && msg.senderUid === userId;
-                if (msg.isMeetingLink) {
-                  return (
-                    <TouchableOpacity
-                      key={msg.id}
-                      onPress={() => Linking.openURL(msg.text)}
-                      style={{ alignSelf: mine ? "flex-end" : "flex-start", backgroundColor: GOLD, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10, marginBottom: 8, maxWidth: "85%", flexDirection: "row", alignItems: "center", gap: 8 }}
-                    >
-                      <AppIcon name="video" size={16} color="#0b1020" />
-                      <Text style={{ color: "#0b1020", fontSize: 14, fontWeight: "700" }}>Join Google Meet</Text>
-                    </TouchableOpacity>
-                  );
-                }
+                const showDateHeader = i === 0 || !isSameCalendarDay(msg.createdAt, tutorChatMessages[i - 1]?.createdAt);
                 return (
-                  <View key={msg.id} style={{ alignSelf: mine ? "flex-end" : "flex-start", backgroundColor: mine ? GOLD : P.bg0, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8, marginBottom: 8, maxWidth: "80%" }}>
-                    <Text style={{ color: mine ? "#0b1020" : P.text0, fontSize: 14 }}>{msg.text}</Text>
+                  <View key={msg.id}>
+                    {showDateHeader ? (
+                      <Text style={{ color: P.text2, fontSize: 11, fontWeight: "700", textAlign: "center", marginTop: i === 0 ? 0 : 8, marginBottom: 8 }}>
+                        {formatDateHeader(msg.createdAt)}
+                      </Text>
+                    ) : null}
+                    {msg.isSystem ? (
+                      <View style={{ alignItems: "center", marginVertical: 6 }}>
+                        <View style={{ backgroundColor: P.bg0, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 6, maxWidth: "90%" }}>
+                          <Text style={{ color: P.text2, fontSize: 12, fontStyle: "italic", textAlign: "center" }}>{msg.text}</Text>
+                        </View>
+                      </View>
+                    ) : msg.isMeetingLink ? (
+                      <TouchableOpacity
+                        onPress={() => Linking.openURL(msg.text)}
+                        style={{ alignSelf: mine ? "flex-end" : "flex-start", backgroundColor: GOLD, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 10, maxWidth: "85%", flexDirection: "row", alignItems: "center", gap: 8 }}
+                      >
+                        <AppIcon name="video" size={16} color="#0b1020" />
+                        <Text style={{ color: "#0b1020", fontSize: 14, fontWeight: "700" }}>Join Google Meet</Text>
+                      </TouchableOpacity>
+                    ) : (
+                      <View style={{ alignSelf: mine ? "flex-end" : "flex-start", backgroundColor: mine ? GOLD : P.bg0, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8, maxWidth: "80%" }}>
+                        {Array.isArray(msg.images) && msg.images.length > 0 && (
+                          <View style={{ flexDirection: "row", gap: 6, marginBottom: msg.text ? 8 : 0 }}>
+                            {msg.images.map((url, imgI) => (
+                              <TouchableOpacity key={imgI} onPress={() => Linking.openURL(url)}>
+                                <Image source={{ uri: url }} style={{ width: 100, height: 100, borderRadius: 8 }} resizeMode="cover" />
+                              </TouchableOpacity>
+                            ))}
+                          </View>
+                        )}
+                        {msg.text && msg.text !== "(image)" ? <Text style={{ color: mine ? "#0b1020" : P.text0, fontSize: 14 }}>{msg.text}</Text> : null}
+                      </View>
+                    )}
+                    {!msg.isSystem && (
+                      <Text style={{ color: P.text2, fontSize: 10, marginTop: 2, marginBottom: 8, alignSelf: mine ? "flex-end" : "flex-start" }}>
+                        {formatMessageTime(msg.createdAt)}
+                      </Text>
+                    )}
                   </View>
                 );
               })
@@ -25234,6 +26665,12 @@ if (screen === "verifyEmail") {
               >
                 <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 13 }}>Buy Another Class</Text>
               </TouchableOpacity>
+            </View>
+          ) : tutorChatTab === "qa" && qaFreeLimitReached ? (
+            <View style={{ marginTop: 12, backgroundColor: P.bg1, borderRadius: 12, padding: 14, alignItems: "center" }}>
+              <Text style={{ color: P.text0, fontWeight: "700", fontSize: 14, textAlign: "center" }}>
+                You've used all 5 free questions with this tutor. They'll wrap up your session, and you'll be matched with a new tutor.
+              </Text>
             </View>
           ) : (
             <>
@@ -25264,191 +26701,272 @@ if (screen === "verifyEmail") {
                   ) : null}
                 </View>
               ) : null}
+              {tutorChatTab === "qa" && isStudentSide && qaUnlocked && (
+                <View style={{ backgroundColor: P.bg1, borderRadius: 10, padding: 10, marginTop: 12 }}>
+                  <Text style={{ color: P.text0, fontSize: 12.5, fontWeight: "700" }}>
+                    {isFreeRelationship ? `${freeQuestionsAsked}/5 messages used` : `${creditsRemaining} question${creditsRemaining === 1 ? "" : "s"} remaining`}
+                  </Text>
+                  <Text style={{ color: P.text2, fontSize: 11.5, marginTop: 3, lineHeight: 15 }}>
+                    Each message can include up to {TUTOR_QA_MAX_IMAGES} images (PNG, HEIC, or JPG) — images can only be sent along with a message. Your tutor's replies don't count against your limit.
+                  </Text>
+                </View>
+              )}
+              {tutorChatTab === "qa" && isStudentSide && (
+                <View style={{ marginTop: 12 }}>
+                  {qaAttachedImages.length > 0 && (
+                    <View style={{ flexDirection: "row", gap: 8, marginBottom: 8 }}>
+                      {qaAttachedImages.map((img, i) => (
+                        <View key={i} style={{ position: "relative" }}>
+                          <Image source={{ uri: img.uri }} style={{ width: 56, height: 56, borderRadius: 8 }} />
+                          <TouchableOpacity
+                            onPress={() => removeQaImage(i)}
+                            style={{ position: "absolute", top: -6, right: -6, backgroundColor: "#7f1d1d", borderRadius: 10, width: 20, height: 20, alignItems: "center", justifyContent: "center" }}
+                          >
+                            <Text style={{ color: "#fff", fontSize: 12, fontWeight: "800" }}>×</Text>
+                          </TouchableOpacity>
+                        </View>
+                      ))}
+                    </View>
+                  )}
+                  <TouchableOpacity
+                    onPress={pickQaImage}
+                    disabled={qaAttachedImages.length >= TUTOR_QA_MAX_IMAGES || qaImagesUploading}
+                    style={{ flexDirection: "row", alignItems: "center", gap: 6, alignSelf: "flex-start", opacity: qaAttachedImages.length >= TUTOR_QA_MAX_IMAGES || qaImagesUploading ? 0.5 : 1 }}
+                  >
+                    <AppIcon name="paperclip" size={14} color={P.text2} />
+                    <Text style={{ color: P.text2, fontSize: 12, fontWeight: "700" }}>
+                      {qaImagesUploading ? "Uploading..." : `Attach image (${qaAttachedImages.length}/${TUTOR_QA_MAX_IMAGES}) — PNG, HEIC, or JPG`}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
               <View style={{ flexDirection: "row", gap: 8, marginTop: 12 }}>
                 <TextInput
-                  style={{ flex: 1, backgroundColor: P.bg1, borderRadius: 10, borderWidth: 1, borderColor: P.border0, color: P.text0, paddingHorizontal: 12, paddingVertical: 10 }}
+                  style={{ flex: 1, backgroundColor: P.bg1, borderRadius: 10, borderWidth: 1, borderColor: P.border0, color: P.text0, paddingHorizontal: 12, paddingVertical: 10, maxHeight: 120 }}
                   value={tutorChatInput}
                   onChangeText={setTutorChatInput}
-                  placeholder={tutorChatTab === "qa" ? "Ask your question..." : "Suggest a time..."}
+                  placeholder={tutorChatTab === "qa" ? "Ask your question... (Enter to send, Shift+Enter for a new line)" : "Suggest a time..."}
                   placeholderTextColor={P.text2}
+                  multiline
+                  onKeyPress={handleTutorChatComposerKeyPress}
                 />
                 <TouchableOpacity
                   onPress={tutorChatTab === "qa" ? sendTutorQaMessage : sendTutorSchedulingMessage}
                   disabled={tutorChatSending || !tutorChatInput.trim()}
                   style={{ backgroundColor: GOLD, borderRadius: 10, paddingHorizontal: 18, alignItems: "center", justifyContent: "center", opacity: tutorChatSending || !tutorChatInput.trim() ? 0.6 : 1 }}
                 >
-                  <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>Send</Text>
+                  <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>{tutorChatSending ? "Sending..." : "Send"}</Text>
                 </TouchableOpacity>
               </View>
             </>
           )}
         </View>
+        {renderCasperFloating()}
       </WebLayout>
     );
   }
 
+  // Both screens below deliberately skip WebLayout, matching manageTutors/
+  // manageOrganizations/etc. — every other admin sub-screen is reached via
+  // a plain setView() call from the admin console (not transitionToView),
+  // and WebLayout's content wrapper ties its opacity to viewTransitionAnim,
+  // which only transitionToView drives. Using WebLayout here rendered the
+  // content at opacity: 0 (invisible, but the sidebar itself still showed)
+  // — the actual bug behind "Match Students is blank".
   if (view === "adminTutoringMessages") {
-    const P = getPalette(isLight);
-    const GOLD = accentColorFor(isLight);
-    if (!isAdmin) {
-      return <WebLayout {...webLayoutProps} activeView="adminTutoringMessages"><NoAccessScreen P={P} GOLD={GOLD} onBack={() => setView("home")} /></WebLayout>;
-    }
     return (
-      <WebLayout {...webLayoutProps} activeView="adminTutoringMessages">
-        <ScrollView style={{ flex: 1, backgroundColor: P.bg0, padding: 20 }} contentContainerStyle={{ paddingBottom: 60 }}>
-          <ScreenTitle icon="eye" title="Tutoring Messages" color={P.text0} iconColor={GOLD} />
-          <Text style={{ color: P.text2, fontSize: 14, marginBottom: 20 }}>Every student-tutor conversation, read-only.</Text>
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.container}>
+          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+            <TouchableOpacity style={[styles.backButton, { marginBottom: 0 }]} onPress={() => setView("admin")}>
+              <Text style={styles.backText}>← Back</Text>
+            </TouchableOpacity>
+            <ThemeToggleButton isLight={isLight} onPress={toggleTheme} />
+          </View>
+
+          <Text style={styles.title}>Tutoring Messages</Text>
+          <Text style={[styles.statText, { marginTop: 4, marginBottom: 14 }]}>Every student-tutor conversation, read-only.</Text>
 
           {adminTutorRelationshipsLoading ? (
-            <Text style={{ color: P.text2 }}>Loading...</Text>
+            <Text style={styles.subtitle}>Loading...</Text>
           ) : adminTutorRelationships.length === 0 ? (
-            <EmptyState P={P} icon="message-circle" title="No conversations yet" sub="They'll show up here once a student buys a class." />
+            <Text style={styles.subtitle}>No conversations yet — they'll show up here once a student buys a class.</Text>
           ) : (
             adminTutorRelationships.map((rel) => (
-              <TouchableOpacity
-                key={rel.id}
-                onPress={() => openTutorChatAsAdmin(rel.id, `${rel.studentName || "Student"} ↔ ${rel.tutorName}`)}
-                style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 10, borderWidth: 1, borderColor: P.border0, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}
-              >
-                <View>
-                  <Text style={{ color: P.text0, fontWeight: "700", fontSize: 14 }}>{rel.studentName || "Student"} ↔ {rel.tutorName}</Text>
-                  <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>
-                    {rel.messageCreditsRemaining ?? 0} questions left · {rel.qaUnlockedAt ? "unlocked" : "not yet unlocked"}
-                  </Text>
-                </View>
-                <AppIcon name="chevron-right" size={16} color={P.text2} />
-              </TouchableOpacity>
+              <View key={rel.id} style={styles.historyCard}>
+                <TouchableOpacity
+                  onPress={() => openTutorChatAsAdmin(rel.id, `${rel.studentName || "Student"} ↔ ${rel.tutorName}`)}
+                  style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}
+                >
+                  <View>
+                    <Text style={styles.historyScore}>{rel.studentName || "Student"} ↔ {rel.tutorName}</Text>
+                    <Text style={styles.historyMeta}>
+                      {rel.completed ? "Completed" : rel.unlimited ? `${rel.freeQuestionsAsked ?? 0}/5 questions used` : `${rel.messageCreditsRemaining ?? 0} questions left`} · {rel.qaUnlockedAt ? "unlocked" : "not yet unlocked"}
+                    </Text>
+                  </View>
+                  <AppIcon name="chevron-right" size={16} color={C.textMuted} />
+                </TouchableOpacity>
+                {!rel.completed && (
+                  <TouchableOpacity
+                    onPress={() => setReassignPickerRelId(reassignPickerRelId === rel.id ? null : rel.id)}
+                    style={{ marginTop: 10 }}
+                  >
+                    <Text style={{ color: C.accent, fontWeight: "700", fontSize: 12.5 }}>
+                      {reassignPickerRelId === rel.id ? "Cancel" : "Reassign to a different tutor"}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+                {reassignPickerRelId === rel.id && (
+                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 10 }}>
+                    {allTutorsForMatching.filter((t) => t.id !== rel.tutorUid).map((tutor) => {
+                      const capacity = typeof tutor.capacity === "number" && tutor.capacity > 0 ? tutor.capacity : 2;
+                      const full = (tutor.load || 0) >= capacity;
+                      return (
+                        <TouchableOpacity
+                          key={tutor.id}
+                          onPress={async () => { await reassignTutorAction(rel.id, tutor.id); setReassignPickerRelId(null); await loadAdminTutorRelationships(); }}
+                          disabled={reassigningRelId === rel.id || full}
+                          style={[styles.button, { paddingVertical: 8, paddingHorizontal: 14, opacity: reassigningRelId === rel.id || full ? 0.5 : 1 }]}
+                        >
+                          <Text style={styles.btnText}>
+                            {reassigningRelId === rel.id ? "Reassigning..." : `${tutor.displayName || "Tutor"} (${tutor.load || 0}/${capacity})${full ? " — Full" : ""}`}
+                          </Text>
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </View>
+                )}
+              </View>
             ))
           )}
         </ScrollView>
-      </WebLayout>
+      </View>
     );
   }
 
   if (view === "adminMatchStudents") {
-    const P = getPalette(isLight);
-    const GOLD = accentColorFor(isLight);
-    if (!isAdmin) {
-      return <WebLayout {...webLayoutProps} activeView="adminMatchStudents"><NoAccessScreen P={P} GOLD={GOLD} onBack={() => setView("home")} /></WebLayout>;
-    }
     return (
-      <WebLayout {...webLayoutProps} activeView="adminMatchStudents">
-        <ScrollView style={{ flex: 1, backgroundColor: P.bg0, padding: 20 }} contentContainerStyle={{ paddingBottom: 60 }}>
-          <ScreenTitle icon="shuffle" title="Match Students" color={P.text0} iconColor={GOLD} />
-          <Text style={{ color: P.text2, fontSize: 14, marginBottom: 20 }}>Purchases waiting for a tutor — pick one to assign.</Text>
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.container}>
+          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+            <TouchableOpacity style={[styles.backButton, { marginBottom: 0 }]} onPress={() => setView("admin")}>
+              <Text style={styles.backText}>← Back</Text>
+            </TouchableOpacity>
+            <ThemeToggleButton isLight={isLight} onPress={toggleTheme} />
+          </View>
+
+          <Text style={styles.title}>Match Students</Text>
+          <Text style={[styles.statText, { marginTop: 4, marginBottom: 14 }]}>Purchases waiting for a tutor — pick one to assign.</Text>
 
           {unmatchedPurchasesLoading ? (
-            <Text style={{ color: P.text2 }}>Loading...</Text>
+            <Text style={styles.subtitle}>Loading...</Text>
           ) : unmatchedPurchases.length === 0 ? (
-            <EmptyState P={P} icon="check-circle" title="Nothing to match" sub="Every purchase has a tutor assigned." />
+            <Text style={styles.subtitle}>Nothing to match — every purchase has a tutor assigned.</Text>
           ) : allTutorsForMatching.length === 0 ? (
-            <EmptyState P={P} icon="user-x" title="No tutors to assign yet" sub="Grant someone the tutor role first, in Manage Tutors." />
+            <Text style={styles.subtitle}>No tutors to assign yet — grant someone the tutor role first, in Manage Tutors.</Text>
           ) : (
             unmatchedPurchases.map((p) => (
-              <View key={p.id} style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 12, borderWidth: 1, borderColor: P.border0 }}>
-                <Text style={{ color: P.text0, fontWeight: "700", fontSize: 14 }}>{p.studentName || "Student"}</Text>
-                <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>Bought {p.offeringLabel || "a class"}</Text>
+              <View key={p.id} style={styles.historyCard}>
+                <Text style={styles.historyScore}>{p.studentName || "Student"}</Text>
+                <Text style={styles.historyMeta}>Bought {p.offeringLabel || "a class"}</Text>
+                {p.helpTopic ? (
+                  <Text style={[styles.historyMeta, { marginTop: 4, fontWeight: "700" }]}>Needs help with: {p.helpTopic}</Text>
+                ) : null}
+                {Array.isArray(p.recentWrongAnswers) && p.recentWrongAnswers.length > 0 ? (
+                  <View style={{ marginTop: 8 }}>
+                    <Text style={[styles.historyMeta, { fontWeight: "700", marginBottom: 4 }]}>Recently missed:</Text>
+                    {p.recentWrongAnswers.map((w, wi) => (
+                      <View key={w.id || wi} style={{ backgroundColor: isLight ? "#f1f5f9" : "#1a2540", borderRadius: 8, padding: 10, marginBottom: 6 }}>
+                        <Text style={[styles.historyMeta, { color: isLight ? "#0f172a" : "#e2e8f0", marginBottom: 6 }]}>{w.question}</Text>
+                        {w.choices.map((c, ci) => (
+                          <View
+                            key={ci}
+                            style={[
+                              styles.reviewChoice,
+                              { paddingVertical: 6, paddingHorizontal: 10, marginBottom: 4 },
+                              ci === w.correctAnswer && styles.reviewCorrect,
+                              ci === w.userAnswer && ci !== w.correctAnswer && styles.reviewWrong,
+                            ]}
+                          >
+                            <Text style={[styles.historyMeta, { fontSize: 12 }]}>{["A", "B", "C", "D"][ci] || ci + 1}. {c}</Text>
+                          </View>
+                        ))}
+                      </View>
+                    ))}
+                  </View>
+                ) : null}
+                {p.source === "casperEscalation" && Array.isArray(p.casperTranscript) && p.casperTranscript.length > 0 ? (
+                  <View style={{ marginTop: 8, backgroundColor: isLight ? "#f1f5f9" : "#1a2540", borderRadius: 8, padding: 10, maxHeight: 160 }}>
+                    <Text style={[styles.historyMeta, { fontWeight: "700", marginBottom: 4 }]}>Escalated from Casper chat:</Text>
+                    <ScrollView style={{ maxHeight: 130 }}>
+                      {p.casperTranscript.map((m, i) => (
+                        <Text key={i} style={[styles.historyMeta, { marginBottom: 4 }]}>
+                          <Text style={{ fontWeight: "700" }}>{m.role === "assistant" ? "Casper: " : "Student: "}</Text>
+                          {m.content}
+                        </Text>
+                      ))}
+                    </ScrollView>
+                  </View>
+                ) : null}
                 <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
-                  {allTutorsForMatching.map((tutor) => (
-                    <TouchableOpacity
-                      key={tutor.id}
-                      onPress={() => matchTutorAction(p.id, tutor.id)}
-                      disabled={matchingPurchaseId === p.id}
-                      style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 14, opacity: matchingPurchaseId === p.id ? 0.6 : 1 }}
-                    >
-                      <Text style={{ color: "#0b1020", fontWeight: "700", fontSize: 13 }}>
-                        {matchingPurchaseId === p.id ? "Matching..." : `Assign to ${tutor.displayName || "Tutor"}`}
-                      </Text>
-                    </TouchableOpacity>
-                  ))}
+                  {allTutorsForMatching.map((tutor) => {
+                    const capacity = typeof tutor.capacity === "number" && tutor.capacity > 0 ? tutor.capacity : 2;
+                    const full = (tutor.load || 0) >= capacity;
+                    return (
+                      <TouchableOpacity
+                        key={tutor.id}
+                        onPress={() => matchTutorAction(p.id, tutor.id)}
+                        disabled={matchingPurchaseId === p.id || full}
+                        style={[styles.button, { paddingVertical: 8, paddingHorizontal: 14, opacity: matchingPurchaseId === p.id || full ? 0.5 : 1 }]}
+                      >
+                        <Text style={styles.btnText}>
+                          {matchingPurchaseId === p.id ? "Matching..." : `${tutor.displayName || "Tutor"} (${tutor.load || 0}/${capacity})${full ? " — Full" : ""}`}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
                 </View>
               </View>
             ))
           )}
-        </ScrollView>
-      </WebLayout>
-    );
-  }
 
-  if (view === "adminClassOfferings") {
-    const P = getPalette(isLight);
-    const GOLD = accentColorFor(isLight);
-    if (!isAdmin) {
-      return <WebLayout {...webLayoutProps} activeView="adminClassOfferings"><NoAccessScreen P={P} GOLD={GOLD} onBack={() => setView("home")} /></WebLayout>;
-    }
-    return (
-      <WebLayout {...webLayoutProps} activeView="adminClassOfferings">
-        <ScrollView style={{ flex: 1, backgroundColor: P.bg0, padding: 20 }} contentContainerStyle={{ paddingBottom: 60 }}>
-          <ScreenTitle icon="tag" title="Manage Class Offerings" color={P.text0} iconColor={GOLD} />
-          <Text style={{ color: P.text2, fontSize: 14, marginBottom: 20 }}>
-            The classes students can buy — each maps to a Stripe Price you've already created in the Stripe Dashboard.
-          </Text>
-
-          {adminClassOfferingsLoading ? (
-            <Text style={{ color: P.text2 }}>Loading...</Text>
+          <Text style={[styles.title, { marginTop: 24 }]}>Needs Reassignment</Text>
+          <Text style={[styles.statText, { marginTop: 4, marginBottom: 14 }]}>Tutors who've marked themselves unavailable — pick a replacement.</Text>
+          {unavailableRelationshipsLoading ? (
+            <Text style={styles.subtitle}>Loading...</Text>
+          ) : unavailableRelationships.length === 0 ? (
+            <Text style={styles.subtitle}>Nothing to reassign right now.</Text>
+          ) : allTutorsForMatching.length === 0 ? (
+            <Text style={styles.subtitle}>No tutors to assign yet — grant someone the tutor role first, in Manage Tutors.</Text>
           ) : (
-            adminClassOfferings.map((o) => (
-              <View key={o.id} style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, marginBottom: 10, borderWidth: 1, borderColor: P.border0, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                <View style={{ flex: 1 }}>
-                  <Text style={{ color: P.text0, fontWeight: "700", fontSize: 15 }}>{o.label}</Text>
-                  <Text style={{ color: P.text2, fontSize: 12, marginTop: 2 }}>
-                    ${(o.priceCents / 100).toFixed(2)} · {o.messageCreditsPerClass ?? 20} questions · {o.stripePriceId}
-                  </Text>
+            unavailableRelationships.map((rel) => (
+              <View key={rel.id} style={styles.historyCard}>
+                <Text style={styles.historyScore}>{rel.studentName || "Student"}</Text>
+                <Text style={styles.historyMeta}>Previous tutor unavailable</Text>
+                <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+                  {allTutorsForMatching.filter((t) => t.id !== rel.tutorUid).map((tutor) => {
+                    const capacity = typeof tutor.capacity === "number" && tutor.capacity > 0 ? tutor.capacity : 2;
+                    const full = (tutor.load || 0) >= capacity;
+                    return (
+                      <TouchableOpacity
+                        key={tutor.id}
+                        onPress={() => reassignTutorAction(rel.id, tutor.id)}
+                        disabled={reassigningRelId === rel.id || full}
+                        style={[styles.button, { paddingVertical: 8, paddingHorizontal: 14, opacity: reassigningRelId === rel.id || full ? 0.5 : 1 }]}
+                      >
+                        <Text style={styles.btnText}>
+                          {reassigningRelId === rel.id ? "Reassigning..." : `${tutor.displayName || "Tutor"} (${tutor.load || 0}/${capacity})${full ? " — Full" : ""}`}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
                 </View>
-                <Switch
-                  value={o.active !== false}
-                  onValueChange={(v) => toggleOfferingActive(o.id, v)}
-                  trackColor={{ false: P.border0, true: GOLD }}
-                />
               </View>
             ))
           )}
-
-          <View style={{ backgroundColor: P.bg1, borderRadius: 14, padding: 16, borderWidth: 1, borderColor: P.border0, marginTop: 10 }}>
-            <Text style={{ color: P.text0, fontWeight: "700", fontSize: 13, marginBottom: 10 }}>Add a new offering</Text>
-            <TextInput
-              style={{ backgroundColor: P.bg0, borderRadius: 8, borderWidth: 1, borderColor: P.border0, color: P.text0, padding: 10, marginBottom: 8 }}
-              value={newOfferingDraft.label}
-              onChangeText={(t) => setNewOfferingDraft((prev) => ({ ...prev, label: t }))}
-              placeholder="Label (e.g. SAT Tutoring)"
-              placeholderTextColor={P.text2}
-            />
-            <View style={{ flexDirection: "row", gap: 8, marginBottom: 8 }}>
-              <TextInput
-                style={{ flex: 1, backgroundColor: P.bg0, borderRadius: 8, borderWidth: 1, borderColor: P.border0, color: P.text0, padding: 10 }}
-                value={newOfferingDraft.priceCents}
-                onChangeText={(t) => setNewOfferingDraft((prev) => ({ ...prev, priceCents: t.replace(/[^0-9.]/g, "") }))}
-                placeholder="Price $"
-                placeholderTextColor={P.text2}
-                keyboardType="decimal-pad"
-              />
-              <TextInput
-                style={{ flex: 1, backgroundColor: P.bg0, borderRadius: 8, borderWidth: 1, borderColor: P.border0, color: P.text0, padding: 10 }}
-                value={newOfferingDraft.messageCreditsPerClass}
-                onChangeText={(t) => setNewOfferingDraft((prev) => ({ ...prev, messageCreditsPerClass: t.replace(/[^0-9]/g, "") }))}
-                placeholder="Questions (e.g. 20)"
-                placeholderTextColor={P.text2}
-                keyboardType="number-pad"
-              />
-            </View>
-            <TextInput
-              style={{ backgroundColor: P.bg0, borderRadius: 8, borderWidth: 1, borderColor: P.border0, color: P.text0, padding: 10, marginBottom: 12 }}
-              value={newOfferingDraft.stripePriceId}
-              onChangeText={(t) => setNewOfferingDraft((prev) => ({ ...prev, stripePriceId: t.trim() }))}
-              placeholder="price_..."
-              placeholderTextColor={P.text2}
-              autoCapitalize="none"
-            />
-            <TouchableOpacity
-              onPress={saveNewOffering}
-              disabled={savingNewOffering}
-              style={{ backgroundColor: GOLD, borderRadius: 10, paddingVertical: 12, alignItems: "center", opacity: savingNewOffering ? 0.6 : 1 }}
-            >
-              <Text style={{ color: "#0b1020", fontWeight: "800", fontSize: 14 }}>{savingNewOffering ? "Saving..." : "Add Offering"}</Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
-      </WebLayout>
+        {renderCasperFloating()}
+      </View>
     );
   }
 
@@ -26983,6 +28501,43 @@ if (screen === "verifyEmail") {
             <Text style={{ color: labelColor, fontSize: 11, marginTop: 10, lineHeight: 16 }}>Hide a test to remove it from the sidebar — you can add it back anytime.</Text>
           </View>
 
+          {/* AI Projected Score Intelligence — projection style, changeable
+              anytime. Changing it never alters stored performance data or
+              erases Projected Score History; it just recalibrates how new
+              evidence gets weighed going forward (recomputeAbilityEstimate). */}
+          <View style={{ backgroundColor: cardBg, borderRadius: 16, padding: 20, marginBottom: 16, borderWidth: 1, borderColor: cardBorder }}>
+            <Text style={{ color: labelColor, fontSize: 12, fontWeight: "700", letterSpacing: 1, marginBottom: 4 }}>PROJECTED SCORE</Text>
+            <Text style={{ color: textColor, fontSize: 14, fontWeight: "700", marginBottom: 2 }}>Projection style</Text>
+            <Text style={{ color: labelColor, fontSize: 11, marginBottom: 14, lineHeight: 16 }}>
+              Changes how much evidence is required before your projection moves — never your actual performance data.
+            </Text>
+            {(["conservative", "balanced", "optimistic"]).map((style) => {
+              const meta = PROJECTION_STYLE_META[style];
+              const current = PROJECTION_STYLE_EVIDENCE_WEIGHT[userProfile?.projectionStyle] ? userProfile.projectionStyle : DEFAULT_PROJECTION_STYLE;
+              const selected = current === style;
+              return (
+                <TouchableOpacity
+                  key={style}
+                  activeOpacity={0.85}
+                  onPress={async () => {
+                    if (selected || !userId) return;
+                    await saveUserProfile(userId, { projectionStyle: style });
+                    await recomputeAbilityEstimate(scoreHistory);
+                  }}
+                  style={{ flexDirection: "row", alignItems: "center", gap: 10, borderWidth: 1.5, borderColor: selected ? accentColor : cardBorder, backgroundColor: selected ? accentColor + "14" : "transparent", borderRadius: 12, padding: 14, marginBottom: 8 }}
+                >
+                  <View style={{ width: 18, height: 18, borderRadius: 9, borderWidth: 2, borderColor: selected ? accentColor : labelColor, alignItems: "center", justifyContent: "center" }}>
+                    {selected && <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: accentColor }} />}
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ color: selected ? accentColor : textColor, fontWeight: "800", fontSize: 13.5 }}>{meta.label}</Text>
+                    <Text style={{ color: labelColor, fontSize: 11, marginTop: 2, lineHeight: 15 }}>{meta.description}</Text>
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+
           {/* Replay the first-time sidebar walkthrough (Practice/Learn/Review/etc.) —
               otherwise a user who skips it on day one has no way back in. */}
           <View style={{ backgroundColor: cardBg, borderRadius: 16, padding: 20, marginBottom: 16, borderWidth: 1, borderColor: cardBorder, flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
@@ -27621,7 +29176,11 @@ if (view === "practice" && quizStarted) {
             <TouchableOpacity
               key={i}
               activeOpacity={0.85}
-              onPress={() => setExpandedResultIndex(isExpanded ? null : i)}
+              onPress={() => {
+                const nowExpanded = !isExpanded;
+                setExpandedResultIndex(nowExpanded ? i : null);
+                if (nowExpanded && q.format !== "frq" && outcome === "Incorrect") loadQuestionInsight(makeQuestionId(q));
+              }}
               style={[
                 styles.resultSummaryCard,
                 { borderLeftColor: outcomeStyle.text, backgroundColor: isLight ? "#fff" : "#0f1829" },
@@ -27704,8 +29263,27 @@ if (view === "practice" && quizStarted) {
                     const qid = makeQuestionId(q);
                     const aiState = aiExplanations[qid] || {};
                     const cachedAnalysis = aiState.analysis || normalizeLegacyExplanation(userProfile?.aiExplanations?.[qid]);
+                    const insight = questionInsightsCache[qid];
+                    const topAlsoMissed = insight?.alsoMissed?.[0];
                     return (
                       <View style={{ marginTop: 12 }}>
+                        {outcome === "Incorrect" && topAlsoMissed ? (
+                          <View style={{ backgroundColor: isLight ? "#fefce8" : "#1a1400", borderRadius: 10, padding: 12, marginBottom: 8, borderWidth: 1, borderColor: isLight ? "#fde68a" : "#78350f" }}>
+                            <Text style={{ color: isLight ? "#854d0e" : "#fbbf24", fontSize: 12.5, lineHeight: 18 }}>
+                              <Text style={{ fontWeight: "800" }}>{topAlsoMissed.pct}% of students</Text> who missed this also missed a question on{" "}
+                              <Text style={{ fontWeight: "800" }}>{topAlsoMissed.domain || "a related topic"}</Text>.
+                            </Text>
+                            <TouchableOpacity
+                              style={{ marginTop: 8, alignSelf: "flex-start" }}
+                              onPress={() => {
+                                setDomainHub({ domain: topAlsoMissed.domain, returnView: "results" });
+                                setView("conceptDrillHub");
+                              }}
+                            >
+                              <Text style={{ color: isLight ? "#854d0e" : "#fbbf24", fontSize: 12.5, fontWeight: "800", textDecorationLine: "underline" }}>Practice this →</Text>
+                            </TouchableOpacity>
+                          </View>
+                        ) : null}
                         <TouchableOpacity
                           style={{ borderWidth: 1, borderColor: isLight ? "#1d4ed8" : "#3B82F6", borderRadius: 10, padding: 10, alignItems: "center", marginBottom: 8 }}
                           onPress={() => fetchWrongAnswerExplanation({
@@ -27775,6 +29353,8 @@ if (view === "practice" && quizStarted) {
   /* ---------------- SCORE HISTORY ---------------- */
 
   if (view === "history") {
+    const visibleHistory = scoreHistory.filter((e) => (historyShowHidden ? !!e.hidden : !e.hidden));
+    const hiddenCount = scoreHistory.filter((e) => e.hidden).length;
     return (
   <WebLayout {...webLayoutProps} activeView="history">
   <View style={{ flex: 1 }}>
@@ -27785,12 +29365,28 @@ if (view === "practice" && quizStarted) {
 
         <Text style={styles.title}>Score History</Text>
 
+        <View style={{ flexDirection: "row", gap: 8, marginBottom: 14 }}>
+          <TouchableOpacity
+            onPress={() => setHistoryShowHidden(false)}
+            style={[styles.button, { flex: 1, paddingVertical: 10, opacity: historyShowHidden ? 0.5 : 1 }]}
+          >
+            <Text style={styles.btnText}>All Quizzes</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setHistoryShowHidden(true)}
+            style={[styles.button, { flex: 1, paddingVertical: 10, opacity: historyShowHidden ? 1 : 0.5, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6 }]}
+          >
+            <AppIcon name="eye-off" size={14} color={styles.btnText?.color || "#fff"} />
+            <Text style={styles.btnText}>Hidden ({hiddenCount})</Text>
+          </TouchableOpacity>
+        </View>
+
         {historyLoading ? (
           <Text style={styles.subtitle}>Loading...</Text>
-        ) : scoreHistory.length === 0 ? (
-          <Text style={styles.subtitle}>No scores yet. Take a quiz!</Text>
+        ) : visibleHistory.length === 0 ? (
+          <Text style={styles.subtitle}>{historyShowHidden ? "No hidden quizzes." : "No scores yet. Take a quiz!"}</Text>
         ) : (
-          scoreHistory.map((entry) => {
+          visibleHistory.map((entry) => {
             const date = entry.createdAt?.toDate
               ? entry.createdAt.toDate().toLocaleDateString()
               : "—";
@@ -27808,18 +29404,26 @@ if (view === "practice" && quizStarted) {
                   <Text style={styles.historyScore}>
                     {entry.score}/{entry.total}
                   </Text>
-                  <Text
-                    style={[
-                      styles.historyPercent,
-                      entry.percent >= 80
-                        ? { color: "#4caf50" }
-                        : entry.percent >= 60
-                        ? { color: "#3B82F6" }
-                        : { color: "#ff4d4d" },
-                    ]}
-                  >
-                    {entry.percent}%
-                  </Text>
+                  <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+                    <Text
+                      style={[
+                        styles.historyPercent,
+                        entry.percent >= 80
+                          ? { color: "#4caf50" }
+                          : entry.percent >= 60
+                          ? { color: "#3B82F6" }
+                          : { color: "#ff4d4d" },
+                      ]}
+                    >
+                      {entry.percent}%
+                    </Text>
+                    <TouchableOpacity
+                      onPress={() => { setSelectedHistoryEntry(entry); setHistoryExpandedIndex(null); setView("historyDetail"); }}
+                      hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                    >
+                      <AppIcon name={entry.hidden ? "eye-off" : "eye"} size={18} color={C.textMuted} />
+                    </TouchableOpacity>
+                  </View>
                 </View>
 
                 <Text style={styles.historyMeta}>
@@ -27832,6 +29436,15 @@ if (view === "practice" && quizStarted) {
                   {date}
                   {entry.timeSeconds ? ` · ⏱ ${formatTime(entry.timeSeconds)}` : ""}
                 </Text>
+                <TouchableOpacity
+                  onPress={() => toggleQuizHidden(entry)}
+                  disabled={historyHideBusyId === entry.id}
+                  style={{ marginTop: 8, alignSelf: "flex-start" }}
+                >
+                  <Text style={{ color: C.textMuted, fontSize: 12, fontWeight: "700", textDecorationLine: "underline" }}>
+                    {historyHideBusyId === entry.id ? "Saving..." : entry.hidden ? "Unhide" : "Hide"}
+                  </Text>
+                </TouchableOpacity>
               </View>
             );
           })
@@ -27840,6 +29453,190 @@ if (view === "practice" && quizStarted) {
           {renderCasperFloating()}
   </View>
   </WebLayout>
+    );
+  }
+
+  if (view === "historyDetail") {
+    const entry = selectedHistoryEntry;
+    if (!entry) { setView("history"); return null; }
+    const entryQuestions = entry.questions || [];
+    const outcomeColors = {
+      Correct: { text: isLight ? "#15803d" : "#4ade80", bg: isLight ? "#f0fdf4" : "#0d2a18", border: isLight ? "#bbf7d0" : "#166534" },
+      Incorrect: { text: isLight ? "#b91c1c" : "#f87171", bg: isLight ? "#fef2f2" : "#2a0d0d", border: isLight ? "#fecaca" : "#7f1d1d" },
+      Omitted: { text: isLight ? "#b45309" : "#fbbf24", bg: isLight ? "#fffbeb" : "#1a1400", border: isLight ? "#fde68a" : "#78350f" },
+      Partial: { text: isLight ? "#b45309" : "#fbbf24", bg: isLight ? "#fffbeb" : "#1a1400", border: isLight ? "#fde68a" : "#78350f" },
+    };
+    const outcomeForEntryQuestion = (q) => {
+      if (q.format === "frq") {
+        if (q.points == null) return "Omitted";
+        if (q.points >= q.maxPoints) return "Correct";
+        if (q.points <= 0) return "Incorrect";
+        return "Partial";
+      }
+      return getQuestionOutcomeLabel(q.userAnswer, q.correctAnswer);
+    };
+    const date = entry.createdAt?.toDate ? entry.createdAt.toDate().toLocaleString() : "—";
+    return (
+      <WebLayout {...webLayoutProps} activeView="history">
+        <View style={{ flex: 1 }}>
+          <ScrollView style={styles.container}>
+            <TouchableOpacity style={styles.backButton} onPress={() => setView("history")}>
+              <Text style={styles.backText}>← Back to Score History</Text>
+            </TouchableOpacity>
+
+            <View style={{ backgroundColor: isLight ? "#fff" : "#0f1829", borderRadius: 14, padding: 20, marginBottom: 20, borderWidth: 1, borderColor: isLight ? "#e2e8f0" : "#1a2540" }}>
+              <Text style={{ color: isLight ? "#64748b" : "#9aa4c7", fontSize: 10, fontWeight: "700", letterSpacing: 1, marginBottom: 8 }}>
+                {entry.section || "SESSION"} · {date}
+              </Text>
+              <Text style={{ color: isLight ? "#0f172a" : "#fff", fontSize: 32, fontWeight: "900" }}>{entry.score}/{entry.total}</Text>
+              <Text style={{ color: isLight ? "#475569" : "#9aa4c7", fontSize: 15, marginTop: 4 }}>
+                {entry.percent}% correct{entry.timeSeconds ? ` · ${formatTime(entry.timeSeconds)}` : ""}
+              </Text>
+            </View>
+
+            {entryQuestions.length === 0 ? (
+              <EmptyState P={getAppPalette(isLight)} icon="file-text" title="No per-question detail" sub="This session type doesn't have a saved question-by-question breakdown." />
+            ) : (
+              <>
+                <Text style={[styles.title, { fontSize: 18, marginBottom: 12 }]}>Questions</Text>
+                {entryQuestions.map((q, i) => {
+                  const outcome = outcomeForEntryQuestion(q);
+                  const outcomeStyle = outcomeColors[outcome];
+                  const isExpanded = historyExpandedIndex === i;
+                  const qid = q.id || makeQuestionId(q);
+                  const aiState = aiExplanations[qid] || {};
+                  const cachedAnalysis = aiState.analysis || normalizeLegacyExplanation(userProfile?.aiExplanations?.[qid]);
+                  const insight = questionInsightsCache[qid];
+                  const topAlsoMissed = insight?.alsoMissed?.[0];
+                  return (
+                    <TouchableOpacity
+                      key={i}
+                      activeOpacity={0.85}
+                      onPress={() => {
+                        const nowExpanded = !isExpanded;
+                        setHistoryExpandedIndex(nowExpanded ? i : null);
+                        if (nowExpanded && q.format !== "frq" && outcome === "Incorrect") loadQuestionInsight(qid);
+                      }}
+                      style={[styles.resultSummaryCard, { borderLeftColor: outcomeStyle.text, backgroundColor: isLight ? "#fff" : "#0f1829" }]}
+                    >
+                      <View style={styles.resultSummaryRow}>
+                        <Text style={[styles.resultSummaryCell, { color: isLight ? "#0f172a" : "#e2e8f0" }]}>{getQuestionSubjectLabel(q.domain)}</Text>
+                        <Text style={[styles.resultSummaryCell, styles.resultSummaryDomain, { color: isLight ? "#334155" : "#cbd5e1" }]}>{q.domain}</Text>
+                        <Text style={[styles.resultSummaryCell, { color: isLight ? "#475569" : "#94a3b8" }]}>{normalizeDifficultyLabel(q.difficulty)}</Text>
+                        <View style={[styles.resultSummaryOutcome, { backgroundColor: outcomeStyle.bg, borderColor: outcomeStyle.border }]}>
+                          <Text style={[styles.resultSummaryOutcomeText, { color: outcomeStyle.text }]}>{outcome}</Text>
+                        </View>
+                      </View>
+
+                      {isExpanded && (
+                        <View style={[styles.resultSummaryDetail, { borderTopColor: isLight ? "#e2e8f0" : "#1a2540" }]}>
+                          <Text style={styles.reviewNum}>Question {i + 1} — {q.domain} · {q.questionType}</Text>
+                          <QuestionImage uri={q.image} />
+                          <MathText text={formatMathText(q.question)} style={styles.reviewQuestion} />
+
+                          {q.format === "frq" ? (
+                            <View style={{ marginTop: 8 }}>
+                              {q.userText ? (
+                                <View style={{ backgroundColor: isLight ? "#f8fafc" : "#151c36", borderRadius: 10, padding: 12, marginBottom: 10 }}>
+                                  <Text style={{ color: isLight ? "#64748b" : "#9aa4c7", fontSize: 11, fontWeight: "700", marginBottom: 4 }}>YOUR ANSWER</Text>
+                                  <Text style={{ color: isLight ? "#1e293b" : "#e2e8f0", fontSize: 13, lineHeight: 19 }}>{q.userText}</Text>
+                                </View>
+                              ) : null}
+                              {q.points != null ? (
+                                <View style={{ backgroundColor: isLight ? "#f0fdf4" : "#0d2a18", borderRadius: 10, padding: 12 }}>
+                                  <Text style={{ color: isLight ? "#166534" : "#4ade80", fontWeight: "800", fontSize: 13 }}>{q.points} / {q.maxPoints} points</Text>
+                                </View>
+                              ) : (
+                                <Text style={{ color: isLight ? "#94a3b8" : "#64748b", fontSize: 13 }}>Not submitted for grading.</Text>
+                              )}
+                            </View>
+                          ) : (
+                            <>
+                              {(q.choices || []).map((c, ci) => (
+                                <View
+                                  key={ci}
+                                  style={[
+                                    styles.reviewChoice,
+                                    ci === q.correctAnswer && styles.reviewCorrect,
+                                    ci === q.userAnswer && ci !== q.correctAnswer && styles.reviewWrong,
+                                  ]}
+                                >
+                                  <View style={styles.reviewChoiceRow}>
+                                    <View style={{ flexDirection: "row", flex: 1 }}>
+                                      <Text style={styles.reviewChoiceText}>{["A", "B", "C", "D"][ci]}. </Text>
+                                      <MathText text={formatMathText(c)} style={[styles.reviewChoiceText, { flex: 1 }]} />
+                                    </View>
+                                    {ci === q.correctAnswer ? <AppIcon name="check" size={16} color={isLight ? "#16a34a" : "#4ade80"} /> : null}
+                                    {ci === q.userAnswer && ci !== q.correctAnswer ? <AppIcon name="x" size={16} color={isLight ? "#dc2626" : "#f87171"} /> : null}
+                                  </View>
+                                </View>
+                              ))}
+                              <View style={styles.explanationRow}>
+                                <AppIcon name="info" size={14} color={isLight ? "#64748b" : "#9aa4c7"} style={{ marginTop: 2 }} />
+                                <MathText text={formatMathText(q.explanation)} style={[styles.explanationText, { flex: 1, marginTop: 0 }]} />
+                              </View>
+                            </>
+                          )}
+
+                          {q.format !== "frq" && (outcome === "Incorrect" || outcome === "Omitted") ? (
+                            <View style={{ marginTop: 12 }}>
+                              {outcome === "Incorrect" && topAlsoMissed ? (
+                                <View style={{ backgroundColor: isLight ? "#fefce8" : "#1a1400", borderRadius: 10, padding: 12, marginBottom: 8, borderWidth: 1, borderColor: isLight ? "#fde68a" : "#78350f" }}>
+                                  <Text style={{ color: isLight ? "#854d0e" : "#fbbf24", fontSize: 12.5, lineHeight: 18 }}>
+                                    <Text style={{ fontWeight: "800" }}>{topAlsoMissed.pct}% of students</Text> who missed this also missed a question on{" "}
+                                    <Text style={{ fontWeight: "800" }}>{topAlsoMissed.domain || "a related topic"}</Text>.
+                                  </Text>
+                                  <TouchableOpacity
+                                    style={{ marginTop: 8, alignSelf: "flex-start" }}
+                                    onPress={() => { setDomainHub({ domain: topAlsoMissed.domain, returnView: "history" }); setView("conceptDrillHub"); }}
+                                  >
+                                    <Text style={{ color: isLight ? "#854d0e" : "#fbbf24", fontSize: 12.5, fontWeight: "800", textDecorationLine: "underline" }}>Practice this →</Text>
+                                  </TouchableOpacity>
+                                </View>
+                              ) : null}
+                              <TouchableOpacity
+                                style={{ borderWidth: 1, borderColor: isLight ? "#1d4ed8" : "#3B82F6", borderRadius: 10, padding: 10, alignItems: "center", marginBottom: 8 }}
+                                onPress={() => fetchWrongAnswerExplanation({
+                                  id: qid, domain: q.domain, question: q.question, choices: q.choices,
+                                  userAnswer: q.userAnswer, correctAnswer: q.correctAnswer,
+                                })}
+                                disabled={aiState.loading}
+                              >
+                                {aiState.loading ? (
+                                  <ActivityIndicator size="small" color={isLight ? "#1d4ed8" : "#3B82F6"} />
+                                ) : (
+                                  <Text style={{ color: isLight ? "#1d4ed8" : "#3B82F6", fontWeight: "700", fontSize: 13 }}>
+                                    {cachedAnalysis ? "Refresh AI analysis" : "Why did I miss this?"}
+                                  </Text>
+                                )}
+                              </TouchableOpacity>
+                              {aiState.error ? <Text style={{ color: "#dc2626", fontSize: 12 }}>{aiState.error}</Text> : null}
+                              {cachedAnalysis ? (
+                                <View style={{ backgroundColor: isLight ? "#eff6ff" : "#0c1624", borderRadius: 10, padding: 12, marginBottom: 8 }}>
+                                  <Text style={{ color: isLight ? "#1d4ed8" : "#60a5fa", fontSize: 12, fontWeight: "700", marginBottom: 6 }}>Casper explains</Text>
+                                  {renderWrongAnswerAnalysis(cachedAnalysis, isLight)}
+                                </View>
+                              ) : null}
+                              <TouchableOpacity
+                                style={{ borderWidth: 1, borderColor: isLight ? "#16a34a" : "#4ade80", borderRadius: 10, padding: 10, alignItems: "center", flexDirection: "row", justifyContent: "center", gap: 8 }}
+                                onPress={() => openTeachBack(q.domain || "this concept", qid)}
+                              >
+                                <AppIcon name="user" size={14} color={isLight ? "#16a34a" : "#4ade80"} />
+                                <Text style={{ color: isLight ? "#16a34a" : "#4ade80", fontWeight: "700", fontSize: 13 }}>Teach it back (+{XP_TEACH_BACK} XP)</Text>
+                              </TouchableOpacity>
+                            </View>
+                          ) : null}
+                        </View>
+                      )}
+                    </TouchableOpacity>
+                  );
+                })}
+              </>
+            )}
+          </ScrollView>
+          {renderCasperFloating()}
+        </View>
+      </WebLayout>
     );
   }
 
@@ -28126,6 +29923,52 @@ if (view === "practice" && quizStarted) {
                         <Text style={{ color: r.color, fontSize: 17, fontWeight: "800" }}>{r.value}</Text>
                       </View>
                     ))}
+                    {growthSnapshot?.confidence && (() => {
+                      const CONF_META = {
+                        insufficient: { label: "Not enough data yet", color: C.textMuted },
+                        low: { label: "Low confidence", color: "#ff4d4d" },
+                        medium: { label: "Medium confidence", color: isLight ? "#c9970c" : "#3B82F6" },
+                        high: { label: "High confidence", color: "#2f9e56" },
+                      };
+                      const conf = CONF_META[growthSnapshot.confidence] || CONF_META.insufficient;
+                      return (
+                        <View style={{ backgroundColor: conf.color + "18", paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, alignSelf: "flex-start", marginTop: 2 }}>
+                          <Text style={{ color: conf.color, fontSize: 11, fontWeight: "700" }}>{conf.label}</Text>
+                        </View>
+                      );
+                    })()}
+                  </View>
+                </View>
+              );
+            })()}
+
+            {/* ── PROJECTED SCORE: why it changed + history of real milestones
+                (never every quiz — only the moves recomputeAbilityEstimate
+                judged meaningful) ── */}
+            {(() => {
+              const history = scoreProjectionHistory;
+              if (!history || history.length === 0) return null;
+              const latest = history[history.length - 1];
+              const DIR_COLOR = { up: "#2f9e56", down: "#ff4d4d", flat: C.textMuted, initial: C.textMuted };
+              return (
+                <View style={gCard}>
+                  <Text style={gTitle}>Projected Score History</Text>
+                  <Text style={gSub}>Only real milestones — not every quiz</Text>
+                  {latest.reason && (
+                    <View style={{ backgroundColor: (DIR_COLOR[latest.direction] || C.textMuted) + "12", borderRadius: 12, padding: 12, marginBottom: 14 }}>
+                      <Text style={{ color: DIR_COLOR[latest.direction] || C.text, fontWeight: "700", fontSize: 12.5, marginBottom: 4 }}>
+                        {latest.direction === "up" ? "Why did my projection increase?" : latest.direction === "down" ? "Why did my projection decrease?" : "What changed"}
+                      </Text>
+                      <Text style={{ color: C.textSub, fontSize: 12.5, lineHeight: 18 }}>{latest.reason}</Text>
+                    </View>
+                  )}
+                  <View style={{ flexDirection: "row", flexWrap: "wrap", alignItems: "center", gap: 6 }}>
+                    {history.map((entry, i) => (
+                      <React.Fragment key={entry.id}>
+                        {i > 0 && <Text style={{ color: C.textMuted, fontSize: 13 }}>→</Text>}
+                        <Text style={{ color: i === history.length - 1 ? GOLD : C.text, fontWeight: i === history.length - 1 ? "800" : "600", fontSize: 13.5 }}>{entry.total}</Text>
+                      </React.Fragment>
+                    ))}
                   </View>
                 </View>
               );
@@ -28338,6 +30181,156 @@ if (view === "practice" && quizStarted) {
                       </View>
                     </View>
                   )}
+
+                  {/* ── Mastery Engine 2.0: a defensible mastery% + confidence,
+                      not raw accuracy — plus an explainability breakdown built
+                      entirely from this domain's actual recorded attempts. ── */}
+                  {(() => {
+                    const domainMastery = priorityQueue.find((s) => s.domain === selectedGrowthDomain);
+                    if (!domainMastery || domainMastery.masteryPct == null) return null;
+                    const CONFIDENCE_META = {
+                      insufficient: { label: "Not enough data yet", color: C.textMuted },
+                      low: { label: "Low confidence", color: "#ff4d4d" },
+                      medium: { label: "Medium confidence", color: isLight ? "#c9970c" : "#3B82F6" },
+                      high: { label: "High confidence", color: "#2f9e56" },
+                    };
+                    const STATUS_META = {
+                      weak: { label: "Weak spot", color: "#ff4d4d" },
+                      practiced: { label: "Building", color: isLight ? "#c9970c" : "#3B82F6" },
+                      remediated: { label: "Ready to prove", color: "#2f9e56" },
+                      proved: { label: "Mastery proven", color: "#2f9e56" },
+                      mastered: { label: "Mastered", color: "#2f9e56" },
+                      needsReview: { label: "Needs review", color: "#ff9f43" },
+                    };
+                    const conf = CONFIDENCE_META[domainMastery.confidence] || CONFIDENCE_META.insufficient;
+                    const stat = STATUS_META[domainMastery.status] || STATUS_META.weak;
+                    const b = domainMastery.masteryBreakdown || {};
+
+                    // Explainability: every line below is derived from this
+                    // domain's real recorded attempts (masteryBreakdown/
+                    // hardAttempts/distinctDays/regressed/daysSinceLast) —
+                    // never fabricated, per the "why am I at X%" requirement.
+                    const strengths = [];
+                    const weaknesses = [];
+                    if (b.hardAccuracy != null) {
+                      const pct = Math.round(b.hardAccuracy * 100);
+                      if (b.hardAccuracy >= 0.7) strengths.push(`${pct}% accuracy on hard-difficulty questions`);
+                      else weaknesses.push(`${pct}% accuracy on hard-difficulty questions`);
+                    }
+                    if (domainMastery.hardAttempts < 3) {
+                      weaknesses.push(`Only ${domainMastery.hardAttempts} hard-difficulty attempt${domainMastery.hardAttempts === 1 ? "" : "s"} so far`);
+                    }
+                    if (domainMastery.distinctDays >= 3) strengths.push(`Practiced across ${domainMastery.distinctDays} separate sessions`);
+                    if (domainMastery.regressed) weaknesses.push("Accuracy has dropped in more recent attempts");
+                    else if (domainMastery.confidence !== "insufficient") strengths.push("No signs of regression — performance has held steady");
+                    if (domainMastery.daysSinceLast != null && domainMastery.daysSinceLast > 21) weaknesses.push(`Last practiced ${domainMastery.daysSinceLast} days ago`);
+
+                    const showCTA = domainMastery.status === "remediated" || domainMastery.status === "needsReview";
+
+                    return (
+                      <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 16, marginBottom: 16, borderWidth: 1, borderColor: C.border }}>
+                        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14 }}>
+                          <View style={{ flexDirection: "row", alignItems: "center", gap: 14 }}>
+                            <DonutGauge value={domainMastery.masteryPct} max={100} size={72} thickness={8} color={stat.color} C={C} centerText={`${domainMastery.masteryPct}%`} />
+                            <View>
+                              <Text style={{ color: C.text, fontWeight: "800", fontSize: 15 }}>Mastery</Text>
+                              <View style={{ backgroundColor: conf.color + "18", paddingHorizontal: 8, paddingVertical: 2, borderRadius: 8, marginTop: 4, alignSelf: "flex-start" }}>
+                                <Text style={{ color: conf.color, fontSize: 11, fontWeight: "700" }}>{conf.label}</Text>
+                              </View>
+                            </View>
+                          </View>
+                          <View style={{ backgroundColor: stat.color + "18", paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999 }}>
+                            <Text style={{ color: stat.color, fontSize: 11, fontWeight: "700" }}>{stat.label}</Text>
+                          </View>
+                        </View>
+
+                        {(strengths.length > 0 || weaknesses.length > 0) && (
+                          <View style={{ marginBottom: showCTA ? 14 : 0 }}>
+                            {strengths.map((s, i) => (
+                              <View key={"s" + i} style={{ flexDirection: "row", gap: 6, marginBottom: 6 }}>
+                                <Text style={{ color: "#2f9e56", fontWeight: "800" }}>✓</Text>
+                                <Text style={{ color: C.textSub, fontSize: 12.5, flex: 1 }}>{s}</Text>
+                              </View>
+                            ))}
+                            {weaknesses.map((s, i) => (
+                              <View key={"w" + i} style={{ flexDirection: "row", gap: 6, marginBottom: 6 }}>
+                                <Text style={{ color: "#ff9f43", fontWeight: "800" }}>⚠</Text>
+                                <Text style={{ color: C.textSub, fontSize: 12.5, flex: 1 }}>{s}</Text>
+                              </View>
+                            ))}
+                          </View>
+                        )}
+
+                        {showCTA && (
+                          <TouchableOpacity
+                            style={{ backgroundColor: domainMastery.status === "remediated" ? GOLD : C.card2, borderRadius: 12, paddingVertical: 12, alignItems: "center", borderWidth: domainMastery.status === "remediated" ? 0 : 1, borderColor: C.border }}
+                            onPress={() => { setProveMasteryDomain(selectedGrowthDomain); setProveMasteryPhase("intro"); setProveMasteryPlan(null); setProveMasteryVerdict(null); setView("proveMastery"); }}
+                          >
+                            <Text style={{ color: domainMastery.status === "remediated" ? "#1a1a1a" : C.text, fontWeight: "800", fontSize: 13.5 }}>
+                              {domainMastery.status === "remediated" ? "Prove Mastery" : "Re-prove Mastery"}
+                            </Text>
+                          </TouchableOpacity>
+                        )}
+                      </View>
+                    );
+                  })()}
+
+                  {/* ── Weakness -> Strength: preserved history of status
+                      changes for this domain, oldest first. Never overwrites
+                      or fabricates a milestone — this list is exactly what
+                      logMasteryTransitions wrote at the moment each real
+                      transition happened, starting from whenever tracking
+                      began for this account (no retroactive backfill). ── */}
+                  {(() => {
+                    const timeline = masteryTimelines[selectedGrowthDomain];
+                    if (masteryTimelineLoading && !timeline) return null;
+                    if (!timeline || timeline.length === 0) return null;
+                    const STATUS_LABEL = {
+                      weak: "Weak spot", practiced: "Building", remediated: "Ready to prove",
+                      proved: "Mastery proven", mastered: "Mastered", needsReview: "Needs review",
+                    };
+                    const STATUS_COLOR = {
+                      weak: "#ff4d4d", practiced: isLight ? "#c9970c" : "#3B82F6", remediated: "#2f9e56",
+                      proved: "#2f9e56", mastered: "#2f9e56", needsReview: "#ff9f43",
+                    };
+                    const fmtDate = (ts) => {
+                      const ms = ts?.toDate ? ts.toDate().getTime() : (ts?.seconds ? ts.seconds * 1000 : null);
+                      if (!ms) return "";
+                      return new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+                    };
+                    return (
+                      <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 16, marginBottom: 16, borderWidth: 1, borderColor: C.border }}>
+                        <Text style={{ color: C.text, fontWeight: "800", fontSize: 15, marginBottom: 14 }}>Weakness → Strength</Text>
+                        {timeline.map((event, i) => {
+                          const color = STATUS_COLOR[event.toStatus] || C.textMuted;
+                          const label = STATUS_LABEL[event.toStatus] || event.toStatus;
+                          const isLast = i === timeline.length - 1;
+                          return (
+                            <View key={event.id} style={{ flexDirection: "row", gap: 12 }}>
+                              <View style={{ alignItems: "center", width: 14 }}>
+                                <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: color, marginTop: 4 }} />
+                                {!isLast && <View style={{ width: 2, flex: 1, backgroundColor: C.border, marginTop: 4 }} />}
+                              </View>
+                              <View style={{ flex: 1, paddingBottom: isLast ? 0 : 18 }}>
+                                <Text style={{ color: C.textMuted, fontSize: 11, fontWeight: "700", letterSpacing: 0.5 }}>{fmtDate(event.createdAt).toUpperCase()}</Text>
+                                <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 2 }}>
+                                  <Text style={{ color, fontWeight: "800", fontSize: 13.5 }}>{label}</Text>
+                                  {event.masteryPctAtTransition != null && (
+                                    <Text style={{ color: C.textMuted, fontSize: 12 }}>· {event.masteryPctAtTransition}% mastery</Text>
+                                  )}
+                                  {event.verifiedBy === "server" && (
+                                    <View style={{ backgroundColor: color + "18", paddingHorizontal: 6, paddingVertical: 1, borderRadius: 6 }}>
+                                      <Text style={{ color, fontSize: 9.5, fontWeight: "800" }}>VERIFIED</Text>
+                                    </View>
+                                  )}
+                                </View>
+                              </View>
+                            </View>
+                          );
+                        })}
+                      </View>
+                    );
+                  })()}
                 </>
               );
             })()}
@@ -28349,6 +30342,132 @@ if (view === "practice" && quizStarted) {
     </WebLayout>
   );
 }
+
+  /* ---------------- PROVE MASTERY VIEW ---------------- */
+  if (view === "proveMastery") {
+    const domain = proveMasteryDomain;
+    const goBack = () => { setView("growth"); };
+
+    if (proveMasteryPhase === "intro" || !proveMasteryPlan) {
+      const plan = proveMasteryPlan || generateProveMasteryPlan(domain);
+      const DIMENSION_ICON = { difficultyCoverage: "✓", recency: "✓", formatDiversity: "✓", regression: "✓", mistakeTaxonomy: "✓", firstAttempt: "✓", streakStability: "✓" };
+      return (
+        <View style={{ flex: 1 }}>
+          <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
+            <TouchableOpacity style={styles.backButton} onPress={goBack}>
+              <Text style={styles.backText}>← Back</Text>
+            </TouchableOpacity>
+            <Text style={{ color: C.textMuted, fontSize: 12, fontWeight: "700", letterSpacing: 1, marginBottom: 6 }}>PROVE MASTERY</Text>
+            <Text style={[styles.title, { fontFamily: displayFont(), marginBottom: 16 }]}>{domain}</Text>
+
+            <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 18, marginBottom: 16, borderWidth: 1, borderColor: C.border }}>
+              <Text style={{ color: C.textSub, fontSize: 13, marginBottom: 14 }}>
+                To verify mastery, this check targets only the areas where your evidence is still thin — not a fixed set of questions.
+              </Text>
+              {plan.dimensions.map((d) => (
+                <View key={d.key} style={{ flexDirection: "row", gap: 8, marginBottom: 10, alignItems: "flex-start" }}>
+                  <Text style={{ color: d.flagged ? "#ff9f43" : "#2f9e56", fontWeight: "800" }}>{d.flagged ? "○" : "✓"}</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ color: C.text, fontSize: 13, fontWeight: "600" }}>{d.label}</Text>
+                    {d.flagged && d.reason ? <Text style={{ color: C.textMuted, fontSize: 11.5, marginTop: 2 }}>{d.reason}</Text> : null}
+                  </View>
+                </View>
+              ))}
+              <Text style={{ color: C.textMuted, fontSize: 11.5, marginTop: 6 }}>{plan.questionCount} question{plan.questionCount === 1 ? "" : "s"} needed to cover this.</Text>
+            </View>
+
+            {proveMasteryError ? (
+              <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 16, marginBottom: 16, borderWidth: 1, borderColor: C.border }}>
+                <Text style={{ color: "#ff4d4d", fontSize: 13 }}>{proveMasteryError}</Text>
+              </View>
+            ) : (
+              <TouchableOpacity
+                style={{ backgroundColor: GOLD, borderRadius: 14, paddingVertical: 16, alignItems: "center" }}
+                onPress={() => beginProveMasteryCheck(domain)}
+              >
+                <Text style={{ color: "#1a1a1a", fontWeight: "800", fontSize: 15 }}>Begin Mastery Check</Text>
+              </TouchableOpacity>
+            )}
+          </ScrollView>
+        </View>
+      );
+    }
+
+    if (proveMasteryPhase === "testing") {
+      const q = proveMasteryQuestions[proveMasteryCurrentQ];
+      const isLast = proveMasteryCurrentQ >= proveMasteryQuestions.length - 1;
+      const answered = proveMasteryAnswers[proveMasteryCurrentQ] != null && proveMasteryAnswers[proveMasteryCurrentQ] !== -1;
+      return (
+        <View style={{ flex: 1 }}>
+          <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
+            <Text style={{ color: C.textMuted, fontSize: 12, fontWeight: "700", marginBottom: 10 }}>
+              Question {proveMasteryCurrentQ + 1} of {proveMasteryQuestions.length} · {q.difficulty}
+            </Text>
+            <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 18, marginBottom: 16, borderWidth: 1, borderColor: C.border }}>
+              {q.passage ? <Text style={{ color: C.textSub, fontSize: 13.5, lineHeight: 21, marginBottom: 14 }}>{formatMathText(q.passage)}</Text> : null}
+              <Text style={{ color: C.text, fontSize: 15, lineHeight: 22, marginBottom: 16 }}>{formatMathText(q.question)}</Text>
+              {(q.choices || []).map((choice, i) => {
+                const selected = proveMasteryAnswers[proveMasteryCurrentQ] === i;
+                return (
+                  <TouchableOpacity
+                    key={i}
+                    onPress={() => answerProveMasteryQuestion(i)}
+                    style={{ borderWidth: 1.5, borderColor: selected ? GOLD : C.border, backgroundColor: selected ? GOLD + "18" : C.card2, borderRadius: 12, padding: 14, marginBottom: 10 }}
+                  >
+                    <Text style={{ color: selected ? GOLD : C.text, fontSize: 14, fontWeight: selected ? "700" : "500" }}>{formatMathText(choice)}</Text>
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+            <TouchableOpacity
+              disabled={!answered}
+              style={{ backgroundColor: answered ? GOLD : C.card2, borderRadius: 14, paddingVertical: 16, alignItems: "center" }}
+              onPress={() => { if (isLast) finishProveMasteryCheck(); else setProveMasteryCurrentQ((p) => p + 1); }}
+            >
+              <Text style={{ color: answered ? "#1a1a1a" : C.textMuted, fontWeight: "800", fontSize: 15 }}>{isLast ? "Finish" : "Next"}</Text>
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
+      );
+    }
+
+    if (proveMasteryPhase === "verifying") {
+      return (
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+          <ActivityIndicator color={GOLD} size="large" />
+          <Text style={{ color: C.textMuted, fontSize: 13, marginTop: 16 }}>Checking your results…</Text>
+        </View>
+      );
+    }
+
+    // proveMasteryPhase === "result"
+    const verdict = proveMasteryVerdict;
+    const verified = verdict?.verdict === "VERIFIED";
+    return (
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40, alignItems: "center" }}>
+          <View style={{ width: 88, height: 88, borderRadius: 44, backgroundColor: (verified ? "#2f9e56" : "#ff9f43") + "22", alignItems: "center", justifyContent: "center", marginTop: 24, marginBottom: 18 }}>
+            <AppIcon name={verified ? "check" : "alert-triangle"} size={38} color={verified ? "#2f9e56" : "#ff9f43"} />
+          </View>
+          <Text style={{ color: verified ? "#2f9e56" : "#ff9f43", fontWeight: "900", fontSize: 20, marginBottom: 6, textAlign: "center" }}>
+            {verified ? "MASTERY VERIFIED" : "MASTERY NOT YET VERIFIED"}
+          </Text>
+          <Text style={{ color: C.textMuted, fontSize: 13, marginBottom: 20, textAlign: "center" }}>{domain}</Text>
+          <View style={{ backgroundColor: C.card, borderRadius: 16, padding: 18, width: "100%", maxWidth: 480, borderWidth: 1, borderColor: C.border, marginBottom: 20 }}>
+            <Text style={{ color: C.textSub, fontSize: 13.5, lineHeight: 20 }}>{verdict?.reason || ""}</Text>
+          </View>
+          <TouchableOpacity style={{ backgroundColor: GOLD, borderRadius: 14, paddingVertical: 14, paddingHorizontal: 32, marginBottom: 12 }} onPress={goBack}>
+            <Text style={{ color: "#1a1a1a", fontWeight: "800", fontSize: 14 }}>Back to Growth</Text>
+          </TouchableOpacity>
+          {!verified && (
+            <TouchableOpacity onPress={() => { setProveMasteryPhase("intro"); setProveMasteryPlan(null); setProveMasteryVerdict(null); }}>
+              <Text style={{ color: C.textMuted, fontSize: 13 }}>Practice more, then try again</Text>
+            </TouchableOpacity>
+          )}
+        </ScrollView>
+      </View>
+    );
+  }
 
   /* ---------------- TIME ANALYTICS VIEW ---------------- */
   if (view === "timeAnalytics") {
@@ -28861,6 +30980,16 @@ if (view === "practice" && quizStarted) {
         <FeaturesDetail isLight={isLight} analytics={adminAnalytics} loading={adminAnalyticsLoading} />
 
         <TouchableOpacity
+          style={[styles.button, { backgroundColor: isLight ? "#0f172a" : "#1e293b" }]}
+          onPress={() => { loadUserDirectory(); setView("userDirectory"); }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6 }}>
+            <AppIcon name="users" size={16} color={styles.btnText?.color || "#fff"} />
+            <Text style={styles.btnText}>User Directory</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity
           style={[styles.button, { backgroundColor: isLight ? "#6d28d9" : "#5b21b6" }]}
           onPress={() => {
             loadTestimonials();
@@ -28925,10 +31054,32 @@ if (view === "practice" && quizStarted) {
           </View>
         </TouchableOpacity>
 
+        <View style={styles.statCard}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+            <AppIcon name="user-plus" size={16} color={adminAccent} />
+            <Text style={[styles.statTitle, { color: adminAccent }]}>Tutoring Requests</Text>
+          </View>
+          <View style={{ flexDirection: "row", marginTop: 10, gap: 12 }}>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text style={[styles.statTitle, { fontSize: 22, color: adminAccent }]}>{tutorRequestedCount}</Text>
+              <Text style={[styles.statText, { fontSize: 11, textAlign: "center" }]}>Requested</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text style={[styles.statTitle, { fontSize: 22, color: adminAccent }]}>{tutorWaitlist.length}</Text>
+              <Text style={[styles.statText, { fontSize: 11, textAlign: "center" }]}>On Waitlist</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: "center" }}>
+              <Text style={[styles.statTitle, { fontSize: 22, color: adminAccent }]}>{tutorOpenSpots}</Text>
+              <Text style={[styles.statText, { fontSize: 11, textAlign: "center" }]}>Open Spots</Text>
+            </View>
+          </View>
+        </View>
+
         <TouchableOpacity
           style={[styles.button, { backgroundColor: isLight ? "#7e22ce" : "#581c87" }]}
           onPress={() => {
             setTutorGrantMessage("");
+            loadManageTutorsList();
             setView("manageTutors");
           }}
         >
@@ -28958,13 +31109,36 @@ if (view === "practice" && quizStarted) {
           </View>
         </TouchableOpacity>
 
+        {/* Enabled = today's existing Stripe-paid flow (Buy a Class).
+            Disabled = students tap "Request a Tutor" instead — same admin
+            matching step, but the resulting relationship is unlimited (no
+            message/session limits, no payment). See config/tutoring and
+            api/tutor.js's isTutoringPaymentsEnabled/requestFreeTutor. */}
         <TouchableOpacity
-          style={[styles.button, { backgroundColor: isLight ? "#15803d" : "#166534" }]}
-          onPress={() => setView("adminClassOfferings")}
+          style={[styles.button, { backgroundColor: tutoringPaymentsEnabled ? (isLight ? "#15803d" : "#166534") : (isLight ? "#64748b" : "#475569") }]}
+          onPress={() => showAlert(
+            tutoringPaymentsEnabled ? "Disable tutoring payments?" : "Enable tutoring payments?",
+            tutoringPaymentsEnabled
+              ? "Students will see \"Request a Tutor\" instead of \"Buy a Class\" — matched relationships will have no message or session limits and no payment."
+              : "Students will see \"Buy a Class\" again, going through Stripe as usual.",
+            [
+              { text: "Cancel", style: "cancel" },
+              {
+                text: tutoringPaymentsEnabled ? "Disable" : "Enable",
+                onPress: async () => {
+                  try {
+                    await setDoc(doc(db, "config", "tutoring"), { paymentsEnabled: !tutoringPaymentsEnabled }, { merge: true });
+                  } catch (e) {
+                    showAlert("Error", "Could not update the tutoring payments setting.");
+                  }
+                },
+              },
+            ]
+          )}
         >
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6 }}>
-            <AppIcon name="tag" size={16} color={styles.btnText?.color || "#fff"} />
-            <Text style={styles.btnText}>Manage Class Offerings</Text>
+            <AppIcon name={tutoringPaymentsEnabled ? "toggle-right" : "toggle-left"} size={16} color={styles.btnText?.color || "#fff"} />
+            <Text style={styles.btnText}>Tutoring Payments: {tutoringPaymentsEnabled ? "Enabled" : "Disabled"}</Text>
           </View>
         </TouchableOpacity>
 
@@ -29256,7 +31430,7 @@ if (view === "practice" && quizStarted) {
 
           <Text style={styles.title}>Manage Tutors</Text>
           <Text style={[styles.statText, { marginTop: 4, marginBottom: 14 }]}>
-            Grant an existing account the tutor role by email. They'll get a "Tutor" tab in their role switcher where they can set up their profile and price.
+            Grant an existing account the tutor role by email. They'll get a "Tutor" tab in their role switcher where they can set up their profile.
           </Text>
 
           <TextInput
@@ -29278,7 +31452,170 @@ if (view === "practice" && quizStarted) {
           {tutorGrantMessage ? (
             <Text style={{ color: C.textMuted, fontSize: 13, marginTop: 10 }}>{tutorGrantMessage}</Text>
           ) : null}
+
+          <Text style={[styles.title, { fontSize: 18, marginTop: 28, marginBottom: 10 }]}>Student Roster</Text>
+          {manageTutorsListLoading ? (
+            <Text style={styles.subtitle}>Loading...</Text>
+          ) : (
+            <>
+              {manageTutorsList.filter((t) => t.active !== false).map((t) => {
+                const roster = tutorRosterByTutor[t.id] || [];
+                return (
+                  <View key={t.id} style={[styles.historyCard, { marginBottom: 10 }]}>
+                    <Text style={styles.historyScore}>{t.displayName || "Tutor"}</Text>
+                    {roster.length === 0 ? (
+                      <Text style={[styles.historyMeta, { marginTop: 4 }]}>No students yet</Text>
+                    ) : (
+                      roster.map((s) => (
+                        <Text key={s.id} style={[styles.historyMeta, { marginTop: 4 }]}>
+                          • {s.studentName}{s.tutorUnavailable ? " (needs reassignment)" : ""}{s.helpTopic ? ` — ${s.helpTopic}` : ""}
+                        </Text>
+                      ))
+                    )}
+                  </View>
+                );
+              })}
+
+              <View style={[styles.historyCard, { marginBottom: 10 }]}>
+                <Text style={styles.historyScore}>Waitlist</Text>
+                {tutorWaitlist.length === 0 ? (
+                  <Text style={[styles.historyMeta, { marginTop: 4 }]}>Nobody waiting</Text>
+                ) : (
+                  tutorWaitlist.map((p) => (
+                    <Text key={p.id} style={[styles.historyMeta, { marginTop: 4 }]}>
+                      • {p.studentName || "Student"}{p.helpTopic ? ` — ${p.helpTopic}` : ""}
+                    </Text>
+                  ))
+                )}
+              </View>
+            </>
+          )}
+
+          <Text style={[styles.title, { fontSize: 18, marginTop: 28, marginBottom: 10 }]}>All Tutors</Text>
+          {manageTutorsListLoading ? (
+            <Text style={styles.subtitle}>Loading...</Text>
+          ) : manageTutorsList.length === 0 ? (
+            <Text style={styles.subtitle}>No tutors granted yet.</Text>
+          ) : (
+            manageTutorsList.map((t) => {
+              const capacity = typeof t.capacity === "number" && t.capacity > 0 ? t.capacity : 2;
+              return (
+                <View key={t.id} style={styles.historyCard}>
+                  <Text style={styles.historyScore}>{t.displayName || "Tutor"}</Text>
+                  {t.bio ? <Text style={styles.historyMeta}>{t.bio}</Text> : null}
+                  <Text style={[styles.historyMeta, { marginTop: 2 }]}>{t.active !== false ? "Accepting new students" : "Removed — kept their existing students/history"}</Text>
+                  <Text style={[styles.historyMeta, { marginTop: 4, fontWeight: "700" }]}>{t.load ?? 0} / {capacity} students</Text>
+                  <View style={{ flexDirection: "row", gap: 8, marginTop: 8, alignItems: "center" }}>
+                    <TextInput
+                      style={[styles.input, { flex: 1, marginTop: 0, paddingVertical: 8 }]}
+                      value={tutorCapacityDraft[t.id] ?? String(capacity)}
+                      onChangeText={(v) => setTutorCapacityDraft((prev) => ({ ...prev, [t.id]: v.replace(/[^0-9]/g, "") }))}
+                      keyboardType="number-pad"
+                      placeholder="Capacity"
+                      placeholderTextColor={C.textMuted}
+                    />
+                    <TouchableOpacity
+                      style={[styles.button, { paddingVertical: 8, paddingHorizontal: 14, opacity: savingCapacityUid === t.id ? 0.6 : 1 }]}
+                      onPress={() => setTutorCapacityAction(t.id)}
+                      disabled={savingCapacityUid === t.id}
+                    >
+                      <Text style={styles.btnText}>{savingCapacityUid === t.id ? "Saving..." : "Save"}</Text>
+                    </TouchableOpacity>
+                  </View>
+                  {t.active !== false && (
+                    <TouchableOpacity
+                      style={[styles.button, { backgroundColor: "#7f1d1d", marginTop: 8, opacity: removingTutorUid === t.id ? 0.6 : 1 }]}
+                      onPress={() => removeTutorRole(t.id)}
+                      disabled={removingTutorUid === t.id}
+                    >
+                      <Text style={styles.btnText}>{removingTutorUid === t.id ? "Removing..." : "Remove"}</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
+              );
+            })
+          )}
         </ScrollView>
+        {renderCasperFloating()}
+      </View>
+    );
+  }
+
+  /* ---------------- USER DIRECTORY ---------------- */
+
+  if (view === "userDirectory") {
+    const sortKey = userDirectorySort.key;
+    const sortDir = userDirectorySort.dir;
+    const sorted = [...userDirectory].sort((a, b) => {
+      const av = a[sortKey], bv = b[sortKey];
+      const an = av == null, bn = bv == null;
+      if (an && bn) return 0;
+      if (an) return 1; // nulls (never active / no signup date) sort last regardless of direction
+      if (bn) return -1;
+      const cmp = typeof av === "string" ? av.localeCompare(bv) : av - bv;
+      return sortDir === "asc" ? cmp : -cmp;
+    });
+    const toggleSort = (key) => {
+      setUserDirectorySort((prev) => (prev.key === key ? { key, dir: prev.dir === "asc" ? "desc" : "asc" } : { key, dir: "desc" }));
+    };
+    const columns = [
+      { key: "name", label: "Name", flex: 1.6 },
+      { key: "email", label: "Email", flex: 2.2 },
+      { key: "questionsAnsweredTotal", label: "Questions", flex: 1 },
+      { key: "timeSpentMinutes", label: "Time (min)", flex: 1 },
+      { key: "lastActiveAt", label: "Last Active", flex: 1.3 },
+      { key: "createdAt", label: "Signed Up", flex: 1.3 },
+    ];
+    const fmtDate = (ms) => (ms ? new Date(ms).toLocaleDateString() : "—");
+    return (
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.container}>
+          <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+            <TouchableOpacity style={[styles.backButton, { marginBottom: 0 }]} onPress={() => setView("admin")}>
+              <Text style={styles.backText}>← Back</Text>
+            </TouchableOpacity>
+            <ThemeToggleButton isLight={isLight} onPress={toggleTheme} />
+          </View>
+
+          <Text style={styles.title}>User Directory</Text>
+          <Text style={[styles.statText, { marginTop: 4, marginBottom: 14 }]}>
+            {userDirectoryLoading ? "Loading..." : `${userDirectory.length} users · tap a column to sort`}
+          </Text>
+
+          {userDirectoryLoading ? (
+            <Text style={styles.subtitle}>Loading...</Text>
+          ) : userDirectory.length === 0 ? (
+            <Text style={styles.subtitle}>No users found.</Text>
+          ) : (
+            <ScrollView horizontal showsHorizontalScrollIndicator>
+              <View style={{ minWidth: 720 }}>
+                <View style={{ flexDirection: "row", borderBottomWidth: 2, borderBottomColor: C.border, paddingBottom: 8, marginBottom: 4 }}>
+                  {columns.map((col) => (
+                    <TouchableOpacity key={col.key} style={{ flex: col.flex }} onPress={() => toggleSort(col.key)}>
+                      <Text style={{ color: C.textMuted, fontSize: 11, fontWeight: "800", textTransform: "uppercase", letterSpacing: 0.5 }}>
+                        {col.label}{sortKey === col.key ? (sortDir === "asc" ? " ↑" : " ↓") : ""}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+                {sorted.map((u, i) => (
+                  <View
+                    key={u.uid}
+                    style={{ flexDirection: "row", paddingVertical: 10, borderBottomWidth: 1, borderBottomColor: C.border, backgroundColor: i % 2 === 0 ? "transparent" : (isLight ? "#f8fafc" : "#0f1829") }}
+                  >
+                    <Text style={{ flex: 1.6, color: C.text, fontSize: 13, fontWeight: "700" }} numberOfLines={1}>{u.name || "—"}</Text>
+                    <Text style={{ flex: 2.2, color: C.textMuted, fontSize: 13 }} numberOfLines={1}>{u.email || "—"}</Text>
+                    <Text style={{ flex: 1, color: C.text, fontSize: 13 }}>{u.questionsAnsweredTotal}</Text>
+                    <Text style={{ flex: 1, color: C.text, fontSize: 13 }}>{u.timeSpentMinutes}</Text>
+                    <Text style={{ flex: 1.3, color: C.textMuted, fontSize: 13 }}>{fmtDate(u.lastActiveAt)}</Text>
+                    <Text style={{ flex: 1.3, color: C.textMuted, fontSize: 13 }}>{fmtDate(u.createdAt)}</Text>
+                  </View>
+                ))}
+              </View>
+            </ScrollView>
+          )}
+        </ScrollView>
+        {renderCasperFloating()}
       </View>
     );
   }

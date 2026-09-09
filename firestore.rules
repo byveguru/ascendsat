@@ -80,6 +80,42 @@ service cloud.firestore {
       allow read, write: if isOwner(userId);
     }
 
+    // AI Projected Score Intelligence — a persisted history of the
+    // student's projected-score milestones (not every quiz, only real
+    // moves — see isMeaningfulProjectionChange). Purely informational, same
+    // no-server-trust-needed status as the score itself (which has always
+    // been client-computed), so owner read/append is enough; update/delete
+    // blocked so past predictions can't be retroactively rewritten.
+    match /scoreProjectionHistory/{userId}/entries/{entryId} {
+      allow read, create: if isOwner(userId);
+      allow update, delete: if false;
+    }
+
+    // Mastery Engine 2.0 — append-only status-transition log for the
+    // Weakness -> Strength timeline. Read/append are the owner's (the
+    // client logs its own client-computed transitions as they happen), but
+    // update/delete are blocked entirely so history can't be edited or
+    // erased after the fact, and a client can never claim `verifiedBy:
+    // "server"` (only api/prove-mastery.js, via the Admin SDK which bypasses
+    // these rules, writes those) — same forging protection the mobileGame/
+    // awardedScores docs below use for XP.
+    match /masteryEvents/{userId}/events/{eventId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && request.resource.data.verifiedBy != "server";
+      allow update, delete: if false;
+    }
+
+    // Mastery Engine 2.0 — the trusted Prove Mastery verdict. Server-only,
+    // same pattern as users/{userId}/mobileGame above: written only by
+    // api/prove-mastery.js via the Admin SDK (bypasses these rules) after
+    // re-reading the student's actual scores docs itself, so a modified
+    // client can never self-award a VERIFIED result the way it could if
+    // this lived on the client-writable users/{userId} doc.
+    match /proveMasteryResults/{userId}/results/{resultId} {
+      allow read: if isOwner(userId);
+      allow write: if false;
+    }
+
     match /usedQuestions/{userId} {
       allow read, create, update: if isOwner(userId);
     }
@@ -96,6 +132,25 @@ service cloud.firestore {
       allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
       allow read: if isAdmin() || (signedIn() && resource.data.userId == request.auth.uid);
       allow update, delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // Flat per-question-attempt log feeding "mistake DNA" co-occurrence
+    // aggregation (api/cron-daily.js) — write-only from the client (never
+    // read back directly; the precomputed questionInsights below is what
+    // the app actually reads). No update/delete: an attempt is an immutable
+    // historical fact once logged.
+    match /questionAttempts/{attemptId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if false;
+    }
+
+    // Precomputed cross-student mistake-correlation stats, one doc per
+    // question — server-only write (api/cron-daily.js via the Admin SDK,
+    // which bypasses rules entirely), public-to-signed-in-users read since
+    // it's already anonymized aggregate data, not raw per-student records.
+    match /questionInsights/{questionId} {
+      allow read: if signedIn();
+      allow write: if false;
     }
 
     match /lessons/{lessonId} {
@@ -380,28 +435,18 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // 1:1 Paid Tutoring — a tutor's public profile (bio/Calendly link).
-    // Pricing/offerings live separately in classOfferings now (purchases
-    // aren't tied to a specific tutor — see below), so this is just the
-    // tutor's own identity/contact info. Publicly readable; write access is
-    // the tutor themself or isAdmin() (granting the role in the first place
-    // creates the stub doc server-side via api/tutor.js, which uses the
-    // Admin SDK and bypasses this rule entirely — this clause only matters
-    // for later client edits).
+    // 1:1 Paid Tutoring — a tutor's public profile (bio). Pricing/products
+    // live entirely in Stripe (Payment Links created directly in the
+    // Stripe Dashboard, no in-app catalog at all — see App.tsx's
+    // TUTOR_PAYMENT_LINKS), so this is just the tutor's own identity/
+    // contact info. Publicly readable; write access is the tutor themself
+    // or isAdmin() (granting the role in the first place creates the stub
+    // doc server-side via api/tutor.js, which uses the Admin SDK and
+    // bypasses this rule entirely — this clause only matters for later
+    // client edits).
     match /tutors/{tutorUid} {
       allow read: if signedIn();
       allow write: if isOwner(tutorUid) || isAdmin();
-    }
-
-    // The shared class catalog (e.g. "SAT Tutoring" $25, "AP Math Tutoring"
-    // $25) — admin-managed since it maps directly to Stripe products/prices
-    // the admin creates in the Stripe Dashboard, and isn't owned by any one
-    // tutor (a purchase gets matched to a tutor afterward, see
-    // tutorPurchases below). Publicly readable so a student can see what's
-    // for sale before buying.
-    match /classOfferings/{offeringId} {
-      allow read: if signedIn();
-      allow write: if isAdmin();
     }
 
     // One doc per completed Stripe purchase (doc ID = Stripe session ID,
@@ -436,25 +481,38 @@ service cloud.firestore {
         && (resource.data.studentUid == request.auth.uid || resource.data.tutorUid == request.auth.uid || isAdmin());
       allow write: if false;
 
+      // Narrow carve-out for (a) the unread-message red dot — each
+      // participant may stamp *only their own* studentLastReadAt/
+      // tutorLastReadAt field — and (b) the tutor's own "remove from my
+      // screen" declutter action (hiddenByTutor) — nothing else (hasOnly()
+      // rejects a write that also touches credits or any other field).
+      // Safe to leave client-writable unlike the balance fields above,
+      // since misreporting your own read state or hiding a relationship
+      // from your own view has no effect on anyone else's credits/sessions
+      // or on what the admin/student see (Tutoring Messages and the
+      // student's own studentTutoring screen ignore hiddenByTutor
+      // entirely). api/tutor.js resets hiddenByTutor to false whenever a
+      // relationship is (re)assigned, so a new tutor never inherits a
+      // previous tutor's hidden state.
+      allow update: if signedIn()
+        && ((resource.data.studentUid == request.auth.uid
+              && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["studentLastReadAt"]))
+            || (resource.data.tutorUid == request.auth.uid
+              && request.resource.data.diff(resource.data).affectedKeys().hasOnly(["tutorLastReadAt", "hiddenByTutor"])));
+
       // Free-form logistics chat ("plan a meeting" + where the tutor's
-      // sendMeetingLink action posts the Google Meet link) — doesn't touch
-      // credits, so it's a plain direct client write/read like any simple
-      // chat (the meeting-link message itself is the one exception, posted
-      // server-side by sendMeetingLink since that call also has to spend a
-      // session credit and set qaUnlockedAt in the same transaction — but
-      // the collection's rules don't need to know that; a server write via
-      // the Admin SDK bypasses these rules the same way a client write
-      // would satisfy them).
+      // sendMeetingLink action posts the Google Meet link). Written only by
+      // api/tutor.js's sendSchedulingMessage/sendMeetingLink (Admin SDK) —
+      // no credits are involved, but every message send needs to go
+      // through the server now so it can email the other participant (see
+      // api/tutor.js's notifyNewMessage); this used to be a plain client
+      // write before that requirement existed.
       match /schedulingMessages/{msgId} {
         allow read: if signedIn()
           && (get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.studentUid == request.auth.uid
               || get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.tutorUid == request.auth.uid
               || isAdmin());
-        allow create: if signedIn()
-          && request.resource.data.senderUid == request.auth.uid
-          && (get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.studentUid == request.auth.uid
-              || get(/databases/$(database)/documents/tutorRelationships/$(relId)).data.tutorUid == request.auth.uid);
-        allow update, delete: if false;
+        allow write: if false;
       }
 
       // The credit-metered "ask a question" thread — written only by

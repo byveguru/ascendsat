@@ -162,16 +162,35 @@ function scoreHistoryEntryWeight(entry: any, now: number, halfLifeDays: number):
 
 /** Build per-section IRT responses from ongoing practice (scoreHistory), for
     a sequential ability update. Practice-bank questions have no per-item IRT
-    calibration, so a/b/c come from the difficulty-label fallback preset. */
+    calibration, so a/b/c come from the difficulty-label fallback preset.
+
+    `halfLifeDays` is unchanged (single number, still 21 by default) — recency
+    decay itself doesn't vary by projection style. `evidenceWeight` is new and
+    optional: a flat multiplier applied on top of the recency weight,
+    separately for correct vs. incorrect responses. This is what powers the
+    AI Projected Score Intelligence "projection style" preference (see
+    lib/scoreProjection.ts's PROJECTION_STYLE_EVIDENCE_WEIGHT) — e.g.
+    "conservative" damps every correct response's weight below 1, so it takes
+    proportionally more repeated correct evidence to move the estimate the
+    same amount a default (1.0) weighting would; the negative multiplier stays
+    1.0 for every style, so regression is never dampened. (An earlier version
+    of this tried varying the HALF-LIFE instead of a flat multiplier, but
+    since a brand-new response's recency weight is ~1 regardless of half-life,
+    that approach didn't actually slow down how fast a fresh burst of correct
+    answers got credited — only how long OLD correct answers lingered. A flat
+    per-response multiplier is what actually implements "requires more
+    repeated evidence.") Defaults to {positive:1, negative:1}, so calling this
+    with no 5th argument is byte-for-byte the original behavior. */
 export function buildPracticeResponseBuckets(
   scoreHistory: any[],
   cfg: TestConfig,
   now: number = Date.now(),
-  halfLifeDays: number = 21
+  halfLifeDays: number = 21,
+  evidenceWeight: { positiveMultiplier: number; negativeMultiplier: number } = { positiveMultiplier: 1, negativeMultiplier: 1 }
 ): Record<string, IrtResponse[]> {
   const buckets: Record<string, IrtResponse[]> = {};
   (scoreHistory || []).forEach((entry) => {
-    const weight = scoreHistoryEntryWeight(entry, now, halfLifeDays);
+    const recencyWeight = scoreHistoryEntryWeight(entry, now, halfLifeDays);
     (entry?.questions || []).forEach((q: any) => {
       if (!q?.domain) return;
       const sec = cfg.sections.find((s) => s.domains.includes(q.domain));
@@ -179,6 +198,7 @@ export function buildPracticeResponseBuckets(
       const sectionKey = sectionKeyForDomain(q.domain, cfg);
       const cal = fallbackFromDifficultyLabel(q.difficulty || "Medium", sectionKey as any);
       const correct = q.userAnswer === q.correctAnswer;
+      const weight = recencyWeight * (correct ? evidenceWeight.positiveMultiplier : evidenceWeight.negativeMultiplier);
       if (!buckets[sectionKey]) buckets[sectionKey] = [];
       buckets[sectionKey].push({ a: cal.discrimination, b: cal.difficulty, c: cal.guessing, correct, weight });
     });

@@ -61,6 +61,12 @@ export type SkillScoreInput = {
   accuracy: number;
   priority: number;
   total?: number;
+  // Mastery Engine 2.0 fields — optional and additive so any existing caller
+  // that only ever built {domain, accuracy, priority, total} keeps working
+  // unchanged; pickDomains below only branches on these when they're present.
+  masteryPct?: number | null;
+  confidence?: string;
+  status?: string;
 };
 
 export type BuildScheduleInput = {
@@ -221,8 +227,24 @@ function pickDomains(
     const rotate = sessionIndex % allDomains.length;
     return [...allDomains.slice(rotate), ...allDomains.slice(0, rotate)];
   }
+  // Mastery-aware ordering, same idea as App.tsx's getEffectiveWeakAreas:
+  // a domain flagged needsReview (regression on previously proved/mastered
+  // material) jumps ahead of the normal priority sort; a domain already
+  // proved/mastered sinks behind it instead. Falls through to the original
+  // pure-priority sort whenever `status` isn't present on the input at all,
+  // so any caller not yet passing Mastery Engine data behaves identically
+  // to before.
+  const statusRank = (s: SkillScoreInput): number => {
+    if (s.status === "needsReview") return 0;
+    if (s.status === "proved" || s.status === "mastered") return 2;
+    return 1;
+  };
   const fromScores = [...skillScores]
-    .sort((a, b) => (b.priority || 0) - (a.priority || 0))
+    .sort((a, b) => {
+      const rankDiff = statusRank(a) - statusRank(b);
+      if (rankDiff !== 0) return rankDiff;
+      return (b.priority || 0) - (a.priority || 0);
+    })
     .map((s) => s.domain);
   const merged = [...new Set([...(weakAreas || []), ...fromScores])].filter(Boolean);
   if (!merged.length) {

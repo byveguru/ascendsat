@@ -15,11 +15,18 @@
 const crypto = require("crypto");
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = "llama-3.1-8b-instant";
+// llama-3.1-8b-instant started 404ing ("model_not_found") for this account
+// around 2026-09 — Groq's own docs now list it under an Enterprise-only tier
+// rather than the deprecated list, so it's a plan-access change, not a typo.
+// gpt-oss-20b is Groq's fastest/cheapest currently-available replacement.
+const GROQ_MODEL = "openai/gpt-oss-20b";
 // Only models the client is allowed to request via the optional `model` param.
 // Keeps the proxy from being turned into an open relay for arbitrary models.
 const ALLOWED_MODELS = new Set([
+  // Kept allowed (not requested by any client call site today) in case
+  // account access to it comes back; see the GROQ_MODEL comment above.
   "llama-3.1-8b-instant",
+  "openai/gpt-oss-20b",
   // Groq deprecated/shut down the llama-4-scout and llama-4-maverick preview
   // models (2026-07-17 and 2026-03-09 respectively); gpt-oss-120b is Groq's
   // recommended reasoning-tier replacement for maverick.
