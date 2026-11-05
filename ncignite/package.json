@@ -1,0 +1,26 @@
+{
+  "name": "ncignyte",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "postgres": "3.4.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.0"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:pages": "playwright test tests/pages.spec.js",
+    "test:a11y": "playwright test tests/a11y.spec.js",
+    "test:flow": "playwright test tests/flow.spec.js --project=desktop",
+    "test:desktop": "playwright test --project=desktop",
+    "test:clean": "node tests/cleanup.mjs",
+    "test:delete": "node tests/delete.mjs",
+    "test:countdown": "TZ=America/New_York node tests/countdown.mjs",
+    "test:checkin": "node tests/checkin-rules.mjs",
+    "test:checkin-flow": "node tests/checkin-flow.mjs"
+  }
+}

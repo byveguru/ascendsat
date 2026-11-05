@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Admin | NC Ignyte</title>
+<meta name="description" content="Organiser area.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f2f0eb">
+<link rel="icon" href="/NC-Ignyte-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/NC-Ignyte-icon.svg">
+<link rel="canonical" href="https://ncignyte.vercel.app/admin">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Admin | NC Ignyte">
+<meta property="og:description" content="Organiser area.">
+<meta property="og:url" content="https://ncignyte.vercel.app/admin">
+<meta property="og:image" content="https://ncignyte.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NC Ignyte">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Admin | NC Ignyte">
+<meta name="twitter:description" content="Organiser area.">
+<meta name="twitter:image" content="https://ncignyte.vercel.app/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap"></noscript>
+
+<script>document.documentElement.className="js";</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="cohort-banner">
+  <div class="wrap">
+    <p><strong>Cohort 1 &middot; Fall 2026</strong> <span>Applications are open now.<span class="bar-dates"> Five Fridays, November 6 to December 4.</span></span></p>
+    <a href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="/" aria-label="NC Ignyte home">
+      <svg class="brand-mark" viewBox="248 22 104 252" aria-hidden="true" focusable="false"><g transform="translate(186 20)" fill="currentColor"><path d="M108 2 C111 24 124 37 146 40 C124 43 111 56 108 78 C105 56 92 43 70 40 C92 37 105 24 108 2 Z"/><path d="M108 96 C105 128 64 150 62 198 C61 228 82 248 104 252 C92 236 92 216 100 200 C112 178 122 150 108 96 Z"/><path d="M138 150 C150 164 166 182 166 206 C166 232 146 250 124 254 C112 240 112 226 118 210 C124 194 138 188 138 150 Z"/></g></svg>
+      <span class="brand-name"><span class="brand-nc">NC</span> <span class="brand-ig">Ignyte</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+        <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="/#path">Fridays</a></li>
+        <li><a href="/#cohort-2">Cohort 2</a></li>
+        <li><a href="/parents">Parents</a></li>
+        <li><a href="/sponsors">Sponsors</a></li>
+        <li><a href="/#team">Team</a></li>
+        <li><a href="/#questions">Questions</a></li>
+        <li><a class="nav-apply" href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a></li>
+        <li><a class="nav-signup" href="/signup">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="doc admin">
+  <div class="wrap">
+    <h1>Admin</h1>
+
+    <div id="admin-login" class="auth-card" hidden>
+      <h2 class="status-head">Organiser sign in</h2>
+      <form id="admin-login-form" novalidate>
+        <p class="field">
+          <label for="admin-email">Email</label>
+          <input id="admin-email" name="email" type="email" autocomplete="username" required spellcheck="false" autocapitalize="off" autocorrect="off">
+        </p>
+        <p class="field">
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" required>
+        </p>
+        <button class="btn-solid" type="submit">Sign in</button>
+        <p class="form-msg" id="admin-login-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div id="admin-loading" class="auth-card"><p class="form-msg">Loading…</p></div>
+
+    <div id="admin-panel" hidden>
+      <div id="mode-warn" class="code-reveal" hidden>
+        <p class="code-reveal-head">Test mode</p>
+        <p>No email is being delivered. Decisions are recorded and logged as skipped.</p>
+      </div>
+
+      <ul class="counts" id="counts" role="list"></ul>
+
+      <div class="admin-bar">
+        <label class="admin-filter">
+          <span>Status</span>
+          <select id="filter-status">
+            <option value="">All</option>
+            <option value="applied">Waiting on parent</option>
+            <option value="parent_confirmed">Parent confirmed</option>
+            <option value="accepted">Accepted</option>
+            <option value="declined">Declined</option>
+            <option value="withdrawn">Withdrawn</option>
+          </select>
+        </label>
+        <button class="btn-quiet" type="button" id="add-application">Add an application</button>
+        <button class="btn-quiet" type="button" id="bulk-accept">Accept selected</button>
+        <button class="btn-quiet" type="button" id="compose-open">Send an email</button>
+        <a class="btn-quiet" href="/api/admin?action=export">Export CSV</a>
+        <button class="btn-quiet" type="button" id="admin-signout">Sign out</button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Select</span></th>
+              <th scope="col">Student</th>
+              <th scope="col">Cohort</th>
+              <th scope="col">School and grade</th>
+              <th scope="col">Startup</th>
+              <th scope="col">Parent email</th>
+              <th scope="col">Status</th>
+              <th scope="col">Email</th>
+              <th scope="col">Code</th>
+              <th scope="col">Photos</th>
+              <th scope="col">Decided</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-rows"></tbody>
+        </table>
+      </div>
+      <p class="form-msg" id="admin-msg" role="status" aria-live="polite"></p>
+    </div>
+
+    <div id="confirm-modal" class="modal modal-over" hidden>
+      <div class="modal-box modal-narrow" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <h2 id="confirm-title" class="status-head"></h2>
+        <p id="confirm-body"></p>
+        <p class="field" id="confirm-input-wrap" hidden>
+          <label for="confirm-input" id="confirm-input-label"></label>
+          <input id="confirm-input" type="text" autocomplete="off">
+        </p>
+        <div class="modal-actions">
+          <button class="btn-solid" type="button" id="confirm-yes"></button>
+          <button class="btn-quiet" type="button" id="confirm-no">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="detail-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <h2 id="detail-title" class="status-head"></h2>
+        <div id="detail-body"></div>
+        <div class="modal-actions">
+          <button class="btn-solid" type="button" id="detail-edit">Edit answers</button>
+          <button class="btn-quiet" type="button" id="detail-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- One form for both jobs. Adding an application and correcting one ask
+         for the same answers, so they are the same fields, the same validation
+         and the same markup; only the mode differs. -->
+    <div id="app-form-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="app-form-title">
+        <h2 id="app-form-title" class="status-head"></h2>
+        <p class="hint" id="app-form-intro"></p>
+        <form id="app-form" novalidate>
+          <p class="field" id="wrap-student_email">
+            <label for="af-student_email">Student email</label>
+            <input id="af-student_email" name="student_email" type="email" autocomplete="off" required>
+            <span class="hint">This becomes their account. They sign in with it to follow their application.</span>
+          </p>
+
+          <fieldset class="field-set">
+            <legend>Which cohort</legend>
+            <label class="choice"><input type="radio" name="cohort" value="Cohort 1, fall 2026" required> Cohort 1, fall 2026</label>
+            <label class="choice"><input type="radio" name="cohort" value="Cohort 2, spring 2027"> Cohort 2, spring 2027</label>
+          </fieldset>
+
+          <p class="field">
+            <label for="af-student_name">Student name</label>
+            <input id="af-student_name" name="student_name" type="text" required>
+          </p>
+          <p class="field">
+            <label for="af-student_phone">Student phone</label>
+            <input id="af-student_phone" name="student_phone" type="tel" required>
+          </p>
+          <p class="field">
+            <label for="af-parent_name">Parent name</label>
+            <input id="af-parent_name" name="parent_name" type="text" required>
+          </p>
+          <p class="field">
+            <label for="af-parent_email">Parent email</label>
+            <input id="af-parent_email" name="parent_email" type="email" required>
+            <span class="hint">The consent request goes here.</span>
+          </p>
+          <p class="field">
+            <label for="af-parent_phone">Parent phone</label>
+            <input id="af-parent_phone" name="parent_phone" type="tel" required>
+          </p>
+          <p class="field">
+            <label for="af-school_grade">School and grade</label>
+            <input id="af-school_grade" name="school_grade" type="text" required>
+          </p>
+          <p class="field">
+            <label for="af-startup_name">Name of startup</label>
+            <input id="af-startup_name" name="startup_name" type="text" required>
+          </p>
+          <p class="field">
+            <label for="af-building">What are they building?</label>
+            <textarea id="af-building" name="building" rows="3" maxlength="600" data-counter required></textarea>
+          </p>
+
+          <fieldset class="field-set">
+            <legend>Solo or a team</legend>
+            <label class="choice"><input type="radio" name="team_size" value="Solo" required> Solo</label>
+            <label class="choice"><input type="radio" name="team_size" value="Team of 2"> Team of 2</label>
+            <label class="choice"><input type="radio" name="team_size" value="Team of 3"> Team of 3</label>
+            <label class="choice"><input type="radio" name="team_size" value="Team of 4"> Team of 4</label>
+            <label class="choice"><input type="radio" name="team_size" value="Other"> Other</label>
+          </fieldset>
+          <p class="field">
+            <label for="af-team_other">If other, how many</label>
+            <input id="af-team_other" name="team_other" type="text">
+          </p>
+          <p class="field">
+            <label for="af-teammate_names">Teammate names</label>
+            <input id="af-teammate_names" name="teammate_names" type="text">
+          </p>
+          <p class="field">
+            <label for="af-teammate_emails">Teammate emails</label>
+            <input id="af-teammate_emails" name="teammate_emails" type="text">
+          </p>
+          <p class="field">
+            <label for="af-why_join">Why they want to be part of this</label>
+            <textarea id="af-why_join" name="why_join" rows="3" maxlength="800" data-counter required></textarea>
+          </p>
+          <p class="field">
+            <label for="af-goals">Their goals with the startup</label>
+            <textarea id="af-goals" name="goals" rows="3" maxlength="800" data-counter required></textarea>
+          </p>
+
+          <fieldset class="field-set">
+            <legend>Can they make the meetings</legend>
+            <label class="choice"><input type="radio" name="can_attend" value="Yes" required> Yes</label>
+            <label class="choice"><input type="radio" name="can_attend" value="Mostly"> Mostly</label>
+            <label class="choice"><input type="radio" name="can_attend" value="Not sure"> Not sure</label>
+          </fieldset>
+
+          <fieldset class="field-set">
+            <legend>Referred by someone on the NC Ignyte team</legend>
+            <label class="choice"><input type="radio" name="referred" value="Yes"> Yes</label>
+            <label class="choice"><input type="radio" name="referred" value="No"> No</label>
+          </fieldset>
+          <p class="field" id="af-referred_by_field">
+            <label for="af-referred_by">Who referred them</label>
+            <input id="af-referred_by" name="referred_by" type="text" autocomplete="off" disabled>
+          </p>
+
+          <p class="field">
+            <label for="af-food_allergies">Food allergies</label>
+            <input id="af-food_allergies" name="food_allergies" type="text">
+          </p>
+
+          <fieldset class="field-set" id="wrap-student_agreed">
+            <legend>Before this is saved</legend>
+            <label class="choice"><input type="checkbox" id="af-student_agreed" name="student_agreed" value="Yes" required> The student confirmed they agree to take part.</label>
+            <p class="hint">You are entering this for them, so this is your word that they said yes.</p>
+          </fieldset>
+
+          <div class="modal-actions">
+            <button class="btn-solid" type="submit" id="app-form-save"></button>
+            <button class="btn-quiet" type="button" id="app-form-cancel">Cancel</button>
+          </div>
+          <p class="form-msg" id="app-form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <section class="admin-accepted" id="admin-accepted" hidden>
+      <h2 class="h2-small">Admitted students</h2>
+      <p class="hint" id="accepted-count"></p>
+      <div class="checkin-scroll">
+        <table class="checkin-table accepted-table">
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Select</span></th>
+              <th scope="col">Student</th>
+              <th scope="col">Cohort</th>
+              <th scope="col">Startup</th>
+              <th scope="col">Parent</th>
+              <th scope="col">Check-ins</th>
+              <th scope="col">Weeks written</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="accepted-rows"></tbody>
+        </table>
+      </div>
+      <p class="accepted-actions">
+        <button class="btn-quiet" type="button" id="invite-selected">Open check-ins for selected</button>
+        <span class="hint">They get one email telling them how it works. A student who already has access is skipped.</span>
+      </p>
+      <p class="form-msg" id="accepted-msg" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="admin-checkins" id="admin-checkins" hidden>
+      <h2 class="h2-small">Weekly check-ins</h2>
+      <p class="hint">Goals set after each session, ticked through the week, due at 11:59 PM the night before the next one. A blank cell means nothing was written that week.</p>
+      <div class="checkin-scroll">
+        <table class="checkin-table">
+          <thead><tr id="checkin-head"></tr></thead>
+          <tbody id="checkin-rows"></tbody>
+        </table>
+      </div>
+      <h3 class="checkin-help-head">What people asked for help with</h3>
+      <ul class="checkin-help" id="checkin-help"></ul>
+    </section>
+
+    <div id="compose-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="compose-title">
+        <h2 id="compose-title" class="status-head">Send an email</h2>
+        <fieldset class="field-set">
+          <legend>Who gets it</legend>
+          <label class="choice choice-block"><input type="radio" name="compose-audience" value="ids" id="compose-aud-ids"> <span id="compose-aud-ids-label">The applicants I ticked</span></label>
+          <label class="choice choice-block"><input type="radio" name="compose-audience" value="all" id="compose-aud-all"> Everyone, all in BCC</label>
+        </fieldset>
+        <p class="field" id="compose-status-wrap" hidden>
+          <label for="compose-status">Which applicants</label>
+          <select id="compose-status">
+            <option value="">All applicants</option>
+            <option value="applied">Waiting on parent</option>
+            <option value="parent_confirmed">Parent confirmed</option>
+            <option value="accepted">Accepted</option>
+            <option value="declined">Declined</option>
+            <option value="withdrawn">Withdrawn</option>
+          </select>
+        </p>
+        <p class="field">
+          <label for="compose-recipients">Send to</label>
+          <select id="compose-recipients">
+            <option value="both">Student and parent</option>
+            <option value="parent">Parent only</option>
+            <option value="student">Student only</option>
+          </select>
+          <span class="hint" id="compose-hint"></span>
+        </p>
+        <p class="field">
+          <label for="compose-subject">Subject</label>
+          <input id="compose-subject" type="text" maxlength="200" autocomplete="off">
+        </p>
+        <p class="field">
+          <label for="compose-message">Message</label>
+          <textarea id="compose-message" rows="10" maxlength="10000" data-counter></textarea>
+          <span class="hint">Plain text, sent exactly as written. Nothing is added to it.</span>
+        </p>
+        <div class="modal-actions">
+          <button class="btn-solid" type="button" id="compose-send">Review and send</button>
+          <button class="btn-quiet" type="button" id="compose-cancel">Cancel</button>
+        </div>
+        <p class="form-msg" id="compose-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div id="decide-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="decide-title">
+        <h2 id="decide-title" class="status-head"></h2>
+        <p class="field">
+          <label for="personal-note">Personal note</label>
+          <textarea id="personal-note" rows="4" maxlength="2000" data-counter></textarea>
+          <span class="hint" id="note-hint"></span>
+        </p>
+        <div class="draft-box" id="draft-row" hidden>
+          <fieldset class="tones">
+            <legend>Tone</legend>
+            <div class="tone-list" id="tone-list"></div>
+            <p class="hint" id="tone-hint"></p>
+          </fieldset>
+          <p class="draft-row">
+            <button class="btn-quiet" type="button" id="draft-btn">Draft this from their application</button>
+            <span class="hint" id="draft-note">Sends only their first name and what they wrote about their idea. You edit it before anything goes out.</span>
+          </p>
+        </div>
+        <div id="decline-extra" hidden>
+          <p class="field">
+            <label for="reason-code">Reason the student sees</label>
+            <select id="reason-code">
+              <option value="cohort_needs">This cohort has needs we could not meet this time.</option>
+              <option value="not_confirmed">We were not able to confirm the application.</option>
+              <option value="not_nc">We could only accept students who attend a North Carolina high school.</option>
+              <option value="duplicate">We found a duplicate of this application.</option>
+            </select>
+          </p>
+          <p class="field">
+            <label for="internal-reason">Internal reason, never shown</label>
+            <select id="internal-reason">
+              <option value="not_nc_student">Not a North Carolina high school student</option>
+              <option value="duplicate_or_spam">Duplicate, test or spam</option>
+              <option value="parent_never_confirmed">Parent never confirmed by the deadline</option>
+              <option value="conduct_concern">Conduct concern</option>
+              <option value="other">Other</option>
+            </select>
+          </p>
+        </div>
+        <p class="preview-head">The letter, as they will read it in their portal <span>updates as you type</span>
+          <button class="link-btn" type="button" id="preview-btn">Refresh</button></p>
+        <pre class="preview" id="preview-out" hidden></pre>
+        <div class="modal-actions">
+          <button class="btn-solid" type="button" id="decide-send" disabled>Send</button>
+          <button class="btn-quiet" type="button" id="decide-cancel">Cancel</button>
+        </div>
+        <p class="form-msg" id="decide-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot" id="privacy">
+  <div class="wrap">
+    <p class="foot-statement">Cohort 1, fall 2026. NC Ignyte is a free startup accelerator and pitch competition for North Carolina high school students. Five Fridays, November 6 to December 4, 2026, in the downtown Cary area.</p>
+    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. Read the <a href="code-of-conduct">code of conduct</a> and the <a href="/privacy">privacy page</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <p class="foot-privacy">Privacy: we collect only what the application asks. We do not sell student information, and we do not share it with sponsors, partners, or schools. See the <a href="/privacy">privacy page</a> for the one narrow exception, used to help draft decision letters. We email students and their parent or guardian about NC Ignyte only. Ask us to delete your information at any time.</p>
+  </div>
+</footer>
+
+
+<script src="/app.js" defer></script>
+</body>
+</html>

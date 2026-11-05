@@ -1,0 +1,8 @@
+README.md
+configure.sh
+logo-full.svg
+tests
+playwright.config.js
+test-results
+playwright-report
+migrations

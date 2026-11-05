@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 460" width="600" height="460" role="img" aria-label="NC Ignyte logo">
+<rect width="600" height="460" fill="#F2F0EB"/>
+<g transform="translate(186 20)"><g fill="#FF7A1A"><path d="M108 2 C111 24 124 37 146 40 C124 43 111 56 108 78 C105 56 92 43 70 40 C92 37 105 24 108 2 Z"/><path d="M108 96 C105 128 64 150 62 198 C61 228 82 248 104 252 C92 236 92 216 100 200 C112 178 122 150 108 96 Z"/><path d="M138 150 C150 164 166 182 166 206 C166 232 146 250 124 254 C112 240 112 226 118 210 C124 194 138 188 138 150 Z"/></g></g>
+<text x="300" y="390" text-anchor="middle" font-family="Poppins, Montserrat, 'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="84" letter-spacing="-2"><tspan fill="#FF7A1A">NC</tspan><tspan fill="#0B0E14" dx="14">Ignyte</tspan></text>
+</svg>

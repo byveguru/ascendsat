@@ -1,0 +1,76 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js|svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/nc-ignyte-cohort-1.ics",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/calendar; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/(login|signup|forgot|reset|status|apply|parent|admin|checkin)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/code-of-conduct.html",
+      "destination": "/code-of-conduct",
+      "permanent": true
+    },
+    {
+      "source": "/nc-ignyte-2027.ics",
+      "destination": "/nc-ignyte-cohort-1.ics",
+      "permanent": false
+    }
+  ],
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": ".",
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 13 * * *"
+    }
+  ],
+  "functions": {
+    "api/admin.js": {
+      "maxDuration": 30
+    }
+  }
+}
