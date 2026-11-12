@@ -1,0 +1,2709 @@
+{
+ "bank": "ela7",
+ "grade": 7,
+ "subject": "ela",
+ "standardsSource": "NC ELA SCOS 2017 (in force through 2026-27)",
+ "reviewStatus": "ai-drafted: none of these items or passages has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-ela7-rl-001",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p01",
+   "prompt": "Which detail from the passage best supports the inference that Imani's tension, rather than her skill, is causing her mistakes?",
+   "choices": [
+    "She records herself so she can prove how terrible she sounds.",
+    "She practices the same four measures for forty minutes in a row.",
+    "Her brother hums the melody a half step flat in the hallway.",
+    "She stiffens after each mistake, and that leads to the next one."
+   ],
+   "answer": "She stiffens after each mistake, and that leads to the next one.",
+   "explanation": "In paragraph 5, Imani notices that she stiffens after each mistake and that the stiffness causes the next mistake.",
+   "commonErrors": [
+    {
+     "answer": "She practices the same four measures for forty minutes in a row.",
+     "why": "True detail, but it shows effort, not the cause of the mistakes."
+    },
+    {
+     "answer": "Her brother hums the melody a half step flat in the hallway.",
+     "why": "Confuses a distraction in the setting with the cause of the errors."
+    },
+    {
+     "answer": "She records herself so she can prove how terrible she sounds.",
+     "why": "Shows her attitude, not what actually produces the mistakes."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-002",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p01",
+   "prompt": "In the first paragraph, the simile “like a boot on ice” helps the reader understand that Imani's bow was",
+   "choices": [
+    "moving too slowly to keep up with the beat.",
+    "producing a harsh, scratchy sound each time.",
+    "frozen so that it could not move at all.",
+    "slipping off the note without gripping the string."
+   ],
+   "answer": "slipping off the note without gripping the string.",
+   "explanation": "A boot on ice slides instead of gripping, so the simile shows that the bow keeps slipping off the note.",
+   "commonErrors": [
+    {
+     "answer": "moving too slowly to keep up with the beat.",
+     "why": "Misreads ice as meaning slowness instead of lost grip."
+    },
+    {
+     "answer": "producing a harsh, scratchy sound each time.",
+     "why": "Assumes the comparison is about sound rather than control."
+    },
+    {
+     "answer": "frozen so that it could not move at all.",
+     "why": "Takes the comparison literally instead of noticing that a boot on ice slides."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-003",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p01",
+   "prompt": "Which statement best expresses a theme of the story about Imani's audition practice?",
+   "choices": [
+    "Recording yourself is the best way to prepare for an audition.",
+    "Younger siblings often understand music better than older siblings do.",
+    "Staying calm can help performance more than forcing harder effort.",
+    "Frustration is a sign that a goal is not worth pursuing."
+   ],
+   "answer": "Staying calm can help performance more than forcing harder effort.",
+   "explanation": "Imani plays the fourth measure well only after she relaxes her shoulders and breathes out, not after more forced practice.",
+   "commonErrors": [
+    {
+     "answer": "Younger siblings often understand music better than older siblings do.",
+     "why": "Overgeneralizes from one detail about Theo."
+    },
+    {
+     "answer": "Recording yourself is the best way to prepare for an audition.",
+     "why": "Mistakes one step in the plot for the message of the whole story."
+    },
+    {
+     "answer": "Frustration is a sign that a goal is not worth pursuing.",
+     "why": "Reverses the lesson; Imani succeeds once she handles her frustration."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-004",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p01",
+   "prompt": "How does Theo's remark that it was better “when you weren't mad” affect Imani?",
+   "choices": [
+    "It convinces her that the audition is not very important.",
+    "It makes her angrier, so she decides to practice even longer.",
+    "It shows her that anger is part of the problem, so she relaxes.",
+    "It shows her that Theo understands the cello better than she does."
+   ],
+   "answer": "It shows her that anger is part of the problem, so she relaxes.",
+   "explanation": "After Theo's comment, Imani laughs, rolls her shoulders back, breathes out, and then plays the note clearly.",
+   "commonErrors": [
+    {
+     "answer": "It convinces her that the audition is not very important.",
+     "why": "Invents a reaction not supported by the text."
+    },
+    {
+     "answer": "It makes her angrier, so she decides to practice even longer.",
+     "why": "Reverses the effect: she relaxes after his comment."
+    },
+    {
+     "answer": "It shows her that Theo understands the cello better than she does.",
+     "why": "Overstates Theo's skill; he only notices her mood."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-005",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p01",
+   "prompt": "How does Theo's view of Imani's playing differ from Imani's own view?",
+   "choices": [
+    "Theo thinks she should give up the cello, while Imani wants to keep going.",
+    "Theo sees progress tied to her mood, while Imani judges herself harshly.",
+    "Theo is jealous of her talent, while Imani is proud of her progress.",
+    "Theo thinks the music is too difficult, while Imani believes it is easy."
+   ],
+   "answer": "Theo sees progress tied to her mood, while Imani judges herself harshly.",
+   "explanation": "Theo says it was better and that it improved when she wasn't mad, while Imani insists it wasn't better and expects to sound terrible.",
+   "commonErrors": [
+    {
+     "answer": "Theo thinks she should give up the cello, while Imani wants to keep going.",
+     "why": "Invents an opposition the text never shows."
+    },
+    {
+     "answer": "Theo thinks the music is too difficult, while Imani believes it is easy.",
+     "why": "Confuses the characters' attitudes toward the piece."
+    },
+    {
+     "answer": "Theo is jealous of her talent, while Imani is proud of her progress.",
+     "why": "Assigns emotions to both characters that the text does not state."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-006",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p02",
+   "prompt": "Which pair of details from the first entry best supports the inference that Nora feels lonely at her new school?",
+   "choices": [
+    "She recalls everyone knowing her name and counts zero words at lunch.",
+    "She describes Priya's careful drawings and happily borrows a spare pencil from her.",
+    "She sees Jupiter through a telescope and notices a pale moon beside it.",
+    "She mentions the leaky classroom ceiling and the club's four members."
+   ],
+   "answer": "She recalls everyone knowing her name and counts zero words at lunch.",
+   "explanation": "In the first entry Nora contrasts her old school, where everyone knew her, with a lunch table where no one speaks.",
+   "commonErrors": [
+    {
+     "answer": "She mentions the leaky classroom ceiling and the club's four members.",
+     "why": "Details from the second entry that say nothing about her loneliness."
+    },
+    {
+     "answer": "She describes Priya's careful drawings and happily borrows a spare pencil from her.",
+     "why": "Details that show friendship forming, not loneliness."
+    },
+    {
+     "answer": "She sees Jupiter through a telescope and notices a pale moon beside it.",
+     "why": "True details, but they come after her feelings change."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-007",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p02",
+   "prompt": "Which statement best expresses a theme of the journal entries?",
+   "choices": [
+    "Shy people should join clubs so that they never have to eat lunch alone again.",
+    "Friendship can form in unexpected places once a person gives things a chance.",
+    "Adults usually give advice that turns out to be wrong.",
+    "A new town is always quieter than the town someone left behind."
+   ],
+   "answer": "Friendship can form in unexpected places once a person gives things a chance.",
+   "explanation": "Nora begins by judging her town as quiet and lonely, then finds friends in a supply closet and admits she may have to revise her opinion.",
+   "commonErrors": [
+    {
+     "answer": "Shy people should join clubs so that they never have to eat lunch alone again.",
+     "why": "Too narrow and turns the story into advice about lunch."
+    },
+    {
+     "answer": "Adults usually give advice that turns out to be wrong.",
+     "why": "Overgeneralizes from Nora's early opinion of her mother."
+    },
+    {
+     "answer": "A new town is always quieter than the town someone left behind.",
+     "why": "Focuses on the first impression and ignores how it changes."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-008",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p02",
+   "prompt": "How do Priya's actions in the second entry change Nora's view of her new town?",
+   "choices": [
+    "Priya's telescope makes Nora wish she could move back to her old school soon.",
+    "Priya's embarrassment makes Nora decide that the club is not for her after all.",
+    "Priya's silence at lunch proves that Nora's first opinion was correct.",
+    "Priya's friendly reply gives Nora a group to belong to and softens her opinion."
+   ],
+   "answer": "Priya's friendly reply gives Nora a group to belong to and softens her opinion.",
+   "explanation": "Priya hands Nora a pencil after the compliment, and Nora joins the club and ends the entry ready to revise her opinion of the quiet.",
+   "commonErrors": [
+    {
+     "answer": "Priya's embarrassment makes Nora decide that the club is not for her after all.",
+     "why": "Reverses the outcome; Nora joins and enjoys the club."
+    },
+    {
+     "answer": "Priya's telescope makes Nora wish she could move back to her old school soon.",
+     "why": "Invents a feeling the entry does not mention."
+    },
+    {
+     "answer": "Priya's silence at lunch proves that Nora's first opinion was correct.",
+     "why": "Ignores that Priya begins talking and welcomes Nora."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-009",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p02",
+   "prompt": "In the second entry, Nora calls a closet full of mops “the loudest place I've ever been.” What does she most likely mean?",
+   "choices": [
+    "The closet echoes because it is so small and empty.",
+    "The club members argue constantly during their meetings.",
+    "Nora feels overwhelmed by the noise and wants to leave the club soon.",
+    "The closet is full of lively friendship, even though it is small and plain."
+   ],
+   "answer": "The closet is full of lively friendship, even though it is small and plain.",
+   "explanation": "Nora contrasts the quiet town with the energy she finds among friends, so “loud” suggests liveliness rather than noise.",
+   "commonErrors": [
+    {
+     "answer": "The club members argue constantly during their meetings.",
+     "why": "Takes loud to mean angry rather than lively."
+    },
+    {
+     "answer": "The closet echoes because it is so small and empty.",
+     "why": "Takes the phrase literally as a description of sound."
+    },
+    {
+     "answer": "Nora feels overwhelmed by the noise and wants to leave the club soon.",
+     "why": "Misreads her tone, which is warm and amused."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-010",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p02",
+   "prompt": "How does the form of two dated journal entries, a month apart, contribute to the meaning of the text?",
+   "choices": [
+    "It shows that Nora writes in her journal every single day.",
+    "It lets readers compare how Nora feels at the start and the end.",
+    "It hides the ending so that readers are surprised by Nora's change.",
+    "It reveals Priya's private thoughts about the new student."
+   ],
+   "answer": "It lets readers compare how Nora feels at the start and the end.",
+   "explanation": "The first entry shows Nora lonely and doubtful and the second shows her settled, so the form makes the change easy to see.",
+   "commonErrors": [
+    {
+     "answer": "It shows that Nora writes in her journal every single day.",
+     "why": "Reads the dates as a habit rather than a structural contrast."
+    },
+    {
+     "answer": "It reveals Priya's private thoughts about the new student.",
+     "why": "Confuses a first-person journal with an all-knowing narrator."
+    },
+    {
+     "answer": "It hides the ending so that readers are surprised by Nora's change.",
+     "why": "Misses that the structure invites comparison rather than mystery."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-011",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p03",
+   "prompt": "Which detail from the passage best supports the inference that Kenji is a careful planner?",
+   "choices": [
+    "He counted the seconds the bridge held under the growing weights.",
+    "He took the pencil from Dara at the end of the scene.",
+    "He measured every joint twice and sanded the supports smooth.",
+    "He stared at the wreckage after the gym grew quiet."
+   ],
+   "answer": "He measured every joint twice and sanded the supports smooth.",
+   "explanation": "In paragraph 2, Kenji's double-checked measurements and late-night sanding show that he prepares with great care.",
+   "commonErrors": [
+    {
+     "answer": "He counted the seconds the bridge held under the growing weights.",
+     "why": "Shows attention, but not planning ahead."
+    },
+    {
+     "answer": "He stared at the wreckage after the gym grew quiet.",
+     "why": "Shows disappointment, not planning."
+    },
+    {
+     "answer": "He took the pencil from Dara at the end of the scene.",
+     "why": "Shows he accepts her idea, not that he plans carefully."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-012",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p03",
+   "prompt": "Which statement best expresses a theme of the story about the bridge?",
+   "choices": [
+    "Working with a partner is easier than working alone.",
+    "Careful planning always prevents a project from failing.",
+    "A setback can be useful if it is treated as a chance to learn.",
+    "Glue is a weaker material than wood for building model bridges."
+   ],
+   "answer": "A setback can be useful if it is treated as a chance to learn.",
+   "explanation": "Dara uses the collapse to find the weak joint, and Kenji joins in planning a stronger design.",
+   "commonErrors": [
+    {
+     "answer": "Careful planning always prevents a project from failing.",
+     "why": "Contradicts the story, where careful planning still ends in a collapse."
+    },
+    {
+     "answer": "Working with a partner is easier than working alone.",
+     "why": "Too general; the story is about how the partners respond to failure."
+    },
+    {
+     "answer": "Glue is a weaker material than wood for building model bridges.",
+     "why": "Takes a single detail for the whole message."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-013",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p03",
+   "prompt": "How do Dara's actions after the collapse affect Kenji?",
+   "choices": [
+    "Her look at the joint and her sketch move him toward fixing the design.",
+    "Her notebook proves that he built the joints carelessly.",
+    "Her kneeling at the table causes the teacher to stop the test.",
+    "Her cheerful mood convinces him to leave the triangle pattern out of the design."
+   ],
+   "answer": "Her look at the joint and her sketch move him toward fixing the design.",
+   "explanation": "Dara points out that the glue failed first and sketches a reinforcement, and Kenji takes the pencil to join her.",
+   "commonErrors": [
+    {
+     "answer": "Her cheerful mood convinces him to leave the triangle pattern out of the design.",
+     "why": "Reverses the ending, where he insists on the triangles."
+    },
+    {
+     "answer": "Her notebook proves that he built the joints carelessly.",
+     "why": "Misreads her notes as blame rather than information."
+    },
+    {
+     "answer": "Her kneeling at the table causes the teacher to stop the test.",
+     "why": "Invents an event that never occurs."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-014",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p03",
+   "prompt": "In the first paragraph, the short fragments “A splinter. A sag.” contribute to the passage by",
+   "choices": [
+    "breaking the collapse into quick steps that make it feel sudden.",
+    "showing that the narrator is unsure what happened.",
+    "listing the materials that were used to build the bridge.",
+    "explaining the rules of the bridge contest to the reader in detail."
+   ],
+   "answer": "breaking the collapse into quick steps that make it feel sudden.",
+   "explanation": "The abrupt fragments echo the quick stages of the collapse, building tension before the bridge folds.",
+   "commonErrors": [
+    {
+     "answer": "explaining the rules of the bridge contest to the reader in detail.",
+     "why": "Misreads a description of action as an explanation."
+    },
+    {
+     "answer": "showing that the narrator is unsure what happened.",
+     "why": "Confuses a style choice with uncertainty."
+    },
+    {
+     "answer": "listing the materials that were used to build the bridge.",
+     "why": "Mistakes the fragments for a list of supplies."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-015",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p03",
+   "prompt": "How do Kenji's and Dara's points of view about the collapse differ?",
+   "choices": [
+    "Kenji believes the bridge was a success, while Dara is disappointed.",
+    "Kenji blames Mr. Alvarez for the test, while Dara blames herself.",
+    "Kenji is excited by the failure, while Dara is anxious about it.",
+    "Kenji sees proof of a mistake, while Dara sees what needs repair."
+   ],
+   "answer": "Kenji sees proof of a mistake, while Dara sees what needs repair.",
+   "explanation": "Kenji says the break means “we messed up,” while Dara says it shows “which part was weak” and begins sketching a fix.",
+   "commonErrors": [
+    {
+     "answer": "Kenji blames Mr. Alvarez for the test, while Dara blames herself.",
+     "why": "Invents blame that is not in the text."
+    },
+    {
+     "answer": "Kenji believes the bridge was a success, while Dara is disappointed.",
+     "why": "Reverses their reactions."
+    },
+    {
+     "answer": "Kenji is excited by the failure, while Dara is anxious about it.",
+     "why": "Reverses the emotions each character shows."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-016",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p04",
+   "prompt": "Which details in the fourth stanza best support the inference that the speaker enjoys the early morning despite the cold?",
+   "choices": [
+    "The speaker compares the street to a river of gray.",
+    "A dog lifts one ear and then settles back onto his paws.",
+    "The speaker's hands are numb and the breath looks like smoke in the air.",
+    "The speaker waves back warmly and feels glad to see the day arrive first."
+   ],
+   "answer": "The speaker waves back warmly and feels glad to see the day arrive first.",
+   "explanation": "In the last stanza the speaker waves back with a “cold, bright hand” and says that today was the first to see the day arrive.",
+   "commonErrors": [
+    {
+     "answer": "The speaker's hands are numb and the breath looks like smoke in the air.",
+     "why": "Details of the cold from stanza 3, not signs of enjoyment."
+    },
+    {
+     "answer": "A dog lifts one ear and then settles back onto his paws.",
+     "why": "A detail from stanza 2 that is about the dog, not the speaker's feelings."
+    },
+    {
+     "answer": "The speaker compares the street to a river of gray.",
+     "why": "A description from stanza 1 that is not about enjoyment."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-017",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p04",
+   "prompt": "Which statement best expresses a theme of the poem?",
+   "choices": [
+    "People who complain about the dark should stop complaining.",
+    "Delivering newspapers is harder than most people realize.",
+    "Dogs notice the arrival of morning better than people do.",
+    "Ordinary early work can reveal quiet beauty and connection."
+   ],
+   "answer": "Ordinary early work can reveal quiet beauty and connection.",
+   "explanation": "The speaker finds beauty in the dawn sky and a moment of connection when a stranger waves from a kitchen.",
+   "commonErrors": [
+    {
+     "answer": "Delivering newspapers is harder than most people realize.",
+     "why": "Too narrow; the poem celebrates the morning more than the difficulty."
+    },
+    {
+     "answer": "Dogs notice the arrival of morning better than people do.",
+     "why": "Builds a theme from a single image."
+    },
+    {
+     "answer": "People who complain about the dark should stop complaining.",
+     "why": "Misreads a light joke in the last lines as the poem's lesson."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-018",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p04",
+   "prompt": "In the second stanza, how does the dog help develop the setting?",
+   "choices": [
+    "It suggests that the dog's barking will soon wake all the neighbors.",
+    "Its sleepy reaction shows how early and quiet the morning is.",
+    "It shows that the dog belongs to the speaker.",
+    "It shows that the speaker is afraid of the neighborhood."
+   ],
+   "answer": "Its sleepy reaction shows how early and quiet the morning is.",
+   "explanation": "The dog lifts one ear and “decides the world has not yet begun,” which shows how early it is.",
+   "commonErrors": [
+    {
+     "answer": "It shows that the speaker is afraid of the neighborhood.",
+     "why": "Invents fear that the poem never expresses."
+    },
+    {
+     "answer": "It suggests that the dog's barking will soon wake all the neighbors.",
+     "why": "Reverses the detail; the dog goes back to sleep."
+    },
+    {
+     "answer": "It shows that the dog belongs to the speaker.",
+     "why": "Assumes a relationship the poem does not mention."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-019",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p04",
+   "prompt": "In the first stanza, the speaker calls the street “a river of gray” and says, “I am the small boat riding it.” What does this metaphor suggest?",
+   "choices": [
+    "The speaker glides quietly through the dim early light.",
+    "The speaker is rowing hard against a strong current.",
+    "The speaker is lost and drifting in a flooded neighborhood.",
+    "The speaker is leaving the town to travel by water."
+   ],
+   "answer": "The speaker glides quietly through the dim early light.",
+   "explanation": "Comparing the street to a river and the speaker to a small boat suggests smooth, quiet travel through the gray light.",
+   "commonErrors": [
+    {
+     "answer": "The speaker is lost and drifting in a flooded neighborhood.",
+     "why": "Takes the metaphor literally and adds danger."
+    },
+    {
+     "answer": "The speaker is rowing hard against a strong current.",
+     "why": "Imports an effort that the image does not suggest."
+    },
+    {
+     "answer": "The speaker is leaving the town to travel by water.",
+     "why": "Confuses the comparison with an actual boat trip."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-rl-020",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p04",
+   "prompt": "How does the word “Then” at the start of the final stanza contribute to the poem's meaning?",
+   "choices": [
+    "It marks a shift from dark and quiet to light and human connection.",
+    "It shows that the speaker plans to quit the paper route before winter.",
+    "It repeats the first stanza to show that nothing has changed.",
+    "It introduces a new speaker who responds to the first one."
+   ],
+   "answer": "It marks a shift from dark and quiet to light and human connection.",
+   "explanation": "Until the last stanza the street is dark and empty, and “Then” introduces a glowing window and a friendly wave.",
+   "commonErrors": [
+    {
+     "answer": "It shows that the speaker plans to quit the paper route before winter.",
+     "why": "Misreads the speaker's last lines as a decision."
+    },
+    {
+     "answer": "It repeats the first stanza to show that nothing has changed.",
+     "why": "Ignores the new images of light and the stranger's wave."
+    },
+    {
+     "answer": "It introduces a new speaker who responds to the first one.",
+     "why": "Confuses a shift in the scene with a change of speaker."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-001",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p05",
+   "prompt": "According to the passage, which detail best supports the claim that an octopus's body helps it escape?",
+   "choices": [
+    "It has learned to unscrew jar lids to reach food in laboratory tests.",
+    "Its only hard part is a beak, so it can pour through any gap the beak fits.",
+    "Aquarium keepers tell stories about octopuses that vanish overnight.",
+    "It can change color within moments by moving the muscles around its pigment sacs."
+   ],
+   "answer": "Its only hard part is a beak, so it can pour through any gap the beak fits.",
+   "explanation": "Paragraph 2 explains that the beak is the widest rigid part, so the soft body can follow it through narrow gaps.",
+   "commonErrors": [
+    {
+     "answer": "It can change color within moments by moving the muscles around its pigment sacs.",
+     "why": "True, but this supports the claim about disguise, not the body's shape."
+    },
+    {
+     "answer": "It has learned to unscrew jar lids to reach food in laboratory tests.",
+     "why": "Evidence of intelligence, not body structure."
+    },
+    {
+     "answer": "Aquarium keepers tell stories about octopuses that vanish overnight.",
+     "why": "Shows that escapes happen, not why the body allows them."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-002",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p05",
+   "prompt": "Which statement best expresses the central idea of the passage?",
+   "choices": [
+    "Octopuses can change color to match their surroundings in a matter of moments.",
+    "An octopus's soft body, disguise, and intelligence make it a skilled escape artist.",
+    "Octopuses are the smartest animals in the ocean.",
+    "Aquariums should stop keeping octopuses in tanks."
+   ],
+   "answer": "An octopus's soft body, disguise, and intelligence make it a skilled escape artist.",
+   "explanation": "The passage presents three “secrets” (body, disguise, mind) that explain the escapes.",
+   "commonErrors": [
+    {
+     "answer": "Octopuses can change color to match their surroundings in a matter of moments.",
+     "why": "Too narrow; covers only one section."
+    },
+    {
+     "answer": "Octopuses are the smartest animals in the ocean.",
+     "why": "Overgeneralizes beyond what the passage claims."
+    },
+    {
+     "answer": "Aquariums should stop keeping octopuses in tanks.",
+     "why": "An opinion that the passage does not make."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-003",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p05",
+   "prompt": "In paragraph 2, how does the author connect the octopus's beak to its ability to escape?",
+   "choices": [
+    "The beak changes color so the octopus can hide in the gap.",
+    "The beak lets the octopus unscrew jar lids and open latches.",
+    "The beak is the widest hard part, so it limits the gaps the body can pass.",
+    "The beak is so large that it prevents the octopus from squeezing out of tanks."
+   ],
+   "answer": "The beak is the widest hard part, so it limits the gaps the body can pass.",
+   "explanation": "Paragraph 2 says the beak is the widest rigid piece, so if it fits through, the soft body can follow.",
+   "commonErrors": [
+    {
+     "answer": "The beak lets the octopus unscrew jar lids and open latches.",
+     "why": "Confuses the beak with the arms, which the passage links to exploring."
+    },
+    {
+     "answer": "The beak is so large that it prevents the octopus from squeezing out of tanks.",
+     "why": "Reverses the idea that a small beak allows passage."
+    },
+    {
+     "answer": "The beak changes color so the octopus can hide in the gap.",
+     "why": "Mixes up the beak with the pigment sacs in the skin."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-004",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p05",
+   "prompt": "In paragraph 2, the author describes the octopus's body as “soft, pliable muscle.” The word “pliable” most nearly means",
+   "choices": [
+    "wet and slippery.",
+    "easily bent or shaped.",
+    "strong and heavy for its size.",
+    "hard to see."
+   ],
+   "answer": "easily bent or shaped.",
+   "explanation": "The sentence says the octopus can pour through a narrow gap, so its muscle must bend easily.",
+   "commonErrors": [
+    {
+     "answer": "strong and heavy for its size.",
+     "why": "Associates muscle with strength instead of using the context of squeezing through gaps."
+    },
+    {
+     "answer": "wet and slippery.",
+     "why": "Confuses the animal's habitat with the quality described."
+    },
+    {
+     "answer": "hard to see.",
+     "why": "Mixes up this word with the later discussion of disguise."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-005",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p05",
+   "prompt": "How does the first paragraph contribute to the development of the passage?",
+   "choices": [
+    "It traces the history of aquariums and the animals they keep.",
+    "It argues that octopuses are dangerous animals to keep.",
+    "It introduces the puzzle of escapes, which later paragraphs explain.",
+    "It summarizes the conclusion about how keepers protect their octopuses."
+   ],
+   "answer": "It introduces the puzzle of escapes, which later paragraphs explain.",
+   "explanation": "The opening describes the stories and says real science lies behind them; the body paragraphs then supply the explanation.",
+   "commonErrors": [
+    {
+     "answer": "It traces the history of aquariums and the animals they keep.",
+     "why": "Mistakes a hook about keepers' stories for a history."
+    },
+    {
+     "answer": "It argues that octopuses are dangerous animals to keep.",
+     "why": "Imports a warning the passage never gives."
+    },
+    {
+     "answer": "It summarizes the conclusion about how keepers protect their octopuses.",
+     "why": "Confuses the introduction with the closing paragraph."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-006",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p06",
+   "prompt": "Which evidence from the passage best supports the claim that the sky's color depends on the path of sunlight?",
+   "choices": [
+    "Violet light scatters even more strongly than blue light does, though the sun gives off less of it.",
+    "Dust and tiny droplets can deepen the colors near the horizon.",
+    "At sunset, light crosses thicker air that scatters out blue, leaving orange and red.",
+    "Sunlight looks white but is a mixture of all the colors of the rainbow."
+   ],
+   "answer": "At sunset, light crosses thicker air that scatters out blue, leaving orange and red.",
+   "explanation": "Paragraph 4 explains that a low sun sends light through more atmosphere, which removes blue and leaves warmer colors.",
+   "commonErrors": [
+    {
+     "answer": "Sunlight looks white but is a mixture of all the colors of the rainbow.",
+     "why": "True, but it explains the light's makeup, not the path it takes."
+    },
+    {
+     "answer": "Violet light scatters even more strongly than blue light does, though the sun gives off less of it.",
+     "why": "A detail about colors, not about the path of the light."
+    },
+    {
+     "answer": "Dust and tiny droplets can deepen the colors near the horizon.",
+     "why": "A supporting detail, not the main evidence for the claim."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-007",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p06",
+   "prompt": "Which statement best expresses the central idea of the passage?",
+   "choices": [
+    "The sky's colors come from how air scatters the colors of sunlight.",
+    "White sunlight is made of many colors, each traveling as a wave of its own length.",
+    "The sky is blue because it reflects the color of the ocean.",
+    "Dust in the air is the main reason sunsets are colorful."
+   ],
+   "answer": "The sky's colors come from how air scatters the colors of sunlight.",
+   "explanation": "The passage explains that scattering sorts the colors, producing a blue sky at midday and warm colors at sunset.",
+   "commonErrors": [
+    {
+     "answer": "Dust in the air is the main reason sunsets are colorful.",
+     "why": "Too narrow; dust only deepens the colors."
+    },
+    {
+     "answer": "The sky is blue because it reflects the color of the ocean.",
+     "why": "A common misconception that the passage does not support."
+    },
+    {
+     "answer": "White sunlight is made of many colors, each traveling as a wave of its own length.",
+     "why": "A supporting detail rather than the main idea."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-008",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p06",
+   "prompt": "According to the passage, how does the position of the sun at sunset affect the blue light that reaches your eyes?",
+   "choices": [
+    "A low sun sends out less light, so every color fades by the same amount.",
+    "A low sun causes red light to scatter more strongly than blue.",
+    "A low sun sends light through more air, so more blue is scattered away.",
+    "A low sun lets blue light travel straight to the viewer."
+   ],
+   "answer": "A low sun sends light through more air, so more blue is scattered away.",
+   "explanation": "Paragraph 4 says the long path through thick atmosphere scatters out most of the blue light.",
+   "commonErrors": [
+    {
+     "answer": "A low sun sends out less light, so every color fades by the same amount.",
+     "why": "Ignores that colors are affected differently."
+    },
+    {
+     "answer": "A low sun causes red light to scatter more strongly than blue.",
+     "why": "Reverses the relationship between wave length and scattering."
+    },
+    {
+     "answer": "A low sun lets blue light travel straight to the viewer.",
+     "why": "Reverses the effect of the longer path."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-009",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p06",
+   "prompt": "In paragraph 1, the phrase “blaze orange and pink” suggests that the sunset sky is",
+   "choices": [
+    "intensely bright and glowing.",
+    "patchy and uneven across the horizon.",
+    "dangerously hot to the touch.",
+    "slowly fading into darkness."
+   ],
+   "answer": "intensely bright and glowing.",
+   "explanation": "“Blaze” has a connotation of bright, strong light, so it describes vivid colors.",
+   "commonErrors": [
+    {
+     "answer": "dangerously hot to the touch.",
+     "why": "Takes blaze literally as fire."
+    },
+    {
+     "answer": "slowly fading into darkness.",
+     "why": "Confuses the sunset's end with its color."
+    },
+    {
+     "answer": "patchy and uneven across the horizon.",
+     "why": "Introduces a detail not suggested by the word."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-010",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p06",
+   "prompt": "How do paragraphs 3 and 4 relate to each other?",
+   "choices": [
+    "Paragraph 4 shows that the idea in paragraph 3 is false.",
+    "Both paragraphs describe how the sky looks at sunset.",
+    "Paragraph 3 explains the blue midday sky, and paragraph 4 contrasts it with sunset.",
+    "Paragraph 3 describes a problem with the sky, and paragraph 4 offers its solution."
+   ],
+   "answer": "Paragraph 3 explains the blue midday sky, and paragraph 4 contrasts it with sunset.",
+   "explanation": "Paragraph 3 covers midday light, and paragraph 4 begins “at sunrise and sunset, by contrast.”",
+   "commonErrors": [
+    {
+     "answer": "Paragraph 3 describes a problem with the sky, and paragraph 4 offers its solution.",
+     "why": "Applies the wrong text structure."
+    },
+    {
+     "answer": "Both paragraphs describe how the sky looks at sunset.",
+     "why": "Misses that paragraph 3 is about midday."
+    },
+    {
+     "answer": "Paragraph 4 shows that the idea in paragraph 3 is false.",
+     "why": "Confuses a contrast with a contradiction."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-011",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p07",
+   "prompt": "Which detail from the passage best supports the claim that no single monarch completes the whole yearly journey?",
+   "choices": [
+    "Monarchs fly toward the mountain forests of central Mexico each fall season.",
+    "Monarch caterpillars eat only milkweed leaves.",
+    "The monarch's wings are paper-thin and weigh almost nothing.",
+    "The spring monarchs lay eggs and die, and their offspring continue the trip."
+   ],
+   "answer": "The spring monarchs lay eggs and die, and their offspring continue the trip.",
+   "explanation": "Paragraph 2 explains that the spring travelers die after laying eggs and later generations carry on.",
+   "commonErrors": [
+    {
+     "answer": "Monarchs fly toward the mountain forests of central Mexico each fall season.",
+     "why": "Describes the destination, not who completes the trip."
+    },
+    {
+     "answer": "Monarch caterpillars eat only milkweed leaves.",
+     "why": "True, but unrelated to who finishes the journey."
+    },
+    {
+     "answer": "The monarch's wings are paper-thin and weigh almost nothing.",
+     "why": "A true detail about the butterfly, not about the cycle."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-012",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p07",
+   "prompt": "Which statement best expresses the central idea of the passage?",
+   "choices": [
+    "Farms and roads are the only reason monarchs are declining.",
+    "Milkweed is poisonous to nearly every animal that eats it.",
+    "Monarchs are the only butterflies in North America that make such a long migration.",
+    "Monarch migration relies on several generations and on milkweed, so people can help it continue."
+   ],
+   "answer": "Monarch migration relies on several generations and on milkweed, so people can help it continue.",
+   "explanation": "The passage explains the generational cycle and the need for milkweed, then ends with how people can help.",
+   "commonErrors": [
+    {
+     "answer": "Monarchs are the only butterflies in North America that make such a long migration.",
+     "why": "Overgeneralizes; the passage does not compare monarchs to others."
+    },
+    {
+     "answer": "Milkweed is poisonous to nearly every animal that eats it.",
+     "why": "Distorts the passage's detail about caterpillar protection."
+    },
+    {
+     "answer": "Farms and roads are the only reason monarchs are declining.",
+     "why": "Too narrow and too absolute."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-013",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p07",
+   "prompt": "According to the passage, how are monarch caterpillars connected to milkweed?",
+   "choices": [
+    "The caterpillars harm milkweed, so scientists remove the plants.",
+    "Females lay eggs on it, and caterpillars eat it and gain some protection.",
+    "Milkweed supplies the nectar that adult butterflies need.",
+    "The caterpillars carry milkweed seeds south with them when they migrate each fall."
+   ],
+   "answer": "Females lay eggs on it, and caterpillars eat it and gain some protection.",
+   "explanation": "Paragraph 3 says caterpillars eat only milkweed, females lay eggs on it, and its chemicals help protect the young.",
+   "commonErrors": [
+    {
+     "answer": "The caterpillars carry milkweed seeds south with them when they migrate each fall.",
+     "why": "Invents a role that the passage never mentions."
+    },
+    {
+     "answer": "Milkweed supplies the nectar that adult butterflies need.",
+     "why": "Confuses caterpillar food with the flowers adults feed on."
+    },
+    {
+     "answer": "The caterpillars harm milkweed, so scientists remove the plants.",
+     "why": "Contradicts the passage's call to plant more milkweed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-014",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p07",
+   "prompt": "In paragraph 1, the author describes the monarchs' “paper-thin wings.” This phrase suggests that the wings are",
+   "choices": [
+    "delicate and easily damaged.",
+    "fast enough to outrun predators.",
+    "worthless to the insect.",
+    "plain and lacking in color."
+   ],
+   "answer": "delicate and easily damaged.",
+   "explanation": "“Paper-thin” suggests fragility, which makes the long journey seem more remarkable.",
+   "commonErrors": [
+    {
+     "answer": "plain and lacking in color.",
+     "why": "Confuses thin with dull."
+    },
+    {
+     "answer": "fast enough to outrun predators.",
+     "why": "Draws on weight and ignores the connotation of fragility."
+    },
+    {
+     "answer": "worthless to the insect.",
+     "why": "Reads paper as something to throw away."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-015",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p07",
+   "prompt": "What is the author's main purpose in the last two paragraphs?",
+   "choices": [
+    "To prove that monarchs are the fastest migrating insects in the world.",
+    "To warn readers that gardens harm migrating butterflies.",
+    "To explain how scientists tag butterflies to follow them.",
+    "To encourage readers to help monarchs by planting milkweed and flowers."
+   ],
+   "answer": "To encourage readers to help monarchs by planting milkweed and flowers.",
+   "explanation": "The author describes the loss of milkweed and then says ordinary people can help, with gardens that include milkweed and flowers.",
+   "commonErrors": [
+    {
+     "answer": "To prove that monarchs are the fastest migrating insects in the world.",
+     "why": "Mistakes a detail for the author's purpose."
+    },
+    {
+     "answer": "To warn readers that gardens harm migrating butterflies.",
+     "why": "Reverses the author's point of view."
+    },
+    {
+     "answer": "To explain how scientists tag butterflies to follow them.",
+     "why": "Imports a topic not found in the passage."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-016",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p08",
+   "prompt": "Which claim in the passage is NOT supported by sufficient evidence?",
+   "choices": [
+    "Students who read often tend to know more words.",
+    "Twenty minutes a day adds up to many hours of practice over a whole school year.",
+    "Because the cousin's school saw scores rise, the same will happen at Lakeview.",
+    "The library is busiest at lunch, according to the librarian."
+   ],
+   "answer": "Because the cousin's school saw scores rise, the same will happen at Lakeview.",
+   "explanation": "One school's results do not prove what will happen at another, and the author gives no other evidence for the claim.",
+   "commonErrors": [
+    {
+     "answer": "Students who read often tend to know more words.",
+     "why": "A general observation offered by educators; reasonable support."
+    },
+    {
+     "answer": "Twenty minutes a day adds up to many hours of practice over a whole school year.",
+     "why": "Sound reasoning from simple arithmetic."
+    },
+    {
+     "answer": "The library is busiest at lunch, according to the librarian.",
+     "why": "Specific evidence from a relevant source."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-017",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.8"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela7-p08",
+   "prompt": "Which describes the flaw in the author's reasoning about the cousin's school in paragraph 4?",
+   "choices": [
+    "It assumes the reading period caused the scores and ignores other reasons.",
+    "It relies on an expert who is never named, so readers cannot check the claim.",
+    "It uses an example from a school that is too far away to be a fair comparison.",
+    "It attacks the people who disagree instead of their ideas."
+   ],
+   "answer": "It assumes the reading period caused the scores and ignores other reasons.",
+   "explanation": "The paragraph treats scores that rose afterward as proof of cause, without considering other changes at that school.",
+   "commonErrors": [
+    {
+     "answer": "It uses an example from a school that is too far away to be a fair comparison.",
+     "why": "The text says the change happened last year."
+    },
+    {
+     "answer": "It attacks the people who disagree instead of their ideas.",
+     "why": "The paragraph does not criticize opponents."
+    },
+    {
+     "answer": "It relies on an expert who is never named, so readers cannot check the claim.",
+     "why": "The paragraph names a relative, not an expert."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-018",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p08",
+   "prompt": "Which evidence does the author give to support the idea that many students want a quieter part of the day?",
+   "choices": [
+    "The author's cousin attends a school with a reading period.",
+    "The schedule includes announcements, locker breaks, and a long lunch.",
+    "Educators observe that frequent readers know more words.",
+    "The librarian reports that the library is busiest at lunch."
+   ],
+   "answer": "The librarian reports that the library is busiest at lunch.",
+   "explanation": "In paragraph 3 the author cites the librarian's report that students crowd the library at lunch.",
+   "commonErrors": [
+    {
+     "answer": "Educators observe that frequent readers know more words.",
+     "why": "Evidence about skill, not about wanting quiet."
+    },
+    {
+     "answer": "The schedule includes announcements, locker breaks, and a long lunch.",
+     "why": "A detail from the opening, not evidence of what students want."
+    },
+    {
+     "answer": "The author's cousin attends a school with a reading period.",
+     "why": "Evidence offered for test scores, not quiet."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-019",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela7-p08",
+   "prompt": "How does the last paragraph contribute to the development of the argument?",
+   "choices": [
+    "It repeats the introduction without adding any new point.",
+    "It drops the original proposal and suggests a different idea for the schedule.",
+    "It lists the schedule changes the school has already approved.",
+    "It answers a concern about lost time, which strengthens the author's position."
+   ],
+   "answer": "It answers a concern about lost time, which strengthens the author's position.",
+   "explanation": "The author raises the objection that there is no time and replies that the schedule already fits less important activities.",
+   "commonErrors": [
+    {
+     "answer": "It drops the original proposal and suggests a different idea for the schedule.",
+     "why": "The last paragraph defends the original proposal."
+    },
+    {
+     "answer": "It repeats the introduction without adding any new point.",
+     "why": "Misses the counterclaim that the paragraph answers."
+    },
+    {
+     "answer": "It lists the schedule changes the school has already approved.",
+     "why": "No approval is mentioned in the passage."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-ri-020",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela7-p08",
+   "prompt": "Which detail best shows that the author is writing from the perspective of a student?",
+   "choices": [
+    "The author refers to “our schedule” and to what “many of us want.”",
+    "The author cites a report from the school librarian about the busy library.",
+    "The author proposes a rule for every classroom.",
+    "The author mentions what educators have observed."
+   ],
+   "answer": "The author refers to “our schedule” and to what “many of us want.”",
+   "explanation": "Words such as “our” and “us” show that the author is a member of the student body.",
+   "commonErrors": [
+    {
+     "answer": "The author cites a report from the school librarian about the busy library.",
+     "why": "Citing a librarian does not show the author's own role."
+    },
+    {
+     "answer": "The author mentions what educators have observed.",
+     "why": "This reports others' views, not the author's own."
+    },
+    {
+     "answer": "The author proposes a rule for every classroom.",
+     "why": "A teacher or student could make that proposal."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-001",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "The hikers were famished after the long climb, so they devoured everything in their packs. What does “famished” mean?",
+   "choices": [
+    "very tired and sore",
+    "extremely hungry",
+    "very cold and wet",
+    "quite proud of it"
+   ],
+   "answer": "extremely hungry",
+   "explanation": "Because they devoured everything they had packed, “famished” must mean very hungry.",
+   "commonErrors": [
+    {
+     "answer": "very tired and sore",
+     "why": "Picks the feeling usually linked to a long climb instead of using the clue 'devoured.'"
+    },
+    {
+     "answer": "very cold and wet",
+     "why": "Draws on the outdoor setting instead of the context."
+    },
+    {
+     "answer": "quite proud of it",
+     "why": "Chooses a feeling about the climb, not about eating."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-002",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The Latin root “aqua” means “water,” and “duct” comes from a word meaning “to lead.” An aqueduct is most likely a structure that",
+   "choices": [
+    "removes salt from sea water.",
+    "stores water for a town in a tank.",
+    "measures how much rain has fallen.",
+    "carries water to other places"
+   ],
+   "answer": "carries water to other places",
+   "explanation": "“Aqua” (water) and “duct” (lead) together suggest a channel that leads water elsewhere.",
+   "commonErrors": [
+    {
+     "answer": "stores water for a town in a tank.",
+     "why": "Ignores the meaning of 'lead' and picks storage."
+    },
+    {
+     "answer": "removes salt from sea water.",
+     "why": "Confuses the root with water treatment."
+    },
+    {
+     "answer": "measures how much rain has fallen.",
+     "why": "Connects water to weather, not to leading."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-003",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "After the storm, the river rose past its banks and flooded the road. Which meaning of “banks” fits this sentence?",
+   "choices": [
+    "turns made by an airplane",
+    "places where money is kept",
+    "land along a river's edge",
+    "rows of switches or controls"
+   ],
+   "answer": "land along a river's edge",
+   "explanation": "The river overflowing its “banks” points to the land at the river's edge.",
+   "commonErrors": [
+    {
+     "answer": "places where money is kept",
+     "why": "Picks the most common meaning without using context."
+    },
+    {
+     "answer": "rows of switches or controls",
+     "why": "Picks an unrelated meaning of the same word."
+    },
+    {
+     "answer": "turns made by an airplane",
+     "why": "Picks a different meaning that does not fit a river."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-004",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "A sign warned that the road was impassable after the flood. Using the prefix “im-” (not) and the suffix “-able” (can be done), what does “impassable” mean?",
+   "choices": [
+    "recently repaired",
+    "easy to travel",
+    "open only at night",
+    "cannot be traveled"
+   ],
+   "answer": "cannot be traveled",
+   "explanation": "“Im-” means not, and “passable” means able to be passed, so the road cannot be traveled.",
+   "commonErrors": [
+    {
+     "answer": "easy to travel",
+     "why": "Ignores the meaning of the prefix."
+    },
+    {
+     "answer": "recently repaired",
+     "why": "Reads the sign's warning as good news."
+    },
+    {
+     "answer": "open only at night",
+     "why": "Invents a condition not suggested by the parts."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-005",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Her rambling speech was so verbose that the audience began checking their watches. What does “verbose” mean?",
+   "choices": [
+    "carefully practiced",
+    "using more words than needed",
+    "speaking much too quietly to hear",
+    "filled with strong emotion"
+   ],
+   "answer": "using more words than needed",
+   "explanation": "The audience grows bored by a rambling speech, so verbose means wordy.",
+   "commonErrors": [
+    {
+     "answer": "speaking much too quietly to hear",
+     "why": "Chooses a speech problem that would not make people check watches."
+    },
+    {
+     "answer": "filled with strong emotion",
+     "why": "Misreads rambling as emotional."
+    },
+    {
+     "answer": "carefully practiced",
+     "why": "Picks a positive trait that the context contradicts."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-006",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The Latin prefix “retro-” means “back,” and the root “spect” means “to look.” In retrospect, the team realized it should have practiced more. What does “in retrospect” mean?",
+   "choices": [
+    "when watching the game closely",
+    "when looking back at the past",
+    "when planning for the future ahead",
+    "when making a quick decision"
+   ],
+   "answer": "when looking back at the past",
+   "explanation": "“Retro-” (back) plus “spect” (look) gives the meaning looking back.",
+   "commonErrors": [
+    {
+     "answer": "when planning for the future ahead",
+     "why": "Reverses the direction of the prefix."
+    },
+    {
+     "answer": "when watching the game closely",
+     "why": "Uses only the root and ignores the prefix."
+    },
+    {
+     "answer": "when making a quick decision",
+     "why": "Picks a meaning unrelated to either part."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-007",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The scientist wanted a sound explanation, not a guess. Which meaning of “sound” fits this sentence?",
+   "choices": [
+    "based on good reasoning",
+    "a noise that can be heard",
+    "a narrow stretch of water",
+    "in good physical health"
+   ],
+   "answer": "based on good reasoning",
+   "explanation": "An explanation contrasted with a guess must be well reasoned and reliable.",
+   "commonErrors": [
+    {
+     "answer": "a noise that can be heard",
+     "why": "Picks the most common meaning."
+    },
+    {
+     "answer": "in good physical health",
+     "why": "Picks another meaning of the word that does not fit."
+    },
+    {
+     "answer": "a narrow stretch of water",
+     "why": "Picks a rare meaning unrelated to explanations."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-008",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.4"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "The committee had hoped for a swift decision, but the debate dragged on, and members grew weary of the protracted meeting. What does “protracted” mean?",
+   "choices": [
+    "attended by only a few members",
+    "lasting longer than expected",
+    "filled with angry arguments",
+    "held in a private room"
+   ],
+   "answer": "lasting longer than expected",
+   "explanation": "Contrasted with a swift decision, a meeting that drags on is protracted, meaning drawn out.",
+   "commonErrors": [
+    {
+     "answer": "filled with angry arguments",
+     "why": "Assumes a debate means anger; the clue is 'dragged on.'"
+    },
+    {
+     "answer": "held in a private room",
+     "why": "Invents a detail not in the sentence."
+    },
+    {
+     "answer": "attended by only a few members",
+     "why": "Misreads weary members as missing members."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-009",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "When Jo heard that her best friend was moving away, she was down in the dumps. What does the idiom “down in the dumps” mean?",
+   "choices": [
+    "sick to her stomach",
+    "sad and discouraged",
+    "angry at her friend",
+    "embarrassed in public"
+   ],
+   "answer": "sad and discouraged",
+   "explanation": "Hearing that a friend is leaving makes Jo feel sad, which is what “down in the dumps” means.",
+   "commonErrors": [
+    {
+     "answer": "angry at her friend",
+     "why": "Confuses sadness with anger."
+    },
+    {
+     "answer": "sick to her stomach",
+     "why": "Reads the idiom as describing a physical illness."
+    },
+    {
+     "answer": "embarrassed in public",
+     "why": "Misses the emotional meaning of the news."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-010",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The town's new fire station burned down on its opening day. What makes this situation ironic?",
+   "choices": [
+    "A building meant to fight fires was itself destroyed by one.",
+    "Opening days are usually very busy times for the firefighters.",
+    "Fire stations are usually built of brick, not wood.",
+    "Fires happen often in towns that have many new buildings."
+   ],
+   "answer": "A building meant to fight fires was itself destroyed by one.",
+   "explanation": "Irony is a result that is the opposite of what is expected, and a fire station is expected to be safe from fire.",
+   "commonErrors": [
+    {
+     "answer": "Fires happen often in towns that have many new buildings.",
+     "why": "Offers a general fact instead of an unexpected contrast."
+    },
+    {
+     "answer": "Opening days are usually very busy times for the firefighters.",
+     "why": "Describes something expected, not ironic."
+    },
+    {
+     "answer": "Fire stations are usually built of brick, not wood.",
+     "why": "Invents a detail unrelated to the contrast."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-011",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "“After the substitute left, the classroom was a zoo.” What does this metaphor mean?",
+   "choices": [
+    "The room was noisy and out of control.",
+    "The room was crowded with visitors.",
+    "The room was full of animals.",
+    "The room was carefully organized by the students."
+   ],
+   "answer": "The room was noisy and out of control.",
+   "explanation": "Calling a room a zoo suggests loud, wild behavior.",
+   "commonErrors": [
+    {
+     "answer": "The room was full of animals.",
+     "why": "Takes the metaphor literally."
+    },
+    {
+     "answer": "The room was crowded with visitors.",
+     "why": "Confuses a zoo with a crowd of visitors."
+    },
+    {
+     "answer": "The room was carefully organized by the students.",
+     "why": "Misses the meaning of wild disorder."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-012",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "“Hot” is to “scorching” as “cold” is to which word?",
+   "choices": [
+    "cool",
+    "snow",
+    "freezing",
+    "winter weather"
+   ],
+   "answer": "freezing",
+   "explanation": "Scorching is a stronger form of hot, and freezing is a stronger form of cold.",
+   "commonErrors": [
+    {
+     "answer": "cool",
+     "why": "Picks a weaker degree and misses the relationship of intensity."
+    },
+    {
+     "answer": "winter weather",
+     "why": "Picks something related to cold rather than a stronger degree."
+    },
+    {
+     "answer": "snow",
+     "why": "Picks a related thing, not an intensified word."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-013",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Mara praised her uncle for being ___ with money, because he always saved for the things he needed. Which word has the most positive connotation?",
+   "choices": [
+    "thrifty",
+    "stingy",
+    "miserly",
+    "greedy"
+   ],
+   "answer": "thrifty",
+   "explanation": "All the words relate to saving money, but only “thrifty” sounds like praise.",
+   "commonErrors": [
+    {
+     "answer": "stingy",
+     "why": "Has the same basic meaning but a negative connotation."
+    },
+    {
+     "answer": "miserly",
+     "why": "Suggests greed and does not fit praise."
+    },
+    {
+     "answer": "greedy",
+     "why": "Suggests wanting more than one's share, which does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-014",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Dani decided to bite the bullet and tell her coach about the injury. What does the idiom “bite the bullet” mean here?",
+   "choices": [
+    "ask for help from a teammate",
+    "do something hard she had been avoiding",
+    "speak angrily to someone in charge of the team",
+    "hurt herself on purpose"
+   ],
+   "answer": "do something hard she had been avoiding",
+   "explanation": "“Bite the bullet” means to face an unpleasant task, such as admitting an injury.",
+   "commonErrors": [
+    {
+     "answer": "speak angrily to someone in charge of the team",
+     "why": "Confuses a tough action with an angry one."
+    },
+    {
+     "answer": "hurt herself on purpose",
+     "why": "Reads the idiom literally."
+    },
+    {
+     "answer": "ask for help from a teammate",
+     "why": "Picks a plausible action not suggested by the idiom."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-015",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "“The old truck coughed and wheezed up the hill.” What does this figure of speech show?",
+   "choices": [
+    "The truck had just been repaired.",
+    "The truck was moving quickly and quietly.",
+    "The truck struggled, making sounds like someone out of breath.",
+    "The truck's driver was sick with a cold and was coughing in the cab."
+   ],
+   "answer": "The truck struggled, making sounds like someone out of breath.",
+   "explanation": "Personification gives the truck human sounds of coughing and wheezing to show strain.",
+   "commonErrors": [
+    {
+     "answer": "The truck's driver was sick with a cold and was coughing in the cab.",
+     "why": "Reads the figure of speech literally."
+    },
+    {
+     "answer": "The truck was moving quickly and quietly.",
+     "why": "Reverses the effect of the coughing and wheezing."
+    },
+    {
+     "answer": "The truck had just been repaired.",
+     "why": "Invents a fact not suggested by the sentence."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-016",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Before voting, council members chose to ___ the survey data to decide which pattern mattered most. Which word best completes the sentence?",
+   "choices": [
+    "recite",
+    "conceal",
+    "analyze",
+    "dispute"
+   ],
+   "answer": "analyze",
+   "explanation": "To analyze data means to examine its parts to find patterns.",
+   "commonErrors": [
+    {
+     "answer": "recite",
+     "why": "Picks a word about repeating rather than examining."
+    },
+    {
+     "answer": "conceal",
+     "why": "Picks a word that is opposite to using data."
+    },
+    {
+     "answer": "dispute",
+     "why": "Picks a word about arguing rather than studying."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-017",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The scientist's findings were ___ because three independent teams repeated the experiment and got the same results. Which word best completes the sentence?",
+   "choices": [
+    "vague",
+    "consistent",
+    "coincidental",
+    "unprecedented"
+   ],
+   "answer": "consistent",
+   "explanation": "Results that match across repeated trials are consistent.",
+   "commonErrors": [
+    {
+     "answer": "coincidental",
+     "why": "Misreads agreement among teams as chance."
+    },
+    {
+     "answer": "vague",
+     "why": "Picks a word that conflicts with clear repeated results."
+    },
+    {
+     "answer": "unprecedented",
+     "why": "Picks an impressive-sounding word that does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-018",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "The twins looked alike, but their personalities were ___: one was talkative and the other quiet. Which word best completes the sentence?",
+   "choices": [
+    "equal",
+    "very similar",
+    "contrasting",
+    "exactly identical"
+   ],
+   "answer": "contrasting",
+   "explanation": "A talkative twin and a quiet twin have contrasting personalities.",
+   "commonErrors": [
+    {
+     "answer": "exactly identical",
+     "why": "Ignores the 'but' signal in the sentence."
+    },
+    {
+     "answer": "very similar",
+     "why": "Picks the word that matches the twins' appearance."
+    },
+    {
+     "answer": "equal",
+     "why": "Picks a word about amount, not difference."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-019",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Ana saw wet umbrellas by the door and inferred that it had been raining. What does “inferred” mean?",
+   "choices": [
+    "figured out from clues, not told",
+    "hoped would happen soon",
+    "remembered from an earlier day",
+    "heard from someone who had been outside"
+   ],
+   "answer": "figured out from clues, not told",
+   "explanation": "Ana reasoned from the clue of wet umbrellas, which is what it means to infer.",
+   "commonErrors": [
+    {
+     "answer": "heard from someone who had been outside",
+     "why": "Confuses an inference with being told."
+    },
+    {
+     "answer": "hoped would happen soon",
+     "why": "Confuses an inference with a wish."
+    },
+    {
+     "answer": "remembered from an earlier day",
+     "why": "Confuses reasoning with memory."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-l-020",
+   "subject": "ela",
+   "grade": 7,
+   "courses": [
+    "ela7"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.7.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Before the experiment, Leo wrote a hypothesis: “Plants given more light will grow taller.” What is a hypothesis?",
+   "choices": [
+    "a list of materials for an experiment",
+    "a final result that has already been proven true",
+    "a personal opinion that cannot be tested",
+    "a testable prediction about what might happen"
+   ],
+   "answer": "a testable prediction about what might happen",
+   "explanation": "Leo's statement can be tested by growing plants in different amounts of light.",
+   "commonErrors": [
+    {
+     "answer": "a final result that has already been proven true",
+     "why": "Confuses a prediction with a conclusion."
+    },
+    {
+     "answer": "a list of materials for an experiment",
+     "why": "Confuses a hypothesis with a materials list."
+    },
+    {
+     "answer": "a personal opinion that cannot be tested",
+     "why": "Ignores that a hypothesis can be tested."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  }
+ ]
+}

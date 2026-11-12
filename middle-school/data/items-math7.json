@@ -1,0 +1,6481 @@
+{
+ "bank": "math7",
+ "grade": 7,
+ "standardsSource": "NC K-12 Mathematics SCOS (adopted June 2017, implementation 2018-19)",
+ "reviewStatus": "ai-drafted: none of these items has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-m7-rp-1-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A hiker walks 1/2 mile in 1/4 hour. What is her speed in miles per hour?",
+   "explanation": "Miles per hour = distance ÷ time = 1/2 ÷ 1/4 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/2",
+    "1/8",
+    "2",
+    "3/4"
+   ],
+   "answer": "2",
+   "commonErrors": [
+    {
+     "answer": "1/8",
+     "why": "multiplied the fractions instead of dividing"
+    },
+    {
+     "answer": "1/2",
+     "why": "divided time by distance (hours per mile)"
+    },
+    {
+     "answer": "3/4",
+     "why": "added the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-1-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A recipe uses 2/3 cup of sugar for every 1/2 of a batch. How many cups of sugar are needed for one whole batch?",
+   "explanation": "For 1 whole batch: 2/3 ÷ 1/2 = 2/3 × 2 = 4/3 cups.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3/4",
+    "7/6",
+    "1/3",
+    "4/3"
+   ],
+   "answer": "4/3",
+   "commonErrors": [
+    {
+     "answer": "1/3",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "3/4",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "7/6",
+     "why": "added the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-1-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A painter paints 3/4 of a wall in 1/2 hour. How much of a wall does the painter paint per hour?",
+   "explanation": "Walls per hour = 3/4 ÷ 1/2 = 3/4 × 2 = 3/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5/4",
+    "3/8",
+    "2/3",
+    "3/2"
+   ],
+   "answer": "3/2",
+   "commonErrors": [
+    {
+     "answer": "3/8",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/3",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "5/4",
+     "why": "added the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-1-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.1"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A cyclist rides 7/2 miles in 1/4 hour. What is the speed in miles per hour?",
+   "explanation": "7/2 ÷ 1/4 = 7/2 × 4 = 14 miles per hour.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "14",
+   "accept": [
+    "14"
+   ],
+   "unit": "miles per hour",
+   "commonErrors": [
+    {
+     "answer": "7/8",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/14",
+     "why": "divided in the wrong order"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which table shows a proportional relationship between x and y?",
+   "explanation": "In a proportional relationship y/x is always the same: 3/1 = 6/2 = 9/3 = 12/4 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x: 1, 2, 3, 4 and y: 4, 5, 6, 7",
+    "x: 1, 2, 3, 4 and y: 2, 5, 8, 11",
+    "x: 1, 2, 3, 4 and y: 3, 5, 9, 17",
+    "x: 1, 2, 3, 4 and y: 3, 6, 9, 12"
+   ],
+   "answer": "x: 1, 2, 3, 4 and y: 3, 6, 9, 12",
+   "commonErrors": [
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 4, 5, 6, 7",
+     "why": "added the same amount instead of multiplying"
+    },
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 2, 5, 8, 11",
+     "why": "y = 3x − 1 does not pass through (0, 0)"
+    },
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 3, 5, 9, 17",
+     "why": "the ratios y/x are not constant"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The graph of a proportional relationship is a line through (0, 0) and (2, 6). What is the constant of proportionality?",
+   "explanation": "The constant of proportionality is y/x = 6/2 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2",
+    "3",
+    "6",
+    "1/3"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "2",
+     "why": "used the x-coordinate"
+    },
+    {
+     "answer": "6",
+     "why": "used the y-coordinate"
+    },
+    {
+     "answer": "1/3",
+     "why": "divided x by y"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The graph of y = 5x passes through the point (1, 5). What does this point mean?",
+   "explanation": "The point (1, r) shows the unit rate: when x is 1, y is r = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x and y are always both equal to 5.",
+    "The line crosses the y-axis at 5.",
+    "For every 1 unit of x, y is 5, so 5 is the unit rate.",
+    "When y is 1, x is 5."
+   ],
+   "answer": "For every 1 unit of x, y is 5, so 5 is the unit rate.",
+   "commonErrors": [
+    {
+     "answer": "When y is 1, x is 5.",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "The line crosses the y-axis at 5.",
+     "why": "confused the unit rate with the y-intercept"
+    },
+    {
+     "answer": "x and y are always both equal to 5.",
+     "why": "treated the point as the whole relationship"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Why does the graph of a proportional relationship include the point (0, 0)?",
+   "explanation": "If you buy 0 pounds you pay $0. Zero of one quantity corresponds to zero of the other.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Because the line must be horizontal",
+    "Because 0 of one quantity goes with 0 of the other quantity",
+    "Because the constant of proportionality is 0",
+    "Because every graph starts at the origin"
+   ],
+   "answer": "Because 0 of one quantity goes with 0 of the other quantity",
+   "commonErrors": [
+    {
+     "answer": "Because every graph starts at the origin",
+     "why": "overgeneralized: graphs of other relationships need not pass through (0, 0)"
+    },
+    {
+     "answer": "Because the constant of proportionality is 0",
+     "why": "confused the point with the unit rate"
+    },
+    {
+     "answer": "Because the line must be horizontal",
+     "why": "confused proportional with constant"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "At Store A the cost y (in dollars) of x pounds of grapes is y = 4x. At Store B, 3 pounds cost $15. Which store has the lower price per pound?",
+   "explanation": "Store A: $4 per pound. Store B: 15 ÷ 3 = $5 per pound. Store A is cheaper.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Store B, at $3 per pound",
+    "They cost the same",
+    "Store A, at $4 per pound",
+    "Store B, at $5 per pound"
+   ],
+   "answer": "Store A, at $4 per pound",
+   "commonErrors": [
+    {
+     "answer": "Store B, at $5 per pound",
+     "why": "treated the higher price as the lower price"
+    },
+    {
+     "answer": "Store B, at $3 per pound",
+     "why": "used the number of pounds as the price"
+    },
+    {
+     "answer": "They cost the same",
+     "why": "did not compute Store B's unit rate"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-2-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which equation represents a proportional relationship in which y is 2.5 times x?",
+   "explanation": "A proportional relationship has the form y = kx. Here k = 2.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 2.5",
+    "y = x + 2.5",
+    "y = 2.5x",
+    "x = 2.5y"
+   ],
+   "answer": "y = 2.5x",
+   "commonErrors": [
+    {
+     "answer": "y = x + 2.5",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "y = 2.5",
+     "why": "dropped the variable x"
+    },
+    {
+     "answer": "x = 2.5y",
+     "why": "swapped x and y"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-3-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A shirt costs $40 and is on sale for 25% off. What is the sale price?",
+   "explanation": "25% of $40 is $10. The sale price is $40 − $10 = $30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$10",
+    "$65",
+    "$30",
+    "$25"
+   ],
+   "answer": "$30",
+   "commonErrors": [
+    {
+     "answer": "$10",
+     "why": "gave the discount instead of the sale price"
+    },
+    {
+     "answer": "$65",
+     "why": "added the discount to the price"
+    },
+    {
+     "answer": "$25",
+     "why": "used the percent as the price"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-3-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A $50 meal has 8% sales tax. What is the total cost?",
+   "explanation": "Tax is 0.08 × $50 = $4. Total: $50 + $4 = $54.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$4",
+    "$54",
+    "$46",
+    "$58"
+   ],
+   "answer": "$54",
+   "commonErrors": [
+    {
+     "answer": "$4",
+     "why": "gave the tax only"
+    },
+    {
+     "answer": "$58",
+     "why": "added 8 dollars instead of 8 percent"
+    },
+    {
+     "answer": "$46",
+     "why": "subtracted the tax"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-3-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A price rises from $20 to $25. What is the percent increase?",
+   "explanation": "The increase is $5. Percent increase = 5 ÷ 20 = 0.25 = 25%.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5%",
+    "20%",
+    "25%",
+    "125%"
+   ],
+   "answer": "25%",
+   "commonErrors": [
+    {
+     "answer": "20%",
+     "why": "divided the change by the new price"
+    },
+    {
+     "answer": "5%",
+     "why": "used the dollar change as the percent"
+    },
+    {
+     "answer": "125%",
+     "why": "compared the new price to the old price without subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-3-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A photo is 4 inches wide. It is enlarged using a scale factor of 2.5. What is the new width?",
+   "explanation": "Multiply by the scale factor: 4 × 2.5 = 10.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1.6 inches",
+    "10 inches",
+    "6.5 inches",
+    "8 inches"
+   ],
+   "answer": "10 inches",
+   "commonErrors": [
+    {
+     "answer": "6.5 inches",
+     "why": "added the scale factor"
+    },
+    {
+     "answer": "1.6 inches",
+     "why": "divided by the scale factor"
+    },
+    {
+     "answer": "8 inches",
+     "why": "multiplied by 2 instead of 2.5"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-rp-3-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.7.RP.3"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "You leave a 15% tip on a $32 meal. How many dollars is the tip?",
+   "explanation": "10% of $32 is $3.20 and 5% is $1.60, so 15% is $3.20 + $1.60 = $4.80.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "4.80",
+   "accept": [
+    "$4.8",
+    "$4.80",
+    "4.8",
+    "4.80"
+   ],
+   "commonErrors": [
+    {
+     "answer": "$15.00",
+     "why": "used the percent as dollars"
+    },
+    {
+     "answer": "$36.80",
+     "why": "gave the total instead of the tip"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-1-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is −3/4 + 1/2?",
+   "explanation": "−3/4 + 2/4 = −1/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−5/4",
+    "−1/4",
+    "1/4",
+    "−1/3"
+   ],
+   "answer": "−1/4",
+   "commonErrors": [
+    {
+     "answer": "−5/4",
+     "why": "added the absolute values and kept the negative sign"
+    },
+    {
+     "answer": "1/4",
+     "why": "gave the sum the wrong sign"
+    },
+    {
+     "answer": "−1/3",
+     "why": "added numerators and denominators"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-1-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 5.2 − (−3.8)?",
+   "explanation": "Subtracting −3.8 is adding 3.8: 5.2 + 3.8 = 9.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−9",
+    "9",
+    "1.4",
+    "−1.4"
+   ],
+   "answer": "9",
+   "commonErrors": [
+    {
+     "answer": "1.4",
+     "why": "subtracted 3.8 instead of adding it"
+    },
+    {
+     "answer": "−9",
+     "why": "gave the wrong sign"
+    },
+    {
+     "answer": "−1.4",
+     "why": "subtracted and gave the wrong sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-1-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The temperature is −7°F. It rises 12.5°F and then drops 4°F. What is the temperature now?",
+   "explanation": "−7 + 12.5 = 5.5, and 5.5 − 4 = 1.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−1.5°F",
+    "−23.5°F",
+    "8.5°F",
+    "1.5°F"
+   ],
+   "answer": "1.5°F",
+   "commonErrors": [
+    {
+     "answer": "−1.5°F",
+     "why": "gave the wrong sign"
+    },
+    {
+     "answer": "8.5°F",
+     "why": "ignored the starting temperature of −7°F"
+    },
+    {
+     "answer": "−23.5°F",
+     "why": "subtracted every change"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-1-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is −5/2 − 7/4?",
+   "explanation": "−5/2 = −10/4. Then −10/4 − 7/4 = −17/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−3/4",
+    "−13/4",
+    "17/4",
+    "−17/4"
+   ],
+   "answer": "−17/4",
+   "commonErrors": [
+    {
+     "answer": "−13/4",
+     "why": "added the mixed parts incorrectly"
+    },
+    {
+     "answer": "−3/4",
+     "why": "subtracted the absolute values"
+    },
+    {
+     "answer": "17/4",
+     "why": "dropped the negative sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-1-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the distance between −3.5 and 2 on a number line?",
+   "explanation": "Distance = |2 − (−3.5)| = 5.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6.5",
+    "−5.5",
+    "1.5",
+    "5.5"
+   ],
+   "answer": "5.5",
+   "commonErrors": [
+    {
+     "answer": "1.5",
+     "why": "subtracted the absolute values"
+    },
+    {
+     "answer": "−5.5",
+     "why": "gave a negative distance"
+    },
+    {
+     "answer": "6.5",
+     "why": "added an extra 1"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-2-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is (−3) × (−4/5)?",
+   "explanation": "A negative times a negative is positive: 3 × 4/5 = 12/5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−7/5",
+    "3/5",
+    "12/5",
+    "−12/5"
+   ],
+   "answer": "12/5",
+   "commonErrors": [
+    {
+     "answer": "−12/5",
+     "why": "gave the wrong sign (negative × negative is positive)"
+    },
+    {
+     "answer": "3/5",
+     "why": "divided instead of multiplying"
+    },
+    {
+     "answer": "−7/5",
+     "why": "added instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-2-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is (−18) ÷ (−3/2)?",
+   "explanation": "18 ÷ 3/2 = 18 × 2/3 = 12, and a negative divided by a negative is positive.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "1/12",
+    "27",
+    "−12"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "−12",
+     "why": "gave the wrong sign"
+    },
+    {
+     "answer": "27",
+     "why": "multiplied by 3/2 instead of dividing"
+    },
+    {
+     "answer": "1/12",
+     "why": "divided in the wrong order"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-2-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Use long division to write 3/8 as a decimal.",
+   "explanation": "3 ÷ 8 = 0.375, and the division ends because the remainder is 0.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3.8",
+    "2.67",
+    "0.375",
+    "0.0375"
+   ],
+   "answer": "0.375",
+   "commonErrors": [
+    {
+     "answer": "2.67",
+     "why": "divided 8 by 3"
+    },
+    {
+     "answer": "0.0375",
+     "why": "put the decimal point one place too far left"
+    },
+    {
+     "answer": "3.8",
+     "why": "wrote the digits side by side"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-2-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which fraction has a decimal form that repeats forever?",
+   "explanation": "2 ÷ 3 = 0.666…, which repeats. The others end.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2/3",
+    "3/4",
+    "7/8",
+    "1/5"
+   ],
+   "answer": "2/3",
+   "commonErrors": [
+    {
+     "answer": "3/4",
+     "why": "0.75 terminates"
+    },
+    {
+     "answer": "7/8",
+     "why": "0.875 terminates"
+    },
+    {
+     "answer": "1/5",
+     "why": "0.2 terminates"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-2-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.2"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "What is (−1.2) × 5?",
+   "explanation": "1.2 × 5 = 6, and a negative times a positive is negative: −6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "−6",
+   "accept": [
+    "-6",
+    "−6"
+   ],
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "gave the wrong sign"
+    },
+    {
+     "answer": "−0.6",
+     "why": "put the decimal point in the wrong place"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-3-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A diver is at −12.5 m. She rises 3.5 m and then descends 6 m. Where is she now?",
+   "explanation": "−12.5 + 3.5 = −9, and −9 − 6 = −15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−15 m",
+    "−9 m",
+    "−22 m",
+    "3 m"
+   ],
+   "answer": "−15 m",
+   "commonErrors": [
+    {
+     "answer": "−9 m",
+     "why": "ignored the final descent"
+    },
+    {
+     "answer": "−22 m",
+     "why": "treated the rise as a descent"
+    },
+    {
+     "answer": "3 m",
+     "why": "dropped the negative sign on the starting depth"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-3-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the value of −2(3/4 − 5/4) + 1/2?",
+   "explanation": "3/4 − 5/4 = −1/2. Then −2 × (−1/2) = 1, and 1 + 1/2 = 3/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−9/4",
+    "−1/2",
+    "3/2",
+    "1"
+   ],
+   "answer": "3/2",
+   "commonErrors": [
+    {
+     "answer": "−1/2",
+     "why": "made a sign error: −2 × (−1/2) = −1"
+    },
+    {
+     "answer": "−9/4",
+     "why": "forgot the parentheses (multiplied only the 3/4)"
+    },
+    {
+     "answer": "1",
+     "why": "stopped before adding 1/2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-3-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A bank balance is $120. Then $35.50 is withdrawn, $18.25 is deposited and $60 is withdrawn. What is the final balance?",
+   "explanation": "120 − 35.50 = 84.50. 84.50 + 18.25 = 102.75. 102.75 − 60 = 42.75.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$42.75",
+    "$233.75",
+    "$6.25",
+    "$24.50"
+   ],
+   "answer": "$42.75",
+   "commonErrors": [
+    {
+     "answer": "$6.25",
+     "why": "treated the deposit as a withdrawal"
+    },
+    {
+     "answer": "$24.50",
+     "why": "ignored the deposit"
+    },
+    {
+     "answer": "$233.75",
+     "why": "added every amount"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-3-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "At 2°F the temperature starts to change by −3/4°F each hour. What is the temperature after 6 hours?",
+   "explanation": "6 × (−3/4) = −4.5. Then 2 − 4.5 = −2.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−4.5°F",
+    "6.5°F",
+    "0.5°F",
+    "−2.5°F"
+   ],
+   "answer": "−2.5°F",
+   "commonErrors": [
+    {
+     "answer": "−4.5°F",
+     "why": "ignored the starting temperature"
+    },
+    {
+     "answer": "6.5°F",
+     "why": "added the change instead of subtracting"
+    },
+    {
+     "answer": "0.5°F",
+     "why": "used 6 ÷ 4 as the total change"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ns-3-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.7.NS.3"
+   ],
+   "type": "numeric",
+   "difficulty": "challenge",
+   "prompt": "What is (−3.5)(2) + 4.2 ÷ (−0.6)?",
+   "explanation": "−3.5 × 2 = −7 and 4.2 ÷ (−0.6) = −7, so the sum is −14.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "−14",
+   "accept": [
+    "-14",
+    "−14"
+   ],
+   "commonErrors": [
+    {
+     "answer": "0",
+     "why": "got +7 for 4.2 ÷ (−0.6)"
+    },
+    {
+     "answer": "−7",
+     "why": "dropped one of the two terms"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Simplify (3x + 5) + (2x − 8).",
+   "explanation": "Combine like terms: 3x + 2x = 5x and 5 + (−8) = −3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5x + 3",
+    "5x − 13",
+    "5x − 3",
+    "5x² − 3"
+   ],
+   "answer": "5x − 3",
+   "commonErrors": [
+    {
+     "answer": "5x − 13",
+     "why": "added 5 and 8 instead of 5 and (−8)"
+    },
+    {
+     "answer": "5x² − 3",
+     "why": "turned adding like terms into an exponent"
+    },
+    {
+     "answer": "5x + 3",
+     "why": "gave the constant the wrong sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Simplify (7x − 4) − (3x − 9).",
+   "explanation": "Distribute the minus: 7x − 4 − 3x + 9 = 4x + 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10x − 13",
+    "4x − 5",
+    "4x + 5",
+    "4x − 13"
+   ],
+   "answer": "4x + 5",
+   "commonErrors": [
+    {
+     "answer": "4x − 13",
+     "why": "did not subtract the second constant: −4 − 9"
+    },
+    {
+     "answer": "10x − 13",
+     "why": "added the expressions instead of subtracting"
+    },
+    {
+     "answer": "4x − 5",
+     "why": "made a sign error on the constants"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression is equivalent to 3(2x − 5)?",
+   "explanation": "Distribute 3 to both terms: 6x − 15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6x − 15",
+    "5x − 8",
+    "6x + 15",
+    "6x − 5"
+   ],
+   "answer": "6x − 15",
+   "commonErrors": [
+    {
+     "answer": "6x − 5",
+     "why": "multiplied only the first term"
+    },
+    {
+     "answer": "5x − 8",
+     "why": "added 3 to each term"
+    },
+    {
+     "answer": "6x + 15",
+     "why": "gave the second term the wrong sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which expression is equivalent to −2(4x − 3)?",
+   "explanation": "−2 × 4x = −8x and −2 × (−3) = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8x − 6",
+    "−8x − 6",
+    "−8x + 6",
+    "−8x + 3"
+   ],
+   "answer": "−8x + 6",
+   "commonErrors": [
+    {
+     "answer": "−8x − 6",
+     "why": "did not change the sign of the second term"
+    },
+    {
+     "answer": "−8x + 3",
+     "why": "multiplied only the first term"
+    },
+    {
+     "answer": "8x − 6",
+     "why": "dropped the negative on the first term"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression is equivalent to (1/2)(6x + 10)?",
+   "explanation": "Half of 6x is 3x and half of 10 is 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3x + 10",
+    "12x + 20",
+    "3x + 5",
+    "6x + 5"
+   ],
+   "answer": "3x + 5",
+   "commonErrors": [
+    {
+     "answer": "3x + 10",
+     "why": "halved only the first term"
+    },
+    {
+     "answer": "6x + 5",
+     "why": "halved only the second term"
+    },
+    {
+     "answer": "12x + 20",
+     "why": "doubled instead of halving"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Factor 12x + 18 using the greatest common factor.",
+   "explanation": "The GCF of 12 and 18 is 6: 12x + 18 = 6(2x + 3).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6(2x + 3)",
+    "3(4x + 18)",
+    "6(2x + 18)",
+    "2(6x + 3)"
+   ],
+   "answer": "6(2x + 3)",
+   "commonErrors": [
+    {
+     "answer": "6(2x + 18)",
+     "why": "factored 6 out of the first term only"
+    },
+    {
+     "answer": "2(6x + 3)",
+     "why": "did not factor out the full common factor: 2(6x + 3) = 12x + 6"
+    },
+    {
+     "answer": "3(4x + 18)",
+     "why": "factored 3 out of the first term only"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-007",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Factor 15a − 25 using the greatest common factor.",
+   "explanation": "The GCF of 15 and 25 is 5: 15a − 25 = 5(3a − 5).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5(3a − 25)",
+    "5(3a − 5)",
+    "15(a − 10)",
+    "3(5a − 25)"
+   ],
+   "answer": "5(3a − 5)",
+   "commonErrors": [
+    {
+     "answer": "5(3a − 25)",
+     "why": "factored 5 out of the first term only"
+    },
+    {
+     "answer": "15(a − 10)",
+     "why": "used a factor that does not divide 25"
+    },
+    {
+     "answer": "3(5a − 25)",
+     "why": "factored 3 out of the first term only"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-008",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Simplify 0.5(4x + 3) − 1.5x.",
+   "explanation": "0.5(4x + 3) = 2x + 1.5, and 2x − 1.5x = 0.5x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2x + 1.5",
+    "0.5x + 3",
+    "0.5x + 1.5",
+    "2.5x + 1.5"
+   ],
+   "answer": "0.5x + 1.5",
+   "commonErrors": [
+    {
+     "answer": "2x + 1.5",
+     "why": "did not combine 2x and −1.5x"
+    },
+    {
+     "answer": "0.5x + 3",
+     "why": "did not halve the 3"
+    },
+    {
+     "answer": "2.5x + 1.5",
+     "why": "added 2x and 1.5x instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-1-009",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Simplify 3.5x + 1.5 − 2x + 0.5.",
+   "explanation": "3.5x − 2x = 1.5x and 1.5 + 0.5 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1.5x + 1",
+    "3.5x",
+    "5.5x + 2",
+    "1.5x + 2"
+   ],
+   "answer": "1.5x + 2",
+   "commonErrors": [
+    {
+     "answer": "5.5x + 2",
+     "why": "added 3.5x and 2x instead of subtracting"
+    },
+    {
+     "answer": "1.5x + 1",
+     "why": "subtracted 0.5 instead of adding"
+    },
+    {
+     "answer": "3.5x",
+     "why": "combined unlike terms"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A jacket's price p drops by 20%. Which expression is equivalent to p − 0.2p and shows the sale price directly?",
+   "explanation": "p − 0.2p = 1p − 0.2p = 0.8p. The jacket now costs 80% of the original price.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.8p",
+    "p − 2",
+    "0.2p",
+    "1.2p"
+   ],
+   "answer": "0.8p",
+   "commonErrors": [
+    {
+     "answer": "1.2p",
+     "why": "added the percent instead of subtracting"
+    },
+    {
+     "answer": "0.2p",
+     "why": "gave the discount instead of the sale price"
+    },
+    {
+     "answer": "p − 2",
+     "why": "subtracted 2 dollars instead of 20%"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangle has width w and length w + 4. Its perimeter is w + (w + 4) + w + (w + 4) = 4w + 8. Where does the 8 come from?",
+   "explanation": "Each of the two long sides has an extra 4, so there is 4 + 4 = 8 extra in all.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The two sides that are each 4 units longer than w",
+    "The number of sides",
+    "The width of the rectangle",
+    "The area of the rectangle"
+   ],
+   "answer": "The two sides that are each 4 units longer than w",
+   "commonErrors": [
+    {
+     "answer": "The number of sides",
+     "why": "confused the constant with the count of sides"
+    },
+    {
+     "answer": "The width of the rectangle",
+     "why": "confused the constant with the variable"
+    },
+    {
+     "answer": "The area of the rectangle",
+     "why": "confused perimeter with area"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A phone plan costs $20 plus $0.05 per text. Adding a $5 fee gives 20 + 0.05t + 5 = 25 + 0.05t. What does 25 represent?",
+   "explanation": "25 does not change with t, so it is the fixed charge: $20 + $5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The fixed amount charged no matter how many texts are sent",
+    "The cost of each text",
+    "The cost of 5 texts",
+    "The number of texts"
+   ],
+   "answer": "The fixed amount charged no matter how many texts are sent",
+   "commonErrors": [
+    {
+     "answer": "The cost of each text",
+     "why": "confused the constant with the rate"
+    },
+    {
+     "answer": "The number of texts",
+     "why": "confused the constant with the variable"
+    },
+    {
+     "answer": "The cost of 5 texts",
+     "why": "made up a meaning"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A price p increases by 5% sales tax, giving 1.05p. Which expression is equivalent and shows the original price plus the tax?",
+   "explanation": "1.05p = 1p + 0.05p: the price plus 5% of the price.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "p + 5",
+    "p + 0.05p",
+    "p − 0.05p",
+    "0.05p"
+   ],
+   "answer": "p + 0.05p",
+   "commonErrors": [
+    {
+     "answer": "p + 5",
+     "why": "added 5 dollars instead of 5 percent"
+    },
+    {
+     "answer": "0.05p",
+     "why": "gave only the tax"
+    },
+    {
+     "answer": "p − 0.05p",
+     "why": "subtracted the tax"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangle has length 2x + 3 and width 4. Which expression is equivalent to its area, 4(2x + 3)?",
+   "explanation": "Distribute the 4: 4 × 2x + 4 × 3 = 8x + 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8x + 12",
+    "8x + 3",
+    "6x + 7",
+    "2x + 12"
+   ],
+   "answer": "8x + 12",
+   "commonErrors": [
+    {
+     "answer": "8x + 3",
+     "why": "multiplied only the first term"
+    },
+    {
+     "answer": "6x + 7",
+     "why": "added 4 to each term"
+    },
+    {
+     "answer": "2x + 12",
+     "why": "multiplied only the second term"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-2-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.7.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In 4(2x + 3), the 4 is the number of identical boxes and 2x + 3 is the cost of one box. What does the 3 represent?",
+   "explanation": "Inside the parentheses, the 3 is the part of one box's cost that does not depend on x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The number of items in each box",
+    "The number of boxes",
+    "The total cost of all the boxes",
+    "The fixed part of each box's cost"
+   ],
+   "answer": "The fixed part of each box's cost",
+   "commonErrors": [
+    {
+     "answer": "The number of boxes",
+     "why": "confused the 3 with the 4"
+    },
+    {
+     "answer": "The total cost of all the boxes",
+     "why": "confused one box with all the boxes"
+    },
+    {
+     "answer": "The number of items in each box",
+     "why": "made up a meaning"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-3-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Tom buys 3 shirts that cost $14.50 each and uses a $10 coupon on the total. How much does he pay?",
+   "explanation": "3 × $14.50 = $43.50. Then $43.50 − $10 = $33.50.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$33.50",
+    "$4.50",
+    "$53.50",
+    "$43.50"
+   ],
+   "answer": "$33.50",
+   "commonErrors": [
+    {
+     "answer": "$53.50",
+     "why": "added the coupon instead of subtracting"
+    },
+    {
+     "answer": "$4.50",
+     "why": "applied the coupon to one shirt only"
+    },
+    {
+     "answer": "$43.50",
+     "why": "ignored the coupon"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-3-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the value of (1/2)x − 3 when x = −8?",
+   "explanation": "(1/2)(−8) = −4, and −4 − 3 = −7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−7",
+    "1",
+    "−1",
+    "−11"
+   ],
+   "answer": "−7",
+   "commonErrors": [
+    {
+     "answer": "1",
+     "why": "made a sign error: −4 − 3 = 1"
+    },
+    {
+     "answer": "−1",
+     "why": "divided the 3 by 2 as well"
+    },
+    {
+     "answer": "−11",
+     "why": "subtracted 3 from −8 before halving"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-3-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A submarine is at −300 ft. It rises 25 ft each minute for 8 minutes. Where is it now?",
+   "explanation": "It rises 25 × 8 = 200 ft. Then −300 + 200 = −100.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−275 ft",
+    "−500 ft",
+    "−100 ft",
+    "100 ft"
+   ],
+   "answer": "−100 ft",
+   "commonErrors": [
+    {
+     "answer": "−500 ft",
+     "why": "descended instead of rising"
+    },
+    {
+     "answer": "−275 ft",
+     "why": "used only one minute"
+    },
+    {
+     "answer": "100 ft",
+     "why": "dropped the negative sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-3-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.3"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "What is the value of 3(x − 2.5) when x = 4?",
+   "explanation": "x − 2.5 = 1.5, and 3 × 1.5 = 4.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "4.5",
+   "accept": [
+    "4.5"
+   ],
+   "commonErrors": [
+    {
+     "answer": "9.5",
+     "why": "multiplied only the x by 3"
+    },
+    {
+     "answer": "1.5",
+     "why": "forgot to multiply by 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 3x + 5 = 20.",
+   "explanation": "Subtract 5: 3x = 15. Divide by 3: x = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "15",
+    "5",
+    "25/3",
+    "−5"
+   ],
+   "answer": "5",
+   "commonErrors": [
+    {
+     "answer": "15",
+     "why": "stopped after subtracting 5"
+    },
+    {
+     "answer": "25/3",
+     "why": "added 5 instead of subtracting"
+    },
+    {
+     "answer": "−5",
+     "why": "gave the answer the wrong sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 2x − 7 = 9.",
+   "explanation": "Add 7: 2x = 16. Divide by 2: x = 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11",
+    "16",
+    "1",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "1",
+     "why": "subtracted 7 instead of adding"
+    },
+    {
+     "answer": "16",
+     "why": "stopped after adding 7"
+    },
+    {
+     "answer": "11",
+     "why": "added instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve x/4 + 3 = 8.",
+   "explanation": "Subtract 3: x/4 = 5. Multiply by 4: x = 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "32",
+    "20",
+    "5",
+    "44"
+   ],
+   "answer": "20",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "stopped after subtracting 3"
+    },
+    {
+     "answer": "44",
+     "why": "added 3 instead of subtracting"
+    },
+    {
+     "answer": "32",
+     "why": "ignored the +3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve 0.5x − 2 = 3.",
+   "explanation": "Add 2: 0.5x = 5. Divide by 0.5: x = 10.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5",
+    "2.5",
+    "12",
+    "10"
+   ],
+   "answer": "10",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "stopped after adding 2"
+    },
+    {
+     "answer": "2.5",
+     "why": "multiplied by 0.5 instead of dividing"
+    },
+    {
+     "answer": "12",
+     "why": "made a decimal error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A plumber charges a $45 visit fee plus $30 for each hour. The bill is $135. How many hours did the plumber work?",
+   "explanation": "45 + 30h = 135, so 30h = 90 and h = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4.5",
+    "3",
+    "90",
+    "6"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "4.5",
+     "why": "ignored the visit fee"
+    },
+    {
+     "answer": "6",
+     "why": "added the fee instead of subtracting"
+    },
+    {
+     "answer": "90",
+     "why": "stopped after subtracting the fee"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Ava has $40 and saves $15 each week. She wants to have at least $130. Which inequality shows this, where w is the number of weeks?",
+   "explanation": "Total money is 15w + 40, and it must be at least 130.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "15w ≥ 130",
+    "15w + 40 ≤ 130",
+    "40w + 15 ≥ 130",
+    "15w + 40 ≥ 130"
+   ],
+   "answer": "15w + 40 ≥ 130",
+   "commonErrors": [
+    {
+     "answer": "15w + 40 ≤ 130",
+     "why": "reversed the inequality: “at least” means ≥"
+    },
+    {
+     "answer": "15w ≥ 130",
+     "why": "ignored the $40 she already has"
+    },
+    {
+     "answer": "40w + 15 ≥ 130",
+     "why": "swapped the $40 and the $15"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-007",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve −2x + 3 > 11.",
+   "explanation": "Subtract 3: −2x > 8. Divide by −2 and reverse the inequality: x < −4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x > 4",
+    "x > −4",
+    "x < 4",
+    "x < −4"
+   ],
+   "answer": "x < −4",
+   "commonErrors": [
+    {
+     "answer": "x > −4",
+     "why": "did not reverse the inequality when dividing by a negative"
+    },
+    {
+     "answer": "x < 4",
+     "why": "made a sign error"
+    },
+    {
+     "answer": "x > 4",
+     "why": "made a sign error and did not reverse"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-008",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve 4x − 6 ≤ 10.",
+   "explanation": "Add 6: 4x ≤ 16. Divide by 4: x ≤ 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x ≤ 40",
+    "x ≤ 4",
+    "x ≥ 4",
+    "x ≤ 1"
+   ],
+   "answer": "x ≤ 4",
+   "commonErrors": [
+    {
+     "answer": "x ≥ 4",
+     "why": "reversed the inequality when dividing by a positive"
+    },
+    {
+     "answer": "x ≤ 1",
+     "why": "subtracted 6 instead of adding"
+    },
+    {
+     "answer": "x ≤ 40",
+     "why": "multiplied instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-009",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which description matches the graph of the solution to 2x + 1 < 7 on a number line?",
+   "explanation": "2x < 6, so x < 3. The circle at 3 is open and the shading goes left.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "An open circle at 3 with shading to the left",
+    "An open circle at 3 with shading to the right",
+    "An open circle at 6 with shading to the left",
+    "A closed circle at 3 with shading to the left"
+   ],
+   "answer": "An open circle at 3 with shading to the left",
+   "commonErrors": [
+    {
+     "answer": "A closed circle at 3 with shading to the left",
+     "why": "included 3, but the inequality is strict"
+    },
+    {
+     "answer": "An open circle at 3 with shading to the right",
+     "why": "shaded the wrong direction"
+    },
+    {
+     "answer": "An open circle at 6 with shading to the left",
+     "why": "did not finish solving"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-010",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A number multiplied by 3 and then increased by 5 is 20. In solving 3x + 5 = 20 you undo the operations. Which order undoes them?",
+   "explanation": "To undo “multiply by 3, then add 5”, undo in reverse order: subtract 5, then divide by 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Divide by 3, then subtract 5",
+    "Add 5, then multiply by 3",
+    "Subtract 5, then divide by 3",
+    "Subtract 3, then divide by 5"
+   ],
+   "answer": "Subtract 5, then divide by 3",
+   "commonErrors": [
+    {
+     "answer": "Divide by 3, then subtract 5",
+     "why": "undid the operations in the same order they were done"
+    },
+    {
+     "answer": "Add 5, then multiply by 3",
+     "why": "used the inverse of the wrong operations"
+    },
+    {
+     "answer": "Subtract 3, then divide by 5",
+     "why": "swapped the numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-ee-4-011",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.7.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Jo earns $12 plus $3 for each hour of babysitting. She earned $33 in all. In 12 + 3h = 33, the solution is h = 7. What does 7 mean?",
+   "explanation": "h is the number of hours, so h = 7 means 7 hours. Check: 12 + 3 × 7 = 33.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Jo started with $7.",
+    "Jo earns $7 each hour.",
+    "Jo babysat for 7 hours.",
+    "Jo earned $7 in all."
+   ],
+   "answer": "Jo babysat for 7 hours.",
+   "commonErrors": [
+    {
+     "answer": "Jo earns $7 each hour.",
+     "why": "confused the solution with the rate"
+    },
+    {
+     "answer": "Jo earned $7 in all.",
+     "why": "confused the solution with the total"
+    },
+    {
+     "answer": "Jo started with $7.",
+     "why": "confused the solution with the fixed amount"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In a scale drawing, 1 cm represents 5 m. A room is 4 cm long in the drawing. How long is the actual room?",
+   "explanation": "Each centimeter is 5 m, so 4 cm is 4 × 5 = 20 m.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "9 m",
+    "1.25 m",
+    "20 m",
+    "0.8 m"
+   ],
+   "answer": "20 m",
+   "commonErrors": [
+    {
+     "answer": "0.8 m",
+     "why": "divided 4 by 5"
+    },
+    {
+     "answer": "9 m",
+     "why": "added 4 and 5"
+    },
+    {
+     "answer": "1.25 m",
+     "why": "divided 5 by 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A scale drawing uses 1 inch for every 8 feet. A hallway is 56 feet long. How long is the hallway in the drawing?",
+   "explanation": "56 ÷ 8 = 7, so the hallway is 7 inches long in the drawing.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "448 inches",
+    "48 inches",
+    "64 inches",
+    "7 inches"
+   ],
+   "answer": "7 inches",
+   "commonErrors": [
+    {
+     "answer": "448 inches",
+     "why": "multiplied by 8 instead of dividing"
+    },
+    {
+     "answer": "64 inches",
+     "why": "added 8 to 56"
+    },
+    {
+     "answer": "48 inches",
+     "why": "subtracted 8 from 56"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A 3-by-5 rectangle is enlarged using a scale factor of 4. What are the new dimensions?",
+   "explanation": "Multiply each side by 4: 3 × 4 = 12 and 5 × 4 = 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3/4 by 5/4",
+    "12 by 20",
+    "7 by 9",
+    "12 by 5"
+   ],
+   "answer": "12 by 20",
+   "commonErrors": [
+    {
+     "answer": "7 by 9",
+     "why": "added 4 to each side"
+    },
+    {
+     "answer": "12 by 5",
+     "why": "scaled only one side"
+    },
+    {
+     "answer": "3/4 by 5/4",
+     "why": "divided by the scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A shape with an area of 10 cm² is enlarged using a scale factor of 3. What is the area of the enlarged shape?",
+   "explanation": "Lengths are multiplied by 3, so area is multiplied by 3² = 9: 10 × 9 = 90.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "30 cm²",
+    "13 cm²",
+    "90 cm²",
+    "270 cm²"
+   ],
+   "answer": "90 cm²",
+   "commonErrors": [
+    {
+     "answer": "30 cm²",
+     "why": "multiplied the area by the scale factor instead of its square"
+    },
+    {
+     "answer": "13 cm²",
+     "why": "added 3 to the area"
+    },
+    {
+     "answer": "270 cm²",
+     "why": "multiplied the area by the scale factor cubed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A triangle has angles of 30°, 60° and 90°. It is enlarged using a scale factor of 2. What are the angles of the new triangle?",
+   "explanation": "In a scale drawing, angle measures stay the same. Only the side lengths change.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "60°, 90°, 120°",
+    "60°, 120°, 180°",
+    "15°, 30°, 45°",
+    "30°, 60°, 90°"
+   ],
+   "answer": "30°, 60°, 90°",
+   "commonErrors": [
+    {
+     "answer": "60°, 120°, 180°",
+     "why": "multiplied the angles by the scale factor"
+    },
+    {
+     "answer": "60°, 90°, 120°",
+     "why": "added 30 to each angle"
+    },
+    {
+     "answer": "15°, 30°, 45°",
+     "why": "divided the angles by the scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "On a map, 2 cm represents 25 km. Two cities are 7 cm apart on the map. How far apart are they?",
+   "explanation": "2 cm is 25 km, so 1 cm is 12.5 km. Then 7 × 12.5 = 87.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "14 km",
+    "175 km",
+    "0.56 km",
+    "87.5 km"
+   ],
+   "answer": "87.5 km",
+   "commonErrors": [
+    {
+     "answer": "175 km",
+     "why": "used 25 km per centimeter instead of 12.5"
+    },
+    {
+     "answer": "14 km",
+     "why": "multiplied 7 by 2"
+    },
+    {
+     "answer": "0.56 km",
+     "why": "inverted the scale"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-007",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "A drawing of a rectangular garden is 6 cm by 4 cm. The scale is 1 cm : 2 m. What is the actual area of the garden?",
+   "explanation": "Actual sides: 6 × 2 = 12 m and 4 × 2 = 8 m. Area: 12 × 8 = 96 m².",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "96 m²",
+    "24 m²",
+    "192 m²",
+    "48 m²"
+   ],
+   "answer": "96 m²",
+   "commonErrors": [
+    {
+     "answer": "24 m²",
+     "why": "used the area of the drawing without converting"
+    },
+    {
+     "answer": "48 m²",
+     "why": "multiplied the area by the scale factor instead of its square"
+    },
+    {
+     "answer": "192 m²",
+     "why": "multiplied the area by the scale factor cubed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-008",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A model car is built at a scale of 1 : 24. The real car is 4.8 m long. How long is the model, in centimeters?",
+   "explanation": "4.8 m = 480 cm. Then 480 ÷ 24 = 20 cm.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "20",
+   "accept": [
+    "20"
+   ],
+   "unit": "cm",
+   "commonErrors": [
+    {
+     "answer": "0.2",
+     "why": "forgot to convert meters to centimeters"
+    },
+    {
+     "answer": "115.2",
+     "why": "multiplied by 24 instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-1-009",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement is true about a scale drawing of a figure?",
+   "explanation": "A scale drawing keeps angles and multiplies every length by the scale factor.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Side lengths stay the same.",
+    "Areas are multiplied by the scale factor.",
+    "Angle measures stay the same and side lengths are proportional.",
+    "Angle measures are multiplied by the scale factor."
+   ],
+   "answer": "Angle measures stay the same and side lengths are proportional.",
+   "commonErrors": [
+    {
+     "answer": "Angle measures are multiplied by the scale factor.",
+     "why": "applied the scale factor to angles"
+    },
+    {
+     "answer": "Side lengths stay the same.",
+     "why": "thought sides do not scale"
+    },
+    {
+     "answer": "Areas are multiplied by the scale factor.",
+     "why": "forgot that area scales by the square of the scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Can a triangle have side lengths of 3, 4 and 8?",
+   "explanation": "The two shorter sides must add to more than the longest side. 3 + 4 = 7, which is less than 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because the sides are all different lengths",
+    "Yes, because 4 + 8 is greater than 3",
+    "Yes, because all three lengths are positive numbers",
+    "No, because 3 + 4 is less than 8"
+   ],
+   "answer": "No, because 3 + 4 is less than 8",
+   "commonErrors": [
+    {
+     "answer": "Yes, because all three lengths are positive numbers",
+     "why": "ignored the triangle inequality"
+    },
+    {
+     "answer": "Yes, because 4 + 8 is greater than 3",
+     "why": "checked only one pair of sides"
+    },
+    {
+     "answer": "No, because the sides are all different lengths",
+     "why": "thought a triangle needs equal sides"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Can a triangle have side lengths of 5, 7 and 11?",
+   "explanation": "5 + 7 = 12 > 11, 5 + 11 = 16 > 7 and 7 + 11 = 18 > 5, so a triangle exists.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because the sides are different lengths",
+    "Yes, because 5 + 11 is greater than 7",
+    "No, because 11 is greater than 7",
+    "Yes, because every pair of sides adds to more than the third side"
+   ],
+   "answer": "Yes, because every pair of sides adds to more than the third side",
+   "commonErrors": [
+    {
+     "answer": "No, because 11 is greater than 7",
+     "why": "thought one long side prevents a triangle"
+    },
+    {
+     "answer": "No, because the sides are different lengths",
+     "why": "thought a triangle needs equal sides"
+    },
+    {
+     "answer": "Yes, because 5 + 11 is greater than 7",
+     "why": "checked only one pair of sides"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many different triangles can be built with angles of 40°, 60° and 80°?",
+   "explanation": "The angles add to 180°, so triangles exist. Angles alone give the shape but not the size, so there are many.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "None",
+    "Exactly one",
+    "Infinitely many (all with the same shape, different sizes)",
+    "Exactly two"
+   ],
+   "answer": "Infinitely many (all with the same shape, different sizes)",
+   "commonErrors": [
+    {
+     "answer": "Exactly one",
+     "why": "thought angles alone fix the size"
+    },
+    {
+     "answer": "None",
+     "why": "thought the angles do not add to 180°"
+    },
+    {
+     "answer": "Exactly two",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many triangles can be built with angles of 90°, 60° and 50°?",
+   "explanation": "The angles of a triangle add to 180°. 90 + 60 + 50 = 200, so no triangle is possible.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "None, because the angles add to 200°",
+    "Exactly two",
+    "Infinitely many",
+    "Exactly one"
+   ],
+   "answer": "None, because the angles add to 200°",
+   "commonErrors": [
+    {
+     "answer": "Exactly one",
+     "why": "ignored the angle sum"
+    },
+    {
+     "answer": "Infinitely many",
+     "why": "ignored the angle sum"
+    },
+    {
+     "answer": "Exactly two",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two sides of a triangle are 6 cm and 8 cm and the angle between them is 90°. How many different triangles fit this description?",
+   "explanation": "Two sides and the angle between them fix the triangle completely.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "None",
+    "Exactly one",
+    "Exactly two",
+    "Infinitely many"
+   ],
+   "answer": "Exactly one",
+   "commonErrors": [
+    {
+     "answer": "Exactly two",
+     "why": "thought the order of the sides makes a different triangle"
+    },
+    {
+     "answer": "Infinitely many",
+     "why": "thought two sides and an angle do not fix the triangle"
+    },
+    {
+     "answer": "None",
+     "why": "thought a right angle makes it impossible"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-2-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.7.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "Which set of measures does NOT determine a unique triangle?",
+   "explanation": "Three angles fix the shape but not the size, so many triangles fit. The other sets fix one triangle.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Three sides: 5, 6 and 7",
+    "Two angles 40° and 60° and the side between them 5",
+    "Two sides 4 and 6 and the angle between them 30°",
+    "Three angles: 50°, 60° and 70°"
+   ],
+   "answer": "Three angles: 50°, 60° and 70°",
+   "commonErrors": [
+    {
+     "answer": "Three sides: 5, 6 and 7",
+     "why": "three sides fix the triangle"
+    },
+    {
+     "answer": "Two sides 4 and 6 and the angle between them 30°",
+     "why": "two sides and the included angle fix the triangle"
+    },
+    {
+     "answer": "Two angles 40° and 60° and the side between them 5",
+     "why": "two angles and the included side fix the triangle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-4-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A circle has a radius of 5 cm. What is its circumference, in terms of π?",
+   "explanation": "C = 2πr = 2 × π × 5 = 10π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10 cm",
+    "25π cm",
+    "10π cm",
+    "5π cm"
+   ],
+   "answer": "10π cm",
+   "commonErrors": [
+    {
+     "answer": "25π cm",
+     "why": "used the area formula"
+    },
+    {
+     "answer": "5π cm",
+     "why": "used πr instead of 2πr"
+    },
+    {
+     "answer": "10 cm",
+     "why": "left out π"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-4-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A circle has a radius of 5 cm. What is its area, in terms of π?",
+   "explanation": "A = πr² = π × 5² = 25π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "25π cm²",
+    "10π cm²",
+    "5π cm²",
+    "100π cm²"
+   ],
+   "answer": "25π cm²",
+   "commonErrors": [
+    {
+     "answer": "10π cm²",
+     "why": "used the circumference formula"
+    },
+    {
+     "answer": "5π cm²",
+     "why": "used πr instead of πr²"
+    },
+    {
+     "answer": "100π cm²",
+     "why": "squared the diameter instead of the radius"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-4-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A circle has a diameter of 12 m. What is its area, in terms of π?",
+   "explanation": "The radius is 6 m, so A = π × 6² = 36π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6π m²",
+    "36π m²",
+    "144π m²",
+    "12π m²"
+   ],
+   "answer": "36π m²",
+   "commonErrors": [
+    {
+     "answer": "144π m²",
+     "why": "squared the diameter instead of the radius"
+    },
+    {
+     "answer": "12π m²",
+     "why": "gave the circumference"
+    },
+    {
+     "answer": "6π m²",
+     "why": "used πr instead of πr²"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-4-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A circle has a circumference of 18π cm. What is its radius?",
+   "explanation": "C = 2πr, so 18π = 2πr and r = 9.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "9 cm",
+    "81 cm",
+    "18 cm",
+    "36 cm"
+   ],
+   "answer": "9 cm",
+   "commonErrors": [
+    {
+     "answer": "18 cm",
+     "why": "gave the diameter"
+    },
+    {
+     "answer": "36 cm",
+     "why": "doubled the circumference"
+    },
+    {
+     "answer": "81 cm",
+     "why": "squared the radius"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-4-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.4"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Use 3.14 for π. What is the circumference of a circle with a radius of 10 cm?",
+   "explanation": "C = 2 × 3.14 × 10 = 62.8 cm.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "62.8",
+   "accept": [
+    "62.8"
+   ],
+   "unit": "cm",
+   "commonErrors": [
+    {
+     "answer": "314",
+     "why": "found the area"
+    },
+    {
+     "answer": "31.4",
+     "why": "used πr instead of 2πr"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-5-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two angles are complementary. One measures 35°. What does the other measure?",
+   "explanation": "Complementary angles add to 90°: 90 − 35 = 55.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "65°",
+    "55°",
+    "145°",
+    "35°"
+   ],
+   "answer": "55°",
+   "commonErrors": [
+    {
+     "answer": "145°",
+     "why": "used 180° (supplementary)"
+    },
+    {
+     "answer": "35°",
+     "why": "thought the angles are equal"
+    },
+    {
+     "answer": "65°",
+     "why": "made a subtraction error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-5-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two angles are supplementary. One measures 112°. What does the other measure?",
+   "explanation": "Supplementary angles add to 180°: 180 − 112 = 68.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "248°",
+    "22°",
+    "68°",
+    "78°"
+   ],
+   "answer": "68°",
+   "commonErrors": [
+    {
+     "answer": "78°",
+     "why": "used 90° (complementary)"
+    },
+    {
+     "answer": "248°",
+     "why": "added instead of subtracting"
+    },
+    {
+     "answer": "22°",
+     "why": "made a subtraction error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-5-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two lines cross. One of the angles measures 47°. What is the measure of the angle vertical to it?",
+   "explanation": "Vertical angles are equal.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "133°",
+    "47°",
+    "43°",
+    "94°"
+   ],
+   "answer": "47°",
+   "commonErrors": [
+    {
+     "answer": "133°",
+     "why": "gave the adjacent (supplementary) angle"
+    },
+    {
+     "answer": "43°",
+     "why": "gave the complement"
+    },
+    {
+     "answer": "94°",
+     "why": "doubled the angle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-5-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two angles are supplementary. One measures 2x° and the other measures (x + 30)°. What is x?",
+   "explanation": "2x + x + 30 = 180, so 3x = 150 and x = 50.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "30",
+    "60",
+    "75",
+    "50"
+   ],
+   "answer": "50",
+   "commonErrors": [
+    {
+     "answer": "60",
+     "why": "forgot to subtract the 30 before dividing"
+    },
+    {
+     "answer": "30",
+     "why": "used the constant as the answer"
+    },
+    {
+     "answer": "75",
+     "why": "divided 150 by 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-5-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two adjacent angles form a straight line. They measure 3x° and (2x + 20)°. What is x?",
+   "explanation": "3x + 2x + 20 = 180, so 5x = 160 and x = 32.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "40",
+    "32",
+    "16",
+    "36"
+   ],
+   "answer": "32",
+   "commonErrors": [
+    {
+     "answer": "36",
+     "why": "forgot to subtract the 20 before dividing"
+    },
+    {
+     "answer": "40",
+     "why": "added 20 instead of subtracting"
+    },
+    {
+     "answer": "16",
+     "why": "divided 160 by 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-6-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A figure is a 10-by-6 rectangle with a triangle on top. The triangle has a base of 10 and a height of 4. What is the total area?",
+   "explanation": "Rectangle: 10 × 6 = 60. Triangle: ½ × 10 × 4 = 20. Total: 80.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "64 square units",
+    "60 square units",
+    "80 square units",
+    "100 square units"
+   ],
+   "answer": "80 square units",
+   "commonErrors": [
+    {
+     "answer": "100 square units",
+     "why": "forgot to take half of the triangle"
+    },
+    {
+     "answer": "64 square units",
+     "why": "added the rectangle's sides and the triangle's height"
+    },
+    {
+     "answer": "60 square units",
+     "why": "left out the triangle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-6-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A square pyramid has a base 6 cm on each side and a height of 5 cm. What is its volume?",
+   "explanation": "V = (1/3) × base area × height = (1/3) × 36 × 5 = 60.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "30 cm³",
+    "180 cm³",
+    "90 cm³",
+    "60 cm³"
+   ],
+   "answer": "60 cm³",
+   "commonErrors": [
+    {
+     "answer": "180 cm³",
+     "why": "forgot the factor of 1/3"
+    },
+    {
+     "answer": "90 cm³",
+     "why": "used 1/2 instead of 1/3"
+    },
+    {
+     "answer": "30 cm³",
+     "why": "used 1/6 instead of 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-6-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A triangular prism has a triangle base with a base of 6 cm and a height of 4 cm. The prism is 10 cm long. What is its volume?",
+   "explanation": "Triangle area: ½ × 6 × 4 = 12. Volume: 12 × 10 = 120.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "60 cm³",
+    "240 cm³",
+    "120 cm³",
+    "20 cm³"
+   ],
+   "answer": "120 cm³",
+   "commonErrors": [
+    {
+     "answer": "240 cm³",
+     "why": "forgot to take half of the triangle"
+    },
+    {
+     "answer": "60 cm³",
+     "why": "took half twice"
+    },
+    {
+     "answer": "20 cm³",
+     "why": "added 6, 4 and 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-6-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A cube has an edge of 5 cm. What is its surface area?",
+   "explanation": "Each face is 5 × 5 = 25. Six faces: 150.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "25 cm²",
+    "30 cm²",
+    "150 cm²",
+    "125 cm²"
+   ],
+   "answer": "150 cm²",
+   "commonErrors": [
+    {
+     "answer": "125 cm²",
+     "why": "found the volume"
+    },
+    {
+     "answer": "25 cm²",
+     "why": "found the area of one face"
+    },
+    {
+     "answer": "30 cm²",
+     "why": "multiplied 6 × 5"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-g-6-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.7.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "Two cubes, each with an edge of 2 cm, are stacked to make a 2 cm × 2 cm × 4 cm prism. What is the surface area of the prism?",
+   "explanation": "Two ends: 2 × (2 × 2) = 8. Four sides: 4 × (2 × 4) = 32. Total: 40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "provisionalCourses": [
+    "math6plus"
+   ],
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "16 cm²",
+    "32 cm²",
+    "40 cm²",
+    "48 cm²"
+   ],
+   "answer": "40 cm²",
+   "commonErrors": [
+    {
+     "answer": "48 cm²",
+     "why": "added the surface areas of the two separate cubes"
+    },
+    {
+     "answer": "32 cm²",
+     "why": "counted only four of the six faces"
+    },
+    {
+     "answer": "16 cm²",
+     "why": "found the area of one end"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A school wants to know the favorite lunch of its students. Which sample is most likely to be representative?",
+   "explanation": "A random sample gives every student the same chance of being picked.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "50 students from the principal's class",
+    "50 students chosen at random from the school roster",
+    "The first 50 students in the lunch line",
+    "50 students from the soccer team"
+   ],
+   "answer": "50 students chosen at random from the school roster",
+   "commonErrors": [
+    {
+     "answer": "The first 50 students in the lunch line",
+     "why": "a convenient sample that may favor certain students"
+    },
+    {
+     "answer": "50 students from the soccer team",
+     "why": "a sample from one group only"
+    },
+    {
+     "answer": "50 students from the principal's class",
+     "why": "a sample from one class only"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Why is surveying only people at a basketball game a poor way to estimate a town's favorite sport?",
+   "explanation": "People at a basketball game are more likely to like basketball, so the sample does not represent the town.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The sample is too random",
+    "The town is too big",
+    "Games are held at night",
+    "The sample is likely biased toward basketball fans"
+   ],
+   "answer": "The sample is likely biased toward basketball fans",
+   "commonErrors": [
+    {
+     "answer": "The sample is too random",
+     "why": "random samples are good, but this one is not random"
+    },
+    {
+     "answer": "Games are held at night",
+     "why": "gave an irrelevant reason"
+    },
+    {
+     "answer": "The town is too big",
+     "why": "thought size of the town is the problem"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which method gives a random sample of 20 students from a class of 30?",
+   "explanation": "Drawing names gives each student the same chance of being chosen.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Choose 20 of your friends",
+    "Choose the 20 students who sit in front",
+    "Choose the 20 tallest students",
+    "Put all 30 names in a hat and draw 20"
+   ],
+   "answer": "Put all 30 names in a hat and draw 20",
+   "commonErrors": [
+    {
+     "answer": "Choose the 20 students who sit in front",
+     "why": "chose a convenient group"
+    },
+    {
+     "answer": "Choose 20 of your friends",
+     "why": "chose a biased group"
+    },
+    {
+     "answer": "Choose the 20 tallest students",
+     "why": "chose by a characteristic related to the data"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In a random sample of 40 students, 28 prefer pizza. About how many of the school's 600 students would you predict prefer pizza?",
+   "explanation": "28 ÷ 40 = 0.7, or 70%. 70% of 600 is 420.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "28",
+    "560",
+    "168",
+    "420"
+   ],
+   "answer": "420",
+   "commonErrors": [
+    {
+     "answer": "28",
+     "why": "used the sample count as the prediction"
+    },
+    {
+     "answer": "168",
+     "why": "used 28% instead of 70%"
+    },
+    {
+     "answer": "560",
+     "why": "multiplied 28 by 20 using the wrong scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A survey of 100 randomly chosen voters finds that 55 support a proposal. Which statement is best?",
+   "explanation": "A random sample gives a reasonable estimate, with some natural variation.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Exactly 55% of all voters support it",
+    "The survey tells us nothing about all voters",
+    "Only 55 voters in the whole town support it",
+    "About 55% of all voters probably support it, but the true value may differ somewhat"
+   ],
+   "answer": "About 55% of all voters probably support it, but the true value may differ somewhat",
+   "commonErrors": [
+    {
+     "answer": "Exactly 55% of all voters support it",
+     "why": "treated the sample as exact"
+    },
+    {
+     "answer": "Only 55 voters in the whole town support it",
+     "why": "confused the sample count with the population"
+    },
+    {
+     "answer": "The survey tells us nothing about all voters",
+     "why": "ignored the value of a random sample"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Why do larger random samples generally give better estimates?",
+   "explanation": "With more data, estimates cluster more tightly around the true value, though they are never guaranteed.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They remove all bias",
+    "They cost less to collect",
+    "Their estimates tend to vary less from the true population value",
+    "They are guaranteed to be exactly right"
+   ],
+   "answer": "Their estimates tend to vary less from the true population value",
+   "commonErrors": [
+    {
+     "answer": "They are guaranteed to be exactly right",
+     "why": "overstated what a sample can do"
+    },
+    {
+     "answer": "They remove all bias",
+     "why": "confused size with bias"
+    },
+    {
+     "answer": "They cost less to collect",
+     "why": "gave an irrelevant reason"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-007",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A school wants to learn how students get to school. Which sample is biased?",
+   "explanation": "Asking only bus riders leaves out students who walk, bike or get a ride.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Only students who ride the bus",
+    "Names drawn from a bin",
+    "60 students chosen at random from the roster",
+    "Every 10th name on the roster"
+   ],
+   "answer": "Only students who ride the bus",
+   "commonErrors": [
+    {
+     "answer": "60 students chosen at random from the roster",
+     "why": "this is random"
+    },
+    {
+     "answer": "Every 10th name on the roster",
+     "why": "this is systematic and not biased by the topic"
+    },
+    {
+     "answer": "Names drawn from a bin",
+     "why": "this is random"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-008",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "To estimate the average height of 7th graders in a district, a researcher measures 100 of them. What is the population?",
+   "explanation": "The population is the whole group you want to learn about.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The 100 students measured",
+    "The district's teachers",
+    "The average height",
+    "All 7th graders in the district"
+   ],
+   "answer": "All 7th graders in the district",
+   "commonErrors": [
+    {
+     "answer": "The 100 students measured",
+     "why": "named the sample"
+    },
+    {
+     "answer": "The average height",
+     "why": "named the statistic"
+    },
+    {
+     "answer": "The district's teachers",
+     "why": "named an unrelated group"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-1-009",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A random sample of students has a mean height of 150 cm. What does this number estimate?",
+   "explanation": "A sample statistic is used to estimate the matching value for the population.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The range of heights in the population",
+    "The tallest student in the population",
+    "The size of the sample",
+    "The mean height of the whole population"
+   ],
+   "answer": "The mean height of the whole population",
+   "commonErrors": [
+    {
+     "answer": "The tallest student in the population",
+     "why": "confused the mean with the maximum"
+    },
+    {
+     "answer": "The range of heights in the population",
+     "why": "confused the mean with the range"
+    },
+    {
+     "answer": "The size of the sample",
+     "why": "confused the mean with the sample size"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Five random samples of 10 students each had these proportions who like soccer: 0.4, 0.5, 0.6, 0.5, 0.5. What is the best estimate of the proportion in the whole population?",
+   "explanation": "Average the sample proportions: (0.4 + 0.5 + 0.6 + 0.5 + 0.5) ÷ 5 = 0.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2.5",
+    "0.4",
+    "0.6",
+    "0.5"
+   ],
+   "answer": "0.5",
+   "commonErrors": [
+    {
+     "answer": "0.6",
+     "why": "used the largest sample proportion"
+    },
+    {
+     "answer": "0.4",
+     "why": "used the smallest sample proportion"
+    },
+    {
+     "answer": "2.5",
+     "why": "added the proportions without dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Three sets of sample means: A is 48, 50, 52. B is 40, 50, 60. C is 49, 50, 51. Which set shows the greatest variation in the estimates?",
+   "explanation": "B's values range from 40 to 60, which is the widest.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "C",
+    "All have the same variation",
+    "B",
+    "A"
+   ],
+   "answer": "B",
+   "commonErrors": [
+    {
+     "answer": "A",
+     "why": "chose a set with less spread"
+    },
+    {
+     "answer": "C",
+     "why": "chose the set with the least spread"
+    },
+    {
+     "answer": "All have the same variation",
+     "why": "ignored the different ranges"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Why take several random samples of the same size?",
+   "explanation": "Repeated samples show how much estimates change from sample to sample.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "To make sure every sample gives the same result",
+    "To make the population smaller",
+    "To see how much the estimates vary and make a better inference",
+    "To avoid needing a random method"
+   ],
+   "answer": "To see how much the estimates vary and make a better inference",
+   "commonErrors": [
+    {
+     "answer": "To make the population smaller",
+     "why": "confused samples with the population"
+    },
+    {
+     "answer": "To avoid needing a random method",
+     "why": "thought repeating replaces randomness"
+    },
+    {
+     "answer": "To make sure every sample gives the same result",
+     "why": "thought samples should be identical"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A bag has an unknown number of red marbles. Four samples of 10 marbles each had 3, 4, 2 and 3 red. What fraction of the marbles in the bag is probably red?",
+   "explanation": "Add: 3 + 4 + 2 + 3 = 12 red out of 40 drawn. 12 ÷ 40 = 0.3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.4 (40%)",
+    "0.2 (20%)",
+    "12 (all the red marbles)",
+    "0.3 (30%)"
+   ],
+   "answer": "0.3 (30%)",
+   "commonErrors": [
+    {
+     "answer": "0.4 (40%)",
+     "why": "used the largest sample"
+    },
+    {
+     "answer": "0.2 (20%)",
+     "why": "used the smallest sample"
+    },
+    {
+     "answer": "12 (all the red marbles)",
+     "why": "gave the total number of red marbles drawn"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "One random sample says 60% of 7th graders like math. A second random sample of the same size says 40%. What does this show?",
+   "explanation": "Different random samples give different results, which is why we look at the variation.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The population changed between the surveys",
+    "Random samples vary, so a single estimate may be off",
+    "Neither sample is useful",
+    "One of the surveys must have cheated"
+   ],
+   "answer": "Random samples vary, so a single estimate may be off",
+   "commonErrors": [
+    {
+     "answer": "One of the surveys must have cheated",
+     "why": "assumed variation means error"
+    },
+    {
+     "answer": "The population changed between the surveys",
+     "why": "assumed variation means change"
+    },
+    {
+     "answer": "Neither sample is useful",
+     "why": "ignored the value of sampling"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-2-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.7.SP.2"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Three random samples of 20 students had 9, 11 and 10 students who walk to school. Use these samples to estimate how many of the school's 300 students walk.",
+   "explanation": "Average 10 per 20, which is 1/2. Half of 300 is 150.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "150",
+   "accept": [
+    "150"
+   ],
+   "unit": "students",
+   "commonErrors": [
+    {
+     "answer": "10",
+     "why": "gave the average sample count"
+    },
+    {
+     "answer": "30",
+     "why": "multiplied 10 by 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "What is the mean absolute deviation (MAD) of the data set 4, 6, 8, 10, 12?",
+   "explanation": "The mean is 8. The distances from the mean are 4, 2, 0, 2, 4, which add to 12. 12 ÷ 5 = 2.4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "2.4",
+   "accept": [
+    "2.4"
+   ],
+   "commonErrors": [
+    {
+     "answer": "12",
+     "why": "gave the sum of the distances without dividing"
+    },
+    {
+     "answer": "0",
+     "why": "added the deviations without taking absolute values"
+    },
+    {
+     "answer": "4",
+     "why": "gave the largest distance"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the mean absolute deviation of 2, 5, 8?",
+   "explanation": "The mean is 5. The distances are 3, 0, 3, which add to 6. 6 ÷ 3 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "5",
+    "2",
+    "6"
+   ],
+   "answer": "2",
+   "commonErrors": [
+    {
+     "answer": "3",
+     "why": "gave the largest distance from the mean"
+    },
+    {
+     "answer": "5",
+     "why": "gave the mean"
+    },
+    {
+     "answer": "6",
+     "why": "gave the sum of the distances without dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the range of 14, 3, 9, 20, 6?",
+   "explanation": "Range = greatest − least = 20 − 3 = 17.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11",
+    "17",
+    "20",
+    "9"
+   ],
+   "answer": "17",
+   "commonErrors": [
+    {
+     "answer": "20",
+     "why": "gave the greatest value"
+    },
+    {
+     "answer": "11",
+     "why": "subtracted the first two values"
+    },
+    {
+     "answer": "9",
+     "why": "gave the median"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the interquartile range (IQR) of 3, 5, 7, 9, 11, 13, 15?",
+   "explanation": "The median is 9. The lower half is 3, 5, 7 (Q1 = 5) and the upper half is 11, 13, 15 (Q3 = 13). IQR = 13 − 5 = 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "4",
+    "10",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "12",
+     "why": "gave the range"
+    },
+    {
+     "answer": "10",
+     "why": "subtracted the first quartile from the maximum"
+    },
+    {
+     "answer": "4",
+     "why": "subtracted the first quartile from the median"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What does the interquartile range (IQR) describe?",
+   "explanation": "The IQR is Q3 − Q1, which covers the middle half of the data.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The average of the data",
+    "The spread of the middle 50% of the data",
+    "The spread of all of the data",
+    "The middle value of the data"
+   ],
+   "answer": "The spread of the middle 50% of the data",
+   "commonErrors": [
+    {
+     "answer": "The spread of all of the data",
+     "why": "described the range"
+    },
+    {
+     "answer": "The average of the data",
+     "why": "described the mean"
+    },
+    {
+     "answer": "The middle value of the data",
+     "why": "described the median"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What does the mean absolute deviation (MAD) describe?",
+   "explanation": "MAD is the average of the distances from the mean.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The most common value",
+    "The average distance of the data values from the mean",
+    "The difference between the greatest and least values",
+    "The middle value of the data"
+   ],
+   "answer": "The average distance of the data values from the mean",
+   "commonErrors": [
+    {
+     "answer": "The difference between the greatest and least values",
+     "why": "described the range"
+    },
+    {
+     "answer": "The middle value of the data",
+     "why": "described the median"
+    },
+    {
+     "answer": "The most common value",
+     "why": "described the mode"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-007",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The ages on Team A are 12, 13, 13, 14. The ages on Team B are 10, 12, 14, 16. Which team has the greater variability in age?",
+   "explanation": "Team A's range is 2 and Team B's range is 6. Team B is more spread out.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Team A",
+    "Team B",
+    "They are equal",
+    "It cannot be determined"
+   ],
+   "answer": "Team B",
+   "commonErrors": [
+    {
+     "answer": "Team A",
+     "why": "reversed which team is more spread out"
+    },
+    {
+     "answer": "They are equal",
+     "why": "ignored the different ranges"
+    },
+    {
+     "answer": "It cannot be determined",
+     "why": "thought more information was needed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-008",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two dot plots show class test scores. Class 1 is centered near 70 and Class 2 is centered near 85, and the two plots hardly overlap. What is the best conclusion?",
+   "explanation": "Little overlap with centers 15 points apart suggests a real difference.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Class 2 tends to score higher, because the plots barely overlap",
+    "The classes score about the same",
+    "Class 1 tends to score higher",
+    "No conclusion is possible"
+   ],
+   "answer": "Class 2 tends to score higher, because the plots barely overlap",
+   "commonErrors": [
+    {
+     "answer": "The classes score about the same",
+     "why": "ignored the separation of the plots"
+    },
+    {
+     "answer": "Class 1 tends to score higher",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "No conclusion is possible",
+     "why": "ignored what the graphs show"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-009",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two data sets both have a mean of 20. Set X has a MAD of 1 and Set Y has a MAD of 6. Which statement is true?",
+   "explanation": "A larger MAD means the values are, on average, farther from the mean.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The values in Set Y are more spread out from the mean",
+    "Set Y has a greater mean",
+    "The values in Set X are more spread out",
+    "The two sets have the same spread"
+   ],
+   "answer": "The values in Set Y are more spread out from the mean",
+   "commonErrors": [
+    {
+     "answer": "The values in Set X are more spread out",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "The two sets have the same spread",
+     "why": "confused equal means with equal spread"
+    },
+    {
+     "answer": "Set Y has a greater mean",
+     "why": "confused MAD with the mean"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-3-010",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the mean absolute deviation of 5, 5, 5, 5, 5?",
+   "explanation": "Every value equals the mean, so every distance is 0 and the MAD is 0.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0",
+    "1",
+    "25",
+    "5"
+   ],
+   "answer": "0",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "gave the mean"
+    },
+    {
+     "answer": "1",
+     "why": "gave the number of different values"
+    },
+    {
+     "answer": "25",
+     "why": "multiplied the mean by the count"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-4-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Random samples from two groups give: Sample A has a mean of 82 and a MAD of 3. Sample B has a mean of 78 and a MAD of 3. Which statement is reasonable?",
+   "explanation": "The means differ by 4 and the variability is similar, so Group A seems to be higher.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The groups have the same mean",
+    "Group B probably has the higher mean",
+    "Group A's scores are more spread out",
+    "Group A probably has a higher mean score, about 4 points higher"
+   ],
+   "answer": "Group A probably has a higher mean score, about 4 points higher",
+   "commonErrors": [
+    {
+     "answer": "Group B probably has the higher mean",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "The groups have the same mean",
+     "why": "ignored the different means"
+    },
+    {
+     "answer": "Group A's scores are more spread out",
+     "why": "the MADs are equal"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-4-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Group 1 has a median of 15 and an IQR of 4. Group 2 has a median of 22 and an IQR of 4. Which statement is best?",
+   "explanation": "A difference of 7 between the centers is larger than the typical spread of 4, so the groups probably differ.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The difference is small compared with the spread",
+    "The groups are the same, since the IQRs are equal",
+    "The groups likely differ: the medians are 7 apart, which is more than the IQR of 4",
+    "The IQR tells us nothing about the groups"
+   ],
+   "answer": "The groups likely differ: the medians are 7 apart, which is more than the IQR of 4",
+   "commonErrors": [
+    {
+     "answer": "The groups are the same, since the IQRs are equal",
+     "why": "confused equal spread with equal centers"
+    },
+    {
+     "answer": "The difference is small compared with the spread",
+     "why": "misread 7 as small next to 4"
+    },
+    {
+     "answer": "The IQR tells us nothing about the groups",
+     "why": "ignored the role of variability"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-4-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two samples have means of 50 and 51, but their MADs are 2 and 15. Which statement is true?",
+   "explanation": "Similar centers can come with very different variability.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The centers are similar, but the second group varies much more",
+    "The groups are alike in every way",
+    "The first group varies much more",
+    "The means are too close to compare"
+   ],
+   "answer": "The centers are similar, but the second group varies much more",
+   "commonErrors": [
+    {
+     "answer": "The groups are alike in every way",
+     "why": "ignored the different MADs"
+    },
+    {
+     "answer": "The first group varies much more",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "The means are too close to compare",
+     "why": "ignored that spread can still differ"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-4-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.4"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Sample means are 45 and 53, and both samples have a MAD of 4. How many MADs apart are the means?",
+   "explanation": "The means differ by 8. Divide by the MAD: 8 ÷ 4 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "2",
+   "accept": [
+    "2"
+   ],
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "gave the difference without dividing by the MAD"
+    },
+    {
+     "answer": "4",
+     "why": "gave the MAD"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-4-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.7.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "The mean height of one team is 150 cm and of another is 152 cm. Both have a MAD of 12 cm. A student says the second team is taller. What is the best response?",
+   "explanation": "A 2 cm difference is tiny next to a typical spread of 12 cm, so the teams may be the same.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The MAD is irrelevant to the comparison",
+    "The student is right, because 152 is greater than 150",
+    "The means must be equal",
+    "The 2 cm difference is small compared with the variability of 12 cm, so we cannot conclude a real difference"
+   ],
+   "answer": "The 2 cm difference is small compared with the variability of 12 cm, so we cannot conclude a real difference",
+   "commonErrors": [
+    {
+     "answer": "The student is right, because 152 is greater than 150",
+     "why": "ignored the variability"
+    },
+    {
+     "answer": "The MAD is irrelevant to the comparison",
+     "why": "ignored the role of variability"
+    },
+    {
+     "answer": "The means must be equal",
+     "why": "confused a small difference with no difference"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-5-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which number CANNOT be a probability?",
+   "explanation": "Probabilities are between 0 and 1, so 1.2 is too large.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1.2",
+    "0",
+    "1",
+    "1/2"
+   ],
+   "answer": "1.2",
+   "commonErrors": [
+    {
+     "answer": "0",
+     "why": "an impossible event has probability 0"
+    },
+    {
+     "answer": "1/2",
+     "why": "an event that is equally likely either way"
+    },
+    {
+     "answer": "1",
+     "why": "a certain event has probability 1"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-5-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "An event is very unlikely but possible. Its probability is closest to which number?",
+   "explanation": "Very unlikely events have a probability close to 0.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.05",
+    "0.95",
+    "0.5",
+    "1"
+   ],
+   "answer": "0.05",
+   "commonErrors": [
+    {
+     "answer": "0.5",
+     "why": "that is a toss-up"
+    },
+    {
+     "answer": "0.95",
+     "why": "that is very likely"
+    },
+    {
+     "answer": "1",
+     "why": "that is certain"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-5-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the probability of an event that is certain to happen?",
+   "explanation": "A certain event has probability 1.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "100",
+    "0",
+    "1/2",
+    "1"
+   ],
+   "answer": "1",
+   "commonErrors": [
+    {
+     "answer": "0",
+     "why": "that is impossible"
+    },
+    {
+     "answer": "1/2",
+     "why": "that is a toss-up"
+    },
+    {
+     "answer": "100",
+     "why": "probabilities cannot be greater than 1"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-6-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A coin is flipped 50 times and lands heads 32 times. What is the experimental probability of heads?",
+   "explanation": "32 ÷ 50 = 0.64.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.64",
+    "0.5",
+    "32",
+    "0.36"
+   ],
+   "answer": "0.64",
+   "commonErrors": [
+    {
+     "answer": "0.5",
+     "why": "gave the theoretical probability"
+    },
+    {
+     "answer": "32",
+     "why": "gave the count"
+    },
+    {
+     "answer": "0.36",
+     "why": "gave the experimental probability of tails"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-6-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A spinner landed on red 18 times in 60 spins. Based on this, about how many times would it land on red in 200 spins?",
+   "explanation": "18 ÷ 60 = 0.3. Then 0.3 × 200 = 60.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "18",
+    "60",
+    "3,600",
+    "100"
+   ],
+   "answer": "60",
+   "commonErrors": [
+    {
+     "answer": "18",
+     "why": "used the number of reds from the first 60 spins"
+    },
+    {
+     "answer": "3,600",
+     "why": "multiplied 18 by 200 without dividing by 60"
+    },
+    {
+     "answer": "100",
+     "why": "used 1/2 instead of 3/10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-7-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A bag has 3 red marbles, 5 blue marbles and 2 green marbles. One marble is picked at random. What is the probability that it is blue?",
+   "explanation": "There are 10 marbles and 5 are blue: 5/10 = 1/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/2",
+    "1/3",
+    "5/7",
+    "5/3"
+   ],
+   "answer": "1/2",
+   "commonErrors": [
+    {
+     "answer": "5/3",
+     "why": "compared blue to red"
+    },
+    {
+     "answer": "5/7",
+     "why": "compared blue to the other colors"
+    },
+    {
+     "answer": "1/3",
+     "why": "treated the three colors as equally likely"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-7-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A fair six-sided die is rolled. What is the probability of rolling a prime number?",
+   "explanation": "The primes on a die are 2, 3 and 5, which is 3 out of 6 outcomes: 1/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2/3",
+    "1/2",
+    "1/6",
+    "1/3"
+   ],
+   "answer": "1/2",
+   "commonErrors": [
+    {
+     "answer": "1/3",
+     "why": "counted only 2 and 3"
+    },
+    {
+     "answer": "2/3",
+     "why": "counted 1 as a prime number"
+    },
+    {
+     "answer": "1/6",
+     "why": "counted a single outcome"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-7-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A fair coin is flipped 20 times and lands heads 14 times. Which statement best explains the difference from 10 heads?",
+   "explanation": "Short runs vary. More flips tend to bring the relative frequency near the theoretical probability.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The theoretical probability is wrong",
+    "The coin must be unfair",
+    "Experimental results always match theoretical probability exactly",
+    "Chance variation: with more flips, the results tend to get closer to 1/2"
+   ],
+   "answer": "Chance variation: with more flips, the results tend to get closer to 1/2",
+   "commonErrors": [
+    {
+     "answer": "The coin must be unfair",
+     "why": "assumed one result proves bias"
+    },
+    {
+     "answer": "The theoretical probability is wrong",
+     "why": "doubted the model because of one result"
+    },
+    {
+     "answer": "Experimental results always match theoretical probability exactly",
+     "why": "ignored chance variation"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-7-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A number cube is rolled 100 times and lands on 6 fifteen times. What is the experimental probability of rolling a 6?",
+   "explanation": "15 ÷ 100 = 0.15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.85",
+    "1/6",
+    "15",
+    "0.15"
+   ],
+   "answer": "0.15",
+   "commonErrors": [
+    {
+     "answer": "1/6",
+     "why": "gave the theoretical probability for a fair die"
+    },
+    {
+     "answer": "15",
+     "why": "gave the count"
+    },
+    {
+     "answer": "0.85",
+     "why": "gave the probability of not rolling a 6"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-001",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A coin is tossed twice. How many outcomes are in the sample space?",
+   "explanation": "The outcomes are HH, HT, TH and TT.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4",
+    "2",
+    "8",
+    "3"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "2",
+     "why": "counted the outcomes of one toss"
+    },
+    {
+     "answer": "3",
+     "why": "left out one ordered outcome"
+    },
+    {
+     "answer": "8",
+     "why": "counted outcomes for three tosses"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-002",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A coin is tossed twice. What is the probability of getting exactly one head?",
+   "explanation": "HT and TH are 2 of the 4 outcomes: 2/4 = 1/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/2",
+    "1/4",
+    "1/3",
+    "3/4"
+   ],
+   "answer": "1/2",
+   "commonErrors": [
+    {
+     "answer": "1/4",
+     "why": "counted only one of the two ways"
+    },
+    {
+     "answer": "1/3",
+     "why": "treated 0, 1, 2 heads as equally likely"
+    },
+    {
+     "answer": "3/4",
+     "why": "counted at least one head"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-003",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two fair dice are rolled. What is the probability that the sum is 7?",
+   "explanation": "There are 36 outcomes, and 6 of them add to 7: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). 6/36 = 1/6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "7/36",
+    "1/12",
+    "1/36",
+    "1/6"
+   ],
+   "answer": "1/6",
+   "commonErrors": [
+    {
+     "answer": "1/12",
+     "why": "counted only half of the ways"
+    },
+    {
+     "answer": "7/36",
+     "why": "used the sum as the count"
+    },
+    {
+     "answer": "1/36",
+     "why": "counted a single outcome"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-004",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Spinner A has two equal sections (red, blue). Spinner B has three equal sections (1, 2, 3). Both are spun. What is the probability of red and 3?",
+   "explanation": "There are 2 × 3 = 6 equally likely outcomes, and one is (red, 3): 1/6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5/6",
+    "1/2",
+    "1/3",
+    "1/6"
+   ],
+   "answer": "1/6",
+   "commonErrors": [
+    {
+     "answer": "1/2",
+     "why": "used only spinner A"
+    },
+    {
+     "answer": "1/3",
+     "why": "used only spinner B"
+    },
+    {
+     "answer": "5/6",
+     "why": "added 1/2 and 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-005",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "A menu has 3 sandwiches and 4 drinks. A meal is one sandwich and one drink. How many different meals are possible?",
+   "explanation": "Pair each of the 3 sandwiches with each of the 4 drinks: 3 × 4 = 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "12",
+   "accept": [
+    "12"
+   ],
+   "unit": "meals",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "24",
+     "why": "multiplied by 2 as well"
+    }
+   ]
+  },
+  {
+   "id": "ms-m7-sp-8-006",
+   "subject": "math",
+   "grade": 7,
+   "courses": [
+    "math7",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP-C",
+   "standards": [
+    "NC.7.SP.8"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "A bag has 2 red marbles and 1 blue marble. A marble is drawn, put back, and a second marble is drawn. What is the probability that both are red?",
+   "explanation": "Each draw is red with probability 2/3. Both red: 2/3 × 2/3 = 4/9.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/9",
+    "4/9",
+    "1/3",
+    "2/3"
+   ],
+   "answer": "4/9",
+   "commonErrors": [
+    {
+     "answer": "2/3",
+     "why": "used only the first draw"
+    },
+    {
+     "answer": "1/9",
+     "why": "counted a single outcome of the 9"
+    },
+    {
+     "answer": "1/3",
+     "why": "used the probability of blue"
+    }
+   ]
+  }
+ ]
+}

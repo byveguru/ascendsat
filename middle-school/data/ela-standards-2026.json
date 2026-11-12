@@ -1,0 +1,616 @@
+{
+ "6": [
+  {
+   "code": "6.CT.1.1",
+   "text": "Cite textual evidence to support analysis of what a text states as well as inferences drawn from a text."
+  },
+  {
+   "code": "6.CT.1.2",
+   "text": "Use self-monitoring, repeated reading, objective summarizing, writing in response to texts, and discussions with peers and adults to strengthen comprehension."
+  },
+  {
+   "code": "6.CT.1.3",
+   "text": "Draw on a wide reading of texts, including texts on the Holocaust and genocide, to build knowledge and vocabulary."
+  },
+  {
+   "code": "6.CT.1.4",
+   "text": "Recognize the choices and features used by authors and transfer those techniques to communication and writing."
+  },
+  {
+   "code": "6.CD.1.1",
+   "text": "Determine the themes or main ideas in a text."
+  },
+  {
+   "code": "6.CD.1.2",
+   "text": "Analyze how key literary elements, individuals, ideas, and events develop and how they contribute to the themes or main ideas in a text."
+  },
+  {
+   "code": "6.CD.2.1",
+   "text": "Determine an author’s purpose and perspective in a text, including possible bias, and explain how they are evident."
+  },
+  {
+   "code": "6.CD.2.2",
+   "text": "Analyze how structural choices shape meaning in texts, including how major sections, paragraphs, or sentences, develop and refine the perspective and purpose of the text."
+  },
+  {
+   "code": "6.CD.2.3",
+   "text": "Analyze how differing perspectives within and across texts contribute to text development, meaning, and style."
+  },
+  {
+   "code": "6.CD.2.4",
+   "text": "Analyze how specific word choices impact meaning and tone."
+  },
+  {
+   "code": "6.CD.3.1",
+   "text": "Evaluate the argument of multiple texts distinguishing claims that are supported by reasons and evidence from claims that are not."
+  },
+  {
+   "code": "6.CD.3.2",
+   "text": "Compare and contrast a text with its visual or oral presentation, explaining how the adaptation contributes to the reader’s interpretation."
+  },
+  {
+   "code": "6.CD.3.3",
+   "text": "Evaluate the impact of the presentation of theme, topic, or information in multiple texts of different forms and genres."
+  },
+  {
+   "code": "6.CD.3.4",
+   "text": "Analyze where multiple texts on the same topic or theme"
+  },
+  {
+   "code": "6.CD.4.1",
+   "text": "Determine or clarify the meaning of grade-appropriate general academic and domain-specific words and phrases in texts."
+  },
+  {
+   "code": "6.CD.4.2",
+   "text": "Recognize, interpret, and use figurative language and literary elements."
+  },
+  {
+   "code": "6.CD.4.3",
+   "text": "Differentiate between contexts, audiences, and purposes that call for formal and informal English."
+  },
+  {
+   "code": "6.CD.4.4",
+   "text": "Addressed in 6.CD.4.2."
+  },
+  {
+   "code": "6.CD.4.5",
+   "text": "Interpret the syntax of phrases, clauses, and sentences to comprehend texts within the 6-8 text complexity band."
+  },
+  {
+   "code": "6.CW.1.1",
+   "text": "Follow norms or expectations for civil, collegial discussions and decision-making, and define individual roles as needed."
+  },
+  {
+   "code": "6.CW.1.2",
+   "text": "Refer to evidence from texts to probe and reflect on ideas under discussion."
+  },
+  {
+   "code": "6.CW.1.3",
+   "text": "Pose and respond to specific questions to clarify or follow up on information, and make comments that contribute to the discussion by elaborating on the remarks of others."
+  },
+  {
+   "code": "6.CW.1.4",
+   "text": "Acknowledge new information expressed by others and, when warranted, modify their views in light of the evidence presented."
+  },
+  {
+   "code": "6.CW.2.1",
+   "text": "Form and use the perfect progressive verb aspect."
+  },
+  {
+   "code": "6.CW.2.2",
+   "text": "Recognize and correct inappropriate shifts in verb tense."
+  },
+  {
+   "code": "6.CW.2.3",
+   "text": "Use intensive pronouns."
+  },
+  {
+   "code": "6.CW.2.4",
+   "text": "Use subjective, objective, and possessive pronouns in the"
+  },
+  {
+   "code": "6.CW.3.1",
+   "text": "Use commas appropriately in compound-complex sentences."
+  },
+  {
+   "code": "6.CW.3.2",
+   "text": "Use semicolons to separate items in a series or list when at least one of the items already contains commas."
+  },
+  {
+   "code": "6.CW.4.1",
+   "text": "Create texts that demonstrate command of transcription skills."
+  },
+  {
+   "code": "6.CW.4.2",
+   "text": "Produce, expand, and rearrange complete simple, compound, complex, and compound-complex sentence structures."
+  },
+  {
+   "code": "6.CW.4.3",
+   "text": "Correct inappropriate fragments and run-on sentences."
+  },
+  {
+   "code": "6.CW.5.1",
+   "text": "Gather multiple sources to answer questions, refocusing the investigation when appropriate."
+  },
+  {
+   "code": "6.CW.5.2",
+   "text": "Integrate and paraphrase or summarize relevant information when drawing on multiple sources."
+  },
+  {
+   "code": "6.CW.5.3",
+   "text": "Assess the relevance and credibility of sources."
+  },
+  {
+   "code": "6.CW.5.4",
+   "text": "Quote multiple sources to avoid plagiarism, providing basic bibliographic information for sources."
+  },
+  {
+   "code": "6.CW.6.1",
+   "text": "Plan written and spoken products by organizing information and ideas around a topic."
+  },
+  {
+   "code": "6.CW.6.2",
+   "text": "Draft written and spoken products to sufficiently address purpose, task, and audience."
+  },
+  {
+   "code": "6.CW.6.3",
+   "text": "Revise, edit, and rewrite written and spoken products, using support and collaboration with peers and adults."
+  },
+  {
+   "code": "6.CW.6.4",
+   "text": "Publish, present, and produce written and spoken products, making use of digital tools and multimodalities to add interest."
+  },
+  {
+   "code": "6.CW.7.1",
+   "text": "Introduce claim(s) and organize reasons and evidence clearly."
+  },
+  {
+   "code": "6.CW.7.2",
+   "text": "Support claim(s) with clear reasons and relevant evidence, using credible sources."
+  },
+  {
+   "code": "6.CW.7.3",
+   "text": "Clarify the relationships among claim(s), reasons, and evidence using words, phrases, and clauses."
+  },
+  {
+   "code": "6.CW.7.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports the argument presented."
+  },
+  {
+   "code": "6.CW.8.1",
+   "text": "Introduce the topic and focus clearly, preview what’s to follow, and organize ideas, concepts, and information using logical organizational structures."
+  },
+  {
+   "code": "6.CW.8.2",
+   "text": "Develop the topic with relevant facts, definitions, concrete details, quotations, or other information and examples related to the topic."
+  },
+  {
+   "code": "6.CW.8.3",
+   "text": "Clarify the relationships among ideas and concepts, using appropriate transitions, precise language, and domain-specific vocabulary."
+  },
+  {
+   "code": "6.CW.8.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports the information or explanation presented."
+  },
+  {
+   "code": "6.CW.9.1",
+   "text": "Engage and orient the audience by establishing a context and introducing literary elements."
+  },
+  {
+   "code": "6.CW.9.2",
+   "text": "Develop experiences and events using dialogue, precise words and phrases, figurative language, and relevant, descriptive sensory details."
+  },
+  {
+   "code": "6.CW.9.3",
+   "text": "Establish and develop a logical sequence using literary techniques and transitions to convey shifts from one perspective, time frame, or setting to another."
+  },
+  {
+   "code": "6.CW.9.4",
+   "text": "Conclude the text in a manner that follows from and reflects on the experiences or events."
+  }
+ ],
+ "7": [
+  {
+   "code": "7.CT.1.1",
+   "text": "Cite multiple pieces of textual evidence to support analysis of what a text states as well as inferences drawn from a text."
+  },
+  {
+   "code": "7.CT.1.2",
+   "text": "Use self-monitoring, repeated reading, objective summarizing, writing in response to texts, and discussions with peers and adults to strengthen comprehension."
+  },
+  {
+   "code": "7.CT.1.3",
+   "text": "Draw on a wide reading of texts, including texts on the Holocaust and genocide, to build knowledge and vocabulary."
+  },
+  {
+   "code": "7.CT.1.4",
+   "text": "Recognize the choices and features used by authors and transfer those techniques to communication and writing."
+  },
+  {
+   "code": "7.CD.1.1",
+   "text": "Determine the themes or main ideas in a text."
+  },
+  {
+   "code": "7.CD.1.2",
+   "text": "Analyze how key literary elements, individuals, ideas, and events develop and relate and how they contribute to the themes or main ideas in a text."
+  },
+  {
+   "code": "7.CD.2.1",
+   "text": "Determine an author’s purpose and perspective in a text, including possible bias, and analyze how the author contrasts or distinguishes perspectives in a text."
+  },
+  {
+   "code": "7.CD.2.2",
+   "text": "Analyze how structural choices shape meaning in texts, including how major sections, paragraphs, or sentences, develop and refine the perspective and purpose of the text."
+  },
+  {
+   "code": "7.CD.2.3",
+   "text": "Analyze how differing perspectives within and across texts contribute to text development, meaning, and style."
+  },
+  {
+   "code": "7.CD.2.4",
+   "text": "Analyze how specific word choices impact meaning and tone."
+  },
+  {
+   "code": "7.CD.3.1",
+   "text": "Evaluate the argument of multiple texts including the soundness of reasoning or specific claims, and the relevance of evidence."
+  },
+  {
+   "code": "7.CD.3.2",
+   "text": "Analyze how an adaptation of a text stays true to or departs from the source material."
+  },
+  {
+   "code": "7.CD.3.3",
+   "text": "Evaluate the impact of the presentation of theme, topic, or information in multiple texts, including texts that show fictional and"
+  },
+  {
+   "code": "7.CD.3.4",
+   "text": "Analyze where multiple texts on the same topic or theme emphasize different evidence or advance different interpretations."
+  },
+  {
+   "code": "7.CD.4.1",
+   "text": "Determine or clarify the meaning of grade-appropriate general academic and domain-specific words and phrases in texts."
+  },
+  {
+   "code": "7.CD.4.2",
+   "text": "Recognize, interpret, and use figurative language and literary elements."
+  },
+  {
+   "code": "7.CD.4.3",
+   "text": "Differentiate between contexts, audiences, and purposes that call for formal and informal English."
+  },
+  {
+   "code": "7.CD.4.4",
+   "text": "Addressed in 7.CD.4.2."
+  },
+  {
+   "code": "7.CD.4.5",
+   "text": "Interpret the syntax of phrases, clauses, and sentences to comprehend texts within the 6-8 text complexity band."
+  },
+  {
+   "code": "7.CW.1.1",
+   "text": "Follow norms or expectations for civil, collegial discussions and decision-making, and define individual roles as needed."
+  },
+  {
+   "code": "7.CW.1.2",
+   "text": "Refer to evidence from texts and other research on the topic or issue to probe and reflect on ideas under discussion."
+  },
+  {
+   "code": "7.CW.1.3",
+   "text": "Pose and respond to specific questions to clarify or follow up on information, and make comments that contribute to the discussion by elaborating on the remarks of others."
+  },
+  {
+   "code": "7.CW.1.4",
+   "text": "Acknowledge new information expressed by others and, when warranted, modify their views in light of the evidence presented."
+  },
+  {
+   "code": "7.CW.2.1",
+   "text": "Recognize and correct misplaced and dangling modifiers."
+  },
+  {
+   "code": "7.CW.2.2",
+   "text": "Distinguish between active and passive voice."
+  },
+  {
+   "code": "7.CW.3.1",
+   "text": "Use a comma to separate coordinate adjectives."
+  },
+  {
+   "code": "7.CW.3.2",
+   "text": "Use commas and parentheses for nonrestrictive/parenthetical elements."
+  },
+  {
+   "code": "7.CW.4.1",
+   "text": "Create texts that demonstrate command of transcription skills."
+  },
+  {
+   "code": "7.CW.4.2",
+   "text": "Produce, expand, and rearrange complete simple, compound, complex, and compound-complex sentence structures."
+  },
+  {
+   "code": "7.CW.4.3",
+   "text": "Correct inappropriate fragments and run-on sentences."
+  },
+  {
+   "code": "7.CW.5.1",
+   "text": "Gather multiple sources to answer questions, using search terms effectively, and generating additional related, focused questions for further research and investigation."
+  },
+  {
+   "code": "7.CW.5.2",
+   "text": "Integrate and paraphrase or summarize relevant information when drawing on multiple sources."
+  },
+  {
+   "code": "7.CW.5.3",
+   "text": "Assess the relevance, credibility, and accuracy of sources."
+  },
+  {
+   "code": "7.CW.5.4",
+   "text": "Quote multiple sources to avoid plagiarism, providing basic bibliographic information and using a standard format for citation."
+  },
+  {
+   "code": "7.CW.6.1",
+   "text": "Plan written and spoken products by organizing information and ideas around a topic."
+  },
+  {
+   "code": "7.CW.6.2",
+   "text": "Draft written and spoken products to sufficiently address purpose, task, and audience."
+  },
+  {
+   "code": "7.CW.6.3",
+   "text": "Revise, edit, and rewrite written and spoken products, using support and collaboration with peers and adults."
+  },
+  {
+   "code": "7.CW.6.4",
+   "text": "Publish, present, and produce written and spoken products, making use of digital tools and multimodalities to add interest."
+  },
+  {
+   "code": "7.CW.7.1",
+   "text": "Introduce claim(s), acknowledge alternate or opposing claim(s),"
+  },
+  {
+   "code": "7.CW.7.2",
+   "text": "Support claim(s) with logical reasons and relevant evidence, using accurate, credible sources."
+  },
+  {
+   "code": "7.CW.7.3",
+   "text": "Create cohesion and clarify the relationships among claim(s), reasons, and evidence, using words, phrases, and clauses."
+  },
+  {
+   "code": "7.CW.7.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports the argument presented."
+  },
+  {
+   "code": "7.CW.8.1",
+   "text": "Introduce the topic and focus clearly, preview what’s to follow, and organize ideas, concepts, and information using logical organizational structures."
+  },
+  {
+   "code": "7.CW.8.2",
+   "text": "Develop the topic with relevant facts, definitions, concrete details, quotations, or other information and examples related to the topic."
+  },
+  {
+   "code": "7.CW.8.3",
+   "text": "Create cohesion and clarify the relationships among ideas and concepts, using appropriate transitions, precise language, and domain-specific vocabulary."
+  },
+  {
+   "code": "7.CW.8.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports the information or explanation presented."
+  },
+  {
+   "code": "7.CW.9.1",
+   "text": "Engage and orient the audience by establishing a context and perspective, and introducing literary elements."
+  },
+  {
+   "code": "7.CW.9.2",
+   "text": "Develop experiences and events using dialogue, precise words and phrases, figurative language, and relevant, descriptive sensory details to capture action."
+  },
+  {
+   "code": "7.CW.9.3",
+   "text": "Establish and develop a logical sequence using literary techniques and transitions to convey shifts from one perspective, time frame, or setting to another."
+  },
+  {
+   "code": "7.CW.9.4",
+   "text": "Conclude the text in a manner that follows from and reflects on"
+  }
+ ],
+ "8": [
+  {
+   "code": "8.CT.1.1",
+   "text": "Cite the most relevant textual evidence to support analysis of what a text states as well as inferences drawn from a text."
+  },
+  {
+   "code": "8.CT.1.2",
+   "text": "Use self-monitoring, repeated reading, objective summarizing, writing in response to texts, and discussions with peers and adults to strengthen comprehension."
+  },
+  {
+   "code": "8.CT.1.3",
+   "text": "Draw on a wide reading of texts, including texts on the Holocaust and genocide, to build knowledge and vocabulary."
+  },
+  {
+   "code": "8.CT.1.4",
+   "text": "Recognize the choices and features used by authors and transfer those techniques to communication and writing."
+  },
+  {
+   "code": "8.CD.1.1",
+   "text": "Determine the themes or main ideas in a text."
+  },
+  {
+   "code": "8.CD.1.2",
+   "text": "Analyze how key literary elements, individuals, ideas, and events develop and relate and how they contribute to the themes or main ideas in a text."
+  },
+  {
+   "code": "8.CD.2.1",
+   "text": "Determine an author’s purpose and perspective in a text, including possible bias, and analyze how the author acknowledges and responds to conflicting evidence or perspectives."
+  },
+  {
+   "code": "8.CD.2.2",
+   "text": "Analyze how structural choices shape meaning in texts, including how major sections, paragraphs, or sentences, develop and refine the perspective and purpose of the text."
+  },
+  {
+   "code": "8.CD.2.3",
+   "text": "Analyze how differing perspectives within and across texts contribute to text development, meaning, and style."
+  },
+  {
+   "code": "8.CD.2.4",
+   "text": "Analyze how specific word choices impact meaning and tone."
+  },
+  {
+   "code": "8.CD.3.1",
+   "text": "Evaluate the argument of multiple texts including the soundness of reasoning or specific claims, and the relevance and sufficiency of evidence."
+  },
+  {
+   "code": "8.CD.3.2",
+   "text": "Analyze how an adaptation of a text stays true to or departs from the source material, evaluating the choices made by the authors,"
+  },
+  {
+   "code": "8.CD.3.3",
+   "text": "Evaluate the impact of the presentation of a theme, topic, or information in multiple texts, including texts from different eras."
+  },
+  {
+   "code": "8.CD.3.4",
+   "text": "Analyze where multiple texts on the same topic or theme disagree on matters of fact or interpretation."
+  },
+  {
+   "code": "8.CD.4.1",
+   "text": "Determine or clarify the meaning of grade-appropriate general academic and domain-specific words and phrases in texts."
+  },
+  {
+   "code": "8.CD.4.2",
+   "text": "Recognize, interpret, and use figurative language, as well as rhetorical and literary elements."
+  },
+  {
+   "code": "8.CD.4.3",
+   "text": "Differentiate between contexts, audiences, and purposes that call for formal and informal English."
+  },
+  {
+   "code": "8.CD.4.4",
+   "text": "Addressed in 8.CD.4.2."
+  },
+  {
+   "code": "8.CD.4.5",
+   "text": "Interpret the syntax of phrases, clauses, and sentences to comprehend texts at the high end of the 6-8 text complexity band."
+  },
+  {
+   "code": "8.CW.1.1",
+   "text": "Follow norms or expectations for civil, collegial discussions and decision-making, and define individual roles as needed."
+  },
+  {
+   "code": "8.CW.1.2",
+   "text": "Refer to evidence from texts and other research on the topic or issue to probe and reflect on ideas under discussion."
+  },
+  {
+   "code": "8.CW.1.3",
+   "text": "Pose and respond to specific questions to clarify or follow up on information, and make comments that contribute to the discussion by elaborating on the remarks of others through relevant evidence, observations, and ideas."
+  },
+  {
+   "code": "8.CW.1.4",
+   "text": "Acknowledge new information expressed by others and, when"
+  },
+  {
+   "code": "8.CW.2.1",
+   "text": "Use verbs in active and passive voice appropriate to purpose, audience, and task."
+  },
+  {
+   "code": "8.CW.2.2",
+   "text": "Use verbs in the indicative, imperative, and interrogative moods."
+  },
+  {
+   "code": "8.CW.3.1",
+   "text": "Use hyphens with appropriate affixes and compound words."
+  },
+  {
+   "code": "8.CW.3.2",
+   "text": "Use ellipses appropriately."
+  },
+  {
+   "code": "8.CW.4.1",
+   "text": "Create texts that demonstrate command of transcription skills."
+  },
+  {
+   "code": "8.CW.4.2",
+   "text": "Produce, expand, and rearrange complete simple, compound, complex, and compound-complex sentence structures."
+  },
+  {
+   "code": "8.CW.4.3",
+   "text": "Correct inappropriate fragments and run-on sentences."
+  },
+  {
+   "code": "8.CW.5.1",
+   "text": "Gather multiple sources to answer questions, using search terms effectively, and generating additional related, focused questions for further research and investigation."
+  },
+  {
+   "code": "8.CW.5.2",
+   "text": "Integrate and paraphrase or summarize relevant information when drawing on multiple sources."
+  },
+  {
+   "code": "8.CW.5.3",
+   "text": "Assess the relevance, credibility, and accuracy of sources."
+  },
+  {
+   "code": "8.CW.5.4",
+   "text": "Quote multiple sources to avoid plagiarism, providing basic bibliographic information and using a standard format for citation."
+  },
+  {
+   "code": "8.CW.6.1",
+   "text": "Plan written and spoken products by organizing information and ideas around a topic."
+  },
+  {
+   "code": "8.CW.6.2",
+   "text": "Draft written and spoken products to sufficiently address purpose, task, and audience."
+  },
+  {
+   "code": "8.CW.6.3",
+   "text": "Revise, edit, and rewrite written and spoken products, using"
+  },
+  {
+   "code": "8.CW.6.4",
+   "text": "Publish, present, and produce written and spoken products, making use of digital tools and multimodalities to add interest."
+  },
+  {
+   "code": "8.CW.7.1",
+   "text": "Introduce claim(s), acknowledge and distinguish the claim(s) from alternate or opposing claims, and organize the reasons and evidence logically."
+  },
+  {
+   "code": "8.CW.7.2",
+   "text": "Support claim(s) with logical reasons and the most relevant evidence, using accurate, credible sources and rhetorical elements."
+  },
+  {
+   "code": "8.CW.7.3",
+   "text": "Create cohesion and clarify the relationships among claim(s), counterclaims, reasons, and evidence using words, phrases, and clauses."
+  },
+  {
+   "code": "8.CW.7.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports or emphasizes the argument presented."
+  },
+  {
+   "code": "8.CW.8.1",
+   "text": "Introduce the topic and focus clearly, preview what’s to follow, and organize ideas, concepts, and information using logical organizational structures."
+  },
+  {
+   "code": "8.CW.8.2",
+   "text": "Develop the topic with the most relevant facts, definitions, concrete details, quotations, or other information and examples related to the topic."
+  },
+  {
+   "code": "8.CW.8.3",
+   "text": "Create cohesion and clarify the relationships among ideas and concepts, using appropriate and varied transitions, precise language, and domain-specific vocabulary."
+  },
+  {
+   "code": "8.CW.8.4",
+   "text": "Provide a concluding statement or section that clearly follows and supports the information or explanation presented."
+  },
+  {
+   "code": "8.CW.9.1",
+   "text": "Engage and orient the audience by establishing a context and perspective, and introducing literary elements."
+  },
+  {
+   "code": "8.CW.9.2",
+   "text": "Develop experiences and events using dialogue, precise"
+  },
+  {
+   "code": "8.CW.9.3",
+   "text": "Establish and develop a logical sequence using literary techniques and transitions to convey shifts from one perspective, time frame or setting to another, and show the relationships among topics, experiences, events, or characters."
+  },
+  {
+   "code": "8.CW.9.4",
+   "text": "Conclude the text in a manner that follows from and reflects on the experiences or events."
+  }
+ ]
+}

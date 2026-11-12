@@ -1,0 +1,7720 @@
+{
+ "bank": "math6",
+ "grade": 6,
+ "standardsSource": "NC K-12 Mathematics SCOS (adopted June 2017, implementation 2018-19)",
+ "reviewStatus": "ai-drafted: none of these items has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-m6-rp-1-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A bag has 5 red marbles and 3 blue marbles. What is the ratio of red marbles to blue marbles?",
+   "explanation": "“Red to blue” puts red first: 5 red for every 3 blue, so 5:3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3:5",
+    "5:3",
+    "3:8",
+    "5:8"
+   ],
+   "answer": "5:3",
+   "commonErrors": [
+    {
+     "answer": "3:5",
+     "why": "reversed the order of the ratio"
+    },
+    {
+     "answer": "5:8",
+     "why": "compared red to the total instead of to blue"
+    },
+    {
+     "answer": "3:8",
+     "why": "compared blue to the total"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-1-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A class has 12 girls and 8 boys. Which statement describes the ratio of girls to boys?",
+   "explanation": "12:8 simplifies by dividing both by 4 to 3:2: 3 girls for every 2 boys.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "For every 2 girls there are 3 boys.",
+    "For every 3 girls there are 5 students.",
+    "For every 3 girls there are 2 boys.",
+    "For every 12 girls there are 8 boys, and that cannot be made simpler."
+   ],
+   "answer": "For every 3 girls there are 2 boys.",
+   "commonErrors": [
+    {
+     "answer": "For every 2 girls there are 3 boys.",
+     "why": "reversed the order of the ratio"
+    },
+    {
+     "answer": "For every 3 girls there are 5 students.",
+     "why": "mixed a part-to-part ratio with a part-to-whole ratio"
+    },
+    {
+     "answer": "For every 12 girls there are 8 boys, and that cannot be made simpler.",
+     "why": "did not simplify the ratio"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-1-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A fruit bowl has 4 apples and 6 oranges. What is the ratio of apples to all of the fruit?",
+   "explanation": "There are 4 + 6 = 10 pieces of fruit. Apples to all fruit is 4:10, which simplifies to 2:5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2:5",
+    "5:2",
+    "3:5",
+    "2:3"
+   ],
+   "answer": "2:5",
+   "commonErrors": [
+    {
+     "answer": "2:3",
+     "why": "compared apples to oranges instead of to all the fruit"
+    },
+    {
+     "answer": "3:5",
+     "why": "used oranges instead of apples"
+    },
+    {
+     "answer": "5:2",
+     "why": "reversed the order of the ratio"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-2-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Maya reads 90 pages in 3 hours. At this rate, how many pages does she read per hour?",
+   "explanation": "A unit rate for pages per hour is pages ÷ hours: 90 ÷ 3 = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "30 pages per hour",
+    "1/30 pages per hour",
+    "270 pages per hour",
+    "87 pages per hour"
+   ],
+   "answer": "30 pages per hour",
+   "commonErrors": [
+    {
+     "answer": "1/30 pages per hour",
+     "why": "divided hours by pages (inverted the rate)"
+    },
+    {
+     "answer": "270 pages per hour",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "87 pages per hour",
+     "why": "subtracted instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-2-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.2"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "5 pounds of apples cost $12.50. What is the cost of 1 pound of apples?",
+   "explanation": "Divide the cost by the pounds: $12.50 ÷ 5 = $2.50 per pound.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "$2.50",
+   "accept": [
+    "$2.5",
+    "$2.50",
+    "2.5",
+    "2.50"
+   ],
+   "commonErrors": [
+    {
+     "answer": "$0.40",
+     "why": "divided pounds by cost (inverted the rate)"
+    },
+    {
+     "answer": "$62.50",
+     "why": "multiplied instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-2-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A car travels 150 miles on 6 gallons of gas. Which pair gives both unit rates?",
+   "explanation": "150 ÷ 6 = 25 miles for each gallon. Going the other way, 6 ÷ 150 = 1/25 gallon for each mile.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/25 mile per gallon and 25 gallons per mile",
+    "25 miles per gallon and 1/25 gallon per mile",
+    "25 miles per gallon and 25 gallons per mile",
+    "900 miles per gallon and 1/900 gallon per mile"
+   ],
+   "answer": "25 miles per gallon and 1/25 gallon per mile",
+   "commonErrors": [
+    {
+     "answer": "25 miles per gallon and 25 gallons per mile",
+     "why": "used the same number for both unit rates"
+    },
+    {
+     "answer": "1/25 mile per gallon and 25 gallons per mile",
+     "why": "attached each unit rate to the wrong units"
+    },
+    {
+     "answer": "900 miles per gallon and 1/900 gallon per mile",
+     "why": "multiplied 150 × 6 instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-3-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A recipe uses 3 cups of flour for every 2 cups of sugar. How many cups of flour are needed for 10 cups of sugar?",
+   "explanation": "Sugar goes from 2 to 10, which is 5 times as much, so flour is 3 × 5 = 15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "30",
+    "11",
+    "15",
+    "13"
+   ],
+   "answer": "15",
+   "commonErrors": [
+    {
+     "answer": "11",
+     "why": "added: sugar went up by 8, so added 8 to the flour"
+    },
+    {
+     "answer": "30",
+     "why": "multiplied 3 × 10"
+    },
+    {
+     "answer": "13",
+     "why": "added 3 to 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-3-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which table shows equivalent ratios of x to y?",
+   "explanation": "Equivalent ratios come from multiplying both numbers by the same factor: 2:5 × 2 = 4:10 and × 3 = 6:15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2:5, 3:6, 4:7",
+    "2:5, 4:10, 6:15",
+    "2:5, 4:9, 6:13",
+    "2:5, 4:7, 6:9"
+   ],
+   "answer": "2:5, 4:10, 6:15",
+   "commonErrors": [
+    {
+     "answer": "2:5, 4:9, 6:13",
+     "why": "added the same amount instead of multiplying"
+    },
+    {
+     "answer": "2:5, 3:6, 4:7",
+     "why": "added 1 to both numbers each time"
+    },
+    {
+     "answer": "2:5, 4:7, 6:9",
+     "why": "added 2 to y each time x went up by 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-3-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A store sells 4 notebooks for $10. At this price, how much do 14 notebooks cost?",
+   "explanation": "Unit price is $10 ÷ 4 = $2.50 per notebook. Then 14 × $2.50 = $35.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$56",
+    "$20",
+    "$35",
+    "$140"
+   ],
+   "answer": "$35",
+   "commonErrors": [
+    {
+     "answer": "$20",
+     "why": "added: 10 more notebooks, so added $10"
+    },
+    {
+     "answer": "$140",
+     "why": "multiplied 14 × 10"
+    },
+    {
+     "answer": "$56",
+     "why": "multiplied 14 × 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-3-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "There are 3 feet in 1 yard. A rope is 7 yards long. How many feet long is the rope?",
+   "explanation": "Each yard is 3 feet, so 7 yards is 7 × 3 = 21 feet.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10 feet",
+    "4 feet",
+    "21 feet",
+    "7/3 feet"
+   ],
+   "answer": "21 feet",
+   "commonErrors": [
+    {
+     "answer": "7/3 feet",
+     "why": "divided by 3 instead of multiplying"
+    },
+    {
+     "answer": "10 feet",
+     "why": "added 3 to 7"
+    },
+    {
+     "answer": "4 feet",
+     "why": "subtracted 3 from 7"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-3-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The ratio of cups of water to cups of rice is 2:1. Which ordered pair (water, rice) is on the graph of this ratio?",
+   "explanation": "Water is twice the rice. In (8, 4) the water, 8, is 2 times the rice, 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(4, 8)",
+    "(6, 9)",
+    "(5, 3)",
+    "(8, 4)"
+   ],
+   "answer": "(8, 4)",
+   "commonErrors": [
+    {
+     "answer": "(4, 8)",
+     "why": "swapped water and rice"
+    },
+    {
+     "answer": "(6, 9)",
+     "why": "used the ratio 2:3"
+    },
+    {
+     "answer": "(5, 3)",
+     "why": "used a ratio that is not 2:1"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-4-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 25% of 80?",
+   "explanation": "25% is one fourth, so 80 ÷ 4 = 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "320",
+    "20",
+    "55",
+    "25"
+   ],
+   "answer": "20",
+   "commonErrors": [
+    {
+     "answer": "25",
+     "why": "used the percent as the answer"
+    },
+    {
+     "answer": "320",
+     "why": "multiplied by 4 instead of dividing by 4"
+    },
+    {
+     "answer": "55",
+     "why": "subtracted 25 from 80"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-4-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.4"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "What is 15% of 60?",
+   "explanation": "10% of 60 is 6 and 5% is half of that, 3. So 15% is 6 + 3 = 9.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "9",
+   "accept": [
+    "9",
+    "9.0"
+   ],
+   "commonErrors": [
+    {
+     "answer": "900",
+     "why": "multiplied 15 × 60"
+    },
+    {
+     "answer": "0.9",
+     "why": "moved the decimal one place too far"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-4-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Jamal saved 30% of his allowance. He saved $12. What is his allowance?",
+   "explanation": "30% of the allowance is $12, so 10% is $4. The whole, 100%, is 10 × $4 = $40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$40",
+    "$360",
+    "$3.60",
+    "$42"
+   ],
+   "answer": "$40",
+   "commonErrors": [
+    {
+     "answer": "$3.60",
+     "why": "found 30% of 12 instead of the whole"
+    },
+    {
+     "answer": "$42",
+     "why": "added 12 and 30"
+    },
+    {
+     "answer": "$360",
+     "why": "multiplied 12 × 30"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-rp-4-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "RP",
+   "standards": [
+    "NC.6.RP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A school has 400 students. 35% ride the bus. How many students ride the bus?",
+   "explanation": "35% means 35 per 100. 400 has four hundreds, so 4 × 35 = 140.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "35",
+    "14",
+    "1,400",
+    "140"
+   ],
+   "answer": "140",
+   "commonErrors": [
+    {
+     "answer": "35",
+     "why": "used the percent as the number of students"
+    },
+    {
+     "answer": "14",
+     "why": "moved the decimal one place too far"
+    },
+    {
+     "answer": "1,400",
+     "why": "multiplied by 35 without dividing by 100"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "How many 1/4-cup scoops fit in 3/4 cup of flour?",
+   "explanation": "Ask how many 1/4s are in 3/4: 3/4 ÷ 1/4 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/3",
+    "1/2",
+    "3",
+    "3/16"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "3/16",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/3",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "1/2",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Lena has 2/3 of a pizza. She puts 1/6 of a pizza on each plate. How many plates can she fill?",
+   "explanation": "2/3 = 4/6, and 4/6 ÷ 1/6 = 4 plates.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/2",
+    "4",
+    "1/4",
+    "1/9"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "1/9",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/4",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "1/2",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many 1/3-yard pieces can be cut from 5/6 yard of ribbon? (A leftover part of a piece counts as part of a piece.)",
+   "explanation": "5/6 ÷ 1/3 = 5/6 × 3 = 15/6 = 5/2, which is 2 and a half pieces.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5/18",
+    "2/5",
+    "1/2",
+    "5/2"
+   ],
+   "answer": "5/2",
+   "commonErrors": [
+    {
+     "answer": "5/18",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/5",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "1/2",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A water jug holds 3/4 gallon. How many jugs can be filled from a 6-gallon tank?",
+   "explanation": "6 ÷ 3/4 = 6 × 4/3 = 8 jugs.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/8",
+    "9/2",
+    "8",
+    "21/4"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "9/2",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/8",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "21/4",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many 2/3-pound bags can be filled from 8 pounds of rice?",
+   "explanation": "8 ÷ 2/3 = 8 × 3/2 = 12 bags.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/12",
+    "16/3",
+    "12",
+    "22/3"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "16/3",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/12",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "22/3",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 7/8 ÷ 1/4?",
+   "explanation": "7/8 ÷ 1/4 = 7/8 × 4 = 28/8 = 7/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "7/2",
+    "5/8",
+    "7/32",
+    "2/7"
+   ],
+   "answer": "7/2",
+   "commonErrors": [
+    {
+     "answer": "7/32",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/7",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "5/8",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 4/5 ÷ 2/3?",
+   "explanation": "4/5 ÷ 2/3 = 4/5 × 3/2 = 12/10 = 6/5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5/6",
+    "8/15",
+    "6/5",
+    "2/3"
+   ],
+   "answer": "6/5",
+   "commonErrors": [
+    {
+     "answer": "8/15",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "5/6",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "2/3",
+     "why": "divided the numerators and kept the denominator"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 2/5 ÷ 4/5?",
+   "explanation": "The fifths match, so it is 2 ÷ 4 = 1/2. Check: 4/5 × 1/2 = 2/5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8/25",
+    "6/5",
+    "1/2",
+    "2"
+   ],
+   "answer": "1/2",
+   "commonErrors": [
+    {
+     "answer": "8/25",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "6/5",
+     "why": "added the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-009",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 1 ÷ 3/5?",
+   "explanation": "1 ÷ 3/5 = 1 × 5/3 = 5/3. There is one and two thirds groups of 3/5 in 1.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5/3",
+    "3/5",
+    "2/5",
+    "8/5"
+   ],
+   "answer": "5/3",
+   "commonErrors": [
+    {
+     "answer": "3/5",
+     "why": "left the fraction as it was"
+    },
+    {
+     "answer": "8/5",
+     "why": "added instead of dividing"
+    },
+    {
+     "answer": "2/5",
+     "why": "subtracted instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-010",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 9/10 ÷ 3/5?",
+   "explanation": "Use common denominators: 3/5 = 6/10, so 9/10 ÷ 6/10 = 9 ÷ 6 = 3/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3/5",
+    "2/3",
+    "27/50",
+    "3/2"
+   ],
+   "answer": "3/2",
+   "commonErrors": [
+    {
+     "answer": "27/50",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/3",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "3/5",
+     "why": "subtracted the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-011",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which expression gives the number of 2/3-pound bags that can be filled from 6 pounds of rice?",
+   "explanation": "Finding how many groups of 2/3 are in 6 is division: 6 ÷ 2/3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6 ÷ 2/3",
+    "6 − 2/3",
+    "2/3 ÷ 6",
+    "6 × 2/3"
+   ],
+   "answer": "6 ÷ 2/3",
+   "commonErrors": [
+    {
+     "answer": "6 × 2/3",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/3 ÷ 6",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "6 − 2/3",
+     "why": "subtracted instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-012",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "3/4 ÷ 1/8 asks how many eighths are in 3/4. What is the answer?",
+   "explanation": "3/4 = 6/8, so there are 6 eighths in 3/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "6",
+    "3/32",
+    "2/3"
+   ],
+   "answer": "6",
+   "commonErrors": [
+    {
+     "answer": "3/32",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "2/3",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "3",
+     "why": "counted fourths instead of eighths"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-013",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "What is 5/6 ÷ 5/12?",
+   "explanation": "5/6 = 10/12, and 10/12 ÷ 5/12 = 10 ÷ 5 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "2",
+   "accept": [
+    "2",
+    "2.0"
+   ],
+   "commonErrors": [
+    {
+     "answer": "25/72",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/2",
+     "why": "divided in the wrong order"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-014",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A batch of muffins uses 3/4 cup of sugar. How many batches can be made with 3 cups of sugar?",
+   "explanation": "3 ÷ 3/4 = 3 × 4/3 = 4 batches.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "4",
+   "accept": [
+    "4",
+    "4.0"
+   ],
+   "unit": "batches",
+   "commonErrors": [
+    {
+     "answer": "9/4",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "1/4",
+     "why": "divided in the wrong order"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-1-015",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-A",
+   "standards": [
+    "NC.6.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "When 3/4 is divided by a certain fraction the answer is 6. What is the fraction?",
+   "explanation": "3/4 ÷ ? = 6 means 6 × ? = 3/4, so ? = 3/4 ÷ 6 = 3/24 = 1/8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "9/2",
+    "8",
+    "1/8",
+    "1/6"
+   ],
+   "answer": "1/8",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "gave the reciprocal of the answer"
+    },
+    {
+     "answer": "9/2",
+     "why": "multiplied 3/4 by 6"
+    },
+    {
+     "answer": "1/6",
+     "why": "used the answer's reciprocal"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-2-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A baker packs 2,345 cookies into boxes of 12. How many full boxes are packed, and how many cookies are left over?",
+   "explanation": "2,345 ÷ 12 = 195 remainder 5, because 12 × 195 = 2,340 and 2,345 − 2,340 = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "195 boxes with 5 left over",
+    "195 boxes with 12 left over",
+    "5 boxes with 195 left over",
+    "196 boxes with 0 left over"
+   ],
+   "answer": "195 boxes with 5 left over",
+   "commonErrors": [
+    {
+     "answer": "196 boxes with 0 left over",
+     "why": "rounded up and ignored the remainder"
+    },
+    {
+     "answer": "195 boxes with 12 left over",
+     "why": "gave a remainder as large as the divisor"
+    },
+    {
+     "answer": "5 boxes with 195 left over",
+     "why": "swapped the quotient and the remainder"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-2-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.2"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "What is 4,536 ÷ 18?",
+   "explanation": "18 × 252 = 4,536. Long division: 45 ÷ 18 = 2 r 9, bring down 3, 93 ÷ 18 = 5 r 3, bring down 6, 36 ÷ 18 = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "252",
+   "accept": [
+    "252"
+   ],
+   "commonErrors": [
+    {
+     "answer": "25.2",
+     "why": "put the decimal point in the wrong place"
+    },
+    {
+     "answer": "2,520",
+     "why": "added a zero"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-2-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A trip is 1,150 miles. A bus travels 46 miles each hour. How many hours does the trip take?",
+   "explanation": "1,150 ÷ 46 = 25, because 46 × 25 = 1,150.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "250 hours",
+    "25 hours",
+    "1,104 hours",
+    "24 hours"
+   ],
+   "answer": "25 hours",
+   "commonErrors": [
+    {
+     "answer": "250 hours",
+     "why": "put an extra zero in the quotient"
+    },
+    {
+     "answer": "24 hours",
+     "why": "stopped one step early"
+    },
+    {
+     "answer": "1,104 hours",
+     "why": "subtracted 46 instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-3-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 12.4 + 3.75?",
+   "explanation": "Line up the decimal points: 12.40 + 3.75 = 16.15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "16.15",
+    "16.5",
+    "161.5",
+    "15.79"
+   ],
+   "answer": "16.15",
+   "commonErrors": [
+    {
+     "answer": "15.79",
+     "why": "did not line up the decimal points (treated 12.4 as 12.04)"
+    },
+    {
+     "answer": "16.5",
+     "why": "rounded 3.75 up before adding"
+    },
+    {
+     "answer": "161.5",
+     "why": "ignored the decimal point"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-3-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 20.5 − 7.84?",
+   "explanation": "Line up the decimal points: 20.50 − 7.84 = 12.66.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "28.34",
+    "12.66",
+    "12.34",
+    "13.66"
+   ],
+   "answer": "12.66",
+   "commonErrors": [
+    {
+     "answer": "13.66",
+     "why": "made a regrouping error in the hundredths"
+    },
+    {
+     "answer": "12.34",
+     "why": "subtracted the smaller digit from the larger in each column"
+    },
+    {
+     "answer": "28.34",
+     "why": "added instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-3-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 3.2 × 1.5?",
+   "explanation": "32 × 15 = 480. There is one decimal place in each factor, so two in the product: 4.80 = 4.8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4.7",
+    "4.8",
+    "0.48",
+    "48"
+   ],
+   "answer": "4.8",
+   "commonErrors": [
+    {
+     "answer": "48",
+     "why": "multiplied and forgot the decimal point"
+    },
+    {
+     "answer": "0.48",
+     "why": "put the decimal point in two places too many"
+    },
+    {
+     "answer": "4.7",
+     "why": "added instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-3-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 7.2 ÷ 0.4?",
+   "explanation": "Multiply both numbers by 10: 72 ÷ 4 = 18.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "180",
+    "1.8",
+    "18",
+    "6.8"
+   ],
+   "answer": "18",
+   "commonErrors": [
+    {
+     "answer": "1.8",
+     "why": "moved the decimal point the wrong way"
+    },
+    {
+     "answer": "180",
+     "why": "moved the decimal point too far"
+    },
+    {
+     "answer": "6.8",
+     "why": "subtracted instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-3-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.3"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Tia buys 3 notebooks that cost $2.35 each and a pen that costs $1.40. How much does she spend in all?",
+   "explanation": "3 × $2.35 = $7.05. Then $7.05 + $1.40 = $8.45.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "$8.45",
+   "accept": [
+    "$8.45",
+    "8.45"
+   ],
+   "commonErrors": [
+    {
+     "answer": "$3.75",
+     "why": "added the prices without multiplying by 3"
+    },
+    {
+     "answer": "$8.35",
+     "why": "made an addition error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the prime factorization of 84?",
+   "explanation": "84 = 2 × 42 = 2 × 2 × 21 = 2 × 2 × 3 × 7 = 2² × 3 × 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2 × 6 × 7",
+    "2 × 3 × 14",
+    "2² × 3 × 7",
+    "4 × 3 × 7"
+   ],
+   "answer": "2² × 3 × 7",
+   "commonErrors": [
+    {
+     "answer": "2 × 6 × 7",
+     "why": "used 6, which is not prime"
+    },
+    {
+     "answer": "2 × 3 × 14",
+     "why": "used 14, which is not prime"
+    },
+    {
+     "answer": "4 × 3 × 7",
+     "why": "used 4, which is not prime"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the prime factorization of 60?",
+   "explanation": "60 = 2 × 30 = 2 × 2 × 15 = 2 × 2 × 3 × 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2 × 2 × 15",
+    "2² × 3 × 5",
+    "6 × 10",
+    "2 × 3 × 10"
+   ],
+   "answer": "2² × 3 × 5",
+   "commonErrors": [
+    {
+     "answer": "2 × 3 × 10",
+     "why": "used 10, which is not prime"
+    },
+    {
+     "answer": "6 × 10",
+     "why": "stopped at composite factors"
+    },
+    {
+     "answer": "2 × 2 × 15",
+     "why": "used 15, which is not prime"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the greatest common factor (GCF) of 36 and 48?",
+   "explanation": "Factors of 36 include 1, 2, 3, 4, 6, 9, 12, 18, 36. Factors of 48 include 12 and 24. The largest in both lists is 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "24",
+    "12",
+    "144",
+    "6"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "found a common factor but not the greatest"
+    },
+    {
+     "answer": "144",
+     "why": "found the least common multiple"
+    },
+    {
+     "answer": "24",
+     "why": "found a factor of 48 that does not divide 36"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the greatest common factor (GCF) of 54 and 72?",
+   "explanation": "54 = 2 × 3³ and 72 = 2³ × 3². Shared: 2 × 3² = 18.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6",
+    "9",
+    "216",
+    "18"
+   ],
+   "answer": "18",
+   "commonErrors": [
+    {
+     "answer": "9",
+     "why": "found a common factor but not the greatest"
+    },
+    {
+     "answer": "216",
+     "why": "found the least common multiple"
+    },
+    {
+     "answer": "6",
+     "why": "found a smaller common factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Use the greatest common factor and the distributive property to rewrite 28 + 42.",
+   "explanation": "The GCF of 28 and 42 is 14. 28 + 42 = 14 × 2 + 14 × 3 = 14(2 + 3).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "7(4 + 6)",
+    "2(14 + 21)",
+    "14(2 + 4)",
+    "14(2 + 3)"
+   ],
+   "answer": "14(2 + 3)",
+   "commonErrors": [
+    {
+     "answer": "7(4 + 6)",
+     "why": "used a common factor that is not the greatest"
+    },
+    {
+     "answer": "14(2 + 4)",
+     "why": "factored 14 out but got a different sum"
+    },
+    {
+     "answer": "2(14 + 21)",
+     "why": "used a common factor that is not the greatest"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 1/4 + 1/6? (Use the least common multiple of the denominators.)",
+   "explanation": "The LCM of 4 and 6 is 12. 1/4 = 3/12 and 1/6 = 2/12, so the sum is 5/12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/5",
+    "5/12",
+    "2/10",
+    "2/24"
+   ],
+   "answer": "5/12",
+   "commonErrors": [
+    {
+     "answer": "2/10",
+     "why": "added the numerators and the denominators"
+    },
+    {
+     "answer": "1/5",
+     "why": "added across and simplified"
+    },
+    {
+     "answer": "2/24",
+     "why": "used the product of the denominators and added the numerators"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-4-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-B",
+   "standards": [
+    "NC.6.NS.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 2/3 − 1/4? (Use the least common multiple of the denominators.)",
+   "explanation": "The LCM of 3 and 4 is 12. 2/3 = 8/12 and 1/4 = 3/12, so the difference is 5/12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−1",
+    "11/12",
+    "5/12",
+    "1/6"
+   ],
+   "answer": "5/12",
+   "commonErrors": [
+    {
+     "answer": "1/6",
+     "why": "multiplied the fractions"
+    },
+    {
+     "answer": "−1",
+     "why": "subtracted the numerators and the denominators"
+    },
+    {
+     "answer": "11/12",
+     "why": "added instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-5-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which number best represents taking $40 out of a bank account?",
+   "explanation": "A withdrawal decreases the balance, so it is represented by a negative number: −40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−40",
+    "40",
+    "0",
+    "−4"
+   ],
+   "answer": "−40",
+   "commonErrors": [
+    {
+     "answer": "40",
+     "why": "used a positive number for a decrease"
+    },
+    {
+     "answer": "0",
+     "why": "treated the withdrawal as no change"
+    },
+    {
+     "answer": "−4",
+     "why": "dropped a digit"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-5-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A submarine is at −120 feet. What does |−120| = 120 tell you?",
+   "explanation": "Absolute value is distance from 0. The submarine is 120 feet from sea level (below it).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Sea level is at 120 feet.",
+    "The submarine is 120 feet away from sea level.",
+    "The submarine is 120 feet above sea level.",
+    "The submarine is at −120 feet away from sea level."
+   ],
+   "answer": "The submarine is 120 feet away from sea level.",
+   "commonErrors": [
+    {
+     "answer": "The submarine is 120 feet above sea level.",
+     "why": "read absolute value as a positive direction"
+    },
+    {
+     "answer": "The submarine is at −120 feet away from sea level.",
+     "why": "kept the negative sign on a distance"
+    },
+    {
+     "answer": "Sea level is at 120 feet.",
+     "why": "confused sea level with the submarine's position"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-5-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which statement about −8 and −3 is true?",
+   "explanation": "−8 is to the left of −3, so it is less. Its distance from 0, 8, is greater than 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−8 is greater than −3 because 8 is greater than 3.",
+    "−8 and −3 are the same distance from 0.",
+    "−8 is less than −3, and −8 is farther from 0.",
+    "−8 is less than −3 because it is closer to 0."
+   ],
+   "answer": "−8 is less than −3, and −8 is farther from 0.",
+   "commonErrors": [
+    {
+     "answer": "−8 is greater than −3 because 8 is greater than 3.",
+     "why": "ignored the negative signs when ordering"
+    },
+    {
+     "answer": "−8 is less than −3 because it is closer to 0.",
+     "why": "confused order with distance from 0"
+    },
+    {
+     "answer": "−8 and −3 are the same distance from 0.",
+     "why": "ignored the size of the numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-6-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the opposite of the opposite of −6?",
+   "explanation": "The opposite of −6 is 6, and the opposite of 6 is −6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0",
+    "−6",
+    "6",
+    "−12"
+   ],
+   "answer": "−6",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "stopped after one opposite"
+    },
+    {
+     "answer": "0",
+     "why": "thought opposites cancel the number"
+    },
+    {
+     "answer": "−12",
+     "why": "doubled the number"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-6-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In which quadrant is the point (−4, 3)?",
+   "explanation": "A negative x moves left and a positive y moves up. Up and left is Quadrant II.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Quadrant III",
+    "Quadrant II",
+    "Quadrant I",
+    "Quadrant IV"
+   ],
+   "answer": "Quadrant II",
+   "commonErrors": [
+    {
+     "answer": "Quadrant I",
+     "why": "ignored the negative x-coordinate"
+    },
+    {
+     "answer": "Quadrant III",
+     "why": "treated both coordinates as negative"
+    },
+    {
+     "answer": "Quadrant IV",
+     "why": "mixed up which coordinate is negative"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-6-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Point A is at (5, −2). Point B is the reflection of A across the y-axis. What are the coordinates of B?",
+   "explanation": "Reflecting across the y-axis changes the sign of x only: (5, −2) becomes (−5, −2).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(5, 2)",
+    "(−2, 5)",
+    "(−5, −2)",
+    "(−5, 2)"
+   ],
+   "answer": "(−5, −2)",
+   "commonErrors": [
+    {
+     "answer": "(5, 2)",
+     "why": "reflected across the x-axis"
+    },
+    {
+     "answer": "(−5, 2)",
+     "why": "reflected across both axes"
+    },
+    {
+     "answer": "(−2, 5)",
+     "why": "swapped the coordinates"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-7-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which list is in order from least to greatest?",
+   "explanation": "On a number line, numbers farther left are less: −5, −2, 0, 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−5, −2, 0, 3",
+    "0, −2, −5, 3",
+    "3, 0, −2, −5",
+    "−2, −5, 0, 3"
+   ],
+   "answer": "−5, −2, 0, 3",
+   "commonErrors": [
+    {
+     "answer": "3, 0, −2, −5",
+     "why": "listed from greatest to least"
+    },
+    {
+     "answer": "−2, −5, 0, 3",
+     "why": "ordered negatives by size ignoring the sign"
+    },
+    {
+     "answer": "0, −2, −5, 3",
+     "why": "placed 0 before the negatives"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-7-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which inequality is true?",
+   "explanation": "−3.5 is left of −3.2 on the number line, so −3.5 < −3.2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−0.8 < −1.5",
+    "−3.5 < −3.2",
+    "−3.5 > −3.2",
+    "−7 > −2"
+   ],
+   "answer": "−3.5 < −3.2",
+   "commonErrors": [
+    {
+     "answer": "−3.5 > −3.2",
+     "why": "ordered negatives by absolute value"
+    },
+    {
+     "answer": "−0.8 < −1.5",
+     "why": "thought the smaller absolute value is less"
+    },
+    {
+     "answer": "−7 > −2",
+     "why": "ordered negatives by absolute value"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-8-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the distance between (3, −2) and (3, 5)?",
+   "explanation": "The x-coordinates match, so find the distance between y-values: |−2| + |5| = 2 + 5 = 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "−7",
+    "10",
+    "7"
+   ],
+   "answer": "7",
+   "commonErrors": [
+    {
+     "answer": "3",
+     "why": "subtracted 5 − 2 instead of adding the distances from 0"
+    },
+    {
+     "answer": "10",
+     "why": "added 3 + 2 + 5"
+    },
+    {
+     "answer": "−7",
+     "why": "gave a negative distance"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-8-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the distance between (−6, 4) and (2, 4)?",
+   "explanation": "The y-coordinates match, so find the distance between x-values: |−6| + |2| = 6 + 2 = 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "−8",
+    "4",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "4",
+     "why": "subtracted 6 − 2"
+    },
+    {
+     "answer": "12",
+     "why": "added 6 + 2 + 4"
+    },
+    {
+     "answer": "−8",
+     "why": "gave a negative distance"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-9-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is −7 + 12?",
+   "explanation": "Start at −7 and move 12 right on the number line: 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "19",
+    "−5",
+    "−19",
+    "5"
+   ],
+   "answer": "5",
+   "commonErrors": [
+    {
+     "answer": "−5",
+     "why": "gave the sum the sign of the first number"
+    },
+    {
+     "answer": "19",
+     "why": "added the absolute values"
+    },
+    {
+     "answer": "−19",
+     "why": "added the absolute values and kept a negative sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-9-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is −9 + (−6)?",
+   "explanation": "Two negatives combine: 9 + 6 = 15, and the sum is negative, −15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−3",
+    "−15",
+    "3",
+    "15"
+   ],
+   "answer": "−15",
+   "commonErrors": [
+    {
+     "answer": "15",
+     "why": "dropped the negative sign"
+    },
+    {
+     "answer": "−3",
+     "why": "subtracted the absolute values"
+    },
+    {
+     "answer": "3",
+     "why": "subtracted and dropped the sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-9-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is 4 − 11?",
+   "explanation": "4 − 11 = 4 + (−11) = −7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−7",
+    "−15",
+    "15",
+    "7"
+   ],
+   "answer": "−7",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "subtracted the smaller from the larger and dropped the sign"
+    },
+    {
+     "answer": "−15",
+     "why": "added the numbers"
+    },
+    {
+     "answer": "15",
+     "why": "added and dropped the sign"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-9-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is −5 − (−8)?",
+   "explanation": "Subtracting −8 is the same as adding 8: −5 + 8 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "13",
+    "−3",
+    "−13",
+    "3"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "−13",
+     "why": "added the numbers' absolute values with a negative sign"
+    },
+    {
+     "answer": "13",
+     "why": "added the absolute values"
+    },
+    {
+     "answer": "−3",
+     "why": "got the sign wrong"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ns-9-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "NS-C",
+   "standards": [
+    "NC.6.NS.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The temperature is −6° and rises 6°. What is the new temperature?",
+   "explanation": "−6 and 6 are opposites that make a zero pair: −6 + 6 = 0.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12°",
+    "−12°",
+    "0°",
+    "6°"
+   ],
+   "answer": "0°",
+   "commonErrors": [
+    {
+     "answer": "−12°",
+     "why": "added the amounts and kept the negative sign"
+    },
+    {
+     "answer": "12°",
+     "why": "added the absolute values"
+    },
+    {
+     "answer": "6°",
+     "why": "ignored the starting temperature"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-1-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the value of 3² + 4 × 2?",
+   "explanation": "Exponent first: 3² = 9. Then multiply: 4 × 2 = 8. Then add: 9 + 8 = 17.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "26",
+    "14",
+    "11",
+    "17"
+   ],
+   "answer": "17",
+   "commonErrors": [
+    {
+     "answer": "26",
+     "why": "added before multiplying (ignored order of operations)"
+    },
+    {
+     "answer": "14",
+     "why": "treated 3² as 3 × 2"
+    },
+    {
+     "answer": "11",
+     "why": "ignored the exponent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-1-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the value of 2 × (5 + 3)² ÷ 4?",
+   "explanation": "Parentheses: 5 + 3 = 8. Exponent: 8² = 64. Then 2 × 64 = 128, and 128 ÷ 4 = 32.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "32",
+    "128",
+    "4",
+    "64"
+   ],
+   "answer": "32",
+   "commonErrors": [
+    {
+     "answer": "4",
+     "why": "forgot to square the parentheses"
+    },
+    {
+     "answer": "64",
+     "why": "squared the whole product"
+    },
+    {
+     "answer": "128",
+     "why": "forgot to divide by 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-1-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which shows 5 × 5 × 5 × 5 written with an exponent?",
+   "explanation": "The base 5 is used as a factor 4 times, so it is 5⁴.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5⁵",
+    "5 × 4",
+    "5⁴",
+    "4⁵"
+   ],
+   "answer": "5⁴",
+   "commonErrors": [
+    {
+     "answer": "4⁵",
+     "why": "swapped the base and the exponent"
+    },
+    {
+     "answer": "5 × 4",
+     "why": "multiplied the base by the exponent"
+    },
+    {
+     "answer": "5⁵",
+     "why": "used the wrong exponent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-1-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 2⁵?",
+   "explanation": "2⁵ = 2 × 2 × 2 × 2 × 2 = 32.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "25",
+    "32",
+    "7",
+    "10"
+   ],
+   "answer": "32",
+   "commonErrors": [
+    {
+     "answer": "10",
+     "why": "multiplied the base by the exponent"
+    },
+    {
+     "answer": "25",
+     "why": "swapped the base and the exponent"
+    },
+    {
+     "answer": "7",
+     "why": "added the base and the exponent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-2-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression represents “seven less than twice a number n”?",
+   "explanation": "Twice a number is 2n. Seven less than that is 2n − 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2(n − 7)",
+    "7 − 2n",
+    "2n − 7",
+    "7n − 2"
+   ],
+   "answer": "2n − 7",
+   "commonErrors": [
+    {
+     "answer": "7 − 2n",
+     "why": "subtracted in the wrong order"
+    },
+    {
+     "answer": "2(n − 7)",
+     "why": "subtracted 7 before doubling"
+    },
+    {
+     "answer": "7n − 2",
+     "why": "swapped the 7 and the 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-2-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the value of 4a + 3 when a = 5?",
+   "explanation": "4a means 4 × a. So 4 × 5 + 3 = 20 + 3 = 23.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "32",
+    "48",
+    "12",
+    "23"
+   ],
+   "answer": "23",
+   "commonErrors": [
+    {
+     "answer": "32",
+     "why": "added 3 to a before multiplying"
+    },
+    {
+     "answer": "12",
+     "why": "added all the numbers"
+    },
+    {
+     "answer": "48",
+     "why": "wrote 4 and 5 side by side as 45"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-2-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The area of a triangle is A = ½bh. What is A when b = 10 and h = 6?",
+   "explanation": "A = ½ × 10 × 6 = ½ × 60 = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "16",
+    "30",
+    "60",
+    "15"
+   ],
+   "answer": "30",
+   "commonErrors": [
+    {
+     "answer": "60",
+     "why": "forgot the one half"
+    },
+    {
+     "answer": "16",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "15",
+     "why": "took half twice"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-2-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In the expression 3x + 8, what is the coefficient of x?",
+   "explanation": "The coefficient is the number multiplied by the variable: 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11",
+    "x",
+    "8",
+    "3"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "x",
+     "why": "named the variable instead of the number multiplying it"
+    },
+    {
+     "answer": "8",
+     "why": "named the constant term"
+    },
+    {
+     "answer": "11",
+     "why": "added the 3 and the 8"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-2-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "How many terms are in the expression 5y + 2z − 9?",
+   "explanation": "Terms are separated by + and −: 5y, 2z and 9. That is 3 terms.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4",
+    "2",
+    "5",
+    "3"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "2",
+     "why": "did not count the constant term"
+    },
+    {
+     "answer": "5",
+     "why": "counted numbers and variables as separate terms"
+    },
+    {
+     "answer": "4",
+     "why": "counted the minus sign as a term"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-3-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression is equivalent to 3(x + 4)?",
+   "explanation": "Distribute the 3 to both terms: 3 × x + 3 × 4 = 3x + 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x + 12",
+    "3x + 12",
+    "3x + 7",
+    "3x + 4"
+   ],
+   "answer": "3x + 12",
+   "commonErrors": [
+    {
+     "answer": "3x + 4",
+     "why": "multiplied only the first term"
+    },
+    {
+     "answer": "x + 12",
+     "why": "multiplied only the second term"
+    },
+    {
+     "answer": "3x + 7",
+     "why": "added 3 to the 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-3-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which expression is equivalent to 6a + 9?",
+   "explanation": "The common factor is 3: 6a = 3 × 2a and 9 = 3 × 3, so 6a + 9 = 3(2a + 3).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3(2a + 3)",
+    "6(a + 3)",
+    "3(2a + 9)",
+    "15a"
+   ],
+   "answer": "3(2a + 3)",
+   "commonErrors": [
+    {
+     "answer": "3(2a + 9)",
+     "why": "divided only the first term by 3"
+    },
+    {
+     "answer": "6(a + 3)",
+     "why": "factored 6 out of the second term incorrectly"
+    },
+    {
+     "answer": "15a",
+     "why": "combined unlike terms"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-3-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression is equivalent to 4x + 2x + 5?",
+   "explanation": "4x and 2x are like terms: 4x + 2x = 6x. The constant 5 stays separate.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11x",
+    "8x + 5",
+    "6x + 5",
+    "6x² + 5"
+   ],
+   "answer": "6x + 5",
+   "commonErrors": [
+    {
+     "answer": "11x",
+     "why": "combined the variable terms with the constant"
+    },
+    {
+     "answer": "6x² + 5",
+     "why": "added the exponents"
+    },
+    {
+     "answer": "8x + 5",
+     "why": "multiplied 4 × 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-4-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which expression is equivalent to 2x + 2x + 2x?",
+   "explanation": "Adding three 2x terms gives 3 × 2x = 6x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6x",
+    "6x²",
+    "x⁶",
+    "2x³"
+   ],
+   "answer": "6x",
+   "commonErrors": [
+    {
+     "answer": "2x³",
+     "why": "treated repeated addition as an exponent"
+    },
+    {
+     "answer": "x⁶",
+     "why": "treated the terms as exponents"
+    },
+    {
+     "answer": "6x²",
+     "why": "added an exponent that is not there"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-4-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Are 3(x + 2) and 3x + 2 equivalent?",
+   "explanation": "Distributing gives 3x + 6, not 3x + 2. Trying x = 1: 3(3) = 9 but 3(1) + 2 = 5, so they are not equivalent.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because 3(x + 2) = 3x + 5.",
+    "Yes, because the distributive property always gives 3x + 2.",
+    "No. 3(x + 2) = 3x + 6, so they give different values (for x = 1: 9 and 5).",
+    "Yes, because both have 3x and 2."
+   ],
+   "answer": "No. 3(x + 2) = 3x + 6, so they give different values (for x = 1: 9 and 5).",
+   "commonErrors": [
+    {
+     "answer": "Yes, because both have 3x and 2.",
+     "why": "ignored that the 3 multiplies the 2 as well"
+    },
+    {
+     "answer": "Yes, because the distributive property always gives 3x + 2.",
+     "why": "misremembered the distributive property"
+    },
+    {
+     "answer": "No, because 3(x + 2) = 3x + 5.",
+     "why": "added 3 + 2 instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-4-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.6.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which pair of expressions is equivalent?",
+   "explanation": "4(n + 1) = 4n + 4 by the distributive property, so the expressions are equivalent.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4(n + 1) and 4n + 1",
+    "n + n and n²",
+    "4(n + 1) and 4n + 4",
+    "5(n − 2) and 5n − 2"
+   ],
+   "answer": "4(n + 1) and 4n + 4",
+   "commonErrors": [
+    {
+     "answer": "4(n + 1) and 4n + 1",
+     "why": "multiplied only the first term"
+    },
+    {
+     "answer": "n + n and n²",
+     "why": "confused adding with squaring"
+    },
+    {
+     "answer": "5(n − 2) and 5n − 2",
+     "why": "multiplied only the first term"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-5-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which value of x makes x + 7 = 15 true?",
+   "explanation": "Substitute 8: 8 + 7 = 15, which is true.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2",
+    "22",
+    "7",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "22",
+     "why": "added 7 and 15"
+    },
+    {
+     "answer": "7",
+     "why": "used the number already in the equation"
+    },
+    {
+     "answer": "2",
+     "why": "subtracted in the wrong order and slipped"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-5-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which number from the set {2, 4, 6, 8} makes 3y − 4 = 14 true?",
+   "explanation": "Try each: 3(6) − 4 = 18 − 4 = 14. Only 6 works.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4",
+    "8",
+    "6",
+    "2"
+   ],
+   "answer": "6",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "3(8) − 4 = 20, not 14"
+    },
+    {
+     "answer": "4",
+     "why": "3(4) − 4 = 8, not 14"
+    },
+    {
+     "answer": "2",
+     "why": "3(2) − 4 = 2, not 14"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-5-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which value of m makes m ÷ 4 = 3 true?",
+   "explanation": "12 ÷ 4 = 3, so m = 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "3/4",
+    "1",
+    "7"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "added 4 and 3"
+    },
+    {
+     "answer": "3/4",
+     "why": "divided 3 by 4"
+    },
+    {
+     "answer": "1",
+     "why": "subtracted 3 from 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-5-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which number from the set {0.5, 1, 1.5, 2} makes 4x = 6 true?",
+   "explanation": "4 × 1.5 = 6, so x = 1.5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "0.5",
+    "1",
+    "1.5",
+    "2"
+   ],
+   "answer": "1.5",
+   "commonErrors": [
+    {
+     "answer": "2",
+     "why": "4 × 2 = 8, not 6"
+    },
+    {
+     "answer": "1",
+     "why": "4 × 1 = 4, not 6"
+    },
+    {
+     "answer": "0.5",
+     "why": "4 × 0.5 = 2, not 6"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-6-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Sam has n stickers and gives away 5. Which expression shows how many stickers he has left?",
+   "explanation": "He starts with n and loses 5, so n − 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "n + 5",
+    "5 − n",
+    "n − 5",
+    "5n"
+   ],
+   "answer": "n − 5",
+   "commonErrors": [
+    {
+     "answer": "5 − n",
+     "why": "subtracted in the wrong order"
+    },
+    {
+     "answer": "n + 5",
+     "why": "added instead of subtracting"
+    },
+    {
+     "answer": "5n",
+     "why": "multiplied instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-6-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Tickets cost $8 each. Which expression gives the cost of t tickets?",
+   "explanation": "Each ticket costs $8, so t tickets cost 8 × t = 8t.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8 + t",
+    "8 − t",
+    "t ÷ 8",
+    "8t"
+   ],
+   "answer": "8t",
+   "commonErrors": [
+    {
+     "answer": "8 + t",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "t ÷ 8",
+     "why": "divided instead of multiplying"
+    },
+    {
+     "answer": "8 − t",
+     "why": "subtracted instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-6-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A rectangle's length is 3 more than its width w. Which expression represents the length?",
+   "explanation": "“3 more than” the width means w + 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "w + 3",
+    "3w",
+    "3 − w",
+    "w − 3"
+   ],
+   "answer": "w + 3",
+   "commonErrors": [
+    {
+     "answer": "3w",
+     "why": "multiplied instead of adding"
+    },
+    {
+     "answer": "w − 3",
+     "why": "subtracted instead of adding"
+    },
+    {
+     "answer": "3 − w",
+     "why": "subtracted in the wrong order"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve x + 7 = 19.",
+   "explanation": "Subtract 7 from both sides: x = 19 − 7 = 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2",
+    "−12",
+    "26",
+    "12"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "26",
+     "why": "added 7 and 19"
+    },
+    {
+     "answer": "−12",
+     "why": "gave the answer the wrong sign"
+    },
+    {
+     "answer": "2",
+     "why": "subtracted wrongly"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve y + 3/4 = 2.",
+   "explanation": "Subtract 3/4 from both sides: y = 2 − 3/4 = 8/4 − 3/4 = 5/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11/4",
+    "3/2",
+    "5/4",
+    "1/2"
+   ],
+   "answer": "5/4",
+   "commonErrors": [
+    {
+     "answer": "11/4",
+     "why": "added 3/4 and 2"
+    },
+    {
+     "answer": "3/2",
+     "why": "multiplied 3/4 by 2"
+    },
+    {
+     "answer": "1/2",
+     "why": "subtracted 3/4 from 2 and slipped"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Mia earned $6.50 and now has $15. Which amount did she start with? (x + 6.50 = 15)",
+   "explanation": "x = 15 − 6.50 = 8.50, so she started with $8.50.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$8.50",
+    "$21.50",
+    "$8.15",
+    "$9.50"
+   ],
+   "answer": "$8.50",
+   "commonErrors": [
+    {
+     "answer": "$21.50",
+     "why": "added the numbers instead of subtracting"
+    },
+    {
+     "answer": "$9.50",
+     "why": "made a subtraction error"
+    },
+    {
+     "answer": "$8.15",
+     "why": "made a decimal subtraction error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Solve a + 2.4 = 9.1.",
+   "explanation": "Subtract 2.4 from both sides: a = 9.1 − 2.4 = 6.7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "6.7",
+   "accept": [
+    "6.7"
+   ],
+   "commonErrors": [
+    {
+     "answer": "11.5",
+     "why": "added instead of subtracting"
+    },
+    {
+     "answer": "7.7",
+     "why": "made a regrouping error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 5x = 40.",
+   "explanation": "Divide both sides by 5: x = 40 ÷ 5 = 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8",
+    "35",
+    "200",
+    "45"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "200",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "35",
+     "why": "subtracted instead of dividing"
+    },
+    {
+     "answer": "45",
+     "why": "added instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve (1/3)x = 4.",
+   "explanation": "Multiply both sides by 3: x = 4 × 3 = 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "1/12",
+    "4/3",
+    "7/3"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "4/3",
+     "why": "multiplied 4 by 1/3"
+    },
+    {
+     "answer": "1/12",
+     "why": "divided 1/3 by 4"
+    },
+    {
+     "answer": "7/3",
+     "why": "added 4 and 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A box of 6 muffins costs $13.50. Which is the cost of one muffin? (6p = 13.50)",
+   "explanation": "Divide both sides by 6: p = 13.50 ÷ 6 = 2.25.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "$2.25",
+    "$81.00",
+    "$19.50",
+    "$7.50"
+   ],
+   "answer": "$2.25",
+   "commonErrors": [
+    {
+     "answer": "$81.00",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "$7.50",
+     "why": "subtracted instead of dividing"
+    },
+    {
+     "answer": "$19.50",
+     "why": "added instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-7-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.6.EE.7"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Solve 2.5x = 10.",
+   "explanation": "Divide both sides by 2.5: x = 10 ÷ 2.5 = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "4",
+   "accept": [
+    "4",
+    "4.0"
+   ],
+   "commonErrors": [
+    {
+     "answer": "25",
+     "why": "multiplied instead of dividing"
+    },
+    {
+     "answer": "7.5",
+     "why": "subtracted instead of dividing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which value of x makes x + 3 > 10 true?",
+   "explanation": "9 + 3 = 12, and 12 > 10 is true.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "7",
+    "5",
+    "9"
+   ],
+   "answer": "9",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "7 + 3 = 10, which is not greater than 10"
+    },
+    {
+     "answer": "5",
+     "why": "5 + 3 = 8"
+    },
+    {
+     "answer": "3",
+     "why": "3 + 3 = 6"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which value of n makes 2n ≤ 12 true?",
+   "explanation": "2 × 6 = 12, and 12 ≤ 12 is true.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "13",
+    "7",
+    "6",
+    "8"
+   ],
+   "answer": "6",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "2 × 7 = 14, which is greater than 12"
+    },
+    {
+     "answer": "8",
+     "why": "2 × 8 = 16"
+    },
+    {
+     "answer": "13",
+     "why": "2 × 13 = 26"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Is 4 a solution of y − 1 < 3?",
+   "explanation": "Substitute: 4 − 1 = 3. The inequality needs a value less than 3, so 4 is not a solution.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because 4 − 1 = 3, which is not less than 3.",
+    "No, because 4 is not less than 3.",
+    "Yes, because 4 > 3.",
+    "Yes, because 4 − 1 = 3."
+   ],
+   "answer": "No, because 4 − 1 = 3, which is not less than 3.",
+   "commonErrors": [
+    {
+     "answer": "Yes, because 4 − 1 = 3.",
+     "why": "treated 3 as less than 3"
+    },
+    {
+     "answer": "Yes, because 4 > 3.",
+     "why": "compared 4 to 3 instead of substituting"
+    },
+    {
+     "answer": "No, because 4 is not less than 3.",
+     "why": "compared 4 to 3 instead of substituting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which number is NOT a solution of x ≥ 5?",
+   "explanation": "Solutions are 5 and any number greater than 5. 4.9 is less than 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5.1",
+    "4.9",
+    "5",
+    "100"
+   ],
+   "answer": "4.9",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "5 ≥ 5 is true"
+    },
+    {
+     "answer": "5.1",
+     "why": "5.1 ≥ 5 is true"
+    },
+    {
+     "answer": "100",
+     "why": "100 ≥ 5 is true"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A sign says you must be at least 48 inches tall to ride. Which inequality shows the height h?",
+   "explanation": "“At least 48” means 48 or more: h ≥ 48.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "h ≤ 48",
+    "h ≥ 48",
+    "h < 48",
+    "h > 48"
+   ],
+   "answer": "h ≥ 48",
+   "commonErrors": [
+    {
+     "answer": "h > 48",
+     "why": "left out 48 itself, but “at least” includes it"
+    },
+    {
+     "answer": "h ≤ 48",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "h < 48",
+     "why": "reversed the direction and left out 48"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Maria can spend no more than $20. Which inequality shows the amount s she spends?",
+   "explanation": "“No more than $20” means $20 or less: s ≤ 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "s < 20",
+    "s ≤ 20",
+    "s ≥ 20",
+    "s > 20"
+   ],
+   "answer": "s ≤ 20",
+   "commonErrors": [
+    {
+     "answer": "s ≥ 20",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "s < 20",
+     "why": "left out 20 itself, but “no more than” includes it"
+    },
+    {
+     "answer": "s > 20",
+     "why": "reversed the direction and left out 20"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "An elevator can hold fewer than 12 people. Which inequality shows the number of people p?",
+   "explanation": "“Fewer than 12” does not include 12: p < 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "p ≤ 12",
+    "p ≥ 12",
+    "p > 12",
+    "p < 12"
+   ],
+   "answer": "p < 12",
+   "commonErrors": [
+    {
+     "answer": "p ≤ 12",
+     "why": "included 12, but “fewer than” does not"
+    },
+    {
+     "answer": "p > 12",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "p ≥ 12",
+     "why": "reversed the direction"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A recipe needs more than 3 cups of milk. Which inequality shows the cups c?",
+   "explanation": "“More than 3” does not include 3: c > 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "c > 3",
+    "c ≤ 3",
+    "c ≥ 3",
+    "c < 3"
+   ],
+   "answer": "c > 3",
+   "commonErrors": [
+    {
+     "answer": "c ≥ 3",
+     "why": "included 3, but “more than” does not"
+    },
+    {
+     "answer": "c < 3",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "c ≤ 3",
+     "why": "reversed the direction and included 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-009",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "How many solutions does x > 4 have?",
+   "explanation": "Every number greater than 4, including decimals and fractions, is a solution.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Infinitely many",
+    "No solutions",
+    "Four solutions",
+    "One solution, x = 5"
+   ],
+   "answer": "Infinitely many",
+   "commonErrors": [
+    {
+     "answer": "One solution, x = 5",
+     "why": "listed only the first whole number"
+    },
+    {
+     "answer": "Four solutions",
+     "why": "counted only whole numbers up to 4"
+    },
+    {
+     "answer": "No solutions",
+     "why": "thought an inequality cannot have solutions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-010",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which statement is true about x < 10?",
+   "explanation": "x < 10 is true for every number to the left of 10 on the number line.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10 is a solution.",
+    "Only whole numbers less than 10 are solutions.",
+    "Every number less than 10, including decimals and negatives, is a solution.",
+    "Only 9 is a solution."
+   ],
+   "answer": "Every number less than 10, including decimals and negatives, is a solution.",
+   "commonErrors": [
+    {
+     "answer": "Only whole numbers less than 10 are solutions.",
+     "why": "limited the solutions to whole numbers"
+    },
+    {
+     "answer": "10 is a solution.",
+     "why": "included the boundary value"
+    },
+    {
+     "answer": "Only 9 is a solution.",
+     "why": "thought only the closest whole number works"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-011",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which number is a solution of x > 7 and is not a whole number?",
+   "explanation": "7.5 is greater than 7 and is not a whole number.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6.5",
+    "7.5",
+    "7",
+    "8"
+   ],
+   "answer": "7.5",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "7 is not greater than 7"
+    },
+    {
+     "answer": "6.5",
+     "why": "6.5 is less than 7"
+    },
+    {
+     "answer": "8",
+     "why": "8 is a solution but it is a whole number"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-012",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A number line has an open circle at 3 with shading to the right. Which inequality does it show?",
+   "explanation": "Open circle means 3 is not included. Shading right means greater than: x > 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x > 3",
+    "x < 3",
+    "x ≤ 3",
+    "x ≥ 3"
+   ],
+   "answer": "x > 3",
+   "commonErrors": [
+    {
+     "answer": "x < 3",
+     "why": "shaded the wrong direction"
+    },
+    {
+     "answer": "x ≥ 3",
+     "why": "used a closed circle for an open circle"
+    },
+    {
+     "answer": "x ≤ 3",
+     "why": "reversed the direction and used the wrong circle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-013",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A number line has a closed circle at −2 with shading to the left. Which inequality does it show?",
+   "explanation": "Closed circle means −2 is included. Shading left means less than: x ≤ −2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x < −2",
+    "x ≤ −2",
+    "x > −2",
+    "x ≥ −2"
+   ],
+   "answer": "x ≤ −2",
+   "commonErrors": [
+    {
+     "answer": "x < −2",
+     "why": "used an open circle for a closed circle"
+    },
+    {
+     "answer": "x ≥ −2",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "x > −2",
+     "why": "reversed the direction and used the wrong circle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-014",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which description matches the graph of x < 5 on a number line?",
+   "explanation": "x < 5 does not include 5 (open circle) and includes numbers to the left.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "An open circle at 5 with shading to the left",
+    "An open circle at 5 with shading to the right",
+    "A closed circle at 5 with shading to the left",
+    "A closed circle at 5 with shading to the right"
+   ],
+   "answer": "An open circle at 5 with shading to the left",
+   "commonErrors": [
+    {
+     "answer": "A closed circle at 5 with shading to the left",
+     "why": "included 5, but x < 5 does not"
+    },
+    {
+     "answer": "An open circle at 5 with shading to the right",
+     "why": "shaded the wrong direction"
+    },
+    {
+     "answer": "A closed circle at 5 with shading to the right",
+     "why": "used the wrong circle and direction"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-8-015",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.6.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which description matches the graph of x ≥ 0 on a number line?",
+   "explanation": "x ≥ 0 includes 0 (closed circle) and numbers greater than 0 (shading right).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "An open circle at 0 with shading to the left",
+    "An open circle at 0 with shading to the right",
+    "A closed circle at 0 with shading to the left",
+    "A closed circle at 0 with shading to the right"
+   ],
+   "answer": "A closed circle at 0 with shading to the right",
+   "commonErrors": [
+    {
+     "answer": "An open circle at 0 with shading to the right",
+     "why": "left out 0 itself"
+    },
+    {
+     "answer": "A closed circle at 0 with shading to the left",
+     "why": "shaded the wrong direction"
+    },
+    {
+     "answer": "An open circle at 0 with shading to the left",
+     "why": "used the wrong circle and direction"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Maya earns $12 each hour. She uses h for hours worked and e for the money she earns. Which is the independent variable?",
+   "explanation": "Earnings depend on the hours worked, so hours (h) is the independent variable.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Both h and e",
+    "12",
+    "h",
+    "e"
+   ],
+   "answer": "h",
+   "commonErrors": [
+    {
+     "answer": "e",
+     "why": "named the dependent variable"
+    },
+    {
+     "answer": "12",
+     "why": "named the rate, which is a constant"
+    },
+    {
+     "answer": "Both h and e",
+     "why": "thought both variables are independent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In the equation d = 55t, d is the distance a car travels and t is time. Which is the dependent variable?",
+   "explanation": "Distance depends on time, so d is the dependent variable.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "d",
+    "Both t and d",
+    "t",
+    "55"
+   ],
+   "answer": "d",
+   "commonErrors": [
+    {
+     "answer": "t",
+     "why": "named the independent variable"
+    },
+    {
+     "answer": "55",
+     "why": "named the rate, which is a constant"
+    },
+    {
+     "answer": "Both t and d",
+     "why": "thought both variables are dependent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A plant's height is measured every day. Which is the independent variable?",
+   "explanation": "Height changes as days pass, so the number of days is the independent variable.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The height of the plant",
+    "The number of days",
+    "The size of the pot",
+    "The color of the plant"
+   ],
+   "answer": "The number of days",
+   "commonErrors": [
+    {
+     "answer": "The height of the plant",
+     "why": "named the dependent variable"
+    },
+    {
+     "answer": "The color of the plant",
+     "why": "named something unrelated to the relationship"
+    },
+    {
+     "answer": "The size of the pot",
+     "why": "named something unrelated to the relationship"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In the equation c = 4n, c is the cost in dollars of n pencils. What does the 4 represent?",
+   "explanation": "Each pencil costs $4, so the cost c is 4 times the number of pencils n.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The number of dollars in the bank",
+    "The cost of one pencil",
+    "The number of pencils",
+    "The total cost"
+   ],
+   "answer": "The cost of one pencil",
+   "commonErrors": [
+    {
+     "answer": "The number of pencils",
+     "why": "confused the constant with the variable n"
+    },
+    {
+     "answer": "The total cost",
+     "why": "confused the constant with the variable c"
+    },
+    {
+     "answer": "The number of dollars in the bank",
+     "why": "made up a meaning"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In y = x + 5, what happens to y when x increases by 2?",
+   "explanation": "Adding 5 does not change how much y changes: if x goes up 2, y goes up 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y increases by 2",
+    "y increases by 7",
+    "y decreases by 2",
+    "y increases by 5"
+   ],
+   "answer": "y increases by 2",
+   "commonErrors": [
+    {
+     "answer": "y increases by 5",
+     "why": "used the constant instead of the change in x"
+    },
+    {
+     "answer": "y increases by 7",
+     "why": "added 2 and 5"
+    },
+    {
+     "answer": "y decreases by 2",
+     "why": "reversed the direction"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A table shows x = 1, 2, 3, 4 and y = 4, 8, 12, 16. Which equation matches?",
+   "explanation": "Each y is 4 times x: 4 × 1 = 4, 4 × 2 = 8, 4 × 3 = 12, 4 × 4 = 16.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 4x",
+    "y = x + 3",
+    "y = x ÷ 4",
+    "y = 2x + 2"
+   ],
+   "answer": "y = 4x",
+   "commonErrors": [
+    {
+     "answer": "y = x + 3",
+     "why": "found a pattern that only works for x = 1"
+    },
+    {
+     "answer": "y = 2x + 2",
+     "why": "found a pattern that only works for x = 1"
+    },
+    {
+     "answer": "y = x ÷ 4",
+     "why": "divided instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A table shows x = 2, 4, 6, 8 and y = 5, 7, 9, 11. Which equation matches?",
+   "explanation": "y is always 3 more than x: 2 + 3 = 5, 4 + 3 = 7, 6 + 3 = 9, 8 + 3 = 11.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = x + 3",
+    "y = x + 5",
+    "y = 3x − 1",
+    "y = 2x + 1"
+   ],
+   "answer": "y = x + 3",
+   "commonErrors": [
+    {
+     "answer": "y = 2x + 1",
+     "why": "found a pattern that only works for x = 2"
+    },
+    {
+     "answer": "y = x + 5",
+     "why": "used the first y-value as the constant"
+    },
+    {
+     "answer": "y = 3x − 1",
+     "why": "found a pattern that only works for x = 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is y when x = 4 in the equation y = 3x − 2?",
+   "explanation": "y = 3(4) − 2 = 12 − 2 = 10.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6",
+    "10",
+    "5",
+    "14"
+   ],
+   "answer": "10",
+   "commonErrors": [
+    {
+     "answer": "14",
+     "why": "added instead of subtracting"
+    },
+    {
+     "answer": "5",
+     "why": "added 3 and 4 instead of multiplying"
+    },
+    {
+     "answer": "6",
+     "why": "subtracted before multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-009",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A table shows x = 0, 1, 2, 3 and y = 10, 8, 6, 4. Which equation matches?",
+   "explanation": "y starts at 10 and goes down 2 each time x goes up 1: y = 10 − 2x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 10 + 2x",
+    "y = 5x",
+    "y = 10 − 2x",
+    "y = 2x − 10"
+   ],
+   "answer": "y = 10 − 2x",
+   "commonErrors": [
+    {
+     "answer": "y = 10 + 2x",
+     "why": "used addition when y decreases"
+    },
+    {
+     "answer": "y = 2x − 10",
+     "why": "reversed the subtraction"
+    },
+    {
+     "answer": "y = 5x",
+     "why": "found a pattern that only works for x = 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-010",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which ordered pair satisfies y = 6x?",
+   "explanation": "For x = 3, y = 6 × 3 = 18, so the pair is (3, 18).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(18, 3)",
+    "(3, 9)",
+    "(3, 18)",
+    "(6, 3)"
+   ],
+   "answer": "(3, 18)",
+   "commonErrors": [
+    {
+     "answer": "(3, 9)",
+     "why": "added 6 instead of multiplying"
+    },
+    {
+     "answer": "(18, 3)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(6, 3)",
+     "why": "swapped x and y and used the wrong values"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-011",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A taxi charges $3 to start plus $2 for each mile. Which equation gives the cost c for m miles?",
+   "explanation": "The cost is $2 per mile times m miles, plus the $3 fee: c = 2m + 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "c = 2m + 3",
+    "c = 3m + 2",
+    "c = 5m",
+    "c = m + 5"
+   ],
+   "answer": "c = 2m + 3",
+   "commonErrors": [
+    {
+     "answer": "c = 3m + 2",
+     "why": "swapped the starting fee and the rate"
+    },
+    {
+     "answer": "c = 5m",
+     "why": "added the numbers and multiplied by miles"
+    },
+    {
+     "answer": "c = m + 5",
+     "why": "added all the numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-012",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A gym charges a $20 joining fee plus $15 each month. Which equation gives the total cost t after m months?",
+   "explanation": "Monthly charges are 15m, and the joining fee is added once: t = 15m + 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "t = 20m + 15",
+    "t = 15m + 20",
+    "t = 35m",
+    "t = 15m − 20"
+   ],
+   "answer": "t = 15m + 20",
+   "commonErrors": [
+    {
+     "answer": "t = 20m + 15",
+     "why": "swapped the fee and the monthly rate"
+    },
+    {
+     "answer": "t = 35m",
+     "why": "added the numbers and multiplied by months"
+    },
+    {
+     "answer": "t = 15m − 20",
+     "why": "subtracted the fee"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-013",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A candle is 12 inches tall and burns 2 inches every hour. Which equation gives its height h after t hours?",
+   "explanation": "The candle starts at 12 inches and loses 2 inches per hour: h = 12 − 2t.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "h = 12 + 2t",
+    "h = 12 − 2t",
+    "h = 2t − 12",
+    "h = 2 − 12t"
+   ],
+   "answer": "h = 12 − 2t",
+   "commonErrors": [
+    {
+     "answer": "h = 12 + 2t",
+     "why": "added when the candle gets shorter"
+    },
+    {
+     "answer": "h = 2t − 12",
+     "why": "reversed the subtraction"
+    },
+    {
+     "answer": "h = 2 − 12t",
+     "why": "swapped the numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-014",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The graph of a relationship is a straight line through (0, 0), (1, 3) and (2, 6). Which equation matches?",
+   "explanation": "Each y is 3 times x: 3 × 1 = 3 and 3 × 2 = 6, and the line passes through (0, 0).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = x ÷ 3",
+    "y = 3",
+    "y = x + 3",
+    "y = 3x"
+   ],
+   "answer": "y = 3x",
+   "commonErrors": [
+    {
+     "answer": "y = x + 3",
+     "why": "found a pattern that only works for one point"
+    },
+    {
+     "answer": "y = 3",
+     "why": "thought y never changes"
+    },
+    {
+     "answer": "y = x ÷ 3",
+     "why": "divided instead of multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-ee-9-015",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "EE-D",
+   "standards": [
+    "NC.6.EE.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In a table, y is always 4 more than x. Which statement is true?",
+   "explanation": "4 more than 10 is 14.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "When x = 10, y = 6.",
+    "When x = 10, y = 10.",
+    "When x = 10, y = 40.",
+    "When x = 10, y = 14."
+   ],
+   "answer": "When x = 10, y = 14.",
+   "commonErrors": [
+    {
+     "answer": "When x = 10, y = 40.",
+     "why": "multiplied instead of adding"
+    },
+    {
+     "answer": "When x = 10, y = 6.",
+     "why": "subtracted instead of adding"
+    },
+    {
+     "answer": "When x = 10, y = 10.",
+     "why": "ignored the 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A triangle has a base of 10 cm and a height of 6 cm. What is its area?",
+   "explanation": "A triangle is half of a rectangle with the same base and height: ½ × 10 × 6 = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "60 cm²",
+    "30 cm²",
+    "16 cm²",
+    "15 cm²"
+   ],
+   "answer": "30 cm²",
+   "commonErrors": [
+    {
+     "answer": "60 cm²",
+     "why": "forgot to take half"
+    },
+    {
+     "answer": "16 cm²",
+     "why": "added the base and the height"
+    },
+    {
+     "answer": "15 cm²",
+     "why": "took half twice"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A right triangle has legs of 8 m and 5 m. What is its area?",
+   "explanation": "The legs are the base and the height: ½ × 8 × 5 = 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10 m²",
+    "40 m²",
+    "20 m²",
+    "13 m²"
+   ],
+   "answer": "20 m²",
+   "commonErrors": [
+    {
+     "answer": "40 m²",
+     "why": "forgot to take half"
+    },
+    {
+     "answer": "13 m²",
+     "why": "added the legs"
+    },
+    {
+     "answer": "10 m²",
+     "why": "took half twice"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A triangle has an area of 24 square inches and a base of 8 inches. What is its height?",
+   "explanation": "A = ½bh, so 24 = ½ × 8 × h = 4h, and h = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6 inches",
+    "192 inches",
+    "3 inches",
+    "12 inches"
+   ],
+   "answer": "6 inches",
+   "commonErrors": [
+    {
+     "answer": "3 inches",
+     "why": "divided the area by the base and forgot the half"
+    },
+    {
+     "answer": "12 inches",
+     "why": "halved the area only"
+    },
+    {
+     "answer": "192 inches",
+     "why": "multiplied the area by the base"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A parallelogram has a base of 9 ft and a height of 4 ft. What is its area?",
+   "explanation": "A parallelogram can be cut and rearranged into a rectangle: 9 × 4 = 36.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "36 ft²",
+    "26 ft²",
+    "18 ft²",
+    "13 ft²"
+   ],
+   "answer": "36 ft²",
+   "commonErrors": [
+    {
+     "answer": "18 ft²",
+     "why": "took half, like a triangle"
+    },
+    {
+     "answer": "13 ft²",
+     "why": "added the base and the height"
+    },
+    {
+     "answer": "26 ft²",
+     "why": "found the perimeter-style sum 2(9 + 4)"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "An L-shaped figure is made of two rectangles that do not overlap. One is 8 by 3 and the other is 4 by 2. What is the total area?",
+   "explanation": "Find each area and add: 8 × 3 = 24 and 4 × 2 = 8, so 24 + 8 = 32.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "96 square units",
+    "32 square units",
+    "16 square units",
+    "11 square units"
+   ],
+   "answer": "32 square units",
+   "commonErrors": [
+    {
+     "answer": "16 square units",
+     "why": "subtracted the second area from the first"
+    },
+    {
+     "answer": "11 square units",
+     "why": "added the first rectangle's sides"
+    },
+    {
+     "answer": "96 square units",
+     "why": "multiplied all the numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A trapezoid is split into a 6-by-4 rectangle and a right triangle with base 3 and height 4. What is the area of the trapezoid?",
+   "explanation": "Rectangle: 6 × 4 = 24. Triangle: ½ × 3 × 4 = 6. Total: 24 + 6 = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "27 square units",
+    "30 square units",
+    "36 square units",
+    "17 square units"
+   ],
+   "answer": "30 square units",
+   "commonErrors": [
+    {
+     "answer": "36 square units",
+     "why": "forgot to take half of the triangle"
+    },
+    {
+     "answer": "27 square units",
+     "why": "added only the triangle's base"
+    },
+    {
+     "answer": "17 square units",
+     "why": "added all the side lengths instead of finding areas"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-1-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A kite has diagonals of 12 and 8. Cutting it along a diagonal makes two triangles. What is the area of the kite?",
+   "explanation": "The diagonals split the kite into four right triangles that fit in a 12-by-8 rectangle, half of it: ½ × 12 × 8 = 48.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "48 square units",
+    "24 square units",
+    "96 square units",
+    "20 square units"
+   ],
+   "answer": "48 square units",
+   "commonErrors": [
+    {
+     "answer": "96 square units",
+     "why": "forgot to take half"
+    },
+    {
+     "answer": "20 square units",
+     "why": "added the diagonals"
+    },
+    {
+     "answer": "24 square units",
+     "why": "took half twice"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-2-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangular prism is 3/2 ft long, 1/2 ft wide and 4 ft tall. What is its volume?",
+   "explanation": "V = l × w × h = 3/2 × 1/2 × 4 = 12/4 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2 cubic feet",
+    "3 cubic feet",
+    "6 cubic feet",
+    "3/4 cubic feet"
+   ],
+   "answer": "3 cubic feet",
+   "commonErrors": [
+    {
+     "answer": "6 cubic feet",
+     "why": "added the three edge lengths instead of multiplying"
+    },
+    {
+     "answer": "2 cubic feet",
+     "why": "forgot the length and multiplied only the width and the height"
+    },
+    {
+     "answer": "3/4 cubic feet",
+     "why": "multiplied only the length and the width"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-2-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A fish tank is 3/4 m long, 1/2 m wide and 2/3 m tall. What is its volume?",
+   "explanation": "3/4 × 1/2 = 3/8, and 3/8 × 2/3 = 6/24 = 1/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1/2 cubic meter",
+    "1/3 cubic meter",
+    "23/12 cubic meters",
+    "1/4 cubic meter"
+   ],
+   "answer": "1/4 cubic meter",
+   "commonErrors": [
+    {
+     "answer": "23/12 cubic meters",
+     "why": "added the edge lengths"
+    },
+    {
+     "answer": "1/3 cubic meter",
+     "why": "made an error multiplying the fractions"
+    },
+    {
+     "answer": "1/2 cubic meter",
+     "why": "made an error multiplying the fractions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-2-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "A box is 5/2 in long, 2 in wide and 1 in tall. It is filled with cubes that are 1/2 inch on each edge. How many cubes fill it?",
+   "explanation": "Each side of the box holds: 5/2 ÷ 1/2 = 5, 2 ÷ 1/2 = 4, 1 ÷ 1/2 = 2 cubes. 5 × 4 × 2 = 40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "20",
+    "5",
+    "11",
+    "40"
+   ],
+   "answer": "40",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "found the volume in cubic inches and stopped"
+    },
+    {
+     "answer": "11",
+     "why": "divided each edge by 1/2 and added the results"
+    },
+    {
+     "answer": "20",
+     "why": "used only two edges"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-3-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangle has vertices (1, 2), (8, 2), (8, 5) and (1, 5). What is its perimeter?",
+   "explanation": "The sides are |8 − 1| = 7 and |5 − 2| = 3. Perimeter = 2(7 + 3) = 20.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "20 units",
+    "21 units",
+    "12 units",
+    "10 units"
+   ],
+   "answer": "20 units",
+   "commonErrors": [
+    {
+     "answer": "21 units",
+     "why": "found the area instead of the perimeter"
+    },
+    {
+     "answer": "10 units",
+     "why": "added only one length and one width"
+    },
+    {
+     "answer": "12 units",
+     "why": "doubled one width and added the length"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-3-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A side of a polygon joins (−3, 4) and (−3, −2). How long is the side?",
+   "explanation": "The x-coordinates match, so find the distance between 4 and −2: 4 + 2 = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6 units",
+    "−6 units",
+    "10 units",
+    "2 units"
+   ],
+   "answer": "6 units",
+   "commonErrors": [
+    {
+     "answer": "2 units",
+     "why": "subtracted 4 − 2"
+    },
+    {
+     "answer": "−6 units",
+     "why": "gave a negative length"
+    },
+    {
+     "answer": "10 units",
+     "why": "added 4, 2 and 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-4-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A net of a cube is made of 6 squares, each 4 cm by 4 cm. What is the surface area of the cube?",
+   "explanation": "Each face has area 4 × 4 = 16. There are 6 faces: 6 × 16 = 96.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "24 cm²",
+    "16 cm²",
+    "96 cm²",
+    "64 cm²"
+   ],
+   "answer": "96 cm²",
+   "commonErrors": [
+    {
+     "answer": "64 cm²",
+     "why": "found the volume instead of the surface area"
+    },
+    {
+     "answer": "16 cm²",
+     "why": "found the area of one face"
+    },
+    {
+     "answer": "24 cm²",
+     "why": "multiplied 6 × 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-4-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangular prism is 5 cm long, 3 cm wide and 2 cm tall. What is its surface area?",
+   "explanation": "Faces: 2(5 × 3) + 2(5 × 2) + 2(3 × 2) = 30 + 20 + 12 = 62.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "31 cm²",
+    "62 cm²",
+    "20 cm²",
+    "30 cm²"
+   ],
+   "answer": "62 cm²",
+   "commonErrors": [
+    {
+     "answer": "30 cm²",
+     "why": "found the volume instead of the surface area"
+    },
+    {
+     "answer": "31 cm²",
+     "why": "added each different face once"
+    },
+    {
+     "answer": "20 cm²",
+     "why": "added the edges and doubled"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-g-4-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "G",
+   "standards": [
+    "NC.6.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "A square pyramid has a base 6 cm on each side. Each of its 4 triangular faces has a base of 6 cm and a height of 4 cm. What is the surface area?",
+   "explanation": "Base: 6 × 6 = 36. Each triangle: ½ × 6 × 4 = 12, and 4 × 12 = 48. Total: 36 + 48 = 84.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "48 cm²",
+    "132 cm²",
+    "84 cm²",
+    "60 cm²"
+   ],
+   "answer": "84 cm²",
+   "commonErrors": [
+    {
+     "answer": "48 cm²",
+     "why": "added only the four triangles"
+    },
+    {
+     "answer": "60 cm²",
+     "why": "added the base and only two triangles"
+    },
+    {
+     "answer": "132 cm²",
+     "why": "forgot to take half of each triangle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-1-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which question is a statistical question?",
+   "explanation": "A statistical question expects different answers from different people.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "How many students are in my class today?",
+    "How old is our principal?",
+    "How many hours of sleep do students at our school get on a school night?",
+    "What is the capital of North Carolina?"
+   ],
+   "answer": "How many hours of sleep do students at our school get on a school night?",
+   "commonErrors": [
+    {
+     "answer": "How old is our principal?",
+     "why": "has one answer, so no variability"
+    },
+    {
+     "answer": "What is the capital of North Carolina?",
+     "why": "has one answer, so no variability"
+    },
+    {
+     "answer": "How many students are in my class today?",
+     "why": "is a single count, so no variability"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-1-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which question is NOT a statistical question?",
+   "explanation": "The monument has one height. The other questions expect varying answers.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "How tall are the students in 6th grade?",
+    "How long do students take to get to school?",
+    "How many pets do the families on my street have?",
+    "How tall is the Washington Monument?"
+   ],
+   "answer": "How tall is the Washington Monument?",
+   "commonErrors": [
+    {
+     "answer": "How tall are the students in 6th grade?",
+     "why": "answers will vary from student to student"
+    },
+    {
+     "answer": "How long do students take to get to school?",
+     "why": "answers will vary"
+    },
+    {
+     "answer": "How many pets do the families on my street have?",
+     "why": "answers will vary"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-1-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Why is “What is the favorite sport of the students in 6th grade?” a statistical question?",
+   "explanation": "Different students will give different answers, so the data have variability.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Because the answers will vary from student to student",
+    "Because it asks about only one person",
+    "Because the answer must be a number",
+    "Because it has exactly one correct answer"
+   ],
+   "answer": "Because the answers will vary from student to student",
+   "commonErrors": [
+    {
+     "answer": "Because it has exactly one correct answer",
+     "why": "described a non-statistical question"
+    },
+    {
+     "answer": "Because the answer must be a number",
+     "why": "confused statistical questions with numerical data"
+    },
+    {
+     "answer": "Because it asks about only one person",
+     "why": "described a non-statistical question"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-1-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which question would produce data that vary?",
+   "explanation": "Different 6th graders send different numbers of messages, so the answers vary.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "How many sides does a hexagon have?",
+    "What is 8 × 7?",
+    "How many days are in a week?",
+    "How many text messages do 6th graders send each day?"
+   ],
+   "answer": "How many text messages do 6th graders send each day?",
+   "commonErrors": [
+    {
+     "answer": "How many days are in a week?",
+     "why": "always the same answer"
+    },
+    {
+     "answer": "What is 8 × 7?",
+     "why": "always the same answer"
+    },
+    {
+     "answer": "How many sides does a hexagon have?",
+     "why": "always the same answer"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-2-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which three features can describe a distribution of data?",
+   "explanation": "A distribution is described by where it is centered, how spread out it is, and its overall shape.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Center, spread and shape",
+    "Sum, product and quotient",
+    "Color, size and position",
+    "Title, label and scale"
+   ],
+   "answer": "Center, spread and shape",
+   "commonErrors": [
+    {
+     "answer": "Sum, product and quotient",
+     "why": "listed operations, not features"
+    },
+    {
+     "answer": "Title, label and scale",
+     "why": "listed parts of a graph"
+    },
+    {
+     "answer": "Color, size and position",
+     "why": "listed things unrelated to data"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-2-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A dot plot of test scores has most dots near 80, with a few dots at 60 and a few at 100. Which description fits?",
+   "explanation": "The dots pile up in the middle and thin out evenly on both sides.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Skewed right with its center near 100",
+    "Roughly symmetric and centered near 80",
+    "Uniform with no center",
+    "Skewed left with its center near 60"
+   ],
+   "answer": "Roughly symmetric and centered near 80",
+   "commonErrors": [
+    {
+     "answer": "Skewed right with its center near 100",
+     "why": "put the center at the largest value"
+    },
+    {
+     "answer": "Skewed left with its center near 60",
+     "why": "put the center at the smallest value"
+    },
+    {
+     "answer": "Uniform with no center",
+     "why": "ignored that most dots are near 80"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-2-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two classes both have a mean quiz score of 80. Class A scores range from 78 to 82. Class B scores range from 50 to 100. Which is true?",
+   "explanation": "Class B's scores cover a much wider range, so its spread is greater.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Class A has more spread.",
+    "Class B has more spread.",
+    "They have the same spread because the means are equal.",
+    "Class B has a smaller center."
+   ],
+   "answer": "Class B has more spread.",
+   "commonErrors": [
+    {
+     "answer": "Class A has more spread.",
+     "why": "reversed which data are more spread out"
+    },
+    {
+     "answer": "They have the same spread because the means are equal.",
+     "why": "confused center with spread"
+    },
+    {
+     "answer": "Class B has a smaller center.",
+     "why": "ignored that both means are 80"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the mean of the data set 3, 6, 6, 9, 11?",
+   "explanation": "Add the values and divide by how many there are: 35 ÷ 5 = 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6",
+    "7",
+    "35",
+    "8"
+   ],
+   "answer": "7",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "gave the median (or mode) instead of the mean"
+    },
+    {
+     "answer": "35",
+     "why": "gave the sum without dividing"
+    },
+    {
+     "answer": "8",
+     "why": "gave the range instead of the mean"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the median of the data set 14, 3, 20, 8, 5?",
+   "explanation": "Order the data: 3, 5, 8, 14, 20. The middle value is 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "17",
+    "10",
+    "20",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "20",
+     "why": "picked the middle value without putting the data in order"
+    },
+    {
+     "answer": "10",
+     "why": "gave the mean instead of the median"
+    },
+    {
+     "answer": "17",
+     "why": "gave the range instead of the median"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the median of the data set 1, 3, 5, 11?",
+   "explanation": "With an even number of values, the median is halfway between the two middle values: (3 + 5) ÷ 2 = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "5",
+    "6",
+    "4"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "gave the mean instead of the median"
+    },
+    {
+     "answer": "6",
+     "why": "averaged the least and greatest values"
+    },
+    {
+     "answer": "3",
+     "why": "picked one of the middle values"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "For the data 5, 6, 6, 7, 6, 40, which measure of center is affected most by the value 40?",
+   "explanation": "The mean uses every value's size, so a very large value pulls it up. The median and the mode barely change.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The mode",
+    "All three are affected equally",
+    "The median",
+    "The mean"
+   ],
+   "answer": "The mean",
+   "commonErrors": [
+    {
+     "answer": "The median",
+     "why": "median depends on position, not size, of extreme values"
+    },
+    {
+     "answer": "The mode",
+     "why": "the most common value does not change"
+    },
+    {
+     "answer": "All three are affected equally",
+     "why": "thought extreme values affect every measure the same"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Four friends have 3, 5, 6 and 10 stickers. If they share all the stickers equally, how many does each get?",
+   "explanation": "A mean is a fair share: (3 + 5 + 6 + 10) ÷ 4 = 24 ÷ 4 = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11/2",
+    "6",
+    "4",
+    "24"
+   ],
+   "answer": "6",
+   "commonErrors": [
+    {
+     "answer": "11/2",
+     "why": "gave the median instead of the fair share"
+    },
+    {
+     "answer": "24",
+     "why": "gave the total"
+    },
+    {
+     "answer": "4",
+     "why": "gave the number of friends"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement best describes the mean of a data set?",
+   "explanation": "The mean is what each value would be if the total were shared equally.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The most common value",
+    "A balance point, or the fair share, of the data",
+    "The middle value of the ordered data",
+    "The difference between the greatest and least values"
+   ],
+   "answer": "A balance point, or the fair share, of the data",
+   "commonErrors": [
+    {
+     "answer": "The most common value",
+     "why": "described the mode"
+    },
+    {
+     "answer": "The middle value of the ordered data",
+     "why": "described the median"
+    },
+    {
+     "answer": "The difference between the greatest and least values",
+     "why": "described the range"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement best describes the median of a data set?",
+   "explanation": "Put the data in order. The median is the value in the middle.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The sum of the values divided by how many there are",
+    "The difference between the greatest and least values",
+    "The value that appears most often",
+    "The middle value when the data are in order"
+   ],
+   "answer": "The middle value when the data are in order",
+   "commonErrors": [
+    {
+     "answer": "The sum of the values divided by how many there are",
+     "why": "described the mean"
+    },
+    {
+     "answer": "The value that appears most often",
+     "why": "described the mode"
+    },
+    {
+     "answer": "The difference between the greatest and least values",
+     "why": "described the range"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-3-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-A",
+   "standards": [
+    "NC.6.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two data sets both have a median of 50. Set 1 is 48, 49, 50, 51, 52. Set 2 is 20, 35, 50, 65, 80. Which has greater variability?",
+   "explanation": "Set 2's values range from 20 to 80, while Set 1's range from 48 to 52. Set 2 is much more spread out.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They have the same spread",
+    "Neither, because the medians are equal",
+    "Set 2",
+    "Set 1"
+   ],
+   "answer": "Set 2",
+   "commonErrors": [
+    {
+     "answer": "Set 1",
+     "why": "reversed which set is more spread out"
+    },
+    {
+     "answer": "Neither, because the medians are equal",
+     "why": "confused center with spread"
+    },
+    {
+     "answer": "They have the same spread",
+     "why": "ignored the different ranges of values"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Quiz scores are 6, 7, 7, 8, 8, 8, 9, 10. On a dot plot, how many dots are above the number 8?",
+   "explanation": "Each score gets one dot. The score 8 appears 3 times, so there are 3 dots above 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "1",
+    "8",
+    "3",
+    "2"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "used the score instead of the count"
+    },
+    {
+     "answer": "2",
+     "why": "counted the 7s"
+    },
+    {
+     "answer": "1",
+     "why": "counted only one dot"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which display uses bars to show how many values fall within equal-sized intervals?",
+   "explanation": "A histogram groups data into intervals and shows each count as a bar.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A table of ordered pairs",
+    "A box plot",
+    "A dot plot",
+    "A histogram"
+   ],
+   "answer": "A histogram",
+   "commonErrors": [
+    {
+     "answer": "A dot plot",
+     "why": "shows individual values, not intervals"
+    },
+    {
+     "answer": "A box plot",
+     "why": "shows a five-number summary, not counts"
+    },
+    {
+     "answer": "A table of ordered pairs",
+     "why": "is not a data display of counts in intervals"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the five-number summary (minimum, first quartile, median, third quartile, maximum) of 2, 4, 5, 7, 9, 11, 12?",
+   "explanation": "The median is 7. The lower half 2, 4, 5 has median 4; the upper half 9, 11, 12 has median 11.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2, 5, 7, 9, 12",
+    "2, 4, 7, 9, 12",
+    "2, 4, 7, 11, 12",
+    "2, 5, 7, 11, 12"
+   ],
+   "answer": "2, 4, 7, 11, 12",
+   "commonErrors": [
+    {
+     "answer": "2, 5, 7, 9, 12",
+     "why": "used the 3rd and 5th values as the quartiles"
+    },
+    {
+     "answer": "2, 4, 7, 9, 12",
+     "why": "used the wrong third quartile"
+    },
+    {
+     "answer": "2, 5, 7, 11, 12",
+     "why": "used the wrong first quartile"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which display shows each individual data value?",
+   "explanation": "A dot plot puts one dot for every value, so every value can be seen.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A box plot",
+    "A dot plot",
+    "None of these",
+    "A histogram"
+   ],
+   "answer": "A dot plot",
+   "commonErrors": [
+    {
+     "answer": "A histogram",
+     "why": "groups values into intervals"
+    },
+    {
+     "answer": "A box plot",
+     "why": "shows only a five-number summary"
+    },
+    {
+     "answer": "None of these",
+     "why": "overlooked the dot plot"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In a box plot, about what fraction of the data lies between the first quartile and the third quartile?",
+   "explanation": "The quartiles split the data into four parts with about the same number of values. The middle two parts, the box, hold about half.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "About one half",
+    "All of the data",
+    "About three fourths",
+    "About one fourth"
+   ],
+   "answer": "About one half",
+   "commonErrors": [
+    {
+     "answer": "About one fourth",
+     "why": "described the data between the median and one quartile"
+    },
+    {
+     "answer": "About three fourths",
+     "why": "described the data below the third quartile"
+    },
+    {
+     "answer": "All of the data",
+     "why": "described min to max"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-4-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A histogram has bars for 0–4 (3 students), 5–9 (8 students) and 10–14 (5 students). How many students are represented in all?",
+   "explanation": "Add the bars: 3 + 8 + 5 = 16.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "16",
+    "8",
+    "15",
+    "3"
+   ],
+   "answer": "16",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "gave the tallest bar only"
+    },
+    {
+     "answer": "15",
+     "why": "multiplied the number of bars by the last bar"
+    },
+    {
+     "answer": "3",
+     "why": "gave the first bar only"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-001",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A dot plot has 4 dots above 2, 6 dots above 3 and 5 dots above 4. How many observations were collected?",
+   "explanation": "Each dot is one observation: 4 + 6 + 5 = 15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "9",
+    "15",
+    "20",
+    "3"
+   ],
+   "answer": "15",
+   "commonErrors": [
+    {
+     "answer": "9",
+     "why": "added the values 2, 3 and 4"
+    },
+    {
+     "answer": "3",
+     "why": "counted the different values"
+    },
+    {
+     "answer": "20",
+     "why": "multiplied 4 × 5"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-002",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "House prices on one street are $120,000, $130,000, $125,000, $135,000 and $1,200,000. Which measure best describes a typical price?",
+   "explanation": "The median is $130,000. The mean is pulled far up by $1,200,000, so it is not typical.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The median, because the one very high price pulls the mean up",
+    "The mode, because every value appears once",
+    "The mean, because it uses every value",
+    "The range, because it shows the biggest gap"
+   ],
+   "answer": "The median, because the one very high price pulls the mean up",
+   "commonErrors": [
+    {
+     "answer": "The mean, because it uses every value",
+     "why": "ignored the effect of the extreme value"
+    },
+    {
+     "answer": "The mode, because every value appears once",
+     "why": "misused the mode"
+    },
+    {
+     "answer": "The range, because it shows the biggest gap",
+     "why": "the range is not a measure of center"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-003",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A data set is symmetric with no extreme values. Which measure is a good choice for its center?",
+   "explanation": "For a symmetric distribution without extreme values, the mean and the median are about the same.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Only the mode",
+    "Either the mean or the median",
+    "Only the range",
+    "Neither the mean nor the median"
+   ],
+   "answer": "Either the mean or the median",
+   "commonErrors": [
+    {
+     "answer": "Only the mode",
+     "why": "ruled out the mean and median"
+    },
+    {
+     "answer": "Only the range",
+     "why": "the range is not a measure of center"
+    },
+    {
+     "answer": "Neither the mean nor the median",
+     "why": "ruled out both"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-004",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "Ten students recorded how many minutes they read last night: 10, 15, 20, 20, 25, 25, 30, 35, 40, 60. What is the mean number of minutes?",
+   "explanation": "The total is 280 minutes. 280 ÷ 10 = 28.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "28",
+   "accept": [
+    "28",
+    "28.0"
+   ],
+   "unit": "minutes",
+   "commonErrors": [
+    {
+     "answer": "280",
+     "why": "gave the total without dividing"
+    },
+    {
+     "answer": "25",
+     "why": "gave the median instead of the mean"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-005",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Ten students recorded how many minutes they read last night: 10, 15, 20, 20, 25, 25, 30, 35, 40, 60. What is the median number of minutes?",
+   "explanation": "The data are in order. The two middle values are 25 and 25, and the number halfway between them is 25.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "25",
+    "50",
+    "28",
+    "22.5"
+   ],
+   "answer": "25",
+   "commonErrors": [
+    {
+     "answer": "28",
+     "why": "gave the mean instead of the median"
+    },
+    {
+     "answer": "50",
+     "why": "gave the range instead of the median"
+    },
+    {
+     "answer": "22.5",
+     "why": "averaged the wrong pair of values"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-006",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Ten students recorded how many minutes they read last night: 10, 15, 20, 20, 25, 25, 30, 35, 40, 60. What is the range?",
+   "explanation": "Range = greatest − least = 60 − 10 = 50.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10",
+    "50",
+    "25",
+    "60"
+   ],
+   "answer": "50",
+   "commonErrors": [
+    {
+     "answer": "60",
+     "why": "gave the greatest value"
+    },
+    {
+     "answer": "25",
+     "why": "gave the median instead of the range"
+    },
+    {
+     "answer": "10",
+     "why": "gave the least value"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-007",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The reading data (in minutes) have a least value of 10, a greatest value of 60 and a median of 25. Which statement best summarizes them?",
+   "explanation": "A good summary names the center (the median), the spread (the range) and the unit (minutes).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "There were 10 observations, so the mean was 10 minutes.",
+    "Every student read 25 minutes.",
+    "The range of reading times was 25 minutes.",
+    "The median reading time was 25 minutes, and times ranged from 10 to 60 minutes."
+   ],
+   "answer": "The median reading time was 25 minutes, and times ranged from 10 to 60 minutes.",
+   "commonErrors": [
+    {
+     "answer": "Every student read 25 minutes.",
+     "why": "treated the median as the value for every student"
+    },
+    {
+     "answer": "The range of reading times was 25 minutes.",
+     "why": "mixed up the range and the median"
+    },
+    {
+     "answer": "There were 10 observations, so the mean was 10 minutes.",
+     "why": "treated the number of observations as the mean"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-008",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A histogram is skewed right, with a few very large values. Which measure best describes the center?",
+   "explanation": "For a skewed distribution, the median is not pulled by the extreme values the way the mean is.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The median",
+    "The range",
+    "The maximum",
+    "The mean"
+   ],
+   "answer": "The median",
+   "commonErrors": [
+    {
+     "answer": "The mean",
+     "why": "ignored the pull of the large values"
+    },
+    {
+     "answer": "The range",
+     "why": "the range is not a measure of center"
+    },
+    {
+     "answer": "The maximum",
+     "why": "the maximum is not a measure of center"
+    }
+   ]
+  },
+  {
+   "id": "ms-m6-sp-5-009",
+   "subject": "math",
+   "grade": 6,
+   "courses": [
+    "math6",
+    "math6plus",
+    "compacted67"
+   ],
+   "cluster": "SP-B",
+   "standards": [
+    "NC.6.SP.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In the data set 1, 1, 2, 2, 2, 3, 3, 8, which value is a striking deviation (an outlier)?",
+   "explanation": "8 is far from all of the other values, which are between 1 and 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "1",
+    "8",
+    "2"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "1",
+     "why": "chose the least value"
+    },
+    {
+     "answer": "2",
+     "why": "chose the most common value"
+    },
+    {
+     "answer": "3",
+     "why": "chose a value near the others"
+    }
+   ]
+  }
+ ]
+}

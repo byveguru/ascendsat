@@ -1,0 +1,1038 @@
+{
+ "items": [
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "What is the x-intercept of the graph of f(x) = 3x − 12?",
+   "answer": "(4, 0)",
+   "wrong": [
+    {
+     "text": "(0, −12)",
+     "why": "gave the y-intercept"
+    },
+    {
+     "text": "(12, 0)",
+     "why": "divided 12 by 3 wrongly as 12 itself, ignoring the 3"
+    },
+    {
+     "text": "(−4, 0)",
+     "why": "sign slip when solving 3x = 12"
+    }
+   ],
+   "explanation": "Set f(x) = 0: 3x − 12 = 0, so 3x = 12 and x = 4. The x-intercept is (4, 0)."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "For g(x) = 5·(1/2)ˣ, which statement describes the end behavior?",
+   "answer": "As x → ∞, g(x) → 0; as x → −∞, g(x) → ∞",
+   "wrong": [
+    {
+     "text": "As x → ∞, g(x) → ∞; as x → −∞, g(x) → 0",
+     "why": "reversed decay and growth"
+    },
+    {
+     "text": "As x → ∞, g(x) → 0; as x → −∞, g(x) → −∞",
+     "why": "assumed the graph goes negative on the left"
+    },
+    {
+     "text": "As x → ∞, g(x) → 5; as x → −∞, g(x) → ∞",
+     "why": "mistook the initial value 5 for the horizontal asymptote"
+    }
+   ],
+   "explanation": "The base 1/2 is between 0 and 1, so the values shrink toward 0 as x grows. For negative x, such as g(−10) = 5·1024, the values grow without bound."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "For f(x) = x² − 2x − 8, for which values of x is f(x) positive?",
+   "answer": "x < −2 or x > 4",
+   "wrong": [
+    {
+     "text": "−2 < x < 4",
+     "why": "gave the interval where f is negative"
+    },
+    {
+     "text": "x > 4",
+     "why": "considered only the right side of the parabola"
+    },
+    {
+     "text": "x < −4 or x > 2",
+     "why": "sign slip on both zeros"
+    }
+   ],
+   "explanation": "f(x) = (x + 2)(x − 4) has zeros at −2 and 4. The parabola opens upward, so it is above the x-axis outside the zeros: x < −2 or x > 4."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The height of a ball in feet is h(t) = −16t² + 64t + 5, where t is time in seconds. At what time t does the ball reach its maximum height?",
+   "answer": "2",
+   "accept": [
+    "2 seconds",
+    "2 s",
+    "t = 2"
+   ],
+   "wrong": [
+    {
+     "text": "69",
+     "why": "gave the maximum height instead of the time"
+    },
+    {
+     "text": "4",
+     "why": "gave the time the ball returns to its starting height"
+    }
+   ],
+   "explanation": "The vertex is at t = −64/(2·(−16)) = 2. The maximum height is h(2) = 69 ft, reached at 2 seconds.",
+   "unit": "seconds"
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The function f(x) = 2^(x + 3) can be rewritten as f(x) = a·2ˣ. What is the y-intercept of its graph?",
+   "answer": "8",
+   "wrong": [
+    {
+     "text": "3",
+     "why": "used the exponent shift as the y-intercept"
+    },
+    {
+     "text": "6",
+     "why": "multiplied 2 by 3 instead of using 2³"
+    },
+    {
+     "text": "16",
+     "why": "evaluated the function at x = 1 instead of x = 0"
+    }
+   ],
+   "explanation": "2^(x + 3) = 2³·2ˣ = 8·2ˣ, so a = 8 and the graph crosses the y-axis at (0, 8)."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A club's profit in hundreds of dollars is P(x) = −x² + 10x − 21 = −(x − 3)(x − 7), where x is the number of tickets sold in hundreds. At which values of x does the club break even (P(x) = 0)?",
+   "answer": "x = 3 and x = 7",
+   "wrong": [
+    {
+     "text": "x = −3 and x = −7",
+     "why": "sign slip when reading the factors"
+    },
+    {
+     "text": "x = 5 only",
+     "why": "gave the x-value of the maximum profit, not the break-even points"
+    },
+    {
+     "text": "x = 21 only",
+     "why": "read the constant term as the break-even point"
+    }
+   ],
+   "explanation": "Break-even means P(x) = 0. In factored form, −(x − 3)(x − 7) = 0 gives x = 3 and x = 7."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to x² − 6x + 5 in vertex form?",
+   "answer": "(x − 3)² − 4",
+   "wrong": [
+    {
+     "text": "(x + 3)² − 4",
+     "why": "sign slip on the h-value"
+    },
+    {
+     "text": "(x − 3)² + 4",
+     "why": "added 9 − 5 instead of subtracting"
+    },
+    {
+     "text": "(x − 6)² − 31",
+     "why": "squared b instead of b/2 when completing the square"
+    }
+   ],
+   "explanation": "Complete the square: x² − 6x + 9 − 9 + 5 = (x − 3)² − 4."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What is the vertex of f(x) = x² + 8x + 3?",
+   "answer": "(−4, −13)",
+   "wrong": [
+    {
+     "text": "(4, −13)",
+     "why": "sign slip on the x-coordinate"
+    },
+    {
+     "text": "(−4, 19)",
+     "why": "added 16 + 3 instead of subtracting 16 and adding 3"
+    },
+    {
+     "text": "(−8, −61)",
+     "why": "used b instead of b/2"
+    }
+   ],
+   "explanation": "x² + 8x + 16 − 16 + 3 = (x + 4)² − 13, so the vertex is (−4, −13)."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which pair gives the zeros of y = x² − x − 12, found by rewriting it as a product of factors?",
+   "answer": "x = 4 and x = −3",
+   "wrong": [
+    {
+     "text": "x = −4 and x = 3",
+     "why": "sign slip on both zeros"
+    },
+    {
+     "text": "x = 12 and x = −1",
+     "why": "used a factor pair of −12 that does not add to −1"
+    },
+    {
+     "text": "x = 4 and x = 3",
+     "why": "ignored that the product must be negative"
+    }
+   ],
+   "explanation": "x² − x − 12 = (x − 4)(x + 3). Setting each factor to 0 gives x = 4 and x = −3."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8a",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "What is the minimum value of f(x) = 2x² − 12x + 7?",
+   "answer": "−11",
+   "accept": [
+    "-11"
+   ],
+   "wrong": [
+    {
+     "text": "3",
+     "why": "gave the x-coordinate of the vertex"
+    },
+    {
+     "text": "−2",
+     "why": "forgot to multiply the completed-square constant by 2"
+    }
+   ],
+   "explanation": "2x² − 12x + 7 = 2(x² − 6x + 9) − 18 + 7 = 2(x − 3)² − 11. The minimum value is −11."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The value of a collectible is V(x) = 250(1.08)ˣ dollars after x years. By what percent does its value grow each year?",
+   "answer": "8%",
+   "wrong": [
+    {
+     "text": "108%",
+     "why": "used the growth factor as the growth rate"
+    },
+    {
+     "text": "1.08%",
+     "why": "read 1.08 as a percent"
+    },
+    {
+     "text": "250%",
+     "why": "used the initial value as the rate"
+    }
+   ],
+   "explanation": "The growth factor is 1.08 = 1 + 0.08, so the value grows 8% each year."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The amount of a medicine in the body is M(t) = 80(0.85)ᵗ milligrams after t hours. Which statement is correct?",
+   "answer": "The amount decreases by 15% each hour",
+   "wrong": [
+    {
+     "text": "The amount decreases by 85% each hour",
+     "why": "used the decay factor as the decay rate"
+    },
+    {
+     "text": "The amount decreases by 0.85 mg each hour",
+     "why": "treated the decay as a fixed amount"
+    },
+    {
+     "text": "The amount decreases by 15 mg each hour",
+     "why": "treated 15% as 15 mg"
+    }
+   ],
+   "explanation": "The decay factor is 0.85 = 1 − 0.15, so 15% is lost each hour."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.8b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A sample has P(t) = 300·(1/2)^(t/5) grams after t years, so it halves every 5 years. Written as 300·bᵗ, b ≈ 0.871. About what percent does the sample decay each year?",
+   "answer": "12.9%",
+   "wrong": [
+    {
+     "text": "87.1%",
+     "why": "gave the yearly factor as the rate"
+    },
+    {
+     "text": "10%",
+     "why": "divided 50% by 5 years"
+    },
+    {
+     "text": "50%",
+     "why": "used the half-life percent as the yearly rate"
+    }
+   ],
+   "explanation": "b = (1/2)^(1/5) ≈ 0.871, so the sample keeps about 87.1% of its mass each year and loses about 12.9%."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.9",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Function f is linear with f(0) = 10 and slope 2. Function g(x) = 4·2ˣ. Over the interval from x = 0 to x = 3, which function has the greater average rate of change, and about what is it?",
+   "answer": "g, about 9.3",
+   "wrong": [
+    {
+     "text": "f, with a rate of 10",
+     "why": "confused the y-intercept with the rate of change"
+    },
+    {
+     "text": "g, about 28",
+     "why": "found the change in g (32 − 4) but did not divide by 3"
+    },
+    {
+     "text": "g, about 7",
+     "why": "divided the change by 4 instead of the 3 units of x"
+    }
+   ],
+   "explanation": "g(0) = 4 and g(3) = 32, so its average rate is 28/3 ≈ 9.3. The rate of f is always 2, so g changes faster."
+  },
+  {
+   "cluster": "ANALYZE",
+   "standard": "NC.M1.F-IF.9",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Function A is A(x) = −3x² + 12x. Function B is a parabola that opens downward with vertex (1, 10). How much greater is the maximum value of A than the maximum value of B?",
+   "answer": "2",
+   "accept": [
+    "2 greater"
+   ],
+   "wrong": [
+    {
+     "text": "12",
+     "why": "gave the maximum of A rather than the difference"
+    },
+    {
+     "text": "10",
+     "why": "gave the maximum of B rather than the difference"
+    }
+   ],
+   "explanation": "A's vertex is at x = 2, so A's maximum is A(2) = −12 + 24 = 12. B's maximum is 10, and 12 − 10 = 2."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "What is an explicit formula for the arithmetic sequence 5, 9, 13, 17, …?",
+   "answer": "aₙ = 4n + 1",
+   "wrong": [
+    {
+     "text": "aₙ = 4n + 5",
+     "why": "used the first term as the constant instead of the zeroth term"
+    },
+    {
+     "text": "aₙ = 5n + 4",
+     "why": "swapped the first term and common difference"
+    },
+    {
+     "text": "aₙ = 4n + 9",
+     "why": "used the second term as the constant"
+    }
+   ],
+   "explanation": "The common difference is 4, so aₙ = 4n + c. Since a₁ = 5, c = 1, giving aₙ = 4n + 1."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which formula gives the nth term of the geometric sequence 3, 6, 12, 24, …?",
+   "answer": "aₙ = 3·2ⁿ⁻¹",
+   "wrong": [
+    {
+     "text": "aₙ = 3·2ⁿ",
+     "why": "off by one in the exponent"
+    },
+    {
+     "text": "aₙ = 2·3ⁿ⁻¹",
+     "why": "swapped the first term and common ratio"
+    },
+    {
+     "text": "aₙ = 3 + 2(n − 1)",
+     "why": "used an arithmetic pattern"
+    }
+   ],
+   "explanation": "The first term is 3 and the ratio is 2, so aₙ = 3·2ⁿ⁻¹. Check: a₄ = 3·8 = 24."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A linear function f has f(2) = 7 and f(5) = 16. Which equation defines f?",
+   "answer": "f(x) = 3x + 1",
+   "wrong": [
+    {
+     "text": "f(x) = 3x + 7",
+     "why": "used f(2) as the y-intercept"
+    },
+    {
+     "text": "f(x) = 9x − 11",
+     "why": "used the change in y (9) as the slope"
+    },
+    {
+     "text": "f(x) = 3x − 1",
+     "why": "sign slip when solving for the intercept"
+    }
+   ],
+   "explanation": "The slope is (16 − 7)/(5 − 2) = 3. Then 7 = 3(2) + b gives b = 1."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "An exponential function f(x) = a·bˣ passes through (0, 5) and (3, 40). Which equation defines f?",
+   "answer": "f(x) = 5·2ˣ",
+   "wrong": [
+    {
+     "text": "f(x) = 5·8ˣ",
+     "why": "used the total ratio 40/5 as the growth factor"
+    },
+    {
+     "text": "f(x) = 5·(8/3)ˣ",
+     "why": "divided the ratio by 3 instead of taking a cube root"
+    },
+    {
+     "text": "f(x) = 8·2ˣ",
+     "why": "used the ratio as the initial value"
+    }
+   ],
+   "explanation": "a = f(0) = 5. Then 5b³ = 40, so b³ = 8 and b = 2."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The exponential function g(x) = a·bˣ with b > 0 passes through (1, 6) and (3, 24). What is g(5)?",
+   "answer": "96",
+   "accept": [
+    "96.0"
+   ],
+   "wrong": [
+    {
+     "text": "42",
+     "why": "treated the pattern as linear, adding 18 again"
+    },
+    {
+     "text": "48",
+     "why": "doubled 24 only once"
+    }
+   ],
+   "explanation": "b² = 24/6 = 4, so b = 2 and a = 3. Then g(5) = 3·2⁵ = 96."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A gym charges a $25 sign-up fee plus $15 per month. Which function gives the total cost C after m months?",
+   "answer": "C(m) = 15m + 25",
+   "wrong": [
+    {
+     "text": "C(m) = 25m + 15",
+     "why": "swapped the fee and the monthly rate"
+    },
+    {
+     "text": "C(m) = 40m",
+     "why": "charged both amounts every month"
+    },
+    {
+     "text": "C(m) = 15m − 25",
+     "why": "subtracted the fee"
+    }
+   ],
+   "explanation": "The fixed fee is the constant and the monthly cost is the rate: C(m) = 15m + 25."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A colony starts with 40 bacteria and triples every hour. Which function gives the number of bacteria after t hours?",
+   "answer": "P(t) = 40·3ᵗ",
+   "wrong": [
+    {
+     "text": "P(t) = 40 + 3t",
+     "why": "added 3 each hour instead of multiplying"
+    },
+    {
+     "text": "P(t) = 3·40ᵗ",
+     "why": "swapped the starting amount and growth factor"
+    },
+    {
+     "text": "P(t) = 120t",
+     "why": "multiplied 40·3 as a linear rate"
+    }
+   ],
+   "explanation": "Start at 40 and multiply by 3 each hour: P(t) = 40·3ᵗ."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A phone is worth $600 now and loses 20% of its value each year. What is it worth after 3 years, in dollars?",
+   "answer": "307.2",
+   "accept": [
+    "307.20",
+    "$307.20",
+    "307.2 dollars"
+   ],
+   "wrong": [
+    {
+     "text": "240",
+     "why": "subtracted 20% of $600 three times"
+    },
+    {
+     "text": "360",
+     "why": "took 60% of the original value"
+    }
+   ],
+   "explanation": "The value is 600(0.8)³ = 600(0.512) = 307.20.",
+   "unit": "dollars"
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Let f(x) = 3x + 2 and g(x) = x² − 4x. Which expression equals f(x) + g(x)?",
+   "answer": "x² − x + 2",
+   "wrong": [
+    {
+     "text": "x² + x + 2",
+     "why": "combined 3x and −4x as +x"
+    },
+    {
+     "text": "x² − 7x + 2",
+     "why": "subtracted 3x instead of adding it"
+    },
+    {
+     "text": "x² − x − 2",
+     "why": "changed the sign of the constant"
+    }
+   ],
+   "explanation": "(3x + 2) + (x² − 4x) = x² + (3x − 4x) + 2 = x² − x + 2."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A garden has length 2x + 1 and width x − 3. Which function gives its area A(x)?",
+   "answer": "A(x) = 2x² − 5x − 3",
+   "wrong": [
+    {
+     "text": "A(x) = 2x² − 6x − 3",
+     "why": "left out the x·1 term when multiplying"
+    },
+    {
+     "text": "A(x) = 2x² − 5x + 3",
+     "why": "sign slip on the last term"
+    },
+    {
+     "text": "A(x) = 3x − 2",
+     "why": "added the dimensions"
+    }
+   ],
+   "explanation": "(2x + 1)(x − 3) = 2x² − 6x + x − 3 = 2x² − 5x − 3."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A business has revenue R(x) = −2x² + 50x and cost C(x) = 10x + 120. Which function gives profit P(x) = R(x) − C(x)?",
+   "answer": "P(x) = −2x² + 40x − 120",
+   "wrong": [
+    {
+     "text": "P(x) = −2x² + 40x + 120",
+     "why": "did not subtract the constant 120"
+    },
+    {
+     "text": "P(x) = −2x² + 60x + 120",
+     "why": "added the cost to the revenue"
+    },
+    {
+     "text": "P(x) = −2x² + 60x − 120",
+     "why": "subtracted only the constant, not 10x"
+    }
+   ],
+   "explanation": "P(x) = −2x² + 50x − (10x + 120) = −2x² + 50x − 10x − 120 = −2x² + 40x − 120."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A sequence has a₁ = 7 and aₙ = aₙ₋₁ + 3. Which explicit formula gives the same sequence?",
+   "answer": "aₙ = 3n + 4",
+   "wrong": [
+    {
+     "text": "aₙ = 3n + 7",
+     "why": "used a₁ as the constant instead of a₀"
+    },
+    {
+     "text": "aₙ = 7n + 3",
+     "why": "swapped the first term and the common difference"
+    },
+    {
+     "text": "aₙ = 3n − 4",
+     "why": "sign slip on the constant"
+    }
+   ],
+   "explanation": "The common difference is 3, so aₙ = 3n + c. Using a₁ = 7 gives c = 4."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A sequence is defined explicitly by aₙ = 4·(1/2)ⁿ⁻¹. Which recursive definition matches?",
+   "answer": "a₁ = 4, aₙ = ½·aₙ₋₁",
+   "wrong": [
+    {
+     "text": "a₁ = 2, aₙ = ½·aₙ₋₁",
+     "why": "used 4·½ as the first term"
+    },
+    {
+     "text": "a₁ = 4, aₙ = 2·aₙ₋₁",
+     "why": "inverted the common ratio"
+    },
+    {
+     "text": "a₁ = 4, aₙ = aₙ₋₁ + ½",
+     "why": "used addition instead of multiplication"
+    }
+   ],
+   "explanation": "The terms are 4, 2, 1, ½, … so each term is half the previous one, starting from 4."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Savings follow a₁ = 50 and aₙ = aₙ₋₁ + 15, where aₙ is the amount in dollars in week n. How much is saved in week 10?",
+   "answer": "185",
+   "accept": [
+    "$185",
+    "185 dollars"
+   ],
+   "wrong": [
+    {
+     "text": "200",
+     "why": "added 15 ten times instead of nine"
+    },
+    {
+     "text": "150",
+     "why": "multiplied 15 by 10"
+    }
+   ],
+   "explanation": "The explicit form is aₙ = 50 + 15(n − 1), so a₁₀ = 50 + 15·9 = 185.",
+   "unit": "dollars"
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M1.F-BF.1a",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "In a geometric sequence, a₃ = 12 and a₆ = 96. What is a₁?",
+   "answer": "3",
+   "wrong": [
+    {
+     "text": "6",
+     "why": "used a₂ as the first term after finding ratio 2"
+    },
+    {
+     "text": "1.5",
+     "why": "divided by the ratio twice more than needed"
+    },
+    {
+     "text": "4",
+     "why": "divided by 3, the index difference, instead of using the ratio"
+    }
+   ],
+   "explanation": "From a₃ to a₆ is three steps, so r³ = 96/12 = 8 and r = 2. Then a₁ = 12/2² = 3."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A table gives y = 10, 16, 22, 28 when x = 0, 3, 6, 9. Which model fits, and what is its rate of change?",
+   "answer": "Linear, with a rate of change of 2 per unit of x",
+   "wrong": [
+    {
+     "text": "Linear, with a rate of change of 6 per unit of x",
+     "why": "forgot that the 6 happens over an interval of 3 in x"
+    },
+    {
+     "text": "Exponential, with a growth factor of 1.6",
+     "why": "divided the first two outputs"
+    },
+    {
+     "text": "Exponential, because the values keep growing",
+     "why": "assumed any increasing data is exponential"
+    }
+   ],
+   "explanation": "Equal x-steps of 3 give equal y-changes of 6, so the data is linear with rate 6/3 = 2."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A table gives y = 2, 6, 18, 54 for x = 0, 1, 2, 3. Which model fits?",
+   "answer": "Exponential, because each y-value is 3 times the previous one",
+   "wrong": [
+    {
+     "text": "Linear, because y increases every time x increases by 1",
+     "why": "assumed any increasing data is linear"
+    },
+    {
+     "text": "Linear, because the first change is 4",
+     "why": "checked only the first change, not equal changes"
+    },
+    {
+     "text": "Exponential, because every y-value is even",
+     "why": "used a number property instead of a constant ratio"
+    }
+   ],
+   "explanation": "The changes are 4, 12, 36 (not constant), but the ratios are 6/2 = 18/6 = 54/18 = 3, so the data is exponential."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which situation is best modeled by an exponential function?",
+   "answer": "A town's population grows 3% every year",
+   "wrong": [
+    {
+     "text": "A plant grows 2 cm every week",
+     "why": "a constant amount each week is linear"
+    },
+    {
+     "text": "A taxi charges $3 plus $2 per mile",
+     "why": "a flat fee plus a constant rate is linear"
+    },
+    {
+     "text": "A candle burns 0.5 inch every hour",
+     "why": "a constant amount each hour is linear"
+    }
+   ],
+   "explanation": "A fixed percent change means the quantity is multiplied by a constant factor, so it is exponential. The others change by a fixed amount."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A video has 100, 150, 225, and 337.5 views on four consecutive days. Which model is most appropriate, and why?",
+   "answer": "Exponential, because views are multiplied by 1.5 each day",
+   "wrong": [
+    {
+     "text": "Linear, because views rise by 50 each day",
+     "why": "looked only at the first change"
+    },
+    {
+     "text": "Linear, because views increase every day",
+     "why": "assumed any increase means linear"
+    },
+    {
+     "text": "Exponential, because views double each day",
+     "why": "misidentified the ratio as 2"
+    }
+   ],
+   "explanation": "The changes are 50, 75, 112.5 (not constant) while the ratios 150/100 = 225/150 = 337.5/225 = 1.5 are constant."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.1",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "An exponential model has values 5, 20, and 80 at x = 0, 2, and 4. What is the value at x = 5?",
+   "answer": "160",
+   "accept": [
+    "160.0"
+   ],
+   "wrong": [
+    {
+     "text": "5120",
+     "why": "used the two-step ratio of 4 as the yearly factor"
+    },
+    {
+     "text": "320",
+     "why": "multiplied 80 by 4 instead of by 2"
+    }
+   ],
+   "explanation": "The ratio over 2 units is 4, so the factor per unit is 2 and y = 5·2ˣ. At x = 5, y = 5·32 = 160."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Compare f(x) = 100x and g(x) = 2ˣ. What is the smallest whole number x for which g(x) > f(x)?",
+   "answer": "10",
+   "accept": [
+    "x = 10"
+   ],
+   "wrong": [
+    {
+     "text": "9",
+     "why": "g(9) = 512 is still less than f(9) = 900"
+    },
+    {
+     "text": "1",
+     "why": "only compared the very first values"
+    }
+   ],
+   "explanation": "g(9) = 512 < 900, but g(10) = 1024 > 1000. After that g keeps doubling while f grows by only 100."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Compare h(x) = x² and g(x) = 2ˣ. Starting at which whole number x does g(x) stay greater than h(x) for all larger x?",
+   "answer": "x = 5",
+   "wrong": [
+    {
+     "text": "x = 3",
+     "why": "g(3) = 8 is actually less than h(3) = 9"
+    },
+    {
+     "text": "x = 4",
+     "why": "g(4) = 16 only equals h(4), not exceeds it"
+    },
+    {
+     "text": "x = 1",
+     "why": "g(1) > h(1), but g falls behind again after that"
+    }
+   ],
+   "explanation": "The pairs are (3: 8 vs 9), (4: 16 vs 16), (5: 32 vs 25), (6: 64 vs 36). After x = 4 the exponential keeps pulling ahead."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which function will eventually have the greatest values as x grows large: f(x) = 1000x + 500, g(x) = 5x², or h(x) = 2ˣ?",
+   "answer": "h(x) = 2ˣ",
+   "wrong": [
+    {
+     "text": "f(x) = 1000x + 500",
+     "why": "focused on the largest coefficient"
+    },
+    {
+     "text": "g(x) = 5x²",
+     "why": "assumed a squared term always wins"
+    },
+    {
+     "text": "They stay close together",
+     "why": "assumed all three grow at about the same rate"
+    }
+   ],
+   "explanation": "Exponential functions multiply by a fixed factor each step, so they eventually exceed any linear or quadratic function."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Saver A starts with $50 and adds $20 each week: A(w) = 50 + 20w. Saver B starts with $5 and triples the amount each week: B(w) = 5·3ʷ. In which week does B first have more money than A?",
+   "answer": "Week 3",
+   "wrong": [
+    {
+     "text": "Week 2",
+     "why": "B has 45 and A has 90 at week 2"
+    },
+    {
+     "text": "Week 4",
+     "why": "that is true, but B passed A a week earlier"
+    },
+    {
+     "text": "Week 10",
+     "why": "divided 50 by 5 instead of comparing the values"
+    }
+   ],
+   "explanation": "At w = 2: B = 45, A = 90. At w = 3: B = 135, A = 110, so B first exceeds A in week 3."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The cost of a party is f(x) = 15x + 40 dollars for x guests. What does the 40 represent?",
+   "answer": "The fixed fee when there are 0 guests",
+   "wrong": [
+    {
+     "text": "The cost per guest",
+     "why": "confused the constant with the rate of change"
+    },
+    {
+     "text": "The cost for 15 guests",
+     "why": "misread the coefficient as the constant"
+    },
+    {
+     "text": "The cost for 40 guests",
+     "why": "read 40 as an input"
+    }
+   ],
+   "explanation": "In f(x) = ax + b, b = f(0). Here, 40 is the cost with no guests, the fixed fee."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A savings balance is g(t) = 200(1.05)ᵗ dollars after t years. What does 1.05 represent?",
+   "answer": "The balance is multiplied by 1.05 each year",
+   "wrong": [
+    {
+     "text": "The balance increases by $1.05 each year",
+     "why": "treated the growth factor as an amount"
+    },
+    {
+     "text": "The balance after one year is $1.05",
+     "why": "read 1.05 as the output"
+    },
+    {
+     "text": "The balance grows 105% each year",
+     "why": "treated the factor as the rate"
+    }
+   ],
+   "explanation": "In g(t) = a·bᵗ, b is the growth factor per year. 1.05 means the balance grows 5% each year."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The medicine remaining in a patient is M(h) = 80(0.9)ʰ mg after h hours. Which statement is correct?",
+   "answer": "The patient starts with 80 mg and loses 10% each hour",
+   "wrong": [
+    {
+     "text": "The patient starts with 90 mg and loses 80% each hour",
+     "why": "swapped a and b"
+    },
+    {
+     "text": "The patient starts with 80 mg and loses 90% each hour",
+     "why": "used the decay factor as the loss rate"
+    },
+    {
+     "text": "The patient starts with 80 mg and loses 0.9 mg each hour",
+     "why": "treated decay as a fixed amount"
+    }
+   ],
+   "explanation": "a = 80 is the starting amount. b = 0.9 = 1 − 0.10, so 10% is lost each hour."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A tank holds W(m) = 120 − 3.5m gallons after m minutes. Which interpretation is correct?",
+   "answer": "The tank starts with 120 gallons and drains 3.5 gallons per minute",
+   "wrong": [
+    {
+     "text": "The tank starts with 3.5 gallons and drains 120 gallons per minute",
+     "why": "swapped the intercept and the rate"
+    },
+    {
+     "text": "The tank starts with 120 gallons and drains 3.5% each minute",
+     "why": "treated a constant rate as a percent"
+    },
+    {
+     "text": "The tank starts with 120 gallons and is empty after 3.5 minutes",
+     "why": "confused the rate with the time to empty"
+    }
+   ],
+   "explanation": "At m = 0, W = 120, and each minute subtracts 3.5 gallons, so the slope is −3.5 gallons per minute."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Two accounts are A(t) = 1200(1.03)ᵗ and B(t) = 1200(1.05)ᵗ. Which statement is correct?",
+   "answer": "They start with the same amount, and B grows at a faster percent rate",
+   "wrong": [
+    {
+     "text": "B starts with more because 1.05 > 1.03",
+     "why": "confused the growth factor with the initial value"
+    },
+    {
+     "text": "A grows faster because 1.03 is closer to 1",
+     "why": "misjudged which factor is larger"
+    },
+    {
+     "text": "They add the same dollar amount each year",
+     "why": "treated exponential growth as linear"
+    }
+   ],
+   "explanation": "Both have a = 1200, so they start at $1200. Growth rates are 3% and 5%, so B grows faster."
+  },
+  {
+   "cluster": "MODEL",
+   "standard": "NC.M1.F-LE.5",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A value follows g(x) = a·bˣ. It starts at 40 and decays by 15% per period. What is g(2)?",
+   "answer": "28.9",
+   "accept": [
+    "28.90"
+   ],
+   "wrong": [
+    {
+     "text": "0.9",
+     "why": "used 0.15 as the factor instead of 0.85"
+    },
+    {
+     "text": "28",
+     "why": "subtracted 6 twice, treating decay as linear"
+    }
+   ],
+   "explanation": "a = 40 and b = 1 − 0.15 = 0.85, so g(2) = 40(0.85)² = 40(0.7225) = 28.9."
+  }
+ ]
+}

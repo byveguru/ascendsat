@@ -1,0 +1,166 @@
+{
+ "grade": 7,
+ "standardsSource": "NC ELA SCOS 2017 (in force through 2026-27)",
+ "passages": [
+  {
+   "id": "ms-ela7-p01",
+   "grade": 7,
+   "kind": "literary",
+   "title": "The Fourth Measure",
+   "topic": "a cello student and her little brother",
+   "text": "Imani had practiced the same four measures for forty minutes, and each time her bow slid off the note like a boot on ice. The audition was Friday. She pressed her lips together and started again.\n\nFrom the doorway, her little brother Theo watched with a bowl of cereal. “That was better,” he said.\n\n“It wasn't,” Imani snapped. “Please go away.”\n\nTheo shrugged and wandered off, but he left the door open, and a minute later she heard him in the hall, humming the melody a half step flat. She nearly threw her bow. Instead she grabbed her phone and recorded herself, planning to prove to everyone, mostly to herself, how terrible she sounded.\n\nWhen she played the recording back, she frowned. The first three measures were steady. The trouble came in the fourth, where her shoulders rose toward her ears and her fingers hurried, as if the music were chasing her. Each time she made a mistake, she stiffened, and the stiffness caused the next mistake.\n\n“So it isn't the notes,” she said aloud.\n\nTheo reappeared, still humming. “Told you.”\n\n“You told me it was better. It wasn't.”\n\n“It was better when you weren't mad,” he said, which was annoyingly specific.\n\nImani laughed in spite of herself. She set the phone down, rolled her shoulders back, and breathed out slowly before the fourth measure. The note rang clear, warm and round, like a bell. She played it again to be sure it was no accident.\n\n“Okay,” she said. “You can stay. But you have to hum it in tune.”\n\nTheo grinned. “No promises.”",
+   "wordCount": 264,
+   "readability": {
+    "fleschKincaid": 4.9,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p02",
+   "grade": 7,
+   "kind": "literary",
+   "title": "Two Entries from Nora's Journal",
+   "topic": "a new student who finds a club",
+   "text": "Monday, September 9\n\nI've decided this town is the quietest place on Earth. Our moving boxes are still stacked in the hall like a cardboard fortress, and the only sound at night is the refrigerator. At my old school I knew everyone's name, and everyone knew mine. Today I ate lunch beside a girl who studied her sandwich as though it held the secrets of the universe. She did not look up once. I counted: nine bites, zero words.\n\nMom says to give it time. Time, in my experience, is just the thing adults offer when they have no actual solution.\n\nFriday, October 11\n\nSomething strange happened. The sandwich girl, whose name is Priya, turns out to run the school's tiny astronomy club, which meets in a supply closet because the real classroom has a leaky ceiling. Yesterday she finally spoke to me. “You keep staring at my notebook,” she said. I had been; she draws planets in the margins with ridiculous precision. I told her so, and she turned bright red and then handed me a spare pencil.\n\nNow I belong to a club of exactly four, and we meet beside mops and a stack of folding chairs. Last night we carried a telescope onto the baseball field, and Priya pointed out Jupiter, a small steady dot with a pale moon beside it. I remembered my count from the first day: nine bites, zero words. Funny how a closet full of mops can turn out to be the loudest place I've ever been.\n\nI'm not saying the town is perfect. But I may have to revise my opinion of the quiet.",
+   "wordCount": 272,
+   "readability": {
+    "fleschKincaid": 6.0,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p03",
+   "grade": 7,
+   "kind": "literary",
+   "title": "Eleven Seconds",
+   "topic": "two partners and a collapsed bridge",
+   "text": "The bridge held for eleven seconds. Kenji counted them silently, watching Mr. Alvarez add stack after stack of textbook weights to the center span. At the next stack, there was a crack. A splinter. A sag. Then the whole structure folded in on itself and settled on the table in a heap of glue-stiff sticks.\n\nThe gym was quiet except for a few polite claps. Kenji stared at the wreckage. Three weeks of work. He had measured every joint twice and had stayed up on Sunday night to sand the supports smooth. He felt as though someone had pulled out the floor.\n\n“We should have used the triangle pattern,” he muttered. “I knew it. I said it in week one.”\n\nDara was already kneeling beside the table, holding a broken piece up to the light. “Look at this,” she said. “The break is right here, at the joint, but the sticks aren't even cracked. The glue let go before the wood did.”\n\n“That's worse. That means we messed up.”\n\n“It means we learned which part was weak,” Dara said cheerfully. She flipped open her notebook and began sketching. “If we'd tested it a different way, we might never have known. Now we know exactly what to fix.”\n\nKenji wanted to stay annoyed, because annoyance felt safer than hope. But Dara's drawing already showed a joint reinforced with a small, paper-thin brace, and he had to admit it looked clever.\n\n“Fine,” he sighed, taking the pencil. “But the triangles are going in, too.”\n\n“Obviously,” Dara said, and handed over the rest of the notebook.",
+   "wordCount": 265,
+   "readability": {
+    "fleschKincaid": 4.6,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p04",
+   "grade": 7,
+   "kind": "poem",
+   "title": "Paper Route",
+   "topic": "a newspaper carrier at dawn",
+   "text": "The street is a river of gray at six,\nand I am the small boat riding it,\nmy bicycle ticking like a pocket watch,\neach house a dock where a porch light waits.\nNo one is awake to see me pass.\n\nI fold the news into hard white bricks\nand toss them, one by one, to sleeping steps.\nThump. Thump. A dog lifts one ear,\ndecides the world has not yet begun,\nand lays it back upon his paws.\n\nMy hands are numb; my breath is smoke.\nThe sky keeps its peach-colored secret\nlow behind the water tower, patient,\nas if it, too, were saving up\na gift for anyone who rises early.\n\nThen the first window glows, gold as a yolk,\nand a stranger waves from a kitchen.\nI wave back with a cold, bright hand.\nTomorrow I will complain about the dark,\nbut today I was the first to see the day arrive.",
+   "wordCount": 156,
+   "readability": {
+    "fleschKincaid": 4.3,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p05",
+   "grade": 7,
+   "kind": "informational",
+   "title": "The Escape Artists of the Sea",
+   "topic": "why octopuses escape from tanks",
+   "text": "Aquarium keepers often tell stories about octopuses that disappear from their tanks overnight. A loose lid, they say, is an invitation, and a clever octopus will accept it. Behind these stories is real science about how the animals are built and how they think.\n\nThe first secret is the octopus's body. It has no bones. Its only hard part is a small, parrot-like beak, and everything else is soft, pliable muscle. Because the beak is the widest rigid piece, an octopus can often pour its body through any opening the beak can fit. A gap that looks far too narrow for a creature of its size may be more than enough.\n\nThe second secret is disguise. The octopus's skin contains thousands of tiny pigment sacs called chromatophores. By stretching or squeezing the muscles around these sacs, the animal can change color in moments. It can also raise bumps on its skin to match the texture of rock or coral. In the wild, this lets an octopus seem to vanish against a reef.\n\nThe third secret is the octopus's mind. In laboratory tests, octopuses have learned to unscrew jar lids to reach food and to find their way through simple mazes. Much of an octopus's nervous system is spread through its arms, so each arm can explore and react on its own. For an animal this curious, a latch may be a puzzle worth solving.\n\nFor this reason, modern aquariums rely on heavy, secure lids and give their octopuses plenty of toys and puzzles to keep busy. Keepers have learned to think like the animal they protect: if its beak fits through, all of it can follow.",
+   "wordCount": 277,
+   "readability": {
+    "fleschKincaid": 7.1,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p06",
+   "grade": 7,
+   "kind": "informational",
+   "title": "Why the Sky Changes Color",
+   "topic": "how sunlight scatters in the atmosphere",
+   "text": "On a clear afternoon, the sky seems like a plain blue ceiling. Yet at sunset the same sky may blaze orange and pink. The sky itself has not been repainted. What changes is the path that sunlight takes to reach your eyes.\n\nSunlight looks white, but it is really a mixture of all the colors of the rainbow. Each color travels as a wave of a different length: red light has long waves, and blue light has short ones. When sunlight enters the atmosphere, it collides with gas molecules, tiny bits of air that are much smaller than the light waves. These collisions scatter, or bounce, the light in every direction. Short blue waves are scattered far more strongly than long red waves.\n\nAt midday, then, blue light is bounced all across the sky, and wherever you look, some of it is headed toward you. Violet light scatters even more, but the sun gives off less of it and human eyes are less sensitive to it, so the sky appears blue.\n\nAt sunrise and sunset, by contrast, the sun sits low on the horizon. Its light must cross a much thicker slice of atmosphere before it reaches you. Along that long route, most of the blue light is scattered out of the beam. What remains are the longer waves, orange and red, which is why the horizon glows with warm color. Dust and tiny droplets in the air can deepen those colors even more.\n\nThe blue of noon and the red of evening therefore share a single cause: sunlight sorted by the air it passes through.",
+   "wordCount": 266,
+   "readability": {
+    "fleschKincaid": 6.5,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p07",
+   "grade": 7,
+   "kind": "informational",
+   "title": "A Journey No Single Butterfly Finishes",
+   "topic": "monarch butterfly migration and milkweed",
+   "text": "Each fall, monarch butterflies across eastern North America begin a journey south toward the mountain forests of central Mexico. Their paper-thin wings weigh almost nothing, yet the insects can travel thousands of miles to a place they have never seen.\n\nWhat makes the trip remarkable is that no single butterfly completes the whole yearly circuit. The monarchs that fly south in autumn belong to a special generation that lives for months instead of weeks. When spring arrives, they head north, lay eggs, and die. Their offspring carry on northward, and over several short-lived generations, the monarchs' descendants spread across the continent. By late summer, a new long-lived generation is born, and it turns south again.\n\nThis cycle depends on one plant. Monarch caterpillars eat only milkweed, and females lay their eggs on its leaves. The plant also contains chemicals that make the caterpillars taste unpleasant to many predators, which gives them a measure of protection.\n\nUnfortunately, milkweed has become harder to find. As meadows have been replaced by farms, roads, and neighborhoods, the places where monarchs can raise their young have shrunk, and scientists worry about declining numbers.\n\nThe encouraging news is that ordinary people can help. A school yard or backyard garden that includes milkweed for caterpillars and flowers for adult butterflies can serve as a small refuge along the route. A monarch may be tiny, but keeping its journey possible takes many hands, and every garden counts.",
+   "wordCount": 242,
+   "readability": {
+    "fleschKincaid": 9.8,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela7-p08",
+   "grade": 7,
+   "kind": "informational",
+   "title": "Give Us Twenty Minutes to Read",
+   "topic": "a student argues for silent reading time",
+   "text": "Every school day, our schedule has room for announcements, locker breaks, and a long lunch, but not a single minute set aside for reading a book of our own choice. That should change. I propose a daily twenty-minute silent reading period for every student at Lakeview Middle School.\n\nFirst, reading builds skill. Educators have long observed that students who read often tend to know more words and understand harder texts. Twenty minutes a day is short enough to fit into the schedule, yet over a school year it adds up to many hours of practice that most students would not otherwise get.\n\nSecond, a quiet reading period would give students a calm break. Our school librarian reports that the library is busiest at lunch, when students arrive looking for something peaceful to do. That suggests many of us want a quieter part of the day.\n\nThird, the evidence from other schools is clear. My cousin's school added a silent reading period last year, and its test scores went up afterward. That proves that the same thing will happen here. Besides, every student who reads for twenty minutes a day will become a straight-A student, and everyone I have talked to agrees with me.\n\nSome people will say we cannot spare the time. But our schedule already includes minutes for activities that matter far less than reading. If it can fit those in, it can fit reading. Lakeview students deserve the chance, and our teachers and librarian deserve a school that values books.",
+   "wordCount": 254,
+   "readability": {
+    "fleschKincaid": 7.7,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  }
+ ]
+}

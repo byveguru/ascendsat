@@ -1,0 +1,166 @@
+{
+ "grade": 6,
+ "standardsSource": "NC ELA SCOS 2017 (in force through 2026-27)",
+ "passages": [
+  {
+   "id": "ms-ela6-p01",
+   "grade": 6,
+   "kind": "literary",
+   "title": "Slow Work",
+   "topic": "a boy and an overgrown garden plot",
+   "text": "Tomas stared at the rectangle of dirt that the community garden had assigned him. Weeds crowded every corner, and a rusted rake leaned against the fence like it had given up. Around him, other plots overflowed with tomatoes and sunflowers.\n\n\"Nobody has planted there in years,\" said Mrs. Okafor from the next plot, not looking up from her beans. \"Most folks wouldn't have taken it.\"\n\n\"I didn't exactly choose it,\" Tomas mumbled. His family had moved to town in August, and the garden was his mother's idea. She thought it would help him meet people. So far it had only helped him meet dandelions.\n\nHe yanked at a weed. It snapped off at the top, and the root stayed buried. He yanked again, harder, and tumbled backward into the dirt. Somewhere nearby, someone laughed. Tomas felt his face burn.\n\nBut when he sat up, Mrs. Okafor was holding out a small trowel. \"Weeds are stubborn,\" she said. \"You have to dig down to the root and loosen the soil around it first. Slow work beats angry work.\"\n\nTomas took the trowel. He knelt, scraped carefully, and lifted out an entire weed, root and all, dangling like a pale white carrot. He grinned before he could stop himself.\n\nBy sunset, a patch the size of a doormat was clear. Tomas leaned the rake straight against the fence, stepped back, and for the first time since August, he did not wish to be somewhere else.",
+   "wordCount": 243,
+   "readability": {
+    "fleschKincaid": 5.0,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p02",
+   "grade": 6,
+   "kind": "literary",
+   "title": "Worst Partner Ever",
+   "topic": "a science fair diary entry",
+   "text": "Wednesday, 9:40 p.m.\n\nI have decided that working with Devon is the worst thing to happen to me this year. Our science fair project is supposed to test which paper towel soaks up the most water. Devon showed up at my house with a ruler, a stopwatch, and four rolls of paper towels, and then he spent twenty minutes arranging them in a perfect row. Twenty minutes! I wanted to pour the water and be done.\n\n\"We need the same amount of water each time,\" he kept saying. \"Otherwise the test isn't fair.\"\n\nI rolled my eyes so hard I think I saw my own brain. But I measured the water anyway, and I will admit something here, where nobody can read it. When we finished, the cheap brand beat the expensive one by a mile, and my guess had been the opposite. If we had just splashed water around the way I wanted to, I would have written the wrong conclusion on our poster and been proud of it.\n\nDevon didn't even gloat. He just wrote the numbers in his tiny, neat handwriting and said, \"Good thing we checked.\"\n\nMaybe being careful isn't the same as being boring. I'm not telling him that, though. Tomorrow, I'll just ask if he wants to go first when we practice our presentation.",
+   "wordCount": 222,
+   "readability": {
+    "fleschKincaid": 6.1,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p03",
+   "grade": 6,
+   "kind": "literary",
+   "title": "The Overdue Book",
+   "topic": "a girl returns a library book",
+   "text": "Nia found the book under her bed on Saturday morning, its cover coated with dust and one stray sock. The due date had passed seven weeks ago. She had been avoiding the library ever since, taking a longer route to school so she would not walk past its glass doors.\n\nShe considered her options. She could pay the fine, but fines cost money, and she had spent her allowance on a skateboard helmet. She could hide the book at the bottom of the return bin and run. Or she could say nothing and keep it forever, which seemed like stealing with extra steps.\n\nAt two o'clock she pushed through the library doors, her heart thumping like a drum solo. The librarian, a tall man with round glasses, looked up from his desk.\n\n\"I'm very late,\" Nia blurted. \"Seven weeks. I can't pay the fine yet, but I can work it off, or, um, something.\"\n\nThe librarian smiled slowly. He slid the book across the desk, checked it in, and glanced at the screen. \"It appears our system forgave fines under five dollars last month. You owe nothing.\"\n\nNia's shoulders dropped an inch. She had spent seven weeks dreading a problem that had disappeared on its own.\n\n\"Still,\" he added, \"we have a shelf of picture books that needs sorting.\"\n\nShe stayed until closing, sorting animals from alphabets, surprised to find that she was no longer in a hurry to leave.",
+   "wordCount": 240,
+   "readability": {
+    "fleschKincaid": 5.9,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p04",
+   "grade": 6,
+   "kind": "poem",
+   "title": "Morning Bus",
+   "topic": "a nervous student on the way to a test",
+   "text": "The bus sighs open at my corner stop,\nits yellow side still damp with dawn.\nThe driver nods, and I nod back,\nthen climb the steps with a backpack\nheavy as a sack of stones.\n\nThere is a test in second period, and I slept badly.\nI run the facts like a song in my head,\nbut the song keeps skipping at the chorus,\nand the words slip off and hide.\nMy stomach does a slow, small flip.\n\nThen Jada, two seats up, turns around\nand slides a folded note across the seat:\na sleepy sun wearing sunglasses.\nUnderneath, it says, You've got this.\nShe does not say a word.\n\nThe stones in my backpack\nseem to lose their weight.\nThe bus rolls on, and I am smiling\nat a sun in sunglasses,\nready for whatever the day will bring.",
+   "wordCount": 140,
+   "readability": {
+    "fleschKincaid": 4.4,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p05",
+   "grade": 6,
+   "kind": "informational",
+   "title": "The Waggle Dance",
+   "topic": "how honeybees share where food is",
+   "text": "A honeybee colony may hold tens of thousands of bees, yet no single bee is in charge. Even so, the colony finds flowers quickly. The secret is that bees communicate, and one of their most remarkable methods is a movement called the waggle dance.\n\nWhen a forager bee discovers a patch of flowers rich in nectar, she flies back to the hive. Inside, on the dark, upright surface of the honeycomb, she walks a short, straight line while shaking her body from side to side. Then she circles back to her starting point and repeats the pattern.\n\nThe dance carries two messages. The angle of the straight run, measured from straight up, shows the direction of the flowers compared with the sun. If the bee waggles directly upward, the flowers lie toward the sun. The length of the waggle shows the distance: a longer waggle means the flowers are farther away.\n\nNearby bees touch the dancer with their antennae and pick up the scent of the flowers clinging to her body. Then they fly out to find the same patch. Scientists have tested the system by moving food to new locations and watching whether the dancers' messages changed. They did.\n\nBecause of the dance, a hive can send workers to the best food sources quickly instead of leaving every bee to wander alone. It is a striking example of how a group, by sharing information, can accomplish what individuals could never manage by themselves.",
+   "wordCount": 244,
+   "readability": {
+    "fleschKincaid": 7.4,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p06",
+   "grade": 6,
+   "kind": "informational",
+   "title": "Survivors of the Tide Pool",
+   "topic": "how shore animals survive low tide",
+   "text": "Twice a day, the ocean slips away from rocky shores and returns. The strip of coast uncovered at low tide is called the intertidal zone, and it may be one of the harshest homes on Earth. Animals there must survive crashing waves, baking sun, and long stretches without water.\n\nTake the barnacle. As an adult it glues itself headfirst to a rock and never moves again. When the tide goes out, it pulls its shell plates tightly shut, trapping a drop of seawater inside. That tiny reserve keeps the barnacle moist until the waves return.\n\nSea stars use a different strategy. Their tough, bumpy skin helps slow water loss, and many gather in shady cracks or in small pools left behind by the tide. Hundreds of tiny tube feet let them grip the rock even when waves pound.\n\nMussels solve the wave problem with threads. They produce strong, silky fibers that anchor each shell to the rock and to its neighbors, so a whole bed of mussels holds together like a crowd of people linking arms.\n\nVisiting a tide pool is a rare chance to watch such survival up close. Anyone who explores one should step carefully, touch gently, and leave every creature where it was found. These animals have worked hard to live in this difficult place, and they deserve our respect.",
+   "wordCount": 223,
+   "readability": {
+    "fleschKincaid": 6.9,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p07",
+   "grade": 6,
+   "kind": "informational",
+   "title": "Why the Moon Changes Shape",
+   "topic": "the causes of the Moon's phases",
+   "text": "Each night the Moon seems to change shape. One evening it is a thin curve, a week later a half circle, and later still a bright, full disk. Many people believe Earth's shadow causes these changes. In fact, the real explanation has to do with the Moon's position.\n\nThe Moon makes no light of its own. It shines because its surface reflects sunlight, much as a mirror bounces light from a lamp. At any moment, the Sun lights half of the Moon, just as it lights half of Earth.\n\nThe Moon also travels in a huge loop around Earth, and one trip takes about a month. As it moves, we view its lit half from changing angles. When the Moon is between Earth and the Sun, the lit side faces away from us, and we see almost nothing. This phase is called the new moon. About two weeks later, the Moon is on the far side of Earth from the Sun, and the whole lit side faces us. That is the full moon.\n\nIn between, we see only part of the lit half. The visible shape grows, which is called waxing, from new moon to full moon. Then it shrinks, which is called waning, back toward new moon.\n\nEarth's shadow does fall on the Moon sometimes, but that event is a lunar eclipse. It happens only now and then and lasts a short time, so it cannot explain the steady cycle of phases.",
+   "wordCount": 243,
+   "readability": {
+    "fleschKincaid": 4.7,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-p08",
+   "grade": 6,
+   "kind": "informational",
+   "title": "Keep the Library Open",
+   "topic": "an argument for longer library hours",
+   "text": "Our school library should stay open for one hour after the last bell. Right now it locks its doors the moment classes end, and that is a mistake.\n\nFirst, many students lack a quiet place to work at home. In a survey by the student council, a majority of the sixth graders who responded said they struggle to find a calm spot to do homework. The library is the quietest room in the building.\n\nSecond, the library has the tools students need. It offers computers, printers, and shelves of books. A student who cannot print at home must now hand in written work or skip the assignment altogether.\n\nThird, an open library would raise test scores across the entire school. Everyone knows that students who spend more time in libraries become better at every subject.\n\nSome people say it would cost too much to keep a librarian for an extra hour. However, the school already pays a librarian for a full workday, and the parent association has offered to send volunteers on weekday afternoons.\n\nFor these reasons, the principal should extend library hours. It is a small change that would make a big difference.",
+   "wordCount": 194,
+   "readability": {
+    "fleschKincaid": 7.0,
+    "note": "estimate from sentence and word length; not a Lexile measure"
+   },
+   "lexile": null,
+   "source": "original",
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  }
+ ]
+}

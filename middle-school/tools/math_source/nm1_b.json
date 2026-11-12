@@ -1,0 +1,1019 @@
+{
+ "items": [
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Solve the system by substitution: y = 2x + 1 and 3x + y = 11. What is the solution (x, y)?",
+   "answer": "(2, 5)",
+   "wrong": [
+    {
+     "text": "(5, 2)",
+     "why": "Swapped the order of x and y when writing the answer."
+    },
+    {
+     "text": "(2, 3)",
+     "why": "Found x = 2 correctly but used y = 2x − 1 to get y."
+    },
+    {
+     "text": "(2, 7)",
+     "why": "Found x = 2 but substituted into y = 3x + 1."
+    }
+   ],
+   "explanation": "Substitute: 3x + (2x + 1) = 11, so 5x = 10 and x = 2. Then y = 2(2) + 1 = 5."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Solve the system by elimination: x + y = 9 and x − y = 3. What is the solution (x, y)?",
+   "answer": "(6, 3)",
+   "wrong": [
+    {
+     "text": "(3, 6)",
+     "why": "Swapped x and y in the answer."
+    },
+    {
+     "text": "(12, −3)",
+     "why": "Added the equations to get 2x = 12 but forgot to divide by 2, then used y = 9 − 12."
+    },
+    {
+     "text": "(6, −3)",
+     "why": "Found x = 6 correctly but computed y = 3 − 6 instead of 9 − 6."
+    }
+   ],
+   "explanation": "Adding the equations gives 2x = 12, so x = 6. Then y = 9 − 6 = 3."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A system has equations (A) 2x + y = 7 and (B) x − y = 2. Equation (A) is replaced by the sum of (A) and (B). What is the new equation?",
+   "answer": "3x = 9",
+   "wrong": [
+    {
+     "text": "x + 2y = 5",
+     "why": "Subtracted the equations (A − B) instead of adding them."
+    },
+    {
+     "text": "3x + 2y = 9",
+     "why": "Added the x terms and constants but wrote +y + y = 2y instead of cancelling +y and −y."
+    },
+    {
+     "text": "3x = 5",
+     "why": "Added the left sides correctly but subtracted the right sides."
+    }
+   ],
+   "explanation": "Adding left sides: 2x + y + x − y = 3x. Adding right sides: 7 + 2 = 9. The new equation is 3x = 9, and it has the same solution as the original system."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Solve the system x + 2y = 11 and x = 3y − 4. What is the value of y?",
+   "answer": "3",
+   "accept": [
+    "3.0",
+    "y = 3"
+   ],
+   "explanation": "Substitute x = 3y − 4: 3y − 4 + 2y = 11, so 5y = 15 and y = 3.",
+   "wrong": [
+    {
+     "text": "5",
+     "why": "That is x, not y."
+    }
+   ]
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "At a school play, 3 adult tickets and 2 student tickets cost $37. 2 adult tickets and 4 student tickets cost $38. What is the price of one student ticket?",
+   "answer": "$5",
+   "wrong": [
+    {
+     "text": "$9",
+     "why": "Reported the adult ticket price instead of the student price."
+    },
+    {
+     "text": "$14",
+     "why": "Reported the price of one adult plus one student ticket."
+    },
+    {
+     "text": "$10",
+     "why": "Eliminated adult tickets correctly to get 2s = 10 but forgot to divide by 2."
+    }
+   ],
+   "explanation": "Multiply the first equation by 2: 6a + 4s = 74. Subtract the second: 4a = 36, so a = 9. Then 27 + 2s = 37, so s = 5."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "How many solutions does this system have? 2x − 4y = 6 and x − 2y = 5",
+   "answer": "No solution",
+   "wrong": [
+    {
+     "text": "Exactly one solution",
+     "why": "Assumed two different equations must cross at one point."
+    },
+    {
+     "text": "Infinitely many solutions",
+     "why": "Saw matching x and y coefficients and decided the lines are the same."
+    },
+    {
+     "text": "Cannot tell without a graph",
+     "why": "Did not notice elimination settles it algebraically."
+    }
+   ],
+   "explanation": "Multiply the second equation by 2: 2x − 4y = 10. Compared with 2x − 4y = 6 this is a contradiction, so the parallel lines never meet."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "For what value of k does the system 3x + ky = 12 and x + 2y = 4 have infinitely many solutions?",
+   "answer": "k = 6",
+   "wrong": [
+    {
+     "text": "k = 2",
+     "why": "Copied the y coefficient of the second equation without scaling."
+    },
+    {
+     "text": "k = 3",
+     "why": "Matched k to the x coefficient of the first equation."
+    },
+    {
+     "text": "k = 4",
+     "why": "Matched k to the constant on the right of the second equation."
+    }
+   ],
+   "explanation": "Multiplying x + 2y = 4 by 3 gives 3x + 6y = 12, which is the first equation when k = 6. The equations then describe the same line."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Solve the system 3x + 4y = 1 and 2x + 5y = −4. What is the solution (x, y)?",
+   "answer": "(3, −2)",
+   "wrong": [
+    {
+     "text": "(−2, 3)",
+     "why": "Swapped x and y in the answer."
+    },
+    {
+     "text": "(9, −2)",
+     "why": "Found y = −2 but forgot to divide by 3 when solving 3x = 9."
+    },
+    {
+     "text": "(3, 2)",
+     "why": "Lost the negative sign on y after finding 7y = −14."
+    }
+   ],
+   "explanation": "Multiply the first by 2 and the second by 3: 6x + 8y = 2 and 6x + 15y = −12. Subtract: 7y = −14, so y = −2. Then 3x − 8 = 1 gives x = 3."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In the system x + y = 5 and x − y = 1, the second equation is replaced by the sum of the two equations. Why does the new system have the same solution?",
+   "answer": "Old solutions satisfy the sum, and subtraction recovers the old equation",
+   "wrong": [
+    {
+     "text": "Adding equations always cancels a variable, so the solution stays fixed",
+     "why": "Believed cancelling a variable is the reason; it is only a convenience."
+    },
+    {
+     "text": "The sum of two equations has the same graph as each of the original lines",
+     "why": "Confused the sum with the original lines; it is a different line."
+    },
+    {
+     "text": "Adding creates new solutions, which shifts the point where the lines meet",
+     "why": "Thought adding changes the solution instead of preserving it."
+    }
+   ],
+   "explanation": "A pair satisfying both equations satisfies their sum. Subtracting the first equation from the sum gives the replaced equation back, so the solution sets match."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two functions are given by tables. x: 0, 1, 2, 3, 4. f(x) = x + 2: 2, 3, 4, 5, 6. g(x) = 3x − 4: −4, −1, 2, 5, 8. What is the solution of the system y = x + 2 and y = 3x − 4?",
+   "answer": "(3, 5)",
+   "wrong": [
+    {
+     "text": "(5, 3)",
+     "why": "Swapped x and y when reading the matching row."
+    },
+    {
+     "text": "(2, 4)",
+     "why": "Read f(2) = 4 and did not check that g(2) = 2."
+    },
+    {
+     "text": "(4, 8)",
+     "why": "Used the g(x) value from x = 4 instead of finding where both match."
+    }
+   ],
+   "explanation": "Both functions equal 5 at x = 3, so the graphs meet at (3, 5). Check: 3 + 2 = 5 and 3(3) − 4 = 5."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Solve the system x/2 + y/3 = 7 and 2x − y = 7. What is the solution (x, y)?",
+   "answer": "(8, 9)",
+   "wrong": [
+    {
+     "text": "(9, 8)",
+     "why": "Swapped x and y in the answer."
+    },
+    {
+     "text": "(3, −1)",
+     "why": "Multiplied by 6 but forgot to multiply the 7 on the right side."
+    },
+    {
+     "text": "(7, 7)",
+     "why": "Wrote 2(2x − 7) as 4x − 7 when substituting."
+    }
+   ],
+   "explanation": "Multiply the first equation by 6: 3x + 2y = 42. From the second, y = 2x − 7, so 3x + 4x − 14 = 42, giving x = 8 and y = 9."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A boat travels 24 km downstream in 2 hours and returns the same 24 km upstream in 3 hours. What is the speed of the current?",
+   "answer": "2 km/h",
+   "wrong": [
+    {
+     "text": "10 km/h",
+     "why": "Reported the boat's own speed instead of the current."
+    },
+    {
+     "text": "4 km/h",
+     "why": "Subtracted 12 − 8 = 4 and forgot to halve it."
+    },
+    {
+     "text": "6 km/h",
+     "why": "Halved the downstream speed of 12 km/h."
+    }
+   ],
+   "explanation": "Downstream b + c = 12 and upstream b − c = 8. Subtracting gives 2c = 4, so c = 2 km/h (and b = 10 km/h)."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Solve the system 5x − 2y = 4 and 3x + 2y = 12. What is the value of x + y?",
+   "answer": "5",
+   "wrong": [
+    {
+     "text": "2",
+     "why": "Reported only x."
+    },
+    {
+     "text": "3",
+     "why": "Reported only y."
+    },
+    {
+     "text": "6",
+     "why": "Multiplied x and y instead of adding."
+    }
+   ],
+   "explanation": "Adding the equations: 8x = 16, so x = 2. Then 6 + 2y = 12 gives y = 3, and x + y = 5."
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.5",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The system is 2x + 3y = 12 and x − y = 1. Equation 1 is replaced by Equation 1 + (−2) · Equation 2. The new equation is 5y = k. What is k?",
+   "answer": "10",
+   "accept": [
+    "10.0",
+    "k = 10"
+   ],
+   "explanation": "Equation 1 + (−2)(Equation 2): 2x − 2x + 3y + 2y = 12 − 2, so 5y = 10.",
+   "wrong": [
+    {
+     "text": "14",
+     "why": "Added 2 to 12 instead of subtracting 2."
+    },
+    {
+     "text": "12",
+     "why": "Forgot to change the right side."
+    }
+   ]
+  },
+  {
+   "cluster": "SYS",
+   "standard": "NC.M1.A-REI.6",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Line 1 passes through (0, 4) and (3, 10). Line 2 passes through (0, 13) and (3, 4). What is the x-coordinate of the point where they intersect? Give a fraction or decimal.",
+   "answer": "9/5",
+   "accept": [
+    "1.8",
+    "9/5"
+   ],
+   "explanation": "Line 1: y = 2x + 4. Line 2: slope −3, so y = −3x + 13. Setting equal: 5x = 9, so x = 9/5.",
+   "wrong": [
+    {
+     "text": "3",
+     "why": "Used the x-coordinate 3 of the given points."
+    },
+    {
+     "text": "5/9",
+     "why": "Inverted the fraction."
+    }
+   ]
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.10",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which point lies on the graph of y = 3x − 5?",
+   "answer": "(4, 7)",
+   "wrong": [
+    {
+     "text": "(7, 4)",
+     "why": "Swapped x and y."
+    },
+    {
+     "text": "(4, 17)",
+     "why": "Added 5 instead of subtracting it."
+    },
+    {
+     "text": "(4, 12)",
+     "why": "Left out the −5."
+    }
+   ],
+   "explanation": "At x = 4, y = 3(4) − 5 = 7, so (4, 7) satisfies the equation."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.10",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which equation has the ordered pair (2, −1) as a solution?",
+   "answer": "3x + 2y = 4",
+   "wrong": [
+    {
+     "text": "3x − 2y = 4",
+     "why": "Treated y as 1 instead of −1."
+    },
+    {
+     "text": "2x + 3y = 4",
+     "why": "Swapped the coefficients of x and y."
+    },
+    {
+     "text": "x + 2y = 4",
+     "why": "Dropped the 3 on x when substituting."
+    }
+   ],
+   "explanation": "3(2) + 2(−1) = 6 − 2 = 4. The other equations give 8, 1 and 0."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which description matches the graph of y > 2x − 1?",
+   "answer": "The region above a dashed line",
+   "wrong": [
+    {
+     "text": "The region below a dashed line",
+     "why": "Read y > as shading below."
+    },
+    {
+     "text": "The region above a solid line",
+     "why": "Used a solid boundary for a strict inequality."
+    },
+    {
+     "text": "The region below a solid line",
+     "why": "Made both the shading and boundary mistakes."
+    }
+   ],
+   "explanation": "The boundary y = 2x − 1 is dashed because points on it are not solutions. y greater than the line means the region above."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which inequality has (1, 3) as a solution?",
+   "answer": "y ≥ 2x + 1",
+   "wrong": [
+    {
+     "text": "y < 2x + 1",
+     "why": "Used a strict inequality although (1, 3) lies on the boundary line."
+    },
+    {
+     "text": "y ≤ x + 1",
+     "why": "Computed x + 1 = 2 and compared incorrectly."
+    },
+    {
+     "text": "y > 3x",
+     "why": "Treated the boundary point 3 = 3 as inside a strict inequality."
+    }
+   ],
+   "explanation": "For y ≥ 2x + 1: 3 ≥ 2(1) + 1 = 3 is true. The others give 3 < 3, 3 ≤ 2 and 3 > 3, which are false."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.10",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "The point (−3, k) is on the graph of y = −2x + 1. What is k?",
+   "answer": "7",
+   "accept": [
+    "7.0"
+   ],
+   "explanation": "Substitute x = −3: y = −2(−3) + 1 = 6 + 1 = 7.",
+   "wrong": [
+    {
+     "text": "−5",
+     "why": "Computed −2(3) + 1 using x = 3."
+    }
+   ]
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "At what x-value do the graphs of y = 2x + 1 and y = x + 4 intersect?",
+   "answer": "x = 3",
+   "wrong": [
+    {
+     "text": "x = 5",
+     "why": "Added 1 and 4 instead of subtracting: 2x − x = 1 + 4."
+    },
+    {
+     "text": "x = −3",
+     "why": "Lost the sign when moving terms across."
+    },
+    {
+     "text": "x = 7",
+     "why": "Gave the y-coordinate of the intersection instead of x."
+    }
+   ],
+   "explanation": "Set 2x + 1 = x + 4, so x = 3. The graphs meet at (3, 7)."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Tables for f(x) = x² + 1 and g(x) = x + 1 are: x = −2, −1, 0, 1, 2 with f = 5, 2, 1, 2, 5 and g = −1, 0, 1, 2, 3. Which gives all solutions of f(x) = g(x) shown?",
+   "answer": "x = 0 and x = 1",
+   "wrong": [
+    {
+     "text": "x = 1 and x = 2",
+     "why": "Listed the matching y-values instead of the x-values."
+    },
+    {
+     "text": "x = 1 only",
+     "why": "Stopped after the second match."
+    },
+    {
+     "text": "x = 0 only",
+     "why": "Stopped after the first match."
+    }
+   ],
+   "explanation": "The outputs agree at x = 0 (both 1) and at x = 1 (both 2). Solutions of f(x) = g(x) are the x-values where the graphs meet."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The graphs of y = 3x − 2 and y = −x + 6 cross at (2, 4). Which value solves the equation 3x − 2 = −x + 6?",
+   "answer": "x = 2",
+   "wrong": [
+    {
+     "text": "x = 4",
+     "why": "Used the y-coordinate of the crossing point."
+    },
+    {
+     "text": "x = 6",
+     "why": "Used the y-intercept of the second line."
+    },
+    {
+     "text": "x = −2",
+     "why": "Used the y-intercept of the first line."
+    }
+   ],
+   "explanation": "The solutions of f(x) = g(x) are the x-coordinates of the intersections. Check: 3(2) − 2 = 4 and −2 + 6 = 4."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which point is a solution of the system y > x + 1 and y ≤ −x + 5?",
+   "answer": "(1, 3)",
+   "wrong": [
+    {
+     "text": "(2, 3)",
+     "why": "Treated a point on the dashed line y = x + 1 as a solution."
+    },
+    {
+     "text": "(3, 2)",
+     "why": "Falls below y = x + 1; it fails the first inequality."
+    },
+    {
+     "text": "(0, 6)",
+     "why": "Fell above the solid line y = −x + 5; it fails the second inequality."
+    }
+   ],
+   "explanation": "For (1, 3): 3 > 2 is true and 3 ≤ 4 is true. (2, 3) gives 3 > 3 (false), (3, 2) gives 2 > 4 (false) and (0, 6) gives 6 ≤ 5 (false)."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A solid line passes through (0, 2) and (2, 6). The region on and below the line is shaded. Which inequality matches?",
+   "answer": "y ≤ 2x + 2",
+   "wrong": [
+    {
+     "text": "y ≥ 2x + 2",
+     "why": "Shaded above the line instead of below."
+    },
+    {
+     "text": "y < 2x + 2",
+     "why": "Used a strict inequality for a solid boundary."
+    },
+    {
+     "text": "y ≤ x/2 + 2",
+     "why": "Used run over rise as the slope."
+    }
+   ],
+   "explanation": "The slope is (6 − 2)/(2 − 0) = 2 and the y-intercept is 2. A solid line with shading below gives y ≤ 2x + 2."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.10",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The point (k, 8) is on the graph of y = 2x − 4. What is k?",
+   "answer": "6",
+   "wrong": [
+    {
+     "text": "2",
+     "why": "Added 4 instead of subtracting: 8 = 2k + 4."
+    },
+    {
+     "text": "12",
+     "why": "Added 4 to get 2k = 12 but forgot to divide by 2."
+    },
+    {
+     "text": "4",
+     "why": "Subtracted 4 from 8 and forgot to divide by 2."
+    }
+   ],
+   "explanation": "Set 8 = 2k − 4. Then 2k = 12 and k = 6."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Maya buys x notebooks at $3 each and y pens at $2 each. She spends at most $24 and buys at least 6 items. Which system models this?",
+   "answer": "3x + 2y ≤ 24 and x + y ≥ 6",
+   "wrong": [
+    {
+     "text": "3x + 2y ≥ 24 and x + y ≤ 6",
+     "why": "Reversed both inequality directions."
+    },
+    {
+     "text": "2x + 3y ≤ 24 and x + y ≥ 6",
+     "why": "Swapped the prices of notebooks and pens."
+    },
+    {
+     "text": "3x + 2y < 24 and x + y > 6",
+     "why": "Read \"at most\" and \"at least\" as strict inequalities."
+    }
+   ],
+   "explanation": "Cost: 3x + 2y ≤ 24 because \"at most $24\". Items: x + y ≥ 6 because \"at least 6\"."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.12",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which point is in the solution region of y ≥ −2x + 4 and y < x − 2?",
+   "answer": "(5, 2)",
+   "wrong": [
+    {
+     "text": "(3, 1)",
+     "why": "Lies on the dashed line y = x − 2, which is not included."
+    },
+    {
+     "text": "(2, 4)",
+     "why": "Lies above the dashed line y = x − 2, so it fails the second inequality."
+    },
+    {
+     "text": "(0, 5)",
+     "why": "Satisfies only the first inequality; it is well above y = x − 2."
+    }
+   ],
+   "explanation": "For (5, 2): 2 ≥ −10 + 4 = −6 is true and 2 < 3 is true. Each other point fails y < x − 2."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.11",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Find the x-coordinate where the graphs of y = 4x − 7 and y = −2x + 11 meet.",
+   "answer": "3",
+   "accept": [
+    "3.0",
+    "x = 3"
+   ],
+   "explanation": "Set 4x − 7 = −2x + 11, so 6x = 18 and x = 3."
+  },
+  {
+   "cluster": "GRAPH",
+   "standard": "NC.M1.A-REI.11",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The graphs of f(x) = x² − 4 and g(x) = x + 2 meet at two points. What is the y-coordinate of the intersection point that has a positive x-coordinate?",
+   "answer": "5",
+   "accept": [
+    "5.0",
+    "y = 5"
+   ],
+   "explanation": "Set x² − 4 = x + 2, so x² − x − 6 = 0 and x = 3 or x = −2. For x = 3, y = 3 + 2 = 5.",
+   "wrong": [
+    {
+     "text": "3",
+     "why": "That is the x-coordinate."
+    }
+   ]
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which relation is NOT a function?",
+   "answer": "{(0, 1), (1, 2), (1, 3)}",
+   "wrong": [
+    {
+     "text": "{(1, 4), (2, 4), (3, 4)}",
+     "why": "Thought repeated outputs break the function rule; each input still has one output."
+    },
+    {
+     "text": "{(1, 2), (2, 3), (3, 4)}",
+     "why": "Mistook a one-to-one set for a non-function."
+    },
+    {
+     "text": "{(2, 5), (3, 6), (4, 7)}",
+     "why": "Mistook a set with all different inputs for a non-function."
+    }
+   ],
+   "explanation": "A function gives exactly one output for each input. In the first relation, the input 1 has two outputs (2 and 3)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "If f(x) = 3x² − 2x + 1, what is f(−2)?",
+   "answer": "17",
+   "wrong": [
+    {
+     "text": "41",
+     "why": "Squared 3 times −2 to get 36 instead of squaring −2 first."
+    },
+    {
+     "text": "−7",
+     "why": "Treated (−2)² as −4."
+    },
+    {
+     "text": "9",
+     "why": "Forgot that −2(−2) = +4 and subtracted 4."
+    }
+   ],
+   "explanation": "f(−2) = 3(4) − 2(−2) + 1 = 12 + 4 + 1 = 17."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "If f(x) = 2x − 5, for which x is f(x) = 9?",
+   "answer": "x = 7",
+   "wrong": [
+    {
+     "text": "x = 13",
+     "why": "Found f(9) instead of solving f(x) = 9."
+    },
+    {
+     "text": "x = 2",
+     "why": "Subtracted 5 instead of adding to both sides."
+    },
+    {
+     "text": "x = 14",
+     "why": "Added 5 correctly but forgot to divide by 2."
+    }
+   ],
+   "explanation": "Solve 2x − 5 = 9: 2x = 14, so x = 7."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A plant is 4 cm tall and grows 2 cm each week for 6 weeks, so H(w) = 4 + 2w. What is a reasonable domain for H?",
+   "answer": "0 ≤ w ≤ 6",
+   "wrong": [
+    {
+     "text": "4 ≤ w ≤ 16",
+     "why": "Gave the range of heights as the domain."
+    },
+    {
+     "text": "w ≥ 0",
+     "why": "Ignored the 6-week limit."
+    },
+    {
+     "text": "0 ≤ w ≤ 16",
+     "why": "Mixed the starting week with the final height."
+    }
+   ],
+   "explanation": "The input is weeks, and the growth lasts 6 weeks, so 0 ≤ w ≤ 6. The heights (range) run from 4 to 16 cm."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.6",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A car has traveled 30 miles after 1 hour and 150 miles after 3 hours. What is its average rate of change in miles per hour over this interval?",
+   "answer": "60",
+   "accept": [
+    "60.0",
+    "60 mph"
+   ],
+   "explanation": "(150 − 30)/(3 − 1) = 120/2 = 60 miles per hour.",
+   "wrong": [
+    {
+     "text": "120",
+     "why": "Forgot to divide by the 2-hour interval."
+    },
+    {
+     "text": "50",
+     "why": "Divided 150 by 3."
+    }
+   ],
+   "unit": "mph"
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What are the domain and range of f(x) = x² + 3?",
+   "answer": "Domain: all real numbers; range: y ≥ 3",
+   "wrong": [
+    {
+     "text": "Domain: x ≥ 3; range: all real numbers",
+     "why": "Swapped domain and range."
+    },
+    {
+     "text": "Domain: all real numbers; range: y ≥ 0",
+     "why": "Ignored the vertical shift of 3."
+    },
+    {
+     "text": "Domain: all real numbers; range: y ≤ 3",
+     "why": "Reversed the direction of the range."
+    }
+   ],
+   "explanation": "Any x can be squared, so the domain is all reals. x² ≥ 0, so x² + 3 ≥ 3."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A ball's height in meters is h(t) = −5t² + 20t + 1, where t is seconds. What is the maximum height and when does it occur?",
+   "answer": "21 m at t = 2 s",
+   "wrong": [
+    {
+     "text": "2 m at t = 21 s",
+     "why": "Swapped the height and the time."
+    },
+    {
+     "text": "1 m at t = 0 s",
+     "why": "Used the starting height as the maximum."
+    },
+    {
+     "text": "20 m at t = 2 s",
+     "why": "Forgot the +1 when evaluating h(2)."
+    }
+   ],
+   "explanation": "The vertex is at t = −20/(2 · −5) = 2. Then h(2) = −20 + 40 + 1 = 21."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The volume of water in a tank is V(t) = 500 − 25t liters after t minutes. What does the t-intercept (20, 0) mean?",
+   "answer": "The tank is empty after 20 minutes",
+   "wrong": [
+    {
+     "text": "The tank starts with 20 liters",
+     "why": "Confused the t-intercept with the starting amount."
+    },
+    {
+     "text": "The tank loses 20 liters each minute",
+     "why": "Confused the t-intercept with the rate of change."
+    },
+    {
+     "text": "The tank holds 500 liters at 20 minutes",
+     "why": "Swapped the meaning of V and t."
+    }
+   ],
+   "explanation": "At t = 20, V = 500 − 25(20) = 0, so the tank is empty after 20 minutes."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Tickets cost $12 each, so C(t) = 12t. Only 8 tickets are left. What is the domain of C?",
+   "answer": "{0, 1, 2, ..., 8}",
+   "wrong": [
+    {
+     "text": "{0, 12, 24, ..., 96}",
+     "why": "Listed the outputs (range) instead of the inputs."
+    },
+    {
+     "text": "All real numbers from 0 to 8",
+     "why": "Allowed fractions of a ticket."
+    },
+    {
+     "text": "All real numbers t ≥ 0",
+     "why": "Ignored the limit of 8 and the whole-number requirement."
+    }
+   ],
+   "explanation": "The number of tickets is a whole number from 0 to 8. The costs 0, 12, ..., 96 form the range."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What is the average rate of change of f(x) = x² + 2x over the interval from x = 1 to x = 4?",
+   "answer": "7",
+   "wrong": [
+    {
+     "text": "21",
+     "why": "Found f(4) − f(1) and forgot to divide by 3."
+    },
+    {
+     "text": "−7",
+     "why": "Subtracted in the wrong order in the numerator only."
+    },
+    {
+     "text": "6",
+     "why": "Computed f(4)/4 instead of using both endpoints."
+    }
+   ],
+   "explanation": "f(1) = 3 and f(4) = 24. The average rate of change is (24 − 3)/(4 − 1) = 21/3 = 7."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A plant is 2 cm tall on day 0, 10 cm on day 4 and 14 cm on day 8. Which statement is true?",
+   "answer": "It grew faster on days 0–4: 2 cm/day versus 1 cm/day",
+   "wrong": [
+    {
+     "text": "It grew faster on days 0–4: 8 cm/day versus 4 cm/day",
+     "why": "Used total change instead of change per day."
+    },
+    {
+     "text": "It grew equally fast on both intervals at 1.5 cm/day",
+     "why": "Used the average over days 0–8 for both."
+    },
+    {
+     "text": "It grew faster on days 4–8 because it was taller",
+     "why": "Judged the rate by the height instead of by growth per day."
+    }
+   ],
+   "explanation": "Days 0–4: (10 − 2)/4 = 2 cm/day. Days 4–8: (14 − 10)/4 = 1 cm/day."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "If f(x) = 2x + 3, what is f(a + 1) − f(a)?",
+   "answer": "2",
+   "wrong": [
+    {
+     "text": "1",
+     "why": "Evaluated 2a + 1 + 3 without distributing the 2."
+    },
+    {
+     "text": "2a + 5",
+     "why": "Found f(a + 1) but forgot to subtract f(a)."
+    },
+    {
+     "text": "5",
+     "why": "Evaluated f(1) instead."
+    }
+   ],
+   "explanation": "f(a + 1) = 2a + 2 + 3 = 2a + 5 and f(a) = 2a + 3. Their difference is 2."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A function has f(0) = 1, f(3) = 9 and f(7) = −5. It increases from x = 0 to x = 3 and decreases from x = 3 to x = 7. Which statement is correct?",
+   "answer": "The maximum value is 9, at x = 3",
+   "wrong": [
+    {
+     "text": "The maximum value is 3, at x = 9",
+     "why": "Swapped the input and the output."
+    },
+    {
+     "text": "The maximum value is 1, at x = 0",
+     "why": "Used the y-intercept as the maximum."
+    },
+    {
+     "text": "The function decreases from x = 0 to x = 3",
+     "why": "Reversed increasing and decreasing."
+    }
+   ],
+   "explanation": "The function rises to f(3) = 9 and then falls, so 9 is the maximum value and it occurs at x = 3."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "If f(x) = 3 · 2^x − 4, what is f(3)?",
+   "answer": "20",
+   "accept": [
+    "20.0"
+   ],
+   "explanation": "f(3) = 3 · 8 − 4 = 24 − 4 = 20.",
+   "wrong": [
+    {
+     "text": "14",
+     "why": "Computed 3 · 2 · 3 − 4, treating 2^3 as 2 · 3."
+    },
+    {
+     "text": "212",
+     "why": "Computed (3 · 2)^3 − 4."
+    }
+   ]
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M1.F-IF.6",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "What is the average rate of change of f(x) = 2^x over the interval from x = 1 to x = 4? Give a fraction or decimal rounded to two places.",
+   "answer": "14/3",
+   "accept": [
+    "4.67",
+    "4.666",
+    "4.6667",
+    "14/3"
+   ],
+   "explanation": "f(1) = 2 and f(4) = 16. The rate is (16 − 2)/3 = 14/3 ≈ 4.67.",
+   "wrong": [
+    {
+     "text": "14",
+     "why": "Forgot to divide by 3."
+    },
+    {
+     "text": "7",
+     "why": "Divided by 2, the value of f(1), instead of by 3."
+    }
+   ],
+   "tolerance": 0.01
+  }
+ ]
+}

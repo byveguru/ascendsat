@@ -1,0 +1,327 @@
+{
+ "items": [
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A teacher randomly splits 60 volunteer students into two groups of 30. One group uses a new flashcard app for two weeks and the other group does not. She then compares the two groups' quiz scores. What type of study is this?",
+   "answer": "An experiment",
+   "wrong": [
+    {
+     "text": "A sample survey",
+     "why": "Thinks any study that collects data from students is a survey, ignoring that a treatment was imposed."
+    },
+    {
+     "text": "An observational study",
+     "why": "Overlooks that the teacher assigned the treatment instead of just observing."
+    },
+    {
+     "text": "A census",
+     "why": "Confuses a study of 60 students with collecting data from every member of a population."
+    }
+   ],
+   "explanation": "The teacher imposed a treatment (the app) on randomly assigned groups, which is the defining feature of an experiment."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A club recruits 80 volunteers from its own members. It randomly assigns 40 to a new training routine and 40 to the usual routine, then compares fitness gains. Which conclusion is justified?",
+   "answer": "The routine can be said to cause the difference for these volunteers, but results may not generalize to all students.",
+   "wrong": [
+    {
+     "text": "The routine causes the difference, and the result applies to all students at the school.",
+     "why": "Treats random assignment as if it were random sampling from the whole school."
+    },
+    {
+     "text": "The routine cannot be said to cause the difference, but the result applies to all students.",
+     "why": "Reverses the roles: thinks volunteers give generalization but random assignment gives no causal evidence."
+    },
+    {
+     "text": "The routine cannot be said to cause the difference, and the result does not apply beyond the club.",
+     "why": "Ignores that random assignment is what supports cause and effect."
+    }
+   ],
+   "explanation": "Random assignment supports a cause-and-effect conclusion within the group studied, while generalizing to all students would require a random sample of them."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A survey of 500 randomly selected students finds that students who eat breakfast have higher average GPAs than students who skip it. Which statement is best supported?",
+   "answer": "Eating breakfast is associated with higher GPA, but this study cannot show it causes higher GPA.",
+   "wrong": [
+    {
+     "text": "Eating breakfast causes higher GPA, because the students were randomly selected.",
+     "why": "Confuses random selection with random assignment."
+    },
+    {
+     "text": "Skipping breakfast causes lower GPA, because the sample was large.",
+     "why": "Believes a large sample can establish causation."
+    },
+    {
+     "text": "There is no relationship between breakfast and GPA in this population.",
+     "why": "Misreads the stated higher average GPA as evidence of no relationship."
+    }
+   ],
+   "explanation": "The students chose their own habits, so this is an observational study; it shows an association but other factors could explain it."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A school wants to find out whether a new series of tutoring videos improves test scores. Which plan gives the strongest evidence of cause and effect?",
+   "answer": "Randomly assign 100 students to watch the videos or not, then compare scores.",
+   "wrong": [
+    {
+     "text": "Compare scores of students who chose to watch the videos with scores of those who did not.",
+     "why": "Self-selection means motivated students may both watch and score higher."
+    },
+    {
+     "text": "Ask 100 randomly selected students whether they think the videos helped.",
+     "why": "Collects opinions, not a controlled comparison of outcomes."
+    },
+    {
+     "text": "Compare this year's class using the videos with last year's class without them.",
+     "why": "Other differences between the two classes could explain any change."
+    }
+   ],
+   "explanation": "Only random assignment to treatment and control groups balances other factors, so it is the design that supports a causal conclusion."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "To estimate the proportion of students who walk to school, a simulation draws 20 random samples of 100 students from a population model and records each sample proportion: 0.62, 0.64, 0.60, 0.64, 0.66, 0.64, 0.69, 0.58, 0.62, 0.59, 0.58, 0.61, 0.63, 0.64, 0.64, 0.72, 0.66, 0.55, 0.63, 0.59. Which is the best estimate of the population proportion?",
+   "answer": "0.63",
+   "wrong": [
+    {
+     "text": "0.72",
+     "why": "Uses the largest sample proportion instead of the center."
+    },
+    {
+     "text": "0.55",
+     "why": "Uses the smallest sample proportion instead of the center."
+    },
+    {
+     "text": "0.37",
+     "why": "Reports the complement, 1 − 0.63, the proportion who do not walk."
+    }
+   ],
+   "explanation": "The mean of the 20 sample proportions is about 0.63, which estimates the population proportion."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.4",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A simulation takes 20 random samples from a population of students and records each sample's mean daily screen time in minutes: 40.4, 42.6, 40.7, 38.7, 41.4, 40.7, 39.6, 39.9, 40.2, 41.0, 40.5, 41.1, 43.2, 40.0, 40.0, 40.7, 42.3, 40.2, 42.7, 39.4. Estimate the population mean by finding the mean of these sample means. Round to the nearest tenth.",
+   "answer": "40.8",
+   "accept": [
+    "40.8",
+    "40.77",
+    "40.765"
+   ],
+   "unit": "minutes",
+   "explanation": "The sum of the 20 sample means is 815.3, and 815.3 ÷ 20 = 40.765, which rounds to 40.8."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A school board posts an online poll on the website of the school's sports teams. 900 people respond and 84% favor a longer lunch period. Which is the best evaluation of the 84% as an estimate for all students?",
+   "answer": "It is likely biased because respondents chose themselves, and 900 responses does not remove that bias.",
+   "wrong": [
+    {
+     "text": "It is reliable because 900 responses is a large sample.",
+     "why": "Believes a larger sample size removes bias."
+    },
+    {
+     "text": "It is reliable because the poll was open to every student.",
+     "why": "Treats being open to everyone as the same as random selection."
+    },
+    {
+     "text": "It has a margin of error of 1%, so the true value is between 83% and 85%.",
+     "why": "Applies a margin of error that only describes random sampling variation, not bias."
+    }
+   ],
+   "explanation": "Voluntary response from one website is a biased sampling method, and extra responses just repeat the same bias."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "In a simulation with samples of size 100, sample proportions fall within about ±0.08 of the population proportion. Assuming the margin of error is proportional to 1/√n, about what margin of error should simulated samples of size 400 give?",
+   "answer": "±0.04",
+   "wrong": [
+    {
+     "text": "±0.02",
+     "why": "Divides by 4, as if the margin were inversely proportional to n instead of √n."
+    },
+    {
+     "text": "±0.16",
+     "why": "Multiplies by 2, reversing the effect of a larger sample."
+    },
+    {
+     "text": "±0.08",
+     "why": "Assumes sample size has no effect on the margin of error."
+    }
+   ],
+   "explanation": "Quadrupling n divides the margin of error by √4 = 2, so 0.08 ÷ 2 = 0.04."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.5",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "In an experiment, the treatment group's mean score was 2.0 points higher than the control group's. To see how unusual this is, 40 random reassignments of the same scores to two groups were simulated. The resulting differences in means were: −3.8, −2.3, −2.1, −1.5, −1.5, −1.4, −1.3, −0.9, −0.9, −0.9, −0.8, −0.8, −0.4, −0.4, −0.4, −0.4, −0.1, 0.0, 0.1, 0.2, 0.2, 0.2, 0.4, 0.5, 0.6, 0.6, 0.6, 0.7, 0.7, 1.0, 1.0, 1.1, 1.3, 1.5, 1.7, 1.8, 2.0, 2.0, 2.2, 3.0. What proportion of the simulated differences are at least 2.0? Give a decimal.",
+   "answer": "0.1",
+   "accept": [
+    "0.1",
+    "0.10",
+    "10%",
+    "1/10",
+    "4/40"
+   ],
+   "unit": "",
+   "explanation": "Four of the 40 simulated differences (2.0, 2.0, 2.2, 3.0) are at least 2.0, so the proportion is 4/40 = 0.1."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two groups of students were taught by different methods, and Group A's mean score was 1.2 points higher than Group B's. In a simulation that randomly shuffled the scores between the groups 40 times, 15 of the 40 simulated differences had an absolute value of at least 1.2. What is the best conclusion?",
+   "answer": "A difference this large happens often by chance, so there is not convincing evidence the methods differ.",
+   "wrong": [
+    {
+     "text": "A difference this large is rare by chance, so the methods clearly differ.",
+     "why": "Reverses the finding: 15 of 40 is common, not rare."
+    },
+    {
+     "text": "The simulation proves the two methods have exactly the same effect.",
+     "why": "Treats a lack of evidence as proof of no difference."
+    },
+    {
+     "text": "Because Group A's mean is higher, Group A's method is better.",
+     "why": "Ignores that the difference is within the range chance alone produces."
+    }
+   ],
+   "explanation": "15 of 40 (37.5%) simulated differences were as large, so the observed difference fits ordinary random variation."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.5",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Random samples of commute times were taken at two schools, and School A's sample mean was 6.1 minutes longer than School B's. A simulation assuming no real difference produced 200 differences in sample means, all between −4.1 and 4.1 minutes. What is the best conclusion?",
+   "answer": "The 6.1 minute difference is far outside what chance produced, so the school means likely differ.",
+   "wrong": [
+    {
+     "text": "The 6.1 minute difference is within the simulated range, so chance alone explains it.",
+     "why": "Wrongly places 6.1 inside a range that ends at 4.1."
+    },
+    {
+     "text": "The difference in the two entire populations is exactly 6.1 minutes.",
+     "why": "Treats a sample difference as the exact population difference."
+    },
+    {
+     "text": "The simulation shows School A's commute is longer for every student.",
+     "why": "Confuses a difference in means with a difference for every individual."
+    }
+   ],
+   "explanation": "None of 200 chance-only differences came near 6.1, so it is very unlikely to be due to random sampling alone."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "An article reports that a sports drink improves running times. The study was a randomized experiment with 200 runners, but it was paid for and carried out by the company that sells the drink. What is the most reasonable reason to be cautious about the claim?",
+   "answer": "The study's source has a financial interest in the result, so independent studies should be checked.",
+   "wrong": [
+    {
+     "text": "Random assignment cannot be used to test a drink.",
+     "why": "Falsely thinks beverages cannot be randomly assigned."
+    },
+    {
+     "text": "Experiments can never support a claim about running times.",
+     "why": "Falsely thinks no experiment can test performance."
+    },
+    {
+     "text": "A group of 200 runners can never give useful evidence.",
+     "why": "Falsely thinks 200 participants is automatically too small."
+    }
+   ],
+   "explanation": "Checking the source reveals a possible conflict of interest; the randomized design itself is a strength."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A news site's headline says 'Coffee protects your heart.' It is based on a study of 10,000 adults who reported their own coffee habits, and heart disease was less common among those who drank 3 cups a day. Which criticism is valid?",
+   "answer": "The study was observational, so it shows an association but cannot show coffee causes better heart health.",
+   "wrong": [
+    {
+     "text": "With 10,000 adults, the study can show that coffee causes better heart health.",
+     "why": "Believes a large sample turns an association into a causal claim."
+    },
+    {
+     "text": "The study was an experiment, so the headline is justified.",
+     "why": "Mistakes measuring outcomes for imposing a treatment."
+    },
+    {
+     "text": "Since adults reported their habits, the study found no association.",
+     "why": "Confuses self-reporting with absence of any association."
+    }
+   ],
+   "explanation": "No one was assigned to drink coffee, so other lifestyle differences could explain the result and the cause-and-effect headline is not supported."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.6",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A bar graph compares the pass rates of two schools: School A 52% and School B 56%. The vertical axis starts at 50% instead of 0%, so each bar's visible height is measured from 50%. How many times as tall does School B's bar look compared with School A's bar?",
+   "answer": "3",
+   "accept": [
+    "3",
+    "3.0",
+    "3 times"
+   ],
+   "unit": "times",
+   "explanation": "The visible heights are 56 − 50 = 6 and 52 − 50 = 2, so B's bar looks 6 ÷ 2 = 3 times as tall, though the actual rates are nearly equal."
+  },
+  {
+   "cluster": "INFER",
+   "standard": "NC.M3.S-IC.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A company's ad shows a graph of its sales rising from 40 in October to 80 in December, with the claim 'Sales doubled!' The company's monthly sales for January through September were 100, 96, 92, 90, 88, 90, 86, 84, and 84. What is the best evaluation of the graph?",
+   "answer": "It is misleading because it starts at the low point, and December's 80 is below the January–September average of 90.",
+   "wrong": [
+    {
+     "text": "It is not misleading because both values are plotted accurately.",
+     "why": "Thinks accurately plotted points guarantee a fair graph."
+    },
+    {
+     "text": "It is misleading only because the vertical axis has no units.",
+     "why": "Misses that the problem is the selected time window."
+    },
+    {
+     "text": "It is invalid because sales cannot double in two months.",
+     "why": "Rejects the given data instead of noticing the cherry-picked window."
+    }
+   ],
+   "explanation": "Showing only October to December hides that sales were higher earlier, with a January–September average of 90."
+  }
+ ]
+}

@@ -1,0 +1,1043 @@
+{
+ "items": [
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "On a map grid, a hiking trail runs straight from campsite A(−2, 6) to campsite B(8, −4). A water station is built at the midpoint of the trail. What are the coordinates of the water station?",
+   "answer": "(3, 1)",
+   "wrong": [
+    {
+     "text": "(6, 2)",
+     "why": "Added the coordinates but forgot to divide by 2."
+    },
+    {
+     "text": "(5, −5)",
+     "why": "Found half the difference of the coordinates instead of half the sum."
+    },
+    {
+     "text": "(3, 5)",
+     "why": "Dropped the negative sign on −4 when averaging the y-coordinates: (6 + 4)/2 = 5."
+    }
+   ],
+   "explanation": "Midpoint = ((−2 + 8)/2, (6 + (−4))/2) = (3, 1)."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The midpoint of segment AB is M(3, −1). Endpoint A is (7, 2). What are the coordinates of endpoint B?",
+   "answer": "(−1, −4)",
+   "wrong": [
+    {
+     "text": "(5, 1/2)",
+     "why": "Averaged M and A instead of using M as the average of A and B."
+    },
+    {
+     "text": "(10, 1)",
+     "why": "Added the coordinates of M and A."
+    },
+    {
+     "text": "(−4, −3)",
+     "why": "Subtracted A from M without doubling: (3 − 7, −1 − 2)."
+    }
+   ],
+   "explanation": "Since M is the average of A and B: 3 = (7 + x)/2 gives x = −1, and −1 = (2 + y)/2 gives y = −4."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.6",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The midpoint of segment PQ is (4, −1). Point P is (a, 2) and point Q is (10, b). What is the value of a + b?",
+   "answer": "−6",
+   "accept": [
+    "-6"
+   ],
+   "explanation": "(a + 10)/2 = 4 gives a = −2. (2 + b)/2 = −1 gives b = −4. So a + b = −6.",
+   "wrong": [
+    {
+     "text": "6",
+     "why": "Dropped the negative signs of a and b."
+    },
+    {
+     "text": "−2",
+     "why": "Found only a."
+    }
+   ]
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Parallelogram ABCD has vertices A(1, 1), B(5, 2) and C(7, 6), listed in order around the figure. What are the coordinates of D?",
+   "answer": "(3, 5)",
+   "wrong": [
+    {
+     "text": "(11, 7)",
+     "why": "Used B + C − A, the fourth vertex of a different parallelogram."
+    },
+    {
+     "text": "(−1, −3)",
+     "why": "Used A + B − C, the fourth vertex of a different parallelogram."
+    },
+    {
+     "text": "(4, 7/2)",
+     "why": "Stopped at the midpoint of diagonal AC instead of using it to find D."
+    }
+   ],
+   "explanation": "Diagonals of a parallelogram share a midpoint. Midpoint of AC is (4, 3.5), so D = 2(4, 3.5) − B = (3, 5)."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which equation describes the line parallel to y = 2x − 3 that passes through the point (4, 1)?",
+   "answer": "y = 2x − 7",
+   "wrong": [
+    {
+     "text": "y = −x/2 + 3",
+     "why": "Used the perpendicular slope −1/2."
+    },
+    {
+     "text": "y = 2x + 1",
+     "why": "Used the y-coordinate of the point as the y-intercept."
+    },
+    {
+     "text": "y = −2x + 9",
+     "why": "Changed the sign of the slope instead of keeping it."
+    }
+   ],
+   "explanation": "Parallel lines share slope 2. Then 1 = 2(4) + b gives b = −7, so y = 2x − 7."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which equation describes the line perpendicular to y = 3x + 1 that passes through the point (6, 1)?",
+   "answer": "y = −x/3 + 3",
+   "wrong": [
+    {
+     "text": "y = x/3 − 1",
+     "why": "Flipped the slope to 1/3 but did not make it negative."
+    },
+    {
+     "text": "y = −3x + 19",
+     "why": "Changed only the sign of the slope and did not take the reciprocal."
+    },
+    {
+     "text": "y = 3x − 17",
+     "why": "Used the same slope, which gives a parallel line."
+    }
+   ],
+   "explanation": "The perpendicular slope is −1/3. Then 1 = −(1/3)(6) + b gives b = 3, so y = −x/3 + 3."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Line 1 passes through (1, 2) and (5, 10). Line 2 is x + 2y = 6. How are the two lines related?",
+   "answer": "Perpendicular: slopes 2 and −1/2",
+   "wrong": [
+    {
+     "text": "Parallel: both slopes are 2",
+     "why": "Read the slope of line 2 as the coefficient of y."
+    },
+    {
+     "text": "Neither: slopes 2 and 1/2",
+     "why": "Dropped the negative sign when rewriting line 2 as y = −x/2 + 3."
+    },
+    {
+     "text": "Neither: slopes 2 and −2",
+     "why": "Took the slope of line 2 as the negative of the y-coefficient."
+    }
+   ],
+   "explanation": "Line 1 has slope (10 − 2)/(5 − 1) = 2. Line 2 is y = −x/2 + 3, slope −1/2. The slopes are negative reciprocals, so the lines are perpendicular."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which equation describes the line parallel to 3x − 2y = 8 that passes through (−2, 5)?",
+   "answer": "y = (3/2)x + 8",
+   "wrong": [
+    {
+     "text": "y = 3x + 11",
+     "why": "Read the slope as 3, the coefficient of x, without solving for y."
+    },
+    {
+     "text": "y = −(2/3)x + 11/3",
+     "why": "Used the perpendicular slope −2/3."
+    },
+    {
+     "text": "y = −(3/2)x + 2",
+     "why": "Got the sign of the slope wrong when solving for y."
+    }
+   ],
+   "explanation": "Solving gives y = (3/2)x − 4, so the slope is 3/2. Then 5 = (3/2)(−2) + b gives b = 8."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.5",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Line 1 is y = (2/3)x + 1. Line 2 is 3x + ky = 5. For what value of k are the two lines perpendicular?",
+   "answer": "2",
+   "accept": [
+    "2",
+    "2.0"
+   ],
+   "explanation": "Line 2 has slope −3/k. Perpendicular means (2/3)(−3/k) = −1, so −2/k = −1 and k = 2.",
+   "wrong": [
+    {
+     "text": "−9/2",
+     "why": "Set the slopes equal (parallel) instead of negative reciprocals."
+    },
+    {
+     "text": "−2",
+     "why": "Set −3/k equal to 3/2 without the correct sign."
+    }
+   ]
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A rectangular garden has corners at (1, 2), (8, 2), (8, 5) and (1, 5) on a coordinate grid where each unit is 1 meter. What is its area?",
+   "answer": "21 square meters",
+   "wrong": [
+    {
+     "text": "20 square meters",
+     "why": "Found the perimeter, 2(7 + 3), instead of the area."
+    },
+    {
+     "text": "10 square meters",
+     "why": "Added the side lengths 7 + 3."
+    },
+    {
+     "text": "24 square meters",
+     "why": "Used the x-coordinate 8 as the length instead of 8 − 1 = 7."
+    }
+   ],
+   "explanation": "Length = 8 − 1 = 7 and width = 5 − 2 = 3, so area = 7 × 3 = 21."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A triangle has vertices (0, 0), (6, 0) and (6, 8). What is its perimeter in units?",
+   "answer": "24",
+   "accept": [
+    "24",
+    "24 units"
+   ],
+   "explanation": "The legs are 6 and 8. The hypotenuse is √(6² + 8²) = 10. Perimeter = 6 + 8 + 10 = 24.",
+   "wrong": [
+    {
+     "text": "14",
+     "why": "Added only the two legs."
+    },
+    {
+     "text": "10",
+     "why": "Gave only the hypotenuse."
+    }
+   ],
+   "unit": "units"
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A triangle has vertices (0, 0), (8, 0) and (3, 5). What is its area in square units?",
+   "answer": "20",
+   "wrong": [
+    {
+     "text": "40",
+     "why": "Forgot the factor 1/2 in the area formula."
+    },
+    {
+     "text": "12",
+     "why": "Used the x-coordinate 3 of the top vertex as the height."
+    },
+    {
+     "text": "13",
+     "why": "Added the base 8 and the height 5."
+    }
+   ],
+   "explanation": "The base along the x-axis is 8 and the height is 5. Area = (1/2)(8)(5) = 20."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Triangle ABC has vertices A(0, 0), B(4, 0) and C(2, 5). Which description is correct?",
+   "answer": "Isosceles, but not equilateral",
+   "wrong": [
+    {
+     "text": "Equilateral",
+     "why": "Saw that AC = BC and assumed all three sides must match."
+    },
+    {
+     "text": "Right isosceles",
+     "why": "Assumed a right angle at C without checking the slopes."
+    },
+    {
+     "text": "Scalene",
+     "why": "Compared the base 4 with 2 + 5 and never noticed AC = BC."
+    }
+   ],
+   "explanation": "AB = 4. AC = √(2² + 5²) = √29 and BC = √(2² + 5²) = √29. Two sides are equal and the third is 4, so the triangle is isosceles. The slopes of AC and BC are 5/2 and −5/2, whose product is not −1, so no right angle."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Quadrilateral ABCD has vertices A(−1, 2), B(2, 4), C(4, 1) and D(1, −1). Which name fits it best?",
+   "answer": "Square",
+   "wrong": [
+    {
+     "text": "Rectangle that is not a square",
+     "why": "Checked the slopes for right angles but never compared the side lengths."
+    },
+    {
+     "text": "Rhombus that is not a square",
+     "why": "Found four equal sides but did not check the slopes for right angles."
+    },
+    {
+     "text": "Parallelogram that is not a rectangle",
+     "why": "Verified opposite sides are parallel and stopped."
+    }
+   ],
+   "explanation": "Each side has length √13, and slopes 2/3 and −3/2 for adjacent sides are negative reciprocals, so the angles are right angles. Four equal sides plus right angles make a square."
+  },
+  {
+   "cluster": "COORD",
+   "standard": "NC.M1.G-GPE.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A triangle has vertices (1, 1), (7, 3) and (4, 8). What is its area in square units?",
+   "answer": "18",
+   "wrong": [
+    {
+     "text": "24",
+     "why": "Added the areas of the three corner triangles instead of subtracting them."
+    },
+    {
+     "text": "36",
+     "why": "Computed twice the area (the parallelogram) and did not halve it."
+    },
+    {
+     "text": "42",
+     "why": "Gave the area of the bounding rectangle, 6 × 7."
+    }
+   ],
+   "explanation": "The bounding rectangle is 6 × 7 = 42. Subtract the corner triangles: 6 + 7.5 + 10.5 = 24. Area = 42 − 24 = 18."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A histogram shows the points scored by 20 students on a quiz, in intervals of width 10: 0–9 has 6 students, 10–19 has 3, 20–29 has 5, 30–39 has 4 and 40–49 has 2. How many students scored below 20 points?",
+   "answer": "9",
+   "wrong": [
+    {
+     "text": "6",
+     "why": "Counted only the first bar."
+    },
+    {
+     "text": "3",
+     "why": "Counted only the 10–19 bar."
+    },
+    {
+     "text": "14",
+     "why": "Also counted the 20–29 bar."
+    }
+   ],
+   "explanation": "Add the bars for 0–9 and 10–19: 6 + 3 = 9."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A histogram shows the commute time, in minutes, of 24 students. The intervals and counts are 0–9: 7, 10–19: 3, 20–29: 6, 30–39: 5, 40–49: 3. Which interval contains the median commute time?",
+   "answer": "20–29",
+   "wrong": [
+    {
+     "text": "0–9",
+     "why": "Picked the tallest bar, which shows the mode, not the median."
+    },
+    {
+     "text": "10–19",
+     "why": "Counted to half of 20 values (10) instead of half of 24, and stopped one bar early."
+    },
+    {
+     "text": "30–39",
+     "why": "Took the median of the bar heights (5) instead of locating the middle value."
+    }
+   ],
+   "explanation": "With 24 values the median is the average of the 12th and 13th. Running totals are 7, 10, 16, so both lie in 20–29."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "To draw a box plot, a student orders these 11 values: 4, 7, 8, 10, 12, 13, 15, 15, 18, 20, 26. Using the median-of-halves method (leave out the median when the count is odd), what is the five-number summary (min, Q1, median, Q3, max)?",
+   "answer": "4, 8, 13, 18, 26",
+   "wrong": [
+    {
+     "text": "4, 9, 13, 16.5, 26",
+     "why": "Kept the median in both halves when finding the quartiles."
+    },
+    {
+     "text": "4, 8, 15, 18, 26",
+     "why": "Used the midpoint of the minimum and maximum as the median."
+    },
+    {
+     "text": "4, 9.5, 13, 20.5, 26",
+     "why": "Placed the quartiles a quarter and three-quarters of the way from the minimum to the maximum."
+    }
+   ],
+   "explanation": "The median is the 6th value, 13. Lower half 4, 7, 8, 10, 12 has median 8. Upper half 15, 15, 18, 20, 26 has median 18."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A box plot of daily steps (in hundreds) has five-number summary: minimum 12, Q1 20, median 26, Q3 40, maximum 58. About what percent of the days had values between the median (26) and Q3 (40)?",
+   "answer": "25%",
+   "wrong": [
+    {
+     "text": "50%",
+     "why": "Used the span from Q1 to Q3, which holds the middle half of the data."
+    },
+    {
+     "text": "75%",
+     "why": "Used the span from the minimum up to Q3."
+    },
+    {
+     "text": "14%",
+     "why": "Subtracted 40 − 26 and read the difference as a percent."
+    }
+   ],
+   "explanation": "Each section of a box plot (min to Q1, Q1 to median, median to Q3, Q3 to max) holds about 25% of the data."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.1",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Find the interquartile range (IQR) of these values using the median-of-halves method: 3, 5, 6, 8, 9, 11, 12, 14, 15, 19.",
+   "answer": "8",
+   "accept": [
+    "8",
+    "8.0"
+   ],
+   "explanation": "The lower half 3, 5, 6, 8, 9 has median 6. The upper half 11, 12, 14, 15, 19 has median 14. IQR = 14 − 6 = 8.",
+   "wrong": [
+    {
+     "text": "16",
+     "why": "Gave the range, 19 − 3."
+    },
+    {
+     "text": "10",
+     "why": "Gave the median of the whole data set."
+    }
+   ]
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Two classes took the same exam. Class A has median 78 and IQR 6. Class B has median 78 and IQR 18. Which statement is best supported?",
+   "answer": "Class A's scores are more consistent, because its IQR is smaller.",
+   "wrong": [
+    {
+     "text": "Class B's scores are more consistent, because its IQR is larger.",
+     "why": "Believed a larger IQR means more consistency."
+    },
+    {
+     "text": "Class B scored higher overall, because its IQR is larger.",
+     "why": "Read a larger IQR as better performance."
+    },
+    {
+     "text": "The classes have the same spread, because the medians are equal.",
+     "why": "Used the equal medians to judge spread."
+    }
+   ],
+   "explanation": "The IQR measures spread. A smaller IQR means the middle half of the scores are closer together, while the equal medians show the typical score is the same."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A histogram of household incomes in a town is strongly skewed to the right. Which pair of statistics best describes the center and spread?",
+   "answer": "Median and IQR",
+   "wrong": [
+    {
+     "text": "Mean and standard deviation",
+     "why": "Used mean and SD for every shape, although the long tail pulls both."
+    },
+    {
+     "text": "Mean and IQR",
+     "why": "Mixed a measure affected by outliers with one that is not."
+    },
+    {
+     "text": "Median and range",
+     "why": "Paired the median with the range, which depends entirely on the extreme values."
+    }
+   ],
+   "explanation": "For skewed data, the median and IQR resist the pull of the long tail, so they describe the typical value and spread better."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Set P is 10, 10, 11, 11, 12. Set Q is 4, 8, 11, 14, 18. Which set has the larger standard deviation, and why?",
+   "answer": "Set Q: its values are farther from its mean",
+   "wrong": [
+    {
+     "text": "Set P: its values are closer together",
+     "why": "Thought tightly packed values mean a larger standard deviation."
+    },
+    {
+     "text": "Set P: several of its values repeat",
+     "why": "Treated repeated values as a sign of more variation."
+    },
+    {
+     "text": "Neither: the means are nearly equal",
+     "why": "Assumed similar means force similar standard deviations."
+    }
+   ],
+   "explanation": "Both means are about 11. Set P's values stay within 1 of the mean, while Set Q's are 3 to 7 away, so Set Q is more spread out and has the larger standard deviation."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two bike shops recorded repair times in days. Shop A: min 2, Q1 4, median 6, Q3 9, max 14. Shop B: min 1, Q1 5, median 6, Q3 7, max 20. Which statement is supported by the data?",
+   "answer": "The medians match, but Shop A's middle 50% is more spread out.",
+   "wrong": [
+    {
+     "text": "Shop B's middle 50% is more spread out, because its range is larger.",
+     "why": "Uses the range (which is affected by extreme values) to judge the spread of the middle half of the data."
+    },
+    {
+     "text": "Shop A is faster, because its Q3 is larger.",
+     "why": "Read a larger Q3 as better, when longer repair times are worse."
+    },
+    {
+     "text": "Shop B is faster, because its minimum is lower.",
+     "why": "Compared minimums instead of the medians, which are equal."
+    }
+   ],
+   "explanation": "Both medians are 6. The IQR is 5 for Shop A and 2 for Shop B, so Shop A's middle half is more spread out even though Shop B has the larger range (19 vs 12)."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "For the data 4, 6, 6, 8, 21, find the mean minus the median.",
+   "answer": "3",
+   "accept": [
+    "3",
+    "3.0"
+   ],
+   "explanation": "Mean = 45/5 = 9. Median = 6. Mean − median = 3.",
+   "wrong": [
+    {
+     "text": "−3",
+     "why": "Subtracted in the wrong order."
+    },
+    {
+     "text": "9",
+     "why": "Gave only the mean."
+    }
+   ]
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The values 12, 13, 14, 15, 16 have mean 14 and median 14. A new value, 60, is added. What are the new mean and median?",
+   "answer": "Mean 21.7, median 14.5",
+   "wrong": [
+    {
+     "text": "Mean 14.5, median 21.7",
+     "why": "Swapped which statistic is pulled by the outlier."
+    },
+    {
+     "text": "Mean 37, median 14.5",
+     "why": "Averaged the old mean with the new value instead of using all six values."
+    },
+    {
+     "text": "Mean 21.7, median 15",
+     "why": "Took the upper middle value instead of averaging the two middle values."
+    }
+   ],
+   "explanation": "New mean = (70 + 60)/6 ≈ 21.7. The six ordered values have middle values 14 and 15, so the median is 14.5. The mean moves a lot; the median barely moves."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A data set has median 30, Q1 = 24 and Q3 = 36. Its extreme values are 4, 8, 50 and 58. Using the rule that outliers lie more than 1.5 × IQR below Q1 or above Q3, which values are outliers?",
+   "answer": "4 and 58",
+   "wrong": [
+    {
+     "text": "58 only",
+     "why": "Checked only the upper fence and ignored the lower one."
+    },
+    {
+     "text": "4, 8, 50 and 58",
+     "why": "Used 1 × IQR instead of 1.5 × IQR for the fences."
+    },
+    {
+     "text": "50 and 58",
+     "why": "Measured 1.5 × IQR up from the median (30 + 18 = 48) and ignored the lower fence."
+    }
+   ],
+   "explanation": "IQR = 12 and 1.5 × IQR = 18. The fences are 24 − 18 = 6 and 36 + 18 = 54. Only 4 (below 6) and 58 (above 54) fall outside."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.3",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The five values 10, 12, 13, 14, 16 are joined by a sixth value, 40. Using the median-of-halves method, what is the IQR of the six values?",
+   "answer": "4",
+   "accept": [
+    "4",
+    "4.0"
+   ],
+   "explanation": "Ordered: 10, 12, 13, 14, 16, 40. The lower half 10, 12, 13 has median 12; the upper half 14, 16, 40 has median 16. IQR = 16 − 12 = 4. The outlier changes the range a lot but not the IQR.",
+   "wrong": [
+    {
+     "text": "30",
+     "why": "Gave the range, 40 − 10."
+    },
+    {
+     "text": "28",
+     "why": "Subtracted Q1 from the outlier, 40 − 12."
+    }
+   ]
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Seven home prices, in thousands of dollars, are 210, 220, 225, 230, 240, 250 and 900. Which is the best choice for a typical price, and why?",
+   "answer": "$230 thousand, the median, which resists the $900 thousand outlier",
+   "wrong": [
+    {
+     "text": "$325 thousand, the mean, because it uses every value",
+     "why": "Used the mean even though the outlier pulls it far above most prices."
+    },
+    {
+     "text": "$555 thousand, halfway between the lowest and highest price",
+     "why": "Used the midrange, which is driven entirely by the outlier."
+    },
+    {
+     "text": "$235 thousand, the average of the 4th and 5th values",
+     "why": "Treated the 7 values as an even count and averaged two middle values."
+    }
+   ],
+   "explanation": "The mean is 2275/7 = 325, pulled up by the 900. The median is the 4th value, 230, and is a better description of a typical home."
+  },
+  {
+   "cluster": "DATA1",
+   "standard": "NC.M1.S-ID.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The mean of 10 commute times is 18.4 minutes. One time is an outlier. After it is removed, the mean of the remaining 9 times is 15.0 minutes. What was the outlier, in minutes?",
+   "answer": "49",
+   "wrong": [
+    {
+     "text": "3.4",
+     "why": "Subtracted the two means, 18.4 − 15.0."
+    },
+    {
+     "text": "34",
+     "why": "Multiplied 15.0 by 10 instead of 9 before subtracting."
+    },
+    {
+     "text": "33.4",
+     "why": "Added the two means, 18.4 + 15.0."
+    }
+   ],
+   "explanation": "Total of all 10 = 10 × 18.4 = 184. Total of the other 9 = 9 × 15.0 = 135. Outlier = 184 − 135 = 49."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A student records hours of screen time per day (x) and hours of sleep (y) for six classmates: (1, 9.0), (2, 8.6), (3, 8.4), (4, 7.7), (5, 7.4), (6, 6.9). How are the variables related?",
+   "answer": "A strong negative linear association",
+   "wrong": [
+    {
+     "text": "A strong positive linear association",
+     "why": "Read the downward trend as upward."
+    },
+    {
+     "text": "No association",
+     "why": "Saw small changes in y and concluded there was no pattern."
+    },
+    {
+     "text": "A strong exponential growth pattern",
+     "why": "Mistook a steady drop for a curve that grows."
+    }
+   ],
+   "explanation": "As screen time rises, sleep falls steadily by roughly 0.45 hour per extra hour, so the association is negative and linear."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A scatter plot has the points (0, 3), (1, 6), (2, 12), (3, 24) and (4, 48). Which description fits the pattern best?",
+   "answer": "Exponential growth: y doubles as x increases by 1",
+   "wrong": [
+    {
+     "text": "Linear growth: y rises about 11 for each step",
+     "why": "Averaged the change over all steps and ignored that the increases keep growing."
+    },
+    {
+     "text": "Linear growth: y rises 3 for each step in x",
+     "why": "Used the first y-value as the constant increase."
+    },
+    {
+     "text": "Exponential decay: y halves as x increases by 1",
+     "why": "Read the doubling ratio backward."
+    }
+   ],
+   "explanation": "The increases (3, 6, 12, 24) are not constant, but each y is 2 times the previous one, so the pattern is exponential growth."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6a",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The least-squares line for hours studied per week (x) and quiz score (y) is ŷ = 3.5x + 48. For what number of hours does the line predict a score of 83?",
+   "answer": "10",
+   "accept": [
+    "10",
+    "10.0",
+    "10 hours"
+   ],
+   "explanation": "Solve 3.5x + 48 = 83. Then 3.5x = 35 and x = 10.",
+   "wrong": [
+    {
+     "text": "35",
+     "why": "Subtracted 48 but did not divide by 3.5."
+    },
+    {
+     "text": "37.4",
+     "why": "Added 48 instead of subtracting it: (83 + 48)/3.5."
+    }
+   ],
+   "unit": "hours"
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The least-squares line for a used car's age in years (x) and its value in dollars (y) is ŷ = −1500x + 24000. What value does the line predict for a 6-year-old car?",
+   "answer": "$15,000",
+   "wrong": [
+    {
+     "text": "$22,500",
+     "why": "Subtracted only one year's loss, 24,000 − 1,500."
+    },
+    {
+     "text": "$33,000",
+     "why": "Added 1,500 × 6 instead of subtracting it."
+    },
+    {
+     "text": "$9,000",
+     "why": "Multiplied 1,500 × 6 and forgot the 24,000."
+    }
+   ],
+   "explanation": "ŷ = −1500(6) + 24000 = −9000 + 24000 = 15,000."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6b",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A line of best fit is ŷ = 1.5x + 8. At x = 10 the actual data value is y = 21. What is the residual (actual − predicted)?",
+   "answer": "−2",
+   "accept": [
+    "-2",
+    "−2.0",
+    "-2.0"
+   ],
+   "explanation": "Predicted ŷ = 1.5(10) + 8 = 23. Residual = 21 − 23 = −2.",
+   "wrong": [
+    {
+     "text": "2",
+     "why": "Subtracted in the wrong order (predicted − actual)."
+    },
+    {
+     "text": "23",
+     "why": "Gave the predicted value."
+    }
+   ]
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A line is fit to data at x = 1, 2, 3, 4, 5, 6, 7. The residuals (actual − predicted) are 6, 1, −3, −4, −3, 0, 3. What do they suggest?",
+   "answer": "A U-shaped pattern, so a line is not a good model",
+   "wrong": [
+    {
+     "text": "They add to 0, so a line fits well",
+     "why": "Treated a zero total as proof of fit, but least-squares residuals always add to 0."
+    },
+    {
+     "text": "Some are small, so a line fits well",
+     "why": "Judged fit from a few small residuals and ignored the pattern."
+    },
+    {
+     "text": "The line is too steep, so the slope should be lowered",
+     "why": "Mistook a curved residual pattern for a slope error."
+    }
+   ],
+   "explanation": "The residuals go positive, then negative, then positive again. A random scatter would support a line; this curved pattern shows the data are curved."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Points (1, 3), (2, 5) and (3, 8) are compared with two lines. Model A: ŷ = 2.5x + 0.5. Model B: ŷ = 2x + 1. Which model has the smaller sum of squared residuals, and what are the two sums?",
+   "answer": "Model A: 0.25 versus 1 for Model B",
+   "wrong": [
+    {
+     "text": "Model A: 0.5 versus 1 for Model B",
+     "why": "Added the residuals' sizes without squaring the −0.5."
+    },
+    {
+     "text": "Model B: 1 versus 0.25 for Model A",
+     "why": "Matched the sums correctly but picked the larger one as better."
+    },
+    {
+     "text": "Model B: 0 versus 0.25 for Model A",
+     "why": "Counted only B's zero residuals and overlooked its residual of 1."
+    }
+   ],
+   "explanation": "Model A predicts 3, 5.5, 8, with residuals 0, −0.5, 0 and sum of squares 0.25. Model B predicts 3, 5, 7, with residuals 0, 0, 1 and sum of squares 1. The smaller sum is the better fit."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6c",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "An exponential model for a bacteria colony is B = 50(2)^t, where t is hours and B is the number of bacteria. What number does it predict at t = 4?",
+   "answer": "800",
+   "wrong": [
+    {
+     "text": "400",
+     "why": "Multiplied 50 × 2 × 4 instead of using 2 as a repeated factor."
+    },
+    {
+     "text": "200",
+     "why": "Multiplied 50 × 4."
+    },
+    {
+     "text": "1600",
+     "why": "Used 2^5 instead of 2^4."
+    }
+   ],
+   "explanation": "B = 50(2)^4 = 50 × 16 = 800."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.6c",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "An exponential model for the rebound height (cm) of a ball is ŷ = 120(0.9)^x, where x is the bounce number. What height does the model predict for x = 2?",
+   "answer": "97.2",
+   "accept": [
+    "97.2",
+    "97.2 cm"
+   ],
+   "explanation": "ŷ = 120(0.9)² = 120 × 0.81 = 97.2.",
+   "wrong": [
+    {
+     "text": "108",
+     "why": "Used the factor 0.9 only once."
+    },
+    {
+     "text": "216",
+     "why": "Multiplied 120 × 0.9 × 2."
+    }
+   ],
+   "unit": "cm"
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The least-squares line ŷ = 2.4x + 15 predicts the number of free throws made out of 50 (y) from weekly practice hours (x). What does the slope 2.4 mean?",
+   "answer": "Each extra practice hour adds about 2.4 predicted free throws.",
+   "wrong": [
+    {
+     "text": "A player who never practices is predicted to make 2.4 shots.",
+     "why": "Mixed up the slope with the intercept."
+    },
+    {
+     "text": "Each extra practice hour adds about 15 predicted free throws.",
+     "why": "Used the intercept as the rate of change."
+    },
+    {
+     "text": "Each extra free throw made adds about 2.4 practice hours.",
+     "why": "Reversed the roles of the variables."
+    }
+   ],
+   "explanation": "The slope is the change in predicted y for each 1-unit increase in x, here 2.4 free throws per hour."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A seedling's height in cm (y) is modeled by ŷ = 1.8x + 4, where x is the number of days since the first measurement. What does the intercept 4 represent?",
+   "answer": "The predicted height at the first measurement (day 0)",
+   "wrong": [
+    {
+     "text": "The number of centimeters gained each day",
+     "why": "Mixed up the intercept with the slope."
+    },
+    {
+     "text": "The predicted height on the fourth day",
+     "why": "Treated 4 as a value of x instead of a value of y."
+    },
+    {
+     "text": "The number of days until the seedling stops growing",
+     "why": "Gave the intercept a meaning that has nothing to do with the model."
+    }
+   ],
+   "explanation": "The intercept is ŷ when x = 0, so it is the predicted starting height: 4 cm."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The line ŷ = 3.2x + 52 was fit to test scores (y, out of 100) for students who studied from 0 to 8 hours (x). A student plans to study 20 hours. Which evaluation is best?",
+   "answer": "Predicts 116, which is not valid: 20 is far outside the data and scores top out at 100.",
+   "wrong": [
+    {
+     "text": "Predicts 116, which is valid: a line works for any number of hours studied.",
+     "why": "Assumed a linear model can be extended without limit."
+    },
+    {
+     "text": "Predicts 116, which is valid: studying more always raises a score.",
+     "why": "Treated the trend as unlimited instead of noticing the 100-point maximum."
+    },
+    {
+     "text": "Predicts 64, which is a reasonable value for a score, so the model is fine.",
+     "why": "Forgot to add the intercept 52."
+    }
+   ],
+   "explanation": "ŷ = 3.2(20) + 52 = 116. That is extrapolation well beyond the 0 to 8 hour data, and a score over 100 is impossible, so the prediction is not trustworthy."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The correlation between daily hours of TV watched and test score for a group of students is r = −0.85. Which interpretation is correct?",
+   "answer": "A strong negative linear relationship",
+   "wrong": [
+    {
+     "text": "A strong positive linear relationship",
+     "why": "Ignored the sign and saw only that 0.85 is close to 1."
+    },
+    {
+     "text": "85% of students who watch TV score lower",
+     "why": "Read r as a percent of students."
+    },
+    {
+     "text": "A weak negative linear relationship",
+     "why": "Read −0.85 as a small number because of the minus sign."
+    }
+   ],
+   "explanation": "r is between −1 and 1. Its sign gives the direction (negative) and its size gives the strength (0.85 is close to 1, so strong)."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.8",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A scatter plot looks curved. A line fit to the data has r = 0.93, but its residual plot shows a clear U shape. What is the best conclusion?",
+   "answer": "A line is not appropriate even though r is high; a curve fits better.",
+   "wrong": [
+    {
+     "text": "A line is appropriate for these data, because r is close to 1.",
+     "why": "Used r alone and ignored the residual pattern."
+    },
+    {
+     "text": "93% of the points lie exactly on the fitted line.",
+     "why": "Read r as the percent of points on the line."
+    },
+    {
+     "text": "The U shape shows that the correlation must be negative, not positive.",
+     "why": "Mistook a residual pattern for the sign of r."
+    }
+   ],
+   "explanation": "A high r only measures how close the data are to a line overall. A patterned residual plot shows a systematic misfit, so a nonlinear model is better."
+  },
+  {
+   "cluster": "DATA2",
+   "standard": "NC.M1.S-ID.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Over 30 summer days, a beach town finds that daily ice cream sales and daily sunburn cases have a correlation of r = 0.88. Which conclusion is best supported?",
+   "answer": "Both rise on hot, sunny days; the data do not show that one causes the other.",
+   "wrong": [
+    {
+     "text": "Ice cream sales cause people to get sunburns.",
+     "why": "Treated a strong correlation as proof that one variable causes the other."
+    },
+    {
+     "text": "Sunburns cause people to buy more ice cream cones.",
+     "why": "Reversed the cause and effect, still assuming causation."
+    },
+    {
+     "text": "The strong correlation proves that no other factor is involved at all.",
+     "why": "Believed a high r rules out a lurking variable."
+    }
+   ],
+   "explanation": "A hidden factor, hot sunny weather, can drive both variables. Correlation shows association, not causation."
+  }
+ ]
+}

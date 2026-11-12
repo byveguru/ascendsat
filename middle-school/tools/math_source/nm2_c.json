@@ -1,0 +1,952 @@
+{
+ "items": [
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.8",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The function f(x) = (x − 4)² + 7 is written in vertex form. What is the vertex of its graph?",
+   "answer": "(4, 7)",
+   "wrong": [
+    {
+     "text": "(−4, 7)",
+     "why": "Sign slip: reads x − 4 as a shift left, giving x = −4."
+    },
+    {
+     "text": "(4, −7)",
+     "why": "Takes the constant 7 with the wrong sign."
+    },
+    {
+     "text": "(7, 4)",
+     "why": "Swaps the x- and y-coordinates of the vertex."
+    }
+   ],
+   "explanation": "In f(x) = a(x − h)² + k the vertex is (h, k). Here h = 4 and k = 7, so the vertex is (4, 7)."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.8",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A quadratic function is written as y = (x − 2)(x + 6). Which pair gives its zeros?",
+   "answer": "x = 2 and x = −6",
+   "wrong": [
+    {
+     "text": "x = −2 and x = 6",
+     "why": "Sign slip on both factors."
+    },
+    {
+     "text": "x = 2 and x = 6",
+     "why": "Reads x + 6 as x − 6."
+    },
+    {
+     "text": "x = −2 and x = −6",
+     "why": "Takes the numbers in the factors as the zeros without changing signs."
+    }
+   ],
+   "explanation": "Set each factor to 0: x − 2 = 0 gives x = 2 and x + 6 = 0 gives x = −6."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to x² − 8x + 12 and shows the vertex of the parabola?",
+   "answer": "(x − 4)² − 4",
+   "wrong": [
+    {
+     "text": "(x − 4)² + 12",
+     "why": "Completes the square but forgets to subtract the 16 that was added."
+    },
+    {
+     "text": "(x + 4)² − 4",
+     "why": "Sign slip when halving −8."
+    },
+    {
+     "text": "(x − 4)² − 16",
+     "why": "Subtracts 16 but drops the original +12."
+    }
+   ],
+   "explanation": "x² − 8x + 16 = (x − 4)², so x² − 8x + 12 = (x − 4)² − 16 + 12 = (x − 4)² − 4. The vertex is (4, −4)."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The table gives values of a function f: f(1) = 3, f(2) = 5, f(3) = 9, f(4) = 15. A new function is g(x) = f(x + 1). What is g(2)?",
+   "answer": "9",
+   "wrong": [
+    {
+     "text": "3",
+     "why": "Shifts the wrong way, using f(x − 1) = f(1)."
+    },
+    {
+     "text": "6",
+     "why": "Adds 1 to the output, computing f(2) + 1."
+    },
+    {
+     "text": "15",
+     "why": "Doubles the input, using f(2x) = f(4)."
+    }
+   ],
+   "explanation": "g(2) = f(2 + 1) = f(3) = 9. Replacing x with x + 1 shifts the graph left 1."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.8",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to y = 2x² − 12x + 10 and shows the vertex of its graph?",
+   "answer": "y = 2(x − 3)² − 8",
+   "wrong": [
+    {
+     "text": "y = 2(x − 3)² + 1",
+     "why": "Adds 9 inside the parentheses but forgets it is multiplied by the 2 outside."
+    },
+    {
+     "text": "y = 2(x − 3)² − 18",
+     "why": "Subtracts 2·9 correctly but forgets the +10."
+    },
+    {
+     "text": "y = 2(x + 3)² − 8",
+     "why": "Sign slip when halving −6."
+    }
+   ],
+   "explanation": "y = 2(x² − 6x) + 10 = 2(x − 3)² − 18 + 10 = 2(x − 3)² − 8. The vertex is (3, −8)."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.3",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "The point (2, 5) is on the graph of y = f(x). What is the y-coordinate of the point with x = 2 on the graph of y = 3f(x)?",
+   "answer": "15",
+   "accept": [
+    "15.0"
+   ],
+   "unit": "",
+   "explanation": "Multiplying the function by 3 multiplies every y-value by 3: 3 × 5 = 15."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Function f is f(x) = x² − 6x + 5. Function g is g(x) = (x − 2)² − 3. Which statement is true?",
+   "answer": "f has the lower minimum value: −4 compared with −3",
+   "wrong": [
+    {
+     "text": "g has the lower minimum value: −3 compared with −4",
+     "why": "Compares the numbers correctly but reads −3 as lower than −4."
+    },
+    {
+     "text": "f has the lower minimum value: 3 compared with 2",
+     "why": "Compares the x-coordinates of the vertices instead of the minimum values."
+    },
+    {
+     "text": "They have the same minimum value",
+     "why": "Assumes both vertices have the same y-value."
+    }
+   ],
+   "explanation": "f(x) = (x − 3)² − 4 has minimum −4. g has minimum −3. −4 is less than −3."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Function p is p(x) = −2x² + 8x + 1. Function q is given by the table: q(0) = 4, q(1) = 7, q(2) = 8, q(3) = 7, q(4) = 4. Which statement about their maximum values is true?",
+   "answer": "p's maximum is greater, by 1",
+   "wrong": [
+    {
+     "text": "q's maximum is greater, by 1",
+     "why": "Mixes up which maximum is larger."
+    },
+    {
+     "text": "They have the same maximum value",
+     "why": "Reads the table's pattern as matching p's."
+    },
+    {
+     "text": "p's maximum is greater, by 5",
+     "why": "Compares p's maximum with the table's end value 4 instead of its maximum."
+    }
+   ],
+   "explanation": "p's vertex is at x = 2: p(2) = −8 + 16 + 1 = 9. The table's maximum is 8. So p's maximum is 1 greater."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-IF.9",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Function f is f(x) = x² − 4x. Function g is g(x) = 3x + 1, a line with constant rate of change 3. How much greater is g's rate of change than f's average rate of change on the interval from x = 1 to x = 5?",
+   "answer": "1",
+   "accept": [
+    "1.0"
+   ],
+   "unit": "",
+   "explanation": "f(5) = 5 and f(1) = −3, so f's average rate is (5 − (−3)) ÷ 4 = 2. 3 − 2 = 1."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which quadratic function has zeros at x = 3 and x = −5 and a leading coefficient of 1?",
+   "answer": "f(x) = x² + 2x − 15",
+   "wrong": [
+    {
+     "text": "f(x) = x² − 2x − 15",
+     "why": "Uses factors (x + 3)(x − 5), with the signs of the zeros flipped."
+    },
+    {
+     "text": "f(x) = x² − 8x + 15",
+     "why": "Uses (x − 3)(x − 5), treating −5 as a zero of x − 5."
+    },
+    {
+     "text": "f(x) = x² + 2x + 15",
+     "why": "Gets the middle term right but the constant with the wrong sign."
+    }
+   ],
+   "explanation": "f(x) = (x − 3)(x + 5) = x² + 2x − 15."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A parabola has zeros at x = −2 and x = 4 and passes through the point (0, 16). Which function is it?",
+   "answer": "f(x) = −2(x + 2)(x − 4)",
+   "wrong": [
+    {
+     "text": "f(x) = 2(x + 2)(x − 4)",
+     "why": "Gets the leading coefficient with the wrong sign: (0+2)(0−4) = −8 would give −16."
+    },
+    {
+     "text": "f(x) = −2(x − 2)(x + 4)",
+     "why": "Flips the signs of the zeros."
+    },
+    {
+     "text": "f(x) = 16(x + 2)(x − 4)",
+     "why": "Uses the y-intercept as the leading coefficient."
+    }
+   ],
+   "explanation": "f(x) = a(x + 2)(x − 4). At x = 0: a(2)(−4) = 16, so a = −2."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A rectangular garden is enclosed with 40 feet of fencing. If one side has length w, which function gives the area A of the garden in square feet?",
+   "answer": "A(w) = w(20 − w)",
+   "wrong": [
+    {
+     "text": "A(w) = w(40 − w)",
+     "why": "Uses 40 as the sum of two adjacent sides instead of the whole perimeter."
+    },
+    {
+     "text": "A(w) = 2w(20 − w)",
+     "why": "Doubles the area, as if counting both pairs of sides."
+    },
+    {
+     "text": "A(w) = w(20 − 2w)",
+     "why": "Subtracts 2w, treating w as both widths and leaving 20 for one length."
+    }
+   ],
+   "explanation": "Two sides of length w use 2w feet, so each length is (40 − 2w) ÷ 2 = 20 − w. Area = w(20 − w)."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.1",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "A quadratic function f has zeros at x = 1 and x = 7 and passes through the point (3, −16). What is f(0)?",
+   "answer": "14",
+   "accept": [
+    "14.0"
+   ],
+   "unit": "",
+   "explanation": "f(x) = a(x − 1)(x − 7). f(3) = a(2)(−4) = −16, so a = 2. Then f(0) = 2(−1)(−7) = 14."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The graph of g is the graph of y = f(x) + 4. How does the graph of g compare with the graph of f?",
+   "answer": "It is shifted up 4 units",
+   "wrong": [
+    {
+     "text": "It is shifted down 4 units",
+     "why": "Sign slip on the vertical shift."
+    },
+    {
+     "text": "It is shifted right 4 units",
+     "why": "Treats a change outside the function as a horizontal shift."
+    },
+    {
+     "text": "It is shifted left 4 units",
+     "why": "Treats +4 as moving the graph left."
+    }
+   ],
+   "explanation": "Adding 4 to every output moves every point up 4 units."
+  },
+  {
+   "cluster": "FUNC2",
+   "standard": "NC.M2.F-BF.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The point (6, 4) is on the graph of y = f(x). Which point must be on the graph of y = f(2x)?",
+   "answer": "(3, 4)",
+   "wrong": [
+    {
+     "text": "(12, 4)",
+     "why": "Multiplies the x-coordinate by 2 instead of dividing."
+    },
+    {
+     "text": "(6, 8)",
+     "why": "Treats the change as 2f(x), doubling the output."
+    },
+    {
+     "text": "(6, 2)",
+     "why": "Halves the output instead of changing the input."
+    }
+   ],
+   "explanation": "Need 2x = 6, so x = 3. The output stays 4, giving (3, 4). The graph is compressed horizontally by a factor of 1/2."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The transformation of the plane given by (x, y) → (−x, y) is which of the following?",
+   "answer": "A reflection across the y-axis",
+   "wrong": [
+    {
+     "text": "A reflection across the x-axis",
+     "why": "Confuses which coordinate changes sign: that would be (x, −y)."
+    },
+    {
+     "text": "A rotation of 180° about the origin",
+     "why": "Would change the sign of both coordinates."
+    },
+    {
+     "text": "A translation 1 unit left",
+     "why": "A translation adds a constant instead of negating x."
+    }
+   ],
+   "explanation": "Negating only the x-coordinate flips points across the y-axis."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which rule describes a rotation of 90° counterclockwise about the origin?",
+   "answer": "(x, y) → (−y, x)",
+   "wrong": [
+    {
+     "text": "(x, y) → (y, −x)",
+     "why": "This is a 90° clockwise rotation."
+    },
+    {
+     "text": "(x, y) → (−x, −y)",
+     "why": "This is a 180° rotation."
+    },
+    {
+     "text": "(x, y) → (y, x)",
+     "why": "This is a reflection across the line y = x."
+    }
+   ],
+   "explanation": "A 90° counterclockwise rotation sends (x, y) to (−y, x). Check (1, 0) → (0, 1)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The point A(−4, 7) is rotated 90° counterclockwise about the origin. What is the x-coordinate of the image A′?",
+   "answer": "−7",
+   "accept": [
+    "-7"
+   ],
+   "unit": "",
+   "explanation": "(x, y) → (−y, x), so (−4, 7) → (−7, −4). The x-coordinate is −7."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "How many lines of symmetry does a rectangle that is not a square have?",
+   "answer": "2",
+   "wrong": [
+    {
+     "text": "4",
+     "why": "Counts the diagonals, which are not lines of symmetry for a non-square rectangle."
+    },
+    {
+     "text": "1",
+     "why": "Counts only one of the two midlines."
+    },
+    {
+     "text": "0",
+     "why": "Thinks a rectangle has no reflection symmetry."
+    }
+   ],
+   "explanation": "A non-square rectangle can be reflected across the line through the midpoints of its long sides and across the line through the midpoints of its short sides: 2 lines."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which quadrilateral has rotational symmetry but no line of symmetry (assume it is not a rectangle or a rhombus)?",
+   "answer": "A parallelogram",
+   "wrong": [
+    {
+     "text": "An isosceles trapezoid",
+     "why": "It has a line of symmetry but no rotational symmetry."
+    },
+    {
+     "text": "A kite",
+     "why": "It has a line of symmetry but no rotational symmetry."
+    },
+    {
+     "text": "A square",
+     "why": "It has both four lines of symmetry and rotational symmetry."
+    }
+   ],
+   "explanation": "A general parallelogram maps onto itself under a 180° rotation about its center, but no reflection works."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "What is the smallest positive angle of rotation about its center that carries a regular 12-sided polygon onto itself? Give your answer in degrees.",
+   "answer": "30",
+   "accept": [
+    "30.0",
+    "30°"
+   ],
+   "unit": "°",
+   "explanation": "360° ÷ 12 = 30°."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Lines ℓ and m are parallel. Both are reflected across the same line. Which is true of the images ℓ′ and m′?",
+   "answer": "ℓ′ and m′ are parallel",
+   "wrong": [
+    {
+     "text": "ℓ′ and m′ are perpendicular",
+     "why": "Thinks a reflection can turn parallel lines."
+    },
+    {
+     "text": "ℓ′ and m′ intersect",
+     "why": "Thinks images of parallel lines must meet."
+    },
+    {
+     "text": "ℓ′ and m′ are twice as far apart",
+     "why": "Thinks distances double under a reflection."
+    }
+   ],
+   "explanation": "Reflections preserve distance and angle, so parallel lines stay parallel and the distance between them is unchanged."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.4",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Segment AB has endpoints A(1, 2) and B(1, 8). It is rotated 90° about some point, producing segment A′B′. What is the length of A′B′?",
+   "answer": "6",
+   "accept": [
+    "6.0"
+   ],
+   "unit": "",
+   "explanation": "Rotations preserve distance. AB = 8 − 2 = 6, so A′B′ = 6."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which rule is a rigid motion, meaning it preserves the distance between every pair of points?",
+   "answer": "(x, y) → (−y, x + 3)",
+   "wrong": [
+    {
+     "text": "(x, y) → (2x, y + 3)",
+     "why": "Stretches horizontal distances by a factor of 2."
+    },
+    {
+     "text": "(x, y) → (3x, 3y − 1)",
+     "why": "Is a dilation by 3 followed by a translation, so distances triple."
+    },
+    {
+     "text": "(x, y) → (x + y, y)",
+     "why": "Is a shear: the unit horizontal and vertical steps give lengths 1 and √2."
+    }
+   ],
+   "explanation": "(x, y) → (−y, x + 3) is a 90° rotation followed by a translation, and both preserve distance. The other rules change some distances."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The point P(3, −2) is reflected across the x-axis. What are the coordinates of P′?",
+   "answer": "(3, 2)",
+   "wrong": [
+    {
+     "text": "(−3, −2)",
+     "why": "Reflects across the y-axis instead."
+    },
+    {
+     "text": "(−3, 2)",
+     "why": "Negates both coordinates, which is a 180° rotation."
+    },
+    {
+     "text": "(−2, 3)",
+     "why": "Swaps the coordinates, reflecting across y = x with a sign error."
+    }
+   ],
+   "explanation": "Reflecting across the x-axis changes the sign of y: (3, −2) → (3, 2)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The point (4, 1) is rotated 90° counterclockwise about the origin. What is its image?",
+   "answer": "(−1, 4)",
+   "wrong": [
+    {
+     "text": "(1, −4)",
+     "why": "Rotates clockwise instead."
+    },
+    {
+     "text": "(−4, −1)",
+     "why": "Rotates 180° instead of 90°."
+    },
+    {
+     "text": "(−1, −4)",
+     "why": "Negates both after swapping, a sign error."
+    }
+   ],
+   "explanation": "(x, y) → (−y, x) gives (4, 1) → (−1, 4)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The point P(2, −5) is reflected across the line y = x. What is P′?",
+   "answer": "(−5, 2)",
+   "wrong": [
+    {
+     "text": "(−2, 5)",
+     "why": "Negates both coordinates instead of swapping them."
+    },
+    {
+     "text": "(2, 5)",
+     "why": "Reflects across the x-axis."
+    },
+    {
+     "text": "(5, −2)",
+     "why": "Swaps and negates both, which is a reflection across y = −x."
+    }
+   ],
+   "explanation": "Reflecting across y = x swaps the coordinates: (2, −5) → (−5, 2)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.5",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The point (−3, 4) is reflected across the y-axis, then translated by (x, y) → (x + 2, y − 6), then rotated 180° about the origin. What is the final image?",
+   "answer": "(−5, 2)",
+   "wrong": [
+    {
+     "text": "(5, −2)",
+     "why": "Stops after the translation."
+    },
+    {
+     "text": "(−1, 2)",
+     "why": "Translates first, then reflects, then rotates: wrong order."
+    },
+    {
+     "text": "(−5, −2)",
+     "why": "Rotates 180° but then slips the sign of y."
+    }
+   ],
+   "explanation": "(−3, 4) → (3, 4) → (5, −2) → (−5, 2)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Triangle ABC has A(0, 0), B(2, 0), C(0, 3). Triangle A′B′C′ has A′(5, 1), B′(7, 1), C′(5, 4). Which rigid motion maps ABC onto A′B′C′?",
+   "answer": "A translation 5 units right and 1 unit up",
+   "wrong": [
+    {
+     "text": "A translation 1 unit right and 5 units up",
+     "why": "Swaps the horizontal and vertical amounts."
+    },
+    {
+     "text": "A reflection across the x-axis",
+     "why": "Would change the orientation and place C below the x-axis."
+    },
+    {
+     "text": "A rotation of 90° about the origin",
+     "why": "Would send B(2, 0) to (0, 2), not (7, 1)."
+    }
+   ],
+   "explanation": "Each vertex moves by (+5, +1): A → (5, 1), B → (7, 1), C → (5, 4)."
+  },
+  {
+   "cluster": "TRANS",
+   "standard": "NC.M2.G-CO.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Triangle ABC has A(1, 1), B(4, 1), C(1, 5). Triangle DEF has D(−2, 0), E(−2, 3), F(−6, 0). Which sequence of rigid motions maps △ABC onto △DEF with A→D, B→E, C→F?",
+   "answer": "Rotate 90° counterclockwise about the origin, then translate 1 left and 1 down",
+   "wrong": [
+    {
+     "text": "Rotate 90° clockwise about the origin, then translate 1 left and 1 down",
+     "why": "Rotates the wrong direction: A would end at (0, −2)."
+    },
+    {
+     "text": "Rotate 90° counterclockwise about the origin, then translate 1 right and 1 up",
+     "why": "Translates the wrong way: A would end at (0, 2)."
+    },
+    {
+     "text": "Reflect across the y-axis, then translate 1 left and 1 down",
+     "why": "A reflection does not send A, B, C to D, E, F in order."
+    }
+   ],
+   "explanation": "Rotating counterclockwise gives (−1, 1), (−1, 4), (−5, 1). Translating by (−1, −1) gives (−2, 0), (−2, 3), (−6, 0)."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "△ABC ≅ △DEF. Which statement must be true?",
+   "answer": "BC ≅ EF",
+   "wrong": [
+    {
+     "text": "BC ≅ DE",
+     "why": "Matches the wrong pair of letters."
+    },
+    {
+     "text": "∠B ≅ ∠D",
+     "why": "Matches the wrong pair of vertices."
+    },
+    {
+     "text": "AC ≅ DE",
+     "why": "Matches AC with the wrong side."
+    }
+   ],
+   "explanation": "Corresponding parts are in the same order: B↔E and C↔F, so BC ≅ EF."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.7",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "△ABC ≅ △PQR with ∠A corresponding to ∠P. If m∠A = (3x − 5)° and m∠P = 55°, what is x?",
+   "answer": "20",
+   "accept": [
+    "20.0",
+    "x=20"
+   ],
+   "unit": "",
+   "explanation": "Corresponding angles are congruent: 3x − 5 = 55, so 3x = 60 and x = 20."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "△ABC ≅ △DEF. AB = 2x + 3 and DE = 4x − 5. What is the length of AB?",
+   "answer": "11",
+   "accept": [
+    "11.0"
+   ],
+   "unit": "",
+   "explanation": "AB ≅ DE: 2x + 3 = 4x − 5, so x = 4. AB = 2(4) + 3 = 11."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.8",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Triangle ABC has side lengths 5, 7 and 9. Triangle DEF also has side lengths 5, 7 and 9. Which criterion shows △ABC ≅ △DEF?",
+   "answer": "SSS",
+   "wrong": [
+    {
+     "text": "SAS",
+     "why": "No angle is given."
+    },
+    {
+     "text": "ASA",
+     "why": "No angles are given."
+    },
+    {
+     "text": "SSA",
+     "why": "This is not a congruence criterion, and no angles are given."
+    }
+   ],
+   "explanation": "All three pairs of corresponding sides are congruent, so SSS applies."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In △ABC and △DEF, ∠A ≅ ∠D, AB ≅ DE and ∠B ≅ ∠E. Which criterion shows the triangles are congruent?",
+   "answer": "ASA",
+   "wrong": [
+    {
+     "text": "SAS",
+     "why": "The given side is between two angles, not between two sides."
+    },
+    {
+     "text": "SSA",
+     "why": "No second side is given."
+    },
+    {
+     "text": "AAA",
+     "why": "Equal angles alone do not prove congruence, and a side is given here."
+    }
+   ],
+   "explanation": "AB is the side between ∠A and ∠B, and DE is the side between ∠D and ∠E, so two angles and the included side are congruent: ASA."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which set of information is NOT enough to prove that △ABC ≅ △DEF?",
+   "answer": "AB ≅ DE, BC ≅ EF, ∠A ≅ ∠D",
+   "wrong": [
+    {
+     "text": "AB ≅ DE, ∠B ≅ ∠E, BC ≅ EF",
+     "why": "This is SAS."
+    },
+    {
+     "text": "AB ≅ DE, BC ≅ EF, AC ≅ DF",
+     "why": "This is SSS."
+    },
+    {
+     "text": "∠A ≅ ∠D, AB ≅ DE, ∠B ≅ ∠E",
+     "why": "This is ASA."
+    }
+   ],
+   "explanation": "The angle ∠A is not between AB and BC. Two sides and a non-included angle (SSA) does not guarantee congruence."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.8",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "In △ABC, AB ≅ AC. Ray AD bisects ∠BAC and meets BC at D. Which criterion proves △ABD ≅ △ACD?",
+   "answer": "SAS, using AB ≅ AC, ∠BAD ≅ ∠CAD and AD ≅ AD",
+   "wrong": [
+    {
+     "text": "SSS, using AB ≅ AC, BD ≅ CD and AD ≅ AD",
+     "why": "BD ≅ CD is not given; it is a result, not a starting fact."
+    },
+    {
+     "text": "AAA, using ∠B ≅ ∠C, ∠BAD ≅ ∠CAD and ∠ADB ≅ ∠ADC",
+     "why": "AAA only shows the triangles are similar; it is not a congruence criterion."
+    },
+    {
+     "text": "SSA, using AB ≅ AC, AD ≅ AD and ∠B ≅ ∠C",
+     "why": "SSA is not a criterion and ∠B ≅ ∠C is not given."
+    }
+   ],
+   "explanation": "AB ≅ AC is given, ∠BAD ≅ ∠CAD because AD bisects ∠BAC, and AD ≅ AD by the reflexive property. The angle is between the two sides, so SAS."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.9",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "∠1 and ∠2 are vertical angles with m∠1 = (3x + 10)° and m∠2 = (5x − 20)°. What is m∠1?",
+   "answer": "55°",
+   "wrong": [
+    {
+     "text": "15°",
+     "why": "Finds x but stops before substituting."
+    },
+    {
+     "text": "125°",
+     "why": "Gives the supplement of the angle."
+    },
+    {
+     "text": "110°",
+     "why": "Adds the two angles instead of using one."
+    }
+   ],
+   "explanation": "Vertical angles are congruent: 3x + 10 = 5x − 20, so x = 15. m∠1 = 3(15) + 10 = 55°."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two parallel lines are cut by a transversal. Alternate interior angles measure (3x + 20)° and (5x − 10)°. What is the measure of each angle?",
+   "answer": "65°",
+   "wrong": [
+    {
+     "text": "15°",
+     "why": "Finds x but stops before substituting."
+    },
+    {
+     "text": "115°",
+     "why": "Gives the supplement of the angle."
+    },
+    {
+     "text": "83.75°",
+     "why": "Sets the angles to sum to 180° instead of being equal."
+    }
+   ],
+   "explanation": "Alternate interior angles are congruent: 3x + 20 = 5x − 10, so x = 15 and each angle is 65°."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Point P is on the perpendicular bisector of segment AB. PA = 3x + 2 and PB = 5x − 8. What is PA?",
+   "answer": "17",
+   "wrong": [
+    {
+     "text": "5",
+     "why": "Finds x but stops before substituting."
+    },
+    {
+     "text": "34",
+     "why": "Adds PA and PB."
+    },
+    {
+     "text": "25",
+     "why": "Computes 5x instead of 3x + 2."
+    }
+   ],
+   "explanation": "Points on the perpendicular bisector are equidistant from A and B: 3x + 2 = 5x − 8, so x = 5 and PA = 17."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.9",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "In a proof that vertical angles ∠1 and ∠3 are congruent, ∠2 forms a linear pair with each. The proof states m∠1 + m∠2 = 180° and m∠3 + m∠2 = 180°. Which reason justifies concluding m∠1 = m∠3?",
+   "answer": "Substitution and subtraction properties of equality",
+   "wrong": [
+    {
+     "text": "The reflexive property of congruence",
+     "why": "This only says a figure is congruent to itself."
+    },
+    {
+     "text": "The converse of the alternate interior angles theorem",
+     "why": "This is about parallel lines, which are not in the figure."
+    },
+    {
+     "text": "The definition of an angle bisector",
+     "why": "No angle is bisected here."
+    }
+   ],
+   "explanation": "Both sums equal 180°, so m∠1 + m∠2 = m∠3 + m∠2, and subtracting m∠2 from both sides gives m∠1 = m∠3."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.10",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Two angles of a triangle measure 48° and 67°. What is the measure of the third angle, in degrees?",
+   "answer": "65",
+   "accept": [
+    "65.0",
+    "65°"
+   ],
+   "unit": "°",
+   "explanation": "The angles of a triangle sum to 180°: 180 − 48 − 67 = 65."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.10",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "An isosceles triangle has a vertex angle of 40°. What is the measure of each base angle?",
+   "answer": "70°",
+   "wrong": [
+    {
+     "text": "140°",
+     "why": "Subtracts 40° from 180° but forgets to split between two base angles."
+    },
+    {
+     "text": "40°",
+     "why": "Assumes the base angles equal the vertex angle."
+    },
+    {
+     "text": "20°",
+     "why": "Halves the vertex angle instead of using the angle sum."
+    }
+   ],
+   "explanation": "Base angles are congruent: (180 − 40) ÷ 2 = 70°."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.10",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In △ABC, D and E are the midpoints of AB and AC. DE = (x + 7) and BC = (3x + 4). What is BC?",
+   "answer": "34",
+   "wrong": [
+    {
+     "text": "10",
+     "why": "Finds x but stops before substituting."
+    },
+    {
+     "text": "17",
+     "why": "Gives DE instead of BC."
+    },
+    {
+     "text": "68",
+     "why": "Doubles BC after setting BC = 2 DE."
+    }
+   ],
+   "explanation": "The midsegment is half the third side: x + 7 = (3x + 4) ÷ 2, so x = 10. BC = 3(10) + 4 = 34."
+  },
+  {
+   "cluster": "CONGR",
+   "standard": "NC.M2.G-CO.10",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The medians of △ABC meet at point G. The distance from vertex C to G is 14. What is the length of the median from C to the midpoint of AB?",
+   "answer": "21",
+   "wrong": [
+    {
+     "text": "28",
+     "why": "Doubles CG instead of using CG as two-thirds of the median."
+    },
+    {
+     "text": "7",
+     "why": "Takes half of CG."
+    },
+    {
+     "text": "42",
+     "why": "Triples CG instead of using 3/2 times CG."
+    }
+   ],
+   "explanation": "G is two-thirds of the way from a vertex to the opposite midpoint, so the median is 14 ÷ (2/3) = 21."
+  }
+ ]
+}

@@ -1,0 +1,937 @@
+{
+ "items": [
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.N-CN.9",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "How many solutions, counting complex solutions and repeated solutions, does the equation 2x⁵ − 3x² + 7 = 0 have?",
+   "answer": "5",
+   "wrong": [
+    {
+     "text": "2",
+     "why": "Used the exponent of the lowest-degree term instead of the degree"
+    },
+    {
+     "text": "3",
+     "why": "Counted the number of terms"
+    },
+    {
+     "text": "7",
+     "why": "Used the constant term"
+    }
+   ],
+   "explanation": "By the Fundamental Theorem of Algebra, a polynomial equation of degree 5 has exactly 5 complex solutions counting multiplicity."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.N-CN.9",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A degree-4 polynomial f has real coefficients. Two of its zeros are 2 and −1, and a third zero is 3 + i. Which number must also be a zero of f?",
+   "answer": "3 − i",
+   "wrong": [
+    {
+     "text": "−3 − i",
+     "why": "Negated both parts of the complex number instead of conjugating"
+    },
+    {
+     "text": "−3 + i",
+     "why": "Negated only the real part"
+    },
+    {
+     "text": "−i",
+     "why": "Confused the conjugate with the additive inverse of the imaginary part alone"
+    }
+   ],
+   "explanation": "Non-real zeros of a polynomial with real coefficients come in conjugate pairs, so 3 + i forces 3 − i. That makes four zeros, matching degree 4."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.N-CN.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A polynomial of degree 6 has real coefficients. Counting multiplicity, which number of non-real zeros is impossible?",
+   "answer": "5",
+   "wrong": [
+    {
+     "text": "0",
+     "why": "Thought all-real zeros was impossible"
+    },
+    {
+     "text": "2",
+     "why": "Thought one conjugate pair was impossible"
+    },
+    {
+     "text": "4",
+     "why": "Thought two conjugate pairs was impossible"
+    }
+   ],
+   "explanation": "Non-real zeros come in conjugate pairs, so their count is even. 0, 2 and 4 are possible (leaving 6, 4 or 2 real zeros); 5 is odd and impossible."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.N-CN.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The polynomial f(x) = x³(x − 2)²(x² + 9) has real coefficients. How many distinct real zeros does it have?",
+   "answer": "2",
+   "wrong": [
+    {
+     "text": "5",
+     "why": "Counted the real zeros with multiplicity (3 + 2)"
+    },
+    {
+     "text": "4",
+     "why": "Counted all distinct zeros, including 3i and −3i"
+    },
+    {
+     "text": "7",
+     "why": "Used the degree of the polynomial"
+    }
+   ],
+   "explanation": "Setting each factor to zero gives x = 0, x = 2, and x = ±3i. Only 0 and 2 are real, so there are 2 distinct real zeros (the degree 7 counts all zeros with multiplicity)."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.N-CN.9",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A polynomial with real coefficients has degree 4, a double zero at x = 1, and a zero at x = 2i. Its leading coefficient is 1. Which is the polynomial?",
+   "answer": "x⁴ − 2x³ + 5x² − 8x + 4",
+   "wrong": [
+    {
+     "text": "x⁴ − 2x³ − 3x² + 8x − 4",
+     "why": "Used the factor x² − 4 (zeros ±2) instead of x² + 4"
+    },
+    {
+     "text": "x⁴ + 2x³ + 5x² + 8x + 4",
+     "why": "Used the factor (x + 1)² instead of (x − 1)²"
+    },
+    {
+     "text": "x⁴ − 2x³ + 3x² − 4x + 2",
+     "why": "Used (x − 1)²(x² + 2) instead of x² + 4"
+    }
+   ],
+   "explanation": "The conjugate −2i is also a zero, giving the factor (x − 2i)(x + 2i) = x² + 4. Then (x − 1)²(x² + 4) = (x² − 2x + 1)(x² + 4) = x⁴ − 2x³ + 5x² − 8x + 4."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "What is the remainder when f(x) = x³ − 4x² + 2x + 5 is divided by x − 3?",
+   "answer": "2",
+   "wrong": [
+    {
+     "text": "−64",
+     "why": "Evaluated f(−3), using x + 3 instead of x − 3"
+    },
+    {
+     "text": "5",
+     "why": "Took the constant term as the remainder"
+    },
+    {
+     "text": "26",
+     "why": "Evaluated 4x² as 4·3 instead of 4·3²"
+    }
+   ],
+   "explanation": "By the Remainder Theorem the remainder is f(3) = 27 − 36 + 6 + 5 = 2."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The polynomial x³ + kx² − x − 10 has x + 2 as a factor. What is k?",
+   "answer": "4",
+   "wrong": [
+    {
+     "text": "−4",
+     "why": "Sign error: wrote 4k = −16"
+    },
+    {
+     "text": "1",
+     "why": "Used f(2) = 0 (the factor x − 2) instead of f(−2) = 0"
+    },
+    {
+     "text": "5",
+     "why": "Evaluated −x at x = −2 as −2 instead of +2"
+    }
+   ],
+   "explanation": "Factor theorem: f(−2) = 0. So −8 + 4k + 2 − 10 = 0, giving 4k = 16 and k = 4."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Let p(x) = 2x⁴ − 3x³ + x − 7. What is the remainder when p(x) is divided by x + 1?",
+   "answer": "−3",
+   "accept": [
+    "-3"
+   ],
+   "explanation": "Remainder Theorem: divide by x − (−1), so the remainder is p(−1) = 2 + 3 − 1 − 7 = −3."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A polynomial p(x) is divided by x − 5 and the remainder is 7. Which statement must be true?",
+   "answer": "p(5) = 7",
+   "wrong": [
+    {
+     "text": "p(−5) = 7",
+     "why": "Used the opposite sign for the value of x"
+    },
+    {
+     "text": "p(7) = 5",
+     "why": "Swapped the divisor's constant and the remainder"
+    },
+    {
+     "text": "x − 5 is a factor of p(x)",
+     "why": "Confused a nonzero remainder with a zero remainder"
+    }
+   ],
+   "explanation": "The Remainder Theorem says the remainder on division by x − 5 equals p(5), so p(5) = 7. Because 7 ≠ 0, x − 5 is not a factor."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The polynomial p(x) = x³ + ax² + bx + 6 has x − 1 as a factor, and dividing p(x) by x − 2 leaves remainder 8. What is b?",
+   "answer": "−11",
+   "wrong": [
+    {
+     "text": "4",
+     "why": "Reported the value of a instead of b"
+    },
+    {
+     "text": "−7",
+     "why": "Reported a + b, the result of the factor condition alone"
+    },
+    {
+     "text": "−3",
+     "why": "Reported 2a + b, the combined expression from the remainder condition"
+    }
+   ],
+   "explanation": "p(1) = 0 gives a + b = −7. p(2) = 8 gives 14 + 4a + 2b = 8, so 2a + b = −3. Subtracting: a = 4, so b = −11."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The function f(x) = (x + 3)(x − 2)(x − 5) is graphed. Which list gives all of its x-intercepts?",
+   "answer": "−3, 2, 5",
+   "wrong": [
+    {
+     "text": "3, −2, −5",
+     "why": "Took each factor's constant as the zero without changing its sign"
+    },
+    {
+     "text": "−3, −2, 5",
+     "why": "Changed the sign of only the middle factor's constant"
+    },
+    {
+     "text": "3, 2, −5",
+     "why": "Changed the sign of only the first and third constants"
+    }
+   ],
+   "explanation": "Setting each factor equal to 0 gives x = −3, x = 2 and x = 5."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.3",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A monic cubic polynomial f has zeros at x = 1, x = −2 and x = 4. What is f(0)?",
+   "answer": "8",
+   "accept": [],
+   "explanation": "f(x) = (x − 1)(x + 2)(x − 4), so f(0) = (−1)(2)(−4) = 8."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Consider f(x) = −2(x − 1)³(x + 4)²(x − 6). What does the graph of f do at its zero x = −4?",
+   "answer": "It touches the x-axis and turns around",
+   "wrong": [
+    {
+     "text": "It crosses the x-axis like a straight line",
+     "why": "Treated every zero like a simple zero"
+    },
+    {
+     "text": "It crosses the x-axis with a flattened shape",
+     "why": "Mixed up the odd-multiplicity behavior at x = 1 with that at x = −4"
+    },
+    {
+     "text": "It has a vertical asymptote",
+     "why": "Confused a zero of the numerator with a zero of the denominator"
+    }
+   ],
+   "explanation": "The factor (x + 4) has exponent 2, an even multiplicity, so the graph touches the axis at x = −4 and turns without crossing."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What is the end behavior of f(x) = −3x⁵ + 2x² − 9?",
+   "answer": "f(x) → −∞ as x → ∞, and f(x) → +∞ as x → −∞",
+   "wrong": [
+    {
+     "text": "f(x) → +∞ as x → ∞, and f(x) → −∞ as x → −∞",
+     "why": "Ignored the negative leading coefficient"
+    },
+    {
+     "text": "f(x) → −∞ as x → ∞, and f(x) → −∞ as x → −∞",
+     "why": "Treated the odd degree like an even degree"
+    },
+    {
+     "text": "f(x) → +∞ as x → ∞, and f(x) → +∞ as x → −∞",
+     "why": "Ignored both the sign and the odd degree"
+    }
+   ],
+   "explanation": "Only the leading term −3x⁵ matters. Odd degree means the ends go in opposite directions, and the negative coefficient makes the right end fall."
+  },
+  {
+   "cluster": "POLY",
+   "standard": "NC.M3.A-APR.3",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "A cubic polynomial has leading coefficient 2, a zero at x = 3, and a double zero at x = −1. What is the value of the polynomial at x = 1?",
+   "answer": "−16",
+   "accept": [
+    "-16"
+   ],
+   "explanation": "The polynomial is 2(x − 3)(x + 1)². At x = 1: 2(−2)(2)² = −16."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to (x² + 3x + 5)/(x + 1)?",
+   "answer": "x + 2 + 3/(x + 1)",
+   "wrong": [
+    {
+     "text": "x + 2 + 5/(x + 1)",
+     "why": "Used the constant term 5 as the remainder"
+    },
+    {
+     "text": "x + 2 − 3/(x + 1)",
+     "why": "Made a sign error on the remainder"
+    },
+    {
+     "text": "x + 2 + 3/(x − 1)",
+     "why": "Wrote the remainder over x − 1 instead of x + 1"
+    }
+   ],
+   "explanation": "Long division: x² + 3x + 5 = (x + 1)(x + 2) + 3, so the quotient is x + 2 with remainder 3."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to (2x³ − x² + 4x − 3)/(x − 2)?",
+   "answer": "2x² + 3x + 10 + 17/(x − 2)",
+   "wrong": [
+    {
+     "text": "2x² − 5x + 14 − 31/(x − 2)",
+     "why": "Synthetic division using −2 instead of 2"
+    },
+    {
+     "text": "2x² + 3x + 10 + 7/(x − 2)",
+     "why": "Arithmetic slip in the final synthetic-division step (−3 + 10 gives 7)"
+    },
+    {
+     "text": "2x² + 3x + 10",
+     "why": "Dropped the remainder term"
+    }
+   ],
+   "explanation": "Synthetic division with 2: bring down 2; 2·2 − 1 = 3; 2·3 + 4 = 10; 2·10 − 3 = 17. Quotient 2x² + 3x + 10, remainder 17."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.6",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "The expression (3x + 11)/(x + 2) can be written as q + r/(x + 2), where q and r are constants. What is r?",
+   "answer": "5",
+   "accept": [],
+   "explanation": "3x + 11 = 3(x + 2) + 5, so (3x + 11)/(x + 2) = 3 + 5/(x + 2), and r = 5."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to (x³ + 2x² − 5)/(x² + 1)?",
+   "answer": "x + 2 − (x + 7)/(x² + 1)",
+   "wrong": [
+    {
+     "text": "x + 2 + (x + 7)/(x² + 1)",
+     "why": "Sign error: forgot the remainder −x − 7 is negative"
+    },
+    {
+     "text": "x + 2 − 7/(x² + 1)",
+     "why": "Dropped the x term of the remainder"
+    },
+    {
+     "text": "x + 2 − (x + 3)/(x² + 1)",
+     "why": "Subtracted 2x² + 2 correctly but then wrote −x − 3 as the remainder"
+    }
+   ],
+   "explanation": "(x² + 1)(x + 2) = x³ + 2x² + x + 2. Subtracting from x³ + 2x² − 5 leaves −x − 7, so the result is x + 2 + (−x − 7)/(x² + 1)."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Cancelling a common factor works for rational expressions like it does for fractions such as 15/35 = 3/7. Which equation is true for every x where both sides are defined?",
+   "answer": "(x² + 4x)/x = x + 4",
+   "wrong": [
+    {
+     "text": "(x + 3)/(x + 5) = 3/5",
+     "why": "Cancelled the x's, which are added, not factors"
+    },
+    {
+     "text": "(x² + 4)/(x + 2) = x + 2",
+     "why": "Cancelled 2 out of x² + 4 and the x + 2 incorrectly: x² + 4 does not factor that way"
+    },
+    {
+     "text": "(x + 7)/7 = x + 1",
+     "why": "Cancelled 7 from only one term of the numerator"
+    }
+   ],
+   "explanation": "Factor x out of the numerator: x(x + 4)/x = x + 4. Cancelling only works on common factors, not on terms that are added."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Reducing 12/18 to 2/3 means cancelling a common factor. In the same way, which is equivalent to (x² − x − 12)/(x² − 9) for x ≠ 3 and x ≠ −3?",
+   "answer": "(x − 4)/(x − 3)",
+   "wrong": [
+    {
+     "text": "(x + 4)/(x − 3)",
+     "why": "Factored x² − x − 12 as (x + 4)(x − 3)"
+    },
+    {
+     "text": "(x − 4)/(x + 3)",
+     "why": "Cancelled the wrong factor: removed x − 3 from the denominator and left x + 3 there"
+    },
+    {
+     "text": "(x + 12)/9",
+     "why": "Cancelled the x² terms as if they were common factors"
+    }
+   ],
+   "explanation": "x² − x − 12 = (x − 4)(x + 3) and x² − 9 = (x − 3)(x + 3). Cancelling the common factor x + 3 leaves (x − 4)/(x − 3)."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression equals 3/(x + 2) + 2/(x − 1)?",
+   "answer": "(5x + 1)/((x + 2)(x − 1))",
+   "wrong": [
+    {
+     "text": "5/(2x + 1)",
+     "why": "Added the numerators and added the denominators"
+    },
+    {
+     "text": "(5x + 4)/((x + 2)(x − 1))",
+     "why": "Multiplied each numerator by its own denominator instead of the other one"
+    },
+    {
+     "text": "(5x + 7)/((x + 2)(x − 1))",
+     "why": "Wrote 3(x + 1) + 2(x + 2) when building the common numerator"
+    }
+   ],
+   "explanation": "Common denominator (x + 2)(x − 1): 3(x − 1) + 2(x + 2) = 5x + 1."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression equals 4/(x − 3) − 1/(x + 1)?",
+   "answer": "(3x + 7)/((x − 3)(x + 1))",
+   "wrong": [
+    {
+     "text": "(3x + 1)/((x − 3)(x + 1))",
+     "why": "Did not distribute the subtraction: 4(x + 1) − x − 3"
+    },
+    {
+     "text": "(5x + 1)/((x − 3)(x + 1))",
+     "why": "Added the second fraction instead of subtracting"
+    },
+    {
+     "text": "(3x − 13)/((x − 3)(x + 1))",
+     "why": "Cross-multiplied with the wrong denominators: 4(x − 3) − (x + 1)"
+    }
+   ],
+   "explanation": "4(x + 1) − (x − 3) = 4x + 4 − x + 3 = 3x + 7 over the common denominator (x − 3)(x + 1)."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7a",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Subtracting gives 5/(x + 1) − 2/(x − 2) = (ax + b)/((x + 1)(x − 2)) for constants a and b. What is a + b?",
+   "answer": "−9",
+   "accept": [
+    "-9"
+   ],
+   "explanation": "5(x − 2) − 2(x + 1) = 5x − 10 − 2x − 2 = 3x − 12, so a = 3, b = −12 and a + b = −9."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Simplify [(x² − 4)/(x + 5)] · [(x + 5)/(x − 2)], where x ≠ 2 and x ≠ −5.",
+   "answer": "x + 2",
+   "wrong": [
+    {
+     "text": "x − 2",
+     "why": "Subtracted instead of adding when cancelling: kept the x − 2 factor rather than x + 2"
+    },
+    {
+     "text": "(x + 2)/(x + 5)",
+     "why": "Only cancelled the x − 2 factor and left an x + 5 uncancelled"
+    },
+    {
+     "text": "(x − 2)/(x + 5)",
+     "why": "Cancelled only the x + 5 factor and then divided by x + 5 again after cancelling x + 2 against nothing"
+    }
+   ],
+   "explanation": "Factor x² − 4 = (x − 2)(x + 2). The factors x − 2 and x + 5 each appear in a numerator and a denominator and cancel, leaving x + 2."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which x-values must be excluded from the domain of [(x² − 9)/(x + 4)] ÷ [(x + 3)/(x² − 16)]?",
+   "answer": "x = −4, x = −3 and x = 4",
+   "wrong": [
+    {
+     "text": "x = −3 and x = 4 only",
+     "why": "Forgot that the denominator x + 4 excludes −4"
+    },
+    {
+     "text": "x = −4 and x = 4 only",
+     "why": "Used only the denominators that appear and ignored dividing by zero"
+    },
+    {
+     "text": "x = −3 only",
+     "why": "Only excluded where the divisor's numerator is zero"
+    }
+   ],
+   "explanation": "x + 4 ≠ 0 and x² − 16 ≠ 0 exclude −4 and 4. The divisor (x + 3)/(x² − 16) cannot be 0, so x ≠ −3. Excluded: −4, −3, 4."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression equals [(x² − x − 6)/(x² − 1)] ÷ [(x − 3)/(x + 1)]?",
+   "answer": "(x + 2)/(x − 1)",
+   "wrong": [
+    {
+     "text": "(x − 1)/(x + 2)",
+     "why": "Inverted the final answer after cancelling"
+    },
+    {
+     "text": "(x + 2)(x − 3)²/((x − 1)(x + 1)²)",
+     "why": "Multiplied by (x − 3)/(x + 1) without flipping it"
+    },
+    {
+     "text": "(x + 2)/(x + 1)",
+     "why": "Cancelled x + 1 from the wrong parts, leaving x + 1 in the denominator"
+    }
+   ],
+   "explanation": "Flip and multiply: (x − 3)(x + 2)/((x − 1)(x + 1)) · (x + 1)/(x − 3). The factors x − 3 and x + 1 cancel, leaving (x + 2)/(x − 1)."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A club's average cost per shirt, in dollars, for an order of x shirts is (12x + 150)/x. Which expression is equivalent and shows the per-shirt price and the shared setup fee spread over the shirts?",
+   "answer": "12 + 150/x",
+   "wrong": [
+    {
+     "text": "162/x",
+     "why": "Cancelled the x in 12x with nothing and added 12 + 150 on top"
+    },
+    {
+     "text": "12x + 150/x",
+     "why": "Divided only the second term by x"
+    },
+    {
+     "text": "12 + 150",
+     "why": "Cancelled x from the whole numerator and denominator as though it were a factor"
+    }
+   ],
+   "explanation": "Divide each term of the numerator by x: 12x/x + 150/x = 12 + 150/x."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7a",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which expression equals 2x/(x + 3) − (x − 1)/(x − 2)?",
+   "answer": "(x² − 6x + 3)/((x + 3)(x − 2))",
+   "wrong": [
+    {
+     "text": "(x² − 6x − 3)/((x + 3)(x − 2))",
+     "why": "Did not distribute the minus sign across all of x² + 2x − 3"
+    },
+    {
+     "text": "(3x² − 2x − 3)/((x + 3)(x − 2))",
+     "why": "Added the fractions instead of subtracting"
+    },
+    {
+     "text": "(x + 1)/((x + 3)(x − 2))",
+     "why": "Subtracted the numerators and ignored the cross-multiplication"
+    }
+   ],
+   "explanation": "2x(x − 2) − (x − 1)(x + 3) = 2x² − 4x − (x² + 2x − 3) = x² − 6x + 3."
+  },
+  {
+   "cluster": "RATEXPR",
+   "standard": "NC.M3.A-APR.7b",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Let E(x) = [(x² − x − 6)/(x² − 4)] ÷ [(x² − 9)/(x² + x − 2)]. Simplify E and evaluate it at x = 4. Give a fraction or a decimal rounded to the nearest hundredth.",
+   "answer": "9/7",
+   "accept": [
+    "1.29",
+    "1.2857",
+    "1.286"
+   ],
+   "explanation": "E(x) = (x + 2)(x − 1)/((x − 2)(x + 3)), so E(4) = 6·3/(2·7) = 18/14 = 9/7 ≈ 1.29.",
+   "tolerance": 0.01
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A savings account balance is A(t) = 250(1.03)^t dollars after t years. What does the 1.03 represent?",
+   "answer": "Each year the balance is multiplied by 1.03, a 3% yearly increase",
+   "wrong": [
+    {
+     "text": "The balance goes up by $1.03 each year",
+     "why": "Read the growth factor as a dollar amount added each year"
+    },
+    {
+     "text": "The account started with $1.03",
+     "why": "Confused the base with the starting amount"
+    },
+    {
+     "text": "The balance goes up by 103% each year",
+     "why": "Read the factor 1.03 as a percent increase instead of a 3% increase"
+    }
+   ],
+   "explanation": "The base 1.03 = 1 + 0.03 is the yearly growth factor, meaning a 3% increase. The starting amount is the coefficient 250."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A hot drink's temperature in °F after t minutes is T(t) = 72 + 18(0.9)^t. What does the constant 72 represent?",
+   "answer": "The room temperature the drink approaches over time",
+   "wrong": [
+    {
+     "text": "The drink's starting temperature",
+     "why": "Mixed up the constant with the starting value (T(0) = 90)"
+    },
+    {
+     "text": "The number of degrees lost each minute",
+     "why": "Read the constant as a rate of change"
+    },
+    {
+     "text": "The temperature after exactly one minute",
+     "why": "Treated the constant as T(1) (which is 88.2)"
+    }
+   ],
+   "explanation": "As t grows, (0.9)^t → 0, so T → 72. The drink starts at T(0) = 72 + 18 = 90."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.1b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A school sells tickets. When a ticket costs p dollars, its revenue is R(p) = p(200 − 4p) dollars. In this context, what does the factor (200 − 4p) represent?",
+   "answer": "The number of tickets sold at price p",
+   "wrong": [
+    {
+     "text": "The price of one ticket",
+     "why": "The price is p, not 200 − 4p"
+    },
+    {
+     "text": "The total revenue",
+     "why": "The whole product p(200 − 4p) is the revenue"
+    },
+    {
+     "text": "The cost to the school of printing tickets",
+     "why": "Invented a cost; this factor is a quantity, not a cost"
+    }
+   ],
+   "explanation": "Revenue = price × quantity. The factor p is the price, so 200 − 4p is the number sold, which falls as the price rises."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.1a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A garage charges C(h) = 5 if h ≤ 2, and C(h) = 5 + 3(h − 2) if h > 2, in dollars for h hours. In the second piece, what does the coefficient 3 represent?",
+   "answer": "The charge per hour for each hour beyond 2",
+   "wrong": [
+    {
+     "text": "The charge per hour for every hour parked",
+     "why": "Applied the rate to all hours, but the first 2 hours cost a flat $5"
+    },
+    {
+     "text": "The total cost of parking for 3 hours",
+     "why": "Read 3 as an input hour rather than a rate"
+    },
+    {
+     "text": "The flat fee for the first 2 hours",
+     "why": "The flat fee is the 5, not the 3"
+    }
+   ],
+   "explanation": "In 3(h − 2), the factor (h − 2) counts hours beyond 2 and 3 multiplies it, so it is dollars per extra hour."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression is equivalent to x² − 49?",
+   "answer": "(x − 7)(x + 7)",
+   "wrong": [
+    {
+     "text": "(x − 7)²",
+     "why": "Squared the binomial, giving a middle term −14x"
+    },
+    {
+     "text": "(x + 7)²",
+     "why": "Squared the binomial, giving a middle term +14x"
+    },
+    {
+     "text": "(x − 49)(x + 1)",
+     "why": "Looked for factors of 49 whose product is −49 but whose sum is not 0"
+    }
+   ],
+   "explanation": "x² − 49 = x² − 7² is a difference of squares: (x − 7)(x + 7)."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which is a complete factorization of 16x⁴ − 81 over the integers?",
+   "answer": "(2x − 3)(2x + 3)(4x² + 9)",
+   "wrong": [
+    {
+     "text": "(2x − 3)²(2x + 3)²",
+     "why": "Squared both binomials, as though 16x⁴ − 81 were a perfect square"
+    },
+    {
+     "text": "(2x − 9)(2x + 9)(4x² + 9)",
+     "why": "Took the square root of 81 as 9 and of 16x⁴ as 4x² then mis-split the first factor"
+    },
+    {
+     "text": "(4x² − 3)(4x² + 27)",
+     "why": "Split into factors whose product is not 16x⁴ − 81"
+    }
+   ],
+   "explanation": "16x⁴ − 81 = (4x² − 9)(4x² + 9), and 4x² − 9 = (2x − 3)(2x + 3). The factor 4x² + 9 has no real roots."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which is a factorization of x³ + 4x² − 9x − 36 found by grouping?",
+   "answer": "(x + 4)(x − 3)(x + 3)",
+   "wrong": [
+    {
+     "text": "(x − 4)(x − 3)(x + 3)",
+     "why": "Pulled out x² − 9 but took x − 4 instead of x + 4"
+    },
+    {
+     "text": "(x + 4)(x − 3)²",
+     "why": "Treated x² − 9 as (x − 3)²"
+    },
+    {
+     "text": "(x + 4)(x² + 9)",
+     "why": "Treated x² − 9 as x² + 9"
+    }
+   ],
+   "explanation": "Group: x²(x + 4) − 9(x + 4) = (x + 4)(x² − 9) = (x + 4)(x − 3)(x + 3)."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which is a complete factorization of x⁴ − 5x² + 4?",
+   "answer": "(x − 1)(x + 1)(x − 2)(x + 2)",
+   "wrong": [
+    {
+     "text": "(x − 1)(x + 1)(x − 4)(x + 4)",
+     "why": "Replaced x² − 4 with x² − 16 by using 4 as the square"
+    },
+    {
+     "text": "(x − 1)(x − 4)(x² + 1)",
+     "why": "Factored as if x² were x and left a sum of squares"
+    },
+    {
+     "text": "(x² − 5)(x² + 1)",
+     "why": "Split the constant incorrectly; the product of the factors is x⁴ − 4x² − 5"
+    }
+   ],
+   "explanation": "Treat x² as u: u² − 5u + 4 = (u − 1)(u − 4). So (x² − 1)(x² − 4), and each is a difference of squares."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression equals 5000·2^(3t) for all t?",
+   "answer": "5000·8^t",
+   "wrong": [
+    {
+     "text": "5000·6^t",
+     "why": "Multiplied 2 by 3 for the base"
+    },
+    {
+     "text": "5000·9^t",
+     "why": "Computed 3² for the base"
+    },
+    {
+     "text": "5000·3^t",
+     "why": "Used the exponent's 3 as the new base"
+    }
+   ],
+   "explanation": "2^(3t) = (2³)^t = 8^t, so 5000·2^(3t) = 5000·8^t."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "An investment grows as A(t) = 800(1.12)^t, with t in years. Which statement about its monthly growth is correct?",
+   "answer": "It grows about 0.95% per month, because 1.12^(1/12) ≈ 1.0095",
+   "wrong": [
+    {
+     "text": "It grows exactly 1% per month, because 12% ÷ 12 = 1%",
+     "why": "Divided the yearly rate by 12 (1.01^12 ≈ 1.127, which is more than 12%)"
+    },
+    {
+     "text": "It grows about 0.5% per month",
+     "why": "Used a rough guess instead of a 12th root"
+    },
+    {
+     "text": "It grows about 1.9% per month",
+     "why": "Computed 1.12^(1/6) instead of 1.12^(1/12)"
+    }
+   ],
+   "explanation": "Writing 1.12^t = (1.12^(1/12))^(12t) gives a monthly factor of 1.12^(1/12) ≈ 1.0095, about 0.95% per month."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A sample's mass in grams after t days is M(t) = 300(0.5)^(t/6). Which statement is correct?",
+   "answer": "The mass decreases by about 10.9% each day",
+   "wrong": [
+    {
+     "text": "The mass decreases by about 8.3% each day",
+     "why": "Divided 50% by 6"
+    },
+    {
+     "text": "The mass decreases by about 50% each day",
+     "why": "Read the base as the daily factor"
+    },
+    {
+     "text": "The mass decreases by about 16.7% each day",
+     "why": "Computed 1/6 as the daily percent decrease"
+    }
+   ],
+   "explanation": "(0.5)^(t/6) = (0.5^(1/6))^t ≈ 0.8909^t, so each day the mass is multiplied by 0.8909, a decrease of about 10.9%."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "An account grows 3% every quarter. Which is closest to its equivalent yearly growth rate?",
+   "answer": "12.55%",
+   "wrong": [
+    {
+     "text": "12%",
+     "why": "Multiplied 3% by 4 instead of compounding"
+    },
+    {
+     "text": "9.27%",
+     "why": "Compounded for only 3 quarters"
+    },
+    {
+     "text": "0.74%",
+     "why": "Took the fourth root instead of the fourth power"
+    }
+   ],
+   "explanation": "Four quarters give a yearly factor of 1.03⁴ ≈ 1.1255, a growth of about 12.55%."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.1b",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "What is the smallest value the expression 4(x − 2)² + 7 can have, for any real number x?",
+   "answer": "7",
+   "accept": [],
+   "explanation": "The squared factor (x − 2)² is never negative and equals 0 at x = 2, so the expression is smallest at 7."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Two numbers x and y satisfy x² − y² = 45 and x − y = 5. What is x + y?",
+   "answer": "9",
+   "accept": [],
+   "explanation": "x² − y² = (x − y)(x + y), so 45 = 5(x + y) and x + y = 9."
+  },
+  {
+   "cluster": "STRUCT",
+   "standard": "NC.M3.A-SSE.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A population is P(t) = 1000·2^(t/3), with t in years. Written as 1000·b^t, what is b? Round to the nearest hundredth.",
+   "answer": "1.26",
+   "accept": [
+    "2^(1/3)",
+    "1.2599"
+   ],
+   "explanation": "2^(t/3) = (2^(1/3))^t, so b = 2^(1/3) ≈ 1.26.",
+   "tolerance": 0.01
+  }
+ ]
+}

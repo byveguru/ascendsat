@@ -1,0 +1,947 @@
+{
+ "items": [
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "If f(x) = 2x + 3, which expression is f⁻¹(x)?",
+   "answer": "(x − 3)/2",
+   "wrong": [
+    {
+     "text": "1/(2x + 3)",
+     "why": "Confused the reciprocal 1/f(x) with the inverse function."
+    },
+    {
+     "text": "(x + 3)/2",
+     "why": "Divided by 2 but undid the +3 with another addition instead of subtracting."
+    },
+    {
+     "text": "x/2 − 3",
+     "why": "Subtracted 3 from x/2 rather than subtracting 3 before dividing by 2."
+    }
+   ],
+   "explanation": "Let y = 2x + 3, swap x and y: x = 2y + 3, so y = (x − 3)/2."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "If f(x) = (x + 5)/3, which expression is f⁻¹(x)?",
+   "answer": "3x − 5",
+   "wrong": [
+    {
+     "text": "3x + 5",
+     "why": "Undid the division by 3 but kept the +5 instead of subtracting it."
+    },
+    {
+     "text": "3/(x + 5)",
+     "why": "Confused the reciprocal with the inverse."
+    },
+    {
+     "text": "3x − 15",
+     "why": "Multiplied the whole expression by 3 then subtracted 15, distributing 3 onto the 5 incorrectly."
+    }
+   ],
+   "explanation": "Set y = (x + 5)/3 and swap: x = (y + 5)/3, so y + 5 = 3x and y = 3x − 5."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which function is the inverse of f(x) = 3^x?",
+   "answer": "log₃(x)",
+   "wrong": [
+    {
+     "text": "3^(−x)",
+     "why": "Confused the inverse with the reciprocal 1/3^x."
+    },
+    {
+     "text": "x/3",
+     "why": "Treated exponentiation as multiplication by 3 and undid it by dividing by 3."
+    },
+    {
+     "text": "logₓ(3)",
+     "why": "Swapped the base and the argument of the logarithm."
+    }
+   ],
+   "explanation": "Exponential and logarithmic functions with the same base undo each other, so the inverse of 3^x is log₃(x)."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which function has an inverse function when its domain is all real numbers?",
+   "answer": "f(x) = x³ + 1",
+   "wrong": [
+    {
+     "text": "f(x) = x² + 1",
+     "why": "Fails the horizontal line test: f(2) = f(−2) = 5."
+    },
+    {
+     "text": "f(x) = |x − 1|",
+     "why": "Fails the horizontal line test: f(0) = f(2) = 1."
+    },
+    {
+     "text": "f(x) = x⁴",
+     "why": "Fails the horizontal line test: f(1) = f(−1) = 1."
+    }
+   ],
+   "explanation": "A function has an inverse function only if it is one-to-one. x³ + 1 is always increasing so each output comes from exactly one input; the others repeat outputs."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which set of ordered pairs (x, f(x)) is a function that has an inverse function?",
+   "answer": "{(1, 4), (2, 7), (3, 9), (4, 12)}",
+   "wrong": [
+    {
+     "text": "{(1, 4), (2, 7), (3, 4), (4, 12)}",
+     "why": "The output 4 appears twice, so it is not one-to-one."
+    },
+    {
+     "text": "{(1, 6), (2, 6), (3, 6), (4, 6)}",
+     "why": "Every input gives the output 6, so it is not one-to-one."
+    },
+    {
+     "text": "{(1, 3), (2, 8), (3, 3), (4, 8)}",
+     "why": "Outputs 3 and 8 each repeat, so it is not one-to-one."
+    }
+   ],
+   "explanation": "An inverse function exists only if no output repeats. Only the first set has four different outputs."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "f(x) = x² + 3 is defined only for x ≥ 0. Which expression is f⁻¹(x)?",
+   "answer": "√(x − 3)",
+   "wrong": [
+    {
+     "text": "√x − 3",
+     "why": "Subtracted 3 after taking the square root instead of before."
+    },
+    {
+     "text": "√(x + 3)",
+     "why": "Added 3 instead of subtracting it when undoing +3."
+    },
+    {
+     "text": "−√(x − 3)",
+     "why": "Used the negative root, which would invert the branch x ≤ 0, not x ≥ 0."
+    }
+   ],
+   "explanation": "Swap: x = y² + 3, so y² = x − 3. Since the original domain is x ≥ 0, the inverse outputs must be nonnegative: f⁻¹(x) = √(x − 3)."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The formula F = 1.8C + 32 converts degrees Celsius to degrees Fahrenheit. Which formula converts Fahrenheit to Celsius?",
+   "answer": "C = (F − 32)/1.8",
+   "wrong": [
+    {
+     "text": "C = (F + 32)/1.8",
+     "why": "Divided by 1.8 but added 32 instead of subtracting it."
+    },
+    {
+     "text": "C = 1.8(F − 32)",
+     "why": "Multiplied by 1.8 instead of dividing."
+    },
+    {
+     "text": "C = F/1.8 − 32",
+     "why": "Subtracted 32 after dividing instead of before."
+    }
+   ],
+   "explanation": "Solve F = 1.8C + 32 for C: F − 32 = 1.8C, so C = (F − 32)/1.8."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression is the inverse of f(x) = 5·2^x?",
+   "answer": "log₂(x/5)",
+   "wrong": [
+    {
+     "text": "log₂(x)/5",
+     "why": "Divided the logarithm by 5 instead of dividing x by 5 first."
+    },
+    {
+     "text": "5·log₂(x)",
+     "why": "Multiplied the logarithm by 5 instead of undoing the factor 5 by dividing."
+    },
+    {
+     "text": "log₂(x) − 5",
+     "why": "Subtracted 5 outside the logarithm; the factor 5 is multiplicative, not additive."
+    }
+   ],
+   "explanation": "x = 5·2^y gives 2^y = x/5, so y = log₂(x/5)."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression is the inverse of f(x) = log₂(x − 1)?",
+   "answer": "2^x + 1",
+   "wrong": [
+    {
+     "text": "2^(x − 1)",
+     "why": "Put the 1 in the exponent instead of adding it after exponentiating."
+    },
+    {
+     "text": "2^x − 1",
+     "why": "Subtracted 1 instead of adding it when undoing x − 1."
+    },
+    {
+     "text": "1/log₂(x − 1)",
+     "why": "Confused the reciprocal with the inverse."
+    }
+   ],
+   "explanation": "Swap: x = log₂(y − 1), so y − 1 = 2^x and y = 2^x + 1."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The graph of f(x) = (x − 2)² − 1 is a parabola with vertex (2, −1). Which restricted domain makes f one-to-one so it has an inverse function?",
+   "answer": "x ≥ 2",
+   "wrong": [
+    {
+     "text": "x ≥ −1",
+     "why": "This interval contains both sides of the vertex, so f(1) = f(3) = 0."
+    },
+    {
+     "text": "0 ≤ x ≤ 4",
+     "why": "The interval is symmetric about x = 2, so f(0) = f(4) = 3."
+    },
+    {
+     "text": "−1 ≤ x ≤ 5",
+     "why": "The interval is symmetric about x = 2, so f(−1) = f(5) = 8."
+    }
+   ],
+   "explanation": "A restriction must stay on one side of the axis of symmetry x = 2, such as x ≥ 2; any interval containing points on both sides repeats outputs."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Let f(x) = (x − 4)² for x ≤ 4. Which expression is f⁻¹(x)?",
+   "answer": "4 − √x",
+   "wrong": [
+    {
+     "text": "4 + √x",
+     "why": "This is the inverse of the branch x ≥ 4, not x ≤ 4."
+    },
+    {
+     "text": "√x − 4",
+     "why": "Moved the 4 to the wrong side: the inverse of (x + 4)² type, not (x − 4)²; e.g. f(2) = 4 but this gives −2."
+    },
+    {
+     "text": "√(4 − x)",
+     "why": "Applied the square root before undoing the shift, producing 0 for f(2) = 4 instead of 2."
+    }
+   ],
+   "explanation": "x = (y − 4)² with y ≤ 4 gives y − 4 = −√x, so y = 4 − √x. Check f(2) = 4 and 4 − √4 = 2."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "If f(x) = −(2/3)x + 4, which expression is f⁻¹(x)?",
+   "answer": "−(3/2)x + 6",
+   "wrong": [
+    {
+     "text": "−(3/2)x + 4",
+     "why": "Reciprocated the slope but forgot the intercept also changes (it must be scaled by 3/2)."
+    },
+    {
+     "text": "(3/2)x − 6",
+     "why": "Used the perpendicular slope 3/2 (negative reciprocal) instead of the reciprocal −3/2."
+    },
+    {
+     "text": "−(3/2)x − 6",
+     "why": "Right slope but sign error on the intercept."
+    }
+   ],
+   "explanation": "y = −(2/3)x + 4 swapped: x = −(2/3)y + 4, so (2/3)y = 4 − x and y = 6 − (3/2)x."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "If f(x) = 3x − 7, find f⁻¹(11).",
+   "answer": "6",
+   "accept": [
+    "6.0"
+   ],
+   "explanation": "f⁻¹(x) = (x + 7)/3, so f⁻¹(11) = 18/3 = 6. Check: f(6) = 11."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4a",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "If f(x) = 4·3^x, find f⁻¹(108).",
+   "answer": "3",
+   "accept": [
+    "3.0"
+   ],
+   "explanation": "Solve 4·3^y = 108, so 3^y = 27 and y = 3."
+  },
+  {
+   "cluster": "INVERSE",
+   "standard": "NC.M3.F-BF.4c",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Let f(x) = (x − 2)² + 1 with domain x ≥ 2. Find f⁻¹(10).",
+   "answer": "5",
+   "accept": [
+    "5.0"
+   ],
+   "explanation": "Solve (y − 2)² + 1 = 10 so (y − 2)² = 9. Since y ≥ 2, y − 2 = 3 and y = 5."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression gives the exact solution of 5^x = 40?",
+   "answer": "x = log₅(40)",
+   "wrong": [
+    {
+     "text": "x = log₄₀(5)",
+     "why": "Swapped the base and the argument."
+    },
+    {
+     "text": "x = 40/5",
+     "why": "Divided 40 by 5 instead of taking a logarithm."
+    },
+    {
+     "text": "x = ln(40) − ln(5)",
+     "why": "Used the quotient rule backward; this equals ln(8), not log₅(40)."
+    }
+   ],
+   "explanation": "Writing the exponential equation as a logarithm gives x = log₅(40) ≈ 2.29."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which expression gives the exact solution of 3·2^t = 50?",
+   "answer": "t = log₂(50/3)",
+   "wrong": [
+    {
+     "text": "t = log₂(50)/3",
+     "why": "Took the logarithm of 50 first and then divided by 3 instead of dividing before the logarithm."
+    },
+    {
+     "text": "t = log₂(150)",
+     "why": "Multiplied by 3 instead of dividing by 3."
+    },
+    {
+     "text": "t = log₂(50) − 3",
+     "why": "Subtracted 3 outside the logarithm; the 3 is a multiplier, not an addend."
+    }
+   ],
+   "explanation": "Divide by 3 first: 2^t = 50/3, so t = log₂(50/3) ≈ 4.06."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A deposit of $500 grows by 5% per year: 500(1.05)^t. To the nearest tenth of a year, how long until it reaches $1000?",
+   "answer": "14.2 years",
+   "wrong": [
+    {
+     "text": "20.0 years",
+     "why": "Treated the growth as linear: $25 per year gives 500 + 25t = 1000."
+    },
+    {
+     "text": "141.6 years",
+     "why": "Forgot to divide 1000 by 500 and used log₁.₀₅(1000)."
+    },
+    {
+     "text": "1.9 years",
+     "why": "Solved 1.05t = 2 as a linear equation."
+    }
+   ],
+   "explanation": "1.05^t = 2, so t = ln(2)/ln(1.05) ≈ 14.2."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which function eventually grows faster than all of the others for large x?",
+   "answer": "h(x) = 1.5^x",
+   "wrong": [
+    {
+     "text": "f(x) = 1000x",
+     "why": "A large linear coefficient only changes the starting speed; its rate of change stays constant."
+    },
+    {
+     "text": "g(x) = x²",
+     "why": "A quadratic's rate of change grows linearly, which an exponential eventually beats."
+    },
+    {
+     "text": "k(x) = x⁵",
+     "why": "Any polynomial is eventually exceeded by an exponential with base greater than 1."
+    }
+   ],
+   "explanation": "An exponential with base greater than 1 eventually exceeds every polynomial, however large the coefficients or degree."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "For g(x) = 2^x, which expression gives the change in g over the interval from x to x + 1?",
+   "answer": "2^x",
+   "wrong": [
+    {
+     "text": "2",
+     "why": "Assumed a constant change of 2 like a linear function with slope 2."
+    },
+    {
+     "text": "2^x + 1",
+     "why": "Added 1 to g(x) instead of computing g(x + 1) − g(x)."
+    },
+    {
+     "text": "2^(x + 1)",
+     "why": "This is g(x + 1), not the change g(x + 1) − g(x)."
+    }
+   ],
+   "explanation": "g(x + 1) − g(x) = 2^(x+1) − 2^x = 2^x. The change grows as x grows, unlike a linear function whose change per unit is constant."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Let f(x) = x² and g(x) = 2^x. Both equal 16 when x = 4. Which statement is true?",
+   "answer": "g(x) > f(x) for every x > 4",
+   "wrong": [
+    {
+     "text": "f(x) > g(x) for every x > 4",
+     "why": "At x = 5, f = 25 but g = 32, so g is larger."
+    },
+    {
+     "text": "g(x) = f(x) again at x = 5",
+     "why": "At x = 5, f = 25 and g = 32."
+    },
+    {
+     "text": "g(x) > f(x) for 4 < x < 10, then f(x) > g(x)",
+     "why": "An exponential never falls back below a polynomial after overtaking it."
+    }
+   ],
+   "explanation": "g(5) = 32 > 25 = f(5), and each step multiplies g by 2 while f grows by a factor under 2, so g stays above f for all x > 4."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A deposit of $1500 grows by 6% per year: 1500(1.06)^t. Which expression gives the time t when it first reaches $3000?",
+   "answer": "t = log₁.₀₆(2)",
+   "wrong": [
+    {
+     "text": "t = log₂(1.06)",
+     "why": "Swapped the base and the argument."
+    },
+    {
+     "text": "t = log₁.₀₆(3000)",
+     "why": "Forgot to divide by the starting amount 1500."
+    },
+    {
+     "text": "t = log₁.₀₆(1500)",
+     "why": "Used the initial amount instead of the ratio 3000/1500."
+    }
+   ],
+   "explanation": "1.06^t = 3000/1500 = 2, so t = log₁.₀₆(2) ≈ 11.9."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which expression gives the exact solution of 4·3^(2t) = 100?",
+   "answer": "t = log₃(25)/2",
+   "wrong": [
+    {
+     "text": "t = log₃(25)·2",
+     "why": "Multiplied by the exponent coefficient instead of dividing."
+    },
+    {
+     "text": "t = log₃(100)/2",
+     "why": "Forgot to divide 100 by 4 first."
+    },
+    {
+     "text": "t = log₃(25/2)",
+     "why": "Divided 25 by 2 inside the logarithm instead of dividing the logarithm by 2."
+    }
+   ],
+   "explanation": "3^(2t) = 25, so 2t = log₃(25) and t = log₃(25)/2 ≈ 1.46."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Why does an exponential function f(x) = b^x with b > 1 eventually exceed a linear function even if the linear function starts higher?",
+   "answer": "Its change over each interval of equal length keeps growing, but the linear change stays constant",
+   "wrong": [
+    {
+     "text": "Its y-intercept is always larger than the linear function's",
+     "why": "Exponentials with b > 1 and linear functions can have any y-intercepts; this is false."
+    },
+    {
+     "text": "Its change over each interval of equal length is always larger than the linear function's",
+     "why": "Early on the linear function can change more over an interval, as when 100x outpaces 1.1^x for a long time."
+    },
+    {
+     "text": "Its change over each interval of equal length shrinks but stays positive",
+     "why": "For b > 1 the change per interval grows."
+    }
+   ],
+   "explanation": "Over equal-length intervals the linear change is constant while the exponential's change is multiplied by b each time, so it eventually overtakes any linear function."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A drug amount in the body is 120(0.85)^t mg after t hours. To the nearest tenth of an hour, when will 30 mg remain?",
+   "answer": "8.5 hours",
+   "wrong": [
+    {
+     "text": "0.1 hours",
+     "why": "Computed ln(0.85)/ln(0.25), the reciprocal of the correct ratio."
+    },
+    {
+     "text": "1.7 hours",
+     "why": "Divided 0.25 by 0.15 as if the amount dropped linearly."
+    },
+    {
+     "text": "−8.5 hours",
+     "why": "Used ln(4) instead of ln(0.25), which gives a negative time."
+    }
+   ],
+   "explanation": "0.85^t = 30/120 = 0.25, so t = ln(0.25)/ln(0.85) ≈ 8.5."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which statement about f(x) = 1.01^x is true?",
+   "answer": "It eventually exceeds x¹⁰⁰",
+   "wrong": [
+    {
+     "text": "It never exceeds x¹⁰⁰ because 1.01 is so close to 1",
+     "why": "Any exponential with base greater than 1 eventually exceeds any polynomial."
+    },
+    {
+     "text": "x¹⁰⁰ exceeds it for every x > 0",
+     "why": "The exponential overtakes the polynomial for large x, though not until x is very large."
+    },
+    {
+     "text": "1.01^x > 1000x for every x ≥ 1",
+     "why": "At x = 1, 1.01 is much less than 1000."
+    }
+   ],
+   "explanation": "No matter how small b > 1 is or how large the polynomial's degree, b^x eventually dominates; the crossover just happens at a very large x."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The population of a colony is 7·1.5^(2t) after t days. To the nearest hundredth of a day, when does it reach 400?",
+   "answer": "4.99 days",
+   "wrong": [
+    {
+     "text": "9.98 days",
+     "why": "Solved for 2t and forgot to divide by 2."
+    },
+    {
+     "text": "3.69 days",
+     "why": "Forgot to divide 400 by 7 first."
+    },
+    {
+     "text": "2.49 days",
+     "why": "Divided by 2 twice (divided by 4 overall)."
+    }
+   ],
+   "explanation": "1.5^(2t) = 400/7, so 2t = ln(400/7)/ln(1.5) ≈ 9.98 and t ≈ 4.99."
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Solve 3^x = 50. Round to the nearest hundredth.",
+   "answer": "3.56",
+   "accept": [
+    "3.561"
+   ],
+   "explanation": "x = ln(50)/ln(3) ≈ 3.56.",
+   "tolerance": 0.01
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A $2000 investment grows as 2000(1.03)^t. After how many years will it reach $5000? Round to the nearest tenth.",
+   "answer": "31.0",
+   "accept": [
+    "31"
+   ],
+   "explanation": "1.03^t = 2.5, so t = ln(2.5)/ln(1.03) ≈ 31.0.",
+   "unit": "years",
+   "tolerance": 0.01
+  },
+  {
+   "cluster": "LOG",
+   "standard": "NC.M3.F-LE.4",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Solve 12·(0.9)^(2t) = 3 for t. Round to the nearest hundredth.",
+   "answer": "6.58",
+   "accept": [
+    "6.579"
+   ],
+   "explanation": "0.9^(2t) = 0.25, so 2t = ln(0.25)/ln(0.9) ≈ 13.16 and t ≈ 6.58.",
+   "tolerance": 0.01
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Convert 150° to radians.",
+   "answer": "5π/6",
+   "wrong": [
+    {
+     "text": "6π/5",
+     "why": "Inverted the fraction 5/6."
+    },
+    {
+     "text": "27000/π",
+     "why": "Multiplied by 180/π instead of π/180."
+    },
+    {
+     "text": "5π/12",
+     "why": "Divided by 360 instead of 180 when converting."
+    }
+   ],
+   "explanation": "150 × π/180 = 5π/6."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "An arc of length 12 cm lies on a circle of radius 4 cm. What is the radian measure of the central angle it subtends?",
+   "answer": "3",
+   "wrong": [
+    {
+     "text": "1/3",
+     "why": "Divided the radius by the arc length (r/s)."
+    },
+    {
+     "text": "48",
+     "why": "Multiplied arc length by radius."
+    },
+    {
+     "text": "8",
+     "why": "Subtracted the radius from the arc length."
+    }
+   ],
+   "explanation": "θ = s/r = 12/4 = 3 radians."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Convert 7π/4 radians to degrees.",
+   "answer": "315°",
+   "wrong": [
+    {
+     "text": "1260°",
+     "why": "Multiplied 7 by 180 and forgot to divide by 4."
+    },
+    {
+     "text": "5.5°",
+     "why": "Evaluated 7π/4 as a decimal (≈ 5.50) and wrote it as degrees."
+    },
+    {
+     "text": "45°",
+     "why": "Gave the reference angle instead of the angle itself."
+    }
+   ],
+   "explanation": "7π/4 × 180/π = 7 × 45 = 315°."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.2a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "On the unit circle, the terminal ray for the angle 2π/3 meets the circle at the point (−1/2, √3/2). What is sin(2π/3)?",
+   "answer": "√3/2",
+   "wrong": [
+    {
+     "text": "−1/2",
+     "why": "Used the x coordinate, which is cos(2π/3)."
+    },
+    {
+     "text": "−√3/2",
+     "why": "Gave the wrong sign; the y coordinate is positive in Quadrant II."
+    },
+    {
+     "text": "√3/3",
+     "why": "Used a non-exact decimal-like guess; the y coordinate is √3/2."
+    }
+   ],
+   "explanation": "sin of an angle is the y coordinate of the point on the unit circle, so sin(2π/3) = √3/2."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.2b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What is cos(5π/4)?",
+   "answer": "−√2/2",
+   "wrong": [
+    {
+     "text": "√2/2",
+     "why": "Ignored the quadrant; cosine is negative in Quadrant III."
+    },
+    {
+     "text": "−√3/2",
+     "why": "Used the 30°–60° values instead of the 45° value."
+    },
+    {
+     "text": "−1/2",
+     "why": "Used reference angle π/3 instead of π/4."
+    }
+   ],
+   "explanation": "5π/4 is in Quadrant III with reference angle π/4, so cos(5π/4) = −cos(π/4) = −√2/2."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.2b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Angle θ has a terminal ray in Quadrant II and sin θ = 3/5. What is cos θ?",
+   "answer": "−4/5",
+   "wrong": [
+    {
+     "text": "4/5",
+     "why": "Ignored that cosine is negative in Quadrant II."
+    },
+    {
+     "text": "−3/5",
+     "why": "Used the sine value with a negative sign."
+    },
+    {
+     "text": "−5/4",
+     "why": "Inverted the ratio."
+    }
+   ],
+   "explanation": "x² + (3/5)² = 1 gives |x| = 4/5, and x is negative in Quadrant II, so cos θ = −4/5."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "For 0 ≤ θ < 2π, which angle has sin θ = −√3/2 and cos θ = −1/2?",
+   "answer": "4π/3",
+   "wrong": [
+    {
+     "text": "2π/3",
+     "why": "Has the right cosine but sin(2π/3) is positive."
+    },
+    {
+     "text": "5π/3",
+     "why": "Has the right sine but cos(5π/3) = 1/2."
+    },
+    {
+     "text": "π/3",
+     "why": "sin and cos are both positive here."
+    }
+   ],
+   "explanation": "Both coordinates negative means Quadrant III; with reference angle π/3 that is π + π/3 = 4π/3."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What is the period of f(x) = 3·sin(4x)?",
+   "answer": "π/2",
+   "wrong": [
+    {
+     "text": "8π",
+     "why": "Used 2π·b instead of 2π/b."
+    },
+    {
+     "text": "2π/3",
+     "why": "Used a (3) in place of b (4)."
+    },
+    {
+     "text": "π/4",
+     "why": "Used π/b; this is a half period (sin(4(x + π/4)) = −sin(4x))."
+    }
+   ],
+   "explanation": "Period = 2π/b = 2π/4 = π/2."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which gives the amplitude and midline of y = −4·sin(x) + 2?",
+   "answer": "amplitude 4, midline y = 2",
+   "wrong": [
+    {
+     "text": "amplitude −4, midline y = 2",
+     "why": "Amplitude is |a| and cannot be negative."
+    },
+    {
+     "text": "amplitude 2, midline y = 4",
+     "why": "Swapped the roles of a and h."
+    },
+    {
+     "text": "amplitude 4, midline y = −4",
+     "why": "Used a as the midline instead of h."
+    }
+   ],
+   "explanation": "Amplitude = |a| = 4 and the midline is y = h = 2."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A Ferris wheel passenger's height in meters is h(t) = 12·sin(πt/30) + 14, where t is in seconds. What is the lowest height?",
+   "answer": "2 m",
+   "wrong": [
+    {
+     "text": "26 m",
+     "why": "This is the maximum height, midline + amplitude."
+    },
+    {
+     "text": "12 m",
+     "why": "This is only the amplitude."
+    },
+    {
+     "text": "14 m",
+     "why": "This is the midline, the average height."
+    }
+   ],
+   "explanation": "Minimum = midline − amplitude = 14 − 12 = 2 m."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The tide height in feet is h(t) = 1.5·sin(πt/6) + 2.5, where t is hours. How many hours pass between consecutive high tides?",
+   "answer": "12 hours",
+   "wrong": [
+    {
+     "text": "6 hours",
+     "why": "Used π/b, which is the time from high tide to low tide."
+    },
+    {
+     "text": "12π hours",
+     "why": "Read b as 1/6 instead of π/6."
+    },
+    {
+     "text": "24 hours",
+     "why": "Gave the time between every second high tide; the period is 12."
+    }
+   ],
+   "explanation": "Period = 2π/(π/6) = 12 hours, and consecutive maxima are one period apart."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.2b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which expression equals cos(11π/6)?",
+   "answer": "sin(π/3)",
+   "wrong": [
+    {
+     "text": "sin(11π/6)",
+     "why": "sin(11π/6) = −1/2, but cos(11π/6) = √3/2."
+    },
+    {
+     "text": "cos(5π/6)",
+     "why": "cos(5π/6) = −√3/2, with the wrong sign."
+    },
+    {
+     "text": "sin(π/6)",
+     "why": "sin(π/6) = 1/2, not √3/2."
+    }
+   ],
+   "explanation": "11π/6 is in Quadrant IV with reference angle π/6, so cos(11π/6) = √3/2 = sin(π/3)."
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.1",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "An arc of length 18.5 cm lies on a circle of radius 5 cm. What is the central angle in radians?",
+   "answer": "3.7",
+   "accept": [
+    "3.70"
+   ],
+   "explanation": "θ = s/r = 18.5/5 = 3.7 radians.",
+   "unit": "radians"
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.1",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "A central angle of 2.4 radians subtends an arc on a circle of radius 7.5 m. What is the arc length in meters?",
+   "answer": "18",
+   "accept": [
+    "18.0"
+   ],
+   "explanation": "s = rθ = 7.5 × 2.4 = 18 m.",
+   "unit": "m"
+  },
+  {
+   "cluster": "TRIG",
+   "standard": "NC.M3.F-TF.5",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The temperature in a greenhouse is T(t) = 10·sin(πt/12) + 60 degrees, where t is hours after midnight. What is the first time t ≥ 0 (in hours) when T = 65?",
+   "answer": "2",
+   "accept": [
+    "2.0"
+   ],
+   "explanation": "10·sin(πt/12) = 5 gives sin(πt/12) = 1/2. The first solution has πt/12 = π/6, so t = 2.",
+   "unit": "hours"
+  }
+ ]
+}

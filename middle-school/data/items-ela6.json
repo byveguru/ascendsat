@@ -1,0 +1,2709 @@
+{
+ "bank": "ela6",
+ "grade": 6,
+ "subject": "ela",
+ "standardsSource": "NC ELA SCOS 2017 (in force through 2026-27)",
+ "reviewStatus": "ai-drafted: none of these items or passages has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-ela6-rl-001",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p01",
+   "prompt": "In paragraph 4, which detail best shows how Tomas feels after he falls and hears someone laugh?",
+   "choices": [
+    "The weed snaps off at the top.",
+    "His face burns after the laughter.",
+    "He yanks at the weed a second time.",
+    "He tumbles backward into the dirt."
+   ],
+   "answer": "His face burns after the laughter.",
+   "explanation": "The text says that when someone laughed, Tomas felt his face burn, which signals embarrassment.",
+   "commonErrors": [
+    {
+     "answer": "He tumbles backward into the dirt.",
+     "why": "This is what happens to him, not how he feels about it."
+    },
+    {
+     "answer": "He yanks at the weed a second time.",
+     "why": "This shows his effort, not his reaction to the laughter."
+    },
+    {
+     "answer": "The weed snaps off at the top.",
+     "why": "This is an earlier event that causes the fall, not a feeling."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-002",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p01",
+   "prompt": "Which statement best expresses a theme of the story?",
+   "choices": [
+    "Neighbors usually refuse to help people who are new in town.",
+    "Joining a community garden is the quickest way to make friends in a new town.",
+    "Patience and the right method can turn a frustrating job into a success.",
+    "Getting angry is a good way to push through a hard chore."
+   ],
+   "answer": "Patience and the right method can turn a frustrating job into a success.",
+   "explanation": "Tomas fails when he yanks angrily but succeeds once he follows Mrs. Okafor's advice to dig carefully, so the lesson is about patience and method.",
+   "commonErrors": [
+    {
+     "answer": "Joining a community garden is the quickest way to make friends in a new town.",
+     "why": "Too narrow and unsupported; Tomas does not make friends quickly in the story."
+    },
+    {
+     "answer": "Neighbors usually refuse to help people who are new in town.",
+     "why": "Reverses the story, in which Mrs. Okafor helps Tomas."
+    },
+    {
+     "answer": "Getting angry is a good way to push through a hard chore.",
+     "why": "Contradicts the line that slow work beats angry work."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-003",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p01",
+   "prompt": "How does Mrs. Okafor's offer of the trowel affect the events of the story?",
+   "choices": [
+    "It explains why nobody has planted the plot for years.",
+    "It proves to Tomas that the other gardeners are laughing at him.",
+    "It convinces Tomas to ask for a different plot.",
+    "It gives Tomas a way to succeed, and his mood improves."
+   ],
+   "answer": "It gives Tomas a way to succeed, and his mood improves.",
+   "explanation": "After Tomas uses the trowel he lifts out a whole weed, grins, and finishes the day feeling better about being there.",
+   "commonErrors": [
+    {
+     "answer": "It convinces Tomas to ask for a different plot.",
+     "why": "Tomas stays with the plot and clears part of it."
+    },
+    {
+     "answer": "It proves to Tomas that the other gardeners are laughing at him.",
+     "why": "She helps him; the text does not say who laughed or connect it to her."
+    },
+    {
+     "answer": "It explains why nobody has planted the plot for years.",
+     "why": "She says nobody has planted it but never gives a reason."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-004",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p01",
+   "prompt": "In paragraph 1, what does the phrase \"like it had given up\" suggest about the garden plot?",
+   "choices": [
+    "It has been neglected for a long time.",
+    "Tomas has already decided to quit.",
+    "Someone broke the rake on purpose.",
+    "It is too small for anything useful to grow."
+   ],
+   "answer": "It has been neglected for a long time.",
+   "explanation": "A rusted rake slumped against the fence and weeds in every corner suggest a plot nobody has cared for in years.",
+   "commonErrors": [
+    {
+     "answer": "It is too small for anything useful to grow.",
+     "why": "The text describes the plot as overgrown, not small."
+    },
+    {
+     "answer": "Tomas has already decided to quit.",
+     "why": "The phrase describes the rake, and Tomas has only just arrived."
+    },
+    {
+     "answer": "Someone broke the rake on purpose.",
+     "why": "Nothing suggests damage on purpose; the rake is merely rusted and leaning."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-005",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p01",
+   "prompt": "How does the sentence \"So far it had only helped him meet dandelions\" in paragraph 3 contribute to the story?",
+   "choices": [
+    "It uses humor to show that the garden has not yet helped Tomas meet people.",
+    "It shows that Tomas has become an expert on plants.",
+    "It introduces dandelions as the main problem Tomas has to solve in the garden.",
+    "It explains why Tomas's family moved to town in August."
+   ],
+   "answer": "It uses humor to show that the garden has not yet helped Tomas meet people.",
+   "explanation": "The sentence follows his mother's hope that the garden would help him meet people and playfully shows that so far it has not.",
+   "commonErrors": [
+    {
+     "answer": "It introduces dandelions as the main problem Tomas has to solve in the garden.",
+     "why": "The sentence is a joke; the weeds are not the central problem."
+    },
+    {
+     "answer": "It shows that Tomas has become an expert on plants.",
+     "why": "Tomas is a beginner who struggles with a single weed."
+    },
+    {
+     "answer": "It explains why Tomas's family moved to town in August.",
+     "why": "The move is mentioned earlier and has nothing to do with this joke."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-006",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p02",
+   "prompt": "Which detail best supports the inference that the narrator's attitude toward Devon has softened by the end?",
+   "choices": [
+    "She says working with him is the worst thing to happen this year.",
+    "She wanted to pour the water and be done quickly.",
+    "She measured the water even though she was annoyed.",
+    "She plans to ask if he wants to go first at practice."
+   ],
+   "answer": "She plans to ask if he wants to go first at practice.",
+   "explanation": "Offering Devon the first turn in the final lines shows respect that she did not feel when the entry began.",
+   "commonErrors": [
+    {
+     "answer": "She says working with him is the worst thing to happen this year.",
+     "why": "This is her opinion at the start, before it changes."
+    },
+    {
+     "answer": "She wanted to pour the water and be done quickly.",
+     "why": "This shows her impatience, not a softer attitude."
+    },
+    {
+     "answer": "She measured the water even though she was annoyed.",
+     "why": "This shows she followed directions while still annoyed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-007",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p02",
+   "prompt": "Which sentence is the best summary of the diary entry?",
+   "choices": [
+    "A student wins the science fair by trusting her first guess.",
+    "A student discovers that expensive paper towels always soak up more water.",
+    "A student who is impatient with her partner's careful methods learns that his care leads to accurate results.",
+    "Two science fair partners argue so much about the project that one of them finally decides to quit the team."
+   ],
+   "answer": "A student who is impatient with her partner's careful methods learns that his care leads to accurate results.",
+   "explanation": "The narrator complains about Devon, then admits his fair test proved her guess wrong and decides being careful is not boring.",
+   "commonErrors": [
+    {
+     "answer": "Two science fair partners argue so much about the project that one of them finally decides to quit the team.",
+     "why": "They never quit, and the narrator ends up grateful."
+    },
+    {
+     "answer": "A student discovers that expensive paper towels always soak up more water.",
+     "why": "Reverses the result: the cheap brand won."
+    },
+    {
+     "answer": "A student wins the science fair by trusting her first guess.",
+     "why": "Her guess was wrong, and no winner is mentioned."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-008",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p02",
+   "prompt": "How does the narrator change from the beginning of the entry to the end?",
+   "choices": [
+    "She goes from annoyed by Devon to respecting his careful approach.",
+    "She goes from trusting her guess to disliking science.",
+    "She goes from excited about the fair to bored with it.",
+    "She goes from respecting Devon to feeling embarrassed whenever he is nearby."
+   ],
+   "answer": "She goes from annoyed by Devon to respecting his careful approach.",
+   "explanation": "She begins by calling Devon the worst partner and ends by admitting that being careful is not the same as being boring.",
+   "commonErrors": [
+    {
+     "answer": "She goes from trusting her guess to disliking science.",
+     "why": "She never says she dislikes science."
+    },
+    {
+     "answer": "She goes from respecting Devon to feeling embarrassed whenever he is nearby.",
+     "why": "Reverses her change."
+    },
+    {
+     "answer": "She goes from excited about the fair to bored with it.",
+     "why": "Her interest in the fair is not what changes."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-009",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p02",
+   "prompt": "In the sentence \"Devon didn't even gloat,\" what does the word \"gloat\" most nearly mean?",
+   "choices": [
+    "apologize for the way he acted",
+    "laugh at a joke he had heard",
+    "complain loudly about a mistake he made",
+    "show off proudly about being right"
+   ],
+   "answer": "show off proudly about being right",
+   "explanation": "Devon's test proved the narrator's guess wrong, yet he only wrote down numbers and said \"Good thing we checked,\" so he did not boast.",
+   "commonErrors": [
+    {
+     "answer": "complain loudly about a mistake he made",
+     "why": "Devon was not wrong, and he did not complain."
+    },
+    {
+     "answer": "apologize for the way he acted",
+     "why": "He had nothing to apologize for in the text."
+    },
+    {
+     "answer": "laugh at a joke he had heard",
+     "why": "The word describes how he reacts to being right, not a joke."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-010",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p02",
+   "prompt": "How does the first-person point of view shape what readers learn from the diary entry?",
+   "choices": [
+    "Readers learn private feelings the narrator would never tell Devon.",
+    "Readers see the events through an outside narrator who judges both partners equally.",
+    "Readers learn what Devon is thinking while he sets up the paper towels.",
+    "Readers learn the final result of the science fair."
+   ],
+   "answer": "Readers learn private feelings the narrator would never tell Devon.",
+   "explanation": "Phrases such as \"where nobody can read it\" show the narrator sharing honest thoughts that stay hidden from Devon.",
+   "commonErrors": [
+    {
+     "answer": "Readers learn what Devon is thinking while he sets up the paper towels.",
+     "why": "Only the narrator's thoughts are shown, not Devon's."
+    },
+    {
+     "answer": "Readers see the events through an outside narrator who judges both partners equally.",
+     "why": "The narrator is one of the partners and clearly takes sides."
+    },
+    {
+     "answer": "Readers learn the final result of the science fair.",
+     "why": "The entry ends before the fair takes place."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-011",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p03",
+   "prompt": "In paragraph 1, which detail best shows that Nia was avoiding the library?",
+   "choices": [
+    "A sock was lying with the book under the bed.",
+    "The book was covered with dust.",
+    "The due date was seven weeks earlier.",
+    "She walked a longer way to school."
+   ],
+   "answer": "She walked a longer way to school.",
+   "explanation": "The text says she took a longer route so she would not pass the library doors, which is a deliberate way of staying away.",
+   "commonErrors": [
+    {
+     "answer": "The book was covered with dust.",
+     "why": "This describes where the book had been, not Nia's behavior."
+    },
+    {
+     "answer": "A sock was lying with the book under the bed.",
+     "why": "This is a detail about the book's hiding place."
+    },
+    {
+     "answer": "The due date was seven weeks earlier.",
+     "why": "This is a fact about the lateness, not an action to avoid the library."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-012",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p03",
+   "prompt": "Which statement best states the theme of this story?",
+   "choices": [
+    "Careful planning prevents every kind of problem.",
+    "Facing a mistake can be easier than the worry of avoiding it.",
+    "Libraries should never charge fines for any late books returned.",
+    "Volunteering will always make people forgive a mistake."
+   ],
+   "answer": "Facing a mistake can be easier than the worry of avoiding it.",
+   "explanation": "Nia spent seven weeks dreading a problem that had disappeared on its own, and she feels better once she faces it.",
+   "commonErrors": [
+    {
+     "answer": "Libraries should never charge fines for any late books returned.",
+     "why": "Too narrow; the story focuses on Nia's feelings."
+    },
+    {
+     "answer": "Volunteering will always make people forgive a mistake.",
+     "why": "Nia does not need forgiveness; the fine had already been dropped."
+    },
+    {
+     "answer": "Careful planning prevents every kind of problem.",
+     "why": "The story is about handling a problem, not preventing one."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-013",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p03",
+   "prompt": "What problem does Nia face at the start of the story, and how is it resolved?",
+   "choices": [
+    "She wants to keep the book and the librarian lets her.",
+    "She has an overdue book and fears the fine, but learns the fine was forgiven.",
+    "She loses a book and the librarian helps her find it.",
+    "She cannot afford a fine and earns the money by sorting the library's books."
+   ],
+   "answer": "She has an overdue book and fears the fine, but learns the fine was forgiven.",
+   "explanation": "Nia worries about an overdue book, and the librarian tells her fines under five dollars were forgiven.",
+   "commonErrors": [
+    {
+     "answer": "She loses a book and the librarian helps her find it.",
+     "why": "She finds the book herself under her bed."
+    },
+    {
+     "answer": "She cannot afford a fine and earns the money by sorting the library's books.",
+     "why": "She never pays; she owes nothing."
+    },
+    {
+     "answer": "She wants to keep the book and the librarian lets her.",
+     "why": "She decides to return it."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-014",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p03",
+   "prompt": "How does paragraph 2 contribute to the structure of the story?",
+   "choices": [
+    "It shows the choices Nia weighs, which leads up to her decision.",
+    "It explains why the library charges fines and how much they cost.",
+    "It introduces the librarian as an important character.",
+    "It describes the layout of the library."
+   ],
+   "answer": "It shows the choices Nia weighs, which leads up to her decision.",
+   "explanation": "The paragraph lists three options Nia considers, setting up her choice to walk into the library.",
+   "commonErrors": [
+    {
+     "answer": "It explains why the library charges fines and how much they cost.",
+     "why": "The library's rules are not explained."
+    },
+    {
+     "answer": "It introduces the librarian as an important character.",
+     "why": "The librarian appears in the next paragraph."
+    },
+    {
+     "answer": "It describes the layout of the library.",
+     "why": "No layout is described."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-015",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela6-p03",
+   "prompt": "From whose perspective is the story told, and how can you tell?",
+   "choices": [
+    "The librarian's; the narrator explains why he smiles slowly at Nia's request.",
+    "Nia's; she tells the story using the word \"I.\"",
+    "Nia's; the narrator shares her thoughts and worries but not the librarian's.",
+    "An all-knowing narrator who reveals every character's thoughts."
+   ],
+   "answer": "Nia's; the narrator shares her thoughts and worries but not the librarian's.",
+   "explanation": "The narrator uses \"she\" yet reveals only Nia's reasoning and feelings, such as dreading the problem for seven weeks.",
+   "commonErrors": [
+    {
+     "answer": "The librarian's; the narrator explains why he smiles slowly at Nia's request.",
+     "why": "We never learn what the librarian thinks."
+    },
+    {
+     "answer": "Nia's; she tells the story using the word \"I.\"",
+     "why": "The narrator uses \"she,\" so it is third person."
+    },
+    {
+     "answer": "An all-knowing narrator who reveals every character's thoughts.",
+     "why": "Only Nia's thoughts are revealed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-016",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p04",
+   "prompt": "Which line from the poem best supports the idea that the speaker is anxious about the test?",
+   "choices": [
+    "and slides a folded note across the seat:",
+    "its yellow side still damp with dawn.",
+    "and the words slip off and hide.",
+    "The driver nods, and I nod back,"
+   ],
+   "answer": "and the words slip off and hide.",
+   "explanation": "The words disappearing from the speaker's memory show worry about forgetting the facts.",
+   "commonErrors": [
+    {
+     "answer": "its yellow side still damp with dawn.",
+     "why": "This describes the bus, not the speaker's worry."
+    },
+    {
+     "answer": "The driver nods, and I nod back,",
+     "why": "This is a friendly gesture, not a worry."
+    },
+    {
+     "answer": "and slides a folded note across the seat:",
+     "why": "This is the kind act that comes later."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-017",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p04",
+   "prompt": "Which statement best expresses a theme of this poem?",
+   "choices": [
+    "Studying hard is the only way to feel ready for a test.",
+    "A small act of kindness can ease someone's worries.",
+    "Riding the bus is more fun than walking to school.",
+    "Mornings are the hardest part of the school day."
+   ],
+   "answer": "A small act of kindness can ease someone's worries.",
+   "explanation": "The speaker's mood lifts after Jada's note, shown by the stones losing their weight in the last stanza.",
+   "commonErrors": [
+    {
+     "answer": "Studying hard is the only way to feel ready for a test.",
+     "why": "Studying is not what changes the speaker's mood."
+    },
+    {
+     "answer": "Mornings are the hardest part of the school day.",
+     "why": "The poem is more about worry and friendship than mornings."
+    },
+    {
+     "answer": "Riding the bus is more fun than walking to school.",
+     "why": "Walking is never mentioned."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-018",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p04",
+   "prompt": "How does the speaker's mood change from the second stanza to the fourth stanza?",
+   "choices": [
+    "from excited to disappointed",
+    "from worried to cheerful",
+    "from calm to frightened",
+    "from lonely to embarrassed"
+   ],
+   "answer": "from worried to cheerful",
+   "explanation": "The second stanza has the words hiding and a flipping stomach, while the fourth ends with the speaker smiling and ready.",
+   "commonErrors": [
+    {
+     "answer": "from excited to disappointed",
+     "why": "Reverses the change."
+    },
+    {
+     "answer": "from lonely to embarrassed",
+     "why": "The speaker is worried, not lonely, and ends smiling."
+    },
+    {
+     "answer": "from calm to frightened",
+     "why": "The speaker starts out nervous, not calm."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-019",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p04",
+   "prompt": "In the first stanza, what does the phrase \"heavy as a sack of stones\" suggest about the speaker?",
+   "choices": [
+    "The speaker feels weighed down by worry as well as by the load.",
+    "The speaker is too weak to climb the steps.",
+    "The speaker likes carrying heavy things.",
+    "The speaker's backpack is actually filled with large, heavy rocks."
+   ],
+   "answer": "The speaker feels weighed down by worry as well as by the load.",
+   "explanation": "In the last stanza the stones lose their weight after the note arrives, so the heaviness stands for the speaker's worry.",
+   "commonErrors": [
+    {
+     "answer": "The speaker's backpack is actually filled with large, heavy rocks.",
+     "why": "It is a comparison, not literal stones."
+    },
+    {
+     "answer": "The speaker likes carrying heavy things.",
+     "why": "Nothing suggests enjoyment."
+    },
+    {
+     "answer": "The speaker is too weak to climb the steps.",
+     "why": "The speaker does climb the steps."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-rl-020",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p04",
+   "prompt": "How does the third stanza change the direction of the poem?",
+   "choices": [
+    "It introduces a new speaker who tells a different story.",
+    "It shows the speaker deciding to skip the test.",
+    "It repeats the description of the bus and driver from the first stanza.",
+    "It introduces an event that starts to lift the speaker's worry."
+   ],
+   "answer": "It introduces an event that starts to lift the speaker's worry.",
+   "explanation": "Until the third stanza the mood is nervous; Jada's note is the turning point that leads to the cheerful ending.",
+   "commonErrors": [
+    {
+     "answer": "It repeats the description of the bus and driver from the first stanza.",
+     "why": "Jada's note is new."
+    },
+    {
+     "answer": "It introduces a new speaker who tells a different story.",
+     "why": "The speaker stays the same."
+    },
+    {
+     "answer": "It shows the speaker deciding to skip the test.",
+     "why": "The speaker never mentions skipping the test."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-001",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p05",
+   "prompt": "According to paragraph 3, what does a longer waggle tell the other bees?",
+   "choices": [
+    "The flowers are in a different direction.",
+    "The flowers are farther from the hive.",
+    "The flowers contain more nectar.",
+    "The flowers are closer to the sun."
+   ],
+   "answer": "The flowers are farther from the hive.",
+   "explanation": "The paragraph states that the length of the waggle shows the distance, with a longer waggle meaning farther away.",
+   "commonErrors": [
+    {
+     "answer": "The flowers are in a different direction.",
+     "why": "Direction is shown by the angle, not the length."
+    },
+    {
+     "answer": "The flowers contain more nectar.",
+     "why": "The passage never links length to nectar."
+    },
+    {
+     "answer": "The flowers are closer to the sun.",
+     "why": "Position relative to the sun is shown by the angle."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-002",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p05",
+   "prompt": "Which statement best expresses the central idea of the whole passage?",
+   "choices": [
+    "A single leader bee gives orders that every other bee in the colony must follow.",
+    "Honeybees dance mainly to celebrate finding flowers.",
+    "Scientists have invented many ways to talk to insects.",
+    "Honeybees use a dance to share where food is, which helps the whole colony."
+   ],
+   "answer": "Honeybees use a dance to share where food is, which helps the whole colony.",
+   "explanation": "The passage explains the waggle dance and ends by saying a group can do more by sharing information.",
+   "commonErrors": [
+    {
+     "answer": "A single leader bee gives orders that every other bee in the colony must follow.",
+     "why": "The first paragraph says no single bee is in charge."
+    },
+    {
+     "answer": "Scientists have invented many ways to talk to insects.",
+     "why": "Scientists only test the dance; they do not talk to bees."
+    },
+    {
+     "answer": "Honeybees dance mainly to celebrate finding flowers.",
+     "why": "The dance carries information, not celebration."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-003",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p05",
+   "prompt": "How does the author explain the waggle dance in paragraphs 2 and 3?",
+   "choices": [
+    "First describing scientists' tests, then describing what the bee does.",
+    "First describing what the bee does, then explaining what the movements mean.",
+    "By comparing the dance to the way that people give each other directions to a place.",
+    "By giving reasons that bees prefer certain flowers."
+   ],
+   "answer": "First describing what the bee does, then explaining what the movements mean.",
+   "explanation": "Paragraph 2 describes the bee's actions and paragraph 3 explains that angle shows direction and length shows distance.",
+   "commonErrors": [
+    {
+     "answer": "First describing scientists' tests, then describing what the bee does.",
+     "why": "The tests come in paragraph 4."
+    },
+    {
+     "answer": "By comparing the dance to the way that people give each other directions to a place.",
+     "why": "No comparison to people is made."
+    },
+    {
+     "answer": "By giving reasons that bees prefer certain flowers.",
+     "why": "Flower choice is not explained."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-004",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p05",
+   "prompt": "In paragraph 2, what does the word \"forager\" most likely mean?",
+   "choices": [
+    "a young bee that has just hatched",
+    "a bee that guards the hive",
+    "a bee that builds the honeycomb",
+    "a bee that searches for food"
+   ],
+   "answer": "a bee that searches for food",
+   "explanation": "The forager discovers flowers rich in nectar and flies back, so the word refers to a food-finder.",
+   "commonErrors": [
+    {
+     "answer": "a bee that guards the hive",
+     "why": "Guarding is not described, and she flies off to find flowers."
+    },
+    {
+     "answer": "a bee that builds the honeycomb",
+     "why": "She dances on the honeycomb but is not building it."
+    },
+    {
+     "answer": "a young bee that has just hatched",
+     "why": "Nothing suggests age."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-005",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p05",
+   "prompt": "What is the main purpose of paragraph 4 in the passage?",
+   "choices": [
+    "It explains in detail how honeybees slowly evolved over many years to dance.",
+    "It argues that the dance is rarely used.",
+    "It shows how other bees use the message and how scientists checked the system.",
+    "It introduces a problem that the dance cannot solve."
+   ],
+   "answer": "It shows how other bees use the message and how scientists checked the system.",
+   "explanation": "The paragraph describes bees following the dance and then scientists testing it by moving food.",
+   "commonErrors": [
+    {
+     "answer": "It introduces a problem that the dance cannot solve.",
+     "why": "No problem with the dance is described."
+    },
+    {
+     "answer": "It explains in detail how honeybees slowly evolved over many years to dance.",
+     "why": "Evolution is not discussed."
+    },
+    {
+     "answer": "It argues that the dance is rarely used.",
+     "why": "The passage presents the dance as a major method."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-006",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p06",
+   "prompt": "According to paragraph 2, how does a barnacle survive when the tide goes out?",
+   "choices": [
+    "It slows water loss with tough skin.",
+    "It shuts its shell plates to keep a bit of seawater inside.",
+    "It ties itself to neighbors with silky threads.",
+    "It slides into a shady crack in the rocks to wait for the waves."
+   ],
+   "answer": "It shuts its shell plates to keep a bit of seawater inside.",
+   "explanation": "The paragraph says the barnacle closes its shell and traps a drop of seawater to stay moist.",
+   "commonErrors": [
+    {
+     "answer": "It slides into a shady crack in the rocks to wait for the waves.",
+     "why": "This is a sea star strategy in paragraph 3."
+    },
+    {
+     "answer": "It ties itself to neighbors with silky threads.",
+     "why": "This is how mussels hold on."
+    },
+    {
+     "answer": "It slows water loss with tough skin.",
+     "why": "This is a sea star feature."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-007",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p06",
+   "prompt": "Which statement states the central idea of this passage?",
+   "choices": [
+    "Waves are the most dangerous threat to all ocean life.",
+    "Intertidal animals have different ways of surviving a harsh home.",
+    "Barnacles are the strongest animals living on any rocky seashore in the world.",
+    "Low tide is the safest time to visit a tide pool."
+   ],
+   "answer": "Intertidal animals have different ways of surviving a harsh home.",
+   "explanation": "Paragraphs 2 through 4 each show a different animal solving problems of waves, sun, and dryness.",
+   "commonErrors": [
+    {
+     "answer": "Barnacles are the strongest animals living on any rocky seashore in the world.",
+     "why": "Barnacles are only one example."
+    },
+    {
+     "answer": "Low tide is the safest time to visit a tide pool.",
+     "why": "Safety is not the main focus."
+    },
+    {
+     "answer": "Waves are the most dangerous threat to all ocean life.",
+     "why": "The passage describes several challenges, not just waves."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-008",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p06",
+   "prompt": "How does the author develop the main idea in paragraphs 2 through 4?",
+   "choices": [
+    "By telling a story about a visit to the shore.",
+    "By comparing the three animals to decide which one is the strongest overall.",
+    "By explaining why the tide moves in and out.",
+    "By describing a different animal and its way of surviving in each paragraph."
+   ],
+   "answer": "By describing a different animal and its way of surviving in each paragraph.",
+   "explanation": "Barnacles, sea stars, and mussels each get a paragraph, with details about how they cope.",
+   "commonErrors": [
+    {
+     "answer": "By comparing the three animals to decide which one is the strongest overall.",
+     "why": "No ranking occurs."
+    },
+    {
+     "answer": "By telling a story about a visit to the shore.",
+     "why": "The text is explanatory, not a personal story."
+    },
+    {
+     "answer": "By explaining why the tide moves in and out.",
+     "why": "The tides are not explained."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-009",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p06",
+   "prompt": "In paragraph 2, what does the word \"reserve\" mean in the phrase \"That tiny reserve keeps the barnacle moist\"?",
+   "choices": [
+    "an area set aside to protect wildlife",
+    "a quiet, shy manner",
+    "a supply saved for later",
+    "a request to hold a seat"
+   ],
+   "answer": "a supply saved for later",
+   "explanation": "The drop of seawater is stored inside the shell and used until the tide returns.",
+   "commonErrors": [
+    {
+     "answer": "an area set aside to protect wildlife",
+     "why": "Real meaning of the word, but it does not fit a drop of water."
+    },
+    {
+     "answer": "a quiet, shy manner",
+     "why": "A different meaning that does not fit the sentence."
+    },
+    {
+     "answer": "a request to hold a seat",
+     "why": "A different meaning that does not fit the sentence."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-010",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p06",
+   "prompt": "What is the author's main purpose in paragraph 5?",
+   "choices": [
+    "to warn readers that tide pool animals can be dangerous to touch",
+    "to warn readers that tide pool animals are dangerous",
+    "to encourage readers to treat tide pool animals with care",
+    "to convince readers to avoid the shore"
+   ],
+   "answer": "to encourage readers to treat tide pool animals with care",
+   "explanation": "The author recommends stepping carefully and touching gently, and says the animals deserve respect.",
+   "commonErrors": [
+    {
+     "answer": "to warn readers that tide pool animals are dangerous",
+     "why": "The advice is to be gentle with the animals."
+    },
+    {
+     "answer": "to warn readers that tide pool animals can be dangerous to touch",
+     "why": "Tides are not explained."
+    },
+    {
+     "answer": "to convince readers to avoid the shore",
+     "why": "The author encourages visiting, with care."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-011",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p07",
+   "prompt": "According to paragraph 2, why does the Moon shine?",
+   "choices": [
+    "Sunlight passes through it from behind.",
+    "It makes its own light, much like a lamp does.",
+    "Earth's shadow makes it glow.",
+    "Its surface reflects light from the Sun."
+   ],
+   "answer": "Its surface reflects light from the Sun.",
+   "explanation": "The paragraph compares the Moon to a mirror that bounces light.",
+   "commonErrors": [
+    {
+     "answer": "It makes its own light, much like a lamp does.",
+     "why": "The paragraph says it makes no light of its own."
+    },
+    {
+     "answer": "Earth's shadow makes it glow.",
+     "why": "The shadow is not the source of light."
+    },
+    {
+     "answer": "Sunlight passes through it from behind.",
+     "why": "The light is reflected, not passed through."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-012",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p07",
+   "prompt": "What is the central idea of this passage?",
+   "choices": [
+    "The Moon's phases occur because we see different amounts of its lit half as it orbits Earth.",
+    "The Moon produces more light at some times than at others.",
+    "The Moon changes its real shape during each trip around Earth.",
+    "Earth's shadow slowly covers a little more of the Moon each night and then uncovers it again."
+   ],
+   "answer": "The Moon's phases occur because we see different amounts of its lit half as it orbits Earth.",
+   "explanation": "The passage explains that half the Moon is always lit and our viewing angle changes during its orbit.",
+   "commonErrors": [
+    {
+     "answer": "Earth's shadow slowly covers a little more of the Moon each night and then uncovers it again.",
+     "why": "This is the belief the author corrects."
+    },
+    {
+     "answer": "The Moon changes its real shape during each trip around Earth.",
+     "why": "The Moon does not change shape."
+    },
+    {
+     "answer": "The Moon produces more light at some times than at others.",
+     "why": "It produces none of its own."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-013",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.3"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela6-p07",
+   "prompt": "How does the author respond to the common belief introduced in paragraph 1?",
+   "choices": [
+    "By correcting it, first explaining the real cause and later showing when Earth's shadow does matter.",
+    "By agreeing with the belief and then adding several small details about how the Moon moves in space.",
+    "By ignoring it and writing only about eclipses.",
+    "By listing scientists who disagree about the cause."
+   ],
+   "answer": "By correcting it, first explaining the real cause and later showing when Earth's shadow does matter.",
+   "explanation": "Paragraphs 2-4 give the actual cause of phases, and paragraph 5 says Earth's shadow causes only eclipses.",
+   "commonErrors": [
+    {
+     "answer": "By agreeing with the belief and then adding several small details about how the Moon moves in space.",
+     "why": "The author says the real explanation is different."
+    },
+    {
+     "answer": "By ignoring it and writing only about eclipses.",
+     "why": "The belief is addressed directly and eclipses appear only at the end."
+    },
+    {
+     "answer": "By listing scientists who disagree about the cause.",
+     "why": "No scientists are named or listed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-014",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p07",
+   "prompt": "In paragraph 4, what does the word \"waning\" mean?",
+   "choices": [
+    "growing larger",
+    "turning dark suddenly",
+    "staying the same",
+    "growing smaller"
+   ],
+   "answer": "growing smaller",
+   "explanation": "The paragraph says the visible shape shrinks, which is called waning, back toward new moon.",
+   "commonErrors": [
+    {
+     "answer": "growing larger",
+     "why": "That is waxing."
+    },
+    {
+     "answer": "staying the same",
+     "why": "The shape changes."
+    },
+    {
+     "answer": "turning dark suddenly",
+     "why": "The change is gradual."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-015",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p07",
+   "prompt": "How does paragraph 2 fit into the structure of the passage?",
+   "choices": [
+    "It describes how lunar eclipses happen.",
+    "It gives a basic fact about the Moon's light that the later explanation depends on.",
+    "It summarizes the whole passage.",
+    "It gives a counterexample that disproves the explanation given later in paragraph 3."
+   ],
+   "answer": "It gives a basic fact about the Moon's light that the later explanation depends on.",
+   "explanation": "Knowing that the Moon reflects sunlight and that half is lit is needed to understand the phases in paragraph 3.",
+   "commonErrors": [
+    {
+     "answer": "It gives a counterexample that disproves the explanation given later in paragraph 3.",
+     "why": "It supports paragraph 3."
+    },
+    {
+     "answer": "It summarizes the whole passage.",
+     "why": "It introduces only one fact."
+    },
+    {
+     "answer": "It describes how lunar eclipses happen.",
+     "why": "Eclipses appear in the last paragraph."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-016",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela6-p08",
+   "prompt": "According to the passage, what happens to a student who cannot print at home?",
+   "choices": [
+    "The student must hand in written work or skip the assignment.",
+    "The student can use a printer in any classroom.",
+    "The student is sent to the principal's office.",
+    "The student is given several extra days to finish the work at home."
+   ],
+   "answer": "The student must hand in written work or skip the assignment.",
+   "explanation": "Paragraph 3 says such a student must hand in written work or skip the assignment.",
+   "commonErrors": [
+    {
+     "answer": "The student is given several extra days to finish the work at home.",
+     "why": "No extra time is mentioned."
+    },
+    {
+     "answer": "The student can use a printer in any classroom.",
+     "why": "Printers are said to be in the library."
+    },
+    {
+     "answer": "The student is sent to the principal's office.",
+     "why": "Nothing in the passage describes a punishment."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-017",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p08",
+   "prompt": "How does the paragraph that begins \"Some people say\" fit into the argument?",
+   "choices": [
+    "It changes the author's claim.",
+    "It introduces a new reason supported by a survey.",
+    "It restates the author's reasons in a summary.",
+    "It raises an objection and answers it."
+   ],
+   "answer": "It raises an objection and answers it.",
+   "explanation": "The author mentions the cost objection and responds with the librarian's workday and the volunteers.",
+   "commonErrors": [
+    {
+     "answer": "It introduces a new reason supported by a survey.",
+     "why": "The survey appears in the second paragraph."
+    },
+    {
+     "answer": "It restates the author's reasons in a summary.",
+     "why": "The summary comes in the final paragraph."
+    },
+    {
+     "answer": "It changes the author's claim.",
+     "why": "The claim stays the same."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-018",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p08",
+   "prompt": "What is the author's main purpose in writing the passage?",
+   "choices": [
+    "to inform readers about the history of school libraries",
+    "to entertain readers with a story about homework",
+    "to persuade readers that library hours should be extended",
+    "to describe what students usually do in the library each school day"
+   ],
+   "answer": "to persuade readers that library hours should be extended",
+   "explanation": "The first and last paragraphs state that the principal should extend library hours.",
+   "commonErrors": [
+    {
+     "answer": "to describe what students usually do in the library each school day",
+     "why": "The text argues rather than describes."
+    },
+    {
+     "answer": "to inform readers about the history of school libraries",
+     "why": "History is not discussed."
+    },
+    {
+     "answer": "to entertain readers with a story about homework",
+     "why": "There is no story."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-019",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela6-p08",
+   "prompt": "Which reason is best supported by evidence in the passage?",
+   "choices": [
+    "Spending time in libraries makes students better at every subject.",
+    "Students need a quiet place to work, as shown by the student council survey.",
+    "An open library would raise test scores across the entire school.",
+    "Students would prefer to stay at school."
+   ],
+   "answer": "Students need a quiet place to work, as shown by the student council survey.",
+   "explanation": "Only the first reason relies on specific evidence, the survey results.",
+   "commonErrors": [
+    {
+     "answer": "An open library would raise test scores across the entire school.",
+     "why": "No evidence is given."
+    },
+    {
+     "answer": "Spending time in libraries makes students better at every subject.",
+     "why": "This is stated as common knowledge without proof."
+    },
+    {
+     "answer": "Students would prefer to stay at school.",
+     "why": "The passage does not say this."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-ri-020",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.6.8"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela6-p08",
+   "prompt": "Why is the third reason weaker than the first two?",
+   "choices": [
+    "It is about a different topic than the one stated in the author's main claim.",
+    "It relies on a survey with too few students.",
+    "It contradicts the author's second reason.",
+    "It states a broad claim as if it were common knowledge, without evidence."
+   ],
+   "answer": "It states a broad claim as if it were common knowledge, without evidence.",
+   "explanation": "The phrase \"Everyone knows\" replaces proof, while the first two reasons give a survey and concrete facts.",
+   "commonErrors": [
+    {
+     "answer": "It is about a different topic than the one stated in the author's main claim.",
+     "why": "It is about libraries, which is the topic."
+    },
+    {
+     "answer": "It relies on a survey with too few students.",
+     "why": "No survey is cited for it."
+    },
+    {
+     "answer": "It contradicts the author's second reason.",
+     "why": "It does not contradict anything."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-001",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: \"The hikers were famished after climbing all day, so they devoured the sandwiches in minutes.\" What does \"famished\" mean?",
+   "choices": [
+    "very proud",
+    "extremely tired",
+    "very hungry",
+    "very cold"
+   ],
+   "answer": "very hungry",
+   "explanation": "Devouring food quickly is a clue that they were extremely hungry.",
+   "commonErrors": [
+    {
+     "answer": "extremely tired",
+     "why": "Plausible after a hike, but eating quickly points to hunger."
+    },
+    {
+     "answer": "very cold",
+     "why": "Nothing mentions weather."
+    },
+    {
+     "answer": "very proud",
+     "why": "Pride is not suggested by devouring food."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-002",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: \"Mina's brother was unreliable; he often promised to help and then forgot.\" Using the word parts, what does \"unreliable\" mean?",
+   "choices": [
+    "usually easy to forget about",
+    "always willing to help",
+    "not able to be depended on",
+    "completely dishonest"
+   ],
+   "answer": "not able to be depended on",
+   "explanation": "Un- means not, rely means depend, and -able means able to be.",
+   "commonErrors": [
+    {
+     "answer": "usually easy to forget about",
+     "why": "Confuses the result with the meaning."
+    },
+    {
+     "answer": "always willing to help",
+     "why": "Ignores the prefix un-."
+    },
+    {
+     "answer": "completely dishonest",
+     "why": "He forgot, but the sentence does not say he lies."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-003",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "The root \"port\" means \"carry\" and the prefix \"trans-\" means \"across.\" What does the word \"transport\" most likely mean?",
+   "choices": [
+    "to hold something firmly in one place",
+    "to carry from one place to another",
+    "to carry only upward",
+    "to store many things"
+   ],
+   "answer": "to carry from one place to another",
+   "explanation": "Trans- (across) plus port (carry) means carrying across.",
+   "commonErrors": [
+    {
+     "answer": "to hold something firmly in one place",
+     "why": "Opposite of moving across."
+    },
+    {
+     "answer": "to carry only upward",
+     "why": "Across does not mean upward."
+    },
+    {
+     "answer": "to store many things",
+     "why": "Storing does not involve moving across."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-004",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: \"The bank of the river was slippery after the rain.\" Which meaning of \"bank\" is used?",
+   "choices": [
+    "the sloping land beside a river",
+    "to tilt to one side",
+    "a business where people keep money",
+    "a row of switches or lights"
+   ],
+   "answer": "the sloping land beside a river",
+   "explanation": "The words river and slippery after the rain point to the land beside the water.",
+   "commonErrors": [
+    {
+     "answer": "a business where people keep money",
+     "why": "Common meaning, but it does not fit a river."
+    },
+    {
+     "answer": "a row of switches or lights",
+     "why": "Does not fit."
+    },
+    {
+     "answer": "to tilt to one side",
+     "why": "Verb meaning that does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-005",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "The suffix \"-ology\" means \"the study of\" and \"bio-\" means \"life.\" What does \"biology\" most likely mean?",
+   "choices": [
+    "the study of past events",
+    "the study of stars and planets",
+    "the study of rocks and minerals",
+    "the study of living things"
+   ],
+   "answer": "the study of living things",
+   "explanation": "Bio- (life) plus -ology (study of) gives the study of living things.",
+   "commonErrors": [
+    {
+     "answer": "the study of rocks and minerals",
+     "why": "That is geology."
+    },
+    {
+     "answer": "the study of stars and planets",
+     "why": "That is astronomy."
+    },
+    {
+     "answer": "the study of past events",
+     "why": "That is history."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-006",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: \"The teacher's stern look made the whole class fall silent.\" What does \"stern\" mean here?",
+   "choices": [
+    "warm and friendly",
+    "confused and puzzled",
+    "serious and strict",
+    "the back end of a boat"
+   ],
+   "answer": "serious and strict",
+   "explanation": "A look that quiets a class is serious and strict.",
+   "commonErrors": [
+    {
+     "answer": "warm and friendly",
+     "why": "Opposite; a warm look would not silence a class."
+    },
+    {
+     "answer": "confused and puzzled",
+     "why": "Confusion would not cause silence in this way."
+    },
+    {
+     "answer": "the back end of a boat",
+     "why": "A different meaning that does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-007",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: \"Although the path looked treacherous, covered with loose gravel and ice, the guide led the group across slowly.\" What does \"treacherous\" mean?",
+   "choices": [
+    "familiar",
+    "dangerous",
+    "hidden",
+    "too narrow"
+   ],
+   "answer": "dangerous",
+   "explanation": "Loose gravel and ice and the slow crossing show the path was dangerous.",
+   "commonErrors": [
+    {
+     "answer": "too narrow",
+     "why": "Length is not suggested."
+    },
+    {
+     "answer": "familiar",
+     "why": "The guide goes slowly, so it is not familiar."
+    },
+    {
+     "answer": "hidden",
+     "why": "The path is visible."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-008",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: \"Unlike her outgoing sister, Lena was reserved; she rarely spoke in large groups.\" What does \"reserved\" mean?",
+   "choices": [
+    "rude and unfriendly to other people",
+    "quiet and keeping thoughts private",
+    "saved for someone else",
+    "extremely talkative"
+   ],
+   "answer": "quiet and keeping thoughts private",
+   "explanation": "Unlike signals a contrast with an outgoing sister who rarely speaks up.",
+   "commonErrors": [
+    {
+     "answer": "rude and unfriendly to other people",
+     "why": "Quietness is not rudeness."
+    },
+    {
+     "answer": "saved for someone else",
+     "why": "A different meaning that does not fit a person."
+    },
+    {
+     "answer": "extremely talkative",
+     "why": "Opposite."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-009",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Which sentence contains a simile?",
+   "choices": [
+    "The wind was a howling wolf in the trees.",
+    "The classroom was a zoo.",
+    "The stars shone like scattered glass.",
+    "My backpack weighed a ton."
+   ],
+   "answer": "The stars shone like scattered glass.",
+   "explanation": "A simile compares two things using like or as.",
+   "commonErrors": [
+    {
+     "answer": "The wind was a howling wolf in the trees.",
+     "why": "A metaphor, with no like or as."
+    },
+    {
+     "answer": "My backpack weighed a ton.",
+     "why": "Exaggeration, not a comparison."
+    },
+    {
+     "answer": "The classroom was a zoo.",
+     "why": "A metaphor, with no like or as."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-010",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: \"Jin spilled the beans about the surprise party.\" What does the idiom \"spilled the beans\" mean?",
+   "choices": [
+    "made a mess at the party",
+    "cooked food for guests",
+    "forgot to invite someone",
+    "revealed a secret"
+   ],
+   "answer": "revealed a secret",
+   "explanation": "The idiom means to reveal a secret by accident.",
+   "commonErrors": [
+    {
+     "answer": "cooked food for guests",
+     "why": "Takes it literally."
+    },
+    {
+     "answer": "made a mess at the party",
+     "why": "Takes it literally."
+    },
+    {
+     "answer": "forgot to invite someone",
+     "why": "Not suggested."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-011",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: \"Her laughter was a bright bell in the quiet room.\" What does this metaphor suggest?",
+   "choices": [
+    "Her laugh was clear and pleasant.",
+    "She was carrying a bell.",
+    "Her laugh was made of metal.",
+    "Her laugh gave listeners a headache."
+   ],
+   "answer": "Her laugh was clear and pleasant.",
+   "explanation": "A metaphor compares laughter to a bell's clear sound.",
+   "commonErrors": [
+    {
+     "answer": "Her laugh was made of metal.",
+     "why": "Takes it literally."
+    },
+    {
+     "answer": "Her laugh gave listeners a headache.",
+     "why": "Bright bell suggests pleasant."
+    },
+    {
+     "answer": "She was carrying a bell.",
+     "why": "Takes it literally."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-012",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Which word has the most negative connotation for a person who is careful with money?",
+   "choices": [
+    "frugal",
+    "stingy",
+    "thrifty",
+    "economical"
+   ],
+   "answer": "stingy",
+   "explanation": "Stingy suggests selfishness; the others are praise.",
+   "commonErrors": [
+    {
+     "answer": "thrifty",
+     "why": "Positive."
+    },
+    {
+     "answer": "frugal",
+     "why": "Positive."
+    },
+    {
+     "answer": "economical",
+     "why": "Neutral to positive."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-013",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Which pair of words are antonyms?",
+   "choices": [
+    "generous and selfish",
+    "quick and rapid",
+    "huge and enormous",
+    "kind and compassionate"
+   ],
+   "answer": "generous and selfish",
+   "explanation": "Antonyms have opposite meanings.",
+   "commonErrors": [
+    {
+     "answer": "kind and compassionate",
+     "why": "Synonyms."
+    },
+    {
+     "answer": "quick and rapid",
+     "why": "Synonyms."
+    },
+    {
+     "answer": "huge and enormous",
+     "why": "Synonyms."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-014",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "Complete the analogy: Hot is to cold as ancient is to ____.",
+   "choices": [
+    "historic",
+    "dusty",
+    "modern",
+    "old"
+   ],
+   "answer": "modern",
+   "explanation": "Hot and cold are opposites, so the match is the opposite of ancient.",
+   "commonErrors": [
+    {
+     "answer": "old",
+     "why": "Synonym."
+    },
+    {
+     "answer": "historic",
+     "why": "Related but not opposite."
+    },
+    {
+     "answer": "dusty",
+     "why": "Associated word."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-015",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Which word best completes the sentence to show the hikers were tired? \"The weary hikers ____ up the last hill.\"",
+   "choices": [
+    "bounced",
+    "strolled",
+    "trudged",
+    "dashed"
+   ],
+   "answer": "trudged",
+   "explanation": "Trudged means walked slowly with effort.",
+   "commonErrors": [
+    {
+     "answer": "strolled",
+     "why": "Suggests ease."
+    },
+    {
+     "answer": "dashed",
+     "why": "Suggests speed."
+    },
+    {
+     "answer": "bounced",
+     "why": "Suggests energy."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-016",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Choose the best word to complete the sentence: \"The scientist wanted to ____ her results by repeating the experiment.\"",
+   "choices": [
+    "verify",
+    "exaggerate",
+    "ignore",
+    "decorate"
+   ],
+   "answer": "verify",
+   "explanation": "Verify means to check that something is true.",
+   "commonErrors": [
+    {
+     "answer": "ignore",
+     "why": "Does not fit."
+    },
+    {
+     "answer": "exaggerate",
+     "why": "Would not be done by repeating."
+    },
+    {
+     "answer": "decorate",
+     "why": "Does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-017",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Choose the best word to complete the sentence: \"From the wet umbrella by the door, Kai could ____ that it had been raining.\"",
+   "choices": [
+    "protest",
+    "conceal",
+    "modify",
+    "infer"
+   ],
+   "answer": "infer",
+   "explanation": "Infer means to reach a conclusion from clues.",
+   "commonErrors": [
+    {
+     "answer": "protest",
+     "why": "Does not fit."
+    },
+    {
+     "answer": "conceal",
+     "why": "Does not fit."
+    },
+    {
+     "answer": "modify",
+     "why": "Does not fit."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-018",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Choose the best word: \"Please ____ the two characters by describing only how they are different.\"",
+   "choices": [
+    "contrast",
+    "conclude",
+    "preserve",
+    "estimate"
+   ],
+   "answer": "contrast",
+   "explanation": "Contrast means to show differences.",
+   "commonErrors": [
+    {
+     "answer": "conclude",
+     "why": "Means to end."
+    },
+    {
+     "answer": "estimate",
+     "why": "Means to guess."
+    },
+    {
+     "answer": "preserve",
+     "why": "Means to keep."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-019",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Which sentence uses the word \"credible\" correctly?",
+   "choices": [
+    "He gave a credible shout and dashed away.",
+    "A credible rumor is a story that nobody believes or wants to repeat.",
+    "A report written by an expert who names her sources is credible.",
+    "The credible puddle was too deep to cross."
+   ],
+   "answer": "A report written by an expert who names her sources is credible.",
+   "explanation": "Credible means believable and trustworthy.",
+   "commonErrors": [
+    {
+     "answer": "A credible rumor is a story that nobody believes or wants to repeat.",
+     "why": "Opposite."
+    },
+    {
+     "answer": "The credible puddle was too deep to cross.",
+     "why": "Wrong meaning."
+    },
+    {
+     "answer": "He gave a credible shout and dashed away.",
+     "why": "Wrong meaning."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela6-l-020",
+   "subject": "ela",
+   "grade": 6,
+   "courses": [
+    "ela6"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.6.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "Choose the best word: \"The sign read 'Visitors must not feed animals in red shirts.' It was ____ because it could mean the animals wear shirts or the visitors do.\"",
+   "choices": [
+    "ambiguous",
+    "enormous",
+    "deliberate",
+    "ordinary"
+   ],
+   "answer": "ambiguous",
+   "explanation": "Ambiguous means having more than one possible meaning.",
+   "commonErrors": [
+    {
+     "answer": "enormous",
+     "why": "Means huge."
+    },
+    {
+     "answer": "deliberate",
+     "why": "Means intentional."
+    },
+    {
+     "answer": "ordinary",
+     "why": "Means common."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  }
+ ]
+}

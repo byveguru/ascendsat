@@ -1,0 +1,947 @@
+{
+ "items": [
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.10",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The medians of △ABC meet at the centroid G. The median from A has length 18. What is the distance from A to G?",
+   "answer": "12",
+   "wrong": [
+    {
+     "text": "9",
+     "why": "Treated the centroid as the midpoint of the median."
+    },
+    {
+     "text": "6",
+     "why": "Measured from the side instead of from the vertex (the short 1:2 part)."
+    },
+    {
+     "text": "13.5",
+     "why": "Used 3/4 of the median instead of 2/3."
+    }
+   ],
+   "explanation": "The centroid divides each median 2:1, with the longer part at the vertex, so AG = (2/3)(18) = 12."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.10",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Three villages sit at the vertices of a scalene triangle. A well is to be the same distance from all three villages. Where should it be placed?",
+   "answer": "At the meeting point of the perpendicular bisectors",
+   "wrong": [
+    {
+     "text": "At the meeting point of the three angle bisectors",
+     "why": "That point (the incenter) is equidistant from the sides, not from the vertices."
+    },
+    {
+     "text": "At the meeting point of the three medians",
+     "why": "That point (the centroid) is the balance point; it is not equidistant from the vertices of a scalene triangle."
+    },
+    {
+     "text": "At the meeting point of the three altitudes",
+     "why": "The orthocenter is not equidistant from the vertices of a scalene triangle."
+    }
+   ],
+   "explanation": "A point equidistant from two endpoints lies on their perpendicular bisector, so the circumcenter, where the three perpendicular bisectors meet, is equidistant from all three vertices."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.10",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A triangle has vertices (2, 3), (8, 3) and (5, 15). What is the y-coordinate of its centroid?",
+   "answer": "7",
+   "accept": [
+    "7.0"
+   ],
+   "explanation": "The centroid is the average of the vertices: y = (3 + 3 + 15) ÷ 3 = 7."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.10",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A right triangle has legs 6 and 8 and hypotenuse 10. A circle is inscribed in it, tangent to all three sides, with its center at the incenter. What is the radius of that circle?",
+   "answer": "2",
+   "wrong": [
+    {
+     "text": "4",
+     "why": "Gave the diameter of the inscribed circle."
+    },
+    {
+     "text": "5",
+     "why": "Gave the circumradius (half the hypotenuse) instead of the inradius."
+    },
+    {
+     "text": "2.4",
+     "why": "Halved the altitude to the hypotenuse (4.8 ÷ 2) instead of using area ÷ semiperimeter."
+    }
+   ],
+   "explanation": "Area = 24 and semiperimeter = 12, so r = 24 ÷ 12 = 2. (Equivalently r = (6 + 8 − 10)/2.)"
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.10",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A triangle has vertices (0, 0), (8, 0) and (0, 6). Which point is its circumcenter?",
+   "answer": "(4, 3)",
+   "wrong": [
+    {
+     "text": "(8/3, 2)",
+     "why": "This is the centroid, the average of the vertices."
+    },
+    {
+     "text": "(2, 2)",
+     "why": "This is the incenter (inradius 2), not the circumcenter."
+    },
+    {
+     "text": "(4, 0)",
+     "why": "Used only the perpendicular bisector of the horizontal leg and ignored the other."
+    }
+   ],
+   "explanation": "The triangle is right-angled at the origin, so the circumcenter is the midpoint of the hypotenuse: ((8+0)/2, (0+6)/2) = (4, 3), which is 5 from each vertex."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.11",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "In parallelogram ABCD, AB = 3x + 2 and CD = 5x − 6. What is the length of AB?",
+   "answer": "14",
+   "wrong": [
+    {
+     "text": "4",
+     "why": "Reported the value of x instead of the length."
+    },
+    {
+     "text": "12",
+     "why": "Used 3x without adding the 2."
+    },
+    {
+     "text": "20",
+     "why": "Used 5x as the length, dropping the 6."
+    }
+   ],
+   "explanation": "Opposite sides are congruent: 3x + 2 = 5x − 6, so x = 4 and AB = 3(4) + 2 = 14."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.11",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The diagonals of parallelogram ABCD meet at E. AE = 2y + 3 and EC = 4y − 9. What is the length of diagonal AC?",
+   "answer": "30",
+   "wrong": [
+    {
+     "text": "15",
+     "why": "Gave AE only, half the diagonal."
+    },
+    {
+     "text": "36",
+     "why": "Added 2y and 4y but ignored the constants (6y with y = 6)."
+    },
+    {
+     "text": "24",
+     "why": "Used 4y only, with y = 6."
+    }
+   ],
+   "explanation": "Diagonals bisect each other, so 2y + 3 = 4y − 9 and y = 6. Then AE = 15 and AC = 2 · 15 = 30."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "To prove that the diagonals of parallelogram ABCD bisect each other, the diagonals meet at E and you show △ABE ≅ △CDE. Using AB ∥ CD, you know ∠BAE ≅ ∠DCE and ∠ABE ≅ ∠CDE (alternate interior angles), and AB = CD (opposite sides). Which congruence criterion finishes the step?",
+   "answer": "ASA, using two angle pairs and the side between them",
+   "wrong": [
+    {
+     "text": "SAS, using two side pairs and the angle between them",
+     "why": "Only one pair of sides (AB and CD) is known to be congruent, so SAS cannot be used."
+    },
+    {
+     "text": "SSS, using all three pairs of sides",
+     "why": "Only AB = CD is known; AE = CE and BE = DE is what you are trying to prove."
+    },
+    {
+     "text": "HL, using a hypotenuse and a leg pair",
+     "why": "Nothing says the triangles have a right angle."
+    }
+   ],
+   "explanation": "Two pairs of congruent angles plus the congruent side between them (AB and CD) give ASA, so AE = CE and BE = DE by CPCTC."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In parallelogram PQRS the diagonals PR and QS are congruent. Which statement must be true?",
+   "answer": "All four angles are right angles",
+   "wrong": [
+    {
+     "text": "All four sides are congruent",
+     "why": "A non-square rectangle has congruent diagonals but unequal adjacent sides."
+    },
+    {
+     "text": "The diagonals are perpendicular",
+     "why": "A non-square rectangle has congruent diagonals that are not perpendicular."
+    },
+    {
+     "text": "Each diagonal bisects two angles",
+     "why": "A non-square rectangle has diagonals that do not bisect its angles."
+    }
+   ],
+   "explanation": "A parallelogram with congruent diagonals is a rectangle, so every angle is 90°. The other properties hold only for a rhombus or square."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.11",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Quadrilateral ABCD has A(1, 1), B(6, 3) and C(10, 8), and is a parallelogram with vertices in that order. What is the x-coordinate of D?",
+   "answer": "5",
+   "accept": [
+    "5.0"
+   ],
+   "explanation": "The diagonals bisect each other, so the midpoints of AC and BD match: D = A + C − B = (1 + 10 − 6, 1 + 8 − 3) = (5, 6)."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.14",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The diagonals of a rhombus are 10 cm and 24 cm. What is the length of one side, in cm?",
+   "answer": "13",
+   "accept": [
+    "13.0"
+   ],
+   "explanation": "The diagonals of a rhombus bisect each other at right angles, so each side is the hypotenuse of a right triangle with legs 5 and 12: √(25 + 144) = 13.",
+   "unit": "cm"
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.14",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "In parallelogram ABCD, ∠A = (2x + 10)° and ∠B = (3x − 5)°. What is the measure of ∠B?",
+   "answer": "100°",
+   "wrong": [
+    {
+     "text": "80°",
+     "why": "Gave ∠A instead of ∠B."
+    },
+    {
+     "text": "35°",
+     "why": "Gave the value of x."
+    },
+    {
+     "text": "105°",
+     "why": "Used 3x and forgot to subtract 5."
+    }
+   ],
+   "explanation": "Consecutive angles of a parallelogram are supplementary: 5x + 5 = 180, so x = 35 and ∠B = 3(35) − 5 = 100°."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.14",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In △ABC, M and N are the midpoints of AB and AC. MN = x + 5 and BC = 4x − 6. What is BC?",
+   "answer": "26",
+   "wrong": [
+    {
+     "text": "13",
+     "why": "Gave MN, half of BC."
+    },
+    {
+     "text": "8",
+     "why": "Gave the value of x."
+    },
+    {
+     "text": "52",
+     "why": "Doubled BC a second time."
+    }
+   ],
+   "explanation": "The midsegment is half the third side: x + 5 = (4x − 6)/2, so x = 8 and BC = 26."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.14",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A quadrilateral's diagonals bisect each other. They are not congruent and they are not perpendicular. Which is the most specific name guaranteed for the quadrilateral?",
+   "answer": "Parallelogram",
+   "wrong": [
+    {
+     "text": "Rectangle",
+     "why": "Rectangles have congruent diagonals."
+    },
+    {
+     "text": "Rhombus",
+     "why": "Rhombuses have perpendicular diagonals."
+    },
+    {
+     "text": "Kite",
+     "why": "Kites have perpendicular diagonals."
+    }
+   ],
+   "explanation": "Diagonals that bisect each other make it a parallelogram. Non-congruent diagonals rule out a rectangle, and non-perpendicular diagonals rule out a rhombus or kite."
+  },
+  {
+   "cluster": "PROOF",
+   "standard": "NC.M3.G-CO.14",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Quadrilateral ABCD has A(0, 0), B(4, 3), C(9, 3) and D(5, 0). Which description is fully justified by the coordinates?",
+   "answer": "A rhombus that is not a rectangle",
+   "wrong": [
+    {
+     "text": "A rectangle that is not a square",
+     "why": "Adjacent sides AB (slope 3/4) and AD (slope 0) are not perpendicular."
+    },
+    {
+     "text": "A square",
+     "why": "The angles are not right angles."
+    },
+    {
+     "text": "A parallelogram with no two adjacent sides congruent",
+     "why": "All four sides have length 5, so adjacent sides are congruent."
+    }
+   ],
+   "explanation": "AB ∥ DC (slope 3/4) and AD ∥ BC (slope 0), and AB = BC = CD = DA = 5, so it is a rhombus. AB and AD are not perpendicular, so it is not a rectangle."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "In a circle, a central angle measures 110°. An inscribed angle intercepts the same arc. What is the measure of the inscribed angle?",
+   "answer": "55°",
+   "wrong": [
+    {
+     "text": "110°",
+     "why": "Took the inscribed angle equal to the central angle."
+    },
+    {
+     "text": "220°",
+     "why": "Doubled the central angle."
+    },
+    {
+     "text": "70°",
+     "why": "Used the supplement of 110°."
+    }
+   ],
+   "explanation": "An inscribed angle is half its intercepted arc, and the arc equals the central angle: 110° ÷ 2 = 55°."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Point P is outside a circle with center O and radius 5. PT is tangent to the circle at T, and OP = 13. What is PT?",
+   "answer": "12",
+   "wrong": [
+    {
+     "text": "8",
+     "why": "Subtracted the radius from OP (13 − 5)."
+    },
+    {
+     "text": "18",
+     "why": "Added the radius to OP (13 + 5)."
+    },
+    {
+     "text": "13.9",
+     "why": "Added the squares (√(13² + 5²) ≈ 13.9) instead of subtracting."
+    }
+   ],
+   "explanation": "The radius OT is perpendicular to the tangent PT, so △OTP is a right triangle with hypotenuse 13: PT = √(13² − 5²) = 12."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Quadrilateral ABCD is inscribed in a circle with ∠A = (2x + 14)° and ∠C = (4x − 2)°. What is the measure of ∠C?",
+   "answer": "110°",
+   "wrong": [
+    {
+     "text": "70°",
+     "why": "Gave ∠A instead of ∠C."
+    },
+    {
+     "text": "30°",
+     "why": "Set ∠A = ∠C instead of making them supplementary."
+    },
+    {
+     "text": "28°",
+     "why": "Gave the value of x."
+    }
+   ],
+   "explanation": "Opposite angles of an inscribed quadrilateral are supplementary: 6x + 12 = 180, so x = 28 and ∠C = 4(28) − 2 = 110°."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Chords AB and CD of a circle intersect at E. AE = 6, EB = 8 and CE = 4. What is ED?",
+   "answer": "12",
+   "accept": [
+    "12.0"
+   ],
+   "explanation": "Chord segments satisfy AE · EB = CE · ED, so 48 = 4 · ED and ED = 12."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "From external point P, tangent segment PT has length 6. A secant from P meets the circle at A (nearer) and B (farther), with PA = 4. What is the length of chord AB?",
+   "answer": "5",
+   "wrong": [
+    {
+     "text": "9",
+     "why": "Gave the whole secant PB instead of the chord AB."
+    },
+    {
+     "text": "2",
+     "why": "Subtracted the tangent and the external segment (6 − 4)."
+    },
+    {
+     "text": "10",
+     "why": "Added the tangent and the external segment (6 + 4)."
+    }
+   ],
+   "explanation": "Tangent–secant: PT² = PA · PB, so 36 = 4 · PB and PB = 9. Then AB = 9 − 4 = 5."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Two secants meet at a point outside a circle. They intercept a far arc of 100° and a near arc of 30°. What is the measure of the angle they form?",
+   "answer": "35°",
+   "wrong": [
+    {
+     "text": "65°",
+     "why": "Averaged the arcs (added them and halved) instead of finding half the difference."
+    },
+    {
+     "text": "70°",
+     "why": "Took the full difference without halving."
+    },
+    {
+     "text": "130°",
+     "why": "Added the arcs."
+    }
+   ],
+   "explanation": "An angle formed outside by two secants is half the difference of the intercepted arcs: (100° − 30°) ÷ 2 = 35°."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.5",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A circle has radius 9. A central angle of 40° intercepts an arc. What is the arc length?",
+   "answer": "2π",
+   "wrong": [
+    {
+     "text": "4π",
+     "why": "Used the diameter 18 as the radius."
+    },
+    {
+     "text": "18π",
+     "why": "Gave the full circumference."
+    },
+    {
+     "text": "360",
+     "why": "Multiplied 9 × 40 using degrees as if they were radians."
+    }
+   ],
+   "explanation": "s = (40/360)(2π · 9) = (1/9)(18π) = 2π."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A sector has radius 10 and a central angle of π/5 radians. What is the area of the sector?",
+   "answer": "10π",
+   "wrong": [
+    {
+     "text": "20π",
+     "why": "Used r²θ and forgot the factor 1/2."
+    },
+    {
+     "text": "2π",
+     "why": "Found the arc length rθ instead of the area."
+    },
+    {
+     "text": "40π",
+     "why": "Used the diameter 20 as the radius."
+    }
+   ],
+   "explanation": "A = (1/2) r² θ = (1/2)(100)(π/5) = 10π."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two concentric circles have radii 6 and 15. A central angle of 60° intercepts an arc of length 2π on the smaller circle. What is the length of the arc the same angle intercepts on the larger circle?",
+   "answer": "5π",
+   "wrong": [
+    {
+     "text": "4π/5",
+     "why": "Inverted the ratio, using 6/15 instead of 15/6."
+    },
+    {
+     "text": "25π/2",
+     "why": "Squared the ratio of radii (as for area)."
+    },
+    {
+     "text": "2π + 9",
+     "why": "Added the difference in radii instead of scaling."
+    }
+   ],
+   "explanation": "Arc length is proportional to radius for a fixed angle: (15/6)(2π) = 5π."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.5",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A runner jogs along a circular track of radius 30 m. The arc covers a central angle of 1.2 radians. How far does the runner go, in meters?",
+   "answer": "36",
+   "accept": [
+    "36.0"
+   ],
+   "explanation": "s = rθ = 30 × 1.2 = 36 m.",
+   "unit": "m"
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-C.5",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A sector of a circle has radius 18 and an arc length of 12π. What is the area of the sector?",
+   "answer": "108π",
+   "wrong": [
+    {
+     "text": "216π",
+     "why": "Used r · s without the factor 1/2."
+    },
+    {
+     "text": "324π",
+     "why": "Gave the area of the entire circle."
+    },
+    {
+     "text": "54π",
+     "why": "Halved the correct area twice."
+    }
+   ],
+   "explanation": "The angle is θ = s/r = 2π/3, so A = (1/2) r² θ = (1/2)(324)(2π/3) = 108π (or A = (1/2) r s)."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-GPE.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Which is the equation of the circle with center (−3, 2) and radius 4?",
+   "answer": "(x + 3)² + (y − 2)² = 16",
+   "wrong": [
+    {
+     "text": "(x − 3)² + (y + 2)² = 16",
+     "why": "Sign slips: used (3, −2) as the center."
+    },
+    {
+     "text": "(x + 3)² + (y − 2)² = 4",
+     "why": "Used r instead of r² on the right."
+    },
+    {
+     "text": "(x + 3)² + (y − 2)² = 8",
+     "why": "Doubled the radius instead of squaring it."
+    }
+   ],
+   "explanation": "(x − h)² + (y − k)² = r² with h = −3, k = 2, r² = 16."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-GPE.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A circle has equation x² + y² + 8x − 6y + 9 = 0. What are its center and radius?",
+   "answer": "Center (−4, 3), radius 4",
+   "wrong": [
+    {
+     "text": "Center (4, −3), radius 4",
+     "why": "Sign slips in the center."
+    },
+    {
+     "text": "Center (−4, 3), radius 16",
+     "why": "Gave r² as the radius."
+    },
+    {
+     "text": "Center (−4, 3), radius 5",
+     "why": "Ignored the constant +9 when finishing the square."
+    }
+   ],
+   "explanation": "(x² + 8x + 16) + (y² − 6y + 9) = −9 + 16 + 9, so (x + 4)² + (y − 3)² = 16. Center (−4, 3), radius 4."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-GPE.1",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The circle x² + y² − 6x + 4y − 12 = 0 has a radius of what length?",
+   "answer": "5",
+   "accept": [
+    "5.0"
+   ],
+   "explanation": "Complete the square: (x − 3)² + (y + 2)² = 12 + 9 + 4 = 25, so r = 5."
+  },
+  {
+   "cluster": "CIRCLES",
+   "standard": "NC.M3.G-GPE.1",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A circle has center (2, −1) and passes through (5, 3). Which is its equation?",
+   "answer": "(x − 2)² + (y + 1)² = 25",
+   "wrong": [
+    {
+     "text": "(x − 2)² + (y + 1)² = 5",
+     "why": "Wrote the radius 5 instead of r² = 25."
+    },
+    {
+     "text": "(x + 2)² + (y − 1)² = 25",
+     "why": "Sign slips in the center."
+    },
+    {
+     "text": "(x − 2)² + (y + 1)² = 49",
+     "why": "Added the leg lengths 3 + 4 = 7 and squared, instead of using the Pythagorean theorem."
+    }
+   ],
+   "explanation": "r² = (5 − 2)² + (3 − (−1))² = 9 + 16 = 25, by the Pythagorean theorem."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A cone has radius 6 and height 10. What is its volume?",
+   "answer": "120π",
+   "wrong": [
+    {
+     "text": "360π",
+     "why": "Forgot the factor 1/3."
+    },
+    {
+     "text": "480π",
+     "why": "Used the diameter 12 as the radius."
+    },
+    {
+     "text": "20π",
+     "why": "Used r instead of r² in the formula."
+    }
+   ],
+   "explanation": "V = (1/3)π r² h = (1/3)π(36)(10) = 120π."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A sphere has radius 6. What is its volume?",
+   "answer": "288π",
+   "wrong": [
+    {
+     "text": "144π",
+     "why": "Gave the surface area 4πr²."
+    },
+    {
+     "text": "864π",
+     "why": "Used 4πr³ and dropped the 1/3."
+    },
+    {
+     "text": "48π",
+     "why": "Used r² instead of r³."
+    }
+   ],
+   "explanation": "V = (4/3)π r³ = (4/3)π(216) = 288π."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A square pyramid has a base side of 8 and a volume of 128. What is its height?",
+   "answer": "6",
+   "accept": [
+    "6.0"
+   ],
+   "explanation": "V = (1/3)(base area)(h): 128 = (1/3)(64)h, so h = 6."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A solid is a cylinder of radius 4 and height 10 with a hemisphere of radius 4 attached to one circular end. What is its total volume?",
+   "answer": "608π/3",
+   "wrong": [
+    {
+     "text": "736π/3",
+     "why": "Used a full sphere instead of a hemisphere."
+    },
+    {
+     "text": "160π",
+     "why": "Left out the hemisphere."
+    },
+    {
+     "text": "288π",
+     "why": "Used 2πr³ for the hemisphere instead of (2/3)πr³."
+    }
+   ],
+   "explanation": "Cylinder: π(16)(10) = 160π. Hemisphere: (2/3)π(64) = 128π/3. Total = 608π/3."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The radius of a cylinder is tripled and its height is cut in half. By what factor does the volume change?",
+   "answer": "Multiplied by 9/2",
+   "wrong": [
+    {
+     "text": "Multiplied by 3/2",
+     "why": "Treated both changes as linear (3 × 1/2)."
+    },
+    {
+     "text": "Multiplied by 9",
+     "why": "Squared the radius change but ignored the height."
+    },
+    {
+     "text": "Multiplied by 18",
+     "why": "Doubled the height instead of halving it."
+    }
+   ],
+   "explanation": "V = πr²h scales by 3² × 1/2 = 9/2."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A plane cuts a cone parallel to its circular base, not through the apex. What is the shape of the cross-section?",
+   "answer": "A circle",
+   "wrong": [
+    {
+     "text": "An ellipse",
+     "why": "That needs a slanted plane that cuts the base and does not run parallel to it."
+    },
+    {
+     "text": "A triangle",
+     "why": "That needs a plane through the apex."
+    },
+    {
+     "text": "A parabola",
+     "why": "That needs a plane parallel to a slant line of the cone."
+    }
+   ],
+   "explanation": "Every parallel slice of a cone is a smaller circle."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A right triangle with legs 3 and 4 is rotated about its leg of length 4. What solid is formed?",
+   "answer": "A cone with radius 3 and height 4",
+   "wrong": [
+    {
+     "text": "A cone with radius 4 and height 3",
+     "why": "Swapped the axis and the radius."
+    },
+    {
+     "text": "A cylinder with radius 3 and height 4",
+     "why": "Rotating a triangle gives a cone, not a cylinder."
+    },
+    {
+     "text": "A cone with radius 5 and height 4",
+     "why": "Used the hypotenuse as the radius."
+    }
+   ],
+   "explanation": "The leg on the axis is the height (4); the other leg sweeps out the base, radius 3."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The rectangle with vertices (1, 0), (3, 0), (3, 5) and (1, 5) is rotated about the y-axis. What solid results?",
+   "answer": "A cylinder of radius 3 with a hole of radius 1",
+   "wrong": [
+    {
+     "text": "A solid cylinder of radius 3 and height 5",
+     "why": "Ignored the gap between the rectangle and the axis."
+    },
+    {
+     "text": "A solid cylinder of radius 2 and height 5",
+     "why": "Used the width of the rectangle as the radius."
+    },
+    {
+     "text": "A cone with base radius 3 and height 5",
+     "why": "Rotating a rectangle cannot produce a cone."
+    }
+   ],
+   "explanation": "The edge at x = 1 sweeps a hole of radius 1 and the edge at x = 3 the outer wall of radius 3, over a height of 5."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-GMD.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A plane through the center of a cube is perpendicular to the diagonal joining two opposite vertices. What is the shape of the cross-section?",
+   "answer": "A regular hexagon",
+   "wrong": [
+    {
+     "text": "An equilateral triangle",
+     "why": "That arises from a plane cutting off a single corner."
+    },
+    {
+     "text": "A square",
+     "why": "That arises from a plane parallel to a face."
+    },
+    {
+     "text": "A rectangle that is not a square",
+     "why": "That arises from a plane through two opposite edges."
+    }
+   ],
+   "explanation": "The plane meets six faces at the midpoints of six edges, giving a regular hexagon."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A solid steel ball has radius 3 cm. Steel has density 7.8 g/cm³. To the nearest gram, what is the mass of the ball?",
+   "answer": "882",
+   "accept": [
+    "882.2",
+    "882.16"
+   ],
+   "explanation": "V = (4/3)π(27) = 36π ≈ 113.1 cm³; mass = 7.8 × 113.1 ≈ 882 g.",
+   "unit": "g",
+   "tolerance": 0.5
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A concrete block is 2 m long, 0.5 m wide and 0.4 m thick. Concrete has density 2400 kg/m³. What is the mass of the block?",
+   "answer": "960 kg",
+   "wrong": [
+    {
+     "text": "6000 kg",
+     "why": "Divided the density by the volume."
+    },
+    {
+     "text": "2400 kg",
+     "why": "Used only 2 × 0.5 and forgot the thickness."
+    },
+    {
+     "text": "6960 kg",
+     "why": "Added the dimensions instead of multiplying."
+    }
+   ],
+   "explanation": "V = 2 × 0.5 × 0.4 = 0.4 m³ and mass = 2400 × 0.4 = 960 kg."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A label covers only the curved side of a cylindrical can with radius 3 cm and height 10 cm. Label material costs $0.02 per cm². About how much does one label cost?",
+   "answer": "$3.77",
+   "wrong": [
+    {
+     "text": "$4.90",
+     "why": "Included the top and bottom."
+    },
+    {
+     "text": "$1.88",
+     "why": "Used πrh and dropped the factor 2."
+    },
+    {
+     "text": "$5.65",
+     "why": "Used the volume instead of area."
+    }
+   ],
+   "explanation": "Lateral area = 2π(3)(10) = 60π ≈ 188.5 cm², and 188.5 × 0.02 ≈ $3.77."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "An open-top box with a square base must hold 32 m³. To use the least material, which dimensions (base side × base side × height, in m) should be chosen from these options?",
+   "answer": "4 × 4 × 2",
+   "wrong": [
+    {
+     "text": "2 × 2 × 8",
+     "why": "Needs 68 m² of material."
+    },
+    {
+     "text": "8 × 8 × 0.5",
+     "why": "Needs 80 m² of material."
+    },
+    {
+     "text": "1 × 1 × 32",
+     "why": "Needs 129 m² of material."
+    }
+   ],
+   "explanation": "Material = base + four sides: 4×4×2 uses 16 + 32 = 48 m², less than 68, 80 or 129."
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A model of a sculpture is built at a scale of 1:5 (every length is 1/5 of the real length). The model has a volume of 40 cm³. What is the real sculpture's volume, in cm³?",
+   "answer": "5000",
+   "accept": [
+    "5,000",
+    "5000.0"
+   ],
+   "explanation": "Volume scales with the cube of the scale factor: 40 × 5³ = 40 × 125 = 5000 cm³.",
+   "unit": "cm³"
+  },
+  {
+   "cluster": "SOLIDS",
+   "standard": "NC.M3.G-MG.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A rectangular town measures 3 miles by 1.5 miles and has 4500 residents. What is its population density?",
+   "answer": "1000 people per square mile",
+   "wrong": [
+    {
+     "text": "1500 people per square mile",
+     "why": "Divided by 3 only."
+    },
+    {
+     "text": "3000 people per square mile",
+     "why": "Divided by 1.5 only."
+    },
+    {
+     "text": "20250 people per square mile",
+     "why": "Multiplied people by area."
+    }
+   ],
+   "explanation": "Area = 4.5 mi²; density = 4500 ÷ 4.5 = 1000."
+  }
+ ]
+}

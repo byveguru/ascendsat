@@ -1,0 +1,7714 @@
+{
+ "bank": "math8",
+ "grade": 8,
+ "standardsSource": "NC K-12 Mathematics SCOS (adopted June 2017, implementation 2018-19)",
+ "reviewStatus": "ai-drafted: none of these items has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-m8-ns-1-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which of these numbers is irrational?",
+   "explanation": "√2 = 1.41421… never ends and never repeats, so it is irrational.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "√16",
+    "1/3",
+    "√2",
+    "0.25"
+   ],
+   "answer": "√2",
+   "commonErrors": [
+    {
+     "answer": "0.25",
+     "why": "a terminating decimal is rational"
+    },
+    {
+     "answer": "1/3",
+     "why": "a fraction of integers is rational"
+    },
+    {
+     "answer": "√16",
+     "why": "equals 4, which is rational"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which decimal is a rational number?",
+   "explanation": "A decimal that repeats can be written as a fraction: 0.1212… = 12/99 = 4/33.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "√7",
+    "0.121212… (the 12 repeats forever)",
+    "0.1010010001… (the number of zeros keeps growing)",
+    "π"
+   ],
+   "answer": "0.121212… (the 12 repeats forever)",
+   "commonErrors": [
+    {
+     "answer": "π",
+     "why": "π never repeats"
+    },
+    {
+     "answer": "0.1010010001… (the number of zeros keeps growing)",
+     "why": "this decimal never repeats"
+    },
+    {
+     "answer": "√7",
+     "why": "√7 never repeats"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement describes an irrational number?",
+   "explanation": "Irrational numbers have non-terminating, non-repeating decimal expansions.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A decimal that never ends and never repeats",
+    "A decimal that repeats",
+    "A decimal that ends",
+    "Any number that can be written as a fraction"
+   ],
+   "answer": "A decimal that never ends and never repeats",
+   "commonErrors": [
+    {
+     "answer": "A decimal that ends",
+     "why": "this describes a rational number"
+    },
+    {
+     "answer": "A decimal that repeats",
+     "why": "this describes a rational number"
+    },
+    {
+     "answer": "Any number that can be written as a fraction",
+     "why": "this describes a rational number"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Is 0.3333… a rational number?",
+   "explanation": "A repeating decimal is rational. 0.3333… = 1/3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because it never ends",
+    "Yes, because it equals 1/3",
+    "No, because it repeats",
+    "Yes, because it is less than 1"
+   ],
+   "answer": "Yes, because it equals 1/3",
+   "commonErrors": [
+    {
+     "answer": "No, because it never ends",
+     "why": "repeating decimals can be rational"
+    },
+    {
+     "answer": "No, because it repeats",
+     "why": "repeating decimals are rational"
+    },
+    {
+     "answer": "Yes, because it is less than 1",
+     "why": "gave an irrelevant reason"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which fraction equals 0.7777… (the 7 repeats forever)?",
+   "explanation": "Let x = 0.777… Then 10x = 7.777… and 10x − x = 7, so 9x = 7 and x = 7/9.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "7/10",
+    "7/9",
+    "1/7",
+    "7/99"
+   ],
+   "answer": "7/9",
+   "commonErrors": [
+    {
+     "answer": "7/10",
+     "why": "treated it as the terminating decimal 0.7"
+    },
+    {
+     "answer": "7/99",
+     "why": "used two nines"
+    },
+    {
+     "answer": "1/7",
+     "why": "inverted the fraction"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which of these numbers is rational?",
+   "explanation": "√25 = 5, which is a rational number.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "√25",
+    "√5",
+    "√11",
+    "π"
+   ],
+   "answer": "√25",
+   "commonErrors": [
+    {
+     "answer": "√5",
+     "why": "√5 is not a perfect square"
+    },
+    {
+     "answer": "√11",
+     "why": "√11 is not a perfect square"
+    },
+    {
+     "answer": "π",
+     "why": "π never repeats"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-1-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which describes the decimal expansion of 5/8?",
+   "explanation": "5 ÷ 8 = 0.625 and the division ends with remainder 0.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "It never ends and never repeats",
+    "It terminates: 0.625",
+    "It repeats: 0.625625…",
+    "It repeats: 0.666…"
+   ],
+   "answer": "It terminates: 0.625",
+   "commonErrors": [
+    {
+     "answer": "It repeats: 0.625625…",
+     "why": "it ends rather than repeating"
+    },
+    {
+     "answer": "It never ends and never repeats",
+     "why": "this describes an irrational number"
+    },
+    {
+     "answer": "It repeats: 0.666…",
+     "why": "this is 2/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Between which two consecutive integers is √20?",
+   "explanation": "16 < 20 < 25, so 4 < √20 < 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4 and 5",
+    "19 and 21",
+    "3 and 4",
+    "5 and 6"
+   ],
+   "answer": "4 and 5",
+   "commonErrors": [
+    {
+     "answer": "3 and 4",
+     "why": "√9 = 3 and √16 = 4 are too small"
+    },
+    {
+     "answer": "5 and 6",
+     "why": "√25 = 5 is already above √20"
+    },
+    {
+     "answer": "19 and 21",
+     "why": "used 20 itself, not its square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "To the nearest tenth, what is √50?",
+   "explanation": "7² = 49 and 7.1² = 50.41, so √50 is about 7.1.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "7.5",
+    "7.1",
+    "7.0",
+    "25"
+   ],
+   "answer": "7.1",
+   "commonErrors": [
+    {
+     "answer": "7.5",
+     "why": "estimated halfway between 7 and 8"
+    },
+    {
+     "answer": "7.0",
+     "why": "stopped at the integer part"
+    },
+    {
+     "answer": "25",
+     "why": "divided 50 by 2"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which is the greatest: √10, 3.2, π or 3.1?",
+   "explanation": "√10 ≈ 3.16, π ≈ 3.14, so the order is 3.1 < π < √10 < 3.2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3.1",
+    "π",
+    "3.2",
+    "√10"
+   ],
+   "answer": "3.2",
+   "commonErrors": [
+    {
+     "answer": "√10",
+     "why": "√10 is about 3.16, less than 3.2"
+    },
+    {
+     "answer": "π",
+     "why": "π is about 3.14, less than 3.2"
+    },
+    {
+     "answer": "3.1",
+     "why": "3.1 is the least of the four"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which list is in order from least to greatest?",
+   "explanation": "√5 ≈ 2.24 and √6 ≈ 2.45, so 2 < 2.24 < 2.3 < 2.45.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "√5, 2, 2.3, √6",
+    "2, 2.3, √5, √6",
+    "2, √5, 2.3, √6",
+    "√6, 2.3, √5, 2"
+   ],
+   "answer": "2, √5, 2.3, √6",
+   "commonErrors": [
+    {
+     "answer": "√5, 2, 2.3, √6",
+     "why": "put √5 (about 2.24) before 2"
+    },
+    {
+     "answer": "2, 2.3, √5, √6",
+     "why": "put 2.3 before √5 (about 2.24)"
+    },
+    {
+     "answer": "√6, 2.3, √5, 2",
+     "why": "listed from greatest to least"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "To the nearest tenth, what is 2π?",
+   "explanation": "2 × 3.14159… = 6.283…, which rounds to 6.3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6.3",
+    "6.2",
+    "6.4",
+    "6.0"
+   ],
+   "answer": "6.3",
+   "commonErrors": [
+    {
+     "answer": "6.2",
+     "why": "used 3.1 for π"
+    },
+    {
+     "answer": "6.0",
+     "why": "used 3 for π"
+    },
+    {
+     "answer": "6.4",
+     "why": "used 3.2 for π"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Between which two consecutive integers is the cube root of 50?",
+   "explanation": "3³ = 27 and 4³ = 64, and 27 < 50 < 64.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4 and 5",
+    "3 and 4",
+    "7 and 8",
+    "2 and 3"
+   ],
+   "answer": "3 and 4",
+   "commonErrors": [
+    {
+     "answer": "2 and 3",
+     "why": "2³ = 8 and 3³ = 27 are too small"
+    },
+    {
+     "answer": "4 and 5",
+     "why": "4³ = 64 is already above 50"
+    },
+    {
+     "answer": "7 and 8",
+     "why": "used the square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which point on the number line is closest to √7?",
+   "explanation": "2.6² = 6.76 and 2.7² = 7.29. √7 ≈ 2.646, closest to 2.6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2.4",
+    "2.6",
+    "3.5",
+    "2.8"
+   ],
+   "answer": "2.6",
+   "commonErrors": [
+    {
+     "answer": "2.4",
+     "why": "√7 is greater than 2.5"
+    },
+    {
+     "answer": "2.8",
+     "why": "2.8² = 7.84 is too large"
+    },
+    {
+     "answer": "3.5",
+     "why": "3.5² = 12.25 is far too large"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ns-2-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "NS",
+   "standards": [
+    "NC.8.NS.2"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "To the nearest tenth, what is √18?",
+   "explanation": "4.2² = 17.64 and 4.3² = 18.49. √18 ≈ 4.243, which rounds to 4.2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "4.2",
+   "accept": [
+    "4.2"
+   ],
+   "commonErrors": [
+    {
+     "answer": "9",
+     "why": "divided 18 by 2"
+    },
+    {
+     "answer": "4.3",
+     "why": "rounded up instead of to the nearest tenth"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-1-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Simplify 3⁴ × 3².",
+   "explanation": "When multiplying powers with the same base, add the exponents: 4 + 2 = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3⁶",
+    "3⁸",
+    "3²",
+    "9⁶"
+   ],
+   "answer": "3⁶",
+   "commonErrors": [
+    {
+     "answer": "3⁸",
+     "why": "multiplied the exponents"
+    },
+    {
+     "answer": "9⁶",
+     "why": "multiplied the bases"
+    },
+    {
+     "answer": "3²",
+     "why": "subtracted the exponents"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-1-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Simplify 5⁷ ÷ 5³.",
+   "explanation": "When dividing powers with the same base, subtract the exponents: 7 − 3 = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5²¹",
+    "1⁴",
+    "5⁴",
+    "5¹⁰"
+   ],
+   "answer": "5⁴",
+   "commonErrors": [
+    {
+     "answer": "5¹⁰",
+     "why": "added the exponents"
+    },
+    {
+     "answer": "5²¹",
+     "why": "multiplied the exponents"
+    },
+    {
+     "answer": "1⁴",
+     "why": "divided the bases"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-1-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Simplify (2³)².",
+   "explanation": "A power of a power multiplies the exponents: 3 × 2 = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2⁶",
+    "2⁹",
+    "2⁵",
+    "2⁸"
+   ],
+   "answer": "2⁶",
+   "commonErrors": [
+    {
+     "answer": "2⁵",
+     "why": "added the exponents"
+    },
+    {
+     "answer": "2⁹",
+     "why": "raised 3 to the 2nd power"
+    },
+    {
+     "answer": "2⁸",
+     "why": "raised 2 to the 3rd then added"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-1-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which expression is equal to x⁻²?",
+   "explanation": "A negative exponent means the reciprocal: x⁻² = 1/x².",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "−x²",
+    "x²",
+    "−1/x²",
+    "1/x²"
+   ],
+   "answer": "1/x²",
+   "commonErrors": [
+    {
+     "answer": "−x²",
+     "why": "treated a negative exponent as a negative number"
+    },
+    {
+     "answer": "x²",
+     "why": "ignored the negative sign in the exponent"
+    },
+    {
+     "answer": "−1/x²",
+     "why": "added a negative sign to the reciprocal"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-1-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is 7⁰?",
+   "explanation": "Any nonzero number raised to the power 0 equals 1.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Undefined",
+    "0",
+    "1",
+    "7"
+   ],
+   "answer": "1",
+   "commonErrors": [
+    {
+     "answer": "0",
+     "why": "thought any power of 0 is 0"
+    },
+    {
+     "answer": "7",
+     "why": "thought the exponent does not matter"
+    },
+    {
+     "answer": "Undefined",
+     "why": "thought zero exponents are not allowed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-2-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which values of x solve x² = 49?",
+   "explanation": "Both 7² and (−7)² equal 49.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x = 24.5",
+    "x = 7 or x = −7",
+    "x = 7 only",
+    "x = 49²"
+   ],
+   "answer": "x = 7 or x = −7",
+   "commonErrors": [
+    {
+     "answer": "x = 7 only",
+     "why": "missed the negative solution"
+    },
+    {
+     "answer": "x = 24.5",
+     "why": "divided 49 by 2"
+    },
+    {
+     "answer": "x = 49²",
+     "why": "squared instead of taking the root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-2-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which value of x solves x³ = 27?",
+   "explanation": "3³ = 27. The only real cube root of 27 is 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x = 3",
+    "x = ±3",
+    "x = 81",
+    "x = 9"
+   ],
+   "answer": "x = 3",
+   "commonErrors": [
+    {
+     "answer": "x = 9",
+     "why": "divided 27 by 3"
+    },
+    {
+     "answer": "x = ±3",
+     "why": "treated it like a square: a negative cubed is negative"
+    },
+    {
+     "answer": "x = 81",
+     "why": "multiplied 27 by 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-2-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is √144?",
+   "explanation": "12 × 12 = 144.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "14",
+    "72",
+    "12",
+    "11"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "72",
+     "why": "divided 144 by 2"
+    },
+    {
+     "answer": "14",
+     "why": "guessed a nearby number"
+    },
+    {
+     "answer": "11",
+     "why": "guessed a nearby number"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-2-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the cube root of 64?",
+   "explanation": "4 × 4 × 4 = 64.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "8",
+    "32",
+    "16",
+    "4"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "found the square root"
+    },
+    {
+     "answer": "32",
+     "why": "divided 64 by 2"
+    },
+    {
+     "answer": "16",
+     "why": "divided 64 by 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-3-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which is 45,000,000 written in scientific notation?",
+   "explanation": "Move the decimal point 7 places: 4.5 × 10⁷.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4.5 × 10⁶",
+    "4.5 × 10⁸",
+    "4.5 × 10⁷",
+    "45 × 10⁶"
+   ],
+   "answer": "4.5 × 10⁷",
+   "commonErrors": [
+    {
+     "answer": "45 × 10⁶",
+     "why": "the first factor must be between 1 and 10"
+    },
+    {
+     "answer": "4.5 × 10⁸",
+     "why": "used one exponent too many"
+    },
+    {
+     "answer": "4.5 × 10⁶",
+     "why": "used one exponent too few"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-3-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which is 0.000032 written in scientific notation?",
+   "explanation": "Move the decimal point 5 places to the right: 3.2 × 10⁻⁵.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3.2 × 10⁵",
+    "3.2 × 10⁻⁵",
+    "32 × 10⁻⁶",
+    "3.2 × 10⁻⁴"
+   ],
+   "answer": "3.2 × 10⁻⁵",
+   "commonErrors": [
+    {
+     "answer": "3.2 × 10⁵",
+     "why": "used a positive exponent for a small number"
+    },
+    {
+     "answer": "3.2 × 10⁻⁴",
+     "why": "used one exponent too few"
+    },
+    {
+     "answer": "32 × 10⁻⁶",
+     "why": "the first factor must be between 1 and 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-3-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many times as much is 6 × 10⁸ as 3 × 10⁵?",
+   "explanation": "6 ÷ 3 = 2 and 10⁸ ÷ 10⁵ = 10³, so the ratio is 2 × 10³ = 2,000.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "200",
+    "2,000",
+    "20,000",
+    "3"
+   ],
+   "answer": "2,000",
+   "commonErrors": [
+    {
+     "answer": "20,000",
+     "why": "used 10⁴ instead of 10³"
+    },
+    {
+     "answer": "200",
+     "why": "used 10² instead of 10³"
+    },
+    {
+     "answer": "3",
+     "why": "divided the numbers in front but not the powers of ten"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-4-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is (3 × 10⁴)(2 × 10³)?",
+   "explanation": "Multiply 3 × 2 = 6 and add the exponents 4 + 3 = 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6 × 10¹²",
+    "5 × 10⁷",
+    "6 × 10⁷",
+    "6 × 10⁴"
+   ],
+   "answer": "6 × 10⁷",
+   "commonErrors": [
+    {
+     "answer": "6 × 10¹²",
+     "why": "multiplied the exponents"
+    },
+    {
+     "answer": "5 × 10⁷",
+     "why": "added the numbers in front"
+    },
+    {
+     "answer": "6 × 10⁴",
+     "why": "kept only one exponent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-4-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is (8 × 10⁹) ÷ (2 × 10⁴)?",
+   "explanation": "Divide 8 ÷ 2 = 4 and subtract the exponents 9 − 4 = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6 × 10⁵",
+    "4 × 10⁵",
+    "4 × 10¹³",
+    "4 × 10⁴"
+   ],
+   "answer": "4 × 10⁵",
+   "commonErrors": [
+    {
+     "answer": "4 × 10¹³",
+     "why": "added the exponents"
+    },
+    {
+     "answer": "4 × 10⁴",
+     "why": "kept only one exponent"
+    },
+    {
+     "answer": "6 × 10⁵",
+     "why": "subtracted the numbers in front"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-4-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-A",
+   "standards": [
+    "NC.8.EE.4"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A printer prints 5 × 10² pages per hour. How many pages does it print in 4 × 10³ hours?",
+   "explanation": "(5 × 10²)(4 × 10³) = 20 × 10⁵ = 2 × 10⁶ = 2,000,000.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "2,000,000",
+   "accept": [
+    "2 × 10^6",
+    "2,000,000",
+    "2000000",
+    "2x10^6"
+   ],
+   "unit": "pages",
+   "commonErrors": [
+    {
+     "answer": "20,000,000",
+     "why": "gave one power of ten too many"
+    },
+    {
+     "answer": "200,000",
+     "why": "gave one power of ten too few"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 5x + 3 = 2x + 15.",
+   "explanation": "Subtract 2x: 3x + 3 = 15. Subtract 3: 3x = 12. Divide by 3: x = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12/7",
+    "−4",
+    "4",
+    "6"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "added 3 instead of subtracting"
+    },
+    {
+     "answer": "12/7",
+     "why": "added 2x instead of subtracting"
+    },
+    {
+     "answer": "−4",
+     "why": "made a sign error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve 3(x − 2) = x + 8.",
+   "explanation": "3x − 6 = x + 8, so 2x = 14 and x = 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "14",
+    "7",
+    "1",
+    "5"
+   ],
+   "answer": "7",
+   "commonErrors": [
+    {
+     "answer": "5",
+     "why": "did not multiply the 2 by 3"
+    },
+    {
+     "answer": "14",
+     "why": "stopped before dividing"
+    },
+    {
+     "answer": "1",
+     "why": "made a sign error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many solutions does 4x − 7 = 4x + 3 have?",
+   "explanation": "Subtracting 4x gives −7 = 3, which is never true.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x = 0",
+    "x = 10",
+    "No solution",
+    "Infinitely many solutions"
+   ],
+   "answer": "No solution",
+   "commonErrors": [
+    {
+     "answer": "x = 0",
+     "why": "guessed one value"
+    },
+    {
+     "answer": "x = 10",
+     "why": "added the constants and got a value"
+    },
+    {
+     "answer": "Infinitely many solutions",
+     "why": "confused no solution with all numbers"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many solutions does 2(x + 3) = 2x + 6 have?",
+   "explanation": "Distributing gives 2x + 6 = 2x + 6, which is true for every x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No solution",
+    "Two solutions",
+    "Infinitely many solutions",
+    "One solution"
+   ],
+   "answer": "Infinitely many solutions",
+   "commonErrors": [
+    {
+     "answer": "No solution",
+     "why": "confused all numbers with none"
+    },
+    {
+     "answer": "One solution",
+     "why": "assumed an equation has one solution"
+    },
+    {
+     "answer": "Two solutions",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 6x − 4 = 2x + 12.",
+   "explanation": "Subtract 2x: 4x − 4 = 12. Add 4: 4x = 16. Divide by 4: x = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4",
+    "8",
+    "3",
+    "2"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "2",
+     "why": "divided 8 by 4"
+    },
+    {
+     "answer": "8",
+     "why": "subtracted instead of adding"
+    },
+    {
+     "answer": "3",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve x/2 + 3 = x/4 + 5.",
+   "explanation": "Multiply every term by 4: 2x + 12 = x + 20. Then x = 8.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "16",
+    "4",
+    "32",
+    "8"
+   ],
+   "answer": "8",
+   "commonErrors": [
+    {
+     "answer": "16",
+     "why": "multiplied by 2 instead of 4"
+    },
+    {
+     "answer": "4",
+     "why": "divided instead of multiplying"
+    },
+    {
+     "answer": "32",
+     "why": "added instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Solve 2.5x + 1 = 0.5x + 9.",
+   "explanation": "Subtract 0.5x: 2x + 1 = 9. Subtract 1: 2x = 8. Divide by 2: x = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10",
+    "5",
+    "8/3",
+    "4"
+   ],
+   "answer": "4",
+   "commonErrors": [
+    {
+     "answer": "8/3",
+     "why": "added 0.5x instead of subtracting"
+    },
+    {
+     "answer": "5",
+     "why": "made an arithmetic error"
+    },
+    {
+     "answer": "10",
+     "why": "divided incorrectly"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve 3x + 5 > x + 13.",
+   "explanation": "Subtract x: 2x + 5 > 13. Subtract 5: 2x > 8. Divide by 2: x > 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x < 4",
+    "x > 9",
+    "x > 4",
+    "x > 6"
+   ],
+   "answer": "x > 4",
+   "commonErrors": [
+    {
+     "answer": "x < 4",
+     "why": "reversed the inequality"
+    },
+    {
+     "answer": "x > 9",
+     "why": "added instead of subtracting"
+    },
+    {
+     "answer": "x > 6",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-009",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "Solve −2x + 7 ≤ x − 5.",
+   "explanation": "Subtract x and 7: −3x ≤ −12. Divide by −3 and reverse: x ≥ 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x ≤ −4",
+    "x ≤ 4",
+    "x ≥ 4",
+    "x ≥ −4"
+   ],
+   "answer": "x ≥ 4",
+   "commonErrors": [
+    {
+     "answer": "x ≤ 4",
+     "why": "did not reverse the inequality when dividing by a negative"
+    },
+    {
+     "answer": "x ≥ −4",
+     "why": "made a sign error"
+    },
+    {
+     "answer": "x ≤ −4",
+     "why": "made a sign error and did not reverse"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-010",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which equation has exactly one solution?",
+   "explanation": "3x + 2 = x + 10 simplifies to 2x = 8, so x = 4 is the only solution.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2x + 4 = 2x + 4",
+    "5x − 1 = 5x + 3",
+    "x + 1 = x + 1",
+    "3x + 2 = x + 10"
+   ],
+   "answer": "3x + 2 = x + 10",
+   "commonErrors": [
+    {
+     "answer": "2x + 4 = 2x + 4",
+     "why": "has infinitely many solutions"
+    },
+    {
+     "answer": "5x − 1 = 5x + 3",
+     "why": "has no solution"
+    },
+    {
+     "answer": "x + 1 = x + 1",
+     "why": "has infinitely many solutions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-011",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Gym A costs $30 to join plus $10 per month. Gym B costs $50 to join plus $5 per month. After how many months do the two gyms cost the same?",
+   "explanation": "30 + 10m = 50 + 5m, so 5m = 20 and m = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "4 months",
+    "5 months",
+    "8 months",
+    "2 months"
+   ],
+   "answer": "4 months",
+   "commonErrors": [
+    {
+     "answer": "2 months",
+     "why": "divided the difference in fees ($20) by the monthly rate for Gym A"
+    },
+    {
+     "answer": "5 months",
+     "why": "used the difference in monthly rates as the number of months"
+    },
+    {
+     "answer": "8 months",
+     "why": "doubled the correct answer"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-012",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "Plan X costs $20 plus $0.10 per text. Plan Y costs $0.20 per text with no fee. For how many texts do the plans cost the same?",
+   "explanation": "20 + 0.10t = 0.20t, so 20 = 0.10t and t = 200.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "400",
+    "200",
+    "100",
+    "300"
+   ],
+   "answer": "200",
+   "commonErrors": [
+    {
+     "answer": "100",
+     "why": "divided $20 by $0.20"
+    },
+    {
+     "answer": "400",
+     "why": "divided $20 by $0.05"
+    },
+    {
+     "answer": "300",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-013",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many solutions does 3(2x − 1) = 6x − 3 have?",
+   "explanation": "Distributing gives 6x − 3 = 6x − 3, which is true for every x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Two solutions",
+    "No solution",
+    "Infinitely many solutions",
+    "One solution"
+   ],
+   "answer": "Infinitely many solutions",
+   "commonErrors": [
+    {
+     "answer": "No solution",
+     "why": "confused all numbers with none"
+    },
+    {
+     "answer": "One solution",
+     "why": "assumed an equation has one solution"
+    },
+    {
+     "answer": "Two solutions",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-014",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "numeric",
+   "difficulty": "core",
+   "prompt": "Solve 7x − 4 = 3x + 20.",
+   "explanation": "Subtract 3x: 4x − 4 = 20. Add 4: 4x = 24. Divide by 4: x = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "6",
+   "accept": [
+    "6"
+   ],
+   "commonErrors": [
+    {
+     "answer": "4",
+     "why": "made an arithmetic error"
+    },
+    {
+     "answer": "2.4",
+     "why": "divided 24 by 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-7-015",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-B",
+   "standards": [
+    "NC.8.EE.7"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "One taxi charges $4 plus $2 per mile. Another charges $1 plus $3 per mile. For which trips is the second taxi cheaper?",
+   "explanation": "1 + 3m < 4 + 2m gives m < 3. The costs are equal at 3 miles.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Trips longer than 3 miles",
+    "Only trips of exactly 3 miles",
+    "Trips shorter than 3 miles",
+    "Trips shorter than 5 miles"
+   ],
+   "answer": "Trips shorter than 3 miles",
+   "commonErrors": [
+    {
+     "answer": "Trips longer than 3 miles",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "Trips shorter than 5 miles",
+     "why": "made an arithmetic error"
+    },
+    {
+     "answer": "Only trips of exactly 3 miles",
+     "why": "found where the prices are equal"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which ordered pair is the solution of y = x + 1 and y = 2x − 2?",
+   "explanation": "Set x + 1 = 2x − 2, so x = 3 and y = 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(4, 3)",
+    "(0, 1)",
+    "(1, 2)",
+    "(3, 4)"
+   ],
+   "answer": "(3, 4)",
+   "commonErrors": [
+    {
+     "answer": "(4, 3)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(1, 2)",
+     "why": "satisfies only the first equation"
+    },
+    {
+     "answer": "(0, 1)",
+     "why": "satisfies only the first equation"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The graphs of two lines cross at the point (2, 5). What does this tell you?",
+   "explanation": "The point where the graphs meet lies on both lines, so it satisfies both equations.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The system has no solution",
+    "The lines are parallel",
+    "Only the first equation is true at (2, 5)",
+    "x = 2 and y = 5 make both equations true"
+   ],
+   "answer": "x = 2 and y = 5 make both equations true",
+   "commonErrors": [
+    {
+     "answer": "Only the first equation is true at (2, 5)",
+     "why": "ignored that the point is on both lines"
+    },
+    {
+     "answer": "The lines are parallel",
+     "why": "parallel lines never cross"
+    },
+    {
+     "answer": "The system has no solution",
+     "why": "a crossing point is a solution"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "How many solutions does the system y = 3x + 1 and y = 3x − 4 have?",
+   "explanation": "Both lines have slope 3 but different y-intercepts, so they are parallel and never meet.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Two",
+    "Infinitely many",
+    "One",
+    "None"
+   ],
+   "answer": "None",
+   "commonErrors": [
+    {
+     "answer": "One",
+     "why": "assumed lines always cross"
+    },
+    {
+     "answer": "Two",
+     "why": "guessed"
+    },
+    {
+     "answer": "Infinitely many",
+     "why": "confused parallel with the same line"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "How many solutions does the system y = 2x + 3 and 2y = 4x + 6 have?",
+   "explanation": "Dividing the second equation by 2 gives y = 2x + 3, the same line.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Infinitely many",
+    "One",
+    "Two",
+    "None"
+   ],
+   "answer": "Infinitely many",
+   "commonErrors": [
+    {
+     "answer": "None",
+     "why": "confused the same line with parallel lines"
+    },
+    {
+     "answer": "One",
+     "why": "assumed lines cross once"
+    },
+    {
+     "answer": "Two",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Solve by inspection: y = 5 and y = x + 2.",
+   "explanation": "y = 5, so 5 = x + 2 and x = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(3, 5)",
+    "(5, 7)",
+    "(2, 5)",
+    "(5, 3)"
+   ],
+   "answer": "(3, 5)",
+   "commonErrors": [
+    {
+     "answer": "(5, 3)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(2, 5)",
+     "why": "used the constant as x"
+    },
+    {
+     "answer": "(5, 7)",
+     "why": "added 2 to 5"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which system has the solution (1, 3)?",
+   "explanation": "Check (1, 3): 3 = 1 + 2 is true and 3 = 3(1) is true.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 2x + 1 and y = 3x + 1",
+    "y = x + 3 and y = 3x",
+    "y = x + 2 and y = 3x",
+    "y = x + 2 and y = 2x"
+   ],
+   "answer": "y = x + 2 and y = 3x",
+   "commonErrors": [
+    {
+     "answer": "y = x + 2 and y = 2x",
+     "why": "(1, 3) does not satisfy y = 2x"
+    },
+    {
+     "answer": "y = 2x + 1 and y = 3x + 1",
+     "why": "(1, 3) does not satisfy y = 3x + 1"
+    },
+    {
+     "answer": "y = x + 3 and y = 3x",
+     "why": "(1, 3) does not satisfy y = x + 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Plan A costs y = 20 + 5x. Plan B costs y = 35 + 2x, where x is the number of months. When do the plans cost the same, and how much?",
+   "explanation": "20 + 5x = 35 + 2x gives x = 5. Then y = 20 + 25 = 45.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "At 5 months, $45",
+    "At 3 months, $35",
+    "At 5 months, $25",
+    "At 15 months, $95"
+   ],
+   "answer": "At 5 months, $45",
+   "commonErrors": [
+    {
+     "answer": "At 15 months, $95",
+     "why": "used the difference in the starting fees (15) as the number of months"
+    },
+    {
+     "answer": "At 3 months, $35",
+     "why": "used the difference in rates (3) as the number of months"
+    },
+    {
+     "answer": "At 5 months, $25",
+     "why": "found the right month but the wrong cost"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The lines y = x + 4 and y = −x + 6 cross. Where?",
+   "explanation": "x + 4 = −x + 6 gives x = 1. Then y = 1 + 4 = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(5, 1)",
+    "(1, 4)",
+    "(2, 6)",
+    "(1, 5)"
+   ],
+   "answer": "(1, 5)",
+   "commonErrors": [
+    {
+     "answer": "(5, 1)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(2, 6)",
+     "why": "made an arithmetic error"
+    },
+    {
+     "answer": "(1, 4)",
+     "why": "found only the first equation's value"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-009",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which equation, paired with y = 2x + 1, makes a system with no solution?",
+   "explanation": "No solution means parallel lines: the same slope and a different y-intercept.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 2x + 1",
+    "y = 2x − 3",
+    "y = x + 1",
+    "y = −2x + 1"
+   ],
+   "answer": "y = 2x − 3",
+   "commonErrors": [
+    {
+     "answer": "y = −2x + 1",
+     "why": "has a different slope, so the lines cross"
+    },
+    {
+     "answer": "y = x + 1",
+     "why": "has a different slope, so the lines cross"
+    },
+    {
+     "answer": "y = 2x + 1",
+     "why": "is the same line, with infinitely many solutions"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-010",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which equation, paired with y = 3x − 2, makes a system with exactly one solution?",
+   "explanation": "A different slope means the lines cross exactly once.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 3x − 2",
+    "y = −x + 6",
+    "y = 3x + 4",
+    "y = 3x"
+   ],
+   "answer": "y = −x + 6",
+   "commonErrors": [
+    {
+     "answer": "y = 3x + 4",
+     "why": "has the same slope, so the lines are parallel"
+    },
+    {
+     "answer": "y = 3x − 2",
+     "why": "is the same line"
+    },
+    {
+     "answer": "y = 3x",
+     "why": "has the same slope, so the lines are parallel"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-011",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "Sam has $50 and saves $10 each week. Ana has $20 and saves $15 each week. When do they have the same amount, and how much is it?",
+   "explanation": "50 + 10w = 20 + 15w gives w = 6. Then 50 + 60 = 110.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "After 6 weeks, $110 each",
+    "After 5 weeks, $100 each",
+    "After 3 weeks, $80 each",
+    "After 6 weeks, $80 each"
+   ],
+   "answer": "After 6 weeks, $110 each",
+   "commonErrors": [
+    {
+     "answer": "After 3 weeks, $80 each",
+     "why": "made an arithmetic error"
+    },
+    {
+     "answer": "After 6 weeks, $80 each",
+     "why": "found the right week but the wrong amount"
+    },
+    {
+     "answer": "After 5 weeks, $100 each",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-012",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the solution of y = x + 3 and y = 2x − 1?",
+   "explanation": "x + 3 = 2x − 1 gives x = 4. Then y = 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(3, −1)",
+    "(4, 7)",
+    "(2, 5)",
+    "(7, 4)"
+   ],
+   "answer": "(4, 7)",
+   "commonErrors": [
+    {
+     "answer": "(7, 4)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(3, −1)",
+     "why": "used the constants as the solution"
+    },
+    {
+     "answer": "(2, 5)",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-013",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "The lines y = 4x and y = x + 9 meet at one point. What is the x-coordinate of that point?",
+   "explanation": "4x = x + 9, so 3x = 9 and x = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "3",
+   "accept": [
+    "3"
+   ],
+   "commonErrors": [
+    {
+     "answer": "12",
+     "why": "gave the y-coordinate"
+    },
+    {
+     "answer": "9",
+     "why": "used the constant"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-014",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two lines model two people's savings. What does the point where the lines cross show?",
+   "explanation": "The crossing point is on both lines, so both savings amounts are equal there.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The week when both have the same total and what that total is",
+    "The slope of each line",
+    "The week when the first person starts saving",
+    "The difference between their savings"
+   ],
+   "answer": "The week when both have the same total and what that total is",
+   "commonErrors": [
+    {
+     "answer": "The week when the first person starts saving",
+     "why": "confused the crossing with the y-intercept"
+    },
+    {
+     "answer": "The difference between their savings",
+     "why": "the crossing point has no difference"
+    },
+    {
+     "answer": "The slope of each line",
+     "why": "the crossing point is not a slope"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-ee-8-015",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "EE-C",
+   "standards": [
+    "NC.8.EE.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the solution of y = −x + 5 and y = x − 1?",
+   "explanation": "−x + 5 = x − 1 gives 2x = 6, so x = 3 and y = 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(2, 3)",
+    "(1, 4)",
+    "(5, −1)",
+    "(3, 2)"
+   ],
+   "answer": "(3, 2)",
+   "commonErrors": [
+    {
+     "answer": "(2, 3)",
+     "why": "swapped x and y"
+    },
+    {
+     "answer": "(5, −1)",
+     "why": "used the constants as the solution"
+    },
+    {
+     "answer": "(1, 4)",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which set of ordered pairs is a function?",
+   "explanation": "In a function each input has exactly one output. Here every input is different.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "{(4, 1), (4, 2), (4, 3)}",
+    "{(2, 1), (2, 5), (3, 3)}",
+    "{(1, 2), (2, 3), (3, 4)}",
+    "{(1, 2), (1, 3), (2, 4)}"
+   ],
+   "answer": "{(1, 2), (2, 3), (3, 4)}",
+   "commonErrors": [
+    {
+     "answer": "{(1, 2), (1, 3), (2, 4)}",
+     "why": "the input 1 has two outputs"
+    },
+    {
+     "answer": "{(2, 1), (2, 5), (3, 3)}",
+     "why": "the input 2 has two outputs"
+    },
+    {
+     "answer": "{(4, 1), (4, 2), (4, 3)}",
+     "why": "the input 4 has three outputs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which table shows a function (x is the input, y is the output)?",
+   "explanation": "Two different inputs may share an output, but one input cannot have two outputs.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x: 1, 2, 3, 4 and y: 5, 5, 6, 7",
+    "x: 0, 0, 1, 2 and y: 1, 2, 3, 4",
+    "x: 1, 2, 2, 3 and y: 4, 5, 6, 7",
+    "x: 3, 3, 3, 4 and y: 1, 2, 3, 4"
+   ],
+   "answer": "x: 1, 2, 3, 4 and y: 5, 5, 6, 7",
+   "commonErrors": [
+    {
+     "answer": "x: 1, 2, 2, 3 and y: 4, 5, 6, 7",
+     "why": "the input 2 has two outputs, 5 and 6"
+    },
+    {
+     "answer": "x: 0, 0, 1, 2 and y: 1, 2, 3, 4",
+     "why": "the input 0 has two outputs, 1 and 2"
+    },
+    {
+     "answer": "x: 3, 3, 3, 4 and y: 1, 2, 3, 4",
+     "why": "the input 3 has three outputs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A graph does not pass the vertical line test. Why is it not the graph of a function?",
+   "explanation": "A vertical line that hits the graph twice means one input (x-value) has two outputs.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Some output has more than one input",
+    "The graph is a curve",
+    "The graph has negative values",
+    "Some input has more than one output"
+   ],
+   "answer": "Some input has more than one output",
+   "commonErrors": [
+    {
+     "answer": "Some output has more than one input",
+     "why": "that is allowed in a function"
+    },
+    {
+     "answer": "The graph is a curve",
+     "why": "curves can be functions"
+    },
+    {
+     "answer": "The graph has negative values",
+     "why": "negative values are allowed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement defines a function?",
+   "explanation": "That is the definition: one output for each input.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A rule that assigns each output exactly one input",
+    "Any equation with two variables",
+    "A rule that assigns each input exactly one output",
+    "Any set of ordered pairs"
+   ],
+   "answer": "A rule that assigns each input exactly one output",
+   "commonErrors": [
+    {
+     "answer": "A rule that assigns each output exactly one input",
+     "why": "reversed inputs and outputs"
+    },
+    {
+     "answer": "Any equation with two variables",
+     "why": "not every equation with two variables is a function"
+    },
+    {
+     "answer": "Any set of ordered pairs",
+     "why": "not every set of ordered pairs is a function"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Consider the relation x = y² with x as the input. Is it a function?",
+   "explanation": "The input 4 has two outputs, 2 and −2, so x = y² is not a function of x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because y is squared",
+    "No, because x = 4 gives both y = 2 and y = −2",
+    "Yes, because it has a squared variable",
+    "Yes, because every x has a y"
+   ],
+   "answer": "No, because x = 4 gives both y = 2 and y = −2",
+   "commonErrors": [
+    {
+     "answer": "Yes, because every x has a y",
+     "why": "some x-values have two y-values"
+    },
+    {
+     "answer": "Yes, because it has a squared variable",
+     "why": "squares do not guarantee a function"
+    },
+    {
+     "answer": "No, because y is squared",
+     "why": "y = x² is a function; the problem is the two outputs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-1-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A function rule is “multiply the input by 3, then subtract 2.” What is the output when the input is 5?",
+   "explanation": "3 × 5 = 15, and 15 − 2 = 13.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "13",
+    "15",
+    "8",
+    "9"
+   ],
+   "answer": "13",
+   "commonErrors": [
+    {
+     "answer": "9",
+     "why": "subtracted 2 before multiplying"
+    },
+    {
+     "answer": "15",
+     "why": "forgot to subtract 2"
+    },
+    {
+     "answer": "8",
+     "why": "added 3 to the input"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-2-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Function A is y = 3x + 2. Function B has the table x: 0, 1, 2 and y: 5, 7, 9. Which has the greater rate of change?",
+   "explanation": "Function B changes by 2 each time x increases by 1, so its rate is 2. Function A's rate is 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They have the same rate of change",
+    "Function A, with a rate of change of 3 compared with 2",
+    "Function B, because its y-values are larger",
+    "It cannot be determined"
+   ],
+   "answer": "Function A, with a rate of change of 3 compared with 2",
+   "commonErrors": [
+    {
+     "answer": "Function B, because its y-values are larger",
+     "why": "compared outputs instead of rates"
+    },
+    {
+     "answer": "They have the same rate of change",
+     "why": "did not compute Function B's rate"
+    },
+    {
+     "answer": "It cannot be determined",
+     "why": "thought different representations cannot be compared"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-2-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Function A has a graph through (0, 4) and (2, 10). Function B is y = 2x + 7. Which has the greater y-intercept?",
+   "explanation": "A's graph crosses the y-axis at (0, 4). B's y-intercept is 7.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They have the same y-intercept",
+    "Function A, with 4 compared with 7",
+    "Function B, with 7 compared with 4",
+    "It cannot be determined"
+   ],
+   "answer": "Function B, with 7 compared with 4",
+   "commonErrors": [
+    {
+     "answer": "Function A, with 4 compared with 7",
+     "why": "reversed the comparison"
+    },
+    {
+     "answer": "They have the same y-intercept",
+     "why": "did not compare the intercepts"
+    },
+    {
+     "answer": "It cannot be determined",
+     "why": "thought different representations cannot be compared"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-2-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Car A travels 60 miles each hour. For Car B, distance d in miles after t hours is d = 55t. Which car is faster?",
+   "explanation": "Car B's rate is 55 miles per hour, which is less than 60.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They are equally fast",
+    "Car B, because 55t has a variable",
+    "Car A, at 60 mph compared with 55 mph",
+    "It cannot be determined"
+   ],
+   "answer": "Car A, at 60 mph compared with 55 mph",
+   "commonErrors": [
+    {
+     "answer": "Car B, because 55t has a variable",
+     "why": "ignored the rates"
+    },
+    {
+     "answer": "They are equally fast",
+     "why": "did not compare 60 with 55"
+    },
+    {
+     "answer": "It cannot be determined",
+     "why": "thought different representations cannot be compared"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-2-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Function 1 is y = 2x − 1. Function 2 has the points (0, 3), (1, 5) and (2, 7). Which statement is true?",
+   "explanation": "Both increase by 2 for each increase of 1 in x. Function 1 starts at −1 and Function 2 starts at 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "They have the same initial value",
+    "Function 2 grows faster",
+    "Function 1 grows faster",
+    "They have the same rate of change but different initial values"
+   ],
+   "answer": "They have the same rate of change but different initial values",
+   "commonErrors": [
+    {
+     "answer": "Function 1 grows faster",
+     "why": "both have a rate of 2"
+    },
+    {
+     "answer": "Function 2 grows faster",
+     "why": "both have a rate of 2"
+    },
+    {
+     "answer": "They have the same initial value",
+     "why": "the initial values are −1 and 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-3-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which table shows a linear function?",
+   "explanation": "y increases by 3 each time x increases by 1, a constant rate of change.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x: 0, 1, 2, 3 and y: 2, 5, 8, 11",
+    "x: 0, 1, 2, 3 and y: 1, 4, 9, 16",
+    "x: 0, 1, 2, 3 and y: 1, 2, 4, 8",
+    "x: 0, 1, 2, 3 and y: 2, 3, 5, 8"
+   ],
+   "answer": "x: 0, 1, 2, 3 and y: 2, 5, 8, 11",
+   "commonErrors": [
+    {
+     "answer": "x: 0, 1, 2, 3 and y: 1, 2, 4, 8",
+     "why": "y doubles, which is exponential"
+    },
+    {
+     "answer": "x: 0, 1, 2, 3 and y: 1, 4, 9, 16",
+     "why": "the differences keep growing"
+    },
+    {
+     "answer": "x: 0, 1, 2, 3 and y: 2, 3, 5, 8",
+     "why": "the differences keep growing"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-3-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which equation is NOT linear?",
+   "explanation": "An x² term makes the graph a curve, so y = x² + 1 is not linear.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = x/2",
+    "y = 3x − 2",
+    "y = x² + 1",
+    "y = 5"
+   ],
+   "answer": "y = x² + 1",
+   "commonErrors": [
+    {
+     "answer": "y = 3x − 2",
+     "why": "this is in the form y = mx + b"
+    },
+    {
+     "answer": "y = x/2",
+     "why": "this is in the form y = mx + b"
+    },
+    {
+     "answer": "y = 5",
+     "why": "this is a horizontal line"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-3-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which describes a linear function?",
+   "explanation": "A linear function changes by the same amount for each equal step in the input.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Its output doubles each time",
+    "Its output is the square of its input",
+    "Its graph is a curve",
+    "It has a constant rate of change"
+   ],
+   "answer": "It has a constant rate of change",
+   "commonErrors": [
+    {
+     "answer": "Its output doubles each time",
+     "why": "that describes exponential growth"
+    },
+    {
+     "answer": "Its output is the square of its input",
+     "why": "that describes a quadratic function, not a linear one"
+    },
+    {
+     "answer": "Its graph is a curve",
+     "why": "linear functions have straight-line graphs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-3-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The points (1, 3), (2, 5), (3, 7) and (4, 9) are on a graph. What do they show?",
+   "explanation": "y goes up 2 each time x goes up 1, so the function is linear with rate 2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A linear function with a rate of change of 3",
+    "A linear function with a rate of change of 2",
+    "A nonlinear function",
+    "A linear function with a rate of change of 1"
+   ],
+   "answer": "A linear function with a rate of change of 2",
+   "commonErrors": [
+    {
+     "answer": "A linear function with a rate of change of 3",
+     "why": "used the first y-value as the rate"
+    },
+    {
+     "answer": "A nonlinear function",
+     "why": "the differences are constant"
+    },
+    {
+     "answer": "A linear function with a rate of change of 1",
+     "why": "used the x-step as the rate"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-3-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-A",
+   "standards": [
+    "NC.8.F.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which table does NOT show a linear function?",
+   "explanation": "In the first table y doubles, so the change is not constant: 3, 6, 12, 24.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "x: 1, 2, 3, 4 and y: 3, 6, 12, 24",
+    "x: 1, 2, 3, 4 and y: 10, 8, 6, 4",
+    "x: 1, 2, 3, 4 and y: 2, 2, 2, 2",
+    "x: 1, 2, 3, 4 and y: 5, 7, 9, 11"
+   ],
+   "answer": "x: 1, 2, 3, 4 and y: 3, 6, 12, 24",
+   "commonErrors": [
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 5, 7, 9, 11",
+     "why": "y increases by 2 each time"
+    },
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 10, 8, 6, 4",
+     "why": "y decreases by 2 each time"
+    },
+    {
+     "answer": "x: 1, 2, 3, 4 and y: 2, 2, 2, 2",
+     "why": "y never changes, a horizontal line"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which equation has a slope of 3 and a y-intercept of −2?",
+   "explanation": "In y = mx + b the slope is m = 3 and the y-intercept is b = −2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 3x + 2",
+    "y = 3 − 2x",
+    "y = −2x + 3",
+    "y = 3x − 2"
+   ],
+   "answer": "y = 3x − 2",
+   "commonErrors": [
+    {
+     "answer": "y = −2x + 3",
+     "why": "swapped the slope and the y-intercept"
+    },
+    {
+     "answer": "y = 3x + 2",
+     "why": "gave the y-intercept the wrong sign"
+    },
+    {
+     "answer": "y = 3 − 2x",
+     "why": "swapped the slope and the y-intercept"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A table has the points (0, 5) and (2, 11). Which equation models it?",
+   "explanation": "Slope = (11 − 5) ÷ (2 − 0) = 3 and the y-intercept is 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 3x + 11",
+    "y = 3x + 5",
+    "y = 5x + 3",
+    "y = 6x + 5"
+   ],
+   "answer": "y = 3x + 5",
+   "commonErrors": [
+    {
+     "answer": "y = 5x + 3",
+     "why": "swapped the slope and the y-intercept"
+    },
+    {
+     "answer": "y = 6x + 5",
+     "why": "used the difference in y as the slope"
+    },
+    {
+     "answer": "y = 3x + 11",
+     "why": "used the larger y-value as the y-intercept"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A plumber charges a $40 fee plus $25 for each hour. Which equation gives the total cost y for x hours?",
+   "explanation": "The rate of change is $25 per hour and the initial value is $40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = 25x − 40",
+    "y = 65x",
+    "y = 25x + 40",
+    "y = 40x + 25"
+   ],
+   "answer": "y = 25x + 40",
+   "commonErrors": [
+    {
+     "answer": "y = 40x + 25",
+     "why": "swapped the fee and the rate"
+    },
+    {
+     "answer": "y = 65x",
+     "why": "added the numbers and multiplied by hours"
+    },
+    {
+     "answer": "y = 25x − 40",
+     "why": "subtracted the fee"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The equation y = 4x + 7 gives the total cost in dollars of renting a bike for x hours. What does 7 mean?",
+   "explanation": "7 is the initial value: the cost when x = 0. It is the y-intercept of the graph.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The cost after 4 hours",
+    "The number of bikes",
+    "The fixed fee, charged even for 0 hours",
+    "The cost for each hour"
+   ],
+   "answer": "The fixed fee, charged even for 0 hours",
+   "commonErrors": [
+    {
+     "answer": "The cost for each hour",
+     "why": "that is the 4"
+    },
+    {
+     "answer": "The cost after 4 hours",
+     "why": "confused the 7 with the 4"
+    },
+    {
+     "answer": "The number of bikes",
+     "why": "made up a meaning"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The equation y = 4x + 7 gives the total cost in dollars of renting a bike for x hours. What does 4 mean?",
+   "explanation": "4 is the rate of change, the slope of the graph.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The fixed fee",
+    "The total cost for 4 hours",
+    "The number of hours rented",
+    "The cost increases by $4 for each additional hour"
+   ],
+   "answer": "The cost increases by $4 for each additional hour",
+   "commonErrors": [
+    {
+     "answer": "The fixed fee",
+     "why": "that is the 7"
+    },
+    {
+     "answer": "The total cost for 4 hours",
+     "why": "confused the 4 with the total"
+    },
+    {
+     "answer": "The number of hours rented",
+     "why": "confused the 4 with x"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the slope of the line through (1, 2) and (3, 8)?",
+   "explanation": "Slope = (8 − 2) ÷ (3 − 1) = 6 ÷ 2 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "6",
+    "3",
+    "1/3",
+    "2"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "used the difference in y only"
+    },
+    {
+     "answer": "1/3",
+     "why": "divided x by y"
+    },
+    {
+     "answer": "2",
+     "why": "used the first y-value"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which point is on the graph of y = −2x + 1?",
+   "explanation": "When x = 2, y = −2(2) + 1 = −4 + 1 = −3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(2, −3)",
+    "(−2, −3)",
+    "(2, 5)",
+    "(1, 3)"
+   ],
+   "answer": "(2, −3)",
+   "commonErrors": [
+    {
+     "answer": "(2, 5)",
+     "why": "made a sign error: −2(2) + 1 = −3"
+    },
+    {
+     "answer": "(1, 3)",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "(−2, −3)",
+     "why": "changed the sign of x but not of y"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A candle is 20 cm tall and burns down 2 cm every hour. Which equation gives its height h after t hours?",
+   "explanation": "The candle starts at 20 cm and loses 2 cm per hour: h = 20 − 2t.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "h = 20 − 2t",
+    "h = 20 + 2t",
+    "h = 18t",
+    "h = 2t − 20"
+   ],
+   "answer": "h = 20 − 2t",
+   "commonErrors": [
+    {
+     "answer": "h = 20 + 2t",
+     "why": "added when the candle gets shorter"
+    },
+    {
+     "answer": "h = 2t − 20",
+     "why": "reversed the subtraction"
+    },
+    {
+     "answer": "h = 18t",
+     "why": "subtracted before multiplying"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-009",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A line has a slope of 1/2 and passes through (0, −4). Which equation is its equation?",
+   "explanation": "Slope m = 1/2 and y-intercept b = −4, so y = (1/2)x − 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = (1/2)x + 4",
+    "y = −4x + 1/2",
+    "y = 2x − 4",
+    "y = (1/2)x − 4"
+   ],
+   "answer": "y = (1/2)x − 4",
+   "commonErrors": [
+    {
+     "answer": "y = 2x − 4",
+     "why": "inverted the slope"
+    },
+    {
+     "answer": "y = (1/2)x + 4",
+     "why": "gave the y-intercept the wrong sign"
+    },
+    {
+     "answer": "y = −4x + 1/2",
+     "why": "swapped the slope and the y-intercept"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-4-010",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.4"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A line has a slope of 2 and passes through (0, 3). What is y when x = 5?",
+   "explanation": "The equation is y = 2x + 3. When x = 5, y = 2(5) + 3 = 13.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "13",
+   "accept": [
+    "13"
+   ],
+   "commonErrors": [
+    {
+     "answer": "10",
+     "why": "left out the y-intercept"
+    },
+    {
+     "answer": "8",
+     "why": "added 5 and 3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-5-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A graph rises, then stays flat, then falls. Which description fits it?",
+   "explanation": "Rising means increasing, flat means constant, and falling means decreasing.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Always increasing",
+    "Decreasing, then constant, then increasing",
+    "Increasing, then constant, then decreasing",
+    "Always linear"
+   ],
+   "answer": "Increasing, then constant, then decreasing",
+   "commonErrors": [
+    {
+     "answer": "Decreasing, then constant, then increasing",
+     "why": "reversed the order"
+    },
+    {
+     "answer": "Always increasing",
+     "why": "ignored the flat and falling parts"
+    },
+    {
+     "answer": "Always linear",
+     "why": "the graph changes direction, so it is not one line"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-5-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Water fills a tank at a steady rate and then the faucet is turned off. Which graph of depth against time fits?",
+   "explanation": "Steady filling is a straight line going up. Once the faucet is off, the depth stays constant.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A line falling steadily and then going flat",
+    "A curve that keeps rising faster and faster",
+    "A line that is flat and then rises",
+    "A line rising steadily and then going flat"
+   ],
+   "answer": "A line rising steadily and then going flat",
+   "commonErrors": [
+    {
+     "answer": "A line falling steadily and then going flat",
+     "why": "depth does not fall while filling"
+    },
+    {
+     "answer": "A line that is flat and then rises",
+     "why": "reversed the order"
+    },
+    {
+     "answer": "A curve that keeps rising faster and faster",
+     "why": "the rate is steady, not speeding up"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-5-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which situation best matches a graph that is a straight line going down?",
+   "explanation": "A constant rate of loss gives a straight line with a negative slope.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A population of bacteria doubles every hour",
+    "A ball is thrown up and then comes down",
+    "The gas in a car drops steadily as it is driven at a constant speed",
+    "A plant grows quickly and then more slowly"
+   ],
+   "answer": "The gas in a car drops steadily as it is driven at a constant speed",
+   "commonErrors": [
+    {
+     "answer": "A plant grows quickly and then more slowly",
+     "why": "that is increasing and curved"
+    },
+    {
+     "answer": "A population of bacteria doubles every hour",
+     "why": "that is increasing and curved"
+    },
+    {
+     "answer": "A ball is thrown up and then comes down",
+     "why": "that rises then falls and is curved"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-5-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A ball is thrown straight up and then falls back. The graph of height against time is best described as",
+   "explanation": "The height goes up, peaks, and comes down, in a curved path.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Constant and linear",
+    "Always increasing and linear",
+    "Increasing and then decreasing, and nonlinear",
+    "Decreasing and then increasing, and linear"
+   ],
+   "answer": "Increasing and then decreasing, and nonlinear",
+   "commonErrors": [
+    {
+     "answer": "Always increasing and linear",
+     "why": "the ball comes back down"
+    },
+    {
+     "answer": "Decreasing and then increasing, and linear",
+     "why": "reversed the order and ignored the curve"
+    },
+    {
+     "answer": "Constant and linear",
+     "why": "the height changes"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-f-5-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "F-B",
+   "standards": [
+    "NC.8.F.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A graph is a straight line sloping upward from left to right. The function is",
+   "explanation": "A straight line is linear, and sloping upward means the values increase.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Linear and increasing",
+    "Linear and decreasing",
+    "Nonlinear and increasing",
+    "Constant"
+   ],
+   "answer": "Linear and increasing",
+   "commonErrors": [
+    {
+     "answer": "Linear and decreasing",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "Nonlinear and increasing",
+     "why": "a straight line is linear"
+    },
+    {
+     "answer": "Constant",
+     "why": "constant means flat"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-2-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which set of transformations always produces a figure congruent to the original?",
+   "explanation": "Rigid motions (translations, reflections, rotations) keep size and shape.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Dilations only",
+    "Dilations and reflections",
+    "Translations and dilations",
+    "Translations, reflections and rotations"
+   ],
+   "answer": "Translations, reflections and rotations",
+   "commonErrors": [
+    {
+     "answer": "Dilations only",
+     "why": "dilations change the size"
+    },
+    {
+     "answer": "Translations and dilations",
+     "why": "dilations change the size"
+    },
+    {
+     "answer": "Dilations and reflections",
+     "why": "dilations change the size"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-2-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Triangle A is moved 4 units to the right and then reflected across the x-axis to form Triangle B. Are A and B congruent?",
+   "explanation": "A translation and a reflection keep every length and angle the same.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Only if A and B have equal areas",
+    "No, because B is in a different place",
+    "Yes, because both transformations are rigid motions",
+    "No, because it was reflected"
+   ],
+   "answer": "Yes, because both transformations are rigid motions",
+   "commonErrors": [
+    {
+     "answer": "No, because B is in a different place",
+     "why": "position does not affect congruence"
+    },
+    {
+     "answer": "No, because it was reflected",
+     "why": "reflections preserve size and shape"
+    },
+    {
+     "answer": "Only if A and B have equal areas",
+     "why": "equal area alone does not make figures congruent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-2-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which transformation does NOT always produce a congruent figure?",
+   "explanation": "A dilation by 3 makes every length 3 times as long, so the figure is not congruent.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A reflection across the y-axis",
+    "A rotation of 90° about the origin",
+    "A dilation with a scale factor of 3",
+    "A translation 5 units up"
+   ],
+   "answer": "A dilation with a scale factor of 3",
+   "commonErrors": [
+    {
+     "answer": "A translation 5 units up",
+     "why": "translations preserve size"
+    },
+    {
+     "answer": "A reflection across the y-axis",
+     "why": "reflections preserve size"
+    },
+    {
+     "answer": "A rotation of 90° about the origin",
+     "why": "rotations preserve size"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-2-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Figure B is a rotation of Figure A. Which statement is true?",
+   "explanation": "A rotation is a rigid motion, so the figure is congruent to the original.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Figure B has longer sides than Figure A",
+    "Figure B is similar but never congruent to A",
+    "Figure B has the same side lengths and angle measures as Figure A",
+    "Figure B has different angle measures from Figure A"
+   ],
+   "answer": "Figure B has the same side lengths and angle measures as Figure A",
+   "commonErrors": [
+    {
+     "answer": "Figure B has longer sides than Figure A",
+     "why": "rotations do not change length"
+    },
+    {
+     "answer": "Figure B has different angle measures from Figure A",
+     "why": "rotations do not change angles"
+    },
+    {
+     "answer": "Figure B is similar but never congruent to A",
+     "why": "rotated figures are congruent"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A triangle has a vertex at (2, 3). It is reflected across the x-axis. What are the new coordinates of that vertex?",
+   "explanation": "Reflecting across the x-axis changes the sign of y only.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(−2, 3)",
+    "(3, 2)",
+    "(−2, −3)",
+    "(2, −3)"
+   ],
+   "answer": "(2, −3)",
+   "commonErrors": [
+    {
+     "answer": "(−2, 3)",
+     "why": "reflected across the y-axis"
+    },
+    {
+     "answer": "(−2, −3)",
+     "why": "reflected across both axes"
+    },
+    {
+     "answer": "(3, 2)",
+     "why": "swapped the coordinates"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The point (−4, 1) is reflected across the y-axis. What are its new coordinates?",
+   "explanation": "Reflecting across the y-axis changes the sign of x only.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(4, 1)",
+    "(−4, −1)",
+    "(4, −1)",
+    "(1, −4)"
+   ],
+   "answer": "(4, 1)",
+   "commonErrors": [
+    {
+     "answer": "(−4, −1)",
+     "why": "reflected across the x-axis"
+    },
+    {
+     "answer": "(4, −1)",
+     "why": "reflected across both axes"
+    },
+    {
+     "answer": "(1, −4)",
+     "why": "swapped the coordinates"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The point (3, −2) is rotated 90° counterclockwise about the origin. What are its new coordinates?",
+   "explanation": "A 90° counterclockwise rotation sends (x, y) to (−y, x): (3, −2) → (2, 3).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(−2, 3)",
+    "(−3, 2)",
+    "(−2, −3)",
+    "(2, 3)"
+   ],
+   "answer": "(2, 3)",
+   "commonErrors": [
+    {
+     "answer": "(−2, −3)",
+     "why": "rotated 90° clockwise"
+    },
+    {
+     "answer": "(−3, 2)",
+     "why": "rotated 180°"
+    },
+    {
+     "answer": "(−2, 3)",
+     "why": "made a sign error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The point (1, 5) is dilated by a scale factor of 3 about the origin. What are its new coordinates?",
+   "explanation": "Multiply both coordinates by 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(4, 8)",
+    "(1/3, 5/3)",
+    "(3, 5)",
+    "(3, 15)"
+   ],
+   "answer": "(3, 15)",
+   "commonErrors": [
+    {
+     "answer": "(4, 8)",
+     "why": "added 3 to each coordinate"
+    },
+    {
+     "answer": "(3, 5)",
+     "why": "dilated only the x-coordinate"
+    },
+    {
+     "answer": "(1/3, 5/3)",
+     "why": "divided by the scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A translation moves every point by (x, y) → (x − 5, y + 2). What is the image of (4, 1)?",
+   "explanation": "4 − 5 = −1 and 1 + 2 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(−1, −1)",
+    "(−1, 3)",
+    "(1, 6)",
+    "(9, −1)"
+   ],
+   "answer": "(−1, 3)",
+   "commonErrors": [
+    {
+     "answer": "(9, −1)",
+     "why": "reversed the directions of the move"
+    },
+    {
+     "answer": "(−1, −1)",
+     "why": "subtracted 2 instead of adding"
+    },
+    {
+     "answer": "(1, 6)",
+     "why": "made arithmetic errors"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-3-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The point (8, −6) is dilated by a scale factor of 1/2 about the origin. What are its new coordinates?",
+   "explanation": "Multiply both coordinates by 1/2.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "(8, −3)",
+    "(16, −12)",
+    "(4, 3)",
+    "(4, −3)"
+   ],
+   "answer": "(4, −3)",
+   "commonErrors": [
+    {
+     "answer": "(16, −12)",
+     "why": "multiplied by 2 instead of 1/2"
+    },
+    {
+     "answer": "(4, 3)",
+     "why": "made a sign error"
+    },
+    {
+     "answer": "(8, −3)",
+     "why": "dilated only the y-coordinate"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-4-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which statement correctly describes two similar figures?",
+   "explanation": "Similarity allows a dilation as well as rigid motions.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "One can be obtained from the other by dilations only",
+    "They always have the same area",
+    "One can be obtained from the other by rotations, reflections, translations and dilations",
+    "One can be obtained from the other by rotations and translations only"
+   ],
+   "answer": "One can be obtained from the other by rotations, reflections, translations and dilations",
+   "commonErrors": [
+    {
+     "answer": "One can be obtained from the other by rotations and translations only",
+     "why": "that describes congruent figures"
+    },
+    {
+     "answer": "One can be obtained from the other by dilations only",
+     "why": "reflections, rotations and translations can also be used"
+    },
+    {
+     "answer": "They always have the same area",
+     "why": "similar figures can differ in size"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-4-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Triangle A has sides 3, 4 and 5. Triangle B has sides 6, 8 and 10. How are they related?",
+   "explanation": "Each side of B is 2 times the matching side of A.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Not similar",
+    "Similar with a scale factor of 3",
+    "Congruent",
+    "Similar: B is a dilation of A with a scale factor of 2"
+   ],
+   "answer": "Similar: B is a dilation of A with a scale factor of 2",
+   "commonErrors": [
+    {
+     "answer": "Congruent",
+     "why": "the sides are not equal"
+    },
+    {
+     "answer": "Not similar",
+     "why": "the sides are proportional"
+    },
+    {
+     "answer": "Similar with a scale factor of 3",
+     "why": "used 3, the shortest side of A, as the scale factor"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-4-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Are a 2-by-3 rectangle and a 4-by-9 rectangle similar?",
+   "explanation": "The scale factor would be 2 for one side but 3 for the other, so the sides are not proportional.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because they are different sizes",
+    "Yes, because both are rectangles",
+    "Yes, because 4 is 2 times 2",
+    "No, because 2/4 is not equal to 3/9"
+   ],
+   "answer": "No, because 2/4 is not equal to 3/9",
+   "commonErrors": [
+    {
+     "answer": "Yes, because both are rectangles",
+     "why": "similar figures need proportional sides"
+    },
+    {
+     "answer": "Yes, because 4 is 2 times 2",
+     "why": "the other sides must match the same factor"
+    },
+    {
+     "answer": "No, because they are different sizes",
+     "why": "similar figures can be different sizes"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-4-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A figure is dilated by a factor of 3 and then reflected across the y-axis. How is the final figure related to the original?",
+   "explanation": "A dilation followed by a rigid motion produces a similar figure.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Congruent but not similar",
+    "Neither similar nor congruent",
+    "Congruent",
+    "Similar"
+   ],
+   "answer": "Similar",
+   "commonErrors": [
+    {
+     "answer": "Congruent",
+     "why": "the dilation changed the size"
+    },
+    {
+     "answer": "Neither similar nor congruent",
+     "why": "dilations and reflections preserve shape"
+    },
+    {
+     "answer": "Congruent but not similar",
+     "why": "congruent figures are also similar, and this one changed size"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-4-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-A",
+   "standards": [
+    "NC.8.G.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two similar triangles have corresponding sides of 5 and 15. What is the scale factor from the smaller to the larger triangle?",
+   "explanation": "15 ÷ 5 = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "75",
+    "1/3",
+    "10",
+    "3"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "10",
+     "why": "subtracted 5 from 15"
+    },
+    {
+     "answer": "1/3",
+     "why": "divided in the wrong order"
+    },
+    {
+     "answer": "75",
+     "why": "multiplied 5 by 15"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two angles of a triangle measure 50° and 60°. What does the third angle measure?",
+   "explanation": "The angles of a triangle add to 180°: 180 − 50 − 60 = 70.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "120°",
+    "130°",
+    "110°",
+    "70°"
+   ],
+   "answer": "70°",
+   "commonErrors": [
+    {
+     "answer": "110°",
+     "why": "added the two angles instead of subtracting the sum from 180°"
+    },
+    {
+     "answer": "130°",
+     "why": "subtracted only 50 from 180"
+    },
+    {
+     "answer": "120°",
+     "why": "subtracted only 60 from 180"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "The remote interior angles of a triangle measure 40° and 65°. What does the exterior angle measure?",
+   "explanation": "An exterior angle equals the sum of the two remote interior angles: 40 + 65 = 105.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "115°",
+    "75°",
+    "105°",
+    "25°"
+   ],
+   "answer": "105°",
+   "commonErrors": [
+    {
+     "answer": "75°",
+     "why": "subtracted instead of adding"
+    },
+    {
+     "answer": "25°",
+     "why": "found the difference of the two angles"
+    },
+    {
+     "answer": "115°",
+     "why": "added 50 to 65"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two parallel lines are cut by a transversal. An angle measures 70°. What does its corresponding angle measure?",
+   "explanation": "Corresponding angles are equal when the lines are parallel.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "70°",
+    "20°",
+    "90°",
+    "110°"
+   ],
+   "answer": "70°",
+   "commonErrors": [
+    {
+     "answer": "110°",
+     "why": "used the supplementary angle"
+    },
+    {
+     "answer": "20°",
+     "why": "used the complementary angle"
+    },
+    {
+     "answer": "90°",
+     "why": "assumed a right angle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Two parallel lines are cut by a transversal. One angle measures 110°. What does its alternate interior angle measure?",
+   "explanation": "Alternate interior angles are equal when the lines are parallel.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "180°",
+    "110°",
+    "70°",
+    "20°"
+   ],
+   "answer": "110°",
+   "commonErrors": [
+    {
+     "answer": "70°",
+     "why": "used the supplementary angle"
+    },
+    {
+     "answer": "20°",
+     "why": "used a wrong relationship"
+    },
+    {
+     "answer": "180°",
+     "why": "added the angle to 70°"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two parallel lines are cut by a transversal. One angle measures 65°. What does the same-side interior angle measure?",
+   "explanation": "Same-side interior angles are supplementary: 180 − 65 = 115.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "90°",
+    "65°",
+    "25°",
+    "115°"
+   ],
+   "answer": "115°",
+   "commonErrors": [
+    {
+     "answer": "65°",
+     "why": "treated it as equal"
+    },
+    {
+     "answer": "25°",
+     "why": "used the complement"
+    },
+    {
+     "answer": "90°",
+     "why": "assumed a right angle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The angles of a triangle measure x°, 2x° and 3x°. What is x?",
+   "explanation": "x + 2x + 3x = 6x = 180, so x = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "45",
+    "36",
+    "60",
+    "30"
+   ],
+   "answer": "30",
+   "commonErrors": [
+    {
+     "answer": "60",
+     "why": "divided 180 by 3"
+    },
+    {
+     "answer": "36",
+     "why": "divided 180 by 5"
+    },
+    {
+     "answer": "45",
+     "why": "divided 180 by 4"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "An exterior angle of a triangle measures 130° and one remote interior angle measures 50°. What does the other remote interior angle measure?",
+   "explanation": "The remote interior angles add to the exterior angle: 130 − 50 = 80.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "80°",
+    "130°",
+    "180°",
+    "50°"
+   ],
+   "answer": "80°",
+   "commonErrors": [
+    {
+     "answer": "180°",
+     "why": "added 130 and 50"
+    },
+    {
+     "answer": "130°",
+     "why": "repeated the exterior angle"
+    },
+    {
+     "answer": "50°",
+     "why": "repeated the given angle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "One triangle has angles of 40° and 70°. Another triangle has angles of 70° and 40°. What can you conclude?",
+   "explanation": "Two pairs of equal angles are enough to show similarity.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The triangles are not similar",
+    "The triangles are congruent",
+    "Nothing, because the side lengths are unknown",
+    "The triangles are similar, by the angle-angle criterion"
+   ],
+   "answer": "The triangles are similar, by the angle-angle criterion",
+   "commonErrors": [
+    {
+     "answer": "Nothing, because the side lengths are unknown",
+     "why": "AA similarity does not need sides"
+    },
+    {
+     "answer": "The triangles are congruent",
+     "why": "congruence needs a side length too"
+    },
+    {
+     "answer": "The triangles are not similar",
+     "why": "two pairs of equal angles make triangles similar"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-009",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The angles of a triangle measure (x + 10)°, 2x° and (x + 30)°. What is x?",
+   "explanation": "4x + 40 = 180, so 4x = 140 and x = 35.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "40",
+    "30",
+    "45",
+    "35"
+   ],
+   "answer": "35",
+   "commonErrors": [
+    {
+     "answer": "45",
+     "why": "ignored the constants and divided 180 by 4"
+    },
+    {
+     "answer": "30",
+     "why": "used the constant 30"
+    },
+    {
+     "answer": "40",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-010",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Two parallel lines are cut by a transversal. One angle is (3x + 10)° and its corresponding angle is 100°. What is x?",
+   "explanation": "3x + 10 = 100, so 3x = 90 and x = 30.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "110/3",
+    "100/3",
+    "30",
+    "90"
+   ],
+   "answer": "30",
+   "commonErrors": [
+    {
+     "answer": "90",
+     "why": "forgot to divide by 3"
+    },
+    {
+     "answer": "110/3",
+     "why": "added 10 instead of subtracting"
+    },
+    {
+     "answer": "100/3",
+     "why": "forgot the 10"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-011",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "When two parallel lines are cut by a transversal, which pairs of angles are equal?",
+   "explanation": "Alternate interior angles, like corresponding angles, are equal.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Alternate interior angles",
+    "Same-side interior angles",
+    "Angles in a linear pair",
+    "Every pair of angles"
+   ],
+   "answer": "Alternate interior angles",
+   "commonErrors": [
+    {
+     "answer": "Same-side interior angles",
+     "why": "these are supplementary"
+    },
+    {
+     "answer": "Angles in a linear pair",
+     "why": "these are supplementary"
+    },
+    {
+     "answer": "Every pair of angles",
+     "why": "some pairs are supplementary"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-012",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A triangle has angles of 90°, 35° and x°. What is x?",
+   "explanation": "90 + 35 + x = 180, so x = 55.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "55",
+    "45",
+    "145",
+    "65"
+   ],
+   "answer": "55",
+   "commonErrors": [
+    {
+     "answer": "45",
+     "why": "assumed an isosceles right triangle"
+    },
+    {
+     "answer": "145",
+     "why": "subtracted only 35 from 180"
+    },
+    {
+     "answer": "65",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-013",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "An exterior angle of a triangle is 120° and the two remote interior angles are equal. What does each measure?",
+   "explanation": "The two equal angles add to 120°, so each is 60°.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "120°",
+    "30°",
+    "90°",
+    "60°"
+   ],
+   "answer": "60°",
+   "commonErrors": [
+    {
+     "answer": "120°",
+     "why": "repeated the exterior angle"
+    },
+    {
+     "answer": "30°",
+     "why": "divided by 4"
+    },
+    {
+     "answer": "90°",
+     "why": "assumed a right angle"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-014",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which set of angles could NOT be the angles of a triangle?",
+   "explanation": "30 + 60 + 80 = 170, not 180.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "100°, 50°, 30°",
+    "30°, 60°, 80°",
+    "90°, 45°, 45°",
+    "60°, 60°, 60°"
+   ],
+   "answer": "30°, 60°, 80°",
+   "commonErrors": [
+    {
+     "answer": "60°, 60°, 60°",
+     "why": "adds to 180°"
+    },
+    {
+     "answer": "90°, 45°, 45°",
+     "why": "adds to 180°"
+    },
+    {
+     "answer": "100°, 50°, 30°",
+     "why": "adds to 180°"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-5-015",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-B",
+   "standards": [
+    "NC.8.G.5"
+   ],
+   "type": "numeric",
+   "difficulty": "challenge",
+   "prompt": "Two angles are supplementary. One measures (2x + 15)° and the other measures (3x + 5)°. What is x?",
+   "explanation": "2x + 15 + 3x + 5 = 180, so 5x + 20 = 180, 5x = 160 and x = 32.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "32",
+   "accept": [
+    "32"
+   ],
+   "commonErrors": [
+    {
+     "answer": "36",
+     "why": "forgot the constants"
+    },
+    {
+     "answer": "40",
+     "why": "added 20 instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-6-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A right triangle has legs a and b and hypotenuse c. Which equation states the Pythagorean Theorem?",
+   "explanation": "The squares of the legs add up to the square of the hypotenuse.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "a² − b² = c²",
+    "a² + b² = c",
+    "a + b = c",
+    "a² + b² = c²"
+   ],
+   "answer": "a² + b² = c²",
+   "commonErrors": [
+    {
+     "answer": "a + b = c",
+     "why": "added the lengths instead of the squares"
+    },
+    {
+     "answer": "a² + b² = c",
+     "why": "forgot to square c"
+    },
+    {
+     "answer": "a² − b² = c²",
+     "why": "subtracted instead of adding"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-6-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Is a triangle with sides 5, 12 and 13 a right triangle?",
+   "explanation": "25 + 144 = 169 = 13², so the converse of the theorem says it is a right triangle.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Yes, because 5² + 12² = 13²",
+    "No, because 5 + 12 is greater than 13",
+    "No, because 13 is odd",
+    "Yes, because 5 + 12 + 13 = 30"
+   ],
+   "answer": "Yes, because 5² + 12² = 13²",
+   "commonErrors": [
+    {
+     "answer": "No, because 5 + 12 is greater than 13",
+     "why": "confused the triangle inequality with the Pythagorean Theorem"
+    },
+    {
+     "answer": "No, because 13 is odd",
+     "why": "gave an irrelevant reason"
+    },
+    {
+     "answer": "Yes, because 5 + 12 + 13 = 30",
+     "why": "added the sides"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-6-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which statement is the converse of the Pythagorean Theorem?",
+   "explanation": "The converse reverses the “if” and “then” parts of the theorem.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "If a² + b² = c², then the triangle is a right triangle",
+    "If a triangle has three equal sides, then a² + b² = c²",
+    "If a triangle is a right triangle, then a² + b² = c²",
+    "If a triangle is not a right triangle, then a² + b² = c²"
+   ],
+   "answer": "If a² + b² = c², then the triangle is a right triangle",
+   "commonErrors": [
+    {
+     "answer": "If a triangle is a right triangle, then a² + b² = c²",
+     "why": "this is the theorem itself"
+    },
+    {
+     "answer": "If a triangle is not a right triangle, then a² + b² = c²",
+     "why": "this is not true"
+    },
+    {
+     "answer": "If a triangle has three equal sides, then a² + b² = c²",
+     "why": "this is not true"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-6-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which set of numbers is a Pythagorean triple?",
+   "explanation": "6² + 8² = 36 + 64 = 100 = 10².",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5, 6, 7",
+    "6, 8, 10",
+    "7, 8, 9",
+    "4, 5, 6"
+   ],
+   "answer": "6, 8, 10",
+   "commonErrors": [
+    {
+     "answer": "4, 5, 6",
+     "why": "16 + 25 = 41, not 36"
+    },
+    {
+     "answer": "5, 6, 7",
+     "why": "25 + 36 = 61, not 49"
+    },
+    {
+     "answer": "7, 8, 9",
+     "why": "49 + 64 = 113, not 81"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A right triangle has legs of 6 and 8. What is the length of the hypotenuse?",
+   "explanation": "6² + 8² = 36 + 64 = 100, and √100 = 10.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "48",
+    "14",
+    "100",
+    "10"
+   ],
+   "answer": "10",
+   "commonErrors": [
+    {
+     "answer": "14",
+     "why": "added the legs"
+    },
+    {
+     "answer": "100",
+     "why": "forgot to take the square root"
+    },
+    {
+     "answer": "48",
+     "why": "multiplied the legs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A right triangle has a hypotenuse of 13 and one leg of 5. What is the other leg?",
+   "explanation": "13² − 5² = 169 − 25 = 144, and √144 = 12.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "√194",
+    "8",
+    "18"
+   ],
+   "answer": "12",
+   "commonErrors": [
+    {
+     "answer": "8",
+     "why": "subtracted 5 from 13"
+    },
+    {
+     "answer": "18",
+     "why": "added 5 and 13"
+    },
+    {
+     "answer": "√194",
+     "why": "added the squares instead of subtracting"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A 10-foot ladder reaches 8 feet up a wall. How far is the base of the ladder from the wall?",
+   "explanation": "10² − 8² = 100 − 64 = 36, and √36 = 6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "√164 feet",
+    "2 feet",
+    "18 feet",
+    "6 feet"
+   ],
+   "answer": "6 feet",
+   "commonErrors": [
+    {
+     "answer": "2 feet",
+     "why": "subtracted 8 from 10"
+    },
+    {
+     "answer": "√164 feet",
+     "why": "added the squares instead of subtracting"
+    },
+    {
+     "answer": "18 feet",
+     "why": "added the lengths"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A right triangle has legs of 5 and 7. To the nearest tenth, what is the hypotenuse?",
+   "explanation": "5² + 7² = 25 + 49 = 74, and √74 ≈ 8.6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12",
+    "74",
+    "35",
+    "8.6"
+   ],
+   "answer": "8.6",
+   "commonErrors": [
+    {
+     "answer": "12",
+     "why": "added the legs"
+    },
+    {
+     "answer": "35",
+     "why": "multiplied the legs"
+    },
+    {
+     "answer": "74",
+     "why": "forgot to take the square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Is a triangle with sides 7, 24 and 25 a right triangle?",
+   "explanation": "49 + 576 = 625 = 25².",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Yes, because 7 + 24 = 31",
+    "No, because 7 + 24 is greater than 25",
+    "No, because the sides are not equal",
+    "Yes, because 7² + 24² = 25²"
+   ],
+   "answer": "Yes, because 7² + 24² = 25²",
+   "commonErrors": [
+    {
+     "answer": "No, because 7 + 24 is greater than 25",
+     "why": "confused the triangle inequality with the Pythagorean Theorem"
+    },
+    {
+     "answer": "No, because the sides are not equal",
+     "why": "thought only equal sides make a right triangle"
+    },
+    {
+     "answer": "Yes, because 7 + 24 = 31",
+     "why": "added the legs"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which set of side lengths does NOT form a right triangle?",
+   "explanation": "11² + 12² = 121 + 144 = 265, but 16² = 256.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "11, 12, 16",
+    "8, 15, 17",
+    "10, 24, 26",
+    "9, 40, 41"
+   ],
+   "answer": "11, 12, 16",
+   "commonErrors": [
+    {
+     "answer": "8, 15, 17",
+     "why": "64 + 225 = 289 = 17²"
+    },
+    {
+     "answer": "9, 40, 41",
+     "why": "81 + 1,600 = 1,681 = 41²"
+    },
+    {
+     "answer": "10, 24, 26",
+     "why": "100 + 576 = 676 = 26²"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-7-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.7"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A rectangle is 9 units by 12 units. What is the length of its diagonal?",
+   "explanation": "9² + 12² = 81 + 144 = 225, and √225 = 15.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "21 units",
+    "225 units",
+    "15 units",
+    "108 units"
+   ],
+   "answer": "15 units",
+   "commonErrors": [
+    {
+     "answer": "21 units",
+     "why": "added the sides"
+    },
+    {
+     "answer": "108 units",
+     "why": "multiplied the sides"
+    },
+    {
+     "answer": "225 units",
+     "why": "forgot to take the square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-8-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the distance between (1, 2) and (4, 6)?",
+   "explanation": "The horizontal difference is 3 and the vertical difference is 4. √(9 + 16) = 5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5",
+    "3",
+    "7",
+    "25"
+   ],
+   "answer": "5",
+   "commonErrors": [
+    {
+     "answer": "7",
+     "why": "added the differences 3 and 4"
+    },
+    {
+     "answer": "25",
+     "why": "forgot to take the square root"
+    },
+    {
+     "answer": "3",
+     "why": "used only the horizontal difference"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-8-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "What is the distance between (−2, 3) and (4, −5)?",
+   "explanation": "The differences are 6 and 8. √(36 + 64) = 10.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "10",
+    "100",
+    "2",
+    "14"
+   ],
+   "answer": "10",
+   "commonErrors": [
+    {
+     "answer": "14",
+     "why": "added the differences 6 and 8"
+    },
+    {
+     "answer": "2",
+     "why": "subtracted instead of finding the differences"
+    },
+    {
+     "answer": "100",
+     "why": "forgot to take the square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-8-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.8"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What is the distance from (0, 0) to (5, 12)?",
+   "explanation": "√(5² + 12²) = √169 = 13.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "169",
+    "13",
+    "60",
+    "17"
+   ],
+   "answer": "13",
+   "commonErrors": [
+    {
+     "answer": "17",
+     "why": "added 5 and 12"
+    },
+    {
+     "answer": "60",
+     "why": "multiplied 5 and 12"
+    },
+    {
+     "answer": "169",
+     "why": "forgot to take the square root"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-8-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-C",
+   "standards": [
+    "NC.8.G.8"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "What is the distance between (−3, −1) and (2, 11)?",
+   "explanation": "The differences are 5 and 12. √(25 + 144) = √169 = 13.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "13",
+   "accept": [
+    "13"
+   ],
+   "commonErrors": [
+    {
+     "answer": "17",
+     "why": "added the differences"
+    },
+    {
+     "answer": "7",
+     "why": "made a sign error in the differences"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A cylinder has a radius of 3 cm and a height of 5 cm. What is its volume, in terms of π?",
+   "explanation": "V = πr²h = π × 3² × 5 = 45π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "15π cm³",
+    "45π cm³",
+    "30π cm³",
+    "180π cm³"
+   ],
+   "answer": "45π cm³",
+   "commonErrors": [
+    {
+     "answer": "15π cm³",
+     "why": "used πrh instead of πr²h"
+    },
+    {
+     "answer": "30π cm³",
+     "why": "used 2πrh"
+    },
+    {
+     "answer": "180π cm³",
+     "why": "used the diameter in place of the radius"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A cone has a radius of 3 cm and a height of 5 cm. What is its volume, in terms of π?",
+   "explanation": "V = (1/3)πr²h = (1/3) × π × 9 × 5 = 15π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "5π cm³",
+    "45π cm³",
+    "30π cm³",
+    "15π cm³"
+   ],
+   "answer": "15π cm³",
+   "commonErrors": [
+    {
+     "answer": "45π cm³",
+     "why": "forgot the factor of 1/3"
+    },
+    {
+     "answer": "5π cm³",
+     "why": "divided by 9 instead of 3"
+    },
+    {
+     "answer": "30π cm³",
+     "why": "used 2/3 instead of 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A sphere has a radius of 3 cm. What is its volume, in terms of π?",
+   "explanation": "V = (4/3)πr³ = (4/3) × π × 27 = 36π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "36π cm³",
+    "27π cm³",
+    "108π cm³",
+    "12π cm³"
+   ],
+   "answer": "36π cm³",
+   "commonErrors": [
+    {
+     "answer": "12π cm³",
+     "why": "squared the radius instead of cubing it"
+    },
+    {
+     "answer": "108π cm³",
+     "why": "forgot the factor of 1/3"
+    },
+    {
+     "answer": "27π cm³",
+     "why": "forgot the factor of 4/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A cone and a cylinder have the same base and the same height. The cone's volume is what fraction of the cylinder's volume?",
+   "explanation": "A cone holds exactly one third as much as a cylinder with the same base and height.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "2/3",
+    "1/3",
+    "1/4",
+    "1/2"
+   ],
+   "answer": "1/3",
+   "commonErrors": [
+    {
+     "answer": "1/2",
+     "why": "used the triangle area fraction"
+    },
+    {
+     "answer": "2/3",
+     "why": "used the sphere-to-cylinder fraction"
+    },
+    {
+     "answer": "1/4",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-005",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A cone has a volume of 12π. A cylinder has the same base and the same height. What is the cylinder's volume?",
+   "explanation": "The cone is 1/3 of the cylinder, so the cylinder is 3 × 12π = 36π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "12π",
+    "4π",
+    "36π",
+    "24π"
+   ],
+   "answer": "36π",
+   "commonErrors": [
+    {
+     "answer": "4π",
+     "why": "divided by 3 instead of multiplying"
+    },
+    {
+     "answer": "24π",
+     "why": "doubled the cone's volume"
+    },
+    {
+     "answer": "12π",
+     "why": "assumed they are equal"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-006",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A sphere has a radius of 6 units. What is its volume, in terms of π?",
+   "explanation": "V = (4/3)π × 6³ = (4/3) × 216 × π = 288π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "144π",
+    "288π",
+    "48π",
+    "864π"
+   ],
+   "answer": "288π",
+   "commonErrors": [
+    {
+     "answer": "144π",
+     "why": "used (2/3)πr³"
+    },
+    {
+     "answer": "864π",
+     "why": "forgot the factor of 1/3"
+    },
+    {
+     "answer": "48π",
+     "why": "squared the radius instead of cubing it"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-007",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A cylinder has a diameter of 10 cm and a height of 4 cm. What is its volume, in terms of π?",
+   "explanation": "The radius is 5. V = π × 5² × 4 = 100π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "40π cm³",
+    "100π cm³",
+    "400π cm³",
+    "200π cm³"
+   ],
+   "answer": "100π cm³",
+   "commonErrors": [
+    {
+     "answer": "400π cm³",
+     "why": "used the diameter as the radius"
+    },
+    {
+     "answer": "40π cm³",
+     "why": "used πdh"
+    },
+    {
+     "answer": "200π cm³",
+     "why": "used 2πr²h"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-008",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "prompt": "A cylinder has a radius r and a height 2r. A sphere has the same radius r. The sphere's volume is what fraction of the cylinder's volume?",
+   "explanation": "Cylinder: πr²(2r) = 2πr³. Sphere: (4/3)πr³. The ratio is (4/3) ÷ 2 = 2/3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3/4",
+    "1/3",
+    "2/3",
+    "1/2"
+   ],
+   "answer": "2/3",
+   "commonErrors": [
+    {
+     "answer": "1/3",
+     "why": "used the cone fraction"
+    },
+    {
+     "answer": "1/2",
+     "why": "guessed"
+    },
+    {
+     "answer": "3/4",
+     "why": "guessed"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-009",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "Use 3.14 for π. What is the volume of a cylinder with a radius of 2 and a height of 10?",
+   "explanation": "V = π × 2² × 10 = 3.14 × 40 = 125.6.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "125.6",
+   "accept": [
+    "125.6"
+   ],
+   "commonErrors": [
+    {
+     "answer": "62.8",
+     "why": "halved the volume"
+    },
+    {
+     "answer": "251.2",
+     "why": "doubled the volume"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-010",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A cone has a radius of 6 cm and a height of 4 cm. What is its volume, in terms of π?",
+   "explanation": "V = (1/3)π × 36 × 4 = 48π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "24π cm³",
+    "48π cm³",
+    "144π cm³",
+    "72π cm³"
+   ],
+   "answer": "48π cm³",
+   "commonErrors": [
+    {
+     "answer": "144π cm³",
+     "why": "forgot the factor of 1/3"
+    },
+    {
+     "answer": "24π cm³",
+     "why": "used 1/6 instead of 1/3"
+    },
+    {
+     "answer": "72π cm³",
+     "why": "used 1/2 instead of 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-011",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A cone and a sphere both have a radius of 3. The cone's height is 6. Which has the greater volume?",
+   "explanation": "Cone: (1/3)π(9)(6) = 18π. Sphere: (4/3)π(27) = 36π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The sphere",
+    "It cannot be determined",
+    "They are equal",
+    "The cone"
+   ],
+   "answer": "The sphere",
+   "commonErrors": [
+    {
+     "answer": "The cone",
+     "why": "the cone is 18π and the sphere is 36π"
+    },
+    {
+     "answer": "They are equal",
+     "why": "the volumes are 18π and 36π"
+    },
+    {
+     "answer": "It cannot be determined",
+     "why": "both volumes can be found"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-012",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A cylindrical can has a radius of 4 inches and a height of 6 inches. How many cubic inches of soup does it hold, in terms of π?",
+   "explanation": "V = π × 4² × 6 = 96π.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "96π",
+    "48π",
+    "24π",
+    "192π"
+   ],
+   "answer": "96π",
+   "commonErrors": [
+    {
+     "answer": "48π",
+     "why": "used πrh × 2"
+    },
+    {
+     "answer": "24π",
+     "why": "used πrh"
+    },
+    {
+     "answer": "192π",
+     "why": "doubled the correct volume"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-013",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A sphere has a volume of 36π. What is its radius?",
+   "explanation": "(4/3)πr³ = 36π, so r³ = 27 and r = 3.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3",
+    "6",
+    "27",
+    "9"
+   ],
+   "answer": "3",
+   "commonErrors": [
+    {
+     "answer": "6",
+     "why": "used the diameter"
+    },
+    {
+     "answer": "9",
+     "why": "divided by 4"
+    },
+    {
+     "answer": "27",
+     "why": "gave r³"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-014",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Which formula gives the volume of a cone?",
+   "explanation": "A cone is one third of the cylinder with the same base and height.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "V = (4/3)πr³",
+    "V = πr²h",
+    "V = (1/3)πr²h",
+    "V = (1/2)πr²h"
+   ],
+   "answer": "V = (1/3)πr²h",
+   "commonErrors": [
+    {
+     "answer": "V = πr²h",
+     "why": "that is a cylinder"
+    },
+    {
+     "answer": "V = (4/3)πr³",
+     "why": "that is a sphere"
+    },
+    {
+     "answer": "V = (1/2)πr²h",
+     "why": "used 1/2 instead of 1/3"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-g-9-015",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "G-D",
+   "standards": [
+    "NC.8.G.9"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "A cylinder's radius is doubled and its height stays the same. How does its volume change?",
+   "explanation": "V = πr²h. Doubling r multiplies r² by 4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "It becomes 4 times as large",
+    "It becomes 8 times as large",
+    "It becomes 2 times as large",
+    "It stays the same"
+   ],
+   "answer": "It becomes 4 times as large",
+   "commonErrors": [
+    {
+     "answer": "It becomes 2 times as large",
+     "why": "forgot that the radius is squared"
+    },
+    {
+     "answer": "It becomes 8 times as large",
+     "why": "cubed the radius"
+    },
+    {
+     "answer": "It stays the same",
+     "why": "ignored the radius"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-1-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A scatter plot shows that students who study more hours tend to have higher test scores. What kind of association is this?",
+   "explanation": "As one variable increases the other tends to increase: a positive association.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Nonlinear association",
+    "Negative association",
+    "Positive association",
+    "No association"
+   ],
+   "answer": "Positive association",
+   "commonErrors": [
+    {
+     "answer": "Negative association",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "No association",
+     "why": "the points show a trend"
+    },
+    {
+     "answer": "Nonlinear association",
+     "why": "nothing suggests a curve"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-1-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "In a scatter plot, as x increases the points go down along a roughly straight line. How is the association described?",
+   "explanation": "Points trending down in a line show a negative linear association.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A nonlinear association",
+    "A positive linear association",
+    "No association",
+    "A negative linear association"
+   ],
+   "answer": "A negative linear association",
+   "commonErrors": [
+    {
+     "answer": "A positive linear association",
+     "why": "reversed the direction"
+    },
+    {
+     "answer": "A nonlinear association",
+     "why": "the points follow a line"
+    },
+    {
+     "answer": "No association",
+     "why": "the points show a trend"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-1-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "On a scatter plot, one point is far away from all the others. What is that point called?",
+   "explanation": "A point far from the pattern of the others is an outlier.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A trend line",
+    "A cluster",
+    "A median",
+    "An outlier"
+   ],
+   "answer": "An outlier",
+   "commonErrors": [
+    {
+     "answer": "A cluster",
+     "why": "a cluster is a group of points close together"
+    },
+    {
+     "answer": "A trend line",
+     "why": "a trend line is a fitted line"
+    },
+    {
+     "answer": "A median",
+     "why": "a median is a measure of center"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-1-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The points on a scatter plot form a U-shaped curve. How is the association described?",
+   "explanation": "A curved pattern is a nonlinear association.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "A negative linear association",
+    "No association",
+    "A nonlinear association",
+    "A positive linear association"
+   ],
+   "answer": "A nonlinear association",
+   "commonErrors": [
+    {
+     "answer": "A positive linear association",
+     "why": "the points do not follow a line"
+    },
+    {
+     "answer": "A negative linear association",
+     "why": "the points do not follow a line"
+    },
+    {
+     "answer": "No association",
+     "why": "the points show a clear pattern"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-2-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "The points (1, 2), (2, 4), (3, 5) and (4, 8) are plotted. Which line is the best fit?",
+   "explanation": "y = 2x passes through (1, 2), (2, 4) and (4, 8) and is close to (3, 5).",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "y = x + 5",
+    "y = 2x",
+    "y = 0.5x",
+    "y = −2x + 10"
+   ],
+   "answer": "y = 2x",
+   "commonErrors": [
+    {
+     "answer": "y = x + 5",
+     "why": "this line is far above most points"
+    },
+    {
+     "answer": "y = −2x + 10",
+     "why": "this line has the wrong direction"
+    },
+    {
+     "answer": "y = 0.5x",
+     "why": "this line is far below the points"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-2-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A line passes very close to almost every point on a scatter plot. How is the model's fit described?",
+   "explanation": "A line that stays close to the points is a good model.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No fit",
+    "An exact fit for every point",
+    "A poor fit",
+    "A good fit"
+   ],
+   "answer": "A good fit",
+   "commonErrors": [
+    {
+     "answer": "A poor fit",
+     "why": "close points mean a good fit"
+    },
+    {
+     "answer": "An exact fit for every point",
+     "why": "a line of fit does not have to hit every point"
+    },
+    {
+     "answer": "No fit",
+     "why": "the line describes the points well"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-2-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Which is a sign that a linear model is a poor fit for a scatter plot?",
+   "explanation": "A curved pattern around the line means a straight line does not describe the data well.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The points curve away from the line, staying far from it in a pattern",
+    "The line has a positive slope",
+    "The line goes through most of the points",
+    "The points are scattered evenly on both sides of the line and close to it"
+   ],
+   "answer": "The points curve away from the line, staying far from it in a pattern",
+   "commonErrors": [
+    {
+     "answer": "The points are scattered evenly on both sides of the line and close to it",
+     "why": "this suggests a good fit"
+    },
+    {
+     "answer": "The line goes through most of the points",
+     "why": "this suggests a good fit"
+    },
+    {
+     "answer": "The line has a positive slope",
+     "why": "slope direction does not decide the fit"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-3-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "A model y = 2.5x + 40 predicts a test score y from x hours of study. What score does it predict for 6 hours of study?",
+   "explanation": "2.5 × 6 + 40 = 15 + 40 = 55.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "100",
+    "42.5",
+    "55",
+    "15"
+   ],
+   "answer": "55",
+   "commonErrors": [
+    {
+     "answer": "15",
+     "why": "left out the y-intercept"
+    },
+    {
+     "answer": "42.5",
+     "why": "added instead of multiplying"
+    },
+    {
+     "answer": "100",
+     "why": "made an arithmetic error"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-3-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In the model y = 2.5x + 40 (score y for x hours of study), what does the slope 2.5 mean?",
+   "explanation": "The slope is the predicted change in y for each 1-unit increase in x.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "Each extra hour of study is associated with 2.5 more points",
+    "Students study 2.5 hours on average",
+    "A student who studies 0 hours scores 2.5",
+    "The score is always 2.5 times the hours"
+   ],
+   "answer": "Each extra hour of study is associated with 2.5 more points",
+   "commonErrors": [
+    {
+     "answer": "A student who studies 0 hours scores 2.5",
+     "why": "that describes the y-intercept"
+    },
+    {
+     "answer": "The score is always 2.5 times the hours",
+     "why": "ignored the y-intercept"
+    },
+    {
+     "answer": "Students study 2.5 hours on average",
+     "why": "confused the slope with a mean"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-3-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "In the model y = 2.5x + 40 (score y for x hours of study), what does the y-intercept 40 mean?",
+   "explanation": "When x = 0, the model predicts y = 40.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The highest possible score",
+    "The number of hours a student studies",
+    "The predicted change in score per hour",
+    "The predicted score for a student who studies 0 hours"
+   ],
+   "answer": "The predicted score for a student who studies 0 hours",
+   "commonErrors": [
+    {
+     "answer": "The predicted change in score per hour",
+     "why": "that describes the slope"
+    },
+    {
+     "answer": "The highest possible score",
+     "why": "the model does not say that"
+    },
+    {
+     "answer": "The number of hours a student studies",
+     "why": "confused the intercept with x"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-3-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.3"
+   ],
+   "type": "numeric",
+   "difficulty": "stretch",
+   "prompt": "A model y = −3x + 90 predicts a phone's battery percent y after x hours of use. What battery percent does it predict after 10 hours?",
+   "explanation": "−3(10) + 90 = −30 + 90 = 60.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": null,
+   "answer": "60",
+   "accept": [
+    "60"
+   ],
+   "unit": "percent",
+   "commonErrors": [
+    {
+     "answer": "−30",
+     "why": "left out the y-intercept"
+    },
+    {
+     "answer": "120",
+     "why": "treated −3(10) as +30"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-4-001",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Of 24 students who play a sport, 18 like pizza and 6 do not. Of 16 students who do not play a sport, 8 like pizza and 8 do not. Among students who play a sport, what fraction like pizza?",
+   "explanation": "18 of the 24 players like pizza: 18/24 = 3/4.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "9/13",
+    "3/4",
+    "1/4",
+    "9/20"
+   ],
+   "answer": "3/4",
+   "commonErrors": [
+    {
+     "answer": "9/20",
+     "why": "divided by all 40 students"
+    },
+    {
+     "answer": "9/13",
+     "why": "divided by the total number who like pizza"
+    },
+    {
+     "answer": "1/4",
+     "why": "gave the fraction who do not like pizza"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-4-002",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "Of 24 students who play a sport, 18 like pizza and 6 do not. Of 16 students who do not play a sport, 8 like pizza and 8 do not. What fraction of all the students play a sport?",
+   "explanation": "24 of the 40 students play a sport: 24/40 = 3/5.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "3/5",
+    "3/4",
+    "1/2",
+    "2/5"
+   ],
+   "answer": "3/5",
+   "commonErrors": [
+    {
+     "answer": "3/4",
+     "why": "used the fraction of players who like pizza"
+    },
+    {
+     "answer": "1/2",
+     "why": "guessed"
+    },
+    {
+     "answer": "2/5",
+     "why": "used the fraction who do not play"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-4-003",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "prompt": "Of 24 students who play a sport, 18 like pizza and 6 do not. Of 16 students who do not play a sport, 8 like pizza and 8 do not. Does the table suggest an association between playing a sport and liking pizza?",
+   "explanation": "18/24 = 75% of players like pizza and 8/16 = 50% of non-players do, so liking pizza is more common among players.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "No, because the same number of students like and dislike pizza overall",
+    "Yes: 75% of players like pizza compared with 50% of non-players",
+    "No, because more students play a sport than do not",
+    "Yes, because 18 is greater than 8"
+   ],
+   "answer": "Yes: 75% of players like pizza compared with 50% of non-players",
+   "commonErrors": [
+    {
+     "answer": "No, because the same number of students like and dislike pizza overall",
+     "why": "compared overall counts instead of row percentages"
+    },
+    {
+     "answer": "No, because more students play a sport than do not",
+     "why": "this does not address association"
+    },
+    {
+     "answer": "Yes, because 18 is greater than 8",
+     "why": "compared raw counts rather than percentages"
+    }
+   ]
+  },
+  {
+   "id": "ms-m8-sp-4-004",
+   "subject": "math",
+   "grade": 8,
+   "courses": [
+    "math8",
+    "math7plus",
+    "compacted67"
+   ],
+   "cluster": "SP",
+   "standards": [
+    "NC.8.SP.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "prompt": "What does a two-way table show?",
+   "explanation": "Each cell counts how many subjects fall into one category of each variable.",
+   "visual": null,
+   "passageId": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   },
+   "choices": [
+    "The slope and y-intercept of a model",
+    "How often combinations of two categorical variables occur",
+    "The median of one variable",
+    "A line of best fit for two numerical variables"
+   ],
+   "answer": "How often combinations of two categorical variables occur",
+   "commonErrors": [
+    {
+     "answer": "A line of best fit for two numerical variables",
+     "why": "that describes a scatter plot"
+    },
+    {
+     "answer": "The median of one variable",
+     "why": "a two-way table shows two variables"
+    },
+    {
+     "answer": "The slope and y-intercept of a model",
+     "why": "a two-way table does not show a model"
+    }
+   ]
+  }
+ ]
+}

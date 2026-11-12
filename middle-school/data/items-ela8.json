@@ -1,0 +1,2709 @@
+{
+ "bank": "ela8",
+ "grade": 8,
+ "subject": "ela",
+ "standardsSource": "NC ELA SCOS 2017 (in force through 2026-27)",
+ "reviewStatus": "ai-drafted: none of these items or passages has been human-reviewed; do not ship to students yet",
+ "items": [
+  {
+   "id": "ms-ela8-rl-001",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p01",
+   "prompt": "Which sentence from the passage best supports the idea that Walt values the ferry’s place in people’s lives more than its practical use?",
+   "choices": [
+    "“A man in a gray suit had even shaken Walt’s hand and said, ‘End of an era.’”",
+    "“Mostly it carries them across their own ordinary days.”",
+    "“Nell found a wooden crate beneath the pilot’s bench.”",
+    "“A bridge will be quicker.”"
+   ],
+   "answer": "“Mostly it carries them across their own ordinary days.”",
+   "explanation": "Walt says the ferry carries people through their “ordinary days,” which shows he values its role in their lives, not just its use as transportation.",
+   "commonErrors": [
+    {
+     "answer": "“A bridge will be quicker.”",
+     "why": "Picks a true statement that is about speed, not about what the ferry means to people."
+    },
+    {
+     "answer": "“Nell found a wooden crate beneath the pilot’s bench.”",
+     "why": "Chooses a plot detail that sets up the discovery but shows nothing about Walt’s values."
+    },
+    {
+     "answer": "“A man in a gray suit had even shaken Walt’s hand and said, ‘End of an era.’”",
+     "why": "Confuses another character’s respect for the ferry with Walt’s own view."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-002",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p01",
+   "prompt": "Which statement best expresses a theme of the passage?",
+   "choices": [
+    "Young people should help older relatives finish their life’s work.",
+    "Progress always replaces the old ways, so people should accept change quickly and stop dwelling on the past.",
+    "Old boats are more dependable than modern bridges are.",
+    "Everyday routines gain meaning from the human moments they hold, and those moments deserve attention."
+   ],
+   "answer": "Everyday routines gain meaning from the human moments they hold, and those moments deserve attention.",
+   "explanation": "Walt’s comments about “ordinary days” and people who “pause,” along with Nell’s display of the plates, develop the idea that everyday moments matter.",
+   "commonErrors": [
+    {
+     "answer": "Progress always replaces the old ways, so people should accept change quickly and stop dwelling on the past.",
+     "why": "Over-generalizes; Walt accepts the bridge but the story is about noticing, not hurrying."
+    },
+    {
+     "answer": "Young people should help older relatives finish their life’s work.",
+     "why": "Too narrow; focuses on Nell’s help rather than the idea the story develops."
+    },
+    {
+     "answer": "Old boats are more dependable than modern bridges are.",
+     "why": "Reverses the story, where Walt admits the bridge will be quicker."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-003",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p01",
+   "prompt": "How does Nell’s discovery of the crate of brass plates affect the story?",
+   "choices": [
+    "She decides that the opening of the bridge should be delayed.",
+    "She becomes angry that her grandfather kept such a large secret hidden from her for so many years.",
+    "She comes to understand what the ferry means to her grandfather and decides to honor it.",
+    "She learns that the ferry earned more money than she believed."
+   ],
+   "answer": "She comes to understand what the ferry means to her grandfather and decides to honor it.",
+   "explanation": "After the plates and Walt’s explanation, Nell’s “chest shifted,” and the next morning she mounts the plates, showing a change in understanding.",
+   "commonErrors": [
+    {
+     "answer": "She becomes angry that her grandfather kept such a large secret hidden from her for so many years.",
+     "why": "Assumes the discovery causes conflict; Nell never shows anger."
+    },
+    {
+     "answer": "She decides that the opening of the bridge should be delayed.",
+     "why": "Confuses honoring the ferry with stopping the bridge; she never tries to stop it."
+    },
+    {
+     "answer": "She learns that the ferry earned more money than she believed.",
+     "why": "Focuses on the cash box mentioned nearby, not the meaning of the plates."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-004",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p01",
+   "prompt": "In the first paragraph, what does the phrase “a sort of museum piece” suggest about the ferry?",
+   "choices": [
+    "It is valuable enough that collectors from across the region would want to buy it.",
+    "It is crowded each day with visitors who come to tour it.",
+    "It is fragile and must be handled with great care.",
+    "It is treated as a relic of the past rather than something people still need."
+   ],
+   "answer": "It is treated as a relic of the past rather than something people still need.",
+   "explanation": "The phrase, followed by “still happened to float,” suggests the ferry is now seen as an old object kept around mostly for the past.",
+   "commonErrors": [
+    {
+     "answer": "It is fragile and must be handled with great care.",
+     "why": "Takes “museum” literally as a place for delicate objects."
+    },
+    {
+     "answer": "It is valuable enough that collectors from across the region would want to buy it.",
+     "why": "Reads “museum piece” as high monetary value."
+    },
+    {
+     "answer": "It is crowded each day with visitors who come to tour it.",
+     "why": "Assumes the ferry has become a tourist attraction, which the passage never says."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-005",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p01",
+   "prompt": "Early in the passage Walt says, “They just wanted us,” and the narrator states that Nell “did not see the difference.” What effect does this create for readers?",
+   "choices": [
+    "Readers begin to distrust Walt’s account of what the ferry means.",
+    "Readers sense Walt’s hidden point before Nell does, which builds anticipation for her change.",
+    "Readers are left unsure whether the ferry will really stop running.",
+    "Readers find humor in how foolishly Nell is behaving toward her grandfather throughout the scene."
+   ],
+   "answer": "Readers sense Walt’s hidden point before Nell does, which builds anticipation for her change.",
+   "explanation": "The narrator tells readers that Nell misses the difference Walt describes, so readers see his point early and wait for her to catch up.",
+   "commonErrors": [
+    {
+     "answer": "Readers begin to distrust Walt’s account of what the ferry means.",
+     "why": "Reverses the effect; the narrator invites trust in Walt’s wisdom."
+    },
+    {
+     "answer": "Readers find humor in how foolishly Nell is behaving toward her grandfather throughout the scene.",
+     "why": "Mistakes a gentle misunderstanding for a comic mistake; the tone is thoughtful."
+    },
+    {
+     "answer": "Readers are left unsure whether the ferry will really stop running.",
+     "why": "Confuses the main conflict; the bridge’s opening is stated as certain."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-006",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p02",
+   "prompt": "Which detail from the passage best supports the inference that Dev’s actions caused the crack in the bowl?",
+   "choices": [
+    "He set the bowl beside the heater so it would be ready by Friday.",
+    "The wheel hummed like an old refrigerator.",
+    "The judge was a potter with clay ground into her knuckles.",
+    "He had already thrown forty bowls before this one and felt sure of himself."
+   ],
+   "answer": "He set the bowl beside the heater so it would be ready by Friday.",
+   "explanation": "Priya warns that clay “dries from the outside in,” and Dev still dries the bowl by the heater, which connects his rushing to the crack.",
+   "commonErrors": [
+    {
+     "answer": "He had already thrown forty bowls before this one and felt sure of himself.",
+     "why": "True and shows confidence, but it does not explain how the crack formed."
+    },
+    {
+     "answer": "The wheel hummed like an old refrigerator.",
+     "why": "A descriptive detail unrelated to the cause of the crack."
+    },
+    {
+     "answer": "The judge was a potter with clay ground into her knuckles.",
+     "why": "Uses a detail about the judge, who only examines the result."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-007",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p02",
+   "prompt": "How does the judge’s speech about the crack affect Dev’s decision at the end?",
+   "choices": [
+    "It leads him to ask for the extra help he had earlier refused.",
+    "It convinces him that the judge was wrong to praise the glaze.",
+    "It causes him to argue with Priya about her warning.",
+    "It persuades him to enter a different contest."
+   ],
+   "answer": "It leads him to ask for the extra help he had earlier refused.",
+   "explanation": "After hearing that a flawed bowl teaches something, Dev walks to Ms. Carver’s desk and asks whether her offer still stands.",
+   "commonErrors": [
+    {
+     "answer": "It persuades him to enter a different contest.",
+     "why": "Invents an outcome; the passage shows no new contest."
+    },
+    {
+     "answer": "It causes him to argue with Priya about her warning.",
+     "why": "Reverses the ending, where Priya grins and supports him."
+    },
+    {
+     "answer": "It convinces him that the judge was wrong to praise the glaze.",
+     "why": "Misreads the judge’s praise as an insult."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-008",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p02",
+   "prompt": "The passage opens at the judging table and then moves back three weeks. How does this structure contribute to the story?",
+   "choices": [
+    "It shows the result first, so readers wonder how the crack happened and read on for the cause.",
+    "It shows that the story is mostly about Priya’s memories.",
+    "It hides Dev’s mistakes until the very end of the story so that the final scene feels like a surprise.",
+    "It slows the plot so that the judge seems less important."
+   ],
+   "answer": "It shows the result first, so readers wonder how the crack happened and read on for the cause.",
+   "explanation": "Beginning with the crack creates curiosity, and the flashback then answers how it happened before returning to the judging.",
+   "commonErrors": [
+    {
+     "answer": "It hides Dev’s mistakes until the very end of the story so that the final scene feels like a surprise.",
+     "why": "Dev’s mistakes appear in the flashback, well before the ending."
+    },
+    {
+     "answer": "It shows that the story is mostly about Priya’s memories.",
+     "why": "Priya appears, but the point of view stays with Dev."
+    },
+    {
+     "answer": "It slows the plot so that the judge seems less important.",
+     "why": "The judge’s scene is the story’s turning point, not minimized by the flashback."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-009",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p02",
+   "prompt": "Which statement best expresses a theme of this story about Dev?",
+   "choices": [
+    "Friends should avoid pointing out one another’s mistakes.",
+    "Talent is enough for success when a person practices carefully and works alone.",
+    "Judges should reward effort even when a piece is flawed.",
+    "Owning a mistake and learning from it matters more than the failure itself."
+   ],
+   "answer": "Owning a mistake and learning from it matters more than the failure itself.",
+   "explanation": "The judge says the difference is “whether it teaches them anything,” and Dev responds by asking for help, developing the theme of learning from error.",
+   "commonErrors": [
+    {
+     "answer": "Talent is enough for success when a person practices carefully and works alone.",
+     "why": "Contradicts the story, where Dev’s confidence leads to failure."
+    },
+    {
+     "answer": "Friends should avoid pointing out one another’s mistakes.",
+     "why": "Reverses Priya’s role; her warning was correct."
+    },
+    {
+     "answer": "Judges should reward effort even when a piece is flawed.",
+     "why": "Shifts to a rule for judges; the story is about Dev’s growth."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-010",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p02",
+   "prompt": "The narrator says Dev “waited for the verdict the way one waits for a wave.” What does this simile suggest?",
+   "choices": [
+    "He felt calm and relaxed, as if at a beach.",
+    "He felt excited and hoped the judge would react in a dramatic way.",
+    "He felt tense and unable to stop what was about to happen.",
+    "He felt confused about what the judge meant to say."
+   ],
+   "answer": "He felt tense and unable to stop what was about to happen.",
+   "explanation": "A wave cannot be stopped, so the comparison, paired with his “stomach folded in on itself,” shows dread and helplessness.",
+   "commonErrors": [
+    {
+     "answer": "He felt calm and relaxed, as if at a beach.",
+     "why": "Takes the water image literally and ignores his stomach “folding in.”"
+    },
+    {
+     "answer": "He felt excited and hoped the judge would react in a dramatic way.",
+     "why": "Confuses anticipation with eager hope; Dev is dreading the verdict."
+    },
+    {
+     "answer": "He felt confused about what the judge meant to say.",
+     "why": "The judge has not yet spoken, so Dev cannot be confused by her words."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-011",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p03",
+   "prompt": "Which detail the narrator observes in the garden best shows that her suspicion of Mr. Lindqvist was mistaken?",
+   "choices": [
+    "He kneels beside the sunflowers at sunrise.",
+    "He notices her hiding behind the compost bin.",
+    "He is already in the garden when she arrives, long before the sun has fully risen.",
+    "He picks weeds and fruit already ruined by squirrels, not healthy tomatoes."
+   ],
+   "answer": "He picks weeds and fruit already ruined by squirrels, not healthy tomatoes.",
+   "explanation": "Picking weeds and spoiled fruit shows he is cleaning the garden, not stealing from it.",
+   "commonErrors": [
+    {
+     "answer": "He is already in the garden when she arrives, long before the sun has fully risen.",
+     "why": "Fits her suspicion as much as it fits his innocence."
+    },
+    {
+     "answer": "He notices her hiding behind the compost bin.",
+     "why": "Shows he is observant but not what he is doing in the garden."
+    },
+    {
+     "answer": "He kneels beside the sunflowers at sunrise.",
+     "why": "Describes where he is without showing what he is doing."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-012",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p03",
+   "prompt": "Which idea is most strongly developed by the narrator’s experience in the garden?",
+   "choices": [
+    "Judging people by partial evidence can lead to unfair conclusions.",
+    "Quiet people are usually hiding something.",
+    "Neighbors should spend more time working in the garden.",
+    "Keeping detailed records is the best way to learn the truth about other people."
+   ],
+   "answer": "Judging people by partial evidence can lead to unfair conclusions.",
+   "explanation": "The narrator’s notes make Mr. Lindqvist look guilty, but his explanation reveals he was helping, so the story shows how partial evidence misleads.",
+   "commonErrors": [
+    {
+     "answer": "Quiet people are usually hiding something.",
+     "why": "Reverses the story, in which the quiet man is shown to be kind."
+    },
+    {
+     "answer": "Keeping detailed records is the best way to learn the truth about other people.",
+     "why": "The notebook leads the narrator astray, so it is not the lesson."
+    },
+    {
+     "answer": "Neighbors should spend more time working in the garden.",
+     "why": "A detail of the setting, not the idea the plot develops."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-013",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p03",
+   "prompt": "What does Mr. Lindqvist’s explanation in the garden reveal about his character?",
+   "choices": [
+    "He is shy and responsible, and he keeps a promise to help a neighbor.",
+    "He is confused about how the community garden is run.",
+    "He is angry about being watched and wants to scare the narrator into leaving.",
+    "He is boastful and wants credit for caring for the garden."
+   ],
+   "answer": "He is shy and responsible, and he keeps a promise to help a neighbor.",
+   "explanation": "He says he promised to water Mrs. Alvarez’s plot and admits to being shy, which shows both his responsibility and his reason for not waving.",
+   "commonErrors": [
+    {
+     "answer": "He is angry about being watched and wants to scare the narrator into leaving.",
+     "why": "His tone is polite and even encouraging."
+    },
+    {
+     "answer": "He is boastful and wants credit for caring for the garden.",
+     "why": "He never seeks praise and shares the story only when questioned."
+    },
+    {
+     "answer": "He is confused about how the community garden is run.",
+     "why": "He knows which plot belongs to whom and why it needs water."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-014",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p03",
+   "prompt": "The narrator thinks Mr. Lindqvist is the thief, but readers can see signs that he is helping. What effect does this difference create?",
+   "choices": [
+    "It makes readers feel sorry for the raccoons in the garden.",
+    "It builds suspense about whether Mr. Lindqvist is really guilty of stealing the tomatoes all summer.",
+    "It creates gentle humor, since readers recognize the narrator’s mistake before she does.",
+    "It makes readers distrust the narrator’s honesty in general."
+   ],
+   "answer": "It creates gentle humor, since readers recognize the narrator’s mistake before she does.",
+   "explanation": "Her detail-by-detail suspicion, such as the watering can and bulging pockets, is funny because readers can read those clues as signs of care.",
+   "commonErrors": [
+    {
+     "answer": "It builds suspense about whether Mr. Lindqvist is really guilty of stealing the tomatoes all summer.",
+     "why": "The clues point away from guilt, so suspense is limited."
+    },
+    {
+     "answer": "It makes readers distrust the narrator’s honesty in general.",
+     "why": "She is mistaken, not dishonest."
+    },
+    {
+     "answer": "It makes readers feel sorry for the raccoons in the garden.",
+     "why": "The raccoons appear only in the last line."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-015",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p03",
+   "prompt": "The passage opens with the narrator’s notebook entries and ends with “Entry seven stayed unwritten for a very long time.” How does this structure add to the story’s meaning?",
+   "choices": [
+    "The blank entry shows that she has given up being a detective.",
+    "The entries show Zoe is the main detective in the story.",
+    "The entries prove that her suspicions about Mr. Lindqvist were correct from the very beginning.",
+    "The early entries show her suspicion, and the blank entry shows that her view has changed."
+   ],
+   "answer": "The early entries show her suspicion, and the blank entry shows that her view has changed.",
+   "explanation": "The numbered entries set up her theory, and the long pause over entry seven shows she no longer trusts that theory.",
+   "commonErrors": [
+    {
+     "answer": "The entries prove that her suspicions about Mr. Lindqvist were correct from the very beginning.",
+     "why": "Reverses the plot, since the entries rest on misread clues."
+    },
+    {
+     "answer": "The blank entry shows that she has given up being a detective.",
+     "why": "She still jokes about “another case file,” so she has not quit."
+    },
+    {
+     "answer": "The entries show Zoe is the main detective in the story.",
+     "why": "Zoe is only a minor character who questions the case."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-016",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p04",
+   "prompt": "Which lines from the poem best support the idea that the house holds a record of the speaker’s growth?",
+   "choices": [
+    "“worn smooth by years of hurrying hands”",
+    "“The pale squares where the photographs once hung / look startled to be shown so plain”",
+    "“each small notch a year I stood against the wood / and stretched my spine”",
+    "“the boxes lean together / like tired gulls”"
+   ],
+   "answer": "“each small notch a year I stood against the wood / and stretched my spine”",
+   "explanation": "The pencil notches on the doorframe mark each year the speaker grew taller.",
+   "commonErrors": [
+    {
+     "answer": "“the boxes lean together / like tired gulls”",
+     "why": "Describes the packing, not the speaker’s growth."
+    },
+    {
+     "answer": "“The pale squares where the photographs once hung / look startled to be shown so plain”",
+     "why": "Shows what is missing from the walls rather than growth over time."
+    },
+    {
+     "answer": "“worn smooth by years of hurrying hands”",
+     "why": "Refers to many people’s use of the banister, not the speaker’s growth."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-017",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p04",
+   "prompt": "Which statement best expresses a theme of the poem?",
+   "choices": [
+    "Growing up means learning to argue with those in charge.",
+    "A house keeps its memories only while its photographs stay on the walls.",
+    "Leaving a place is hard, but the meaning of lived experience goes with us.",
+    "Moving is easier when a family labels and packs its belongings carefully ahead of time."
+   ],
+   "answer": "Leaving a place is hard, but the meaning of lived experience goes with us.",
+   "explanation": "The speaker says “leaving is a kind of carrying” and will keep the “height of every year,” so memories travel with the person.",
+   "commonErrors": [
+    {
+     "answer": "Moving is easier when a family labels and packs its belongings carefully ahead of time.",
+     "why": "Picks up on the boxes and labels but ignores the poem’s deeper reflection."
+    },
+    {
+     "answer": "A house keeps its memories only while its photographs stay on the walls.",
+     "why": "Reverses the ending, in which memories remain after the photographs are gone."
+    },
+    {
+     "answer": "Growing up means learning to argue with those in charge.",
+     "why": "Over-reads the line about arguing with the ceiling, which is about growing taller."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-018",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p04",
+   "prompt": "In the fourth stanza, the speaker runs a palm along the banister. What does this action lead to?",
+   "choices": [
+    "It makes the speaker regret the decision to move away from the old house.",
+    "It prompts the speaker to realize that memories can be carried away.",
+    "It makes the speaker decide to ask the family to stay.",
+    "It reminds the speaker of an argument with a parent."
+   ],
+   "answer": "It prompts the speaker to realize that memories can be carried away.",
+   "explanation": "Right after touching the banister, the speaker says, “understand that leaving is a kind of carrying,” which marks the poem’s insight.",
+   "commonErrors": [
+    {
+     "answer": "It makes the speaker regret the decision to move away from the old house.",
+     "why": "The speaker feels loss but never expresses regret."
+    },
+    {
+     "answer": "It makes the speaker decide to ask the family to stay.",
+     "why": "No such decision appears; the speaker accepts the move."
+    },
+    {
+     "answer": "It reminds the speaker of an argument with a parent.",
+     "why": "The only parent mentioned is remembered with fondness."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-019",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p04",
+   "prompt": "In the third stanza, the pale squares on the wall “look startled to be shown so plain.” What is the effect of this wording?",
+   "choices": [
+    "It gives the wall human feelings, making the empty house seem exposed.",
+    "It suggests the speaker was frightened by something unseen inside the house.",
+    "It shows the speaker is angry at the people who bought the house.",
+    "It suggests the walls were damaged during the move."
+   ],
+   "answer": "It gives the wall human feelings, making the empty house seem exposed.",
+   "explanation": "Calling the squares “startled” is personification that stresses how bare the rooms look.",
+   "commonErrors": [
+    {
+     "answer": "It suggests the speaker was frightened by something unseen inside the house.",
+     "why": "Confuses the walls’ “startled” look with the speaker’s own fear."
+    },
+    {
+     "answer": "It suggests the walls were damaged during the move.",
+     "why": "Reads “startled” as physical harm rather than personification."
+    },
+    {
+     "answer": "It shows the speaker is angry at the people who bought the house.",
+     "why": "Nothing in the stanza mentions the buyers."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-rl-020",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RL",
+   "standards": [
+    "RL.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p04",
+   "prompt": "In the last line, the speaker moves from the physical rooms to “some quiet room of me.” How does this shift develop the poem’s meaning?",
+   "choices": [
+    "It contrasts a loud house with a quieter new home.",
+    "It shows that the speaker will return to the house soon.",
+    "It moves from outer objects to inner memory, showing the home lives on inside the speaker.",
+    "It repeats the first stanza’s picture to show that nothing about the house or the speaker has changed."
+   ],
+   "answer": "It moves from outer objects to inner memory, showing the home lives on inside the speaker.",
+   "explanation": "The final image turns the house into something internal, supporting the idea that memories continue after leaving.",
+   "commonErrors": [
+    {
+     "answer": "It repeats the first stanza’s picture to show that nothing about the house or the speaker has changed.",
+     "why": "The first stanza’s ocean-in-a-shell image is transformed, not repeated."
+    },
+    {
+     "answer": "It shows that the speaker will return to the house soon.",
+     "why": "The door “clicks shut” and no return is suggested."
+    },
+    {
+     "answer": "It contrasts a loud house with a quieter new home.",
+     "why": "The new home is never described."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-001",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p05",
+   "prompt": "Which sentence from the passage best supports the claim that the dance tells bees how valuable a food source is?",
+   "choices": [
+    "Bees repeat the dance more often and with more energy when food is especially rich.",
+    "Because the sun moves across the sky, the dancers gradually change their angle over the day.",
+    "The straight, shaking stretch is the part that carries the message.",
+    "A quick, short waggle points to a patch just outside the hive."
+   ],
+   "answer": "Bees repeat the dance more often and with more energy when food is especially rich.",
+   "explanation": "Paragraph 4 links more repetitions and more energy to richer food, so the dance signals quality.",
+   "commonErrors": [
+    {
+     "answer": "The straight, shaking stretch is the part that carries the message.",
+     "why": "Describes the part of the dance that matters, not food quality."
+    },
+    {
+     "answer": "A quick, short waggle points to a patch just outside the hive.",
+     "why": "Shows distance, not value."
+    },
+    {
+     "answer": "Because the sun moves across the sky, the dancers gradually change their angle over the day.",
+     "why": "Explains direction, not how rich the food is."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-002",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p05",
+   "prompt": "Which statement best summarizes the central idea of the passage?",
+   "choices": [
+    "Honeybees dance mainly to keep the hive warm and to keep the crowded colony together at night.",
+    "Honeybees use a patterned dance to share the direction, distance, and quality of food.",
+    "Honeybees depend on the sun more than other insects do.",
+    "Scientists have only recently learned how bees find flowers."
+   ],
+   "answer": "Honeybees use a patterned dance to share the direction, distance, and quality of food.",
+   "explanation": "Each body paragraph explains what the dance communicates: direction, distance, and how worthwhile a food source is.",
+   "commonErrors": [
+    {
+     "answer": "Honeybees depend on the sun more than other insects do.",
+     "why": "Compares bees to other insects, which the passage never does."
+    },
+    {
+     "answer": "Scientists have only recently learned how bees find flowers.",
+     "why": "The passage gives no timeline for the discovery."
+    },
+    {
+     "answer": "Honeybees dance mainly to keep the hive warm and to keep the crowded colony together at night.",
+     "why": "Invents a purpose; the dance’s purpose is communication."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-003",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p05",
+   "prompt": "According to the third paragraph, how are the dance’s angle and the sun connected?",
+   "choices": [
+    "Gravity pulls the bees toward the sun, so they waggle upward.",
+    "The bees dance in direct sunlight on the hive’s outer wall to show other bees exactly where they should fly next.",
+    "The angle from straight up on the comb matches the angle from the sun’s direction to the flowers.",
+    "The sun’s brightness tells the bees how far away the flowers are."
+   ],
+   "answer": "The angle from straight up on the comb matches the angle from the sun’s direction to the flowers.",
+   "explanation": "The paragraph says straight up stands for the sun’s direction, so angles from vertical match angles from the sun.",
+   "commonErrors": [
+    {
+     "answer": "The bees dance in direct sunlight on the hive’s outer wall to show other bees exactly where they should fly next.",
+     "why": "The dance happens inside the dark hive."
+    },
+    {
+     "answer": "Gravity pulls the bees toward the sun, so they waggle upward.",
+     "why": "Mixes up gravity’s role as a vertical reference with the sun’s direction."
+    },
+    {
+     "answer": "The sun’s brightness tells the bees how far away the flowers are.",
+     "why": "Confuses direction, shown by angle, with distance, shown by waggle length."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-004",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p05",
+   "prompt": "In the third paragraph, “stand-in” is used in the phrase “straight up as a stand-in for the position of the sun.” What does “stand-in” mean here?",
+   "choices": [
+    "a measuring tool that bees use to track the sun’s movement",
+    "a signal that warns of danger near the flowers",
+    "a barrier that blocks sunlight from the hive",
+    "a substitute that takes the place of something else"
+   ],
+   "answer": "a substitute that takes the place of something else",
+   "explanation": "Straight up replaces the sun’s direction inside the hive, so “stand-in” means a substitute.",
+   "commonErrors": [
+    {
+     "answer": "a measuring tool that bees use to track the sun’s movement",
+     "why": "Mistakes the phrase for a scientific tool."
+    },
+    {
+     "answer": "a barrier that blocks sunlight from the hive",
+     "why": "Takes “stand” literally and thinks of something that blocks."
+    },
+    {
+     "answer": "a signal that warns of danger near the flowers",
+     "why": "Associates the dance with warnings rather than directions."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-005",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p05",
+   "prompt": "How does the second paragraph contribute to the development of the passage?",
+   "choices": [
+    "It argues that the waggle dance is the most advanced insect behavior.",
+    "It describes the pattern of the dance so that later paragraphs can explain what each part means.",
+    "It lists the discoveries that scientists have made about bees over many years of careful study.",
+    "It compares the dance to the way humans use language."
+   ],
+   "answer": "It describes the pattern of the dance so that later paragraphs can explain what each part means.",
+   "explanation": "Paragraph 2 describes the straight run and loops, and paragraphs 3 and 4 then explain what the angle and length of the run mean.",
+   "commonErrors": [
+    {
+     "answer": "It argues that the waggle dance is the most advanced insect behavior.",
+     "why": "Offers an opinion the passage never makes."
+    },
+    {
+     "answer": "It compares the dance to the way humans use language.",
+     "why": "The comparison appears only in the final paragraph, and only in a general way."
+    },
+    {
+     "answer": "It lists the discoveries that scientists have made about bees over many years of careful study.",
+     "why": "The paragraph describes movement, not discoveries."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-006",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p06",
+   "prompt": "Which detail best supports the claim that measuring depth with a weighted rope was impractical in deep water?",
+   "choices": [
+    "Sailors tied a lead weight to the end of a long rope.",
+    "The method worked well enough in harbors, according to the crews who used it every day.",
+    "The crew counted how much line ran out before the weight stopped.",
+    "The rope could drift or run out of length, and one measurement could take hours."
+   ],
+   "answer": "The rope could drift or run out of length, and one measurement could take hours.",
+   "explanation": "The second paragraph names drifting, running out of rope, and time as the problems in deep water.",
+   "commonErrors": [
+    {
+     "answer": "Sailors tied a lead weight to the end of a long rope.",
+     "why": "Describes the method rather than its limits."
+    },
+    {
+     "answer": "The method worked well enough in harbors, according to the crews who used it every day.",
+     "why": "True, but it describes where the method worked."
+    },
+    {
+     "answer": "The crew counted how much line ran out before the weight stopped.",
+     "why": "Explains how the method was used, not why it failed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-007",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p06",
+   "prompt": "Which statement best summarizes the passage?",
+   "choices": [
+    "Maps of the seafloor are mainly used to help ships avoid hazards.",
+    "Sailors long believed the seafloor was flat until multibeam sonar.",
+    "Ocean-floor mapping has moved from slow rope soundings to sound-based tools, though much remains unmapped.",
+    "Echo sounders have replaced every other way of studying the oceans, and ships now use them to map every part of the seafloor."
+   ],
+   "answer": "Ocean-floor mapping has moved from slow rope soundings to sound-based tools, though much remains unmapped.",
+   "explanation": "The passage traces rope soundings, echo sounders, and multibeam systems, and ends by noting how much is still unmapped.",
+   "commonErrors": [
+    {
+     "answer": "Echo sounders have replaced every other way of studying the oceans, and ships now use them to map every part of the seafloor.",
+     "why": "Over-generalizes; the passage discusses depth mapping only."
+    },
+    {
+     "answer": "Maps of the seafloor are mainly used to help ships avoid hazards.",
+     "why": "Too narrow; the passage names several uses."
+    },
+    {
+     "answer": "Sailors long believed the seafloor was flat until multibeam sonar.",
+     "why": "Unsupported claim that is not in the text."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-008",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p06",
+   "prompt": "How does the echo-sounder method compare with the rope-and-weight method?",
+   "choices": [
+    "Both require the ship to stop moving during each measurement, but the echo sounder is much cheaper to run.",
+    "Both find the distance to the bottom, but the echo sounder uses the time an echo takes to return.",
+    "The rope method measures depth directly while the echo sounder measures only width.",
+    "Both depend on the speed of sound in water, but the rope method is less exact."
+   ],
+   "answer": "Both find the distance to the bottom, but the echo sounder uses the time an echo takes to return.",
+   "explanation": "Paragraphs 2 and 3 show both methods find depth, one using a lowered weight and the other timing an echo.",
+   "commonErrors": [
+    {
+     "answer": "Both depend on the speed of sound in water, but the rope method is less exact.",
+     "why": "Gives the rope method a sound-based mechanism it does not have."
+    },
+    {
+     "answer": "The rope method measures depth directly while the echo sounder measures only width.",
+     "why": "Mistakes what the echo sounder measures; it also measures depth."
+    },
+    {
+     "answer": "Both require the ship to stop moving during each measurement, but the echo sounder is much cheaper to run.",
+     "why": "Cost and stopping are not discussed in the passage."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-009",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p06",
+   "prompt": "In the first paragraph, the ocean floor is described as “as hidden as the far side of the moon.” What does this comparison suggest?",
+   "choices": [
+    "The seafloor was long unseen and unknown to people.",
+    "The seafloor looks much like the surface of the moon.",
+    "The seafloor is uninteresting to scientists.",
+    "The seafloor is dangerous to approach."
+   ],
+   "answer": "The seafloor was long unseen and unknown to people.",
+   "explanation": "The far side of the moon cannot be seen from Earth, and the next sentence says the seafloor was “largely guesswork.”",
+   "commonErrors": [
+    {
+     "answer": "The seafloor is dangerous to approach.",
+     "why": "Confuses hidden with dangerous."
+    },
+    {
+     "answer": "The seafloor looks much like the surface of the moon.",
+     "why": "Reads the comparison as similarity of appearance."
+    },
+    {
+     "answer": "The seafloor is uninteresting to scientists.",
+     "why": "Reads “hidden” as boring; the passage describes mapping as valuable."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-010",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p06",
+   "prompt": "In the last paragraph, how does the author respond to the view that satellites have already mapped the seafloor?",
+   "choices": [
+    "The author argues that satellites are too expensive to use.",
+    "The author dismisses the view without giving any reason.",
+    "The author agrees that satellites have replaced ships entirely and that sonar is now outdated for mapping.",
+    "The author grants that satellites show broad shapes but explains that sonar gives sharper detail."
+   ],
+   "answer": "The author grants that satellites show broad shapes but explains that sonar gives sharper detail.",
+   "explanation": "The author acknowledges satellites “suggest broad shapes” and then explains that sonar offers “far sharper detail.”",
+   "commonErrors": [
+    {
+     "answer": "The author dismisses the view without giving any reason.",
+     "why": "Gives a reason; the paragraph explains satellites’ limits."
+    },
+    {
+     "answer": "The author agrees that satellites have replaced ships entirely and that sonar is now outdated for mapping.",
+     "why": "Reverses the author’s response."
+    },
+    {
+     "answer": "The author argues that satellites are too expensive to use.",
+     "why": "Cost is never mentioned in the paragraph."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-011",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p07",
+   "prompt": "Which detail best supports the claim that green roofs can lower a building’s energy use?",
+   "choices": [
+    "The extra layers insulate, so less energy is needed for heating and cooling.",
+    "Designers often choose sedum, a hardy plant that tolerates drought, wind, and poor soil.",
+    "Installation costs more than a conventional roof.",
+    "A green roof soaks up much of the rain that falls on it."
+   ],
+   "answer": "The extra layers insulate, so less energy is needed for heating and cooling.",
+   "explanation": "Paragraph 4 says the added layers insulate the building, reducing heating and cooling needs.",
+   "commonErrors": [
+    {
+     "answer": "Designers often choose sedum, a hardy plant that tolerates drought, wind, and poor soil.",
+     "why": "Describes plant choice, not energy use."
+    },
+    {
+     "answer": "A green roof soaks up much of the rain that falls on it.",
+     "why": "Supports the water benefit, not energy savings."
+    },
+    {
+     "answer": "Installation costs more than a conventional roof.",
+     "why": "A drawback that does not show lower energy use."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-012",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.2"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p07",
+   "prompt": "Which statement best expresses the central idea of the passage?",
+   "choices": [
+    "Sedum is the only plant that can survive on a rooftop, so designers use it on every green roof.",
+    "Green roofs are the best way to prevent flooding in cities.",
+    "Older buildings cannot support green roofs, so they are impractical.",
+    "Green roofs bring several benefits to buildings and cities, though they have costs and limits."
+   ],
+   "answer": "Green roofs bring several benefits to buildings and cities, though they have costs and limits.",
+   "explanation": "The passage covers benefits in paragraphs 3 and 4 and drawbacks in paragraph 5.",
+   "commonErrors": [
+    {
+     "answer": "Green roofs are the best way to prevent flooding in cities.",
+     "why": "Over-generalizes one benefit into the main point."
+    },
+    {
+     "answer": "Sedum is the only plant that can survive on a rooftop, so designers use it on every green roof.",
+     "why": "Misreads “often choose” as “only.”"
+    },
+    {
+     "answer": "Older buildings cannot support green roofs, so they are impractical.",
+     "why": "Takes one drawback and treats it as the whole message."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-013",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.3"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p07",
+   "prompt": "According to the fourth paragraph, how are dark roofs connected to the temperature of city centers?",
+   "choices": [
+    "They are heavier than green roofs, so the buildings under them need much more energy for cooling.",
+    "They absorb sunlight and warm the nearby air, helping make city centers hotter.",
+    "They trap rainwater that evaporates and heats the air.",
+    "They reflect sunlight and cool the streets below them."
+   ],
+   "answer": "They absorb sunlight and warm the nearby air, helping make city centers hotter.",
+   "explanation": "The paragraph says dark roofs absorb sunlight and warm the air, “one reason” city centers run hotter.",
+   "commonErrors": [
+    {
+     "answer": "They trap rainwater that evaporates and heats the air.",
+     "why": "Mixes up the rain discussion with the heat discussion."
+    },
+    {
+     "answer": "They reflect sunlight and cool the streets below them.",
+     "why": "Reverses what dark surfaces do."
+    },
+    {
+     "answer": "They are heavier than green roofs, so the buildings under them need much more energy for cooling.",
+     "why": "Weight is discussed only for wet soil."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-014",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p07",
+   "prompt": "The last paragraph calls a green roof “part sponge, part blanket, and part garden.” What is the effect of these comparisons?",
+   "choices": [
+    "They sum up the roof’s jobs of soaking up water, insulating, and growing plants.",
+    "They introduce three new benefits not discussed earlier.",
+    "They show the author doubts that green roofs will last long enough to repay their cost.",
+    "They suggest green roofs are soft and easy to damage."
+   ],
+   "answer": "They sum up the roof’s jobs of soaking up water, insulating, and growing plants.",
+   "explanation": "The sponge refers to rainwater, the blanket to insulation, and the garden to the plants, bringing earlier ideas together.",
+   "commonErrors": [
+    {
+     "answer": "They suggest green roofs are soft and easy to damage.",
+     "why": "Reads the images as describing texture only."
+    },
+    {
+     "answer": "They show the author doubts that green roofs will last long enough to repay their cost.",
+     "why": "The author is positive about the idea’s spread."
+    },
+    {
+     "answer": "They introduce three new benefits not discussed earlier.",
+     "why": "Each image points back to ideas already covered."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-015",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p07",
+   "prompt": "How does the fifth paragraph affect the development of the passage?",
+   "choices": [
+    "It balances the earlier benefits by presenting drawbacks and a response to them.",
+    "It introduces another benefit related to temperature.",
+    "It reverses the central claim by arguing that green roofs are impractical for cities.",
+    "It repeats the details about plants from the second paragraph."
+   ],
+   "answer": "It balances the earlier benefits by presenting drawbacks and a response to them.",
+   "explanation": "Paragraph 5 begins with “not without drawbacks” and includes supporters’ replies, giving a fuller picture.",
+   "commonErrors": [
+    {
+     "answer": "It reverses the central claim by arguing that green roofs are impractical for cities.",
+     "why": "The passage keeps a positive overall view."
+    },
+    {
+     "answer": "It introduces another benefit related to temperature.",
+     "why": "Temperature was covered in the previous paragraph."
+    },
+    {
+     "answer": "It repeats the details about plants from the second paragraph.",
+     "why": "The paragraph covers weight and cost."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-016",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.1"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": "ms-ela8-p08",
+   "prompt": "Which evidence from the passage best supports the claim that many students need a quiet place to study?",
+   "choices": [
+    "The library doors close at 3:15 every afternoon.",
+    "The library has a beautiful blue carpet that was installed three years ago by the school.",
+    "The author’s cousin attends a school in another state.",
+    "In a student council survey, 140 of 200 eighth graders said they struggle to find one."
+   ],
+   "answer": "In a student council survey, 140 of 200 eighth graders said they struggle to find one.",
+   "explanation": "The survey results in paragraph 2 directly show that many eighth graders lack quiet study space.",
+   "commonErrors": [
+    {
+     "answer": "The library doors close at 3:15 every afternoon.",
+     "why": "True, but it states when the library closes, not who needs it."
+    },
+    {
+     "answer": "The library has a beautiful blue carpet that was installed three years ago by the school.",
+     "why": "A detail about decoration, not about studying."
+    },
+    {
+     "answer": "The author’s cousin attends a school in another state.",
+     "why": "Offers a personal connection, not evidence about students here."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-017",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p08",
+   "prompt": "How does the first paragraph contribute to the development of the argument?",
+   "choices": [
+    "It states the author’s claim and previews the reasons developed in the paragraphs that follow.",
+    "It summarizes the survey data collected by the student council.",
+    "It tells a story about a student who could not finish homework.",
+    "It presents the strongest counterargument against the plan and then answers it with new evidence."
+   ],
+   "answer": "It states the author’s claim and previews the reasons developed in the paragraphs that follow.",
+   "explanation": "The paragraph states that the library should stay open and names two reasons, which paragraphs 2 and 3 then support.",
+   "commonErrors": [
+    {
+     "answer": "It presents the strongest counterargument against the plan and then answers it with new evidence.",
+     "why": "The counterargument appears in the fourth paragraph."
+    },
+    {
+     "answer": "It summarizes the survey data collected by the student council.",
+     "why": "The data appear in the second paragraph."
+    },
+    {
+     "answer": "It tells a story about a student who could not finish homework.",
+     "why": "No such story appears in the paragraph."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-018",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p08",
+   "prompt": "How does the author handle the argument that staying open would cost too much?",
+   "choices": [
+    "The author admits the concern is reasonable and then offers a plan that limits the cost.",
+    "The author agrees that the concern is correct and then drops the proposal from the argument entirely.",
+    "The author ignores the concern and repeats the main claim.",
+    "The author claims the concern was invented by the school board."
+   ],
+   "answer": "The author admits the concern is reasonable and then offers a plan that limits the cost.",
+   "explanation": "The author calls the concern “fair” and then points to parent volunteers and teacher assignments.",
+   "commonErrors": [
+    {
+     "answer": "The author ignores the concern and repeats the main claim.",
+     "why": "The fourth paragraph addresses the concern directly."
+    },
+    {
+     "answer": "The author agrees that the concern is correct and then drops the proposal from the argument entirely.",
+     "why": "The proposal continues in the conclusion."
+    },
+    {
+     "answer": "The author claims the concern was invented by the school board.",
+     "why": "Nothing in the text says this."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-019",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.8"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": "ms-ela8-p08",
+   "prompt": "Which piece of evidence is LEAST relevant to the author’s claim that the library should stay open after school?",
+   "choices": [
+    "A survey found that many students struggle to find a quiet place to study.",
+    "The library’s blue carpet was installed three years ago, and blue is the author’s favorite color.",
+    "A librarian reported that more teenagers borrowed books after another library extended its hours.",
+    "Parent volunteers have offered to supervise two afternoons a week."
+   ],
+   "answer": "The library’s blue carpet was installed three years ago, and blue is the author’s favorite color.",
+   "explanation": "The carpet’s color and the author’s taste do not show whether students need the extra hour.",
+   "commonErrors": [
+    {
+     "answer": "A librarian reported that more teenagers borrowed books after another library extended its hours.",
+     "why": "Relevant: it connects longer hours to more reading."
+    },
+    {
+     "answer": "A survey found that many students struggle to find a quiet place to study.",
+     "why": "Relevant: it shows a need the library could meet."
+    },
+    {
+     "answer": "Parent volunteers have offered to supervise two afternoons a week.",
+     "why": "Relevant: it addresses how the plan could be staffed."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-ri-020",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "RI",
+   "standards": [
+    "RI.8.8"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": "ms-ela8-p08",
+   "prompt": "The author uses the example of a cousin’s school to claim, “Clearly, closing a library hurts students’ grades.” Why is this evidence weak?",
+   "choices": [
+    "Evidence from another state can never apply to a school here.",
+    "The cousin’s grades are unrelated to the school’s library.",
+    "The author does not say how old the cousin is or what grade she is currently in at school.",
+    "One case does not prove that the closed library caused the grades to fall."
+   ],
+   "answer": "One case does not prove that the closed library caused the grades to fall.",
+   "explanation": "A single story cannot rule out other causes for lower grades, so it is insufficient to support the claim.",
+   "commonErrors": [
+    {
+     "answer": "Evidence from another state can never apply to a school here.",
+     "why": "Over-generalizes; outside evidence can help if there is enough of it."
+    },
+    {
+     "answer": "The cousin’s grades are unrelated to the school’s library.",
+     "why": "Overstates; the flaw is lack of proof of cause, not that no link is possible."
+    },
+    {
+     "answer": "The author does not say how old the cousin is or what grade she is currently in at school.",
+     "why": "Age is not the weakness here."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-001",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: “The hikers were so parched after the long climb that they drank the entire jug of water in minutes.” What does “parched” most likely mean?",
+   "choices": [
+    "cold and wet",
+    "eager and cheerful",
+    "very dry and thirsty",
+    "tired and sore"
+   ],
+   "answer": "very dry and thirsty",
+   "explanation": "Drinking the whole jug quickly suggests the hikers were very thirsty.",
+   "commonErrors": [
+    {
+     "answer": "tired and sore",
+     "why": "Chooses a feeling that follows a climb but ignores the clue about drinking water."
+    },
+    {
+     "answer": "cold and wet",
+     "why": "Opposite of what the clue about thirst suggests."
+    },
+    {
+     "answer": "eager and cheerful",
+     "why": "Does not explain why they drank so fast."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-002",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The word “benevolent” comes from the Latin roots bene- (“good”) and vol- (“wish”). In the sentence “The scientist’s work was benevolent; every study she led aimed to improve the village’s health,” what does “benevolent” mean?",
+   "choices": [
+    "wishing to do good for others",
+    "unwilling to share knowledge",
+    "careful about spending money",
+    "wishing to be admired by others"
+   ],
+   "answer": "wishing to do good for others",
+   "explanation": "Bene- means good and vol- means wish, and the sentence says her studies aimed to improve health.",
+   "commonErrors": [
+    {
+     "answer": "wishing to be admired by others",
+     "why": "Mixes up the root meaning with fame."
+    },
+    {
+     "answer": "unwilling to share knowledge",
+     "why": "Ignores the positive root bene-."
+    },
+    {
+     "answer": "careful about spending money",
+     "why": "Associates “benefit” with money rather than kindness."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-003",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "The prefix dis- often means “apart” or “not.” In the sentence “The council voted to disband the committee after it finished its work,” what does “disband” mean?",
+   "choices": [
+    "to praise a group publicly",
+    "to break apart a group",
+    "to rename a group",
+    "to enlarge a group"
+   ],
+   "answer": "to break apart a group",
+   "explanation": "Dis- means apart, and the committee finished, so it was ended.",
+   "commonErrors": [
+    {
+     "answer": "to praise a group publicly",
+     "why": "Ignores the meaning of dis-."
+    },
+    {
+     "answer": "to enlarge a group",
+     "why": "Reverses the direction of the prefix."
+    },
+    {
+     "answer": "to rename a group",
+     "why": "Fits “council voted” but not the prefix."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-004",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: “The old bridge could not bear the weight of the heavy trucks.” Which meaning of “bear” is used here?",
+   "choices": [
+    "to carry on a journey",
+    "to give birth to",
+    "to hold up",
+    "to put up with"
+   ],
+   "answer": "to hold up",
+   "explanation": "A bridge supports weight, so “bear” means to hold up.",
+   "commonErrors": [
+    {
+     "answer": "to put up with",
+     "why": "Chooses the common meaning “tolerate,” which does not fit a bridge."
+    },
+    {
+     "answer": "to give birth to",
+     "why": "Picks the animal or family meaning rather than the one fitting the context."
+    },
+    {
+     "answer": "to carry on a journey",
+     "why": "Interprets “carry” as moving something rather than supporting it."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-005",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "Read the sentence: “Although the committee seemed ready to quarrel, the mayor’s calm words had a mollifying effect, and the shouting soon died away.” What does “mollifying” most likely mean?",
+   "choices": [
+    "provoking",
+    "soothing",
+    "distracting",
+    "confusing"
+   ],
+   "answer": "soothing",
+   "explanation": "The “calm words” and the dying shouting show that the effect was soothing.",
+   "commonErrors": [
+    {
+     "answer": "provoking",
+     "why": "Reverses the meaning; the shouting stopped, not grew."
+    },
+    {
+     "answer": "confusing",
+     "why": "The sentence says the shouting ended, not that people were puzzled."
+    },
+    {
+     "answer": "distracting",
+     "why": "Suggests turning attention away rather than calming anger."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-006",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "The Latin root aud- means “to hear.” In the sentence “The announcement was barely audible over the roar of the crowd,” what does “audible” mean?",
+   "choices": [
+    "easy to understand",
+    "pleasant to listen to",
+    "able to be heard",
+    "worth repeating aloud"
+   ],
+   "answer": "able to be heard",
+   "explanation": "Aud- means hear, and the crowd noise made the announcement hard to hear.",
+   "commonErrors": [
+    {
+     "answer": "easy to understand",
+     "why": "Confuses hearing with understanding."
+    },
+    {
+     "answer": "pleasant to listen to",
+     "why": "Adds a quality of enjoyment that the root does not carry."
+    },
+    {
+     "answer": "worth repeating aloud",
+     "why": "Reads aud- as “speak” instead of “hear.”"
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-007",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: “The ambassador’s reply was deliberately ambiguous; both sides left the room convinced she had agreed with them.” What does “ambiguous” most likely mean?",
+   "choices": [
+    "lengthy and detailed",
+    "open to more than one meaning",
+    "dishonest and false",
+    "forceful and direct"
+   ],
+   "answer": "open to more than one meaning",
+   "explanation": "Both sides thought she agreed with them, so her reply could be understood in two ways.",
+   "commonErrors": [
+    {
+     "answer": "forceful and direct",
+     "why": "Reverses the clue that each side heard its own meaning."
+    },
+    {
+     "answer": "dishonest and false",
+     "why": "Confuses vagueness with lying."
+    },
+    {
+     "answer": "lengthy and detailed",
+     "why": "Does not match the idea of unclear meaning."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-008",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.4"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: “The idea was so novel that no one at the meeting had heard anything like it.” What does “novel” mean here?",
+   "choices": [
+    "long and fictional",
+    "new and original",
+    "familiar and ordinary",
+    "confusing and unclear"
+   ],
+   "answer": "new and original",
+   "explanation": "The clue “no one had heard anything like it” shows the idea was new.",
+   "commonErrors": [
+    {
+     "answer": "long and fictional",
+     "why": "Uses the noun meaning, a book, instead of the adjective."
+    },
+    {
+     "answer": "familiar and ordinary",
+     "why": "Reverses the clue “no one had heard anything like it.”"
+    },
+    {
+     "answer": "confusing and unclear",
+     "why": "Assumes new ideas must be hard to follow."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-009",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: “Her voice was a warm blanket on a cold night.” What does this metaphor suggest about her voice?",
+   "choices": [
+    "It was loud and heavy.",
+    "It was quiet and hard to hear.",
+    "It was gentle but not sincere.",
+    "It was comforting and soothing."
+   ],
+   "answer": "It was comforting and soothing.",
+   "explanation": "A warm blanket on a cold night brings comfort, so her voice does too.",
+   "commonErrors": [
+    {
+     "answer": "It was loud and heavy.",
+     "why": "Applies the blanket’s weight instead of its comfort."
+    },
+    {
+     "answer": "It was gentle but not sincere.",
+     "why": "Adds an idea about honesty that the image does not suggest."
+    },
+    {
+     "answer": "It was quiet and hard to hear.",
+     "why": "Mixes up warmth with softness of volume."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-010",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Read the sentence: “The twins let the cat out of the bag about the surprise party.” What does the idiom mean?",
+   "choices": [
+    "They ruined the party decorations.",
+    "They forgot the date of the party.",
+    "They revealed a secret.",
+    "They adopted a new pet."
+   ],
+   "answer": "They revealed a secret.",
+   "explanation": "“Let the cat out of the bag” means to reveal a secret, and the party was a surprise.",
+   "commonErrors": [
+    {
+     "answer": "They ruined the party decorations.",
+     "why": "Takes the idiom literally as spoiling something physical."
+    },
+    {
+     "answer": "They adopted a new pet.",
+     "why": "Reads the animal literally."
+    },
+    {
+     "answer": "They forgot the date of the party.",
+     "why": "Confuses revealing with forgetting."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-011",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: “The marathon runner finished all twenty-six miles without a scratch, then twisted her ankle stepping off the curb outside the finish line.” Why is this situation ironic?",
+   "choices": [
+    "She expected to win but finished in last place.",
+    "She survived the hardest part safely but was hurt by an ordinary step.",
+    "She was injured before the race and ran anyway.",
+    "She was hurt on a curb, and curbs are always dangerous."
+   ],
+   "answer": "She survived the hardest part safely but was hurt by an ordinary step.",
+   "explanation": "Irony arises because the outcome is the opposite of what we expect: a small step causes the injury after the long race.",
+   "commonErrors": [
+    {
+     "answer": "She expected to win but finished in last place.",
+     "why": "Invents an expectation that is not in the sentence."
+    },
+    {
+     "answer": "She was injured before the race and ran anyway.",
+     "why": "Reverses the order of events."
+    },
+    {
+     "answer": "She was hurt on a curb, and curbs are always dangerous.",
+     "why": "States a general claim instead of the contrast in the event."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-012",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Chapter is to book as scene is to ___. Which word best completes this analogy?",
+   "choices": [
+    "play",
+    "curtain",
+    "audience",
+    "actor"
+   ],
+   "answer": "play",
+   "explanation": "A chapter is a part of a book, and a scene is a part of a play.",
+   "commonErrors": [
+    {
+     "answer": "actor",
+     "why": "Pairs a part with a performer, not a part with its whole."
+    },
+    {
+     "answer": "audience",
+     "why": "Pairs a part with the people who watch it."
+    },
+    {
+     "answer": "curtain",
+     "why": "Pairs a part with an object on the stage, not the whole."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-013",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "Read the sentence: “The company announced that it was ‘letting go’ of a quarter of its staff.” What effect does the phrase “letting go” have?",
+   "choices": [
+    "It shows that the workers chose to leave on their own.",
+    "It softens the harsh idea of firing workers.",
+    "It makes the layoffs sound more severe than they are.",
+    "It shows that the workers were promoted."
+   ],
+   "answer": "It softens the harsh idea of firing workers.",
+   "explanation": "A euphemism replaces a blunt phrase such as “firing” with a gentler one.",
+   "commonErrors": [
+    {
+     "answer": "It shows that the workers chose to leave on their own.",
+     "why": "Reads “let go” as the workers’ choice."
+    },
+    {
+     "answer": "It makes the layoffs sound more severe than they are.",
+     "why": "Reverses the effect, which is to make the news gentler."
+    },
+    {
+     "answer": "It shows that the workers were promoted.",
+     "why": "Confuses a positive-sounding phrase with a promotion."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-014",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "A shopper who avoids spending money could be described as thrifty, frugal, economical, or stingy. Which word has the most negative connotation?",
+   "choices": [
+    "thrifty",
+    "economical",
+    "stingy",
+    "frugal"
+   ],
+   "answer": "stingy",
+   "explanation": "“Stingy” suggests selfishness, while the other words suggest wise care with money.",
+   "commonErrors": [
+    {
+     "answer": "thrifty",
+     "why": "Treats a positive word as a negative one."
+    },
+    {
+     "answer": "frugal",
+     "why": "Treats a neutral-to-positive word as negative."
+    },
+    {
+     "answer": "economical",
+     "why": "Ignores that this word suggests wise use of money."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-015",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.5"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Read the sentence: “The negotiation was a tightrope walk; one careless remark could send the whole deal crashing down.” What does the figurative phrase mean?",
+   "choices": [
+    "The talks were taking place at a great height.",
+    "The deal had already failed before the talks began.",
+    "The talks demanded great care to avoid a ruinous mistake.",
+    "The negotiators were skilled circus performers."
+   ],
+   "answer": "The talks demanded great care to avoid a ruinous mistake.",
+   "explanation": "A tightrope walk requires balance, so the phrase shows that one error could ruin the talks.",
+   "commonErrors": [
+    {
+     "answer": "The negotiators were skilled circus performers.",
+     "why": "Takes the image literally."
+    },
+    {
+     "answer": "The talks were taking place at a great height.",
+     "why": "Reads the image as describing a location."
+    },
+    {
+     "answer": "The deal had already failed before the talks began.",
+     "why": "Ignores that the sentence says the deal “could” fall."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-016",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Choose the word that best completes the sentence: “To ___ the poem, the class examined each stanza and discussed how its parts fit together.”",
+   "choices": [
+    "memorize",
+    "abbreviate",
+    "applaud",
+    "analyze"
+   ],
+   "answer": "analyze",
+   "explanation": "Examining parts and how they fit together is what it means to analyze.",
+   "commonErrors": [
+    {
+     "answer": "memorize",
+     "why": "Confuses studying parts with learning by heart."
+    },
+    {
+     "answer": "applaud",
+     "why": "Mistakes discussing a poem for praising it."
+    },
+    {
+     "answer": "abbreviate",
+     "why": "Mixes up examining with shortening."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-017",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "core",
+   "passageId": null,
+   "prompt": "Choose the word that best completes the sentence: “The coach repeated the final instruction twice to ___ how important it was.”",
+   "choices": [
+    "estimate",
+    "emphasize",
+    "conceal",
+    "excuse"
+   ],
+   "answer": "emphasize",
+   "explanation": "Repeating an instruction stresses its importance, which is what “emphasize” means.",
+   "commonErrors": [
+    {
+     "answer": "conceal",
+     "why": "Reverses the purpose of repeating something."
+    },
+    {
+     "answer": "excuse",
+     "why": "Confuses stressing with forgiving."
+    },
+    {
+     "answer": "estimate",
+     "why": "Confuses stressing with guessing a number."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-018",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Choose the word that best completes the sentence: “Only evidence that is ___ to the claim belongs in an argument; unrelated facts weaken it.”",
+   "choices": [
+    "sufficient",
+    "familiar",
+    "identical",
+    "relevant"
+   ],
+   "answer": "relevant",
+   "explanation": "The sentence calls for evidence that is connected to the claim, which is what relevant means.",
+   "commonErrors": [
+    {
+     "answer": "identical",
+     "why": "Mistakes connected for exactly the same."
+    },
+    {
+     "answer": "familiar",
+     "why": "Mistakes well known for related."
+    },
+    {
+     "answer": "sufficient",
+     "why": "Confuses having enough evidence with having related evidence."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-019",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "stretch",
+   "passageId": null,
+   "prompt": "Which sentence uses the word “contrast” correctly?",
+   "choices": [
+    "The two twins looked so contrasting that no one could tell them apart.",
+    "The contrast of the two trains arrived at noon.",
+    "The author draws a contrast between the quiet village and the busy city.",
+    "She contrasted the cake by mixing the sugar and the flour."
+   ],
+   "answer": "The author draws a contrast between the quiet village and the busy city.",
+   "explanation": "A contrast points out differences, and a quiet village and a busy city differ.",
+   "commonErrors": [
+    {
+     "answer": "The two twins looked so contrasting that no one could tell them apart.",
+     "why": "Uses “contrasting” as if it meant “alike.”"
+    },
+    {
+     "answer": "She contrasted the cake by mixing the sugar and the flour.",
+     "why": "Uses the verb as if it meant “make” or “prepare.”"
+    },
+    {
+     "answer": "The contrast of the two trains arrived at noon.",
+     "why": "Uses the noun as if it were a plural subject."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  },
+  {
+   "id": "ms-ela8-l-020",
+   "subject": "ela",
+   "grade": 8,
+   "courses": [
+    "ela8"
+   ],
+   "cluster": "L",
+   "standards": [
+    "L.8.6"
+   ],
+   "type": "mcq",
+   "difficulty": "challenge",
+   "passageId": null,
+   "prompt": "Choose the word that best completes the sentence: “The second witness’s story helped to ___ the first account, since every detail matched.”",
+   "choices": [
+    "summarize",
+    "postpone",
+    "refute",
+    "corroborate"
+   ],
+   "answer": "corroborate",
+   "explanation": "Matching details confirm the first account, and corroborate means to confirm.",
+   "commonErrors": [
+    {
+     "answer": "refute",
+     "why": "Reverses the meaning; matching details support rather than disprove."
+    },
+    {
+     "answer": "summarize",
+     "why": "Confuses confirming with shortening."
+    },
+    {
+     "answer": "postpone",
+     "why": "Confuses confirming with delaying."
+    }
+   ],
+   "visual": null,
+   "provisional": false,
+   "review": {
+    "status": "ai-drafted",
+    "reviewer": "",
+    "date": ""
+   }
+  }
+ ]
+}

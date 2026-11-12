@@ -1,0 +1,929 @@
+{
+ "items": [
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Solve x² − 5x − 14 = 0.",
+   "answer": "x = 7 or x = −2",
+   "wrong": [
+    {
+     "text": "x = −7 or x = 2",
+     "why": "Factored as (x + 7)(x − 2) and so flipped the sign of both roots."
+    },
+    {
+     "text": "x = 7 or x = 2",
+     "why": "Wrote the factors (x − 7)(x − 2), dropping the sign of the −2 root."
+    },
+    {
+     "text": "x = 5 or x = −14",
+     "why": "Used the coefficients −5 and −14 directly as the solutions."
+    }
+   ],
+   "explanation": "Factor: (x − 7)(x + 2) = 0, so x = 7 or x = −2. Check: 49 − 35 − 14 = 0 and 4 + 10 − 14 = 0."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Solve 2x² − 18 = 0.",
+   "answer": "x = 3 or x = −3",
+   "wrong": [
+    {
+     "text": "x = 3",
+     "why": "Took only the positive square root and dropped x = −3."
+    },
+    {
+     "text": "x = 9 or x = −9",
+     "why": "Divided by 2 to get x² = 9 but forgot to take the square root."
+    },
+    {
+     "text": "x = 6 or x = −6",
+     "why": "Multiplied 18 by 2 instead of dividing, getting x² = 36."
+    }
+   ],
+   "explanation": "Add 18 and divide by 2: x² = 9, so x = ±3. Check: 2(9) − 18 = 0 for both."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Solve x² − 6x + 5 = 0. Enter the larger solution.",
+   "answer": "5",
+   "accept": [],
+   "explanation": "Factor: (x − 1)(x − 5) = 0, so x = 1 or x = 5. The larger is 5; check 25 − 30 + 5 = 0."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Solve √(2x − 1) = 5.",
+   "answer": "x = 13",
+   "wrong": [
+    {
+     "text": "x = 3",
+     "why": "Did not square the 5 and solved 2x − 1 = 5."
+    },
+    {
+     "text": "x = 12.5",
+     "why": "Squared correctly to get 2x − 1 = 25 but forgot to add 1 before dividing by 2."
+    },
+    {
+     "text": "x = 26",
+     "why": "Added 1 to 25 but forgot to divide by 2."
+    }
+   ],
+   "explanation": "Square both sides: 2x − 1 = 25, so x = 13. Check: √(26 − 1) = √25 = 5."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "To derive the quadratic formula, start with ax² + bx + c = 0, divide by a, move c/a to the right side, and add (b/(2a))² to both sides. Which equation results?",
+   "answer": "(x + b/(2a))² = (b² − 4ac)/(4a²)",
+   "wrong": [
+    {
+     "text": "(x + b/a)² = (b² − 4ac)/(4a²)",
+     "why": "Used b/a instead of half of b/a as the number inside the square."
+    },
+    {
+     "text": "(x + b/(2a))² = (b² + 4ac)/(4a²)",
+     "why": "Made a sign error when moving c/a to the right side."
+    },
+    {
+     "text": "(x + b/(2a))² = (b² − 4ac)/(2a)",
+     "why": "Squared the 2a on the left but did not square it on the right."
+    }
+   ],
+   "explanation": "x² + (b/a)x = −c/a. Adding b²/(4a²) gives (x + b/(2a))² = b²/(4a²) − c/a = (b² − 4ac)/(4a²)."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Solve √(x + 6) = x. Which statement is correct?",
+   "answer": "The only solution is x = 3; x = −2 is extraneous.",
+   "wrong": [
+    {
+     "text": "The solutions are x = 3 and x = −2.",
+     "why": "Solved x² − x − 6 = 0 but never checked the answers in the original equation."
+    },
+    {
+     "text": "The only solution is x = −2; x = 3 is extraneous.",
+     "why": "Checked the answers but mixed up which one fails (√4 = 2, not −2)."
+    },
+    {
+     "text": "The solutions are x = 2 and x = −3.",
+     "why": "Made a sign error when factoring x² − x − 6."
+    }
+   ],
+   "explanation": "Squaring gives x² − x − 6 = 0, so x = 3 or x = −2. Check: √9 = 3 works, but √4 = 2 ≠ −2, so x = −2 is extraneous."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The time t (hours) to paint a fence varies inversely with the number of workers n. Three workers take 8 hours. How many workers are needed to finish in 2 hours?",
+   "answer": "12 workers",
+   "wrong": [
+    {
+     "text": "9 workers",
+     "why": "Used additive reasoning: 6 fewer hours means 6 more workers."
+    },
+    {
+     "text": "48 workers",
+     "why": "Multiplied k = 24 by 2 instead of dividing by 2."
+    },
+    {
+     "text": "3/4 of a worker",
+     "why": "Treated the relationship as direct variation: 3 × 2 ÷ 8."
+    }
+   ],
+   "explanation": "n·t = k, so k = 3 × 8 = 24. Then n = 24 ÷ 2 = 12 workers."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Solve √(3x + 4) = x. Enter the solution that works in the original equation.",
+   "answer": "4",
+   "accept": [],
+   "explanation": "Squaring gives x² − 3x − 4 = 0, so x = 4 or x = −1. Check: √16 = 4 works, but √1 = 1 ≠ −1, so −1 is extraneous."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A student solves (x + 2)² = 16 and writes x + 2 = ±4. Which reason justifies this step?",
+   "answer": "Take the square root of both sides, keeping both the positive and negative root.",
+   "wrong": [
+    {
+     "text": "Divide both sides by 2 to undo the exponent.",
+     "why": "Thought the exponent 2 is undone by dividing by 2."
+    },
+    {
+     "text": "Apply the zero product property to the left side.",
+     "why": "Confused this step with factoring, where a product equals zero."
+    },
+    {
+     "text": "Distribute the 2 across x + 2.",
+     "why": "Treated the exponent as a multiplier to distribute."
+    }
+   ],
+   "explanation": "(x + 2)² = 16 means x + 2 is a number whose square is 16, so x + 2 = 4 or x + 2 = −4. Then x = 2 or x = −6."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.1",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A student solves 2x² = 3x by dividing both sides by x to get 2x = 3, so x = 1.5. Which solution was lost, and why?",
+   "answer": "x = 0, because dividing by x is not allowed when x = 0.",
+   "wrong": [
+    {
+     "text": "x = −1.5, because every quadratic has roots of opposite sign.",
+     "why": "Assumed every quadratic has roots that are opposites of each other."
+    },
+    {
+     "text": "x = 3, because the 2 should be divided out of 3x as well.",
+     "why": "Divided 3x by 2 as well and then took 3 as the other root."
+    },
+    {
+     "text": "x = 1, because x² divided by x leaves 1.",
+     "why": "Thought x² ÷ x equals 1."
+    }
+   ],
+   "explanation": "Factor instead: x(2x − 3) = 0, so x = 0 or x = 1.5. Dividing by x discards x = 0, which does satisfy 2(0) = 3(0)."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Use the quadratic formula to solve 2x² + 3x − 5 = 0.",
+   "answer": "x = 1 or x = −5/2",
+   "wrong": [
+    {
+     "text": "x = −1 or x = 5/2",
+     "why": "Used +b instead of −b, giving (3 ± 7)/4."
+    },
+    {
+     "text": "x = 2 or x = −5",
+     "why": "Divided by 2 instead of 2a = 4 in the formula."
+    },
+    {
+     "text": "x = 1 or x = 5/2",
+     "why": "Computed (−3 + 7)/4 correctly but dropped the negative sign on the second root."
+    }
+   ],
+   "explanation": "Discriminant: 9 + 40 = 49. x = (−3 ± 7)/4 gives x = 1 or x = −10/4 = −5/2."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "A ball's height in feet is h = −16t² + 48t + 64, where t is in seconds. At what time t > 0 does the ball hit the ground (h = 0)?",
+   "answer": "4",
+   "accept": [],
+   "explanation": "Divide by −16: t² − 3t − 4 = 0, so (t − 4)(t + 1) = 0. Only t = 4 is positive; check −256 + 192 + 64 = 0.",
+   "unit": "seconds"
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which equation has non-real solutions?",
+   "answer": "x² + 2x + 5 = 0",
+   "wrong": [
+    {
+     "text": "x² + 2x − 5 = 0",
+     "why": "Thought a negative constant term makes the solutions non-real (its discriminant is 24 > 0)."
+    },
+    {
+     "text": "x² − 6x + 9 = 0",
+     "why": "Thought a discriminant of 0 means non-real (it has one repeated real root, x = 3)."
+    },
+    {
+     "text": "x² − 4x + 1 = 0",
+     "why": "Thought a non-perfect-square discriminant (12) means non-real; the roots are 2 ± √3, which are real."
+    }
+   ],
+   "explanation": "Discriminant b² − 4ac: x² + 2x + 5 gives 4 − 20 = −16 < 0, so the solutions are non-real."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Solve x² − 4x + 13 = 0 and write the solutions in the form a ± bi.",
+   "answer": "2 ± 3i",
+   "wrong": [
+    {
+     "text": "−2 ± 3i",
+     "why": "Used b instead of −b in −b ± √(b² − 4ac)."
+    },
+    {
+     "text": "2 ± 6i",
+     "why": "Divided only the real part by 2, leaving √(−36) = 6i undivided."
+    },
+    {
+     "text": "4 ± 3i",
+     "why": "Divided only the imaginary part by 2, leaving −b = 4 undivided."
+    }
+   ],
+   "explanation": "Discriminant: 16 − 52 = −36, so x = (4 ± 6i)/2 = 2 ± 3i."
+  },
+  {
+   "cluster": "SOLVE",
+   "standard": "NC.M2.A-REI.4b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "For what value of k does x² + 6x + k = 0 have exactly one real solution?",
+   "answer": "k = 9",
+   "wrong": [
+    {
+     "text": "k = 36",
+     "why": "Set b² = k instead of b² − 4k = 0."
+    },
+    {
+     "text": "k = 3",
+     "why": "Used half of the coefficient 6 without squaring it."
+    },
+    {
+     "text": "k = 18",
+     "why": "Solved 36 − 2k = 0, forgetting the 4 in 4ac."
+    }
+   ],
+   "explanation": "One real solution needs discriminant 0: 36 − 4k = 0, so k = 9, giving (x + 3)² = 0."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Find all points where y = x² and y = x + 2 intersect.",
+   "answer": "(−1, 1) and (2, 4)",
+   "wrong": [
+    {
+     "text": "(2, 4) and (−2, 0)",
+     "why": "Factored x² − x − 2 as (x − 2)(x + 2)."
+    },
+    {
+     "text": "(−1, 1) and (2, 2)",
+     "why": "Found x correctly but used y = x for the second y-value."
+    },
+    {
+     "text": "(1, 1) and (−2, 4)",
+     "why": "Flipped the sign of both x-values."
+    }
+   ],
+   "explanation": "x² = x + 2 gives (x − 2)(x + 1) = 0, so x = 2 or −1. Then y = 4 and y = 1."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Find all points where y = x² − 4 and y = 3x intersect.",
+   "answer": "(−1, −3) and (4, 12)",
+   "wrong": [
+    {
+     "text": "(1, 3) and (−4, −12)",
+     "why": "Flipped the sign of both x-values."
+    },
+    {
+     "text": "(−1, −3) and (4, 16)",
+     "why": "Forgot the −4 when finding y at x = 4 on the parabola."
+    },
+    {
+     "text": "(−2, −6) and (2, 6)",
+     "why": "Solved x² − 4 = 0 only, finding the parabola's x-intercepts."
+    }
+   ],
+   "explanation": "x² − 3x − 4 = 0 gives (x − 4)(x + 1) = 0. Then y = 3x gives (4, 12) and (−1, −3)."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A ball follows the path y = −x² + 6x, and a ramp is the line y = x + 4. At which x-values does the ball meet the ramp?",
+   "answer": "x = 1 and x = 4",
+   "wrong": [
+    {
+     "text": "x = −1 and x = −4",
+     "why": "Factored x² − 5x + 4 as (x + 1)(x + 4)."
+    },
+    {
+     "text": "x = 2 and x = 3",
+     "why": "Moved the terms incorrectly to get x² − 5x + 6 = 0."
+    },
+    {
+     "text": "x = 0 and x = 6",
+     "why": "Found where the parabola crosses the x-axis instead."
+    }
+   ],
+   "explanation": "−x² + 6x = x + 4 gives x² − 5x + 4 = 0, so x = 1 or x = 4. Check: y = 5 and y = 8 on both graphs."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The line y = x − 4 meets the parabola y = x² − 6x + 8 at two points. What is the larger x-coordinate?",
+   "answer": "4",
+   "accept": [],
+   "explanation": "x² − 7x + 12 = 0 gives (x − 3)(x − 4) = 0. The larger x-coordinate is 4; check 16 − 24 + 8 = 0 = 4 − 4."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Solve y = x² + 2x + 3 and y = 4x + 2. Which describes the solution?",
+   "answer": "One solution, (1, 6)",
+   "wrong": [
+    {
+     "text": "Two solutions, (1, 6) and (−1, −2)",
+     "why": "Treated the repeated root as ± roots."
+    },
+    {
+     "text": "No real solution",
+     "why": "Thought a line that only touches a parabola does not intersect it."
+    },
+    {
+     "text": "One solution, (−1, −2)",
+     "why": "Factored x² − 2x + 1 as (x + 1)² instead of (x − 1)²."
+    }
+   ],
+   "explanation": "x² + 2x + 3 = 4x + 2 gives x² − 2x + 1 = 0, i.e. (x − 1)² = 0. So x = 1 only, and y = 6; the line touches the parabola once."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Revenue from a school fair is R = −x² + 20x dollars for x tickets (hundreds), and cost is C = 4x + 60. At how many hundreds of tickets does the fair break even (R = C)?",
+   "answer": "6 and 10",
+   "wrong": [
+    {
+     "text": "−6 and −10",
+     "why": "Factored x² − 16x + 60 with the wrong signs."
+    },
+    {
+     "text": "4 and 15",
+     "why": "Subtracted incorrectly to get x² − 19x + 60 = 0."
+    },
+    {
+     "text": "0 and 20",
+     "why": "Found where revenue alone equals zero."
+    }
+   ],
+   "explanation": "−x² + 20x = 4x + 60 gives x² − 16x + 60 = 0, so (x − 6)(x − 10) = 0. Break-even at 6 and 10 hundred tickets."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "For what value of b does the line y = 2x + b touch the parabola y = x² − 4x + 7 at exactly one point?",
+   "answer": "b = −2",
+   "wrong": [
+    {
+     "text": "b = 2",
+     "why": "Wrote the discriminant as 36 − 4(7 + b), a sign error on b."
+    },
+    {
+     "text": "b = 9",
+     "why": "Made the constant a perfect square (9) without subtracting 7 first."
+    },
+    {
+     "text": "b = −29",
+     "why": "Used discriminant 36 − (7 − b) = 0, leaving out the factor 4."
+    }
+   ],
+   "explanation": "x² − 4x + 7 = 2x + b gives x² − 6x + (7 − b) = 0. Discriminant 36 − 4(7 − b) = 0 gives b = −2. Then x = 3, y = 4 on both."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "The line y = x + k meets the parabola y = x² − 3 at two points whose x-coordinates differ by 5. Find k.",
+   "answer": "3",
+   "accept": [],
+   "explanation": "x² − x − (3 + k) = 0. The roots differ by √(1 + 12 + 4k) = 5, so 13 + 4k = 25 and k = 3. Check: x² − x − 6 = 0 gives x = 3, −2."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The graphs of y = √x and y = 6 − x intersect. Which gives the x-coordinate of the intersection?",
+   "answer": "x = 4",
+   "wrong": [
+    {
+     "text": "x = 9",
+     "why": "Squared to get x² − 13x + 36 = 0 and kept x = 9, which fails the original (3 ≠ −3)."
+    },
+    {
+     "text": "x = 2",
+     "why": "Gave the y-coordinate of the intersection instead of the x-coordinate."
+    },
+    {
+     "text": "x = 4 and x = 9",
+     "why": "Kept both roots of the squared equation without checking."
+    }
+   ],
+   "explanation": "Table: x = 4 gives √4 = 2 and 6 − 4 = 2. The squared equation also has x = 9, but √9 = 3 ≠ −3, so it is extraneous."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The graph of y = 12/x meets the horizontal line y = 3. What is the x-coordinate of the intersection?",
+   "answer": "x = 4",
+   "wrong": [
+    {
+     "text": "x = 36",
+     "why": "Multiplied 12 by 3 instead of dividing."
+    },
+    {
+     "text": "x = 9",
+     "why": "Subtracted: 12 − 3."
+    },
+    {
+     "text": "x = 1/4",
+     "why": "Inverted the division, computing 3 ÷ 12."
+    }
+   ],
+   "explanation": "Set 12/x = 3, so x = 12 ÷ 3 = 4."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The graphs of y = 6/x and y = x − 1 intersect where 6/x = x − 1. Which lists every x-coordinate of an intersection?",
+   "answer": "x = 3 and x = −2",
+   "wrong": [
+    {
+     "text": "x = 3 only",
+     "why": "Assumed a negative answer must be extraneous; 6/(−2) = −3 = −2 − 1, so it works."
+    },
+    {
+     "text": "x = −3 and x = 2",
+     "why": "Flipped the signs when factoring x² − x − 6."
+    },
+    {
+     "text": "x = 6 and x = −1",
+     "why": "Used the constants 6 and −1 as the roots."
+    }
+   ],
+   "explanation": "Multiply by x: x² − x − 6 = 0, so x = 3 or x = −2. Check: 6/3 = 2 = 3 − 1, and 6/(−2) = −3 = −2 − 1."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A table for f(x) = √x and g(x) = 5/x gives: x = 1: 1 and 5; x = 2: 1.41 and 2.5; x = 3: 1.73 and 1.67; x = 4: 2 and 1.25. Where is the solution of f(x) = g(x)?",
+   "answer": "Between x = 2 and x = 3",
+   "wrong": [
+    {
+     "text": "Exactly at x = 3",
+     "why": "Picked the row where the values are closest instead of finding where the order switches."
+    },
+    {
+     "text": "Between x = 3 and x = 4",
+     "why": "Looked at rows after f first exceeds g rather than where it switches."
+    },
+    {
+     "text": "Between x = 1 and x = 2",
+     "why": "Compared the first rows and did not see which function is larger at each x."
+    }
+   ],
+   "explanation": "At x = 2, √x < 5/x; at x = 3, √x > 5/x. The graphs cross between them (about x = 2.9)."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Using graphing technology, find where y = √(x + 2) meets y = 3/x for x > 0. Round the x-coordinate to the nearest tenth.",
+   "answer": "1.6",
+   "accept": [
+    "1.6"
+   ],
+   "explanation": "Graph both and find the intersection: x ≈ 1.58, which rounds to 1.6. Check: √3.58 ≈ 1.89 and 3/1.58 ≈ 1.90."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "How many solutions does √x = −4/x have?",
+   "answer": "No solutions",
+   "wrong": [
+    {
+     "text": "One solution",
+     "why": "Squared both sides to get x³ = 16 and accepted x ≈ 2.5 without checking signs."
+    },
+    {
+     "text": "Two solutions",
+     "why": "Counted a positive and a negative root from squaring."
+    },
+    {
+     "text": "Infinitely many solutions",
+     "why": "Thought the two graphs overlap because the values look close on a table."
+    }
+   ],
+   "explanation": "For x > 0 (needed for √x), −4/x is negative but √x ≥ 0, so the graphs never meet. Squaring would give an extraneous x ≈ 2.52."
+  },
+  {
+   "cluster": "SYSGRAPH",
+   "standard": "NC.M2.A-REI.11",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Use graphing technology to approximate the x-coordinate where y = 12/x meets y = √x.",
+   "answer": "x ≈ 5.2",
+   "wrong": [
+    {
+     "text": "x ≈ 144",
+     "why": "Divided to get √x = 12 instead of x√x = 12."
+    },
+    {
+     "text": "x ≈ 3.5",
+     "why": "Took √12 as the answer."
+    },
+    {
+     "text": "x ≈ 2.3",
+     "why": "Took the cube root of 12 instead of 12^(2/3)."
+    }
+   ],
+   "explanation": "12/x = √x gives x^(3/2) = 12, so x = 12^(2/3) ≈ 5.24. Check: √5.24 ≈ 2.29 and 12/5.24 ≈ 2.29."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A translation is T(x, y) = (x + 3, y − 2). What is T(4, 5)?",
+   "answer": "(7, 3)",
+   "wrong": [
+    {
+     "text": "(1, 7)",
+     "why": "Subtracted 3 from x and added 2 to y, reversing the translation."
+    },
+    {
+     "text": "(2, 8)",
+     "why": "Switched the two shifts, using (x − 2, y + 3)."
+    },
+    {
+     "text": "(7, 7)",
+     "why": "Added 3 to x correctly but added 2 to y instead of subtracting."
+    }
+   ],
+   "explanation": "T(4, 5) = (4 + 3, 5 − 2) = (7, 3)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The reflection R(x, y) = (x, −y) is a function. Which statement about its domain and range is correct?",
+   "answer": "Both the domain and the range are sets of points in the plane.",
+   "wrong": [
+    {
+     "text": "The domain is the x-coordinates and the range is the y-coordinates.",
+     "why": "Treated the transformation like y = f(x) on a graph."
+    },
+    {
+     "text": "The domain is all real numbers and the range is y ≤ 0.",
+     "why": "Treated R as a number-to-number function with a sign flip."
+    },
+    {
+     "text": "The domain is one point and the range is its image only.",
+     "why": "Thought a transformation function acts on a single point at a time."
+    }
+   ],
+   "explanation": "R takes any point (x, y) in the plane as input and returns a point in the plane, so domain and range are both sets of points."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The 90° counterclockwise rotation about the origin is R(x, y) = (−y, x). What is R(3, −2)?",
+   "answer": "(2, 3)",
+   "wrong": [
+    {
+     "text": "(−2, −3)",
+     "why": "Used the clockwise rule (y, −x)."
+    },
+    {
+     "text": "(−3, 2)",
+     "why": "Rotated 180° (negated both coordinates)."
+    },
+    {
+     "text": "(−2, 3)",
+     "why": "Swapped x and y without handling the sign of y correctly (reflection over y = x)."
+    }
+   ],
+   "explanation": "R(3, −2) = (−(−2), 3) = (2, 3)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "T(x, y) = (x + 5, y − 3) maps point P to T(P) = (2, −1). What is the x-coordinate of P?",
+   "answer": "−3",
+   "accept": [
+    "-3"
+   ],
+   "explanation": "x + 5 = 2 gives x = −3. (Also y − 3 = −1 gives y = 2, so P = (−3, 2).)"
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Let T(x, y) = (x + 1, y) and D(x, y) = (2x, 2y). What is D(T(3, −1))?",
+   "answer": "(8, −2)",
+   "wrong": [
+    {
+     "text": "(7, −2)",
+     "why": "Applied the dilation first, then the translation (T(D(3, −1)))."
+    },
+    {
+     "text": "(6, −2)",
+     "why": "Applied only the dilation and skipped the translation."
+    },
+    {
+     "text": "(8, −1)",
+     "why": "Doubled the x-coordinate but not the y-coordinate."
+    }
+   ],
+   "explanation": "T(3, −1) = (4, −1), then D(4, −1) = (8, −2)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A ball's height is h(t) = −16t² + 64t feet after t seconds. What does the vertex (2, 64) tell you?",
+   "answer": "The ball reaches its highest point, 64 feet, at 2 seconds.",
+   "wrong": [
+    {
+     "text": "The ball reaches its highest point, 2 feet, at 64 seconds.",
+     "why": "Swapped the coordinates of the vertex."
+    },
+    {
+     "text": "The ball lands on the ground after 2 seconds.",
+     "why": "Confused the vertex with a zero of the function."
+    },
+    {
+     "text": "The ball is at height 0 feet at 64 seconds.",
+     "why": "Misread the vertex as an intercept."
+    }
+   ],
+   "explanation": "h(2) = −64 + 128 = 64. The vertex (t, h) = (2, 64) is the maximum height at that time."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A plant's height h (cm) follows a quadratic: t = 0, 1, 2, 3, 4 days gives h = 3, 12, 15, 12, 3. On which interval is the height increasing?",
+   "answer": "0 < t < 2",
+   "wrong": [
+    {
+     "text": "2 < t < 4",
+     "why": "Read the decreasing half of the table as increasing."
+    },
+    {
+     "text": "0 < t < 4",
+     "why": "Assumed the whole domain is increasing because both ends are positive."
+    },
+    {
+     "text": "1 < t < 3",
+     "why": "Used the two equal values 12 and 12 as the endpoints."
+    }
+   ],
+   "explanation": "The axis of symmetry is t = 2 (h = 15, the maximum). Height rises from t = 0 to t = 2, then falls."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "What is the vertex of y = 2(x + 4)² − 7?",
+   "answer": "(−4, −7)",
+   "wrong": [
+    {
+     "text": "(4, −7)",
+     "why": "Took the horizontal shift sign as written instead of reversing it."
+    },
+    {
+     "text": "(−4, 7)",
+     "why": "Reversed the sign of the vertical shift."
+    },
+    {
+     "text": "(−8, −7)",
+     "why": "Multiplied the shift by the leading coefficient 2."
+    }
+   ],
+   "explanation": "In y = a(x − h)² + k the vertex is (h, k); here h = −4 and k = −7."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What are the domain and range of y = √(x − 3) + 2?",
+   "answer": "Domain x ≥ 3, range y ≥ 2",
+   "wrong": [
+    {
+     "text": "Domain x ≥ −3, range y ≥ 2",
+     "why": "Sign slip on the horizontal shift."
+    },
+    {
+     "text": "Domain x ≥ 2, range y ≥ 3",
+     "why": "Swapped the horizontal and vertical shifts."
+    },
+    {
+     "text": "Domain x ≥ 3, range y ≤ 2",
+     "why": "Thought the +2 shifts the range downward."
+    }
+   ],
+   "explanation": "x − 3 ≥ 0 gives x ≥ 3. √(x − 3) ≥ 0, so y ≥ 2."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "What are the asymptotes of y = 5/(x + 2) − 1?",
+   "answer": "x = −2 and y = −1",
+   "wrong": [
+    {
+     "text": "x = 2 and y = −1",
+     "why": "Sign slip on the horizontal shift."
+    },
+    {
+     "text": "x = −2 and y = 1",
+     "why": "Sign slip on the vertical shift."
+    },
+    {
+     "text": "x = −1 and y = −2",
+     "why": "Swapped the vertical and horizontal asymptotes."
+    }
+   ],
+   "explanation": "The denominator is 0 at x = −2 (vertical asymptote). As x grows, 5/(x + 2) → 0, so y → −1 (horizontal asymptote)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "What is the minimum value of f(x) = 2x² − 12x + 7?",
+   "answer": "−11",
+   "accept": [
+    "-11"
+   ],
+   "explanation": "The vertex is at x = 12/(2·2) = 3. f(3) = 18 − 36 + 7 = −11."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "As x increases without bound, what happens to y = 8/x?",
+   "answer": "y gets closer and closer to 0 but never reaches it.",
+   "wrong": [
+    {
+     "text": "y increases without bound.",
+     "why": "Thought larger x gives larger y, as in direct variation."
+    },
+    {
+     "text": "y gets closer and closer to 8.",
+     "why": "Mistook the numerator for the horizontal asymptote."
+    },
+    {
+     "text": "y eventually becomes negative.",
+     "why": "Thought dividing by a very large number can flip the sign."
+    }
+   ],
+   "explanation": "For large positive x, 8/x is a small positive number, so y → 0 (horizontal asymptote y = 0) without touching it."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The time to travel 120 miles is t = 120/s hours at speed s mph. Which statement is true?",
+   "answer": "Doubling the speed cuts the travel time in half.",
+   "wrong": [
+    {
+     "text": "Doubling the speed doubles the travel time.",
+     "why": "Treated the relationship as direct variation."
+    },
+    {
+     "text": "Doubling the speed cuts the time by 2 hours.",
+     "why": "Used additive instead of multiplicative reasoning."
+    },
+    {
+     "text": "Doubling the speed leaves the time unchanged.",
+     "why": "Thought the 120 miles being fixed means time is fixed."
+    }
+   ],
+   "explanation": "At 30 mph t = 4 h; at 60 mph t = 2 h. Since t = 120/s, doubling s halves t."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which function has domain x ≤ 4 and range y ≥ −1?",
+   "answer": "f(x) = √(4 − x) − 1",
+   "wrong": [
+    {
+     "text": "f(x) = √(x − 4) − 1",
+     "why": "Reversed the sign inside the root, giving domain x ≥ 4."
+    },
+    {
+     "text": "f(x) = √(4 − x) + 1",
+     "why": "Used +1, giving range y ≥ 1."
+    },
+    {
+     "text": "f(x) = −√(4 − x) − 1",
+     "why": "Added a negative sign, giving range y ≤ −1."
+    }
+   ],
+   "explanation": "4 − x ≥ 0 gives x ≤ 4. √(4 − x) ≥ 0, so subtracting 1 gives y ≥ −1."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M2.F-IF.7",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "The parabola y = x² + bx + c has vertex (3, −4). What is c?",
+   "answer": "5",
+   "accept": [],
+   "explanation": "y = (x − 3)² − 4 = x² − 6x + 5, so c = 5. Check: the vertex y-value is 9 − 18 + 5 = −4."
+  }
+ ]
+}

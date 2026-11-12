@@ -1,0 +1,941 @@
+{
+ "items": [
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A machine part must be 12.5 cm long, and any part whose length L differs from 12.5 cm by more than 0.2 cm is rejected. Which inequality describes the lengths that are accepted?",
+   "answer": "|L − 12.5| ≤ 0.2",
+   "wrong": [
+    {
+     "text": "|L − 0.2| ≤ 12.5",
+     "why": "Swapped the target length and the tolerance."
+    },
+    {
+     "text": "|L + 12.5| ≤ 0.2",
+     "why": "Used a sum instead of a difference from the target."
+    },
+    {
+     "text": "|L − 12.5| ≥ 0.2",
+     "why": "Reversed the inequality, describing rejected parts."
+    }
+   ],
+   "explanation": "Distance from 12.5 must be at most 0.2, so |L − 12.5| ≤ 0.2."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Pump A alone can fill a tank in 12 hours. Pump A and Pump B working together fill it in 4 hours. Let t be the number of hours Pump B needs to fill the tank alone. Which equation can be solved for t?",
+   "answer": "1/12 + 1/t = 1/4",
+   "wrong": [
+    {
+     "text": "12 + t = 4",
+     "why": "Added times instead of rates."
+    },
+    {
+     "text": "(1/12)·(1/t) = 1/4",
+     "why": "Multiplied the rates instead of adding them."
+    },
+    {
+     "text": "1/12 + 1/t = 4",
+     "why": "Used 4 hours as a rate instead of 1/4 of the tank per hour."
+    }
+   ],
+   "explanation": "Rates add: Pump A does 1/12 of the tank per hour, Pump B does 1/t, together 1/4. So 1/12 + 1/t = 1/4 (t = 6)."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.1",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A culture starts with 500 bacteria, and the count doubles every 3 hours, so after t hours there are 500·2^(t/3) bacteria. After how many hours will there be 8000 bacteria?",
+   "answer": "12 hours",
+   "wrong": [
+    {
+     "text": "16 hours",
+     "why": "Found 2^(t/3) = 16 but took 16 as t instead of solving t/3 = 4."
+    },
+    {
+     "text": "4 hours",
+     "why": "Solved 500·2^t = 8000, ignoring the 3-hour doubling time."
+    },
+    {
+     "text": "48 hours",
+     "why": "Multiplied 16 by 3 instead of using 2^4 = 16, so t/3 = 4."
+    }
+   ],
+   "explanation": "500·2^(t/3) = 8000 gives 2^(t/3) = 16 = 2^4, so t/3 = 4 and t = 12."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A rectangular garden has a perimeter of 40 m. Let w be its width in meters. Which equation gives the area A in terms of w?",
+   "answer": "A = w(20 − w)",
+   "wrong": [
+    {
+     "text": "A = w(40 − w)",
+     "why": "Used 40 as the sum of length and width instead of half the perimeter."
+    },
+    {
+     "text": "A = w(40 − 2w)",
+     "why": "Subtracted 2w from the full perimeter to get the length."
+    },
+    {
+     "text": "A = 2w(20 − w)",
+     "why": "Doubled the area expression by including both pairs of sides."
+    }
+   ],
+   "explanation": "Length plus width is 20, so length = 20 − w and A = w(20 − w)."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A car is worth $24,000 when new and loses 15% of its value each year. Which equation gives the car's value V after t years?",
+   "answer": "V = 24,000·(0.85)^t",
+   "wrong": [
+    {
+     "text": "V = 24,000·(0.15)^t",
+     "why": "Used the percent lost instead of the percent kept."
+    },
+    {
+     "text": "V = 24,000·(1.15)^t",
+     "why": "Used a growth factor instead of a decay factor."
+    },
+    {
+     "text": "V = 24,000 − 0.15t",
+     "why": "Treated 15% as a fixed amount subtracted each year."
+    }
+   ],
+   "explanation": "Each year the value is multiplied by 1 − 0.15 = 0.85, so V = 24,000·(0.85)^t."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A theater sold 120 tickets. Adult tickets cost $8 and student tickets cost $5, and total sales were $795. Let a be the number of adult tickets and s the number of student tickets. Which system models the situation?",
+   "answer": "a + s = 120 and 8a + 5s = 795",
+   "wrong": [
+    {
+     "text": "a + s = 795 and 8a + 5s = 120",
+     "why": "Swapped the ticket total and the dollar total."
+    },
+    {
+     "text": "a + s = 120 and 5a + 8s = 795",
+     "why": "Attached the prices to the wrong ticket types."
+    },
+    {
+     "text": "a + s = 120 and 8a − 5s = 795",
+     "why": "Subtracted student revenue instead of adding it."
+    }
+   ],
+   "explanation": "The counts add to 120 and the revenues add to $795: a + s = 120 and 8a + 5s = 795."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Maya has at most $30 to spend. Notebooks cost $3 each (n) and pens cost $2 each (p). She wants to buy at least 12 items in all. Which system models her situation?",
+   "answer": "3n + 2p ≤ 30 and n + p ≥ 12",
+   "wrong": [
+    {
+     "text": "3n + 2p ≥ 30 and n + p ≤ 12",
+     "why": "Reversed both inequality signs."
+    },
+    {
+     "text": "3n + 2p ≤ 12 and n + p ≥ 30",
+     "why": "Swapped the dollar limit and the item count."
+    },
+    {
+     "text": "2n + 3p ≤ 30 and n + p ≥ 12",
+     "why": "Attached the prices to the wrong items."
+    }
+   ],
+   "explanation": "Spending is 3n + 2p, which must be at most 30; the item count n + p must be at least 12."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A student solves 3(x − 2) + 4 = 2x + 5. The first step is 3x − 6 + 4 = 2x + 5. Which property justifies this step?",
+   "answer": "The distributive property",
+   "wrong": [
+    {
+     "text": "The associative property of addition",
+     "why": "That property regroups sums and does not remove parentheses around a product."
+    },
+    {
+     "text": "The commutative property of multiplication",
+     "why": "That property reorders factors, which did not happen here."
+    },
+    {
+     "text": "The subtraction property of equality",
+     "why": "No quantity was subtracted from both sides in this step."
+    }
+   ],
+   "explanation": "Multiplying 3 by each term in (x − 2) gives 3x − 6, which is the distributive property."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A student solves 2x − 7 ≤ 5x + 8 and gets −3x ≤ 15, then x ≥ −5. Which statement best justifies reversing the inequality sign in the last step?",
+   "answer": "Dividing both sides by −3, a negative number, reverses the order.",
+   "wrong": [
+    {
+     "text": "Subtracting 5x from both sides moves a variable term and reverses the order.",
+     "why": "Subtracting the same number never changes the direction of an inequality."
+    },
+    {
+     "text": "Adding 7 to both sides changes the constant's sign and reverses the order.",
+     "why": "Adding the same number never changes the direction of an inequality."
+    },
+    {
+     "text": "Any inequality with a negative coefficient must be reversed at the start.",
+     "why": "Reversal happens only when multiplying or dividing by a negative."
+    }
+   ],
+   "explanation": "Subtracting 5x and adding 7 keep the order; only dividing by −3 flips it: x ≥ −5."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A club rents a van for $240 and splits the cost equally among x members. If 2 more members join, each member's share drops by $4. This gives 240/x − 240/(x + 2) = 4, which simplifies to x² + 2x − 120 = 0. How many members were in the club originally?",
+   "answer": "10",
+   "wrong": [
+    {
+     "text": "12",
+     "why": "Mis-factored as (x − 12)(x + 10) and took the positive root."
+    },
+    {
+     "text": "−12",
+     "why": "Reported the negative root, which is impossible for a number of members."
+    },
+    {
+     "text": "24",
+     "why": "Computed each member's original share, $240 ÷ 10, instead of the member count."
+    }
+   ],
+   "explanation": "x² + 2x − 120 = (x + 12)(x − 10) = 0, so x = 10 or −12. A member count cannot be negative, so x = 10."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.2",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Consider x/(x − 3) = 3/(x − 3) + 2. Multiplying both sides by x − 3 gives x = 3 + 2(x − 3), so x = 3. Which statement is correct?",
+   "answer": "x = 3 is extraneous, so there is no solution.",
+   "wrong": [
+    {
+     "text": "x = 3 is the only solution.",
+     "why": "Did not check that x = 3 makes a denominator zero."
+    },
+    {
+     "text": "x = −9 is the only solution.",
+     "why": "Made a sign error, writing x = 3 + 2x + 6."
+    },
+    {
+     "text": "x = 0 is the only solution.",
+     "why": "Set the numerator x equal to zero, ignoring the other terms."
+    }
+   ],
+   "explanation": "x = 3 makes x − 3 = 0, so it is undefined in the original equation. Clearing denominators introduced it, so there is no solution."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.11",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Let f(x) = 2^x and g(x) = x + 3. Values are: x = 0: f = 1, g = 3; x = 1: f = 2, g = 4; x = 2: f = 4, g = 5; x = 3: f = 8, g = 6; x = 4: f = 16, g = 7. Between which two consecutive x-values is the positive solution of 2^x = x + 3?",
+   "answer": "Between x = 2 and x = 3",
+   "wrong": [
+    {
+     "text": "Between x = 1 and x = 2",
+     "why": "In that interval f is still below g at both ends."
+    },
+    {
+     "text": "Between x = 3 and x = 4",
+     "why": "In that interval f is already above g at both ends."
+    },
+    {
+     "text": "Between x = 0 and x = 1",
+     "why": "In that interval f is below g at both ends."
+    }
+   ],
+   "explanation": "The graphs meet where f = g. At x = 2, f < g (4 < 5); at x = 3, f > g (8 > 6), so they cross between 2 and 3."
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.2",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Ana can paint a fence alone in 6 hours. Working together, Ana and Ben can paint it in 4 hours. How many hours would Ben need to paint the fence alone?",
+   "answer": "12",
+   "accept": [
+    "12 hours"
+   ],
+   "explanation": "1/6 + 1/t = 1/4 gives 1/t = 1/12, so t = 12. Check: 1/6 + 1/12 = 1/4.",
+   "unit": "hours"
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-REI.11",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Use a graphing calculator or a table of values to solve 2^x = 5 − x. Give the x-coordinate of the intersection of y = 2^x and y = 5 − x, rounded to the nearest hundredth.",
+   "answer": "1.72",
+   "accept": [
+    "1.7",
+    "1.716",
+    "1.7156"
+   ],
+   "explanation": "f(1.71) ≈ 3.27 < 3.29 and f(1.72) ≈ 3.29 > 3.28, so the graphs cross near x ≈ 1.72.",
+   "tolerance": 0.01
+  },
+  {
+   "cluster": "CEDREI",
+   "standard": "NC.M3.A-CED.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A chemist mixes a 20% acid solution with a 50% acid solution to make 12 liters of a 30% acid solution. How many liters of the 50% solution are needed?",
+   "answer": "4",
+   "accept": [
+    "4 L",
+    "4 liters"
+   ],
+   "explanation": "x + y = 12 and 0.2x + 0.5y = 3.6. Substituting x = 12 − y gives 2.4 + 0.3y = 3.6, so y = 4.",
+   "unit": "liters"
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The function f takes an angle θ in degrees to its sine, f(θ) = sin θ. What is f(150°)?",
+   "answer": "1/2",
+   "wrong": [
+    {
+     "text": "−1/2",
+     "why": "Thought the sine is negative in the second quadrant."
+    },
+    {
+     "text": "√3/2",
+     "why": "Used the value of sin 60° or cos 30°."
+    },
+    {
+     "text": "−√3/2",
+     "why": "Used the wrong reference angle and the wrong sign."
+    }
+   ],
+   "explanation": "The reference angle for 150° is 30°, and sine is positive in the second quadrant, so sin 150° = 1/2."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "In a right triangle with acute angle θ, sin θ = opposite ÷ hypotenuse. Which statement is true?",
+   "answer": "Each acute angle has exactly one sine value, no matter how large the right triangle is.",
+   "wrong": [
+    {
+     "text": "A larger right triangle with the same acute angle has a larger sine value.",
+     "why": "Confused side lengths with the ratio, which stays the same in similar triangles."
+    },
+    {
+     "text": "Two different acute angles can have the same sine value.",
+     "why": "Sine is strictly increasing from 0° to 90°, so no two acute angles match."
+    },
+    {
+     "text": "The sine value is determined by the hypotenuse length alone.",
+     "why": "The ratio depends on the angle, not on the hypotenuse length."
+    }
+   ],
+   "explanation": "Similar right triangles share the same ratio, so sine assigns one value to each acute angle, making it a function of the angle."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Let f(x) = 2x + 1 for x < 3 and f(x) = x² − 4 for x ≥ 3. What is f(3) + f(0)?",
+   "answer": "6",
+   "wrong": [
+    {
+     "text": "8",
+     "why": "Used 2x + 1 for x = 3 as well, getting 7 + 1."
+    },
+    {
+     "text": "1",
+     "why": "Used x² − 4 for x = 0, getting 5 + (−4)."
+    },
+    {
+     "text": "4",
+     "why": "Subtracted f(0) from f(3) instead of adding."
+    }
+   ],
+   "explanation": "x = 3 uses the second rule: f(3) = 9 − 4 = 5. x = 0 uses the first rule: f(0) = 1. The sum is 6."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A parking garage charges P(h) = 4h dollars for h hours when 0 < h ≤ 3, and P(h) = 12 + 2(h − 3) dollars when h > 3. What does the statement P(7) = 20 mean?",
+   "answer": "Parking for 7 hours costs $20.",
+   "wrong": [
+    {
+     "text": "Parking for 20 hours costs $7.",
+     "why": "Swapped the input and output."
+    },
+    {
+     "text": "After 7 hours the fee increases by $20.",
+     "why": "Treated the output as a change in the fee."
+    },
+    {
+     "text": "The fee rises by $20 for each of the first 7 hours.",
+     "why": "Treated the output as a rate per hour."
+    }
+   ],
+   "explanation": "The input is hours and the output is dollars. P(7) = 12 + 2(4) = 20, so 7 hours costs $20."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "The water depth at a dock rises and falls in a regular pattern. The lowest depth is 1 ft and the highest depth is 9 ft, and a high tide occurs every 12 hours. Which pair gives the midline and the period?",
+   "answer": "Midline 5 ft; period 12 hours",
+   "wrong": [
+    {
+     "text": "Midline 4 ft; period 12 hours",
+     "why": "Used the amplitude (half the range) as the midline."
+    },
+    {
+     "text": "Midline 5 ft; period 6 hours",
+     "why": "Used the time from high tide to low tide as the full period."
+    },
+    {
+     "text": "Midline 8 ft; period 12 hours",
+     "why": "Used the range as the midline."
+    }
+   ],
+   "explanation": "Midline = (9 + 1)/2 = 5 ft. The pattern repeats every 12 hours, so the period is 12 hours."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A phone plan charges C(g) dollars for g gigabytes used: C = 20 for 0 < g ≤ 2, C = 30 for 2 < g ≤ 5, and C = 45 for g > 5. Which statement describes the graph at g = 2?",
+   "answer": "The cost jumps from $20 to $30 once usage passes 2 GB.",
+   "wrong": [
+    {
+     "text": "The cost rises gradually from $20 to $30 between 0 and 2 GB.",
+     "why": "The cost is constant at $20 on that interval."
+    },
+    {
+     "text": "The cost drops from $30 to $20 once usage passes 2 GB.",
+     "why": "Read the jump in the wrong direction."
+    },
+    {
+     "text": "The cost stays at $20 for all usage above 2 GB.",
+     "why": "Ignored the second piece, which is $30 beyond 2 GB."
+    }
+   ],
+   "explanation": "The graph has a jump discontinuity at g = 2: C is 20 up to 2 GB and 30 just beyond."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "What is the range of y = |x − 3| + 2?",
+   "answer": "y ≥ 2",
+   "wrong": [
+    {
+     "text": "y ≥ 3",
+     "why": "Used the x-coordinate of the vertex as the minimum output."
+    },
+    {
+     "text": "y ≥ −2",
+     "why": "Used the wrong sign on the vertical shift."
+    },
+    {
+     "text": "All real numbers",
+     "why": "Treated the function as if it had no minimum."
+    }
+   ],
+   "explanation": "|x − 3| ≥ 0, so y ≥ 2, with minimum 2 at the vertex (3, 2)."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Which pair gives the vertical and horizontal asymptotes of f(x) = (2x + 1)/(x − 4)?",
+   "answer": "x = 4 and y = 2",
+   "wrong": [
+    {
+     "text": "x = −4 and y = 2",
+     "why": "Made a sign error when setting the denominator to zero."
+    },
+    {
+     "text": "x = 4 and y = 1/2",
+     "why": "Inverted the ratio of leading coefficients."
+    },
+    {
+     "text": "x = 2 and y = 4",
+     "why": "Swapped the two asymptotes."
+    }
+   ],
+   "explanation": "The denominator is zero at x = 4. Degrees are equal, so the end behavior approaches 2/1 = 2."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The function y = −2 sin(πx/4) + 3 is graphed with x in any real number. Which pair gives its period and maximum value?",
+   "answer": "Period 8; maximum 5",
+   "wrong": [
+    {
+     "text": "Period 4; maximum 5",
+     "why": "Used π instead of 2π in the period formula."
+    },
+    {
+     "text": "Period 8; maximum 1",
+     "why": "Gave the minimum value as the maximum."
+    },
+    {
+     "text": "Period π/4; maximum 5",
+     "why": "Used the coefficient of x as the period."
+    }
+   ],
+   "explanation": "Period = 2π ÷ (π/4) = 8. The sine term ranges from −2 to 2, so y ranges from 1 to 5; the maximum is 5."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Let f(x) = (1 − x)(x + 2)(x + 5). Which statement describes its end behavior?",
+   "answer": "As x → ∞, f(x) → −∞; as x → −∞, f(x) → +∞.",
+   "wrong": [
+    {
+     "text": "As x → ∞, f(x) → +∞; as x → −∞, f(x) → −∞.",
+     "why": "Ignored that the factor (1 − x) makes the leading coefficient negative."
+    },
+    {
+     "text": "As x → ∞ and as x → −∞, f(x) → +∞.",
+     "why": "Treated the cubic as an even-degree function."
+    },
+    {
+     "text": "As x → ∞ and as x → −∞, f(x) → −∞.",
+     "why": "Treated the cubic as an even-degree function with a negative leading coefficient."
+    }
+   ],
+   "explanation": "The leading term is (−x)(x)(x) = −x³, an odd-degree term with a negative coefficient, so f falls on the right and rises on the left."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.9",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Function p is p(x) = x² − 6x + 5. Function q is a parabola that opens upward with its vertex at (4, −3). Which function has the lesser minimum value?",
+   "answer": "p, with a minimum of −4 compared to −3",
+   "wrong": [
+    {
+     "text": "q, with a minimum of −3 compared to −4",
+     "why": "Thought −3 is less than −4."
+    },
+    {
+     "text": "Neither; both minimums are equal because both parabolas open upward.",
+     "why": "Assumed the opening direction fixes the minimum value."
+    },
+    {
+     "text": "q, because its vertex is farther right than the vertex of p.",
+     "why": "Compared x-coordinates of the vertices instead of the minimum values."
+    }
+   ],
+   "explanation": "p has its vertex at x = 3, where p(3) = 9 − 18 + 5 = −4. Since −4 < −3, p has the lesser minimum."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.9",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Function f(x) = 2·3^x. Function g is given by this table: x = 0: 4; x = 1: 8; x = 2: 16; x = 3: 32. For which whole number x does f(x) first exceed g(x)?",
+   "answer": "x = 2",
+   "wrong": [
+    {
+     "text": "x = 0",
+     "why": "Compared f(0) = 2 with g(0) = 4 backward."
+    },
+    {
+     "text": "x = 1",
+     "why": "Compared f(1) = 6 with g(1) = 8 backward."
+    },
+    {
+     "text": "x = 3",
+     "why": "Skipped x = 2, where f(2) = 18 already exceeds g(2) = 16."
+    }
+   ],
+   "explanation": "f(0) = 2 < 4 and f(1) = 6 < 8, but f(2) = 18 > 16. g(x) = 4·2^x grows by factor 2, f by factor 3."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.2",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Let f(x) = x² − 1 for x < 2 and f(x) = 3x + 2 for x ≥ 2. Find f(−3) + f(2).",
+   "answer": "16",
+   "accept": [],
+   "explanation": "f(−3) = 9 − 1 = 8 and f(2) = 3(2) + 2 = 8, so the sum is 16."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.1",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Let f(θ) = sin θ and g(θ) = cos θ for angles in degrees. Find 12·f(30°) + 8·g(60°).",
+   "answer": "10",
+   "accept": [],
+   "explanation": "sin 30° = 1/2 and cos 60° = 1/2, so 12(1/2) + 8(1/2) = 6 + 4 = 10."
+  },
+  {
+   "cluster": "FUNC",
+   "standard": "NC.M3.F-IF.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "What is the period of y = −4 cos(πx/3) + 1?",
+   "answer": "6",
+   "accept": [
+    "6 units"
+   ],
+   "explanation": "Period = 2π ÷ (π/3) = 6."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A gym charges a $25 sign-up fee plus $18 per month. Which function gives the total cost C after m months?",
+   "answer": "C(m) = 25 + 18m",
+   "wrong": [
+    {
+     "text": "C(m) = 18 + 25m",
+     "why": "Swapped the sign-up fee and the monthly rate."
+    },
+    {
+     "text": "C(m) = 43m",
+     "why": "Added the fee and rate and multiplied by months."
+    },
+    {
+     "text": "C(m) = 25·18^m",
+     "why": "Used an exponential form for a constant monthly charge."
+    }
+   ],
+   "explanation": "The fee is paid once and the monthly charge repeats m times, so C(m) = 25 + 18m."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A rectangle's length is 3 more than twice its width w. Which function gives the area A in terms of w?",
+   "answer": "A(w) = w(2w + 3)",
+   "wrong": [
+    {
+     "text": "A(w) = 2w + 3",
+     "why": "Gave the length instead of the area."
+    },
+    {
+     "text": "A(w) = w(3w + 2)",
+     "why": "Swapped the 3 and the 2 in the length."
+    },
+    {
+     "text": "A(w) = 2w(w + 3)",
+     "why": "Doubled w only partially; the length is 2w + 3, not 2(w + 3)."
+    }
+   ],
+   "explanation": "Length = 2w + 3 and width = w, so A(w) = w(2w + 3)."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1a",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A table shows x = 0, 1, 2, 3 with y = 5, 15, 45, 135. Which equation fits the table?",
+   "answer": "y = 5·3^x",
+   "wrong": [
+    {
+     "text": "y = 3·5^x",
+     "why": "Swapped the initial value and the growth factor."
+    },
+    {
+     "text": "y = 5 + 10x",
+     "why": "Treated the pattern as linear, but 5 + 10(2) = 25 ≠ 45."
+    },
+    {
+     "text": "y = 15·3^x",
+     "why": "Used the value at x = 1 as the initial value."
+    }
+   ],
+   "explanation": "Each y is 3 times the previous, and y = 5 when x = 0, so y = 5·3^x."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A cubic polynomial graph crosses the x-axis at x = −2, x = 1 and x = 4, and passes through the point (0, 16). Which function is it?",
+   "answer": "f(x) = 2(x + 2)(x − 1)(x − 4)",
+   "wrong": [
+    {
+     "text": "f(x) = (x + 2)(x − 1)(x − 4)",
+     "why": "Left out the leading coefficient; this gives f(0) = 8."
+    },
+    {
+     "text": "f(x) = 8(x + 2)(x − 1)(x − 4)",
+     "why": "Used f(0) = 8a incorrectly as a = 8; this gives f(0) = 64."
+    },
+    {
+     "text": "f(x) = 2(x − 2)(x + 1)(x + 4)",
+     "why": "Used the opposite sign for each zero; this gives f(0) = −16."
+    }
+   ],
+   "explanation": "f(x) = a(x + 2)(x − 1)(x − 4). Then f(0) = a(2)(−1)(−4) = 8a = 16, so a = 2."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "An exponential function f(x) = a·b^x passes through the points (1, 10) and (3, 40). Which equation is f(x)?",
+   "answer": "f(x) = 5·2^x",
+   "wrong": [
+    {
+     "text": "f(x) = 5·4^x",
+     "why": "Used the ratio 40/10 = 4 as b even though the points are two units apart."
+    },
+    {
+     "text": "f(x) = 10·2^x",
+     "why": "Used the y-value at x = 1 as a; this gives 20 at x = 1."
+    },
+    {
+     "text": "f(x) = 2·5^x",
+     "why": "Matches (1, 10) but gives 250 at x = 3, not 40."
+    }
+   ],
+   "explanation": "b² = 40/10 = 4, so b = 2. Then a·2 = 10 gives a = 5, so f(x) = 5·2^x."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A club sells x T-shirts. Revenue is R(x) = 12x dollars and cost is C(x) = 500 + 4x dollars. Which function gives the profit P(x)?",
+   "answer": "P(x) = 8x − 500",
+   "wrong": [
+    {
+     "text": "P(x) = 8x + 500",
+     "why": "Added the fixed cost instead of subtracting it."
+    },
+    {
+     "text": "P(x) = 16x − 500",
+     "why": "Added the variable cost to the revenue."
+    },
+    {
+     "text": "P(x) = 12x − 500",
+     "why": "Left out the variable cost."
+    }
+   ],
+   "explanation": "Profit = revenue − cost = 12x − (500 + 4x) = 8x − 500."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1b",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A theater sells x tickets, and the price per ticket is p(x) = 50 − 0.5x dollars. Which function gives the total revenue R(x)?",
+   "answer": "R(x) = 50x − 0.5x²",
+   "wrong": [
+    {
+     "text": "R(x) = 50 − 0.5x",
+     "why": "That is the price per ticket, not the revenue."
+    },
+    {
+     "text": "R(x) = 50x − 0.5",
+     "why": "Multiplied only the first term by x."
+    },
+    {
+     "text": "R(x) = 50x² − 0.5x",
+     "why": "Put the square on the wrong term."
+    }
+   ],
+   "explanation": "Revenue = tickets × price = x(50 − 0.5x) = 50x − 0.5x²."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1b",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "An orchard has n(t) = 40 + 5t trees and each tree yields y(t) = 120 − 2t pounds of fruit, where t is years from now. Which function gives total yield T(t) = n(t)·y(t)?",
+   "answer": "T(t) = −10t² + 520t + 4800",
+   "wrong": [
+    {
+     "text": "T(t) = 160 + 3t",
+     "why": "Added the two functions instead of multiplying."
+    },
+    {
+     "text": "T(t) = −10t² + 600t + 4800",
+     "why": "Left out the −80t term when expanding."
+    },
+    {
+     "text": "T(t) = 10t² + 520t + 4800",
+     "why": "Made a sign error on the t² term."
+    }
+   ],
+   "explanation": "(40 + 5t)(120 − 2t) = 4800 − 80t + 600t − 10t² = −10t² + 520t + 4800."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "How does the graph of g(x) = f(x + 3) compare with the graph of y = f(x)?",
+   "answer": "It is shifted 3 units to the left.",
+   "wrong": [
+    {
+     "text": "It is shifted 3 units to the right.",
+     "why": "Assumed adding inside moves the graph in the positive direction."
+    },
+    {
+     "text": "It is shifted 3 units up.",
+     "why": "Confused an inside change with an outside change."
+    },
+    {
+     "text": "It is shifted 3 units down.",
+     "why": "Confused an inside change with an outside change and used the wrong sign."
+    }
+   ],
+   "explanation": "Replacing x with x + 3 moves each point 3 units to the left."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A table for f gives f(−2) = 3, f(0) = 1, f(2) = 5 and f(4) = 7. If g(x) = f(x + 2), what is g(0)?",
+   "answer": "5",
+   "wrong": [
+    {
+     "text": "1",
+     "why": "Evaluated f(0) and ignored the shift."
+    },
+    {
+     "text": "3",
+     "why": "Evaluated f(0 − 2), shifting the wrong direction."
+    },
+    {
+     "text": "7",
+     "why": "Evaluated f(0 + 4), shifting by twice as much."
+    }
+   ],
+   "explanation": "g(0) = f(0 + 2) = f(2) = 5."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.3",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "The point (3, 5) is on the graph of y = f(x). Which point must be on the graph of y = f(−x)?",
+   "answer": "(−3, 5)",
+   "wrong": [
+    {
+     "text": "(3, −5)",
+     "why": "Reflected over the x-axis, which is the graph of y = −f(x)."
+    },
+    {
+     "text": "(−3, −5)",
+     "why": "Reflected over both axes."
+    },
+    {
+     "text": "(5, 3)",
+     "why": "Swapped the coordinates, which gives a different transformation."
+    }
+   ],
+   "explanation": "Replacing x with −x reflects the graph over the y-axis, so (3, 5) becomes (−3, 5)."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.3",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "The point (6, 4) is on the graph of y = f(x). Which point must be on the graph of y = −2·f(x/3) + 1?",
+   "answer": "(18, −7)",
+   "wrong": [
+    {
+     "text": "(2, −7)",
+     "why": "Divided the x-coordinate by 3 instead of multiplying."
+    },
+    {
+     "text": "(18, 9)",
+     "why": "Dropped the negative sign on the vertical stretch."
+    },
+    {
+     "text": "(18, −8)",
+     "why": "Left out the +1 vertical shift."
+    }
+   ],
+   "explanation": "x/3 = 6 gives x = 18. Then y = −2(4) + 1 = −7, so the point is (18, −7)."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1a",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "An exponential function f(x) = a·b^x passes through (0, 4) and (3, 32). Find f(5).",
+   "answer": "128",
+   "accept": [],
+   "explanation": "a = 4 and b³ = 8, so b = 2. Then f(5) = 4·2^5 = 128."
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.1b",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "Revenue is R(x) = 15x dollars and cost is C(x) = 300 + 6x dollars. Find the profit in dollars when x = 40.",
+   "answer": "60",
+   "accept": [
+    "$60"
+   ],
+   "explanation": "P(x) = 15x − (300 + 6x) = 9x − 300. P(40) = 360 − 300 = 60.",
+   "unit": "dollars"
+  },
+  {
+   "cluster": "BUILD",
+   "standard": "NC.M3.F-BF.3",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "Let f(x) = x² − 3x and g(x) = −f(2x) + 5. Find g(3).",
+   "answer": "−13",
+   "accept": [
+    "-13"
+   ],
+   "explanation": "f(6) = 36 − 18 = 18, so g(3) = −18 + 5 = −13."
+  }
+ ]
+}

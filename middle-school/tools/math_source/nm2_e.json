@@ -1,0 +1,702 @@
+{
+ "items": [
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-IC.2",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A student claims a coin is fair, but in 20 flips it landed heads 17 times. To test the claim, the student simulates 100 trials of 20 flips of a fair coin. Only 1 of the 100 trials produced 17 or more heads. Which conclusion is best supported?",
+   "answer": "The result is rare under a fair-coin model, so the data are not consistent with it.",
+   "wrong": [
+    {
+     "text": "The result is possible with a fair coin, so the data prove that the coin is fair.",
+     "why": "Treated 'possible' as 'likely'; ignored that 17 or more heads occurred in only 1% of simulated trials."
+    },
+    {
+     "text": "The result is above the expected 10 heads, so the simulation proves that the coin is unfair.",
+     "why": "Treated any deviation from the expected count as proof; a simulation gives evidence, not certainty."
+    },
+    {
+     "text": "The result is consistent with a fair coin, because 17 of the 20 flips is more than half.",
+     "why": "Confused 'more than half' with 'typical'; the simulation shows such a count is rare."
+    }
+   ],
+   "explanation": "Under the fair-coin model, 17 or more heads happened in only 1 of 100 trials (1%). That is rare, so the observed result is not consistent with a fair coin."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-IC.2",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A spinner has 4 equal sections, one of them red, so the model says P(red) = 1/4. In 40 real spins it landed on red 16 times. A simulation of 100 trials of 40 spins with P(red) = 1/4 gave 16 or more reds in 9 of the trials. Which statement is best?",
+   "answer": "16 or more reds happened in 9% of trials, so the data fit the model.",
+   "wrong": [
+    {
+     "text": "The expected number is 10 reds, so 16 reds shows that the spinner is not fair.",
+     "why": "Compared the count to the expected value without using the simulation to judge how unusual it is."
+    },
+    {
+     "text": "The observed proportion is 16/40 = 2/5, so the model of 1/4 is certainly wrong.",
+     "why": "Assumed any difference between observed and model proportions disproves the model."
+    },
+    {
+     "text": "The simulation proves that the spinner is fair and the model is exactly right.",
+     "why": "Claimed a simulation can prove a model true; it can only show consistency."
+    }
+   ],
+   "explanation": "A result at least as extreme as 16 reds occurred in 9 of 100 simulated trials, which is not unusual. The data do not contradict the 1/4 model, though they do not prove it."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.1",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A fair six-sided die is rolled. Let A = {2, 4, 6} and B = {4, 5}. What is P(A ∪ B)?",
+   "answer": "2/3",
+   "wrong": [
+    {
+     "text": "5/6",
+     "why": "Added P(A) + P(B) = 3/6 + 2/6 and counted the shared outcome 4 twice."
+    },
+    {
+     "text": "1/6",
+     "why": "Found P(A ∩ B), the single shared outcome, instead of the union."
+    },
+    {
+     "text": "1/3",
+     "why": "Found the probability of outcomes in neither event, the complement of A ∪ B."
+    }
+   ],
+   "explanation": "A ∪ B = {2, 4, 5, 6}, which is 4 of the 6 outcomes, so P(A ∪ B) = 4/6 = 2/3."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.1",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two fair dice are rolled. Let A = the sum is 7 and B = at least one die shows a 3. What is P(A ∩ B)?",
+   "answer": "1/18",
+   "wrong": [
+    {
+     "text": "1/6",
+     "why": "Used P(A) = 6/36 alone and ignored the requirement that a 3 also appears."
+    },
+    {
+     "text": "11/36",
+     "why": "Used P(B) = 11/36 alone and ignored the requirement that the sum is 7."
+    },
+    {
+     "text": "2/11",
+     "why": "Computed P(A | B) by dividing by the 11 outcomes in B instead of the 36 in the sample space."
+    }
+   ],
+   "explanation": "Outcomes with sum 7 and a 3 are (3, 4) and (4, 3). That is 2 of the 36 equally likely outcomes, so P(A ∩ B) = 2/36 = 1/18."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "For events A and B, P(A) = 0.6, P(B) = 0.5, and P(A ∩ B) = 0.3. Which statement is correct?",
+   "answer": "A and B are independent, because 0.6 × 0.5 = 0.3.",
+   "wrong": [
+    {
+     "text": "A and B are not independent, because 0.6 + 0.5 ≠ 0.3.",
+     "why": "Compared P(A ∩ B) with the sum of the probabilities; independence uses the product."
+    },
+    {
+     "text": "A and B are not independent, because P(A ∩ B) is less than P(B).",
+     "why": "Believed independent events must have P(A ∩ B) equal to one of the single probabilities."
+    },
+    {
+     "text": "A and B are mutually exclusive, because 0.3 is less than both probabilities.",
+     "why": "Confused independence with mutual exclusivity; mutually exclusive events would have P(A ∩ B) = 0."
+    }
+   ],
+   "explanation": "Events are independent when P(A ∩ B) = P(A) × P(B). Here 0.6 × 0.5 = 0.3, which matches P(A ∩ B), so they are independent."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Events A and B are independent. P(A) = 0.4 and P(A ∩ B) = 0.12. Find P(B | A). Give a fraction or decimal.",
+   "answer": "3/10",
+   "accept": [
+    "0.3",
+    ".3",
+    "30%"
+   ],
+   "explanation": "Since A and B are independent, P(B | A) = P(B). P(A ∩ B) = P(A) × P(B), so P(B) = 0.12 ÷ 0.4 = 0.3 = 3/10.",
+   "wrong": [
+    {
+     "text": "0.12",
+     "why": "Gave P(A ∩ B) instead of dividing by P(A)."
+    },
+    {
+     "text": "0.4",
+     "why": "Gave P(A); P(B | A) is P(B), not P(A)."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3a",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A survey of 150 students recorded grade level and whether each plays a school sport. Grade 10: 45 play a sport and 35 do not. Grade 11: 30 play a sport and 40 do not. What is P(plays a sport | grade 11)?",
+   "answer": "3/7",
+   "wrong": [
+    {
+     "text": "1/5",
+     "why": "Divided 30 by the grand total 150 instead of the 70 grade 11 students."
+    },
+    {
+     "text": "2/5",
+     "why": "Divided 30 by the 75 students who play a sport, which finds P(grade 11 | plays a sport)."
+    },
+    {
+     "text": "3/8",
+     "why": "Divided 30 by 80, the number of grade 10 students, using the wrong row total."
+    }
+   ],
+   "explanation": "Restrict to the 70 grade 11 students (30 + 40). Of those, 30 play a sport, so the probability is 30/70 = 3/7."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3a",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "Students at a school were asked how they get to school. Girls: 24 take the bus and 16 walk. Boys: 18 take the bus and 22 walk. A student who walks is chosen at random. What is the probability the student is a girl? Give a fraction or a decimal rounded to the nearest hundredth.",
+   "answer": "8/19",
+   "accept": [
+    "0.42",
+    "0.421",
+    "0.4211",
+    "42%"
+   ],
+   "explanation": "There are 16 + 22 = 38 students who walk, and 16 of them are girls. So P(girl | walks) = 16/38 = 8/19.",
+   "tolerance": 0.01,
+   "wrong": [
+    {
+     "text": "2/5",
+     "why": "Divided 16 by the 40 girls, finding P(walks | girl)."
+    },
+    {
+     "text": "1/5",
+     "why": "Divided 16 by the grand total 80 instead of the 38 who walk."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3b",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "Of 100 students, 30 are left-handed and 70 are right-handed. Among the left-handed students, 6 wear glasses. Among the right-handed students, 14 wear glasses. Which statement is correct?",
+   "answer": "They are independent, because P(glasses | left-handed) = P(glasses) = 1/5.",
+   "wrong": [
+    {
+     "text": "They are not independent, because 6 and 14 are different counts.",
+     "why": "Compared raw counts from groups of different sizes instead of comparing probabilities."
+    },
+    {
+     "text": "They are not independent, because fewer left-handed students wear glasses.",
+     "why": "Used the count of left-handed glasses wearers; the group is smaller, so the count says nothing about independence."
+    },
+    {
+     "text": "They are independent, because 6 + 14 = 20 students wear glasses overall.",
+     "why": "Found the total number wearing glasses but never compared it with the conditional probability."
+    }
+   ],
+   "explanation": "P(glasses) = 20/100 = 1/5 and P(glasses | left-handed) = 6/30 = 1/5. The two probabilities are equal, so the events are independent."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.3b",
+   "difficulty": "challenge",
+   "type": "numeric",
+   "prompt": "A survey asked students in two groups whether they own a bike. Group X: 18 yes, 12 no. Group Y: some number of yes answers and 28 no. The survey results show that owning a bike and group are independent. How many students in Group Y answered yes?",
+   "answer": "42",
+   "accept": [],
+   "explanation": "Independence means P(yes | X) = P(yes | Y). P(yes | X) = 18/30 = 3/5, so P(no | Y) = 2/5. Then 28 is 2/5 of Group Y, so Group Y has 70 students and 70 − 28 = 42 answered yes.",
+   "wrong": [
+    {
+     "text": "28",
+     "why": "Copied the no count instead of finding the yes count."
+    },
+    {
+     "text": "18",
+     "why": "Assumed both groups must have the same number of yes answers."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.4",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "In a survey of 80 students, 45 are girls and 35 are boys. A total of 32 students take Spanish, and 20 of those are girls. If you build a two-way frequency table of gender by Spanish, how many boys do not take Spanish?",
+   "answer": "23",
+   "wrong": [
+    {
+     "text": "12",
+     "why": "Found the number of boys who do take Spanish, not those who do not."
+    },
+    {
+     "text": "25",
+     "why": "Found the number of girls who do not take Spanish."
+    },
+    {
+     "text": "13",
+     "why": "Subtracted 32 from 45, mixing the girls total with the Spanish total."
+    }
+   ],
+   "explanation": "Boys taking Spanish = 32 − 20 = 12. Boys not taking Spanish = 35 − 12 = 23."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.4",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A two-way table of 200 students shows year and whether they have a job. Juniors: 50 with a job, 60 without. Seniors: 70 with a job, 20 without. In the table of relative frequencies (each count divided by the grand total), what value goes in the cell for seniors with a job?",
+   "answer": "7/20 (35%)",
+   "wrong": [
+    {
+     "text": "7/12 (about 58%)",
+     "why": "Divided 70 by the 120 students with a job, giving a conditional frequency."
+    },
+    {
+     "text": "7/9 (about 78%)",
+     "why": "Divided 70 by the 90 seniors, giving a conditional frequency."
+    },
+    {
+     "text": "3/10 (30%)",
+     "why": "Read the juniors-without-a-job cell, 60 out of 200."
+    }
+   ],
+   "explanation": "A relative frequency cell is the count divided by the grand total: 70/200 = 7/20 = 35%."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.4",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Of 200 people surveyed, 60% subscribe to a streaming service. One third of the subscribers are under 18, and one fourth of the non-subscribers are under 18. How many of the 200 people are under 18?",
+   "answer": "60",
+   "wrong": [
+    {
+     "text": "40",
+     "why": "Counted only the under-18 subscribers and skipped the non-subscribers."
+    },
+    {
+     "text": "50",
+     "why": "Took 1/4 of all 200 people, ignoring the different rates in each group."
+    },
+    {
+     "text": "80",
+     "why": "Used the number of non-subscribers instead of the under-18 count."
+    }
+   ],
+   "explanation": "Subscribers: 0.6 × 200 = 120, and 1/3 of them is 40. Non-subscribers: 80, and 1/4 of them is 20. Total under 18 = 40 + 20 = 60."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.5",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "At one school, P(late | rainy morning) = 0.20, while P(late) = 0.08 over all mornings. Which is the best interpretation?",
+   "answer": "Students are more often late on rainy mornings: 20% then, versus 8% overall.",
+   "wrong": [
+    {
+     "text": "Of all the students who are late, 20% were late on a rainy morning.",
+     "why": "Reversed the condition, reading P(late | rainy) as P(rainy | late)."
+    },
+    {
+     "text": "Rain causes 20% of all students to be late for school on every rainy day.",
+     "why": "Read a conditional probability as proof of cause; it only shows an association."
+    },
+    {
+     "text": "On 20% of all mornings it rains and some students are late for school.",
+     "why": "Read the conditional probability as a joint probability P(rainy and late)."
+    }
+   ],
+   "explanation": "P(late | rainy morning) restricts attention to rainy mornings only: 20% of students are late then, compared with 8% on all mornings. It describes association, not cause."
+  },
+  {
+   "cluster": "PROB1",
+   "standard": "NC.M2.S-CP.5",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "Which statement says in everyday language that owning a pet and being in the school orchestra are independent?",
+   "answer": "Orchestra members own pets at the same rate as all students overall.",
+   "wrong": [
+    {
+     "text": "No student is both a pet owner and also an orchestra member.",
+     "why": "Described mutually exclusive events (P(A ∩ B) = 0), not independent events."
+    },
+    {
+     "text": "Orchestra members are more likely than other students to own a pet.",
+     "why": "Described a positive association, which is the opposite of independence."
+    },
+    {
+     "text": "There are about as many pet owners as there are orchestra members.",
+     "why": "Compared the sizes of the two groups; independence compares rates, not group sizes."
+    }
+   ],
+   "explanation": "Independence means knowing a student is in the orchestra does not change the chance they own a pet: P(pet | orchestra) = P(pet)."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.6",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A fair six-sided die is rolled. Given that the result is greater than 2, what is the probability that it is even?",
+   "answer": "1/2",
+   "wrong": [
+    {
+     "text": "1/3",
+     "why": "Used P(even and greater than 2) = 2/6, without dividing by P(greater than 2)."
+    },
+    {
+     "text": "2/3",
+     "why": "Found P(greater than 2 | even) = 2/3, reversing the condition."
+    },
+    {
+     "text": "1/6",
+     "why": "Counted only one favorable outcome out of the 6 on the die."
+    }
+   ],
+   "explanation": "Given the result is in {3, 4, 5, 6}, 2 of those 4 outcomes (4 and 6) are even. So P = 2/4 = 1/2."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two fair dice are rolled. Given that the sum is 8, what is the probability that at least one die shows a 6?",
+   "answer": "2/5",
+   "wrong": [
+    {
+     "text": "1/18",
+     "why": "Found P(sum is 8 and a 6) over all 36 outcomes instead of only the outcomes with sum 8."
+    },
+    {
+     "text": "11/36",
+     "why": "Found P(at least one 6) and ignored the given information."
+    },
+    {
+     "text": "2/11",
+     "why": "Reversed the condition, dividing by the 11 outcomes that contain a 6."
+    }
+   ],
+   "explanation": "Sum 8 gives (2,6), (3,5), (4,4), (5,3), (6,2): 5 outcomes. Two contain a 6, so the probability is 2/5."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.6",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A fair coin is flipped 3 times. Given that at least one flip is heads, what is the probability that exactly two flips are heads?",
+   "answer": "3/7",
+   "wrong": [
+    {
+     "text": "3/8",
+     "why": "Divided by all 8 outcomes instead of only the 7 outcomes with at least one head."
+    },
+    {
+     "text": "7/8",
+     "why": "Found P(at least one head) instead of the conditional probability."
+    },
+    {
+     "text": "1/2",
+     "why": "Divided by 6, counting only outcomes with one or two heads and dropping HHH."
+    }
+   ],
+   "explanation": "Outcomes with at least one head: 7. Those with exactly two heads: HHT, HTH, THH = 3. So P = 3/7."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.6",
+   "difficulty": "core",
+   "type": "numeric",
+   "prompt": "In a class of 30 students, 18 play an instrument. Of those 18 students, 12 also sing in the chorus. What is the probability that a student who plays an instrument also sings in the chorus? Give a fraction or a decimal rounded to the nearest hundredth.",
+   "answer": "2/3",
+   "accept": [
+    "0.67",
+    "0.667",
+    "0.6667",
+    "66.7%",
+    "67%"
+   ],
+   "explanation": "Restrict to the 18 instrument players. Of these, 12 sing in the chorus, so the probability is 12/18 = 2/3.",
+   "tolerance": 0.01,
+   "wrong": [
+    {
+     "text": "2/5",
+     "why": "Divided 12 by the whole class of 30."
+    },
+    {
+     "text": "12",
+     "why": "Gave the count instead of a probability."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.6",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "In a school, 40% of students take art, 50% take music, and 25% take both. A student who takes art is chosen at random. What is the probability that the student also takes music?",
+   "answer": "5/8",
+   "wrong": [
+    {
+     "text": "1/2",
+     "why": "Divided 25% by the music percentage, finding P(art | music) instead."
+    },
+    {
+     "text": "1/4",
+     "why": "Gave P(art and music) without dividing by P(art)."
+    },
+    {
+     "text": "4/5",
+     "why": "Divided the art percentage by the music percentage."
+    }
+   ],
+   "explanation": "P(music | art) = P(art and music) ÷ P(art) = 0.25 ÷ 0.40 = 5/8."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "For events A and B, P(A) = 0.40, P(B) = 0.35, and P(A ∩ B) = 0.15. What is P(A ∪ B)?",
+   "answer": "0.60",
+   "wrong": [
+    {
+     "text": "0.75",
+     "why": "Added P(A) + P(B) without subtracting the overlap."
+    },
+    {
+     "text": "0.90",
+     "why": "Added P(A) + P(B) + P(A ∩ B) instead of subtracting the overlap."
+    },
+    {
+     "text": "0.14",
+     "why": "Multiplied P(A) × P(B), a rule for intersections of independent events, not for a union."
+    }
+   ],
+   "explanation": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0.40 + 0.35 − 0.15 = 0.60."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.7",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "One card is drawn at random from a standard 52-card deck (13 hearts, and 12 face cards: J, Q, K in each of 4 suits). What is the probability that the card is a heart or a face card?",
+   "answer": "11/26",
+   "wrong": [
+    {
+     "text": "25/52",
+     "why": "Added 13/52 + 12/52 and counted the 3 hearts that are face cards twice."
+    },
+    {
+     "text": "3/52",
+     "why": "Found P(heart and face card), the overlap, instead of the union."
+    },
+    {
+     "text": "19/52",
+     "why": "Subtracted the overlap twice, 25/52 − 6/52."
+    }
+   ],
+   "explanation": "There are 3 face cards that are hearts. P(heart or face) = 13/52 + 12/52 − 3/52 = 22/52 = 11/26."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.7",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "For events A and B, P(A) = 0.55, P(A ∪ B) = 0.80, and P(A ∩ B) = 0.20. Find P(B). Give a fraction or a decimal.",
+   "answer": "9/20",
+   "accept": [
+    "0.45",
+    ".45",
+    "45%"
+   ],
+   "explanation": "From P(A ∪ B) = P(A) + P(B) − P(A ∩ B): 0.80 = 0.55 + P(B) − 0.20, so P(B) = 0.45 = 9/20.",
+   "wrong": [
+    {
+     "text": "0.25",
+     "why": "Computed 0.80 − 0.55 and forgot to add back the overlap."
+    },
+    {
+     "text": "1.15",
+     "why": "Rearranged the addition rule incorrectly, computing 0.80 + 0.55 − 0.20."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.7",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Of 100 students, 50 play a sport, 40 play an instrument, and 15 do both. What is the probability that a randomly chosen student does neither?",
+   "answer": "1/4",
+   "wrong": [
+    {
+     "text": "1/10",
+     "why": "Subtracted 50 + 40 from 100, forgetting that the 15 who do both were counted twice."
+    },
+    {
+     "text": "3/4",
+     "why": "Found the probability of doing at least one activity instead of neither."
+    },
+    {
+     "text": "7/20",
+     "why": "Found the probability of playing a sport but not an instrument."
+    }
+   ],
+   "explanation": "At least one: 50 + 40 − 15 = 75 students. Neither: 100 − 75 = 25, so P = 25/100 = 1/4."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.7",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "For events A and B, P(A) = 0.5, P(B) = 0.4, and P(A ∪ B) = 0.7. What is P(A | B)?",
+   "answer": "1/2",
+   "wrong": [
+    {
+     "text": "2/5",
+     "why": "Found P(B | A) = 0.2 ÷ 0.5 instead, dividing by the wrong event."
+    },
+    {
+     "text": "1/5",
+     "why": "Found P(A ∩ B) = 0.2 and stopped without dividing by P(B)."
+    },
+    {
+     "text": "4/7",
+     "why": "Divided P(B) by P(A ∪ B) = 0.7, which is not a conditional probability of A given B."
+    }
+   ],
+   "explanation": "Addition rule: P(A ∩ B) = 0.5 + 0.4 − 0.7 = 0.2. Then P(A | B) = 0.2 ÷ 0.4 = 1/2."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.8",
+   "difficulty": "core",
+   "type": "mcq",
+   "prompt": "A bag holds 5 red and 3 blue marbles. Two marbles are drawn one after the other without replacement. What is the probability that both are red?",
+   "answer": "5/14",
+   "wrong": [
+    {
+     "text": "25/64",
+     "why": "Treated the draws as independent with 5/8 each time, as if the marble was replaced."
+    },
+    {
+     "text": "5/16",
+     "why": "Used 5/8 × 4/8, forgetting to reduce the denominator after the first draw."
+    },
+    {
+     "text": "25/56",
+     "why": "Used 5/8 × 5/7, reducing the denominator but not the number of red marbles."
+    }
+   ],
+   "explanation": "P(first red) = 5/8. With one red gone, P(second red | first red) = 4/7. Then 5/8 × 4/7 = 20/56 = 5/14."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "Two cards are dealt one after the other, without replacement, from a standard 52-card deck. What is the probability that both are aces?",
+   "answer": "1/221",
+   "wrong": [
+    {
+     "text": "1/169",
+     "why": "Treated the draws as independent, using 4/52 × 4/52."
+    },
+    {
+     "text": "3/676",
+     "why": "Used 4/52 × 3/52, reducing the aces but not the number of cards left."
+    },
+    {
+     "text": "1/663",
+     "why": "Used 4/52 × 1/51, using 1 ace instead of 3 for the second draw."
+    }
+   ],
+   "explanation": "P(first ace) = 4/52. With one ace gone, P(second ace | first ace) = 3/51. Then 4/52 × 3/51 = 12/2652 = 1/221."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.8",
+   "difficulty": "stretch",
+   "type": "numeric",
+   "prompt": "A box contains 6 green and 4 yellow marbles. Two marbles are drawn one after the other without replacement. What is the probability that the first is green and the second is yellow? Give a fraction or a decimal rounded to the nearest thousandth.",
+   "answer": "4/15",
+   "accept": [
+    "0.267",
+    "0.2667",
+    "26.7%"
+   ],
+   "explanation": "P(green first) = 6/10. Then 9 marbles remain, 4 yellow, so P(yellow | green) = 4/9. P = 6/10 × 4/9 = 24/90 = 4/15.",
+   "tolerance": 0.01,
+   "wrong": [
+    {
+     "text": "6/25",
+     "why": "Used 6/10 × 4/10, as if the first marble was replaced."
+    },
+    {
+     "text": "2/5",
+     "why": "Used only P(yellow) = 4/10 and ignored the first draw."
+    }
+   ]
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.8",
+   "difficulty": "stretch",
+   "type": "mcq",
+   "prompt": "A box has 4 red and 6 white marbles. Two are drawn without replacement. What is the probability that at least one is red?",
+   "answer": "2/3",
+   "wrong": [
+    {
+     "text": "1/3",
+     "why": "Found the probability that neither is red, the complement."
+    },
+    {
+     "text": "2/15",
+     "why": "Found the probability that both are red, 4/10 × 3/9."
+    },
+    {
+     "text": "38/45",
+     "why": "Added 4/10 + 4/9 instead of using the multiplication rule and the complement."
+    }
+   ],
+   "explanation": "P(no red) = 6/10 × 5/9 = 1/3. So P(at least one red) = 1 − 1/3 = 2/3."
+  },
+  {
+   "cluster": "PROB2",
+   "standard": "NC.M2.S-CP.8",
+   "difficulty": "challenge",
+   "type": "mcq",
+   "prompt": "A jar holds 5 red, 4 blue, and 3 green marbles. Three marbles are drawn one after another without replacement. What is the probability of drawing red, then blue, then green in that order?",
+   "answer": "1/22",
+   "wrong": [
+    {
+     "text": "5/144",
+     "why": "Treated the draws as independent, using 5/12 × 4/12 × 3/12."
+    },
+    {
+     "text": "3/11",
+     "why": "Multiplied by 6 to allow any order, but the question asks for one specific order."
+    },
+    {
+     "text": "5/33",
+     "why": "Multiplied only the first two draws and left out the green marble."
+    }
+   ],
+   "explanation": "5/12 × 4/11 × 3/10 = 60/1320 = 1/22, since the denominator and the matching color count drop after each draw."
+  }
+ ]
+}

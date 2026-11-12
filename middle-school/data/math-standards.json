@@ -1,0 +1,1900 @@
+{
+ "6": [
+  {
+   "code": "NC.6.RP.1",
+   "domain": "RP",
+   "cluster": "Understand ratio concepts and use ratio reasoning to solve problems.",
+   "text": "Understand the concept of a ratio and use ratio language to:",
+   "details": [
+    "Describe a ratio as a multiplicative relationship between two quantities.",
+    "Model a ratio relationship using a variety of representations."
+   ]
+  },
+  {
+   "code": "NC.6.RP.2",
+   "domain": "RP",
+   "cluster": "Understand ratio concepts and use ratio reasoning to solve problems.",
+   "text": "Understand that ratios can be expressed as equivalent unit ratios by finding and interpreting both unit ratios in context.",
+   "details": []
+  },
+  {
+   "code": "NC.6.RP.3",
+   "domain": "RP",
+   "cluster": "Understand ratio concepts and use ratio reasoning to solve problems.",
+   "text": "Use ratio reasoning with equivalent whole-number ratios to solve real-world and mathematical problems by:",
+   "details": [
+    "Creating and using a table to compare ratios.",
+    "Finding missing values in the tables.",
+    "Using a unit ratio.",
+    "Converting and manipulating measurements using given ratios.",
+    "Plotting the pairs of values on the coordinate plane."
+   ]
+  },
+  {
+   "code": "NC.6.RP.4",
+   "domain": "RP",
+   "cluster": "Understand ratio concepts and use ratio reasoning to solve problems.",
+   "text": "Use ratio reasoning to solve real-world and mathematical problems with percents by:",
+   "details": [
+    "Understanding and finding a percent of a quantity as a ratio per 100.",
+    "Using equivalent ratios, such as benchmark percents (50%, 25%, 10%, 5%, 1%), to determine a part of any given quantity.",
+    "Finding the whole, given a part and the percent."
+   ]
+  },
+  {
+   "code": "NC.6.NS.1",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of multiplication and division to divide fractions by fractions.",
+   "text": "Use visual models and common denominators to:",
+   "details": [
+    "Interpret and compute quotients of fractions.",
+    "Solve real-world and mathematical problems involving division of fractions."
+   ]
+  },
+  {
+   "code": "NC.6.NS.2",
+   "domain": "NS",
+   "cluster": "Compute fluently with multi-digit numbers and find common factors and multiples.",
+   "text": "Fluently divide using long division with a minimum of a four-digit dividend and interpret the quotient and remainder in context.",
+   "details": []
+  },
+  {
+   "code": "NC.6.NS.3",
+   "domain": "NS",
+   "cluster": "Compute fluently with multi-digit numbers and find common factors and multiples.",
+   "text": "Apply and extend previous understandings of decimals to develop and fluently use the standard algorithms for addition, subtraction, multiplication and division of decimals.",
+   "details": []
+  },
+  {
+   "code": "NC.6.NS.4",
+   "domain": "NS",
+   "cluster": "Compute fluently with multi-digit numbers and find common factors and multiples.",
+   "text": "Understand and use prime factorization and the relationships between factors to:",
+   "details": [
+    "Find the unique prime factorization for a whole number.",
+    "Find the greatest common factor of two whole numbers less than or equal to 100.",
+    "Use the greatest common factor and the distributive property to rewrite the sum of two whole numbers, each less than or equal to 100.",
+    "Find the least common multiple of two whole numbers less than or equal to 12 to add and subtract fractions with unlike denominators."
+   ]
+  },
+  {
+   "code": "NC.6.NS.5",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+   "text": "Understand and use rational numbers to:",
+   "details": [
+    "Describe quantities having opposite directions or values.",
+    "Represent quantities in real-world contexts, explaining the meaning of 0 in each situation.",
+    "Understand the absolute value of a rational number as its distance from 0 on the number line to:",
+    "Interpret absolute value as magnitude for a positive or negative quantity in a real-world context.",
+    "Distinguish comparisons of absolute value from statements about order."
+   ]
+  },
+  {
+   "code": "NC.6.NS.6",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+   "text": "Understand rational numbers as points on the number line and as ordered pairs on a coordinate plane.",
+   "details": [
+    "a. On a number line:",
+    "Recognize opposite signs of numbers as indicating locations on opposite sides of 0 and that the opposite of the opposite of a number is the number itself.",
+    "Find and position rational numbers on a horizontal or vertical number line.",
+    "On a coordinate plane:",
+    "Understand signs of numbers in ordered pairs as indicating locations in quadrants.",
+    "Recognize that when two ordered pairs differ only by signs, the locations of the points are related by reflections across one or both axes.",
+    "Find and position pairs of rational numbers on a coordinate plane."
+   ]
+  },
+  {
+   "code": "NC.6.NS.7",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+   "text": "Understand ordering of rational numbers.",
+   "details": [
+    "Interpret statements of inequality as statements about the relative position of two numbers on a number line diagram.",
+    "Write, interpret, and explain statements of order for rational numbers in real-world contexts."
+   ]
+  },
+  {
+   "code": "NC.6.NS.8",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+   "text": "Solve real-world and mathematical problems by graphing points in all four quadrants of the coordinate plane. Include use of coordinates and absolute value to find distances between points with the same first coordinate or the same second coordinate.",
+   "details": []
+  },
+  {
+   "code": "NC.6.NS.9",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of numbers to the system of rational numbers.",
+   "text": "Apply and extend previous understandings of addition and subtraction.",
+   "details": [
+    "Describe situations in which opposite quantities combine to make 0.",
+    "Understand 𝑝+𝑞 as the number located a distance q from p, in the positive or negative direction depending on the sign of q. Show that a number and its additive inverse create a zero pair.",
+    "Understand subtraction of integers as adding the additive inverse, 𝑝 − 𝑞 = 𝑝 +(–𝑞). Show that the distance between two integers on the number line is the absolute value of their difference.",
+    "Use models to add and subtract integers from -20 to 20 and describe real-world contexts using sums and differences."
+   ]
+  },
+  {
+   "code": "NC.6.EE.1",
+   "domain": "EE",
+   "cluster": "Apply and extend previous understandings of arithmetic to algebraic expressions.",
+   "text": "Write and evaluate numerical expressions, with and without grouping symbols, involving whole-number exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.6.EE.2",
+   "domain": "EE",
+   "cluster": "Apply and extend previous understandings of arithmetic to algebraic expressions.",
+   "text": "Write, read, and evaluate algebraic expressions.",
+   "details": [
+    "Write expressions that record operations with numbers and with letters standing for numbers.",
+    "Identify parts of an expression using mathematical terms and view one or more of those parts as a single entity.",
+    "Evaluate expressions at specific values of their variables using expressions that arise from formulas used in real-world problems."
+   ]
+  },
+  {
+   "code": "NC.6.EE.3",
+   "domain": "EE",
+   "cluster": "Apply and extend previous understandings of arithmetic to algebraic expressions.",
+   "text": "Apply the properties of operations to generate equivalent expressions without exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.6.EE.4",
+   "domain": "EE",
+   "cluster": "Apply and extend previous understandings of arithmetic to algebraic expressions.",
+   "text": "Identify when two expressions are equivalent and justify with mathematical reasoning.",
+   "details": []
+  },
+  {
+   "code": "NC.6.EE.5",
+   "domain": "EE",
+   "cluster": "Reason about and solve one-variable equations.",
+   "text": "Use substitution to determine whether a given number in a specified set makes an equation true.",
+   "details": []
+  },
+  {
+   "code": "NC.6.EE.6",
+   "domain": "EE",
+   "cluster": "Reason about and solve one-variable equations.",
+   "text": "Use variables to represent numbers and write expressions when solving a real-world or mathematical problem.",
+   "details": []
+  },
+  {
+   "code": "NC.6.EE.7",
+   "domain": "EE",
+   "cluster": "Reason about and solve one-variable equations.",
+   "text": "Solve real-world and mathematical problems by writing and solving equations of the form:",
+   "details": [
+    "x + p = q in which p, q and x are all nonnegative rational numbers; and,",
+    "p ⋅ x = q for cases in which p, q and x are all nonnegative rational numbers."
+   ]
+  },
+  {
+   "code": "NC.6.EE.8",
+   "domain": "EE",
+   "cluster": "Reason about one variable inequalities.",
+   "text": "Reason about inequalities by:",
+   "details": [
+    "Using substitution to determine whether a given number in a specified set makes an inequality true.",
+    "Writing an inequality of the form x > c or x < c to represent a constraint or condition in a real-world or mathematical problem.",
+    "Recognizing that inequalities of the form x > c or x < c have infinitely many solutions.",
+    "Representing solutions of inequalities on number line diagrams."
+   ]
+  },
+  {
+   "code": "NC.6.EE.9",
+   "domain": "EE",
+   "cluster": "Represent and analyze quantitative relationships between dependent and independent variables.",
+   "text": "Represent and analyze quantitative relationships by:",
+   "details": [
+    "Using variables to represent two quantities in a real-world or mathematical context that change in relationship to one another.",
+    "Analyze the relationship between quantities in different representations (context, equations, tables, and graphs)."
+   ]
+  },
+  {
+   "code": "NC.6.G.1",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving area, surface area, and volume.",
+   "text": "Create geometric models to solve real-world and mathematical problems to:",
+   "details": [
+    "Find the area of triangles by composing into rectangles and decomposing into right triangles.",
+    "Find the area of special quadrilaterals and polygons by decomposing into triangles or rectangles."
+   ]
+  },
+  {
+   "code": "NC.6.G.2",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving area, surface area, and volume.",
+   "text": "Apply and extend previous understandings of the volume of a right rectangular prism to find the volume of right rectangular prisms with fractional edge lengths. Apply this understanding to the context of solving real-world and mathematical problems.",
+   "details": []
+  },
+  {
+   "code": "NC.6.G.3",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving area, surface area, and volume.",
+   "text": "Use the coordinate plane to solve real-world and mathematical problems by:",
+   "details": [
+    "Drawing polygons in the coordinate plane given coordinates for the vertices.",
+    "Using coordinates to find the length of a side joining points with the same first coordinate or the same second coordinate."
+   ]
+  },
+  {
+   "code": "NC.6.G.4",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving area, surface area, and volume.",
+   "text": "Represent right prisms and right pyramids using nets made up of rectangles and triangles, and use the nets to find the surface area of these figures. Apply these techniques in the context of solving real-world and mathematical problems.",
+   "details": []
+  },
+  {
+   "code": "NC.6.SP.1",
+   "domain": "SP",
+   "cluster": "Develop understanding of statistical variability.",
+   "text": "Recognize a statistical question as one that anticipates variability in the data related to the question and accounts for it in the answers.",
+   "details": []
+  },
+  {
+   "code": "NC.6.SP.2",
+   "domain": "SP",
+   "cluster": "Develop understanding of statistical variability.",
+   "text": "Understand that a set of data collected to answer a statistical question has a distribution which can be described by its center, spread, and overall shape.",
+   "details": []
+  },
+  {
+   "code": "NC.6.SP.3",
+   "domain": "SP",
+   "cluster": "Develop understanding of statistical variability.",
+   "text": "Understand that both a measure of center and a description of variability should be considered when describing a numerical data set.",
+   "details": [
+    "Determine the measure of center of a data set and understand that it is a single number that summarizes all the values of that data set.",
+    "Understand that a mean is a measure of center that represents a balance point or fair share of a data set and can be influenced by the presence of extreme values within the data set.",
+    "Understand the median as a measure of center that is the numerical middle of an ordered data set.",
+    "Understand that describing the variability of a data set is needed to distinguish between data sets in the same scale, by comparing graphical representations of different data sets in the same scale that have similar measures of center, but different spreads."
+   ]
+  },
+  {
+   "code": "NC.6.SP.4",
+   "domain": "SP",
+   "cluster": "Summarize and describe distributions.",
+   "text": "Display numerical data in plots on a number line.",
+   "details": [
+    "Use dot plots, histograms, and box plots to represent data.",
+    "Compare the attributes of different representations of the same data."
+   ]
+  },
+  {
+   "code": "NC.6.SP.5",
+   "domain": "SP",
+   "cluster": "Summarize and describe distributions.",
+   "text": "Summarize numerical data sets in relation to their context.",
+   "details": [
+    "Describe the collected data by:",
+    "Reporting the number of observations in dot plots and histograms.",
+    "Communicating the nature of the attribute under investigation, how it was measured, and the units of measurement.",
+    "Analyze center and variability by:",
+    "Giving quantitative measures of center, describing variability, and any overall pattern, and noting any striking deviations.",
+    "Justifying the appropriate choice of measures of center using the shape of the data distribution."
+   ]
+  }
+ ],
+ "7": [
+  {
+   "code": "NC.7.RP.1",
+   "domain": "RP",
+   "cluster": "Analyze proportional relationships and use them to solve real-world and mathematical problems.",
+   "text": "Compute unit rates associated with ratios of fractions to solve real-world and mathematical problems.",
+   "details": []
+  },
+  {
+   "code": "NC.7.RP.2",
+   "domain": "RP",
+   "cluster": "Analyze proportional relationships and use them to solve real-world and mathematical problems.",
+   "text": "Recognize and represent proportional relationships between quantities.",
+   "details": [
+    "Understand that a proportion is a relationship of equality between ratios.",
+    "Represent proportional relationships using tables and graphs.",
+    "Recognize whether ratios are in a proportional relationship using tables and graphs.",
+    "Compare two different proportional relationships using tables, graphs, equations, and verbal descriptions.",
+    "Identify the unit rate (constant of proportionality) within two quantities in a proportional relationship using tables, graphs, equations, and verbal descriptions.",
+    "Create equations and graphs to represent proportional relationships.",
+    "Use a graphical representation of a proportional relationship in context to:",
+    "Explain the meaning of any point (x, y).",
+    "Explain the meaning of (0, 0) and why it is included.",
+    "Understand that the y-coordinate of the ordered pair (1, r) corresponds to the unit rate and explain its meaning."
+   ]
+  },
+  {
+   "code": "NC.7.RP.3",
+   "domain": "RP",
+   "cluster": "Analyze proportional relationships and use them to solve real-world and mathematical problems.",
+   "text": "Use scale factors and unit rates in proportional relationships to solve ratio and percent problems.",
+   "details": []
+  },
+  {
+   "code": "NC.7.NS.1",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers.",
+   "text": "Apply and extend previous understandings of addition and subtraction to add and subtract rational numbers, using the properties of operations, and describing real-world contexts using sums and differences.",
+   "details": []
+  },
+  {
+   "code": "NC.7.NS.2",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers.",
+   "text": "Apply and extend previous understandings of multiplication and division.",
+   "details": [
+    "Understand that a rational number is any number that can be written as a quotient of integers with a non-zero divisor.",
+    "Apply properties of operations as strategies, including the standard algorithms, to multiply and divide rational numbers and describe the product and quotient in real-world contexts.",
+    "Use division and previous understandings of fractions and decimals.",
+    "Convert a fraction to a decimal using long division.",
+    "Understand that the decimal form of a rational number terminates in 0s or eventually repeats."
+   ]
+  },
+  {
+   "code": "NC.7.NS.3",
+   "domain": "NS",
+   "cluster": "Apply and extend previous understandings of operations with fractions to add, subtract, multiply, and divide rational numbers.",
+   "text": "Solve real-world and mathematical problems involving numerical expressions with rational numbers using the four operations.",
+   "details": []
+  },
+  {
+   "code": "NC.7.EE.1",
+   "domain": "EE",
+   "cluster": "Use properties of operations to generate equivalent expressions.",
+   "text": "Apply properties of operations as strategies to:",
+   "details": [
+    "Add, subtract, and expand linear expressions with rational coefficients.",
+    "Factor linear expression with an integer GCF."
+   ]
+  },
+  {
+   "code": "NC.7.EE.2",
+   "domain": "EE",
+   "cluster": "Use properties of operations to generate equivalent expressions.",
+   "text": "Understand that equivalent expressions can reveal real-world and mathematical relationships. Interpret the meaning of the parts of each expression in context.",
+   "details": []
+  },
+  {
+   "code": "NC.7.EE.3",
+   "domain": "EE",
+   "cluster": "Solve real-world and mathematical problems using numerical and algebraic expressions, equations, and inequalities.",
+   "text": "Solve multi-step real-world and mathematical problems posed with rational numbers in algebraic expressions.",
+   "details": [
+    "Apply properties of operations to calculate with positive and negative numbers in any form.",
+    "Convert between different forms of a number and equivalent forms of the expression as appropriate."
+   ]
+  },
+  {
+   "code": "NC.7.EE.4",
+   "domain": "EE",
+   "cluster": "Solve real-world and mathematical problems using numerical and algebraic expressions, equations, and inequalities.",
+   "text": "Use variables to represent quantities to solve real-world or mathematical problems.",
+   "details": [
+    "Construct equations to solve problems by reasoning about the quantities.",
+    "Fluently solve multistep equations with the variable on one side, including those generated by word problems.",
+    "Compare an algebraic solution to an arithmetic solution, identifying the sequence of the operations used in each approach.",
+    "Interpret the solution in context.",
+    "Construct inequalities to solve problems by reasoning about the quantities.",
+    "Fluently solve multi-step inequalities with the variable on one side, including those generated by word problems.",
+    "Compare an algebraic solution process for equations and an algebraic solution process for inequalities.",
+    "Graph the solution set of the inequality and interpret in context."
+   ]
+  },
+  {
+   "code": "NC.7.G.1",
+   "domain": "G",
+   "cluster": "Draw, construct, and describe geometrical figures and describe the relationships between them.",
+   "text": "Solve problems involving scale drawings of geometric figures by:",
+   "details": [
+    "Building an understanding that angle measures remain the same and side lengths are proportional.",
+    "Using a scale factor to compute actual lengths and areas from a scale drawing.",
+    "Creating a scale drawing."
+   ]
+  },
+  {
+   "code": "NC.7.G.2",
+   "domain": "G",
+   "cluster": "Draw, construct, and describe geometrical figures and describe the relationships between them.",
+   "text": "Understand the characteristics of angles and side lengths that create a unique triangle, more than one triangle or no triangle. Build triangles from three measures of angles and/or sides.",
+   "details": []
+  },
+  {
+   "code": "NC.7.G.4",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving angle measure, area, surface area, and volume.",
+   "text": "Understand area and circumference of a circle.",
+   "details": [
+    "Understand the relationships between the radius, diameter, circumference, and area.",
+    "Apply the formulas for area and circumference of a circle to solve problems."
+   ]
+  },
+  {
+   "code": "NC.7.G.5",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving angle measure, area, surface area, and volume.",
+   "text": "Use facts about supplementary, complementary, vertical, and adjacent angles in a multi-step problem to write and solve equations for an unknown angle in a figure.",
+   "details": []
+  },
+  {
+   "code": "NC.7.G.6",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving angle measure, area, surface area, and volume.",
+   "text": "Solve real-world and mathematical problems involving:",
+   "details": [
+    "Area and perimeter of two-dimensional objects composed of triangles, quadrilaterals, and polygons.",
+    "Volume and surface area of pyramids, prisms, or three-dimensional objects composed of cubes, pyramids, and right prisms."
+   ]
+  },
+  {
+   "code": "NC.7.SP.1",
+   "domain": "SP",
+   "cluster": "Use random sampling to draw inferences about a population.",
+   "text": "Understand that statistics can be used to gain information about a population by:",
+   "details": [
+    "Recognizing that generalizations about a population from a sample are valid only if the sample is representative of that population.",
+    "Using random sampling to produce representative samples to support valid inferences."
+   ]
+  },
+  {
+   "code": "NC.7.SP.2",
+   "domain": "SP",
+   "cluster": "Use random sampling to draw inferences about a population.",
+   "text": "Generate multiple random samples (or simulated samples) of the same size to gauge the variation in estimates or predictions, and use this data to draw inferences about a population with an unknown characteristic of interest.",
+   "details": []
+  },
+  {
+   "code": "NC.7.SP.3",
+   "domain": "SP",
+   "cluster": "Make informal inferences to compare two populations.",
+   "text": "Recognize the role of variability when comparing two populations.",
+   "details": [
+    "Calculate the measure of variability of a data set and understand that it describes how the values of the data set vary with a single number.",
+    "Understand the mean absolute deviation of a data set is a measure of variability that describes the average distance that points within a data set are from the mean of the data set.",
+    "Understand that the range describes the spread of the entire data set.",
+    "Understand that the interquartile range describes the spread of the middle 50% of the data.",
+    "Informally assess the difference between two data sets by examining the overlap and separation between the graphical representations of two data sets."
+   ]
+  },
+  {
+   "code": "NC.7.SP.4",
+   "domain": "SP",
+   "cluster": "Make informal inferences to compare two populations.",
+   "text": "Use measures of center and measures of variability for numerical data from random samples to draw comparative inferences about two populations.",
+   "details": []
+  },
+  {
+   "code": "NC.7.SP.5",
+   "domain": "SP",
+   "cluster": "Investigate chance processes and develop, use, and evaluate probability models.",
+   "text": "Understand that the probability of a chance event is a number between 0 and 1 that expresses the likelihood of the event occurring.",
+   "details": []
+  },
+  {
+   "code": "NC.7.SP.6",
+   "domain": "SP",
+   "cluster": "Investigate chance processes and develop, use, and evaluate probability models.",
+   "text": "Collect data to calculate the experimental probability of a chance event, observing its long-run relative frequency. Use this experimental probability to predict the approximate relative frequency.",
+   "details": []
+  },
+  {
+   "code": "NC.7.SP.7",
+   "domain": "SP",
+   "cluster": "Investigate chance processes and develop, use, and evaluate probability models.",
+   "text": "Develop a probability model and use it to find probabilities of simple events.",
+   "details": [
+    "Develop a uniform probability model by assigning equal probability to all outcomes, and use the model to determine probabilities of events.",
+    "Develop a probability model (which may not be uniform) by repeatedly performing a chance process and observing frequencies in the data generated.",
+    "Compare theoretical and experimental probabilities from a model to observed frequencies; if the agreement is not good, explain possible sources of the discrepancy."
+   ]
+  },
+  {
+   "code": "NC.7.SP.8",
+   "domain": "SP",
+   "cluster": "Investigate chance processes and develop, use, and evaluate probability models.",
+   "text": "Determine probabilities of compound events using organized lists, tables, tree diagrams, and simulation.",
+   "details": [
+    "Understand that, just as with simple events, the probability of a compound event is the fraction of outcomes in the sample space for which the compound event occurs.",
+    "For an event described in everyday language, identify the outcomes in the sample space which compose the event, when the sample space is represented using organized lists, tables, and tree diagrams.",
+    "Design and use a simulation to generate frequencies for compound events."
+   ]
+  }
+ ],
+ "8": [
+  {
+   "code": "NC.8.NS.1",
+   "domain": "NS",
+   "cluster": "Know that there are numbers that are not rational, and approximate them by rational numbers.",
+   "text": "Understand that every number has a decimal expansion. Building upon the definition of a rational number, know that an irrational number is defined as a non-repeating, non-terminating decimal.",
+   "details": []
+  },
+  {
+   "code": "NC.8.NS.2",
+   "domain": "NS",
+   "cluster": "Know that there are numbers that are not rational, and approximate them by rational numbers.",
+   "text": "Use rational approximations of irrational numbers to compare the size of irrational numbers and locate them approximately on a number line. Estimate the value of expressions involving:",
+   "details": [
+    "Square roots and cube roots to the tenths.",
+    "π to the hundredths."
+   ]
+  },
+  {
+   "code": "NC.8.EE.1",
+   "domain": "EE",
+   "cluster": "Work with radicals and integer exponents.",
+   "text": "Develop and apply the properties of integer exponents to generate equivalent numerical expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.8.EE.2",
+   "domain": "EE",
+   "cluster": "Work with radicals and integer exponents.",
+   "text": "Use square root and cube root symbols to:",
+   "details": [
+    "Represent solutions to equations of the form x2 = p and x3 = p, where p is a positive rational number.",
+    "Evaluate square roots of perfect squares and cube roots of perfect cubes for positive numbers less than or equal to 400."
+   ]
+  },
+  {
+   "code": "NC.8.EE.3",
+   "domain": "EE",
+   "cluster": "Work with radicals and integer exponents.",
+   "text": "Use numbers expressed in scientific notation to estimate very large or very small quantities and to express how many times as much one is than the other.",
+   "details": []
+  },
+  {
+   "code": "NC.8.EE.4",
+   "domain": "EE",
+   "cluster": "Work with radicals and integer exponents.",
+   "text": "Perform multiplication and division with numbers expressed in scientific notation to solve real-world problems, including problems where both decimal and scientific notation are used.",
+   "details": []
+  },
+  {
+   "code": "NC.8.EE.7",
+   "domain": "EE",
+   "cluster": "Analyze and solve linear equations and inequalities.",
+   "text": "Solve real-world and mathematical problems by writing and solving equations and inequalities in one variable.",
+   "details": [
+    "Recognize linear equations in one variable as having one solution, infinitely many solutions, or no solutions.",
+    "Solve linear equations and inequalities including multi-step equations and inequalities with the same variable on both sides."
+   ]
+  },
+  {
+   "code": "NC.8.EE.8",
+   "domain": "EE",
+   "cluster": "Analyze and solve pairs of simultaneous linear equations.",
+   "text": "Analyze and solve a system of two linear equations in two variables in slope-intercept form.",
+   "details": [
+    "Understand that solutions to a system of two linear equations correspond to the points of intersection of their graphs because the point of intersection satisfies both equations simultaneously.",
+    "Solve real-world and mathematical problems leading to systems of linear equations by graphing the equations. Solve simple cases by inspection"
+   ]
+  },
+  {
+   "code": "NC.8.F.1",
+   "domain": "F",
+   "cluster": "Define, evaluate, and compare functions.",
+   "text": "Understand that a function is a rule that assigns to each input exactly one output.",
+   "details": [
+    "Recognize functions when graphed as the set of ordered pairs consisting of an input and exactly one corresponding output.",
+    "Recognize functions given a table of values or a set of ordered pairs."
+   ]
+  },
+  {
+   "code": "NC.8.F.2",
+   "domain": "F",
+   "cluster": "Define, evaluate, and compare functions.",
+   "text": "Compare properties of two linear functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions).",
+   "details": []
+  },
+  {
+   "code": "NC.8.F.3",
+   "domain": "F",
+   "cluster": "Define, evaluate, and compare functions.",
+   "text": "Identify linear functions from tables, equations, and graphs.",
+   "details": []
+  },
+  {
+   "code": "NC.8.F.4",
+   "domain": "F",
+   "cluster": "Use functions to model relationships between quantities.",
+   "text": "Analyze functions that model linear relationships.",
+   "details": [
+    "Understand that a linear relationship can be generalized by y = mx + b .",
+    "Write an equation in slope-intercept form to model a linear relationship by determining the rate of change and the initial value, given at least two (x, y) values or a graph.",
+    "Construct a graph of a linear relationship given an equation in slope-intercept form.",
+    "Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of the slope and y-intercept of its graph or a table of values."
+   ]
+  },
+  {
+   "code": "NC.8.F.5",
+   "domain": "F",
+   "cluster": "Use functions to model relationships between quantities.",
+   "text": "Qualitatively analyze the functional relationship between two quantities.",
+   "details": [
+    "Analyze a graph determining where the function is increasing or decreasing; linear or non-linear.",
+    "Sketch a graph that exhibits the qualitative features of a real-world function."
+   ]
+  },
+  {
+   "code": "NC.8.G.2",
+   "domain": "G",
+   "cluster": "Understand congruence and similarity using physical models, transparencies, or geometry software.",
+   "text": "Use transformations to define congruence.",
+   "details": [
+    "Verify experimentally the properties of rotations, reflections, and translations that create congruent figures.",
+    "Understand that a two-dimensional figure is congruent to another if the second can be obtained from the first by a sequence of rotations, reflections, and translations.",
+    "Given two congruent figures, describe a sequence that exhibits the congruence between them."
+   ]
+  },
+  {
+   "code": "NC.8.G.3",
+   "domain": "G",
+   "cluster": "Understand congruence and similarity using physical models, transparencies, or geometry software.",
+   "text": "Describe the effect of dilations about the origin, translations, rotations about the origin in 90 degree increments, and reflections across the x-axis and y-axis on two-dimensional figures using coordinates.",
+   "details": []
+  },
+  {
+   "code": "NC.8.G.4",
+   "domain": "G",
+   "cluster": "Understand congruence and similarity using physical models, transparencies, or geometry software.",
+   "text": "Use transformations to define similarity.",
+   "details": [
+    "Verify experimentally the properties of dilations that create similar figures.",
+    "Understand that a two-dimensional figure is similar to another if the second can be obtained from the first by a sequence of rotations, reflections, translations, and dilations.",
+    "Given two similar two-dimensional figures, describe a sequence that exhibits the similarity between them."
+   ]
+  },
+  {
+   "code": "NC.8.G.5",
+   "domain": "G",
+   "cluster": "Analyze angle relationships.",
+   "text": "Use informal arguments to analyze angle relationships.",
+   "details": [
+    "Recognize relationships between interior and exterior angles of a triangle.",
+    "Recognize the relationships between the angles created when parallel lines are cut by a transversal.",
+    "Recognize the angle-angle criterion for similarity of triangles.",
+    "Solve real-world and mathematical problems involving angles."
+   ]
+  },
+  {
+   "code": "NC.8.G.6",
+   "domain": "G",
+   "cluster": "Understand and apply the Pythagorean Theorem.",
+   "text": "Explain the Pythagorean Theorem and its converse.",
+   "details": []
+  },
+  {
+   "code": "NC.8.G.7",
+   "domain": "G",
+   "cluster": "Understand and apply the Pythagorean Theorem.",
+   "text": "Apply the Pythagorean Theorem and its converse to solve real-world and mathematical problems.",
+   "details": []
+  },
+  {
+   "code": "NC.8.G.8",
+   "domain": "G",
+   "cluster": "Understand and apply the Pythagorean Theorem.",
+   "text": "Apply the Pythagorean Theorem to find the distance between two points in a coordinate system.",
+   "details": []
+  },
+  {
+   "code": "NC.8.G.9",
+   "domain": "G",
+   "cluster": "Solve real-world and mathematical problems involving volume of cylinders, cones, and spheres.",
+   "text": "Understand how the formulas for the volumes of cones, cylinders, and spheres are related and use the relationship to solve real-world and mathematical problems.",
+   "details": []
+  },
+  {
+   "code": "NC.8.SP.1",
+   "domain": "SP",
+   "cluster": "Investigate patterns of association in bivariate data.",
+   "text": "Construct and interpret scatter plots for bivariate measurement data to investigate patterns of association between two quantities. Investigate and describe patterns such as clustering, outliers, positive or negative association, linear association, and nonlinear association.",
+   "details": []
+  },
+  {
+   "code": "NC.8.SP.2",
+   "domain": "SP",
+   "cluster": "Investigate patterns of association in bivariate data.",
+   "text": "Model the relationship between bivariate quantitative data to:",
+   "details": [
+    "Informally fit a straight line for a scatter plot that suggests a linear association.",
+    "Informally assess the model fit by judging the closeness of the data points to the line."
+   ]
+  },
+  {
+   "code": "NC.8.SP.3",
+   "domain": "SP",
+   "cluster": "Investigate patterns of association in bivariate data.",
+   "text": "Use the equation of a linear model to solve problems in the context of bivariate quantitative data, interpreting the slope and y-intercept.",
+   "details": []
+  },
+  {
+   "code": "NC.8.SP.4",
+   "domain": "SP",
+   "cluster": "Investigate patterns of association in bivariate data.",
+   "text": "Understand that patterns of association can also be seen in bivariate categorical data by displaying frequencies and relative frequencies in a two-way table.",
+   "details": [
+    "Construct and interpret a two-way table summarizing data on two categorical variables collected from the same subjects.",
+    "Use relative frequencies calculated for rows or columns to describe possible association between the two variables."
+   ]
+  }
+ ],
+ "M1": [
+  {
+   "code": "NC.M1.N-RN.2",
+   "domain": "N-RN",
+   "cluster": "The Real Number System - Extend the properties of exponents to rational exponents.",
+   "text": "Rewrite algebraic expressions with integer exponents using the properties of exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-SSE.1",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret expressions that represent a quantity in terms of its context.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-SSE.1a",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Identify and interpret parts of a linear, exponential, or quadratic expression, including terms, factors, coefficients, and exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-SSE.1b",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret a linear, exponential, or quadratic expression made of multiple parts as a combination of entities to give meaning to an expression.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-SSE.3",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Write expressions in equivalent forms to solve problems.",
+   "text": "Write an equivalent form of a quadratic expression 𝑎𝑥2 + 𝑏𝑥 + 𝑐, where a is an integer, by factoring to reveal the solutions of the equation or the zeros of the function the expression defines.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-APR.1",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial Expressions - Perform arithmetic operations on polynomials.",
+   "text": "Build an understanding that operations with polynomials are comparable to operations with integers by adding and subtracting quadratic expressions and by adding, subtracting, and multiplying linear expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-APR.3",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial Expressions - Understand the relationship between zeros and factors of polynomials.",
+   "text": "Understand the relationships among the factors of a quadratic expression, the solutions of a quadratic equation, and the zeros of a quadratic function.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-CED.1",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create equations and inequalities in one variable that represent linear, exponential, and quadratic relationships and use them to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-CED.2",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create and graph equations in two variables to represent linear, exponential, and quadratic relationships between quantities.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-CED.3",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create systems of linear equations and inequalities to model situations in context.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-CED.4",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Solve for a quantity of interest in formulas used in science and mathematics using the same reasoning as in solving equations.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.1",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Understand solving equations as a process of reasoning and explain the reasoning.",
+   "text": "Justify a chosen solution method and each step of the solving process for linear and quadratic equations using mathematical reasoning.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.3",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve equations and inequalities in one variable.",
+   "text": "Solve linear equations and inequalities in one variable.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.4",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve equations and inequalities in one variable.",
+   "text": "Solve for the real solutions of quadratic equations in one variable by taking square roots and factoring.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.5",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve systems of equations.",
+   "text": "Explain why replacing one equation in a system of linear equations by the sum of that equation and a multiple of the other produces a system with the same solutions.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.6",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve systems of equations.",
+   "text": "Use tables, graphs, or algebraic methods (substitution and elimination) to find approximate or exact solutions to systems of linear equations and interpret solutions in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.10",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Represent and solve equations and inequalities graphically",
+   "text": "Understand that the graph of a two variable equation represents the set of all solutions to the equation.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.11",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Represent and solve equations and inequalities graphically",
+   "text": "Build an understanding of why the x-coordinates of the points where the graphs of two linear, exponential, and/or quadratic equations 𝑦 = 𝑓(𝑥) and 𝑦 = 𝑔(𝑥) intersect are the solutions of the equation 𝑓(𝑥) = 𝑔(𝑥) and approximate solutions using graphing technology or successive approximations with a table of values.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.A-REI.12",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Represent and solve equations and inequalities graphically",
+   "text": "Represent the solutions of a linear inequality or a system of linear inequalities graphically as a region of the plane.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.1",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Build an understanding that a function from one set (called the domain) to another set (called the range) assigns to each element of the domain exactly one element of the range by recognizing that:",
+   "details": [
+    "if f is a function and x is an element of its domain, then 𝑓(𝑥) denotes the output of f corresponding to the input x.",
+    "the graph of 𝑓 is the graph of the equation 𝑦 = 𝑓(𝑥)."
+   ]
+  },
+  {
+   "code": "NC.M1.F-IF.2",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Use function notation to evaluate linear, quadratic, and exponential functions for inputs in their domains, and interpret statements that use function notation in terms of a context. ● NC.MI.F-IF.3 Recognize that recursively and explicitly defined sequences are functions whose domain is a subset of the integers, the terms of an arithmetic sequence are a subset of the range of a linear function, and the terms of a geometric sequence are a subset of the range of an exponential function.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.4",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Interpret functions that arise in applications in terms of the context.",
+   "text": "Interpret key features of graphs, tables, and verbal descriptions in context to describe functions that arise in applications relating two quantities, including: intercepts; intervals where the function is increasing, decreasing, positive, or negative; and maximums and minimums.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.5",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Interpret functions that arise in applications in terms of the context.",
+   "text": "Interpret a function in terms of the context by relating its domain and range to its graph and, where applicable, to the quantitative relationship it describes.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.6",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Interpret functions that arise in applications in terms of the context.",
+   "text": "Calculate and interpret the average rate of change over a specified interval for a function presented numerically, graphically, and/or symbolically.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.7",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Analyze linear, exponential, and quadratic functions by generating different representations, by hand in simple cases and using technology for more complicated cases, to show key features, including: domain and range; rate of change; intercepts; intervals where the function is increasing, decreasing, positive, or negative; maximums and minimums; and end behavior.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.8",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Use equivalent expressions to reveal and explain different properties of a function.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.8a",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Rewrite a quadratic function to reveal and explain different key features of the function",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.8b",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Interpret and explain growth and decay rates for an exponential function.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-IF.9",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Compare key features of two functions (linear, quadratic, or exponential) each with a different representation (symbolically, graphically, numerically in tables, or by verbal descriptions).",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-BF.1",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Write a function that describes a relationship between two quantities.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-BF.1a",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Build linear and exponential functions, including arithmetic and geometric sequences, given a graph, a description of a relationship, or two ordered pairs (include reading these from a table).",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-BF.1b",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Build a function that models a relationship between two quantities by combining linear, exponential, or quadratic functions with addition and subtraction or two linear functions with multiplication.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-BF.2",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Translate between explicit and recursive forms of arithmetic and geometric sequences and use both to model situations.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-LE.1",
+   "domain": "F-LE",
+   "cluster": "Linear, Quadratic, and Exponential Models - Construct and compare linear and exponential models and solve problems.",
+   "text": "Identify situations that can be modeled with linear and exponential functions, and justify the most appropriate model for a situation based on the rate of change over equal intervals.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-LE.3",
+   "domain": "F-LE",
+   "cluster": "Linear, Quadratic, and Exponential Models - Construct and compare linear and exponential models and solve problems.",
+   "text": "Compare the end behavior of linear, exponential, and quadratic functions using graphs and tables to show that a quantity increasing exponentially eventually exceeds a quantity increasing linearly or quadratically.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.F-LE.5",
+   "domain": "F-LE",
+   "cluster": "Linear, Quadratic, and Exponential Models - Interpret expressions for functions in terms of the situation they model.",
+   "text": "Interpret the parameters 𝑎 and 𝑏 in a linear function 𝑓(𝑥) = 𝑎𝑥 + 𝑏 or an exponential function 𝑔(𝑥) = 𝑎𝑏𝑥 in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.G-GPE.4",
+   "domain": "G-GPE",
+   "cluster": "Expressing Geometric Properties with Equations - Use coordinates to prove simple geometric theorems algebraically.",
+   "text": "Use coordinates to solve geometric problems involving polygons algebraically",
+   "details": [
+    "Use coordinates to compute perimeters of polygons and areas of triangles and rectangles.",
+    "Use coordinates to verify algebraically that a given set of points produces a particular type of triangle or quadrilateral."
+   ]
+  },
+  {
+   "code": "NC.M1.G-GPE.5",
+   "domain": "G-GPE",
+   "cluster": "Expressing Geometric Properties with Equations - Use coordinates to prove simple geometric theorems algebraically.",
+   "text": "Use coordinates to prove the slope criteria for parallel and perpendicular lines and use them to solve problems.",
+   "details": [
+    "Determine if two lines are parallel, perpendicular, or neither.",
+    "Find the equation of a line parallel or perpendicular to a given line that passes through a given point."
+   ]
+  },
+  {
+   "code": "NC.M1.G-GPE.6",
+   "domain": "G-GPE",
+   "cluster": "Expressing Geometric Properties with Equations - Use coordinates to prove simple geometric theorems algebraically.",
+   "text": "Use coordinates to find the midpoint or endpoint of a line segment.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.1",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on a single count or measurement",
+   "text": "Use technology to represent data with plots on the real number line (histograms, and box plots).",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.2",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on a single count or measurement",
+   "text": "Use statistics appropriate to the shape of the data distribution to compare center (median, mean) and spread (interquartile range, standard deviation) of two or more different data sets. Interpret differences in shape, center, and spread in the context of the data sets.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.3",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on a single count or measurement",
+   "text": "Examine the effects of extreme data points (outliers) on shape, center, and/or spread.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.6",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on two categorical and quantitative",
+   "text": "Represent data on two quantitative variables on a scatter plot, and describe how the variables are related.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.6a",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on two categorical and quantitative",
+   "text": "Fit a least squares regression line to linear data using technology. Use the fitted function to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.6b",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on two categorical and quantitative",
+   "text": "Assess the fit of a linear function by analyzing residuals.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.6c",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Summarize, represent, and interpret data on two categorical and quantitative",
+   "text": "Fit a function to exponential data using technology. Use the fitted function to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.7",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Interpret linear models.",
+   "text": "Interpret in context the rate of change and the intercept of a linear model. Use the linear model to interpolate and extrapolate predicted values. Assess the validity of a predicted value.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.8",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Interpret linear models.",
+   "text": "Analyze patterns and describe relationships between two variables in context. Using technology, determine the correlation coefficient of bivariate data and interpret it as a measure of the strength and direction of a linear relationship. Use a scatter plot, correlation coefficient, and a residual plot to determine the appropriateness of using a linear function to model a relationship between two variables.",
+   "details": []
+  },
+  {
+   "code": "NC.M1.S-ID.9",
+   "domain": "S-ID",
+   "cluster": "Interpreting Categorical and Quantitative Data - Interpret linear models.",
+   "text": "Distinguish between association and causation.",
+   "details": []
+  }
+ ],
+ "M2": [
+  {
+   "code": "NC.M2.N-RN.1",
+   "domain": "N-RN",
+   "cluster": "The Real Number System - Extend the properties of exponents to rational exponents.",
+   "text": "Explain how expressions with rational exponents can be rewritten as radical expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.N-RN.2",
+   "domain": "N-RN",
+   "cluster": "The Real Number System - Extend the properties of exponents to rational exponents.",
+   "text": "Rewrite expressions with radicals and rational exponents into equivalent expressions using the properties of exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.N-RN.3",
+   "domain": "N-RN",
+   "cluster": "The Real Number System- Use properties of rational and irrational numbers.",
+   "text": "Use the properties of rational and irrational numbers to explain why:",
+   "details": [
+    "the sum or product of two rational numbers is rational;",
+    "the sum of a rational number and an irrational number is irrational;",
+    "the product of a nonzero rational number and an irrational number is irrational."
+   ]
+  },
+  {
+   "code": "NC.M2.N-CN.1",
+   "domain": "N-CN",
+   "cluster": "The Complex Number System - Defining complex numbers.",
+   "text": "Know there is a complex number i such that 𝑖2 = – 1, and every complex number has the form 𝑎 + 𝑏𝑖 where 𝑎 and 𝑏 are real numbers.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-SSE.1",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret expressions that represent a quantity in terms of its context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-SSE.1a",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Identify and interpret parts of a quadratic, square root, inverse variation, or right triangle trigonometric expression, including terms, factors, coefficients, radicands, and exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-SSE.1b",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret quadratic and square root expressions made of multiple parts as a combination of single entities to give meaning in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-SSE.3",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Write an equivalent form of a quadratic expression by completing the square, where 𝑎 is an integer of a quadratic expression, 𝑎𝑥2 + 𝑏𝑥 + 𝑐, to reveal the maximum or minimum value of the function the expression defines.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-APR.1",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Perform arithmetic operations on polynomials",
+   "text": "Extend the understanding that operations with polynomials are comparable to operations with integers by adding, subtracting, and multiplying polynomials.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-CED.1",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create equations and inequalities in one variable that represent quadratic, square root, inverse variation, and right triangle trigonometric relationships and use them to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-CED.2",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create and graph equations in two variables to represent quadratic, square root and inverse variation relationships between quantities.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-CED.3",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create systems of linear, quadratic, square root, and inverse variation equations to model situations in context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.1",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Understand solving equations as a process of reasoning and explain the reasoning.",
+   "text": "Justify a chosen solution method and each step of the solving process for quadratic, square root and inverse variation equations using mathematical reasoning.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.2",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Understand solving equations as a process of reasoning and explain the reasoning.",
+   "text": "Solve and interpret one variable inverse variation and square root equations arising from a context, and explain how extraneous solutions may be produced.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.4",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve equations and inequalities in one variable.",
+   "text": "Solve for all solutions of quadratic equations in one variable.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.4a",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve equations and inequalities in one variable.",
+   "text": "Understand that the quadratic formula is the generalization of solving 𝑎𝑥2 + 𝑏𝑥 + 𝑐 by using the process of completing the square.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.4b",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve equations and inequalities in one variable.",
+   "text": "Explain when quadratic equations will have non-real solutions and express complex solutions as 𝑎 ± 𝑏𝑖 for real numbers 𝑎 and 𝑏.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.7",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Solve systems of equations.",
+   "text": "Use tables, graphs, and algebraic methods to approximate or find exact solutions of systems of linear and quadratic equations, and interpret the solutions in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.A-REI.11",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Represent and solve equations and inequalities graphically.",
+   "text": "Extend the understanding that the 𝑥-coordinates of the points where the graphs of two square root and/or inverse variation equations 𝑦 = 𝑓(𝑥) and 𝑦 = 𝑔(𝑥) intersect are the solutions of the equation 𝑓(𝑥) = 𝑔(𝑥) and approximate solutions using graphing technology or successive approximations with a table of values.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-IF.1",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Understand the concept of a function and use function notation.",
+   "text": "Extend the concept of a function to include geometric transformations in the plane by recognizing that:",
+   "details": [
+    "the domain and range of a transformation function f are sets of points in the plane;",
+    "the image of a transformation is a function of its pre-image."
+   ]
+  },
+  {
+   "code": "NC.M2.F-IF.2",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Understand the concept of a function and use function notation.",
+   "text": "Extend the use of function notation to express the image of a geometric figure in the plane resulting from a translation, rotation by multiples of 90 degrees about the origin, reflection across an axis, or dilation as a function of its pre-image.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-IF.4",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Interpret functions that arise in applications in terms of the context.",
+   "text": "Interpret key features of graphs, tables, and verbal descriptions in context to describe functions that arise in applications relating two quantities, including: domain and range, rate of change, symmetries, and end behavior.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-IF.7",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Analyze quadratic, square root, and inverse variation functions by generating different representations, by hand in simple cases and using technology for more complicated cases, to show key features, including: domain and range; intercepts; intervals where the function is increasing, decreasing, positive, or negative; rate of change; maximums and minimums; symmetries; and end behavior.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-IF.8",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Use equivalent expressions to reveal and explain different properties of a function by developing and using the process of completing the square to identify the zeros, extreme values, and symmetry in graphs and tables representing quadratic functions, and interpret these in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-IF.9",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Compare key features of two functions (linear, quadratic, square root, or inverse variation functions) each with a different representation (symbolically, graphically, numerically in tables, or by verbal descriptions).",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-BF.1",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Write a function that describes a relationship between two quantities by building quadratic functions with real solution(s) and inverse variation functions given a graph, a description of a relationship, or ordered pairs (include reading these from a table).",
+   "details": []
+  },
+  {
+   "code": "NC.M2.F-BF.3",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "Understand the effects of the graphical and tabular representations of a linear, quadratic, square root, and inverse variation function f with 𝑘 ∙ 𝑓(𝑥), 𝑓(𝑥) + 𝑘, 𝑓(𝑥 + 𝑘) for specific values of 𝑘 (both positive and negative).",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.2",
+   "domain": "G-CO",
+   "cluster": "Congruence - Experiment with transformations in the plane.",
+   "text": "Experiment with transformations in the plane.",
+   "details": [
+    "Represent transformations in the plane.",
+    "Compare rigid motions that preserve distance and angle measure (translations, reflections, rotations) to transformations that do not preserve both distance and angle measure (e.g. stretches, dilations).",
+    "Understand that rigid motions produce congruent figures while dilations produce similar figures."
+   ]
+  },
+  {
+   "code": "NC.M2.G-CO.3",
+   "domain": "G-CO",
+   "cluster": "Congruence - Experiment with transformations in the plane.",
+   "text": "Given a triangle, quadrilateral, or regular polygon, describe any reflection or rotation symmetry i.e., actions that carry the figure onto itself. Identify center and angle(s) of rotation symmetry. Identify line(s) of reflection symmetry.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.4",
+   "domain": "G-CO",
+   "cluster": "Congruence - Experiment with transformations in the plane.",
+   "text": "Verify experimentally properties of rotations, reflections, and translations in terms of angles, circles, perpendicular lines, parallel lines, and line segments.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.5",
+   "domain": "G-CO",
+   "cluster": "Congruence - Experiment with transformations in the plane.",
+   "text": "Given a geometric figure and a rigid motion, find the image of the figure. Given a geometric figure and its image, specify a rigid motion or sequence of rigid motions that will transform the pre-image to its image.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.6",
+   "domain": "G-CO",
+   "cluster": "Congruence - Understand congruence in terms of rigid motions.",
+   "text": "Determine whether two figures are congruent by specifying a rigid motion or sequence of rigid motions that will transform one figure onto the other.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.7",
+   "domain": "G-CO",
+   "cluster": "Congruence - Understand congruence in terms of rigid motions.",
+   "text": "Use the properties of rigid motions to show that two triangles are congruent if and only if corresponding pairs of sides and corresponding pairs of angles are congruent.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.8",
+   "domain": "G-CO",
+   "cluster": "Congruence - Understand congruence in terms of rigid motions.",
+   "text": "Use congruence in terms of rigid motion. Justify the ASA, SAS, and SSS criteria for triangle congruence. Use criteria for triangle congruence (ASA, SAS, SSS, HL) to determine whether two triangles are congruent.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-CO.9",
+   "domain": "G-CO",
+   "cluster": "Congruence - Prove geometric theorems.",
+   "text": "Prove theorems about lines and angles and use them to prove relationships in geometric figures including:",
+   "details": [
+    "Vertical angles are congruent.",
+    "When a transversal crosses parallel lines, alternate interior angles are congruent.",
+    "When a transversal crosses parallel lines, corresponding angles are congruent.",
+    "Points are on a perpendicular bisector of a line segment if and only if they are equidistant from the endpoints of the segment.",
+    "Use congruent triangles to justify why the bisector of an angle is equidistant from the sides of the angle"
+   ]
+  },
+  {
+   "code": "NC.M2.G-CO.10",
+   "domain": "G-CO",
+   "cluster": "Congruence - Prove geometric theorems.",
+   "text": "Prove theorems about triangles and use them to prove relationships in geometric figures including:",
+   "details": [
+    "The sum of the measures of the interior angles of a triangle is 180º.",
+    "An exterior angle of a triangle is equal to the sum of its remote interior angles.",
+    "The base angles of an isosceles triangle are congruent.",
+    "The segment joining the midpoints of two sides of a triangle is parallel to the third side and half the length."
+   ]
+  },
+  {
+   "code": "NC.M2.G-SRT.1",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Verify experimentally the properties of dilations with given center and scale factor:",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.1a",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "When a line segment passes through the center of dilation, the line segment and its image lie on the same line. When a line segment does not pass through the center of dilation, the line segment and its image are parallel.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.1b",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "The length of the image of a line segment is equal to the length of the line segment multiplied by the scale factor.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.1c",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "The distance between the center of a dilation and any point on the image is equal to the scale factor multiplied by the distance between the dilation center and the corresponding point on the pre-image.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.1d",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Dilations preserve angle measure.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.2",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Understand similarity in terms of transformations.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.2a",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Determine whether two figures are similar by specifying a sequence of transformations that will transform one figure into the other.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.2b",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Use the properties of dilations to show that two triangles are similar when all corresponding pairs of sides are proportional and all corresponding pairs of angles are congruent.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.3",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Understand similarity in terms of similarity transformations.",
+   "text": "Use transformations (rigid motions and dilations) to justify the AA criterion for triangle similarity.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.4",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Prove theorems involving similarity.",
+   "text": "Use similarity to solve problems and to prove theorems about triangles. Use theorems about triangles to prove relationships in geometric figures.",
+   "details": [
+    "A line parallel to one side of a triangle divides the other two sides proportionally and its converse.",
+    "The Pythagorean Theorem"
+   ]
+  },
+  {
+   "code": "NC.M2.G-SRT.6",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Define trigonometric ratios and solve problems involving right triangles.",
+   "text": "Verify experimentally that the side ratios in similar right triangles are properties of the angle measures in the triangle, due to the preservation of angle measure in similarity. Use this discovery to develop definitions of the trigonometric ratios for acute angles.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.8",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Define trigonometric ratios and solve problems involving right triangles.",
+   "text": "Use trigonometric ratios and the Pythagorean Theorem to solve problems involving right triangles in terms of a context",
+   "details": []
+  },
+  {
+   "code": "NC.M2.G-SRT.12",
+   "domain": "G-SRT",
+   "cluster": "Similarity, Right Triangles, and Trigonometry - Define trigonometric ratios and solve problems involving right triangles.",
+   "text": "Develop properties of special right triangles (45-45-90 and 30-60-90) and use them to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-IC.2",
+   "domain": "S-IC",
+   "cluster": "Making Inference and Justifying Conclusions - Understand and evaluate random processes underlying statistical experiments.",
+   "text": "Use simulation to determine whether the experimental probability generated by sample data is consistent with the theoretical probability based on known information about the population.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.1",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Describe events as subsets of the outcomes in a sample space using characteristics of the outcomes or as unions, intersections and complements of other events.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.3",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Develop and understand independence and conditional probability.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.3a",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Use a 2-way table to develop understanding of the conditional probability of A given B (written P(A|B)) as the likelihood that A will occur given that B has occurred. That is, P(A|B) is the fraction of event B’s outcomes that also belong to event A.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.3b",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Understand that event A is independent from event B if the probability of event A does not change in response to the occurrence of event B. That is P(A|B)=P(A).",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.4",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Represent data on two categorical variables by constructing a two-way frequency table of data. Interpret the two-way table as a sample space to calculate conditional, joint and marginal probabilities. Use the table to decide if events are independent.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.5",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Understand independence and conditional probability and use them to",
+   "text": "Recognize and explain the concepts of conditional probability and independence in everyday language and everyday situations.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.6",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Use the rules of probability to compute probabilities of compound",
+   "text": "Find the conditional probability of A given B as the fraction of B’s outcomes that also belong to A, and interpret the answer in context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.7",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Use the rules of probability to compute probabilities of compound",
+   "text": "Apply the Addition Rule, P(A or B) = P(A) + P(B) – P(A and B), and interpret the answer in context.",
+   "details": []
+  },
+  {
+   "code": "NC.M2.S-CP.8",
+   "domain": "S-CP",
+   "cluster": "Conditional Probability and the Rules for Probability - Use the rules of probability to compute probabilities of compound",
+   "text": "Apply the general Multiplication Rule P(A and B) = P(A)P(B|A) = P(B)P(A|B), and interpret the answer in context. Include the case where A and B are independent: P(A and B) = P(A) P(B).",
+   "details": []
+  }
+ ],
+ "M3": [
+  {
+   "code": "NC.M3.N-CN.9",
+   "domain": "N-CN",
+   "cluster": "The Complex Number System Use complex numbers in polynomial identities and equations.",
+   "text": "Use the Fundamental Theorem of Algebra to determine the number and potential types of solutions for polynomial functions.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-SSE.1",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret expressions that represent a quantity in terms of its context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-SSE.1a",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Identify and interpret parts of a piecewise, absolute value, polynomial, exponential and rational expressions including terms, factors, coefficients, and exponents.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-SSE.1b",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Interpret expressions composed of multiple parts by viewing one or more of their parts as a single entity to give meaning in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-SSE.2",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Interpret the structure of expressions.",
+   "text": "Use the structure of an expression to identify ways to write equivalent expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-SSE.3",
+   "domain": "A-SSE",
+   "cluster": "Seeing Structure in Expressions - Write expressions in equivalent forms to solve problems.",
+   "text": "Write an equivalent form of an exponential expression by using the properties of exponents to transform expressions to reveal rates based on different intervals of the domain.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.2",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Understand the relationship between zeros and factors of polynomials.",
+   "text": "Understand and apply the Remainder Theorem.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.3",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Understand the relationship between zeros and factors of polynomials.",
+   "text": "Understand the relationship among factors of a polynomial expression, the solutions of a polynomial equation and the zeros of a polynomial function.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.6",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Rewrite rational expressions.",
+   "text": "Rewrite simple rational expressions in different forms; write a(x) in the form 𝑞(𝑥) + 𝑟(𝑥), where 𝑎(𝑥), 𝑏(𝑥), 𝑏(𝑥) 𝑏(𝑥) 𝑞(𝑥),and r(x) are polynomials with the degree of 𝑟(𝑥) less than the degree of 𝑏(𝑥).",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.7",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Rewrite rational expressions.",
+   "text": "Understand the similarities between arithmetic with rational expressions and arithmetic with rational numbers.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.7a",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Rewrite rational expressions.",
+   "text": "Add and subtract two rational expressions, 𝑎(𝑥) and 𝑏(𝑥), where the denominators of both 𝑎(𝑥) and 𝑏(𝑥) are linear expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-APR.7b",
+   "domain": "A-APR",
+   "cluster": "Arithmetic with Polynomial and Rational Expressions - Rewrite rational expressions.",
+   "text": "Multiply and divide two rational expressions.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-CED.1",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create equations and inequalities in one variable that represent absolute value, polynomial, exponential, and rational relationships and use them to solve problems algebraically and graphically.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-CED.2",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create and graph equations in two variables to represent absolute value, polynomial, exponential and rational relationships between quantities.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-CED.3",
+   "domain": "A-CED",
+   "cluster": "Creating Equations - Create equations that describe numbers or relationships.",
+   "text": "Create systems of equations and/or inequalities to model situations in context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-REI.1",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Understand solving equations as a process of reasoning and explain the",
+   "text": "Justify a solution method for equations and explain each step of the solving process using mathematical reasoning.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-REI.2",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Understand solving equations as a process of reasoning and explain the",
+   "text": "Solve and interpret one variable rational equations arising from a context, and explain how extraneous solutions may be produced.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.A-REI.11",
+   "domain": "A-REI",
+   "cluster": "Reasoning with Equations and Inequalities - Represent and solve equations and inequalities graphically.",
+   "text": "Extend an understanding that the 𝑥-coordinates of the points where the graphs of two equations 𝑦 = 𝑓(𝑥) and 𝑦 = 𝑔(𝑥) intersect are the solutions of the equation 𝑓(𝑥) = 𝑔(𝑥) and approximate solutions using a graphing technology or successive approximations with a table of values.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-IF.1",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Understand the concept of a function and use function notation.",
+   "text": "Extend the concept of a function by recognizing that trigonometric ratios are functions of angle measure.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-IF.2",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Understand the concept of a function and use function notation.",
+   "text": "Use function notation to evaluate piecewise defined functions for inputs in their domains, and interpret statements that use function notation in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-IF.4",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Interpret functions that arise in applications in terms of the context.",
+   "text": "Interpret key features of graphs, tables, and verbal descriptions in context to describe functions that arise in applications relating two quantities to include periodicity and discontinuities.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-IF.7",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Analyze piecewise, absolute value, polynomials, exponential, rational, and trigonometric functions (sine and cosine) using different representations to show key features of the graph, by hand in simple cases and using technology for more complicated cases, including: domain and range; intercepts; intervals where the function is increasing, decreasing, positive, or negative; rate of change; relative maximums and minimums; symmetries; end behavior; period; and discontinuities.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-IF.9",
+   "domain": "F-IF",
+   "cluster": "Interpreting Functions - Analyze functions using different representations.",
+   "text": "Compare key features of two functions using different representations by comparing properties of two different functions, each with a different representation (symbolically, graphically, numerically in tables, or by verbal descriptions).",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.1",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Write a function that describes a relationship between two quantities.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.1a",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Build polynomial and exponential functions with real solution(s) given a graph, a description of a relationship, or ordered pairs (include reading these from a table).",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.1b",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build a function that models a relationship between two quantities.",
+   "text": "Build a new function, in terms of a context, by combining standard function types using arithmetic operations.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.3",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "Extend an understanding of the effects on the graphical and tabular representations of a function when replacing 𝑓(𝑥) with 𝑘 ∙𝑓(𝑥), 𝑓(𝑥) + 𝑘, 𝑓(𝑥 + 𝑘) to include 𝑓(𝑘 ∙ 𝑥) for specific values of 𝑘 (both positive and negative).",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.4",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "Find an inverse function.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.4a",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "Understand the inverse relationship between exponential and logarithmic, quadratic and square root, and linear to linear functions and use this relationship to solve problems using tables, graphs, and equations.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.4b",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "Determine if an inverse function exists by analyzing tables, graphs, and equations.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-BF.4c",
+   "domain": "F-BF",
+   "cluster": "Building Functions - Build new functions from existing functions.",
+   "text": "If an inverse function exists for a linear, quadratic and/or exponential function, f, represent the inverse function, f-1, with a table, graph, or equation and use it to solve problems in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-LE.3",
+   "domain": "F-LE",
+   "cluster": "Linear, Quadratic, and Exponential Models - Construct and compare linear and exponential models and solve problems.",
+   "text": "Compare the end behavior of functions using their rates of change over intervals of the same length to show that a quantity increasing exponentially eventually exceeds a quantity increasing as a polynomial function.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-LE.4",
+   "domain": "F-LE",
+   "cluster": "Linear, Quadratic, and Exponential Models - Construct and compare linear and exponential models and solve problems.",
+   "text": "Use logarithms to express the solution to 𝑎𝑏𝑐𝑡 = 𝑑 where 𝑎, 𝑏, 𝑐, and 𝑑 are numbers and evaluate the logarithm using technology.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-TF.1",
+   "domain": "F-TF",
+   "cluster": "Trigonometric Functions - Extend the domain of trigonometric functions using the unit circle.",
+   "text": "Understand radian measure of an angle as: ● The ratio of the length of an arc on a circle subtended by the angle to its radius. ● A dimensionless measure of length defined by the quotient of arc length and radius that is a real number. ● The domain for trigonometric functions",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-TF.2",
+   "domain": "F-TF",
+   "cluster": "Trigonometric Functions - Extend the domain of trigonometric functions using the unit circle.",
+   "text": "Build an understanding of trigonometric functions by using tables, graphs and technology to represent the cosine and sine functions.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-TF.2a",
+   "domain": "F-TF",
+   "cluster": "Trigonometric Functions - Extend the domain of trigonometric functions using the unit circle.",
+   "text": "Interpret the sine function as the relationship between the radian measure of an angle formed by the horizontal axis and a terminal ray on the unit circle and its y coordinate.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-TF.2b",
+   "domain": "F-TF",
+   "cluster": "Trigonometric Functions - Extend the domain of trigonometric functions using the unit circle.",
+   "text": "Interpret the cosine function as the relationship between the radian measure of an angle formed by the horizontal axis and a terminal ray on the unit circle and its x coordinate.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.F-TF.5",
+   "domain": "F-TF",
+   "cluster": "Trigonometric Functions - Model periodic phenomena with trigonometric functions.",
+   "text": "Use technology to investigate the parameters, 𝑎, 𝑏, and ℎ of a sine function, 𝑓(𝑥) = 𝑎 ∙ 𝑠𝑖𝑛(𝑏 ∙ 𝑥) + ℎ, to represent periodic phenomena and interpret key features in terms of a context.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-CO.10",
+   "domain": "G-CO",
+   "cluster": "Congruence - Prove geometric theorems.",
+   "text": "Verify experimentally properties of the centers of triangles (centroid, incenter, and circumcenter).",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-CO.11",
+   "domain": "G-CO",
+   "cluster": "Congruence - Prove geometric theorems.",
+   "text": "Prove theorems about parallelograms. ● Opposite sides of a parallelogram are congruent. ● Opposite angles of a parallelogram are congruent. ● Diagonals of a parallelogram bisect each other. ● If the diagonals of a parallelogram are congruent, then the parallelogram is a rectangle.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-CO.14",
+   "domain": "G-CO",
+   "cluster": "Congruence - Prove geometric theorems.",
+   "text": "Apply properties, definitions, and theorems of two-dimensional figures to prove geometric theorems and solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-C.2",
+   "domain": "G-C",
+   "cluster": "Circles - Understand and apply theorems about circles.",
+   "text": "Understand and apply theorems about circles. ● Understand and apply theorems about relationships with angles and circles, including central, inscribed and circumscribed angles. ● Understand and apply theorems about relationships with line segments and circles including, radii, diameter, secants, tangents and chords.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-C.5",
+   "domain": "G-C",
+   "cluster": "Circles - Understand and apply theorems about circles.",
+   "text": "Using similarity, demonstrate that the length of an arc, s, for a given central angle is proportional to the radius, r, of the circle. Define radian measure of the central angle as the ratio of the length of the arc to the radius of the circle, s/r. Find arc lengths and areas of sectors of circles.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-GPE.1",
+   "domain": "G-GPE",
+   "cluster": "Expressing Geometric Properties with Equations - Translate between the geometric description and the equation for a conic",
+   "text": "Derive the equation of a circle of given center and radius using the Pythagorean Theorem; complete the square to find the center and radius of a circle given by an equation.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-GMD.3",
+   "domain": "G-GMD",
+   "cluster": "Geometric Measurement & Dimension - Explain volume formulas and use them to solve problems.",
+   "text": "Use the volume formulas for prisms, cylinders, pyramids, cones, and spheres to solve problems.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-GMD.4",
+   "domain": "G-GMD",
+   "cluster": "Geometric Measurement & Dimension - Visualize relationships between two-dimensional and three-dimensional objects.",
+   "text": "Identify the shapes of two-dimensional cross-sections of three-dimensional objects, and identify three-dimensional objects generated by rotations of two-dimensional objects.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.G-MG.1",
+   "domain": "G-MG",
+   "cluster": "Modeling with Geometry - Apply geometric concepts in modeling situations.",
+   "text": "Apply geometric concepts in modeling situations",
+   "details": [
+    "Use geometric and algebraic concepts to solve problems in modeling situations:",
+    "Use geometric shapes, their measures, and their properties, to model real-life objects.",
+    "Use geometric formulas and algebraic functions to model relationships.",
+    "Apply concepts of density based on area and volume.",
+    "Apply geometric concepts to solve design and optimization problems."
+   ]
+  },
+  {
+   "code": "NC.M3.S-IC.3",
+   "domain": "S-IC",
+   "cluster": "Making Inference and Justifying Conclusions - Make inferences and justify conclusions from sample surveys, experiments, and",
+   "text": "Recognize the purposes of and differences between sample surveys, experiments, and observational studies and understand how randomization should be used in each.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.S-IC.4",
+   "domain": "S-IC",
+   "cluster": "Making Inference and Justifying Conclusions - Make inferences and justify conclusions from sample surveys, experiments, and",
+   "text": "Use simulation to understand how samples can be used to estimate a population mean or proportion and how to determine a margin of error for the estimate.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.S-IC.5",
+   "domain": "S-IC",
+   "cluster": "Making Inference and Justifying Conclusions - Make inferences and justify conclusions from sample surveys, experiments, and",
+   "text": "Use simulation to determine whether observed differences between samples from two distinct populations indicate that the two populations are actually different in terms of a parameter of interest.",
+   "details": []
+  },
+  {
+   "code": "NC.M3.S-IC.6",
+   "domain": "S-IC",
+   "cluster": "Making Inference and Justifying Conclusions - Make inferences and justify conclusions from sample surveys, experiments, and",
+   "text": "Evaluate articles and websites that report data by identifying the source of the data, the design of the study, and the way the data are graphically displayed.",
+   "details": []
+  }
+ ]
+}
