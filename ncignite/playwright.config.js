@@ -3,7 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 /* Runs against the deployed site by default, because that is what families
  * will actually load. Point BASE_URL at a preview deployment to check one
  * before it is promoted. */
-const BASE_URL = process.env.BASE_URL || 'https://ncignyte.vercel.app';
+const BASE_URL = process.env.BASE_URL || 'https://ncignyte.org';
 
 export default defineConfig({
   testDir: './tests',

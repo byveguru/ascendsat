@@ -11,6 +11,8 @@ import {
   useWindowDimensions,
 } from "react-native";
 
+import { ascentTheme, fonts } from "../theme";
+
 const STAR = "\u2605";
 const SPEECH = "\uD83D\uDCAC";
 const AVATAR_COLORS = ["#3b82f6", "#a78bfa", "#f5c518", "#4ade80", "#fb923c", "#f87171"];
@@ -61,13 +63,13 @@ const TestimonialCard = ({ item, isLight, accent, border, cardBg, textPrimary, t
   <View
     style={{
       backgroundColor: cardBg,
-      borderRadius: 18,
+      borderRadius: 12,
       padding: 24,
       borderWidth: 1,
       borderColor: border,
       minHeight: 260,
       ...(Platform.OS === "web"
-        ? { boxShadow: isLight ? "0 18px 40px rgba(15,23,42,0.08)" : "0 18px 40px rgba(0,0,0,0.35)" }
+        ? { boxShadow: "none" }
         : {}),
     }}
   >
@@ -117,7 +119,7 @@ export default function AnimatedTestimonials({
   title = "Results speak for themselves.",
   subtitle = "Real students. Real score gains. See what AscendSAT users are saying.",
   badgeText = "Student success stories",
-  autoRotateInterval = 6000,
+  autoRotateInterval = 0,
 }) {
   const items = mapFirestoreTestimonials(testimonials);
   const { width } = useWindowDimensions();
@@ -128,12 +130,8 @@ export default function AnimatedTestimonials({
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const slideAnim = useRef(new Animated.Value(0)).current;
 
-  const textPrimary = isLight ? "#0f172a" : "#ffffff";
-  const textSecondary = isLight ? "#475569" : "#9aa4c7";
-  const cardBg = isLight ? "#ffffff" : "#0f1829";
-  const border = isLight ? "#e2e8f0" : "#1a2540";
-  const accent = isLight ? "#1d4ed8" : "#f5c518";
-  const sectionBg = isLight ? "#f8fafc" : "#0a1020";
+  const t = ascentTheme(isLight);
+  const textPrimary=t.text, textSecondary=t.muted, cardBg=t.surface, border=t.border, accent=t.terracotta, sectionBg=t.background;
 
   useEffect(() => {
     setActiveIndex(0);
@@ -147,15 +145,7 @@ export default function AnimatedTestimonials({
     return () => clearInterval(interval);
   }, [autoRotateInterval, items.length]);
 
-  useEffect(() => {
-    if (!items.length) return;
-    fadeAnim.setValue(0);
-    slideAnim.setValue(28);
-    Animated.parallel([
-      Animated.timing(fadeAnim, { toValue: 1, duration: 420, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
-      Animated.timing(slideAnim, { toValue: 0, duration: 420, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
-    ]).start();
-  }, [activeIndex, items.length, fadeAnim, slideAnim]);
+  useEffect(() => { fadeAnim.setValue(1); slideAnim.setValue(0); }, [activeIndex,items.length]);
 
   if (loading) {
     return (
@@ -171,7 +161,7 @@ export default function AnimatedTestimonials({
       <View
         style={{
           padding: 32,
-          borderRadius: 20,
+          borderRadius: 8,
           borderWidth: 1,
           borderColor: border,
           backgroundColor: cardBg,
@@ -190,7 +180,7 @@ export default function AnimatedTestimonials({
     <View
       style={{
         backgroundColor: sectionBg,
-        borderRadius: 24,
+        borderRadius: 12,
         padding: isWide ? 32 : 20,
         borderWidth: 1,
         borderColor: border,
@@ -208,8 +198,8 @@ export default function AnimatedTestimonials({
                   gap: 6,
                   paddingHorizontal: 12,
                   paddingVertical: 6,
-                  borderRadius: 20,
-                  backgroundColor: isLight ? "#eff6ff" : "#0c1a2e",
+                  borderRadius: 8,
+                  backgroundColor: sectionBg,
                   marginBottom: 14,
                 }}
               >
@@ -218,7 +208,7 @@ export default function AnimatedTestimonials({
               </View>
             ) : null}
             {title ? (
-              <Text style={{ color: textPrimary, fontSize: isWide ? 36 : 28, fontWeight: "900", letterSpacing: -0.5, marginBottom: 8, lineHeight: isWide ? 40 : 34 }}>
+              <Text style={{ color: textPrimary, fontFamily: fonts.studyDisplay, fontSize: isWide ? 30 : 26, fontWeight: "700", letterSpacing: -0.5, marginBottom: 8, lineHeight: isWide ? 40 : 34 }}>
                 {title}
               </Text>
             ) : null}

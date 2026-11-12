@@ -1,10 +1,11 @@
 import React, { useMemo } from "react";
 import { Text, View, type ViewStyle } from "react-native";
 import DesmosGraphingCalculator from "./DesmosGraphingCalculator";
-import type { DesmosExpression } from "../desmos/buildCalculatorHtml";
+import type { DesmosExpression, DesmosMathBounds } from "../desmos/buildCalculatorHtml";
 
 export type DesmosVisualProps = {
   equations: string[];
+  mathBounds?: DesmosMathBounds;
   title?: string;
   height?: number;
   colors?: string[];
@@ -22,6 +23,7 @@ const DEFAULT_COLORS = ["#2d70b3", "#c74440", "#388c46", "#6042a6", "#fa7e19"];
  */
 export default function DesmosVisual({
   equations,
+  mathBounds,
   title,
   height = 280,
   colors = DEFAULT_COLORS,
@@ -41,7 +43,7 @@ export default function DesmosVisual({
           {title}
         </Text>
       ) : null}
-      <DesmosGraphingCalculator height={height} expressions={expressions} lockViewport={lockViewport} theme={isLight ? "light" : "dark"} />
+      <DesmosGraphingCalculator height={height} mathBounds={mathBounds} expressions={expressions} lockViewport={lockViewport} theme={isLight ? "light" : "dark"} />
     </View>
   );
 }

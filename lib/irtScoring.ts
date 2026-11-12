@@ -86,6 +86,9 @@ export function estimateEap(
   responses: IrtResponse[],
   prior: { mean: number; sd: number } = { mean: PRIOR_MEAN, sd: PRIOR_SD }
 ): EapResult {
+  prior = { mean: Number.isFinite(prior?.mean) ? clamp(prior.mean, THETA_MIN, THETA_MAX) : PRIOR_MEAN,
+    sd: Number.isFinite(prior?.sd) && prior.sd > 0 ? Math.max(0.05, prior.sd) : PRIOR_SD };
+  responses = (responses || []).filter(r => Number.isFinite(r.a) && r.a > 0 && Number.isFinite(r.b) && Number.isFinite(r.c) && r.c >= 0 && r.c < 1 && typeof r.correct === "boolean" && Number.isFinite(r.weight ?? 1) && (r.weight ?? 1) > 0);
   if (!responses.length) {
     return {
       theta: prior.mean,
@@ -99,16 +102,19 @@ export function estimateEap(
     grid.push(t);
   }
 
-  const weights = grid.map((theta) => {
+  const logWeights = grid.map((theta) => {
     let logLik = 0;
     for (const r of responses) {
       const p = clamp(prob3pl(theta, r), 1e-9, 1 - 1e-9);
       logLik += (r.weight ?? 1) * (r.correct ? Math.log(p) : Math.log(1 - p));
     }
-    const priorDensity = normalPdf(theta, prior.mean, prior.sd);
-    return Math.exp(logLik) * priorDensity;
+    const z = (theta - prior.mean) / prior.sd;
+    return logLik - 0.5 * z * z;
   });
 
+  // Normalize in log space: long histories must not underflow to the prior.
+  const maxLogWeight = Math.max(...logWeights);
+  const weights = logWeights.map(value => Math.exp(value - maxLogWeight));
   const total = weights.reduce((s, w) => s + w, 0);
   if (total <= 0) {
     return {
@@ -136,12 +142,11 @@ export function estimateEap(
     }
   }
 
-  const items = responses.map(({ a, b, c }) => ({ a, b, c }));
-  const fisherSem = semAtTheta(theta, items);
 
   return {
     theta,
-    sem: fisherSem,
+    // The SD and interval describe the same weighted posterior.
+    sem,
     credibleInterval: { lower, upper },
   };
 }

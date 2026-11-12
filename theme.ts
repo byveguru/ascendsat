@@ -78,12 +78,14 @@ export const motion = {
 };
 
 /* ---------------- FONTS ---------------- */
-const fontDisplayWeb =
-  "'SF Pro Display', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
-const fontTextWeb =
-  "'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+/* 'Inter' is loaded from Google Fonts (see injectFrauncesWebFont in App.tsx) so
+   text renders identically across OSes instead of falling back to whichever
+   system font (SF Pro on Mac, Segoe UI on Windows) happens to be installed. */
+const fontDisplayWeb = "'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+const fontTextWeb = "'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
 
 export const fonts = {
+  studyDisplay: Platform.select({ web: "'Fraunces', Georgia, serif", default: "Fraunces_700Bold" }),
   display: Platform.select({ web: fontDisplayWeb, default: undefined }),
   text: Platform.select({ web: fontTextWeb, default: undefined }),
 };
@@ -190,3 +192,21 @@ export function legacyT(isLight: boolean) {
     "3xl": typography.heading.fontSize,
   };
 }
+// Approved Everest + Ollie identity. Shared by the new landing/home surfaces.
+export const ascentTheme = (isLight: boolean) => ({
+  ink: isLight ? "#193b2e" : "#eef4ee",
+  text: isLight ? "#263b32" : "#e2ebe3",
+  muted: isLight ? "#526357" : "#b0c3b4",
+  background: isLight ? "#fcfdfb" : "#101c17",
+  surface: isLight ? "#ffffff" : "#17281f",
+  soft: isLight ? "#eef3e8" : "#243b2c",
+  border: isLight ? "#dce4d9" : "#35503d",
+  forest: isLight ? "#345b38" : "#a6c497",
+  terracotta: isLight ? "#b74e2b" : "#d7815c",
+  incorrectSurface: isLight ? "#fff0f0" : "#3a2022",
+  incorrectBorder: isLight ? "#c74b50" : "#db7d80",
+  incorrectText: isLight ? "#9f2c2c" : "#ffb5b9",
+  onAccent: isLight ? "#ffffff" : "#142018",
+  radius: radius.md,
+  space: spacing,
+});

@@ -64,10 +64,16 @@ export default async function handler(req, res) {
     const student = await currentStudent(req);
     if (!student) return json(res, 200, { signedIn: false });
     const rows = await sql`SELECT password_hash FROM students WHERE id = ${student.id} LIMIT 1`;
+    /* Accepted students get the portal instead of the public site, and every
+     * page asks this to know which one to show. Latest application only: a
+     * student with a place cannot apply again, see lib/stages.js. */
+    const app = await sql`SELECT status FROM applications WHERE student_id = ${student.id}
+                          ORDER BY created_at DESC LIMIT 1`;
     return json(res, 200, {
       signedIn: true,
       email: student.email,
       hasPassword: Boolean(rows[0]?.password_hash),
+      accepted: app[0]?.status === 'accepted',
     });
   }
 

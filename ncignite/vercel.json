@@ -39,7 +39,7 @@
       ]
     },
     {
-      "source": "/(login|signup|forgot|reset|status|apply|parent|admin|checkin)",
+      "source": "/(login|signup|forgot|reset|status|apply|parent|admin|checkin|portal|account|startup)",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -72,5 +72,11 @@
     "api/admin.js": {
       "maxDuration": 30
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/startups/:cohort",
+      "destination": "/startups"
+    }
+  ]
 }

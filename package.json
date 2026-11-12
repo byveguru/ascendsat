@@ -1,6 +1,6 @@
 {
   "name": "ascendsat",
-  "version": "3.2.3",
+  "version": "4.1.1",
   "main": "index.tsx",
   "dependencies": {
     "@expo-google-fonts/fraunces": "^0.4.1",

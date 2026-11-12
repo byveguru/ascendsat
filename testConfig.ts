@@ -238,6 +238,18 @@ export type ApCourse = {
 const apUnits = (short: string, names: string[]) => names.map((n) => `${short}: ${n}`);
 
 export const AP_COURSES: ApCourse[] = [
+  { id:"ap-precalculus", label:"AP Precalculus", short:"Precalc", emoji:"📘", hasCalc:true, defaultTerm:"year", units:apUnits("Precalc",["Polynomial and Rational Functions", "Exponential and Logarithmic Functions", "Trigonometric and Polar Functions", "Functions Involving Parameters, Vectors, and Matrices"]) },
+  { id:"ap-statistics", label:"AP Statistics", short:"Stats", emoji:"📘", hasCalc:true, defaultTerm:"year", units:apUnits("Stats",["Exploring One-Variable Data and Collecting Data", "Probability, Random Variables, and Probability Distributions", "Inference for Categorical Data: Proportions", "Inference for Quantitative Data: Means", "Regression Analysis"]) },
+  { id:"ap-environmental-science", label:"AP Environmental Science", short:"APES", emoji:"📘", hasCalc:true, defaultTerm:"year", units:apUnits("APES",["The Living World: Ecosystems", "The Living World: Biodiversity", "Populations", "Earth Systems and Resources", "Land and Water Use", "Energy Resources and Consumption", "Atmospheric Pollution", "Aquatic and Terrestrial Pollution", "Global Change"]) },
+  { id:"ap-english-language", label:"AP English Language and Composition", short:"AP Lang", emoji:"📘", hasCalc:false, defaultTerm:"year", units:apUnits("AP Lang",["Rhetorical Situation and Purpose", "Audience, Claims, and Evidence", "Reasoning and Organization", "Rhetorical Choices and Style", "Developing and Revising Arguments", "Positions, Sources, and Synthesis", "Complexity and Counterargument", "Sustained Analysis and Synthesis", "Independent Composition and Revision"]) },
+  { id:"ap-computer-science-principles", label:"AP Computer Science Principles", short:"CSP", emoji:"📘", hasCalc:false, defaultTerm:"year", units:apUnits("CSP",["Creative Development", "Data", "Algorithms & Programming", "Computer Systems & Networks", "Impact of Computing"]) },
+  { id:"ap-physics-1", label:"AP Physics 1", short:"Physics 1", emoji:"📘", hasCalc:true, defaultTerm:"year", units:apUnits("Physics 1",["Kinematics", "Force and Translational Dynamics", "Work, Energy, and Power", "Linear Momentum", "Torque and Rotational Dynamics", "Energy and Momentum of Rotating Systems", "Oscillations", "Fluids"]) },
+
+  { id:"ap-calculus-ab", label:"AP Calculus AB", short:"Calc AB", emoji:"📈", hasCalc:true, defaultTerm:"year", units:apUnits("Calc AB",["Limits & Continuity", "Differentiation: Definition & Fundamental Properties", "Differentiation: Composite, Implicit & Inverse Functions", "Contextual Applications of Differentiation", "Analytical Applications of Differentiation", "Integration & Accumulation of Change", "Differential Equations", "Applications of Integration"]) },
+  { id:"ap-calculus-bc", label:"AP Calculus BC", short:"Calc BC", emoji:"📈", hasCalc:true, defaultTerm:"year", units:apUnits("Calc BC",["Limits & Continuity", "Differentiation: Definition & Fundamental Properties", "Differentiation: Composite, Implicit & Inverse Functions", "Contextual Applications of Differentiation", "Analytical Applications of Differentiation", "Integration & Accumulation of Change", "Differential Equations", "Applications of Integration", "Parametric, Polar & Vector Functions", "Infinite Sequences & Series"]) },
+  { id:"ap-us-history", label:"AP United States History", short:"APUSH", emoji:"📜", hasCalc:false, defaultTerm:"year", units:apUnits("APUSH",["1491–1607","1607–1754","1754–1800","1800–1848","1844–1877","1865–1898","1890–1945","1945–1980","1980–Present"]) },
+  { id:"ap-world-history-modern", label:"AP World History: Modern", short:"World Hist", emoji:"🌍", hasCalc:false, defaultTerm:"year", units:apUnits("World Hist",["The Global Tapestry","Networks of Exchange","Land-Based Empires","Transoceanic Interconnections","Revolutions","Consequences of Industrialization","Global Conflict","Cold War & Decolonization","Globalization"]) },
+  { id:"ap-psychology", label:"AP Psychology", short:"Psych", emoji:"🧠", hasCalc:false, defaultTerm:"year", units:apUnits("Psych",["Biological Bases of Behavior","Cognition","Development & Learning","Social Psychology & Personality","Mental & Physical Health"]) },
   { id: "ap-us-gov", label: "AP United States Government and Politics", short: "US Gov", emoji: "🏛️", hasCalc: false, defaultTerm: "semester",
     units: apUnits("US Gov", ["Foundations of American Democracy", "Interactions Among Branches", "Civil Liberties & Civil Rights", "American Political Ideologies & Beliefs", "Political Participation"]) },
 ];
@@ -266,7 +278,7 @@ export const AP_CONFIG: TestConfig = {
   scale: { sectionMin: 1, sectionMax: 5, compositeMin: 1, compositeMax: 5, step: 1 },
   targetPlaceholder: "e.g. 5",
   defaultTarget: 4,
-  // 1–5 band from overall accuracy (approximate AP curve). FRQ accuracy is
+  // Heuristic practice band from accuracy, not an official AP conversion. FRQ accuracy is
   // its points/maxPoints fraction, blended in alongside MCQ accuracy.
   sectionScoreFromAccuracy: (acc) => {
     const a = clamp(acc, 0, 1);

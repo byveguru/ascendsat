@@ -10,7 +10,10 @@ export type DesmosExpression = {
   hidden?: boolean;
 };
 
+export type DesmosMathBounds = { left: number; right: number; bottom: number; top: number };
+
 export type BuildCalculatorHtmlOptions = {
+  mathBounds?: DesmosMathBounds;
   expressions?: DesmosExpression[];
   lockViewport?: boolean;
   theme?: "light" | "dark";
@@ -150,6 +153,8 @@ export function buildCalculatorHtml(options: BuildCalculatorHtmlOptions = {}): s
           hidden: expr.hidden || false,
         });
       });
+      const initialBounds = ${JSON.stringify(options.mathBounds ?? null)};
+      if (initialBounds) calculator.setMathBounds(initialBounds);
       window.desmosCalculator = calculator;
       if (window.ReactNativeWebView) {
         window.ReactNativeWebView.postMessage(JSON.stringify({ type: "ready" }));

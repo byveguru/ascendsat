@@ -1,5 +1,5 @@
-import { StyleSheet } from "react-native";
-import { AppTheme, legacyT, palette } from "./theme";
+import { Platform, StyleSheet } from "react-native";
+import { AppTheme, legacyT, palette, ascentTheme, fonts } from "./theme";
 
 export function makeStyles(isLight: boolean, theme: AppTheme) {
   const T = legacyT(isLight);
@@ -952,5 +952,276 @@ export function makeBbStyles() {
       borderColor: mist,
     },
     secondaryBtnText: { color: ink, fontWeight: "700", fontSize: 16 },
+  });
+}
+
+/** Focused study surfaces: the same identity as Home, without decorative chrome. */
+export function makeStudyStyles(isLight: boolean) {
+  const t = ascentTheme(isLight);
+  return StyleSheet.create({
+    screen: { flex: 1, backgroundColor: t.background },
+    scroll: { flex: 1 },
+    content: { width: "100%", maxWidth: 1080, alignSelf: "center", padding: 24, paddingBottom: 110, gap: 24 },
+    title: { color: t.ink, fontSize: 30, lineHeight: 38, fontWeight: "700", fontFamily: fonts.studyDisplay },
+    sectionTitle: { color: t.ink, fontSize: 19, lineHeight: 26, fontWeight: "700" },
+    body: { color: t.muted, fontSize: 15, lineHeight: 23 },
+    small: { color: t.muted, fontSize: 13, lineHeight: 19 },
+    label: { color: t.text, fontSize: 14, lineHeight: 20, fontWeight: "600", marginBottom: 10 },
+    panel: { backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 12, padding: 22 },
+    divider: { height: 1, backgroundColor: t.border },
+    primary: { backgroundColor: t.terracotta, paddingVertical: 14, paddingHorizontal: 22, minHeight: 48, borderRadius: 9, alignItems: "center", justifyContent: "center" },
+    primaryText: { color: t.onAccent, fontWeight: "700", fontSize: 15, lineHeight: 21 },
+    secondary: { borderWidth: 1, borderColor: t.border, backgroundColor: t.surface, paddingVertical: 13, paddingHorizontal: 18, minHeight: 46, borderRadius: 9, alignItems: "center", justifyContent: "center" },
+    secondaryText: { color: t.text, fontWeight: "600", fontSize: 14, lineHeight: 20 },
+    option: { borderWidth: 1, borderColor: t.border, borderRadius: 9, paddingHorizontal: 16, paddingVertical: 13, minHeight: 46, backgroundColor: t.surface, flexDirection: "row", alignItems: "center", gap: 9 },
+    selected: { borderColor: t.forest, backgroundColor: t.soft },
+    optionText: { color: t.text, fontWeight: "600", fontSize: 14, lineHeight: 20 },
+    input: { color: t.text, backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 9, paddingHorizontal: 14, paddingVertical: 12, minHeight: 48, fontSize: 16 },
+    link: { color: t.terracotta, fontSize: 14, lineHeight: 21, fontWeight: "600" },
+  });
+}
+
+/** Apply the study palette to practice; full exams keep their original shell. */
+export function makePracticeShellStyles(base: any, isLight: boolean, desktop = true) {
+  const t = ascentTheme(isLight);
+  const s: any = { ...base };
+  const colorMap: Record<string,string> = {
+    '#fff': t.surface, '#ffffff': t.surface, '#111': t.text, '#000': t.ink,
+    '#333': t.text, '#374151': t.muted, '#555': t.muted, '#666': t.muted,
+    '#444': t.muted, '#64748b': t.muted, '#1d4ed8': t.forest,
+    '#1e3a5f': t.forest, '#324c9e': t.terracotta, '#5b7fb5': t.forest,
+    '#eff6ff': t.soft, '#f3f4f6': t.soft, '#b8bcc4': t.border,
+    '#d1d5db': t.border, '#9ca3af': t.border, '#999': t.border,
+  };
+  Object.keys(base).forEach(key => {
+    const flat: any = StyleSheet.flatten(base[key]);
+    const next: any = { ...flat };
+    ['color','backgroundColor','borderColor','borderBottomColor','borderTopColor'].forEach(prop => {
+      if (colorMap[next[prop]]) next[prop] = colorMap[next[prop]];
+    });
+    s[key] = next;
+  });
+  s.tmRoot = { ...s.tmRoot, backgroundColor:t.background };
+  s.tmQuestionInner = { ...s.tmQuestionInner, paddingHorizontal:20, width:'100%', maxWidth:900, alignSelf:'center' };
+  s.tmQuestionInnerMath = { ...s.tmQuestionInnerMath, paddingHorizontal:24 };
+  s.qToolbarMath = { ...s.qToolbarMath, marginHorizontal:0, paddingHorizontal:0, backgroundColor:t.surface };
+  s.tmChoiceRow = { ...s.tmChoiceRow, borderRadius:9, borderWidth:1, paddingHorizontal:16 };
+  s.tmChoiceSelected = { borderWidth:2, borderColor:t.forest, backgroundColor:t.soft };
+  s.choiceBubbleSelected = { ...s.choiceBubbleSelected, backgroundColor:t.forest, borderColor:t.forest };
+  s.choiceLetterSelected = { ...s.choiceLetterSelected, color:t.onAccent };
+  s.tmFooter = { ...s.tmFooter, borderStyle:'solid', paddingHorizontal:16, gap:12 };
+  s.tmFooterCenter = { ...s.tmFooterCenter, alignItems:'flex-start', flex:1 };
+  s.tmFooterRight = { ...s.tmFooterRight, width:undefined, minWidth:0, gap:8 };
+  s.tmNavPillBlack = { ...s.tmNavPillBlack, backgroundColor:t.surface, borderRadius:6, paddingHorizontal:0 };
+  s.tmNavPillBlackText = { ...s.tmNavPillBlackText, color:t.text, fontSize:12 };
+  s.tmNavPillCaret = { ...s.tmNavPillCaret, color:t.muted };
+  s.tmProgressSegments = { ...s.tmProgressSegments, maxWidth:140 };
+  ['tmBtnBack','tmBtnNext','tmReviewSubmitBtn'].forEach(key => { s[key] = {...s[key],borderRadius:8,minWidth:66,paddingHorizontal:16}; });
+  s.tmBtnText = { ...s.tmBtnText, color:t.onAccent };
+  s.tmReviewSubmitText = { ...s.tmReviewSubmitText, color:t.onAccent };
+  s.qNumSquareText = { ...s.qNumSquareText, color:t.onAccent };
+  s.tmRoot = {...s.tmRoot,backgroundColor:t.background};
+  s.examHeader = {backgroundColor:t.surface,borderBottomWidth:1,borderColor:t.border,paddingHorizontal:desktop?32:14,paddingTop:desktop?14:10,paddingBottom:desktop?14:8,flexDirection:desktop?'row':'column',alignItems:desktop?'center':'stretch',gap:desktop?20:0};
+  s.examTopLine = {flexDirection:'row',alignItems:'center',gap:desktop?16:10,flex:desktop?1:undefined};
+  s.exitTarget = {width:44,height:44,alignItems:'center',justifyContent:'center',borderRadius:8};
+  s.examTitle = {fontSize:desktop?18:15,lineHeight:desktop?25:21,color:t.ink,fontWeight:'700'};
+  s.examMeta = {fontSize:12,lineHeight:18,color:t.muted,marginTop:3};
+  s.examClock = {flexDirection:'row',alignItems:'center',gap:8,paddingHorizontal:12,paddingVertical:8,minWidth:desktop?120:96,borderRadius:8,borderWidth:1,borderColor:t.border};
+  s.examClockValue = {color:t.ink,fontSize:desktop?21:17,lineHeight:25,fontWeight:'600',fontVariant:['tabular-nums']};
+  s.examClockLabel = {color:t.muted,fontSize:10,lineHeight:15};
+  s.examTools = {flexDirection:'row',alignItems:'center',justifyContent:desktop?'flex-end':'flex-start',flexWrap:'wrap',gap:desktop?14:4,paddingTop:4};
+  s.readerTool = {minHeight:40,paddingHorizontal:10,paddingVertical:8,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:7,borderRadius:6};
+  s.readerToolText = {fontSize:12,lineHeight:18,fontWeight:'600',color:t.muted};
+  s.examProgress = {height:3,backgroundColor:t.border};
+  s.tmBody = {...s.tmBody,backgroundColor:t.background,paddingHorizontal:desktop?32:0,paddingVertical:desktop?28:0};
+  s.tmContentRow = {...s.tmContentRow,width:'100%',maxWidth:1320,alignSelf:'center',backgroundColor:t.surface,borderWidth:desktop?1:0,borderColor:t.border,borderRadius:desktop?12:0,overflow:'hidden'};
+  s.tmQuestionPane = {...s.tmQuestionPane,backgroundColor:t.surface};
+  s.tmQuestionInner = {...s.tmQuestionInner,width:'100%',maxWidth:820,paddingHorizontal:desktop?36:20,alignSelf:'center'};
+  s.tmQuestionInnerMath = {...s.tmQuestionInnerMath,maxWidth:820,paddingHorizontal:desktop?36:20};
+  s.tmQuestionInner = {...s.tmQuestionInner,paddingTop:0};
+  s.tmPassagePane = {...s.tmPassagePane,backgroundColor:t.surface};
+  s.tmPassageInner = {...s.tmPassageInner,paddingHorizontal:32,paddingVertical:30,paddingBottom:50};
+  s.passageText = {...s.passageText,color:t.text,fontSize:17,lineHeight:30};
+  s.tmSplitDivider = {...s.tmSplitDivider,backgroundColor:t.border};
+  s.tmSplitHandle = {...s.tmSplitHandle,backgroundColor:t.surface,borderColor:t.border};
+  s.qToolbar = {flexDirection:'row',alignItems:'center',gap:4,paddingVertical:14,borderBottomWidth:1,borderColor:t.border};
+  s.questionEyebrow = {fontSize:13,lineHeight:18,color:t.ink,fontWeight:'700'};
+  s.questionSkill = {fontSize:11,lineHeight:16,color:t.muted};
+  s.tmQuestionScrollInner = {...s.tmQuestionScrollInner,paddingTop:8,paddingBottom:36};
+  s.tmQuestionText = {...s.tmQuestionText,color:t.text,fontSize:19,lineHeight:31};
+  s.tmChoicesWrap = {...s.tmChoicesWrap,maxWidth:undefined,width:'100%',marginTop:28};
+  s.tmChoiceRow = {flexDirection:'row',alignItems:'stretch',borderWidth:1,borderColor:t.border,borderRadius:9,backgroundColor:t.surface,marginBottom:12,overflow:'hidden',minHeight:62};
+  s.answerTarget = {flex:1,minWidth:0,flexDirection:'row',alignItems:'center',gap:14,paddingHorizontal:16,paddingVertical:15,minHeight:62};
+  s.eliminateTarget = {width:44,alignItems:'center',justifyContent:'center',borderLeftWidth:1,borderColor:t.border};
+  s.choiceBubble = {height:28,width:28,borderRadius:6,borderWidth:1,borderColor:t.border,alignItems:'center',justifyContent:'center',flexShrink:0};
+  s.choiceLetter = {fontSize:13,color:t.muted,fontWeight:'600'};
+  s.choiceBubbleSelected = {...s.choiceBubbleSelected,borderColor:t.forest,backgroundColor:t.forest};
+  s.choiceLetterSelected = {color:t.onAccent};
+  s.tmChoiceSelected = {borderWidth:2,borderColor:t.forest,backgroundColor:t.soft};
+  s.tmChoiceText = {color:t.text,fontSize:16,lineHeight:25};
+  s.choiceTextStruck = {...s.choiceTextStruck,color:t.muted,textDecorationLine:'line-through'};
+  s.choiceRowStruck = {...s.choiceRowStruck,opacity:0.65};
+  s.examFooter = {backgroundColor:t.surface,borderTopWidth:1,borderColor:t.border,paddingHorizontal:desktop?32:16,paddingVertical:12,flexDirection:'row',alignItems:'center',justifyContent:'space-between',gap:12};
+  s.questionMapTarget = {minHeight:44,flexDirection:'row',alignItems:'center',gap:10};
+  s.questionMapText = {fontSize:13,lineHeight:18,fontWeight:'700',color:t.text};
+  s.questionMapHint = {fontSize:11,lineHeight:16,color:t.muted};
+  s.footerBack = {minHeight:46,minWidth:44,borderWidth:1,borderColor:t.border,borderRadius:8,paddingHorizontal:14,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:9};
+  s.footerBackText = {color:t.text,fontWeight:'600',fontSize:14};
+  s.footerNext = {minHeight:46,borderRadius:8,paddingHorizontal:desktop?24:16,flexDirection:'row',alignItems:'center',justifyContent:'center',gap:10,backgroundColor:t.terracotta};
+  s.footerNextText = {color:t.onAccent,fontSize:14,fontWeight:'700'};
+  s.questionMapContent = {width:'100%',maxWidth:900,alignSelf:'center',padding:desktop?32:20,paddingBottom:50,gap:12};
+  s.mapTitle = {color:t.ink,fontSize:desktop?30:26,lineHeight:36,fontFamily:fonts.studyDisplay,fontWeight:'700'};
+  s.mapDescription = {fontSize:14,lineHeight:23,color:t.muted,marginTop:5};
+  s.mapCell = {width:58,height:64,borderWidth:1,borderColor:t.border,borderRadius:8,alignItems:'center',justifyContent:'center',gap:6,backgroundColor:t.surface};
+  s.tmReviewSubmitBtn = {backgroundColor:t.terracotta,borderRadius:8,paddingHorizontal:24,paddingVertical:15,minHeight:48,alignItems:'center',justifyContent:'center'};
+  s.tmReviewSubmitText = {color:t.onAccent,fontWeight:'700',fontSize:15};
+  s.tmModalCard = {...s.tmModalCard,backgroundColor:t.surface,borderColor:t.border,borderRadius:12};
+  s.tmModalTitle = {...s.tmModalTitle,color:t.ink};
+  s.tmModalBody = {...s.tmModalBody,color:t.text,lineHeight:25};
+  s.tmMoreMenu = {...s.tmMoreMenu,backgroundColor:t.surface,borderColor:t.border};
+  s.tmMoreItemText = {...s.tmMoreItemText,color:t.text};
+  return s;
+}
+
+/** Neutral exam workspace follows testing conventions, separate from study UI. */
+export function makeExamSimulationStyles(base: any, desktop = true, act = false) {
+  const s: any = makePracticeShellStyles(base, true, desktop);
+  const ink = '#1b1d20', blue = act ? '#0069a6' : '#2454b8', edge = '#c7cbd1';
+  s.tmRoot = {...s.tmRoot,backgroundColor:'#fff'};
+  s.examHeader = {...s.examHeader,paddingVertical:12,backgroundColor:'#fff',borderColor:edge};
+  s.examTitle = {...s.examTitle,color:ink,fontSize:desktop?19:15,fontFamily:undefined};
+  s.examMeta = {...s.examMeta,color:'#555b62',fontSize:12};
+  s.examClock = {...s.examClock,borderWidth:0,paddingHorizontal:16,alignItems:'center'};
+  s.examClockValue = {...s.examClockValue,color:ink,fontSize:21};
+  s.examClockLabel = {...s.examClockLabel,color:'#555b62'};
+  s.readerToolText = {...s.readerToolText,color:ink};
+  s.tmBody = {...s.tmBody,paddingHorizontal:0,paddingVertical:0,backgroundColor:'#fff'};
+  s.tmContentRow = {...s.tmContentRow,maxWidth:undefined,borderRadius:0,borderWidth:0,backgroundColor:'#fff'};
+  s.tmQuestionPane = {...s.tmQuestionPane,backgroundColor:'#fff'};
+  s.tmQuestionInner = {...s.tmQuestionInner,maxWidth:900,paddingHorizontal:desktop?44:20};
+  s.tmQuestionInnerMath = {...s.tmQuestionInnerMath,maxWidth:860};
+  s.tmQuestionScrollInner = {...s.tmQuestionScrollInner,paddingTop:28};
+  s.tmPassageInner = {...s.tmPassageInner,paddingHorizontal:desktop?42:20,paddingTop:30};
+  s.tmSplitDivider = {...s.tmSplitDivider,width:1,backgroundColor:edge};
+  s.tmSplitHandle = {...s.tmSplitHandle,backgroundColor:'#fff',borderColor:edge};
+  s.passageText = {...s.passageText,color:ink,fontSize:18,lineHeight:30,fontFamily:act?undefined:'Georgia'};
+  s.tmQuestionText = {...s.tmQuestionText,color:ink,fontSize:18,lineHeight:30,fontFamily:act?undefined:'Georgia'};
+  s.qToolbar = {...s.qToolbar,borderBottomColor:edge,gap:10};
+  s.questionEyebrow = {backgroundColor:ink,color:'#fff',fontWeight:'700',fontSize:15,minWidth:32,height:32,textAlign:'center',lineHeight:32};
+  s.choiceBubble = {...s.choiceBubble,borderRadius:14,borderColor:'#424850',backgroundColor:'#fff'};
+  s.choiceBubbleSelected = {...s.choiceBubble,borderRadius:14,backgroundColor:blue,borderColor:blue};
+  s.choiceLetter = {...s.choiceLetter,color:ink};
+  s.choiceLetterSelected = {...s.choiceLetterSelected,color:'#fff'};
+  s.tmChoiceRow = {...s.tmChoiceRow,borderColor:'#5a6068',borderRadius:8,backgroundColor:'#fff'};
+  s.tmChoiceSelected = {...s.tmChoiceSelected,borderColor:blue,backgroundColor:'#f0f5ff'};
+  s.tmChoiceText = {...s.tmChoiceText,color:ink,fontSize:17,lineHeight:27};
+  s.eliminateTarget = {...s.eliminateTarget,borderColor:edge};
+  s.examFooter = {...s.examFooter,backgroundColor:'#fafbfc',borderColor:edge};
+  s.questionMapTarget = {...s.questionMapTarget,backgroundColor:ink,borderRadius:8,paddingHorizontal:14,paddingVertical:7};
+  s.questionMapText = {...s.questionMapText,color:'#fff'};
+  s.questionMapHint = {...s.questionMapHint,color:'#dce0e5'};
+  s.footerBack = {...s.footerBack,borderColor:blue,borderRadius:act?5:24};
+  s.footerBackText = {...s.footerBackText,color:blue};
+  s.footerNext = {...s.footerNext,backgroundColor:blue,borderRadius:act?5:24};
+  s.footerNextText = {...s.footerNextText,color:'#fff'};
+  s.mapTitle = {...s.mapTitle,color:ink,fontFamily:undefined,fontSize:27};
+  s.mapDescription = {...s.mapDescription,color:'#555b62'};
+  s.mapCell = {...s.mapCell,borderColor:edge,backgroundColor:'#fff'};
+  s.tmReviewSubmitBtn = {...s.tmReviewSubmitBtn,backgroundColor:blue};
+  return s;
+}
+
+/** Shared teaching activities use the same controls as the study reader. */
+export function makeLessonActivityStyles(isLight: boolean) {
+  const t=ascentTheme(isLight),study=makeStudyStyles(isLight);
+  return StyleSheet.create({
+    panel:{borderTopWidth:1,borderBottomWidth:1,borderColor:t.border,paddingVertical:22,marginVertical:18,gap:14},
+    title:{color:t.ink,fontSize:18,lineHeight:26,fontWeight:"700",marginBottom:12},
+    body:{color:t.text,fontSize:15,lineHeight:26,marginBottom:10},
+    prompt:{color:t.text,fontSize:16,lineHeight:27,fontWeight:"600",marginBottom:16},
+    note:{color:t.muted,fontSize:12,lineHeight:20,marginTop:10},
+    progress:{color:t.muted,fontSize:13,lineHeight:20,fontWeight:"600",marginVertical:12},
+    option:{flexDirection:"row",gap:12,borderWidth:1,borderColor:t.border,borderRadius:9,padding:13,minHeight:48,marginBottom:10,alignItems:"flex-start",backgroundColor:t.surface},
+    optionLabel:{color:t.muted,fontSize:14,lineHeight:24,fontWeight:"700",minWidth:22},
+    choiceText:{flex:1,minWidth:0},selected:{borderColor:t.forest,backgroundColor:t.soft},correct:{borderColor:t.forest,borderWidth:2},
+    incorrect:{borderColor:t.incorrectBorder,backgroundColor:t.incorrectSurface},
+    incorrectFeedback:{backgroundColor:t.incorrectSurface,borderColor:t.incorrectBorder,padding:14,borderRadius:9,borderWidth:1},
+    actions:{flexDirection:"row",flexWrap:"wrap",gap:10,marginVertical:12},
+    primary:study.primary,primaryText:study.primaryText,secondary:study.secondary,secondaryText:study.secondaryText,
+    disabled:{opacity:0.5},feedback:{padding:14,backgroundColor:t.soft,borderRadius:9,marginTop:14,gap:8},
+    feedbackTitle:{color:t.text,fontSize:14,lineHeight:22,fontWeight:"700"},success:{color:t.forest,fontSize:14,lineHeight:22,fontWeight:"700"},
+    hint:{color:t.muted,fontSize:14,lineHeight:24,marginTop:10},summary:{backgroundColor:t.soft,borderRadius:9,padding:14,marginTop:10},
+    sequenceRow:{flexDirection:"row",gap:10,alignItems:"center",paddingVertical:12,borderBottomWidth:1,borderColor:t.border,marginBottom:10},
+  });
+}
+
+export function makeLessonVisualStyles(isLight: boolean) {
+  const t = ascentTheme(isLight);
+  return StyleSheet.create({
+    section: { marginVertical: 6, paddingVertical: 4 },
+    title: { color: t.ink, fontSize: 18, lineHeight: 27, fontWeight: "700", marginBottom: 10 },
+    body: { color: t.text, fontSize: 15, lineHeight: 26 },
+    controls: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 18 },
+    control: { minHeight: 44, paddingHorizontal: 13, paddingVertical: 10, borderRadius: 8, borderWidth: 2, borderColor: t.border, backgroundColor: t.surface, justifyContent: "center" },
+    controlText: { color: t.text, fontSize: 14, lineHeight: 21, fontWeight: "500" },
+    selected: { backgroundColor: t.soft, borderColor: t.forest },
+    selectedText: { color: t.forest, fontWeight: "700" },
+    viewCount: { color: t.muted, fontSize: 12, lineHeight: 20, marginTop: 10 },
+    figureTitle: { color: t.ink, fontSize: 14, lineHeight: 23, fontWeight: "700", marginBottom: 14 },
+    flow: { marginVertical: 18 },
+    flowStep: { flexDirection: "row", alignItems: "flex-start", gap: 14, paddingVertical: 8 },
+    stepNumber: { color: t.forest, backgroundColor: t.soft, overflow: "hidden", borderRadius: 16, textAlign: "center", width: 32, height: 32, lineHeight: 32, fontSize: 14, fontWeight: "700" },
+    stepCopy: { flex: 1, minWidth: 0 },
+    stepTitle: { color: t.ink, fontWeight: "700", fontSize: 15, lineHeight: 25, marginBottom: 4 },
+    connector: { color: t.muted, fontSize: 18, lineHeight: 26, width: 32, textAlign: "center" },
+    note: { color: t.muted, fontSize: 12, lineHeight: 20, marginTop: 12 },
+    explainButton: { minHeight: 44, paddingVertical: 12, alignSelf: "flex-start", justifyContent: "center" },
+    explainText: { color: t.forest, fontWeight: "700", fontSize: 14, lineHeight: 22, textDecorationLine: "underline" },
+    explanation: { backgroundColor: t.soft, padding: 16, borderRadius: 9, marginTop: 8 },
+    takeaway: { marginTop: 12, paddingTop: 12, borderTopWidth: 1, borderColor: t.border },
+  });
+}
+
+export function makeLessonSortStyles(isLight: boolean) {
+  const t = ascentTheme(isLight), study = makeStudyStyles(isLight);
+  return StyleSheet.create({
+    section: { marginVertical: 6, paddingVertical: 4 },
+    title: { color: t.ink, fontSize: 18, lineHeight: 27, fontWeight: "700", marginBottom: 10 },
+    body: { color: t.text, fontSize: 15, lineHeight: 25 },
+    note: { color: t.muted, fontSize: 12, lineHeight: 20, marginVertical: 10 },
+    zones: { flexDirection: "row", flexWrap: "wrap", gap: 12, marginTop: 12 },
+    zone: { flexGrow: 1, flexBasis: 230, minWidth: 0, minHeight: 100, padding: 14, borderWidth: 2, borderColor: t.border, borderStyle: "dashed", borderRadius: 10, backgroundColor: t.soft },
+    bucketTitle: { color: t.ink, fontSize: 15, lineHeight: 24, fontWeight: "700", marginBottom: 8 },
+    empty: { color: t.muted, fontSize: 13, lineHeight: 22, paddingVertical: 8 },
+    card: { backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 9, padding: 12, marginVertical: 6 },
+    dragging: { zIndex: 2, borderColor: t.forest, backgroundColor: t.soft },
+    cardHeading: { flexDirection: "row", alignItems: "center", gap: 10 },
+    cardCopy: { flex: 1, minWidth: 0 },
+    handle: { width: 44, height: 44, justifyContent: "center", alignItems: "center", ...(Platform.OS === "web" ? { cursor: "grab", touchAction: "none", userSelect: "none" } as any : {}) },
+    handleText: { color: t.forest, fontSize: 28, lineHeight: 36 },
+    groupButtons: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 8 },
+    groupButton: { minHeight: 44, paddingHorizontal: 10, paddingVertical: 9, borderRadius: 7, borderWidth: 1, borderColor: t.border, justifyContent: "center" },
+    groupButtonText: { color: t.forest, fontSize: 13, lineHeight: 21, fontWeight: "600" },
+    placed: { padding: 10, backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 7, marginTop: 8 },
+    correct: { borderColor: t.forest },
+    incorrect: { borderColor: t.incorrectBorder, backgroundColor: t.incorrectSurface },
+    correctLabel: { color: t.forest, fontSize: 13, lineHeight: 22, fontWeight: "700", marginTop: 6 },
+    incorrectLabel: { color: t.incorrectText, fontSize: 13, lineHeight: 22, fontWeight: "700", marginTop: 6 },
+    progress: { color: t.muted, fontSize: 13, lineHeight: 22, marginTop: 16, marginBottom: 6 },
+    actions: { flexDirection: "row", flexWrap: "wrap", gap: 10, marginVertical: 14 },
+    primary: study.primary, primaryText: study.primaryText, secondary: study.secondary, secondaryText: study.secondaryText,
+    disabled: { opacity: 0.5 },
+    feedback: { backgroundColor: t.soft, borderRadius: 9, padding: 14, gap: 8, borderWidth: 1, borderColor: t.border, marginVertical: 12 },
+  });
+}
+
+export function makeOlliePerchStyles(isLight: boolean, height: number, seat: number) {
+  const t = ascentTheme(isLight);
+  return StyleSheet.create({
+    rail: { position: "relative", height: height + 2, width: "100%", marginTop: 0, marginBottom: 8 },
+    edge: { position: "absolute", top: seat, left: 0, right: 0, height: 1, backgroundColor: t.border },
+    penguin: { position: "absolute", right: 14, top: 0 },
+    motionBadge: { position: "absolute", top: 25, right: 0, width: 20, height: 20, borderRadius: 10, borderWidth: 1, borderColor: t.border, backgroundColor: t.surface, justifyContent: "center", alignItems: "center" },
+    motionText: { color: t.muted, fontSize: 10, lineHeight: 16, fontWeight: "700" },
   });
 }

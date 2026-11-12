@@ -1,15 +1,14 @@
 // @ts-nocheck
-/* apLessons.ts — one lesson per AP unit, across all 9 courses.
-   Mirrors the SAT_LESSONS/ACT_LESSONS shape in App.tsx:
-   { title, domain, difficulty, videoUrl, content, practiceQuestions: [{ question, choices, answer, explanation }] }.
-   Concise v1 content (63 units) — expand over time, same pattern as actLessons.ts. */
+// Shared lesson format retains Gov and disabled-course seed material.
+import { GOV_DEPTH } from "./apContent/govDepth";
+import { AP_EXPANDED_CONTENT } from "./apContent";
 
 const lesson = (title, domain, difficulty, content, q) => ({
   title, domain, difficulty, videoUrl: "", content,
   practiceQuestions: [q],
 });
 
-export const AP_LESSONS = [
+const AP_SEED_LESSONS = [
   // ══════════════ AP WORLD HISTORY: MODERN ══════════════
   lesson("The Global Tapestry", "World Hist: The Global Tapestry", "Medium",
 `THE GLOBAL TAPESTRY (c. 1200–1450)
@@ -834,8 +833,8 @@ EXAM TIP: Present globalization as a double-edged process — integration AND re
       { type: "text", text: "Electoral Timing — presidential influence is often strongest early in a term, especially after a decisive election victory (sometimes called a honeymoon). Influence may decline as midterm elections approach, approval falls, opposition organizes, members focus on reelection, or the president nears the end of the final term. A second-term president may experience declining influence as officials begin preparing for the next election — sometimes associated with lame-duck status." },
       { type: "text", text: "Crisis and Performance — successful responses to crises can increase public support. Perceived failures can quickly weaken presidential influence." },
       { type: "text", text: "Polarization — polarization reduces the number of citizens and legislators open to presidential persuasion. Supporters and opponents may interpret the same speech very differently based on party identification." },
-      { type: "subheading", text: "Required Document and Case Review" },
-      { type: "text", text: "For additional information, refer to:\n- United States Constitution, Article II: Formal presidential powers and responsibilities\n- Federalist No. 70: Energy, unity, decisiveness, and accountability in the executive\n- Federalist No. 51: Checks and balances among the branches\n- United States v. Nixon: Executive privilege, judicial review, and limits on presidential power" },
+      { type: "subheading", text: "Document and Case Connections" },
+      { type: "text", text: "For additional information, refer to:\n- United States Constitution, Article II: Formal presidential powers and responsibilities\n- Federalist No. 70: Energy, unity, decisiveness, and accountability in the executive\n- Federalist No. 51: Checks and balances among the branches\n- United States v. Nixon (additional context; not a currently required AP case): Executive privilege, judicial review, and limits on presidential power" },
       { type: "subheading", text: "Common Mistakes" },
       { type: "text", text: "Mistake 1: Assuming the president writes federal laws — Congress passes laws. The president may recommend, negotiate, sign, or veto legislation.\n\nMistake 2: Confusing treaties and executive agreements — Treaties require approval by two-thirds of senators present. Executive agreements do not use that treaty-approval process.\n\nMistake 3: Assuming an executive order can override a statute — Executive orders must be consistent with the Constitution and valid federal laws.\n\nMistake 4: Assuming executive privilege is absolute — United States v. Nixon established that a generalized confidentiality claim may be overcome by the need for evidence in a criminal proceeding.\n\nMistake 5: Confusing impeachment with removal — The House impeaches by approving charges. The Senate decides whether to convict and remove.\n\nMistake 6: Saying the president alone controls military policy — The president commands the armed forces, while Congress controls declarations of war, authorizations, funding, and military legislation.\n\nMistake 7: Assuming the bully pulpit guarantees public support — The presidency attracts attention, but communication does not guarantee persuasion.\n\nMistake 8: Assuming going public always helps legislative negotiations — Public appeals may increase pressure, but they can also polarize debate and make compromise harder.\n\nMistake 9: Saying the president possesses a line-item veto — At the federal level, the president must generally sign or veto a bill as a whole.\n\nMistake 10: Assuming the president completely controls the bureaucracy — Congress, courts, civil-service protections, and career expertise limit presidential control over administration." },
       { type: "subheading", text: "Quick Review" },
@@ -1063,8 +1062,8 @@ EXAM TIP: Present globalization as a double-edged process — integration AND re
       { type: "subheading", text: "Judicial Decisions and Policy Durability" },
       { type: "text", text: "Judicial decisions can have direct effects (blocking enforcement, requiring a remedy, protecting a right, invalidating a law, ordering an agency to reconsider a rule) and indirect effects (encouraging Congress to revise a statute, prompting agencies to change procedures, motivating interest-group activity, affecting elections, changing state policies, influencing future litigation) — courts rely on other institutions to translate many decisions into lasting policy." },
       { type: "text", text: "Policies tend to be more durable when they have broad bipartisan support, stable funding, effective administration, public approval, supportive constituencies, favorable judicial precedent, and state cooperation. Policies created mainly through executive action are generally easier for a later administration to reverse than policies established through statute, since repealing a statute requires completing the full legislative process again." },
-      { type: "subheading", text: "Required Document and Case Review" },
-      { type: "text", text: "For additional information, refer to:\n- United States Constitution: Powers and relationships of Congress, the president, and the judiciary\n- Federalist No. 51: Institutional competition and checks and balances\n- Federalist No. 70: Presidential energy and accountability\n- Federalist No. 78: Judicial independence and constitutional review\n- Marbury v. Madison: Judicial review\n- United States v. Nixon: Limits on presidential authority\n- McCulloch v. Maryland: Implied powers and federal supremacy\n- United States v. Lopez: Limits on congressional commerce authority" },
+      { type: "subheading", text: "Document and Case Connections" },
+      { type: "text", text: "For additional information, refer to:\n- United States Constitution: Powers and relationships of Congress, the president, and the judiciary\n- Federalist No. 51: Institutional competition and checks and balances\n- Federalist No. 70: Presidential energy and accountability\n- Federalist No. 78: Judicial independence and constitutional review\n- Marbury v. Madison: Judicial review\n- United States v. Nixon (additional context; not a currently required AP case): Limits on presidential authority\n- McCulloch v. Maryland: Implied powers and federal supremacy\n- United States v. Lopez: Limits on congressional commerce authority" },
       { type: "subheading", text: "Common Mistakes" },
       { type: "text", text: "Mistake 1: Assuming policy ends when Congress passes a law — Agencies must implement the law, courts may interpret it, and Congress may later revise it.\n\nMistake 2: Assuming the president's proposed budget automatically takes effect — The president recommends a budget, but Congress controls taxation and appropriations.\n\nMistake 3: Assuming an agency can create any regulation it considers useful — An agency must act within authority delegated by Congress and follow constitutional and procedural requirements.\n\nMistake 4: Assuming courts review every law before implementation — Courts review laws through actual cases brought by parties satisfying jurisdictional requirements.\n\nMistake 5: Assuming unified government eliminates gridlock — Bicameralism, Senate rules, internal party divisions, courts, and federalism continue to limit policy change.\n\nMistake 6: Assuming divided government always prevents legislation — It increases conflict but can also produce negotiated bipartisan policies.\n\nMistake 7: Treating congressional delegation as a complete transfer of power — Congress can revise the law, reduce funding, conduct oversight, and limit agency authority.\n\nMistake 8: Assuming executive action is equivalent to a statute — Executive action must comply with statutes and is often easier to reverse.\n\nMistake 9: Assuming the judiciary controls policy implementation — Courts issue decisions but often rely on executive, legislative, state, and local institutions for enforcement.\n\nMistake 10: Assuming gridlock always means institutional failure — The constitutional system deliberately makes major policy change difficult, although excessive gridlock can prevent needed action." },
       { type: "subheading", text: "Complete Unit 2 Review" },
@@ -2480,6 +2479,9 @@ BC introduces Taylor/Maclaurin series, which approximate functions as infinite p
 EXAM TIP: For Σ1/n² (a p-series with p=2>1), it converges — memorize the p-series rule, it's tested constantly.`,
     { question: "The ratio test is used to determine:", choices: ["the exact sum of a convergent series", "whether a series converges/diverges based on lim|aₙ₊₁/aₙ|", "whether a sequence is increasing", "a function's domain"], answer: 1, explanation: "The ratio test uses L=lim|aₙ₊₁/aₙ|: L<1 converges, L>1 diverges, L=1 inconclusive." }),
 ];
+
+const expandedDomains = new Set(Object.values(AP_EXPANDED_CONTENT).flatMap(c=>c.lessons.map(l=>l.domain)));
+export const AP_LESSONS = [...AP_SEED_LESSONS.filter(l=>!expandedDomains.has(l.domain)).map(l=>GOV_DEPTH[l.title]&&Array.isArray(l.content)?{...l,content:[...l.content,{type:"subheading",text:"Worked application"},{type:"text",text:GOV_DEPTH[l.title]}]}:l),...Object.values(AP_EXPANDED_CONTENT).flatMap(c=>c.lessons)];
 
 export const getApLessonsForCourse = (courseId, units) =>
   AP_LESSONS.filter((l) => (units || []).includes(l.domain));

@@ -1,4 +1,5 @@
 // @ts-nocheck
+import { AP_CONFIG } from "../testConfig";
 
 export type PersonalizationSource = "diagnostic" | "scratch";
 export type AssignmentType = "lesson" | "drill" | "quiz" | "mixed_quiz" | "review_quiz" | "vocab" | "practice_test";
@@ -32,7 +33,7 @@ export const ACT_SCHEDULE_DOMAINS = [
 ];
 
 export function getScheduleDomainsForTest(testType?: string): string[] {
-  return testType === "act" ? ACT_SCHEDULE_DOMAINS : ALL_SCHEDULE_DOMAINS;
+  return testType === "ap" ? AP_CONFIG.allDomains : testType === "act" ? ACT_SCHEDULE_DOMAINS : ALL_SCHEDULE_DOMAINS;
 }
 
 export const ASSIGNMENT_COLORS: Record<AssignmentType, string> = {

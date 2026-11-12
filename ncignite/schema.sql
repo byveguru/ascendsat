@@ -45,6 +45,17 @@ CREATE TABLE IF NOT EXISTS student_sessions (
   expires_at  TIMESTAMPTZ NOT NULL
 );
 
+-- Teams (migrations/012-teams.sql). Created before applications so
+-- applications.team_id can reference it.
+CREATE TABLE IF NOT EXISTS teams (
+  id          BIGSERIAL PRIMARY KEY,
+  name        TEXT NOT NULL,
+  cohort      TEXT NOT NULL,
+  created_by  TEXT,
+  created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+CREATE UNIQUE INDEX IF NOT EXISTS teams_cohort_name_idx ON teams (cohort, lower(name));
+
 CREATE TABLE IF NOT EXISTS applications (
   id                BIGSERIAL PRIMARY KEY,
   created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -101,6 +112,7 @@ CREATE TABLE IF NOT EXISTS applications (
   -- alone does not grant them. NULL means not invited.
   checkin_invited_at    TIMESTAMPTZ,
   checkin_invited_by    TEXT,
+  team_id               BIGINT REFERENCES teams(id) ON DELETE SET NULL,
   signature             TEXT
 );
 
@@ -129,7 +141,7 @@ CREATE TABLE IF NOT EXISTS parent_sessions (
   expires_at      TIMESTAMPTZ NOT NULL
 );
 
--- Every send is recorded so /admin can show failures. Never the body.
+-- Every send is recorded so /admin can show failures and what went out.
 CREATE TABLE IF NOT EXISTS email_log (
   id              BIGSERIAL PRIMARY KEY,
   application_id  BIGINT REFERENCES applications(id) ON DELETE SET NULL,
@@ -138,10 +150,18 @@ CREATE TABLE IF NOT EXISTS email_log (
   attempts        INT NOT NULL DEFAULT 0,
   error           TEXT,
   idempotency_key TEXT UNIQUE,
+  -- What /admin shows (migrations/010-email-log-detail.sql). body is NULL for
+  -- emails that carry a sign-in code or reset link.
+  recipients      TEXT[],
+  bcc             BOOLEAN NOT NULL DEFAULT false,
+  subject         TEXT,
+  body            TEXT,
+  reconstructed   BOOLEAN NOT NULL DEFAULT false,  -- migration 011: rebuilt for emails sent before the log kept details
   created_at      TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at      TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 CREATE INDEX IF NOT EXISTS email_log_status_idx ON email_log (status);
+CREATE INDEX IF NOT EXISTS email_log_created_idx ON email_log (created_at DESC);
 
 CREATE TABLE IF NOT EXISTS reminders_sent (
   application_id  BIGINT NOT NULL REFERENCES applications(id) ON DELETE CASCADE,
@@ -227,6 +247,24 @@ CREATE TABLE IF NOT EXISTS checkins (
 CREATE INDEX IF NOT EXISTS checkins_week_idx ON checkins (week_start);
 CREATE INDEX IF NOT EXISTS checkins_app_idx ON checkins (application_id);
 
+-- The group check-in. Not cascaded from teams on purpose: see migration 012.
+CREATE TABLE IF NOT EXISTS team_checkins (
+  id             BIGSERIAL PRIMARY KEY,
+  team_id        BIGINT NOT NULL REFERENCES teams(id) ON DELETE RESTRICT,
+  week_start     DATE NOT NULL,
+  goals          JSONB NOT NULL DEFAULT '[]'::jsonb,
+  help_needed    TEXT,
+  first_saved_at TIMESTAMPTZ,
+  goals_set_at   TIMESTAMPTZ,
+  version        INT NOT NULL DEFAULT 1,
+  updated_by     BIGINT REFERENCES applications(id) ON DELETE SET NULL,
+  created_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at     TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (team_id, week_start)
+);
+CREATE INDEX IF NOT EXISTS team_checkins_week_idx ON team_checkins (week_start);
+CREATE INDEX IF NOT EXISTS applications_team_idx ON applications (team_id) WHERE team_id IS NOT NULL;
+
 -- --------------------------------------------------------------------------
 -- Row Level Security.
 --
@@ -255,6 +293,8 @@ ALTER TABLE rate_limits ENABLE ROW LEVEL SECURITY;
 ALTER TABLE admin_sessions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE decision_log ENABLE ROW LEVEL SECURITY;
 ALTER TABLE checkins ENABLE ROW LEVEL SECURITY;
+ALTER TABLE teams ENABLE ROW LEVEL SECURITY;
+ALTER TABLE team_checkins ENABLE ROW LEVEL SECURITY;
 
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM anon, authenticated;
 REVOKE ALL ON ALL SEQUENCES IN SCHEMA public FROM anon, authenticated;

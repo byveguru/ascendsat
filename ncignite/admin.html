@@ -9,27 +9,27 @@
 <meta name="theme-color" content="#f2f0eb">
 <link rel="icon" href="/NC-Ignyte-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/NC-Ignyte-icon.svg">
-<link rel="canonical" href="https://ncignyte.vercel.app/admin">
+<link rel="canonical" href="https://ncignyte.org/admin">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Admin | NC Ignyte">
 <meta property="og:description" content="Organiser area.">
-<meta property="og:url" content="https://ncignyte.vercel.app/admin">
-<meta property="og:image" content="https://ncignyte.vercel.app/og.png">
+<meta property="og:url" content="https://ncignyte.org/admin">
+<meta property="og:image" content="https://ncignyte.org/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="NC Ignyte">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Admin | NC Ignyte">
 <meta name="twitter:description" content="Organiser area.">
-<meta name="twitter:image" content="https://ncignyte.vercel.app/og.png">
+<meta name="twitter:image" content="https://ncignyte.org/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap"></noscript>
 
-<script>document.documentElement.className="js";</script>
+<script>document.documentElement.className="js";try{if(localStorage.getItem("ig-portal")==="1"&&!/^\/(portal|account|checkin|startups(?:\/[a-z0-9-]+)?|startup|privacy|code-of-conduct|parent|admin|reset|404)(\.html)?\/?$/.test(location.pathname))location.replace("/portal")}catch(e){}</script>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -38,8 +38,8 @@
 
 <div class="cohort-banner">
   <div class="wrap">
-    <p><strong>Cohort 1 &middot; Fall 2026</strong> <span>Applications are open now.<span class="bar-dates"> Five Fridays, November 6 to December 4.</span></span></p>
-    <a href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a>
+    <p><strong data-cohort1-status>Cohort 1 is on hold.</strong> <span>Cohort 2 applications are open.<span class="bar-dates"> Eight Fridays, January 15 to March 5, 2027.</span></span></p>
+    <a href="/apply">Apply<span class="sr-only"> to Cohort 2</span></a>
   </div>
 </div>
 
@@ -315,9 +315,40 @@
       <p class="form-msg" id="accepted-msg" role="status" aria-live="polite"></p>
     </section>
 
+    <section class="admin-teams" id="admin-teams">
+      <h2 class="h2-small">Teams</h2>
+      <p class="hint">Group admitted students into teams. A team gets its own check-in each week that any member can edit, on top of each person's own. A student can be on one team, and only with others from their cohort.</p>
+      <p class="accepted-actions"><button class="btn-quiet" type="button" id="team-new">New team</button></p>
+      <ul class="team-list" id="team-list"></ul>
+      <p class="form-msg" id="team-msg" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="admin-portal" id="admin-portal">
+      <h2 class="h2-small">Student portal</h2>
+      <h3 class="checkin-help-head">Announcement</h3>
+      <p class="hint">One short message at the top of every accepted student's portal. Posting replaces the one that is up.</p>
+      <p class="field">
+        <label for="announce-body">Message</label>
+        <textarea id="announce-body" rows="3" maxlength="500" data-counter></textarea>
+      </p>
+      <p class="accepted-actions">
+        <button class="btn-quiet" type="button" id="announce-post">Post to every student</button>
+        <button class="btn-quiet" type="button" id="announce-clear" hidden>Take it down</button>
+      </p>
+      <p class="hint" id="announce-current"></p>
+      <p class="form-msg" id="announce-msg" role="status" aria-live="polite"></p>
+
+      <h3 class="checkin-help-head">Startup profiles: review before they go public</h3>
+      <p class="hint">Nothing a founder writes appears on <a href="/startups" target="_blank" rel="noopener">ncignyte.org/startups</a> until you approve it. Fix anything first, then approve; the founder sees your edits. If they change a live profile, the old version stays up until you approve the new one.</p>
+      <p class="review-queue" id="profile-queue"></p>
+      <ul class="review-list" id="profile-list"></ul>
+      <p class="form-msg" id="profile-msg" role="status" aria-live="polite"></p>
+    </section>
+
     <section class="admin-checkins" id="admin-checkins" hidden>
       <h2 class="h2-small">Weekly check-ins</h2>
-      <p class="hint">Goals set after each session, ticked through the week, due at 11:59 PM the night before the next one. A blank cell means nothing was written that week.</p>
+      <p class="hint">Goals set after each session, ticked through the week, due at 11:59 PM the night before the next one. Click a name or a cell to read everything that person or team wrote. A blank cell means nothing was written yet, and Missing means the week closed with nothing written.</p>
+      <p class="accepted-actions"><a class="btn-quiet" href="/api/admin?action=checkins_export">Export every check-in (CSV)</a></p>
       <div class="checkin-scroll">
         <table class="checkin-table">
           <thead><tr id="checkin-head"></tr></thead>
@@ -325,7 +356,13 @@
         </table>
       </div>
       <h3 class="checkin-help-head">What people asked for help with</h3>
+      <p class="hint">Reply and the student, or the whole team, sees your answer in their portal. Tick an ask once someone has dealt with it. If the student rewrites it, it comes back.</p>
+      <p class="form-msg" id="checkin-help-msg" role="status" aria-live="polite"></p>
       <ul class="checkin-help" id="checkin-help"></ul>
+      <details class="checkin-help-done" id="checkin-help-done" hidden>
+        <summary>Handled (<span id="checkin-help-done-count">0</span>)</summary>
+        <ul class="checkin-help" id="checkin-help-done-list"></ul>
+      </details>
     </section>
 
     <div id="compose-modal" class="modal" hidden>
@@ -362,14 +399,114 @@
         </p>
         <p class="field">
           <label for="compose-message">Message</label>
+          <span class="fmt-bar" role="toolbar" aria-label="Formatting">
+            <button type="button" class="fmt-btn" data-fmt="bold" title="Bold (Ctrl+B)" aria-label="Bold"><b>B</b></button>
+            <button type="button" class="fmt-btn" data-fmt="italic" title="Italic (Ctrl+I)" aria-label="Italic"><i>I</i></button>
+            <button type="button" class="fmt-btn" data-fmt="underline" title="Underline (Ctrl+U)" aria-label="Underline"><u>U</u></button>
+            <button type="button" class="fmt-btn" data-fmt="link" title="Link (Ctrl+K)" aria-label="Link">Link</button>
+            <button type="button" class="fmt-btn" data-fmt="bullet" title="Bulleted list" aria-label="Bulleted list">&bull; List</button>
+          </span>
           <textarea id="compose-message" rows="10" maxlength="10000" data-counter></textarea>
-          <span class="hint">Plain text, sent exactly as written. Nothing is added to it.</span>
+          <span class="hint">Select text, then use the buttons. Bold shows as **text**, italic as *text*, underline as __text__. Nothing else is added to your message.</span>
         </p>
         <div class="modal-actions">
           <button class="btn-solid" type="button" id="compose-send">Review and send</button>
           <button class="btn-quiet" type="button" id="compose-cancel">Cancel</button>
         </div>
         <p class="form-msg" id="compose-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <details class="admin-emails" id="admin-emails">
+      <summary class="h2-small">Sent emails</summary>
+      <p class="hint">Everything the platform has emailed, newest first, with who it went to and what it said. Sign-in codes, parent codes and password-reset links are listed but their text is never kept. History starts from when this was switched on.</p>
+      <div class="admin-bar">
+        <label class="admin-filter">
+          <span>Search</span>
+          <input type="search" id="emails-q" placeholder="Address, subject or student" maxlength="100" autocomplete="off">
+        </label>
+        <label class="admin-filter">
+          <span>Status</span>
+          <select id="emails-status">
+            <option value="">All</option>
+            <option value="sent">Sent</option>
+            <option value="failed">Failed</option>
+            <option value="skipped">Skipped (test mode)</option>
+            <option value="queued">Queued</option>
+          </select>
+        </label>
+        <label class="admin-filter">
+          <span>Type</span>
+          <select id="emails-kind"><option value="">All</option></select>
+        </label>
+      </div>
+      <div class="checkin-scroll">
+        <table class="checkin-table">
+          <thead>
+            <tr>
+              <th scope="col">When</th>
+              <th scope="col">Type</th>
+              <th scope="col">To</th>
+              <th scope="col">Subject</th>
+              <th scope="col">Status</th>
+              <th scope="col"><span class="sr-only">Open</span></th>
+            </tr>
+          </thead>
+          <tbody id="emails-rows"></tbody>
+        </table>
+      </div>
+      <p class="accepted-actions">
+        <button class="btn-quiet" type="button" id="emails-more" hidden>Load more</button>
+      </p>
+      <p class="form-msg" id="emails-msg" role="status" aria-live="polite"></p>
+    </details>
+
+    <div id="email-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="email-title">
+        <h2 id="email-title" class="status-head"></h2>
+        <p class="hint" id="email-meta"></p>
+        <p class="field"><strong>To</strong></p>
+        <pre class="preview" id="email-to"></pre>
+        <p class="field"><strong>Message</strong></p>
+        <pre class="preview" id="email-body"></pre>
+        <div class="modal-actions">
+          <button class="btn-quiet" type="button" id="email-close">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="team-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="team-title">
+        <h2 id="team-title" class="status-head">New team</h2>
+        <p class="field">
+          <label for="team-name">Team name</label>
+          <input id="team-name" type="text" maxlength="60" autocomplete="off">
+        </p>
+        <p class="field">
+          <label for="team-cohort">Cohort</label>
+          <select id="team-cohort"></select>
+          <span class="hint" id="team-cohort-hint"></span>
+        </p>
+        <fieldset class="field-set">
+          <legend>Who is on it</legend>
+          <div id="team-members"></div>
+        </fieldset>
+        <div class="modal-actions">
+          <button class="btn-solid" type="button" id="team-save">Save team</button>
+          <button class="btn-quiet" type="button" id="team-cancel">Cancel</button>
+        </div>
+        <p class="form-msg" id="team-modal-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div id="ci-detail-modal" class="modal" hidden>
+      <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ci-detail-title">
+        <h2 id="ci-detail-title" class="status-head"></h2>
+        <p class="hint" id="ci-detail-sub"></p>
+        <div id="ci-detail-body"></div>
+        <div class="modal-actions">
+          <button class="btn-quiet" type="button" id="ci-detail-close">Close</button>
+        </div>
       </div>
     </div>
 
@@ -429,7 +566,7 @@
 <footer class="site-foot" id="privacy">
   <div class="wrap">
     <p class="foot-statement">Cohort 1, fall 2026. NC Ignyte is a free startup accelerator and pitch competition for North Carolina high school students. Five Fridays, November 6 to December 4, 2026, in the downtown Cary area.</p>
-    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. Read the <a href="code-of-conduct">code of conduct</a> and the <a href="/privacy">privacy page</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. See <a href="/startups">what our founders are building</a>. Read the <a href="code-of-conduct">code of conduct</a> and the <a href="/privacy">privacy page</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     <p class="foot-privacy">Privacy: we collect only what the application asks. We do not sell student information, and we do not share it with sponsors, partners, or schools. See the <a href="/privacy">privacy page</a> for the one narrow exception, used to help draft decision letters. We email students and their parent or guardian about NC Ignyte only. Ask us to delete your information at any time.</p>
   </div>
 </footer>

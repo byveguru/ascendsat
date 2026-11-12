@@ -558,5 +558,13 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Parent sharing data is API-only. Existing users/scores owner-only rules
+    // deliberately stay unchanged; active links never expose raw student docs.
+    match /parentAccounts/{id} { allow read, write: if false; }
+    match /parentLinks/{id} { allow read, write: if false; }
+    match /parentInvites/{id} { allow read, write: if false; }
+    match /parentInviteOwners/{id} { allow read, write: if false; }
+    match /parentLocalSummaries/{id} { allow read, write: if false; }
+
   }
 }

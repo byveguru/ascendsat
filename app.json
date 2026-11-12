@@ -2,7 +2,7 @@
   "expo": {
     "name": "AscendSAT",
     "slug": "AscendSAT",
-    "version": "3.2.3",
+    "version": "4.1.1",
     "scheme": "ascendsat",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
@@ -21,8 +21,8 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "icon": "./assets/logo.png",
-      "favicon": "./assets/favicon.png",
+      "icon": "./assets/everest-logo.png",
+      "favicon": "./assets/everest-logo.png",
       "bundler": "metro"
     },
     "plugins": [

@@ -7,7 +7,7 @@
  * Idempotent: it normalises any known NC Ignyte origin to SITE_URL, so running
  * it twice, or locally, cannot corrupt the source.
  *
- *   SITE_URL        default https://ncignyte.vercel.app
+ *   SITE_URL        default https://ncignyte.org
  *   CONTACT_EMAIL   default hello@ncignyte.org
  *   SPONSOR_EMAIL   default partners@ncignyte.org
  */
@@ -15,7 +15,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
 
 const ROOT = process.cwd();
-const SITE_URL = (process.env.SITE_URL || 'https://ncignyte.vercel.app').replace(/\/+$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://ncignyte.org').replace(/\/+$/, '');
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'hello@ncignyte.org';
 const SPONSOR_EMAIL = process.env.SPONSOR_EMAIL || 'partners@ncignyte.org';
 /* Conduct reports go to the support inbox: one fewer address to watch,

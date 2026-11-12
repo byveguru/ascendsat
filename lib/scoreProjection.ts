@@ -1,45 +1,22 @@
-// AI Projected Score Intelligence — pure, client-only logic layered on top
-// of the existing 3PL/EAP IRT ability-estimation engine (lib/irtScoring.ts,
-// lib/diagnosticScoring.ts) and Mastery Engine 2.0 (lib/masteryEngine.js).
-// This module does NOT recompute the score itself — `currentAbilityEstimate`
-// (App.tsx's recomputeAbilityEstimate) already does that, and is the single
-// most mathematically rigorous piece of prediction infra in this app. What's
-// missing, and what this module adds, is: (1) a categorical confidence label
-// (today there's only a numeric confidence *range*, no High/Medium/Low tied
-// to evidence volume/spread), (2) a real, data-grounded explanation for why
-// the projection moved, and (3) the three projection-style presets
-// (conservative/balanced/optimistic) that tune how fast newly-improving
-// evidence gets incorporated into that same IRT update — never a flat
-// point offset, per the product requirement that strictness must not mean
-// fabricating scores.
+// Evidence-based estimate metadata. Confidence labels below are product
+// heuristics, not empirically validated probabilities of an official result.
 "use strict";
 
 export type ProjectionStyle = "conservative" | "balanced" | "optimistic";
 export type ProjectionConfidence = "insufficient" | "low" | "medium" | "high";
 
-// A flat multiplier applied to every correct-answer response's (already
-// recency-weighted) evidence weight, passed through to
-// lib/diagnosticScoring.ts's buildPracticeResponseBuckets. Damping every
-// correct response below 1.0 means it takes proportionally more repeated
-// correct evidence to move the ability estimate the same amount a neutral
-// (1.0) weighting would — that's what "require stronger evidence before
-// crediting improvement" actually means mechanically. The negative
-// (incorrect-answer) multiplier is 1.0 for every style with no exception, so
-// a "conservative" setting can never dampen how quickly genuine regression
-// shows up — decline is always reflected at full weight, satisfying "never
-// artificially trend upward" / "allowed to decrease" as style-independent
-// guarantees. Recency decay itself (the existing 21-day half-life) is
-// untouched by style entirely.
+// Preferences change responsiveness symmetrically. Correct and incorrect
+// answers must have the same reliability: asymmetric weights bias ability.
 export const PROJECTION_STYLE_EVIDENCE_WEIGHT: Record<ProjectionStyle, { positiveMultiplier: number; negativeMultiplier: number }> = {
-  conservative: { positiveMultiplier: 0.7, negativeMultiplier: 1 },
+  conservative: { positiveMultiplier: 0.7, negativeMultiplier: 0.7 },
   balanced: { positiveMultiplier: 1, negativeMultiplier: 1 },
-  optimistic: { positiveMultiplier: 1.15, negativeMultiplier: 1 },
+  optimistic: { positiveMultiplier: 1.15, negativeMultiplier: 1.15 },
 };
 
 export const PROJECTION_STYLE_META: Record<ProjectionStyle, { label: string; description: string; recommended?: boolean }> = {
   conservative: {
     label: "Conservative (Recommended)",
-    description: "Give me a stricter estimate. I'd rather see a realistic lower projection than get my hopes up.",
+    description: "Let new practice change my estimate more gradually, in either direction.",
     recommended: true,
   },
   balanced: {
@@ -48,7 +25,7 @@ export const PROJECTION_STYLE_META: Record<ProjectionStyle, { label: string; des
   },
   optimistic: {
     label: "Optimistic",
-    description: "Give me a projection that gives more weight to my improvement and potential.",
+    description: "Let recent practice change my estimate a little faster, in either direction.",
   },
 };
 
@@ -63,10 +40,10 @@ const CONFIDENCE_RULES = {
   LOW_MIN_RESPONSES: 30,
   LOW_MIN_DAYS: 3,
   LOW_MIN_DIFFICULTY_BANDS: 2,
-  HIGH_MIN_RESPONSES: 100,
+  HIGH_MIN_RESPONSES: 80,
   HIGH_MIN_DAYS: 5,
   HIGH_MIN_DIFFICULTY_BANDS: 3,
-  HIGH_MIN_MASTERY_COVERAGE: 0.5, // fraction of domains with at least "medium" mastery confidence
+  HIGH_MIN_MASTERY_COVERAGE: 0.75, // fraction of domains with at least "medium" mastery confidence
   HIGH_MAX_DAYS_SINCE_ACTIVITY: 21,
 };
 
@@ -97,7 +74,7 @@ export function computeProjectionConfidence(input: ConfidenceInput): { confidenc
     hasFullPracticeTest, daysSinceLastActivity,
   } = input;
 
-  if (totalResponses === 0) return { confidence: "insufficient", gaps: ["No practice recorded yet"] };
+  if (!(totalResponses > 0)) return { confidence: "insufficient", gaps: ["No practice recorded yet"] };
 
   const masteryCoverage = totalDomains > 0 ? domainsWithSufficientMastery / totalDomains : 0;
   const gaps: string[] = [];
@@ -106,6 +83,8 @@ export function computeProjectionConfidence(input: ConfidenceInput): { confidenc
   if (distinctDays < CONFIDENCE_RULES.LOW_MIN_DAYS) gaps.push("practice spread across more days");
   if (difficultyBandsCovered < CONFIDENCE_RULES.LOW_MIN_DIFFICULTY_BANDS) gaps.push("coverage across more difficulty levels");
 
+  if (masteryCoverage < 0.25) gaps.push("evidence across more test domains");
+  if (daysSinceLastActivity == null || daysSinceLastActivity > 42) gaps.push("recent dated practice");
   if (gaps.length > 0) return { confidence: "low", gaps };
 
   const mediumGaps: string[] = [];
@@ -115,7 +94,7 @@ export function computeProjectionConfidence(input: ConfidenceInput): { confidenc
   if (masteryCoverage < CONFIDENCE_RULES.HIGH_MIN_MASTERY_COVERAGE) mediumGaps.push("more evidence across your weaker skills");
   if (!hasTimedResponses) mediumGaps.push("timed practice");
   if (daysSinceLastActivity == null || daysSinceLastActivity > CONFIDENCE_RULES.HIGH_MAX_DAYS_SINCE_ACTIVITY) mediumGaps.push("more recent practice");
-  if (!hasFullPracticeTest && !hasUntimedResponses) mediumGaps.push("a full-length practice test");
+  if (!hasFullPracticeTest) mediumGaps.push("a full-length practice test");
 
   if (mediumGaps.length > 0) return { confidence: "medium", gaps: mediumGaps };
   return { confidence: "high", gaps: [] };
@@ -155,14 +134,14 @@ export function explainProjectionChange(
     return {
       direction,
       text: direction === "up"
-        ? "Your overall practice accuracy improved since your last projection."
-        : "Your overall practice accuracy declined since your last projection.",
+        ? "Your estimate increased as the available evidence was updated."
+        : "Your estimate decreased as the available evidence was updated.",
     };
   }
 
   const domainNames = relevant.map((d) => d.domain).join(" and ");
   const verb = direction === "up" ? "improved" : "declined";
-  const extra = relevant.some((d) => d.deltaMasteryPct != null && Math.abs(d.deltaMasteryPct) >= 5)
+  const extra = relevant.some((d) => d.deltaMasteryPct != null && (direction === "up" ? d.deltaMasteryPct >= 5 : d.deltaMasteryPct <= -5))
     ? " Your mastery level in these areas moved the same direction across multiple sessions."
     : "";
   return {

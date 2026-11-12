@@ -4,10 +4,12 @@ import { WebView, type WebViewProps } from "react-native-webview";
 import {
   buildCalculatorHtml,
   type DesmosExpression,
+  type DesmosMathBounds,
 } from "../desmos/buildCalculatorHtml";
 
 export type DesmosGraphingCalculatorProps = {
   height?: number;
+  mathBounds?: DesmosMathBounds;
   expressions?: DesmosExpression[];
   lockViewport?: boolean;
   theme?: "light" | "dark";
@@ -20,14 +22,15 @@ const DEFAULT_HEIGHT = 320;
 export default function DesmosGraphingCalculator({
   height = DEFAULT_HEIGHT,
   expressions,
+  mathBounds,
   lockViewport = false,
   theme = "dark",
   style,
   webViewProps,
 }: DesmosGraphingCalculatorProps) {
   const html = useMemo(
-    () => buildCalculatorHtml({ expressions, lockViewport, theme }),
-    [expressions, lockViewport, theme]
+    () => buildCalculatorHtml({ expressions, mathBounds, lockViewport, theme }),
+    [expressions, mathBounds, lockViewport, theme]
   );
 
   const shellBg = theme === "light" ? "#ffffff" : "#121214";

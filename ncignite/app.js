@@ -481,16 +481,74 @@
     return { ok: res.ok, status: res.status, data };
   };
 
+  /* One "who is this" per page load, shared by everything that needs it. */
+  let meCache = null;
+  const me = (fresh) => {
+    if (!meCache || fresh) meCache = api('/api/auth?action=me').then(({ data }) => data || {}).catch(() => ({}));
+    return meCache;
+  };
+
+  /* Cohort 1 is on hold, so the banner says so and nothing here overrides it.
+   *
+   * This used to advance the wording by date ("underway", "demo day is
+   * today", "has wrapped"). While the cohort is paused those are all wrong,
+   * and because today is already past the old start date it would have
+   * replaced "on hold" with "underway" on every page load. Restore this block
+   * if the cohort restarts, with the real dates. */
+
+  /* ---- the accepted-student portal ---------------------------------------
+   * Once a student has a place, the public site is no longer theirs to
+   * wander: every page except these sends them to /portal until they sign
+   * out. The head of each page reads the same hint before anything paints,
+   * so the landing page does not flash first; this is the check that
+   * decides. Keep the list in step with the snippet in every page's head. */
+  const PORTAL_OK = /^\/(portal|account|checkin|startups(?:\/[a-z0-9-]+)?|startup|privacy|code-of-conduct|parent|admin|reset|404)(\.html)?\/?$/;
+  const portalHint = (on) => {
+    try { if (on) localStorage.setItem('ig-portal', '1'); else localStorage.removeItem('ig-portal'); } catch (err) { /* private mode */ }
+  };
+  const signOut = async () => {
+    await api('/api/auth?action=logout', { method: 'POST' });
+    portalHint(false);
+    try { localStorage.removeItem('ig-team'); } catch (err) { /* private mode */ }
+    window.location.href = '/';
+  };
+  /* After any sign in, accepted students land in the portal. */
+  const afterSignIn = async (fallback, portalPath) => {
+    const d = await me(true);
+    portalHint(Boolean(d.accepted));
+    window.location.href = d.accepted ? (portalPath || '/portal') : fallback;
+  };
+  if (!PORTAL_OK.test(window.location.pathname)) {
+    me().then((d) => {
+      const accepted = Boolean(d.signedIn && d.accepted);
+      portalHint(accepted);
+      if (accepted) window.location.replace('/portal');
+    });
+  }
+  document.querySelectorAll('[data-signout]').forEach((b) => b.addEventListener('click', signOut));
+  /* The Team menu item, on portal pages that do not load the team
+   * themselves. Remembered from the last page that did. */
+  const showTeamNav = (on) => {
+    try { if (on) localStorage.setItem('ig-team', '1'); else localStorage.removeItem('ig-team'); } catch (err) { /* private mode */ }
+    document.querySelectorAll('[data-portal-team]').forEach((li) => { li.hidden = !on; });
+  };
+  try { if (localStorage.getItem('ig-team') === '1') showTeamNav(true); } catch (err) { /* private mode */ }
+
+  document.querySelectorAll('[data-portal-tab]').forEach((a) => {
+    const here = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+    if (a.getAttribute('href') === here) a.setAttribute('aria-current', 'page');
+  });
+
   /* A signed-in student should see where to go, not an invitation to sign
    * in again. The nav is static HTML, so this adjusts it after load. */
   (function () {
     const signup = document.querySelector('.nav-signup');
     if (!signup) return;
-    api('/api/auth?action=me').then(({ data }) => {
+    me().then((data) => {
       /* Signed in, so "Sign up" is the wrong door. Point at their own page. */
       if (data && data.signedIn) {
-        signup.textContent = 'My application';
-        signup.href = '/status';
+        signup.textContent = data.accepted ? 'My portal' : 'My application';
+        signup.href = data.accepted ? '/portal' : '/status';
       }
     }).catch(() => {});
   })();
@@ -630,17 +688,18 @@
        * believing the password they just typed is the live one. */
       if (data.existingAccount) {
         say('You already had an Ignyte account, so we logged you in and kept your existing password.');
-        setTimeout(() => { window.location.href = '/status'; }, 2200);
+        setTimeout(() => afterSignIn('/status'), 2200);
         return;
       }
       /* A new account goes straight to the application, which is the only
        * reason to create one. A returning student goes to their status.
        * An old account with no password is sent to set one. */
       if (!isSignup && data.hasPassword === false) {
-        window.location.href = '/status#password';
+        afterSignIn('/status#password', '/account');
         return;
       }
-      window.location.href = isSignup ? '/apply' : '/status';
+      if (isSignup) window.location.href = '/apply';
+      else afterSignIn('/status');
     });
 
     document.getElementById('auth-restart').addEventListener('click', () => {
@@ -675,7 +734,7 @@
       });
       btn.disabled = false;
       if (data.error) return say(data.error, 'bad');
-      window.location.href = '/status';
+      afterSignIn('/status');
     });
 
     /* The code path stays one click away, because an account made before
@@ -759,7 +818,7 @@
       }
       if (data.error) return say(data.error, 'bad');
       say('Password saved. Taking you to your application.');
-      setTimeout(() => { window.location.href = '/status'; }, 900);
+      setTimeout(() => afterSignIn('/status'), 900);
     });
   })();
 
@@ -779,10 +838,7 @@
       if (data.signedInAs) {
         signedAs.hidden = false;
         signedAs.innerHTML = `Signed in as ${data.signedInAs}. <button type="button" id="signout">Sign out</button>`;
-        document.getElementById('signout').addEventListener('click', async () => {
-          await api('/api/auth?action=logout', { method: 'POST' });
-          window.location.href = '/';
-        });
+        document.getElementById('signout').addEventListener('click', signOut);
       }
 
       if (!data.found) return show('status-none');
@@ -836,6 +892,400 @@
     }).catch(() => show('status-signedout'));
   })();
 
+  /* ---- portal pages --------------------------------------------------------
+   * Home, Your startup and Account share this. Each renders only the parts
+   * its page has. Two reads: /api/status (who they are, sessions, checklist,
+   * announcement, profile, letter) and, on home only, /api/checkin (their
+   * weeks, their team's, and organisers' replies). */
+  (function () {
+    const loading = document.getElementById('portal-loading');
+    if (!loading) return;
+    const $ = (id) => document.getElementById(id);
+    const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    /* Dates arrive as "2026-11-13". Read them as calendar days, not instants,
+     * or a viewer west of New York sees the day before. */
+    const day = (iso, opts) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', opts);
+    const long = (iso) => day(iso, { weekday: 'long', month: 'long', day: 'numeric' });
+    const short = (iso) => day(iso, { weekday: 'short', month: 'short', day: 'numeric' });
+    const when = (t) => new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    /* Today in New York, as YYYY-MM-DD (en-CA formats it that way). */
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+    const daysBetween = (a, b) => Math.round((Date.parse(`${b}T12:00:00Z`) - Date.parse(`${a}T12:00:00Z`)) / 86400000);
+    const store = {
+      get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+      set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } },
+    };
+    const isHome = Boolean($('week-goals'));
+    let ci = null;   /* the check-in payload, once loaded */
+
+    /* ---- next session, and the five as a strip ------------------------- */
+    function renderNext(p) {
+      const sessions = p.sessions || [];
+      /* On a session day the session is still next until the day is over. */
+      const nextIdx = sessions.findIndex((s) => s.date >= today);
+      const next = nextIdx >= 0 ? sessions[nextIdx] : null;
+      if (next) {
+        $('next-when').textContent = `${next.date === today ? 'Today' : long(next.date)}, 6 to 8 PM`;
+        $('next-detail').textContent = next.demoDay ? 'Demo day' : `Session ${nextIdx + 1} of ${sessions.length}`;
+      } else {
+        $('next-when').textContent = 'Your cohort is complete';
+        $('next-detail').textContent = 'Thank you for building with us.';
+      }
+      $('session-strip').innerHTML = sessions.map((s, i) => {
+        const state = s.date < today ? 'is-past' : (i === nextIdx ? 'is-next' : '');
+        const label = s.demoDay ? 'Demo' : `S${i + 1}`;
+        const full = `${s.demoDay ? 'Demo day' : 'Session ' + (i + 1)}, ${long(s.date)}` +
+          (s.checkinDue ? `. Check-in due ${long(s.checkinDue)}` : '');
+        return `<li class="${state}" title="${esc(full)}"><span class="ss-label">${label}</span>` +
+          `<span class="ss-date">${esc(day(s.date, { month: 'short', day: 'numeric' }))}</span>` +
+          `<span class="sr-only">${esc(full)}</span></li>`;
+      }).join('');
+      /* The calendar file is Cohort 1's dates only. */
+      $('schedule-ics').hidden = !/^Cohort 1\b/.test(p.cohort || '');
+      if (!p.checkinOpen) {
+        $('next-checkin').hidden = true;
+        $('next-detail').textContent += '. Check-ins open once an organiser starts yours.';
+      }
+    }
+
+    /* ---- this week ------------------------------------------------------ */
+    function renderWeek() {
+      if (!ci || !ci.weeks || !ci.weeks.some((w) => w.started)) return;
+      $('portal-week').hidden = false;
+
+      /* One dot per week: on time, late, missing, open now, or not yet. */
+      $('week-dots').innerHTML = ci.weeks.map((w) => {
+        const st = !w.started ? 'upcoming' : !w.closed ? 'open' : w.missing ? 'missing' : w.late ? 'late' : 'ontime';
+        const word = { upcoming: 'not open yet', open: 'open now', missing: 'nothing written', late: 'written late', ontime: 'on time' }[st];
+        return `<li class="dot dot-${st}" title="${esc(w.week)}: ${word}"><span class="sr-only">${esc(w.week)}: ${word}</span></li>`;
+      }).join('');
+
+      const closed = ci.weeks.filter((w) => w.closed);
+      const onTime = closed.filter((w) => !w.missing && !w.late).length;
+      const open = ci.weeks.find((w) => w.weekStart === ci.openWeek);
+      const parts = [];
+      if (open) parts.push(`Due ${short(open.dueDate)}, 11:59 PM`);
+      if (closed.length) parts.push(`${onTime} of ${closed.length} on time`);
+      $('week-streak').textContent = parts.join(' · ');
+
+      const list = $('week-goals');
+      if (!open) { list.innerHTML = '<li class="hint">No check-in is open right now.</li>'; return; }
+      const done = open.goals.filter((g) => g.done).length;
+      $('week-head').textContent = open.goals.length ? `This week · ${done} of ${open.goals.length} done` : 'This week';
+      list.innerHTML = open.goals.length
+        ? open.goals.map((g, i) => `<li><label class="goal-tick${g.done ? ' is-done' : ''}">` +
+            `<input type="checkbox" data-goal="${i}"${g.done ? ' checked' : ''}> <span>${esc(g.text)}</span></label></li>`).join('')
+        : '<li class="hint">No goals yet. Open your check-in and write two or three.</li>';
+    }
+
+    /* A tick saves itself, exactly like ticking on the check-in page. */
+    if (isHome) $('week-goals').addEventListener('change', async (e) => {
+      const box = e.target.closest('input[data-goal]');
+      if (!box || !ci) return;
+      const open = ci.weeks.find((w) => w.weekStart === ci.openWeek);
+      if (!open) return;
+      const goals = open.goals.map((g, i) => ({ text: g.text, done: i === Number(box.dataset.goal) ? box.checked : Boolean(g.done) }));
+      box.disabled = true;
+      const msg = $('week-msg');
+      const { data } = await api('/api/checkin', {
+        method: 'POST', body: JSON.stringify({ week_start: open.weekStart, goals, help_needed: open.helpNeeded || '' }),
+      });
+      box.disabled = false;
+      if (data.error) { box.checked = !box.checked; msg.className = 'form-msg bad'; msg.textContent = data.error; return; }
+      msg.textContent = '';
+      open.goals = goals;
+      renderWeek();
+    });
+
+    /* ---- organisers' replies: the newest shown, the rest folded --------- */
+    function renderReplies() {
+      if (!ci || !ci.weeks) return;
+      const out = [];
+      ci.weeks.forEach((w) => { if (w.reply) out.push({ who: 'You asked', w }); });
+      if (ci.team) ci.team.weeks.forEach((w) => { if (w.reply) out.push({ who: `Team ${ci.team.name} asked`, w }); });
+      if (!out.length) return;
+      out.sort((a, b) => String(b.w.reply.at).localeCompare(String(a.w.reply.at)));
+      const item = (r) => `<p class="reply-ask"><span>${esc(r.who)}, ${esc(r.w.week)}:</span> ${esc(r.w.helpNeeded || '(since removed)')}</p>` +
+        `<p class="reply-text">${esc(r.w.reply.text)}</p><p class="hint">${esc(when(r.w.reply.at))}</p>`;
+      $('replies-latest').innerHTML = `<div class="reply-one">${item(out[0])}</div>`;
+      const rest = out.slice(1);
+      $('replies-more').hidden = !rest.length;
+      $('replies-more-label').textContent = `${rest.length} earlier repl${rest.length === 1 ? 'y' : 'ies'}`;
+      $('replies-list').innerHTML = rest.map((r) => `<li>${item(r)}</li>`).join('');
+      $('portal-replies').hidden = false;
+    }
+
+    /* ---- team ------------------------------------------------------------ */
+    function renderTeam(fallbackTeam) {
+      const t = ci && ci.team ? ci.team : fallbackTeam;
+      showTeamNav(Boolean(t));
+      if (!t) return;
+      $('team').hidden = false;
+      $('team-head').textContent = `Team ${t.name}`;
+      $('team-members').innerHTML = t.members.map((m) => `<li>${esc(m)}</li>`).join('');
+      if (!ci || !ci.team || !ci.openWeek) return;
+      const gw = ci.team.weeks.find((w) => w.weekStart === ci.openWeek);
+      const gGoals = gw ? gw.goals : [];
+      const goalsHtml = (goals) => goals.length
+        ? `<ul class="team-goals">${goals.map((g) => `<li class="${g.done ? 'is-done' : ''}"><span aria-hidden="true">${g.done ? '✓' : '○'}</span> ${esc(g.text)}<span class="sr-only">${g.done ? ' (done)' : ' (not done)'}</span></li>`).join('')}</ul>`
+        : '<p class="hint">Nothing yet this week.</p>';
+      $('team-summary').textContent = gGoals.length
+        ? `Group goals · ${gGoals.filter((g) => g.done).length} of ${gGoals.length} done`
+        : 'This week';
+      $('team-week').innerHTML =
+        `<h3 class="team-sub">Group goals</h3>${goalsHtml(gGoals)}` +
+        (gw && gw.savedBy ? `<p class="hint">Last saved by ${esc(gw.savedBy)}${gw.updatedAt ? ', ' + esc(when(gw.updatedAt)) : ''}.</p>` : '') +
+        (ci.team.teammates || []).map((m) => `<h3 class="team-sub">${esc(m.name)}</h3>${goalsHtml(m.weeks[ci.openWeek] || [])}`).join('');
+      $('team-more').hidden = false;
+    }
+
+    /* ---- demo day ------------------------------------------------------ */
+    function renderDemo(p) {
+      const demo = (p.sessions || []).find((s) => s.demoDay);
+      if (demo) {
+        const n = daysBetween(today, demo.date);
+        $('demo-countdown').textContent = n > 1 ? `${n} days` : n === 1 ? 'Tomorrow' : n === 0 ? 'Today' : 'Done';
+        $('demo-date').textContent = short(demo.date);
+      }
+      const items = p.demoChecklist || [];
+      const draw = () => {
+        const d = items.filter((c) => c.done).length;
+        $('demo-progress').textContent = `Checklist · ${d} of ${items.length} ready`;
+        $('demo-bar').style.width = items.length ? `${Math.round((d / items.length) * 100)}%` : '0';
+        $('demo-checklist').innerHTML = items.map((c) => `<li><label class="goal-tick${c.done ? ' is-done' : ''}">` +
+          `<input type="checkbox" data-check="${esc(c.key)}"${c.done ? ' checked' : ''}> <span>${esc(c.label)}</span></label></li>`).join('');
+      };
+      draw();
+      $('demo-checklist').addEventListener('change', async (e) => {
+        const box = e.target.closest('input[data-check]');
+        if (!box) return;
+        const item = items.find((c) => c.key === box.dataset.check);
+        item.done = box.checked;
+        const checklist = Object.fromEntries(items.filter((c) => c.done).map((c) => [c.key, true]));
+        const { data } = await api('/api/status?action=checklist', { method: 'POST', body: JSON.stringify({ checklist }) });
+        const msg = $('demo-msg');
+        if (data.error) { item.done = !item.done; msg.className = 'form-msg bad'; msg.textContent = data.error; draw(); return; }
+        msg.textContent = '';
+        draw();
+      });
+    }
+
+    /* ---- announcement -------------------------------------------------- */
+    function renderAnnouncement(a) {
+      if (!a || store.get('ig-dismissed') === String(a.id)) return;
+      $('announce-text').textContent = a.body;
+      $('announce-when').textContent = when(a.createdAt);
+      $('portal-announce').hidden = false;
+      $('announce-dismiss').addEventListener('click', () => {
+        store.set('ig-dismissed', String(a.id));
+        $('portal-announce').hidden = true;
+      });
+    }
+
+    /* ---- the public profile -------------------------------------------- */
+    function renderProfile(p, startupFromApplication) {
+      const form = $('profile-form');
+      let logo = p ? p.logo : null;
+      let logoChanged = false;
+      const showLogo = () => {
+        $('pf-logo-img').hidden = !logo; $('pf-logo-none').hidden = Boolean(logo);
+        if (logo) $('pf-logo-img').src = logo;
+        $('pf-logo-remove').hidden = !logo;
+      };
+      const live = (prof) => {
+        const el = $('profile-live');
+        el.hidden = !prof;
+        $('pf-remove').hidden = !prof;
+        if (!prof) return;
+        const page = '<a href="/startups" target="_blank" rel="noopener">the startups page</a>';
+        el.className = `portal-live state-${prof.state}`;
+        el.innerHTML = {
+          pending: `<strong>Waiting for review.</strong> An organiser will check it before it goes on ${page}.`,
+          live_pending: `<strong>Live, with changes waiting.</strong> The approved version is on ${page}; your newest edits go up once an organiser approves them.`,
+          live: `<strong>Live</strong> on ${page}.` + (prof.editedByOrganiser ? ' An organiser made small edits before publishing; what you see below is what is live.' : ''),
+          off: `<strong>Not on the website.</strong> An organiser took it down. Edit it and send it again if you want it back up.`,
+        }[prof.state] || '';
+      };
+      $('pf-name').value = p ? p.startupName : (startupFromApplication || '');
+      $('pf-one').value = p ? p.oneLiner : '';
+      $('pf-problem').value = p ? p.problem : '';
+      $('pf-save').textContent = p ? 'Send changes for review' : 'Send for review';
+      wireCounters(form);
+      ['pf-one', 'pf-problem'].forEach((id) => $(id).dispatchEvent(new Event('input')));
+      showLogo(); live(p);
+
+      /* Shrunk in the browser to at most 256px on the long side, so what is
+       * stored is small whatever size the student picks. */
+      $('pf-logo').addEventListener('change', () => {
+        const file = $('pf-logo').files[0];
+        const msg = $('pf-msg');
+        if (!file) return;
+        if (!/^image\/(png|jpeg|webp)$/.test(file.type)) { msg.className = 'form-msg bad'; msg.textContent = 'Use a PNG, JPG or WebP image.'; return; }
+        if (file.size > 5 * 1024 * 1024) { msg.className = 'form-msg bad'; msg.textContent = 'That image is over 5 MB.'; return; }
+        const img = new Image();
+        img.onload = () => {
+          const scale = Math.min(1, 256 / Math.max(img.width, img.height));
+          const c = document.createElement('canvas');
+          c.width = Math.round(img.width * scale); c.height = Math.round(img.height * scale);
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          let url = c.toDataURL('image/webp', 0.85);
+          if (!url.startsWith('data:image/webp')) url = c.toDataURL('image/png');
+          URL.revokeObjectURL(img.src);
+          if (url.length > 160000) { msg.className = 'form-msg bad'; msg.textContent = 'That logo is too detailed to store. Try a simpler image.'; return; }
+          logo = url; logoChanged = true; msg.textContent = ''; showLogo();
+        };
+        img.onerror = () => { msg.className = 'form-msg bad'; msg.textContent = 'That image could not be read.'; };
+        img.src = URL.createObjectURL(file);
+      });
+      $('pf-logo-remove').addEventListener('click', () => { logo = null; logoChanged = true; $('pf-logo').value = ''; showLogo(); });
+
+      $('pf-remove').addEventListener('click', async () => {
+        const ok = await askConfirm({
+          title: 'Delete your profile?',
+          body: 'It is deleted, and comes off the startups page straight away if it was there. You can write a new one any time.',
+          confirmLabel: 'Delete it',
+        });
+        if (!ok) return;
+        const msg = $('pf-msg');
+        const { data } = await api('/api/status?action=profile', { method: 'POST', body: JSON.stringify({ remove: true }) });
+        if (data.error) { msg.className = 'form-msg bad'; msg.textContent = data.error; return; }
+        msg.className = 'form-msg ok'; msg.textContent = 'Deleted.';
+        $('pf-save').textContent = 'Send for review';
+        live(null);
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const msg = $('pf-msg');
+        const body = {
+          startup_name: $('pf-name').value, one_liner: $('pf-one').value, problem: $('pf-problem').value,
+          logo: logoChanged ? (logo || '') : '', keep_logo: !logoChanged,
+        };
+        if (!body.startup_name.trim()) { msg.className = 'form-msg bad'; msg.textContent = 'Give your startup a name.'; return; }
+        if (!body.one_liner.trim()) { msg.className = 'form-msg bad'; msg.textContent = 'Write a one-line description.'; return; }
+        $('pf-save').disabled = true;
+        msg.className = 'form-msg'; msg.textContent = 'Saving…';
+        const { data } = await api('/api/status?action=profile', { method: 'POST', body: JSON.stringify(body) });
+        $('pf-save').disabled = false;
+        if (data.error) { msg.className = 'form-msg bad'; msg.textContent = data.error; return; }
+        logoChanged = false;
+        msg.className = 'form-msg ok';
+        msg.textContent = data.profile.state === 'live_pending'
+          ? 'Sent. Your live profile stays as it is until an organiser approves these changes.'
+          : 'Sent for review. It goes on the website once an organiser approves it.';
+        $('pf-save').textContent = 'Send changes for review';
+        live(data.profile);
+      });
+    }
+
+    Promise.all([
+      api('/api/status'),
+      isHome ? api('/api/checkin').catch(() => ({ data: {} })) : Promise.resolve({ data: {} }),
+    ]).then(([{ status, data }, ciRes]) => {
+      if (status === 401 || data.signInRequired) { portalHint(false); window.location.replace('/login'); return; }
+      if (!data.portal) { portalHint(false); window.location.replace('/status'); return; }
+      portalHint(true);
+      const p = data.portal;
+      ci = ciRes && ciRes.data && Array.isArray(ciRes.data.weeks) ? ciRes.data : null;
+
+      if (isHome) {
+        $('portal-hello').textContent = `Welcome, ${String(p.name || '').trim().split(/\s+/)[0] || 'founder'}`;
+        $('portal-cohort').textContent = [p.cohort, p.startup].filter(Boolean).join(' · ');
+        renderAnnouncement(p.announcement);
+        renderNext(p);
+        renderWeek();
+        renderDemo(p);
+        renderTeam(p.team);
+        renderReplies();
+      } else {
+        showTeamNav(Boolean(p.team));
+      }
+      if ($('profile-form')) renderProfile(p.profile, p.startup);
+      if ($('portal-letter') && data.letter) {
+        $('portal-letter').hidden = false;
+        $('letter-meta').textContent = data.decidedAt
+          ? `Sent ${new Date(data.decidedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}.` : '';
+        $('letter-body').textContent = data.letter;
+      }
+
+      if (data.signedInAs) { $('portal-signed').hidden = false; $('portal-signed').textContent = `Signed in as ${data.signedInAs}.`; }
+      loading.hidden = true;
+      $('portal-ready').hidden = false;
+    }).catch(() => { loading.querySelector('p').textContent = 'Could not load your portal. Check your connection and reload.'; });
+  })();
+
+  /* ---- the public startups page --------------------------------------------
+   * /startups shows one folder per cohort; /startups/<cohort> opens that
+   * cohort's companies. One page and one read serve both. */
+  (function () {
+    const grid = document.getElementById('startup-grid');
+    if (!grid) return;
+    const $ = (id) => document.getElementById(id);
+    const esc = (v) => String(v == null ? '' : v).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const day = (iso, opts) => new Date(`${iso}T12:00:00`).toLocaleDateString('en-US', opts);
+    const md = (iso) => day(iso, { month: 'short', day: 'numeric' });
+    const year = (iso) => day(iso, { year: 'numeric' });
+    const range = (c) => `${md(c.firstSession)} to ${md(c.demoDay)}, ${year(c.demoDay)}`;
+    const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/New_York' }).format(new Date());
+    const loading = $('startups-loading');
+    const m = window.location.pathname.match(/^\/startups\/([a-z0-9-]+)\/?$/);
+    const slug = m ? m[1] : null;
+
+    const card = (s) => `<li class="startup-card">` +
+      (s.logo ? `<img class="profile-logo" src="${esc(s.logo)}" alt="${esc(s.startupName)} logo" loading="lazy">`
+              : '<span class="profile-logo profile-logo-none" aria-hidden="true"></span>') +
+      `<h2>${esc(s.startupName)}</h2><p class="startup-one">${esc(s.oneLiner)}</p>` +
+      (s.problem ? `<p class="startup-problem">${esc(s.problem)}</p>` : '') + '</li>';
+
+    api('/api/status?action=showcase').then(({ data }) => {
+      const cohorts = (data && data.cohorts) || [];
+      const startups = (data && data.startups) || [];
+
+      if (!slug) {
+        /* The folders. Logos from the cohort peek out of each one. */
+        $('cohort-folders').innerHTML = cohorts.map((c) => {
+          const mine = startups.filter((s) => s.cohort === c.name);
+          const upcoming = c.firstSession > today;
+          const status = c.count
+            ? `${c.count} startup${c.count === 1 ? '' : 's'}`
+            : (upcoming ? `Starts ${md(c.firstSession)}` : 'Profiles coming soon');
+          const logos = mine.filter((s) => s.logo).slice(0, 4)
+            .map((s) => `<img src="${esc(s.logo)}" alt="" loading="lazy">`).join('');
+          return `<li><a class="cohort-folder" href="/startups/${esc(c.slug)}">` +
+            `<span class="cf-tab" aria-hidden="true"></span>` +
+            `<span class="cf-title">${esc(c.title)}</span>` +
+            `<span class="cf-season">${esc(c.season)}</span>` +
+            `<span class="cf-dates">${esc(range(c))}</span>` +
+            (logos ? `<span class="cf-logos" aria-hidden="true">${logos}</span>` : '') +
+            `<span class="cf-count">${esc(status)} <span aria-hidden="true">→</span></span></a></li>`;
+        }).join('');
+        loading.hidden = true;
+        $('cohort-folders').hidden = false;
+        return;
+      }
+
+      const c = cohorts.find((x) => x.slug === slug);
+      $('su-crumbs').hidden = false;
+      $('su-back').innerHTML = '<a href="/startups">Back to all cohorts</a>';
+      if (!c) {
+        $('su-title').textContent = 'No cohort here';
+        $('su-lede').textContent = 'That link does not match a cohort. Pick one from the list.';
+        loading.hidden = true;
+        return;
+      }
+      document.title = `${c.title}, ${c.season} startups | NC Ignyte`;
+      $('su-title').textContent = `${c.title} · ${c.season}`;
+      $('su-lede').textContent = `${c.sessions} sessions, ${range(c)}. Every company below was built by North Carolina high school students in this cohort, and shown with their organisers' approval. We leave founders' names off on purpose.`;
+      const mine = startups.filter((s) => s.cohort === c.name);
+      grid.innerHTML = mine.map(card).join('');
+      grid.hidden = !mine.length;
+      loading.hidden = Boolean(mine.length);
+      loading.textContent = c.firstSession > today
+        ? `This cohort starts ${md(c.firstSession)}. Its startups appear here as founders write their profiles.`
+        : 'Founders are writing their profiles now. Check back soon.';
+    }).catch(() => { loading.textContent = 'Could not load the startups. Try again in a moment.'; });
+  })();
+
   /* ---- account: set or change the password ------------------------------- */
   (function () {
     const card = document.getElementById('account-card');
@@ -850,7 +1300,7 @@
     let hasPassword = true;
     let email = '';
 
-    api('/api/auth?action=me').then(({ data }) => {
+    me().then((data) => {
       if (!data || !data.signedIn) return;
       card.hidden = false;
       email = data.email || '';
@@ -861,7 +1311,7 @@
       currentInput.required = hasPassword;
       prompt.hidden = hasPassword;
       submit.textContent = hasPassword ? 'Change password' : 'Set a password';
-      if (!hasPassword || window.location.hash === '#password') {
+      if (!hasPassword || window.location.hash === '#password' || window.location.hash === '#account') {
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }).catch(() => {});
@@ -916,13 +1366,27 @@
     const listEl = document.getElementById('goal-list');
     const helpEl = document.getElementById('ci-help');
     const msg = document.getElementById('ci-msg');
-    let openWeek = null;
+    /* One form, two check-ins. "me" is the student's own; "team" is the shared
+     * one their organiser set up. Anyone on the team can edit the shared one,
+     * so every team save says which version it started from and the server
+     * refuses it if a teammate got there first. */
+    let state = null;
+    let scope = 'me';
+
+    /* This section has to carry its own: the one the admin page uses lives
+     * inside that section and does not exist here. Leaving it out made the
+     * week history throw, which this page reports as "log in". */
+    const esc = (v) => String(v == null ? '' : v)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
     const show = (id) => {
       ['ci-loading', 'ci-signedout', 'ci-notstarted', 'ci-open', 'ci-closed']
         .forEach((x) => { document.getElementById(x).hidden = x !== id; });
     };
     const say = (text, kind) => { msg.className = `form-msg ${kind || ''}`; msg.textContent = text; };
+
+    const weeksOf = (which) => (which === 'team' ? (state.team ? state.team.weeks : []) : state.weeks);
+    const current = () => (state ? weeksOf(scope).find((w) => w.weekStart === state.openWeek) || null : null);
 
     function goalRow(goal) {
       const li = document.createElement('li');
@@ -944,49 +1408,108 @@
       })).filter((g) => g.text);
     }
 
+    function teamNote(week) {
+      const note = document.getElementById('ci-team-note');
+      if (scope !== 'team' || !state.team) { note.hidden = true; return; }
+      note.textContent =
+        `Team ${state.team.name}: ${state.team.members.join(', ')}. Anyone on the team can edit this one, ` +
+        'and it is separate from your own.' +
+        (week && week.savedBy ? ` Last saved by ${week.savedBy}.` : '');
+      note.hidden = false;
+    }
+
     function render(week) {
-      document.getElementById('ci-week').textContent = week.week;
+      const title = scope === 'team' ? `Team ${state.team.name}, ${week.week}` : week.week;
+      document.getElementById('ci-week').textContent = title;
       document.getElementById('ci-range').textContent = week.range;
       listEl.innerHTML = '';
       const goals = week.goals.length ? week.goals : [{ text: '', done: false }, { text: '', done: false }];
       goals.forEach((g) => listEl.appendChild(goalRow(g)));
       helpEl.value = week.helpNeeded || '';
       helpEl.dispatchEvent(new Event('input'));
+      const reply = document.getElementById('ci-reply');
+      reply.hidden = !week.reply;
+      if (week.reply) reply.innerHTML = `<strong>Your organiser replied:</strong> ${esc(week.reply.text)}`;
+      teamNote(week);
     }
 
     function renderHistory(weeks) {
       const done = weeks.filter((w) => w.started);
-      if (done.length < 2) return;
+      const section = document.getElementById('ci-history');
+      if (done.length < 2) { section.hidden = true; return; }
       const ol = document.getElementById('week-history');
+      document.querySelector('#ci-history h2').textContent = scope === 'team' ? 'Your team’s weeks' : 'Your weeks';
       ol.innerHTML = done.map((w) => {
         const ticked = w.goals.filter((g) => g.done).length;
-        let state;
-        if (!w.closed) state = 'open now';
-        else if (w.missing) state = 'nothing written';
-        else state = `${ticked} of ${w.goals.length || 0} done` + (w.late ? ', late' : '');
+        let status;
+        if (!w.closed) status = 'open now';
+        else if (w.missing) status = 'nothing written';
+        else status = `${ticked} of ${w.goals.length || 0} done` + (w.late ? ', late' : '');
         return `<li class="${w.closed ? 'wk-closed' : 'wk-open'}">` +
           `<span class="wk-name">${esc(w.week)}</span>` +
           `<span class="wk-range">${esc(w.range)}</span>` +
-          `<span class="wk-state">${esc(state)}</span></li>`;
+          `<span class="wk-state">${esc(status)}</span>` +
+          (w.reply ? `<span class="wk-reply"><strong>Organiser:</strong> ${esc(w.reply.text)}</span>` : '') + '</li>';
       }).join('');
-      document.getElementById('ci-history').hidden = false;
+      section.hidden = false;
     }
 
+    /* What is on screen, in the same shape the server stores, so "has this
+     * changed since it was saved" is one comparison. */
+    const snapshot = (goals, help) => JSON.stringify({
+      g: goals.map((g) => ({ text: g.text, done: Boolean(g.done) })), h: help || '',
+    });
+    const dirty = () => {
+      const wk = current();
+      return Boolean(wk) && snapshot(readGoals(), helpEl.value.trim()) !== snapshot(wk.goals, wk.helpNeeded);
+    };
+
     async function save() {
-      if (!openWeek) return;
-      say('Saving\u2026');
-      const { status, data } = await api('/api/checkin', {
-        method: 'POST',
-        body: JSON.stringify({
-          week_start: openWeek.weekStart,
-          goals: readGoals(),
-          help_needed: helpEl.value,
-        }),
-      });
+      const wk = current();
+      if (!wk) return;
+      say('Saving…');
+      const goals = readGoals();
+      const help = helpEl.value;
+      const payload = { week_start: wk.weekStart, goals, help_needed: help };
+      if (scope === 'team') { payload.scope = 'team'; payload.base_version = wk.version || 0; }
+      const { status, data } = await api('/api/checkin', { method: 'POST', body: JSON.stringify(payload) });
+
+      if (status === 409 && data.conflict) {
+        /* A teammate saved first. Show their version, not ours, and say so:
+         * the alternative is to quietly erase their work. */
+        if (data.latest) {
+          Object.assign(wk, { goals: data.latest.goals, helpNeeded: data.latest.helpNeeded,
+            version: data.latest.version, savedBy: data.latest.savedBy });
+          render(wk);
+        }
+        return say(data.error, 'bad');
+      }
       if (data.error) return say(data.error, 'bad');
+
+      /* Keep the local copy in step, because switching between "me" and the
+       * team re-draws the form from it. */
+      wk.goals = goals;
+      wk.helpNeeded = help.trim();
+      wk.firstSavedAt = wk.firstSavedAt || (data.saved && data.saved.first_saved_at) || new Date().toISOString();
+      if (scope === 'team' && data.saved) {
+        wk.version = data.saved.version;
+        wk.savedBy = data.saved.saved_by || wk.savedBy;
+        teamNote(wk);
+      }
       say(data.late
         ? 'Saved, and marked late. This one was due at 11:59 PM the night before the session, so your organiser will see it came in afterwards.'
         : 'Saved. You can keep editing until the deadline.', data.late ? 'bad' : 'ok');
+    }
+
+    function applyScope() {
+      const wk = current();
+      renderHistory(weeksOf(scope));
+      document.querySelectorAll('.ci-scope-btn').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b.dataset.scope === scope));
+        b.classList.toggle('is-on', b.dataset.scope === scope);
+      });
+      if (!wk) return;
+      render(wk);
     }
 
     function load() {
@@ -998,21 +1521,43 @@
           return show('ci-notstarted');
         }
 
+        state = data;
+        /* The portal's team section links here with ?scope=team. */
+        scope = data.team && new URLSearchParams(window.location.search).get('scope') === 'team' ? 'team' : 'me';
+        showTeamNav(Boolean(data.team));
         document.getElementById('ci-deadline').textContent = data.deadlineNote;
-        renderHistory(data.weeks);
 
-        openWeek = data.weeks.find((w) => w.weekStart === data.openWeek) || null;
+        const switcher = document.getElementById('ci-scope');
+        switcher.hidden = !data.team;
+        if (data.team) document.getElementById('ci-scope-team').textContent = `Team ${data.team.name}`;
+
+        const openWeek = data.weeks.find((w) => w.weekStart === data.openWeek) || null;
         if (!openWeek) {
+          renderHistory(data.weeks);
           const next = data.weeks.find((w) => !w.started);
           document.getElementById('ci-closed-msg').textContent = next
             ? `Your next check-in opens on ${next.range.split(' to ')[0]}, the day of the session.`
             : 'Every check-in for your cohort is done. Thank you for keeping it up to date.';
           return show('ci-closed');
         }
-        render(openWeek);
+        applyScope();
         show('ci-open');
       }).catch(() => { loading.hidden = true; show('ci-signedout'); });
     }
+
+    /* Switching saves what is on screen first, so typing in one and then
+     * clicking the other never loses the words. */
+    document.getElementById('ci-scope').addEventListener('click', async (e) => {
+      const btn = e.target.closest('.ci-scope-btn');
+      if (!btn || btn.dataset.scope === scope) return;
+      if (dirty()) {
+        await save();
+        if (msg.classList.contains('bad') && !/newer version/.test(msg.textContent)) return;
+      }
+      scope = btn.dataset.scope;
+      say('');
+      applyScope();
+    });
 
     document.getElementById('goal-add').addEventListener('click', () => {
       listEl.appendChild(goalRow({ text: '', done: false }));
@@ -1537,6 +2082,8 @@
       loadDefaults();
       loadAccepted();
       loadCheckins();
+      loadTeams();
+      loadPortalAdmin();
       allRows = data.rows || [];
 
       const counts = data.counts || {};
@@ -1729,66 +2276,437 @@
       if (btn) invite([Number(btn.closest('tr').dataset.id)]);
     });
 
-    /* Check-ins, as a grid of students against weeks. A blank cell is the
-     * signal, not the noise: it means a student wrote nothing that week. */
+    /* Check-ins, as a grid of students (and teams) against weeks. A blank cell
+     * is the signal, not the noise: it means nothing was written that week.
+     * Every cell and every name opens the full record, because a ratio like
+     * 2/5 says how a week went but not what was written. */
+    const byId = (id) => document.getElementById(id);
+    let ciData = null;
+    const fmtDay = (iso) => {
+      const [y, m, d] = String(iso).slice(0, 10).split('-').map(Number);
+      return new Date(Date.UTC(y, m - 1, d))
+        .toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+    };
+    const fmtTime = (t) => (t ? new Date(t).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '–');
+
+    function ciCell(kind, id, wk) {
+      const open = `data-open="${kind}:${id}" data-week="${esc(wk.weekStart)}"`;
+      /* Three states, not two. Nothing at all is a different problem from
+       * something handed in late, and an organiser chasing one should not be
+       * reading the other. */
+      if (!wk.firstSavedAt) {
+        return wk.weekClosed
+          ? `<td class="ci-missing"><button type="button" class="ci-cell-btn" ${open} title="Nothing was written and the week has closed">Missing</button></td>`
+          : `<td class="ci-blank"><button type="button" class="ci-cell-btn" ${open} title="Nothing yet, and the week is still open">&mdash;</button></td>`;
+      }
+      /* The ratio matters more than the count: two of two is a good week, two
+       * of nine is a student who needs a hand. */
+      const ratio = wk.total ? wk.done / wk.total : 0;
+      const cls = ratio === 1 ? 'ci-all' : ratio >= 0.5 ? 'ci-some' : 'ci-few';
+      const late = wk.late ? '<span class="ci-late" title="Written after the deadline">late</span>' : '';
+      return `<td class="${cls}"><button type="button" class="ci-cell-btn" ${open}>${wk.done}/${wk.total}${late}</button></td>`;
+    }
+
+    function ciRow(kind, subject, weeks) {
+      let done = 0, total = 0;
+      const cells = weeks.map((w) => {
+        const wk = subject.weeks.find((x) => x.weekStart === w);
+        if (!wk) return '<td class="ci-blank">&mdash;</td>';
+        if (wk.firstSavedAt) { done += wk.done; total += wk.total; }
+        return ciCell(kind, subject.id, wk);
+      }).join('');
+      const tag = kind === 'student' && subject.teamName
+        ? `<span class="ci-team-tag" title="On team ${esc(subject.teamName)}">${esc(subject.teamName)}</span>` : '';
+      return `<tr><th scope="row"><button type="button" class="ci-name-btn" data-open="${kind}:${subject.id}">${esc(subject.name)}</button>${tag}</th>` +
+        `${cells}<td class="ci-total">${total ? done + '/' + total : '&mdash;'}</td></tr>`;
+    }
+
     function loadCheckins() {
       api('/api/admin?action=checkins').then(({ data }) => {
         if (!data || !Array.isArray(data.students) || !data.students.length) return;
+        ciData = data;
         const weeks = data.weeks || [];
-        const section = document.getElementById('admin-checkins');
+        const section = byId('admin-checkins');
 
-        const label = (w) => {
-          const [y, m, d] = w.slice(0, 10).split('-').map(Number);
-          return new Date(Date.UTC(y, m - 1, d))
-            .toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
-        };
-
-        document.getElementById('checkin-head').innerHTML =
+        byId('checkin-head').innerHTML =
           '<th scope="col">Student</th>' +
-          weeks.map((w) => `<th scope="col">${esc(label(w))}</th>`).join('') +
+          weeks.map((w) => `<th scope="col">${esc(fmtDay(w))}</th>`).join('') +
           '<th scope="col">Ticked</th>';
 
-        document.getElementById('checkin-rows').innerHTML = data.students.map((st) => {
-          let done = 0, total = 0;
-          const cells = weeks.map((w) => {
-            const wk = st.weeks.find((x) => String(x.weekStart) === w);
-            /* Three states, not two. Nothing at all is a different problem
-             * from something handed in late, and an organiser chasing one
-             * should not be reading the other. */
-            if (!wk || !wk.firstSavedAt) {
-              return wk === undefined || !wk.weekClosed
-                ? '<td class="ci-blank" title="Nothing yet, and the week is still open">&mdash;</td>'
-                : '<td class="ci-missing" title="Nothing was written and the week has closed">Missing</td>';
-            }
-            done += wk.done; total += wk.total;
-            /* The ratio matters more than the count: two of two is a good
-             * week, two of nine is a student who needs a hand. */
-            const ratio = wk.total ? wk.done / wk.total : 0;
-            const cls = ratio === 1 ? 'ci-all' : ratio >= 0.5 ? 'ci-some' : 'ci-few';
-            const goals = wk.goals.map((g) => (g.done ? '\u2713 ' : '\u25a1 ') + g.text).join('\n');
-            const lateTag = wk.late ? '<span class="ci-late" title="Written after the deadline">late</span>' : '';
-            return `<td class="${cls}" title="${esc(goals)}">${wk.done}/${wk.total}${lateTag}</td>`;
-          }).join('');
-          return `<tr><th scope="row">${esc(st.name)}</th>${cells}` +
-            `<td class="ci-total">${total ? done + '/' + total : '&mdash;'}</td></tr>`;
-        }).join('');
+        const studentRows = data.students.map((st) => ciRow('student', st, weeks)).join('');
+        const teamRows = (data.teams || []).length
+          ? `<tr class="ci-sep"><th scope="colgroup" colspan="${weeks.length + 2}">Group check-ins</th></tr>` +
+            data.teams.map((t) => ciRow('team', t, weeks)).join('')
+          : '';
+        byId('checkin-rows').innerHTML = studentRows + teamRows;
 
-        /* Newest first: what someone needs help with this week matters more
-         * than what they needed three weeks ago. */
-        const asks = [];
-        data.students.forEach((st) => st.weeks.forEach((w) => {
-          if (w.helpNeeded) asks.push({ name: st.name, week: w.weekStart, text: w.helpNeeded });
-        }));
-        asks.sort((a, b) => String(b.week).localeCompare(String(a.week)));
-        document.getElementById('checkin-help').innerHTML = asks.length
-          ? asks.map((a) => `<li><span class="ask-who">${esc(a.name)}</span>` +
-              `<span class="ask-when">${esc(label(String(a.week)))}</span>` +
-              `<p>${esc(a.text)}</p></li>`).join('')
-          : '<li class="ask-none">Nobody has written anything here yet.</li>';
-
+        renderAsks();
         section.hidden = false;
       }).catch(() => {});
     }
+
+    /* What people asked for help with. Open asks first, newest first: what
+     * someone needs this week matters more than three weeks ago. Ticked ones
+     * fold away underneath, so the list shows what is left to do. */
+    function renderAsks() {
+      const asks = [];
+      const collect = (kind, subject, label) => subject.weeks.forEach((w) => {
+        if (w.helpNeeded) asks.push({ kind, id: subject.id, name: label, w });
+      });
+      ciData.students.forEach((st) => collect('student', st, st.name));
+      (ciData.teams || []).forEach((t) => collect('team', t, `${t.name} (team)`));
+      asks.sort((a, b) => String(b.w.weekStart).localeCompare(String(a.w.weekStart)));
+      const item = (a) => {
+        const done = Boolean(a.w.helpHandledAt);
+        return `<li class="${done ? 'is-handled' : ''}">` +
+          `<label class="ask-tick"><input type="checkbox" data-ask="${a.kind}:${a.id}:${esc(a.w.weekStart)}"${done ? ' checked' : ''}>` +
+          `<span class="sr-only">Handled: ${esc(a.name)}, week of ${esc(fmtDay(a.w.weekStart))}</span></label>` +
+          `<div><span class="ask-who">${esc(a.name)}</span>` +
+          `<span class="ask-when">${esc(fmtDay(a.w.weekStart))}</span>` +
+          `<p>${esc(a.w.helpNeeded)}</p>` +
+          (done ? `<p class="ask-by">Handled${a.w.helpHandledBy ? ' by ' + esc(a.w.helpHandledBy) : ''}, ${esc(fmtTime(a.w.helpHandledAt))}</p>` : '') +
+          (a.w.reply ? `<p class="ask-reply"><strong>Your reply:</strong> ${esc(a.w.reply.text)}</p>` : '') +
+          `<details class="ask-reply-box"><summary>${a.w.reply ? 'Edit reply' : 'Reply'}</summary>` +
+          `<textarea rows="3" maxlength="1000" aria-label="Reply to ${esc(a.name)}">${esc(a.w.reply ? a.w.reply.text : '')}</textarea>` +
+          `<button type="button" class="btn-quiet" data-reply="${a.kind}:${a.id}:${esc(a.w.weekStart)}">Send reply</button>` +
+          (a.w.reply ? ' <span class="hint">Clear the box and send to remove it.</span>' : '') +
+          '</details></div></li>';
+      };
+      const open = asks.filter((a) => !a.w.helpHandledAt);
+      const handled = asks.filter((a) => a.w.helpHandledAt);
+      byId('checkin-help').innerHTML = !asks.length
+        ? '<li class="ask-none">Nobody has written anything here yet.</li>'
+        : (open.length ? open.map(item).join('') : '<li class="ask-none">Everything asked for has been handled.</li>');
+      const wrap = byId('checkin-help-done');
+      wrap.hidden = !handled.length;
+      byId('checkin-help-done-count').textContent = handled.length;
+      byId('checkin-help-done-list').innerHTML = handled.map(item).join('');
+    }
+
+    async function onAskTick(e) {
+      const box = e.target.closest('input[data-ask]');
+      if (!box || !ciData) return;
+      const [kind, id, week] = box.dataset.ask.split(':');
+      const subject = (kind === 'team' ? ciData.teams : ciData.students).find((x) => String(x.id) === id);
+      const w = subject && subject.weeks.find((x) => x.weekStart === week);
+      if (!w) return;
+      box.disabled = true;
+      const { data } = await api('/api/admin?action=help_handled', {
+        method: 'POST', body: JSON.stringify({ kind, id: Number(id), week_start: week, handled: box.checked }),
+      });
+      const hmsg = byId('checkin-help-msg');
+      if (data.error) {
+        box.checked = !box.checked; box.disabled = false;
+        hmsg.className = 'form-msg bad'; hmsg.textContent = data.error;
+        return;
+      }
+      hmsg.className = 'form-msg'; hmsg.textContent = '';
+      w.helpHandledAt = data.handled ? data.handledAt : null;
+      w.helpHandledBy = data.handled ? data.handledBy : null;
+      renderAsks();
+    }
+    async function onAskReply(e) {
+      const btn = e.target.closest('button[data-reply]');
+      if (!btn || !ciData) return;
+      const [kind, id, week] = btn.dataset.reply.split(':');
+      const subject = (kind === 'team' ? ciData.teams : ciData.students).find((x) => String(x.id) === id);
+      const w = subject && subject.weeks.find((x) => x.weekStart === week);
+      if (!w) return;
+      const text = btn.parentNode.querySelector('textarea').value.trim();
+      btn.disabled = true;
+      const { data } = await api('/api/admin?action=help_reply', {
+        method: 'POST', body: JSON.stringify({ kind, id: Number(id), week_start: week, reply: text }),
+      });
+      btn.disabled = false;
+      const hmsg = byId('checkin-help-msg');
+      if (data.error) { hmsg.className = 'form-msg bad'; hmsg.textContent = data.error; return; }
+      w.reply = data.reply;
+      hmsg.className = 'form-msg ok';
+      hmsg.textContent = data.reply ? `Reply sent to ${subject.name}. They see it in their portal.` : 'Reply removed.';
+      renderAsks();
+    }
+    byId('checkin-help').addEventListener('click', onAskReply);
+    byId('checkin-help-done-list').addEventListener('click', onAskReply);
+    byId('checkin-help').addEventListener('change', onAskTick);
+    byId('checkin-help-done-list').addEventListener('change', onAskTick);
+
+    /* Everything one student or one team wrote, every week, newest first. */
+    function weekBlock(w, picked) {
+      const state = !w.firstSavedAt
+        ? (w.weekClosed ? 'Missing: nothing was written and the week closed' : 'Nothing written yet, the week is still open')
+        : (w.late ? 'Late: first written after the deadline' : 'On time');
+      const cls = !w.firstSavedAt ? (w.weekClosed ? 'ci-missing' : 'ci-blank') : (w.late ? 'ci-few' : 'ci-all');
+      const goals = w.goals.length
+        ? `<ul class="ci-goals">${w.goals.map((g) =>
+            `<li class="${g.done ? 'is-done' : ''}"><span aria-hidden="true">${g.done ? '✓' : '□'}</span> ${esc(g.text)}` +
+            `<span class="sr-only">${g.done ? ' (done)' : ' (not done)'}</span></li>`).join('')}</ul>`
+        : '<p class="hint">No goals written.</p>';
+      const help = w.helpNeeded
+        ? `<p class="ci-detail-help"><strong>Needs help with:</strong> ${esc(w.helpNeeded)}</p>`
+        : '<p class="hint">Nothing written under help.</p>';
+      const times = [
+        `Due ${esc(fmtTime(w.closesAt))}`,
+        w.firstSavedAt ? `First saved ${esc(fmtTime(w.firstSavedAt))}` : '',
+        w.goalsSetAt ? `Goals first set ${esc(fmtTime(w.goalsSetAt))}` : '',
+        w.updatedAt ? `Last saved ${esc(fmtTime(w.updatedAt))}${w.savedBy ? ' by ' + esc(w.savedBy) : ''}` : '',
+      ].filter(Boolean).join(' &middot; ');
+      return `<article class="ci-week${picked ? ' is-picked' : ''}" data-week="${esc(w.weekStart)}">` +
+        `<h3>Week of ${esc(fmtDay(w.weekStart))} <span class="${cls} ci-state">${esc(state)}</span></h3>` +
+        `${goals}${help}<p class="hint">${times}</p></article>`;
+    }
+
+    function openCheckinDetail(kind, id, weekStart) {
+      if (!ciData) return;
+      const subject = (kind === 'team' ? ciData.teams : ciData.students).find((x) => String(x.id) === String(id));
+      if (!subject) return;
+      byId('ci-detail-title').textContent = kind === 'team' ? `Team ${subject.name}` : subject.name;
+      const bits = kind === 'team'
+        ? [subject.cohort, subject.members.length ? `Members: ${subject.members.join(', ')}` : 'No members']
+        : [subject.cohort, subject.startup, subject.teamName ? `Team ${subject.teamName}` : null, subject.invited ? null : 'Check-ins not opened yet'];
+      byId('ci-detail-sub').textContent = bits.filter(Boolean).join('  ·  ');
+      const weeks = [...subject.weeks].reverse();
+      const teamLink = kind === 'student' && subject.teamId
+        ? `<p><button type="button" class="link-btn" data-open="team:${esc(subject.teamId)}">See ${esc(subject.teamName)}’s group check-ins</button></p>` : '';
+      byId('ci-detail-body').innerHTML = teamLink +
+        (weeks.length ? weeks.map((w) => weekBlock(w, w.weekStart === weekStart)).join('') : '<p class="hint">No weeks have started yet.</p>');
+      byId('ci-detail-modal').hidden = false;
+      const picked = byId('ci-detail-body').querySelector('.is-picked');
+      if (picked) picked.scrollIntoView({ block: 'nearest' });
+    }
+
+    byId('admin-checkins').addEventListener('click', (e) => {
+      const el = e.target.closest('[data-open]');
+      if (!el) return;
+      const [kind, id] = el.dataset.open.split(':');
+      openCheckinDetail(kind, id, el.dataset.week || null);
+    });
+    byId('ci-detail-body').addEventListener('click', (e) => {
+      const el = e.target.closest('[data-open]');
+      if (!el) return;
+      const [kind, id] = el.dataset.open.split(':');
+      openCheckinDetail(kind, id, null);
+    });
+    byId('ci-detail-close').addEventListener('click', () => { byId('ci-detail-modal').hidden = true; });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !byId('ci-detail-modal').hidden && byId('confirm-modal').hidden) byId('ci-detail-modal').hidden = true;
+    });
+
+    /* ---- teams ---------------------------------------------------------- */
+    let teamsData = null;
+    let editingTeam = null;   // null while creating
+
+    /* ---- the portal: announcement and startup profiles ------------------ */
+    async function loadPortalAdmin() {
+      const { status, data } = await api('/api/admin?action=portal');
+      const pmsg = byId('profile-msg');
+      if (status !== 200 || data.error) {
+        byId('announce-msg').className = 'form-msg bad';
+        byId('announce-msg').textContent = data.error || 'Could not load the portal settings.';
+        byId('profile-list').innerHTML = '';
+        return;
+      }
+      const a = data.announcement;
+      byId('announce-current').textContent = a ? `Up now, posted ${fmtTime(a.at)}${a.by ? ' by ' + a.by : ''}: "${a.body}"` : 'Nothing is up right now.';
+      byId('announce-clear').hidden = !a;
+      /* Each profile is a small form: the founder's draft, editable, and the
+       * live copy beside it when one exists. */
+      const STATE = {
+        pending: ['Waiting for review', 'pill-wait'],
+        live_pending: ['Live, with changes waiting', 'pill-wait'],
+        live: ['Live', 'pill-live'],
+        off: ['Not on the site', 'pill-off'],
+      };
+      const waiting = data.profiles.filter((p) => p.state === 'pending' || p.state === 'live_pending').length;
+      byId('profile-queue').textContent = waiting ? `${waiting} waiting for review` : 'Nothing waiting for review.';
+      byId('profile-list').innerHTML = data.profiles.length ? data.profiles.map((p) => {
+        const [label, cls] = STATE[p.state];
+        const d = p.draft;
+        const liveDiffers = p.live && (p.live.startupName !== d.startupName || p.live.oneLiner !== d.oneLiner ||
+          p.live.problem !== d.problem || p.live.logo !== d.logo);
+        return `
+        <li class="review-item" data-review="${p.id}">
+          <div class="review-head">
+            ${d.logo ? `<img class="profile-logo" src="${esc(d.logo)}" alt="">` : '<span class="profile-logo profile-logo-none" aria-hidden="true"></span>'}
+            <div>
+              <span class="rv-pill ${cls}">${label}</span>
+              <p class="hint">${esc(p.student)} &middot; ${esc(p.cohort)}${p.submittedAt ? ' &middot; sent ' + esc(fmtTime(p.submittedAt)) : ''}</p>
+            </div>
+          </div>
+          <div class="review-fields">
+            <label>Startup name <input class="rv-name" maxlength="60" value="${esc(d.startupName)}"></label>
+            <label>One line <input class="rv-one" maxlength="120" value="${esc(d.oneLiner)}"></label>
+            <label>Problem <textarea class="rv-problem" rows="2" maxlength="400">${esc(d.problem)}</textarea></label>
+            ${d.logo ? '<label class="choice"><input type="checkbox" class="rv-nologo"> Remove the logo</label>' : ''}
+          </div>
+          ${liveDiffers ? `<details class="review-live"><summary>What is live now</summary><p><strong>${esc(p.live.startupName)}</strong>: ${esc(p.live.oneLiner)}</p>${p.live.problem ? `<p class="hint">${esc(p.live.problem)}</p>` : ''}</details>` : ''}
+          ${p.publishedAt ? `<p class="hint">Published ${esc(fmtTime(p.publishedAt))}${p.publishedBy ? ' by ' + esc(p.publishedBy) : ''}</p>` : ''}
+          <div class="review-actions">
+            <button type="button" class="btn-solid" data-decide="approve">${p.state === 'live' ? 'Publish edits' : 'Approve and publish'}</button>
+            <button type="button" class="btn-quiet" data-decide="save">Save edits only</button>
+            ${p.live ? '<button type="button" class="btn-quiet" data-decide="unpublish">Take off the site</button>' : ''}
+          </div>
+        </li>`;
+      }).join('') : '<li class="hint">No student has written a profile yet.</li>';
+    }
+
+    async function announce(body) {
+      const amsg = byId('announce-msg');
+      amsg.className = 'form-msg'; amsg.textContent = 'Saving…';
+      const { data } = await api('/api/admin?action=announce', { method: 'POST', body: JSON.stringify({ body }) });
+      if (data.error) { amsg.className = 'form-msg bad'; amsg.textContent = data.error; return; }
+      amsg.className = 'form-msg ok';
+      amsg.textContent = data.announcement ? 'Posted. Every accepted student sees it the next time they open the portal.' : 'Taken down.';
+      if (data.announcement) byId('announce-body').value = '';
+      loadPortalAdmin();
+    }
+    byId('announce-post').addEventListener('click', () => {
+      const text = byId('announce-body').value.trim();
+      if (!text) { byId('announce-msg').className = 'form-msg bad'; byId('announce-msg').textContent = 'Write the message first.'; return; }
+      announce(text);
+    });
+    byId('announce-clear').addEventListener('click', () => announce(''));
+
+    byId('profile-list').addEventListener('click', async (e) => {
+      const btn = e.target.closest('[data-decide]');
+      if (!btn) return;
+      const li = btn.closest('[data-review]');
+      const decision = btn.dataset.decide;
+      if (decision === 'unpublish') {
+        const ok = await askConfirm({ title: 'Take this profile off the site?', body: 'The founder keeps their draft and can send it again.', confirmLabel: 'Take it off' });
+        if (!ok) return;
+      }
+      const nologo = li.querySelector('.rv-nologo');
+      btn.disabled = true;
+      const { data } = await api('/api/admin?action=profile_review', {
+        method: 'POST',
+        body: JSON.stringify({
+          id: Number(li.dataset.review), decision,
+          startup_name: li.querySelector('.rv-name').value, one_liner: li.querySelector('.rv-one').value,
+          problem: li.querySelector('.rv-problem').value, remove_logo: Boolean(nologo && nologo.checked),
+        }),
+      });
+      btn.disabled = false;
+      const pmsg = byId('profile-msg');
+      if (data.error) { pmsg.className = 'form-msg bad'; pmsg.textContent = data.error; return; }
+      pmsg.className = 'form-msg ok';
+      pmsg.textContent = { approve: 'Published. It is on the startups page now.', save: 'Edits saved. Not published yet.', unpublish: 'Taken off the site.' }[decision];
+      loadPortalAdmin();
+    });
+
+    async function loadTeams() {
+      const { status, data } = await api('/api/admin?action=teams');
+      const list = byId('team-list'), tmsg = byId('team-msg');
+      if (status !== 200 || data.error) {
+        list.innerHTML = '';
+        byId('team-new').disabled = true;
+        tmsg.className = 'form-msg bad';
+        tmsg.textContent = data.error || 'Could not load teams.';
+        return;
+      }
+      teamsData = data;
+      byId('team-new').disabled = false;
+      list.innerHTML = data.teams.length
+        ? data.teams.map((t) => `
+            <li class="team-item" data-team="${t.id}">
+              <div>
+                <strong>${esc(t.name)}</strong> <span class="hint">${esc(t.cohort)}</span>
+                <p>${t.members.length ? t.members.map((m) => esc(m.name)).join(', ') : '<span class="hint">No members yet</span>'}</p>
+                ${t.checkinCount ? `<p class="hint">${t.checkinCount} group check-in${t.checkinCount === 1 ? '' : 's'} saved</p>` : ''}
+              </div>
+              <div class="row-actions">
+                <button type="button" data-team-edit="${t.id}">Edit</button>
+                <button type="button" data-team-del="${t.id}">Delete</button>
+              </div>
+            </li>`).join('')
+        : '<li class="hint">No teams yet.</li>';
+    }
+
+    /* Only people in the team's cohort, and only those not already on another
+     * team. Someone on another team is shown but cannot be ticked, with the
+     * reason, so the form explains itself instead of failing on save. */
+    function renderTeamMembers(selected) {
+      const cohort = byId('team-cohort').value;
+      const box = byId('team-members');
+      const mine = editingTeam ? String(editingTeam.id) : null;
+      const people = teamsData.people.filter((p) => p.cohort === cohort);
+      box.innerHTML = people.length ? people.map((p) => {
+        const onOther = p.teamId && String(p.teamId) !== mine;
+        const other = onOther ? teamsData.teams.find((t) => String(t.id) === String(p.teamId)) : null;
+        return `<label class="choice"><input type="checkbox" name="team-member" value="${p.id}"` +
+          `${selected.has(String(p.id)) ? ' checked' : ''}${onOther ? ' disabled' : ''}> ${esc(p.name)}` +
+          `${onOther ? ` <span class="hint">already on ${esc(other ? other.name : 'another team')}</span>` : ''}</label>`;
+      }).join('') : '<p class="hint">Nobody admitted in this cohort yet.</p>';
+    }
+
+    function openTeamModal(team) {
+      editingTeam = team || null;
+      byId('team-title').textContent = team ? `Edit ${team.name}` : 'New team';
+      byId('team-name').value = team ? team.name : '';
+      const sel = byId('team-cohort');
+      sel.innerHTML = teamsData.cohorts.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
+      if (team) sel.value = team.cohort;
+      sel.disabled = Boolean(team);
+      byId('team-cohort-hint').textContent = team ? 'A team cannot change cohort. Make a new team instead.' : '';
+      renderTeamMembers(new Set((team ? team.members : []).map((m) => String(m.id))));
+      byId('team-modal-msg').textContent = '';
+      byId('team-modal').hidden = false;
+      byId('team-name').focus();
+    }
+
+    byId('team-new').addEventListener('click', () => { if (teamsData) openTeamModal(null); });
+    byId('team-cancel').addEventListener('click', () => { byId('team-modal').hidden = true; });
+    byId('team-cohort').addEventListener('change', () => renderTeamMembers(new Set()));
+
+    byId('team-save').addEventListener('click', async () => {
+      const tmm = byId('team-modal-msg');
+      const name = byId('team-name').value.trim();
+      if (!name) { tmm.className = 'form-msg bad'; tmm.textContent = 'Give the team a name.'; return; }
+      tmm.className = 'form-msg'; tmm.textContent = 'Saving…';
+      const { data } = await api('/api/admin?action=team_save', {
+        method: 'POST',
+        body: JSON.stringify({
+          id: editingTeam ? editingTeam.id : null, name, cohort: byId('team-cohort').value,
+          member_ids: [...document.querySelectorAll('input[name="team-member"]:checked')].map((c) => Number(c.value)),
+        }),
+      });
+      if (data.error) { tmm.className = 'form-msg bad'; tmm.textContent = data.error; return; }
+      byId('team-modal').hidden = true;
+      byId('team-msg').className = 'form-msg ok';
+      byId('team-msg').textContent = editingTeam ? 'Team saved.' : 'Team created.';
+      loadTeams();
+      loadCheckins();
+    });
+
+    byId('team-list').addEventListener('click', async (e) => {
+      const edit = e.target.closest('[data-team-edit]');
+      const del = e.target.closest('[data-team-del]');
+      const tmsg = byId('team-msg');
+      if (edit) {
+        const t = teamsData.teams.find((x) => String(x.id) === edit.dataset.teamEdit);
+        if (t) openTeamModal(t);
+      } else if (del) {
+        const t = teamsData.teams.find((x) => String(x.id) === del.dataset.teamDel);
+        if (!t) return;
+        const n = t.checkinCount || 0;
+        /* Erasing what a group wrote cannot be undone, so it takes the team's
+         * name typed out, not just a click. */
+        const ok = await askConfirm({
+          title: `Delete team ${t.name}?`,
+          body: n
+            ? `This permanently erases the team's ${n} group check-in${n === 1 ? '' : 's'}. Its members stay admitted and keep their own check-ins. They just stop being grouped.`
+            : 'Its members stay admitted and keep their own check-ins. They just stop being grouped.',
+          confirmLabel: n ? 'Delete team and check-ins' : 'Delete team',
+          requireText: n ? t.name : null,
+        });
+        if (!ok) return;
+        const { data } = await api('/api/admin?action=team_delete', { method: 'POST', body: JSON.stringify({ id: t.id, erase_checkins: n }) });
+        if (data.error) { tmsg.className = 'form-msg bad'; tmsg.textContent = data.error; loadTeams(); return; }
+        tmsg.className = 'form-msg ok';
+        tmsg.textContent = data.erased ? `Team deleted, with its ${data.erased} group check-in${data.erased === 1 ? '' : 's'}.` : 'Team deleted.';
+        loadTeams();
+        loadCheckins();
+      }
+    });
 
     /* The table is a summary. Everything the student and the parent actually
      * wrote lives here, because a decision cannot be made from a name and a
@@ -2139,6 +3057,110 @@
       openDecide(ids, 'accepted');
     });
 
+    /* ---- every email sent ---------------------------------------------- */
+    (function () {
+      const $ = (id) => document.getElementById(id);
+      const details = $('admin-emails');
+      if (!details) return;
+      const body = $('emails-rows');
+      let offset = 0, loaded = false, timer = null, token = 0;
+      const when = (t) => new Date(t).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+      const KIND = {
+        login_code: 'Sign-in code', parent_code: 'Parent code', parent_code_admin: 'Parent code (admin)',
+        parent_code_resend: 'Parent code (resent)', password_reset: 'Password reset',
+        password_changed: 'Password changed', consent_parent: 'Consent received (parent)',
+        consent_student: 'Consent received (student)', student_notice: 'Application received',
+        code_expired: 'Code expired', checkin_invite: 'Check-ins opened', digest: 'Daily digest',
+        partner_notice: 'Partner enquiry', partner_thanks: 'Partner thank-you',
+        custom: 'Custom', custom_bcc: 'Custom (BCC)',
+      };
+      const kindName = (k) => {
+        if (KIND[k]) return KIND[k];
+        let m = /^reminder_(\d+)d$/.exec(k); if (m) return `Parent reminder (${m[1]} days)`;
+        m = /^decision_(\w+)$/.exec(k); if (m) return `Decision notice (${m[1]})`;
+        return k;
+      };
+      const who = (e) => {
+        if (!e.recipient_count) return '<span class="hint">not recorded</span>';
+        const shown = e.recipients.map(esc).join(', ') +
+          (e.reconstructed ? ' <span class="hint" title="Sent before this log kept details. Rebuilt from the application record.">rebuilt</span>' : '');
+        const more = e.recipient_count - e.recipients.length;
+        return (e.bcc ? '<span class="hint">BCC</span> ' : '') + shown + (more > 0 ? ` <span class="hint">+${more} more</span>` : '');
+      };
+
+      async function load(reset) {
+        const mine = ++token;
+        if (reset) { offset = 0; body.innerHTML = ''; }
+        const qs = new URLSearchParams({
+          action: 'emails', offset: String(offset), q: $('emails-q').value.trim(),
+          status: $('emails-status').value, kind: $('emails-kind').value,
+        });
+        $('emails-msg').className = 'form-msg'; $('emails-msg').textContent = 'Loading\u2026';
+        const { ok, status, data } = await api(`/api/admin?${qs}`).catch(() => ({ ok: false, status: 0, data: {} }));
+        if (mine !== token) return;          // a newer search superseded this one
+        if (!ok && !data.error) data.error = `The email list did not load (${status || 'no connection'}${status === 504 ? ', timed out' : ''}). Close and reopen this section to try again.`;
+        if (data.error) { loaded = false; $('emails-msg').className = 'form-msg bad'; $('emails-msg').textContent = data.error; return; }
+        $('emails-msg').textContent = '';
+        if (reset) {
+          const sel = $('emails-kind'); const cur = sel.value;
+          sel.innerHTML = '<option value="">All</option>' +
+            (data.kinds || []).map((k) => `<option value="${esc(k)}">${esc(kindName(k))}</option>`).join('');
+          sel.value = cur;
+        }
+        body.insertAdjacentHTML('beforeend', (data.emails || []).map((e) => `
+          <tr data-id="${e.id}">
+            <td>${esc(when(e.created_at))}</td>
+            <td>${esc(kindName(e.kind))}</td>
+            <td>${who(e)}${e.student_name ? `<br><span class="hint">${esc(e.student_name)}</span>` : ''}</td>
+            <td>${esc(e.subject || '')}</td>
+            <td>${esc(e.status)}${e.error ? ` <span class="hint">${esc(e.error)}</span>` : ''}</td>
+            <td><button type="button" class="link-btn" data-open="${e.id}">Open</button></td>
+          </tr>`).join(''));
+        if (!body.children.length) body.innerHTML = '<tr><td colspan="6">No emails match.</td></tr>';
+        offset = data.nextOffset;
+        $('emails-more').hidden = !data.hasMore;
+      }
+
+      /* Loaded the first time it is opened, so the admin page does not pay
+       * for a query nobody asked for. */
+      details.addEventListener('toggle', () => { if (details.open && !loaded) { loaded = true; load(true); } });
+      $('emails-more').addEventListener('click', () => load(false));
+      $('emails-status').addEventListener('change', () => load(true));
+      $('emails-kind').addEventListener('change', () => load(true));
+      $('emails-q').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => load(true), 300); });
+
+      const modal = $('email-modal');
+      const closeModal = () => { modal.hidden = true; };
+      $('email-close').addEventListener('click', closeModal);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+      body.addEventListener('click', async (ev) => {
+        const btn = ev.target.closest('button[data-open]');
+        if (!btn) return;
+        const { data } = await api(`/api/admin?action=email&id=${btn.dataset.open}`);
+        if (data.error) { $('emails-msg').className = 'form-msg bad'; $('emails-msg').textContent = data.error; return; }
+        const e = data.email;
+        $('email-title').textContent = e.subject || kindName(e.kind);
+        $('email-meta').textContent =
+          `${kindName(e.kind)}  \u00b7  ${e.status}  \u00b7  ${when(e.created_at)}` +
+          (e.student_name ? `  \u00b7  ${e.student_name}` : '') + (e.error ? `  \u00b7  ${e.error}` : '') +
+          (e.reconstructed ? '  \u00b7  rebuilt from the application record' : '');
+        $('email-to').textContent = (e.recipients && e.recipients.length)
+          ? (e.bcc ? `BCC (${e.recipients.length}):\n` : '') + e.recipients.join('\n') +
+            (e.reconstructed ? '\n\nRebuilt from the application as it is now. If an address was edited after this was sent, this shows the new one.' : '')
+          : 'Not recorded. Sent before this log existed, and it cannot be traced to an application.';
+        const bodyEl = $('email-body');
+        bodyEl.classList.toggle('rich', Boolean(e.body_html));
+        if (e.body_html) bodyEl.innerHTML = e.body_html;   // server-escaped; only our own tags
+        else bodyEl.textContent = e.body != null ? e.body
+          : e.reconstructed
+            ? 'The text of emails sent before this log existed was never kept. The subject above is the current wording for this type of email.'
+            : (e.recipients && e.recipients.length)
+              ? 'Text not kept for this type of email. It can carry a sign-in code or a link, so only who it went to and the subject are recorded.'
+              : 'Not recorded.';
+        modal.hidden = false;
+      });
+    })();
+
     /* ---- custom email -------------------------------------------------- */
     (function () {
       const modal = document.getElementById('compose-modal');
@@ -2175,6 +3197,44 @@
         syncAudience();
         modal.hidden = false;
         $('compose-subject').focus();
+      });
+
+      /* Formatting: wraps the selection in markers the server turns into HTML. */
+      const box = $('compose-message');
+      function wrap(open, close, placeholder) {
+        let a = box.selectionStart, b = box.selectionEnd;
+        /* Double-clicking a word often grabs the space after it; keep that
+         * space outside the markers so "**word **" never happens. */
+        while (a < b && /\s/.test(box.value[a])) a++;
+        while (b > a && /\s/.test(box.value[b - 1])) b--;
+        const sel = box.value.slice(a, b) || placeholder;
+        box.setRangeText(open + sel + close, a, b, 'end');
+        box.setSelectionRange(a + open.length, a + open.length + sel.length);
+        box.focus();
+        box.dispatchEvent(new Event('input'));
+      }
+      function format(kind) {
+        if (kind === 'bold') wrap('**', '**', 'bold text');
+        else if (kind === 'italic') wrap('*', '*', 'italic text');
+        else if (kind === 'underline') wrap('__', '__', 'underlined text');
+        else if (kind === 'link') {
+          const url = window.prompt('Link address (https://\u2026)', 'https://');
+          if (!url || !/^(https?:\/\/|mailto:)\S+$/i.test(url.trim())) return;
+          wrap('[', `](${url.trim()})`, 'link text');
+        } else if (kind === 'bullet') {
+          const v = box.value, a = box.selectionStart, b = box.selectionEnd;
+          const start = v.lastIndexOf('\n', a - 1) + 1;
+          const block = v.slice(start, b).split('\n').map((l) => (/^\s*-\s/.test(l) ? l : `- ${l}`)).join('\n');
+          box.setRangeText(block, start, b, 'end');
+          box.focus();
+          box.dispatchEvent(new Event('input'));
+        }
+      }
+      document.querySelectorAll('.fmt-btn').forEach((btn) => btn.addEventListener('click', () => format(btn.dataset.fmt)));
+      box.addEventListener('keydown', (e) => {
+        if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey) return;
+        const k = { b: 'bold', i: 'italic', u: 'underline', k: 'link' }[e.key.toLowerCase()];
+        if (k) { e.preventDefault(); format(k); }
       });
 
       document.querySelectorAll('input[name="compose-audience"]').forEach((r) => r.addEventListener('change', syncAudience));

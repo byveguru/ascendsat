@@ -620,6 +620,7 @@ export function buildRuleBasedSchedule(input: BuildScheduleInput): StudySchedule
      that need a turn.
 ================================================================ */
 export type ApClassScheduleInput = {
+  testDate?: string;
   id: string;
   short: string;
   term: "year" | "semester";
@@ -657,8 +658,8 @@ export function buildApCombinedSchedule(input: BuildApScheduleInput): StudySched
   if (classes.length) {
     // Per-class rotation pointers so each class cycles through its own units
     // and lessons independently over the life of the schedule.
-    const classState: Record<string, { unitPtr: number; lessonPtr: number; sessionIdx: number }> = {};
-    classes.forEach((c) => { classState[c.id] = { unitPtr: 0, lessonPtr: 0, sessionIdx: 0 }; });
+    const classState: Record<string, { unitPtr: number; lessonByUnit: Record<string,number>; sessionIdx: number }> = {};
+    classes.forEach((c) => { classState[c.id] = { unitPtr: 0, lessonByUnit: {}, sessionIdx: 0 }; });
 
     // Weighted fallback order used by "auto" mode, and by "custom" mode on any
     // weekday that has no pinned class.
@@ -666,10 +667,11 @@ export function buildApCombinedSchedule(input: BuildApScheduleInput): StudySched
     classes.forEach((c) => { for (let i = 0; i < weightForTerm(c.term); i++) weightedOrder.push(c.id); });
     let fallbackCursor = 0;
 
-    const pinnedByWeekdayIdx: Record<number, string> = {};
+    const pinnedByWeekdayIdx: Record<number, string[]> = {};
+    const pinnedCursors = {};
     if (input.scheduleMode === "custom") {
       Object.entries(input.subjectDayPrefs || {}).forEach(([courseId, wdIdx]) => {
-        if (classes.some((c) => c.id === courseId)) pinnedByWeekdayIdx[Number(wdIdx)] = courseId;
+        if (classes.some((c) => c.id === courseId)) (pinnedByWeekdayIdx[Number(wdIdx)] ||= []).push(courseId);
       });
     }
 
@@ -679,13 +681,13 @@ export function buildApCombinedSchedule(input: BuildApScheduleInput): StudySched
       const preset = STUDY_MODE_PRESETS[dayMode];
       const jsWeekdayIdx = parseDateStr(dateStr).getDay();
 
-      let course = pinnedByWeekdayIdx[jsWeekdayIdx]
-        ? classes.find((c) => c.id === pinnedByWeekdayIdx[jsWeekdayIdx]) || null
-        : null;
-      if (!course && weightedOrder.length) {
-        course = classes.find((c) => c.id === weightedOrder[fallbackCursor % weightedOrder.length]) || null;
-        fallbackCursor += 1;
-      }
+      const eligible=classes.filter(c=>c.units.length && (!c.testDate || dateStr<normalizeDateStr(c.testDate)));
+      const pinned=(pinnedByWeekdayIdx[jsWeekdayIdx]||[]).filter(id=>eligible.some(c=>c.id===id));
+      const pinCursor=pinnedCursors[jsWeekdayIdx]||0;
+      let course=pinned.length ? eligible.find(c=>c.id===pinned[pinCursor%pinned.length]) : null;
+      if(course) pinnedCursors[jsWeekdayIdx]=pinCursor+1;
+      const eligibleOrder=weightedOrder.filter(id=>eligible.some(c=>c.id===id));
+      if(!course&&eligibleOrder.length){course=eligible.find(c=>c.id===eligibleOrder[fallbackCursor%eligibleOrder.length]);fallbackCursor+=1;}
       if (!course) return;
 
       const state = classState[course.id];
@@ -696,9 +698,9 @@ export function buildApCombinedSchedule(input: BuildApScheduleInput): StudySched
 
       const lessonPool = course.lessonCatalog.filter((l) => l.domain === unit);
       const lesson = lessonPool.length
-        ? lessonPool[state.lessonPtr % lessonPool.length]
-        : (course.lessonCatalog.length ? course.lessonCatalog[state.lessonPtr % course.lessonCatalog.length] : null);
-      state.lessonPtr += 1;
+        ? lessonPool[(state.lessonByUnit[unit]||0) % lessonPool.length]
+        : (course.lessonCatalog.length ? course.lessonCatalog[0] : null);
+      if(!isReviewDay&&lesson) state.lessonByUnit[unit]=(state.lessonByUnit[unit]||0)+1;
 
       const blocks: StudyBlock[] = [];
       if (!isReviewDay && lesson) {

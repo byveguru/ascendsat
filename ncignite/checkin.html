@@ -9,61 +9,52 @@
 <meta name="theme-color" content="#f2f0eb">
 <link rel="icon" href="/NC-Ignyte-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/NC-Ignyte-icon.svg">
-<link rel="canonical" href="https://ncignyte.vercel.app/checkin">
+<link rel="canonical" href="https://ncignyte.org/checkin">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Weekly check-in | NC Ignyte">
 <meta property="og:description" content="Your weekly check-in for NC Ignyte.">
-<meta property="og:url" content="https://ncignyte.vercel.app/checkin">
-<meta property="og:image" content="https://ncignyte.vercel.app/og.png">
+<meta property="og:url" content="https://ncignyte.org/checkin">
+<meta property="og:image" content="https://ncignyte.org/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="NC Ignyte">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Weekly check-in | NC Ignyte">
 <meta name="twitter:description" content="Your weekly check-in for NC Ignyte.">
-<meta name="twitter:image" content="https://ncignyte.vercel.app/og.png">
+<meta name="twitter:image" content="https://ncignyte.org/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap"></noscript>
 
-<script>document.documentElement.className="js";</script>
+<script>document.documentElement.className="js";try{if(localStorage.getItem("ig-portal")==="1"&&!/^\/(portal|account|checkin|startups(?:\/[a-z0-9-]+)?|startup|privacy|code-of-conduct|parent|admin|reset|404)(\.html)?\/?$/.test(location.pathname))location.replace("/portal")}catch(e){}</script>
 <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="portal">
 
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="cohort-banner">
-  <div class="wrap">
-    <p><strong>Cohort 1 &middot; Fall 2026</strong> <span>Applications are open now.<span class="bar-dates"> Five Fridays, November 6 to December 4.</span></span></p>
-    <a href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a>
-  </div>
-</div>
-
-<header class="site-head">
+<header class="site-head portal-head">
   <div class="wrap head-inner">
-    <a class="brand" href="/" aria-label="NC Ignyte home">
+    <a class="brand" href="/portal" aria-label="NC Ignyte portal home">
       <svg class="brand-mark" viewBox="248 22 104 252" aria-hidden="true" focusable="false"><g transform="translate(186 20)" fill="currentColor"><path d="M108 2 C111 24 124 37 146 40 C124 43 111 56 108 78 C105 56 92 43 70 40 C92 37 105 24 108 2 Z"/><path d="M108 96 C105 128 64 150 62 198 C61 228 82 248 104 252 C92 236 92 216 100 200 C112 178 122 150 108 96 Z"/><path d="M138 150 C150 164 166 182 166 206 C166 232 146 250 124 254 C112 240 112 226 118 210 C124 194 138 188 138 150 Z"/></g></svg>
       <span class="brand-name"><span class="brand-nc">NC</span> <span class="brand-ig">Ignyte</span></span>
     </a>
 
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" aria-label="Portal">
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
         <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span></span>
         <span class="sr-only">Menu</span>
       </button>
       <ul class="nav-list" id="nav-list">
-        <li><a href="/#path">Fridays</a></li>
-        <li><a href="/#cohort-2">Cohort 2</a></li>
-        <li><a href="/parents">Parents</a></li>
-        <li><a href="/sponsors">Sponsors</a></li>
-        <li><a href="/#team">Team</a></li>
-        <li><a href="/#questions">Questions</a></li>
-        <li><a class="nav-apply" href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a></li>
-        <li><a class="nav-signup" href="/signup">Sign up</a></li>
+        <li><a href="/portal" data-portal-tab="home">Home</a></li>
+        <li><a href="/checkin" data-portal-tab="checkin">Check-in</a></li>
+        <li data-portal-team hidden><a href="/portal#team">Team</a></li>
+        <li><a href="/startup" data-portal-tab="startup">Your startup</a></li>
+        <li><a href="/account" data-portal-tab="account">Account</a></li>
+        <li><button class="nav-signout" type="button" data-signout>Sign out</button></li>
       </ul>
     </nav>
   </div>
@@ -84,11 +75,17 @@
     <div id="ci-notstarted" class="auth-card" hidden>
       <h2 class="status-head">Not yet</h2>
       <p id="ci-notstarted-msg"></p>
-      <p><a class="btn-solid" href="/status">See your application</a></p>
+      <p><a class="btn-solid" href="/portal">Go to your portal</a></p>
     </div>
 
     <div id="ci-open" hidden>
       <p class="ci-deadline" id="ci-deadline"></p>
+
+      <div class="ci-scope" id="ci-scope" role="group" aria-label="Whose check-in" hidden>
+        <button type="button" class="ci-scope-btn" data-scope="me" aria-pressed="true">Just me</button>
+        <button type="button" class="ci-scope-btn" data-scope="team" aria-pressed="false" id="ci-scope-team"></button>
+      </div>
+      <p class="ci-team-note" id="ci-team-note" hidden></p>
 
       <form id="ci-form" class="auth-card" novalidate>
         <h2 class="status-head" id="ci-week"></h2>
@@ -106,6 +103,7 @@
           <textarea id="ci-help" rows="4" maxlength="2000" data-counter></textarea>
           <span class="hint">This is the main thing organisers read before the next session, so be specific: "I cannot get the login to work" beats "everything".</span>
         </p>
+        <p class="ci-reply" id="ci-reply" hidden></p>
 
         <button class="btn-solid" type="submit">Save</button>
         <p class="form-msg" id="ci-msg" role="status" aria-live="polite"></p>
@@ -123,15 +121,13 @@
     </section>
 
     <p class="signed-as" id="ci-signed" hidden></p>
-    <p class="back-link"><a href="/status">Back to your application</a></p>
+    <p class="back-link"><a href="/portal">Back to your portal</a></p>
   </div>
 </main>
 
-<footer class="site-foot" id="privacy">
+<footer class="site-foot">
   <div class="wrap">
-    <p class="foot-statement">Cohort 1, fall 2026. NC Ignyte is a free startup accelerator and pitch competition for North Carolina high school students. Five Fridays, November 6 to December 4, 2026, in the downtown Cary area.</p>
-    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. Read the <a href="code-of-conduct">code of conduct</a> and the <a href="/privacy">privacy page</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-    <p class="foot-privacy">Privacy: we collect only what the application asks. We do not sell student information, and we do not share it with sponsors, partners, or schools. See the <a href="/privacy">privacy page</a> for the one narrow exception, used to help draft decision letters. We email students and their parent or guardian about NC Ignyte only. Ask us to delete your information at any time.</p>
+    <p class="foot-run">Questions about your cohort? Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. Read the <a href="/code-of-conduct">code of conduct</a> and the <a href="/privacy">privacy page</a>.</p>
   </div>
 </footer>
 

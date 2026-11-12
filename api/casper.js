@@ -13,6 +13,7 @@
 // service-account credentials are needed here — only FIREBASE_PROJECT_ID.
 
 const crypto = require("crypto");
+const { generateReply } = require("../lib/server/aiProviders.cjs");
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 // llama-3.1-8b-instant started 404ing ("model_not_found") for this account
@@ -64,7 +65,7 @@ let certCache = { certs: null, expiresAt: 0 };
 
 async function getGoogleCerts() {
   if (certCache.certs && Date.now() < certCache.expiresAt) return certCache.certs;
-  const res = await fetch(GOOGLE_CERTS_URL);
+  const res = await fetch(GOOGLE_CERTS_URL, {signal: AbortSignal.timeout(8000)});
   if (!res.ok) throw new Error("Could not fetch Google signing certs");
   const certs = await res.json();
   // Respect Google's cache-control so we refresh when keys rotate.
@@ -98,6 +99,7 @@ async function verifyFirebaseIdToken(token, projectId) {
   if (!verifier.verify(cert, b64urlToBuf(sigB64))) throw new Error("Bad token signature");
 
   const nowSec = Math.floor(Date.now() / 1000);
+  if (!Number.isFinite(payload.exp) || !Number.isFinite(payload.iat)) throw new Error("Missing token timestamps");
   if (payload.exp <= nowSec) throw new Error("Token expired");
   if (payload.iat > nowSec + 300) throw new Error("Token issued in the future");
   if (payload.aud !== projectId) throw new Error("Token audience mismatch");
@@ -105,7 +107,7 @@ async function verifyFirebaseIdToken(token, projectId) {
     throw new Error("Token issuer mismatch");
   }
   const uid = payload.sub || payload.user_id;
-  if (!uid) throw new Error("Token missing subject");
+  if (typeof uid !== "string" || !uid || uid.length > 128) throw new Error("Token missing subject");
   return uid;
 }
 
@@ -116,9 +118,6 @@ module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
-
-  const apiKey = process.env.GROQ_API_KEY;
-  if (!apiKey) return res.status(500).json({ error: "GROQ_API_KEY not configured on the server" });
 
   const projectId = process.env.FIREBASE_PROJECT_ID;
   if (!projectId) {
@@ -152,6 +151,7 @@ module.exports = async (req, res) => {
   if (messages.length > MAX_MESSAGES) {
     return res.status(413).json({ error: "Conversation too long" });
   }
+  if (!messages.every(m=>m&&["system","user","assistant"].includes(m.role)&&typeof m.content==="string")) return res.status(400).json({error:"Invalid message format"});
   const totalChars = messages.reduce(
     (sum, m) => sum + (typeof m?.content === "string" ? m.content.length : 0),
     0
@@ -167,28 +167,10 @@ module.exports = async (req, res) => {
   );
 
   try {
-    const groqRes = await fetch(GROQ_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: chosenModel,
-        max_tokens: cappedMaxTokens,
-        messages,
-        // The PDF importer asks for strict JSON; forward it when requested.
-        ...(responseFormat === "json" ? { response_format: { type: "json_object" } } : {}),
-      }),
-    });
-
-    if (!groqRes.ok) {
-      const detail = await groqRes.text();
-      return res.status(502).json({ error: `Groq API ${groqRes.status}`, detail });
-    }
-
-    const data = await groqRes.json();
-    const reply = data?.choices?.[0]?.message?.content || "";
-    return res.status(200).json({ reply });
-  } catch (e) {
-    return res.status(500).json({ error: e.message || "Groq request failed" });
+    const result=await generateReply({messages,maxTokens:cappedMaxTokens,model:chosenModel,responseFormat});
+    return res.status(200).json(result);
+  } catch(e) {
+    return res.status(e.code==="AI_NOT_CONFIGURED"?503:e.code==="AI_CONTENT_BLOCKED"?422:503).json({error:e.message,code:e.code||"AI_UNAVAILABLE"});
   }
 };
 

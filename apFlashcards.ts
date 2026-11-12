@@ -1,9 +1,6 @@
 // @ts-nocheck
-/* apFlashcards.ts — AP Drills flashcard seed content, one card per unit (63 total,
-   matching apQuestions.ts's per-unit density). Non-math courses get vocab/term
-   flashcards; math courses (hasCalc: true in testConfig.ts) get formula flashcards.
-   Typed answers are graded with lenient fuzzy matching (isCloseEnough in App.tsx),
-   not exact string equality — a student who's "close enough" gets credit. */
+import { AP_EXPANDED_CONTENT } from "./apContent";
+// Course-scoped term decks. Expanded courses override their thin seed decks.
 
 import { AP_GOV_VOCAB } from "./apGovVocab";
 
@@ -84,5 +81,7 @@ export const AP_FLASHCARDS = {
     { unit: "Calc BC: Infinite Sequences & Series", term: "Ratio Test", answer: "A series converges absolutely if the limit of the absolute value of a(n+1)/a(n) is less than 1" },
   ],
 };
+
+Object.entries(AP_EXPANDED_CONTENT).forEach(([id,c])=>{AP_FLASHCARDS[id]=c.flashcards;});
 
 export const getApFlashcards = (courseId) => AP_FLASHCARDS[courseId] || [];

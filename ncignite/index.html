@@ -8,12 +8,12 @@
 <meta name="theme-color" content="#f2f0eb">
 <link rel="icon" href="NC-Ignyte-icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="NC-Ignyte-icon.svg">
-<link rel="canonical" href="https://ncignyte.vercel.app/">
+<link rel="canonical" href="https://ncignyte.org/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="NC Ignyte">
 <meta property="og:description" content="A free startup accelerator and pitch competition for North Carolina high schoolers. Five Fridays, November 6 to December 4, 2026. Build something real, get pitch coaching, and pitch on demo day.">
-<meta property="og:image" content="https://ncignyte.vercel.app/og.png">
+<meta property="og:image" content="https://ncignyte.org/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="NC Ignyte">
@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap"></noscript>
 
-<script>document.documentElement.className="js";</script>
+<script>document.documentElement.className="js";try{if(localStorage.getItem("ig-portal")==="1"&&!/^\/(portal|account|checkin|startups(?:\/[a-z0-9-]+)?|startup|privacy|code-of-conduct|parent|admin|reset|404)(\.html)?\/?$/.test(location.pathname))location.replace("/portal")}catch(e){}</script>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -56,8 +56,8 @@
 
 <div class="cohort-banner">
   <div class="wrap">
-    <p><strong>Cohort 1 &middot; Fall 2026</strong> <span>Applications are open now.<span class="bar-dates"> Five Fridays, November 6 to December 4.</span></span></p>
-    <a href="/apply">Apply<span class="sr-only"> to NC Ignyte</span></a>
+    <p><strong data-cohort1-status>Cohort 1 is on hold.</strong> <span>Cohort 2 applications are open.<span class="bar-dates"> Eight Fridays, January 15 to March 5, 2027.</span></span></p>
+    <a href="/apply">Apply<span class="sr-only"> to Cohort 2</span></a>
   </div>
 </div>
 
@@ -92,7 +92,7 @@
   <!-- DECLARATION -->
   <section class="declare" aria-labelledby="hero-title">
     <div class="wrap">
-      <p class="deadline">Applications close November 4. First Friday is November 6.
+      <p class="deadline">Cohort 2 applications close January 8, 2027. First Friday is January 15.
         <span class="countdown" data-countdown='[
           {"date":"2026-11-06","to":"the first Friday","today":"Starts today"},
           {"date":"2026-12-04","to":"demo day","today":"Demo day is today"},
@@ -104,7 +104,7 @@
         <p class="declare-lede">A free startup accelerator and pitch competition for North Carolina high schoolers. You build something real, you get coached on your pitch, and you pitch it on a stage.</p>
         <dl class="declare-facts">
           <div><dt>When</dt><dd>Fridays, 6:00 to 8:00 PM. Cohort 1: November 6 to December 4, 2026. Session four is a Monday.</dd></div>
-          <div><dt>Where</dt><dd>Cary Founded, in downtown Cary.</dd></div>
+          <div><dt>Where</dt><dd>In person, in the Cary area. We send the address once a place is confirmed.</dd></div>
           <div><dt>Cost</dt><dd>Nothing.<a class="fn-ref" href="#fn-1" id="fnref-1" aria-describedby="footnotes"><sup>1</sup></a> No fee, no tuition, and no cap on teams.</dd></div>
           <div><dt>Teams</dt><dd>Start at 1, no upper limit.<a class="fn-ref" href="#fn-2" id="fnref-2" aria-describedby="footnotes"><sup>2</sup></a> Apply alone or bring a group.</dd></div>
           <div><dt>Cohort</dt><dd>Cohort 1, Fall 2026. Cohort 2 is expected to run eight Fridays, January 15 to March 5, 2027.</dd></div>
@@ -338,32 +338,9 @@
   </section>
 
   <!-- SUPPORT -->
-  <section class="section-partners" id="partners" aria-labelledby="partners-title">
-    <div class="wrap">
-      <div class="partners-head">
-        <div>
-          <p class="path-orient">Partners</p>
-          <h2 class="h2" id="partners-title">The people who make it <em>free</em></h2>
-        </div>
-        <p class="partners-roles">Venue &middot; Prizes &middot; Food &middot; Mentors</p>
-      </div>
-      <p class="section-lede">NC Ignyte costs a student nothing. That is only possible because organisations here give us the room, the prizes, and the food.</p>
-
-      <ul class="partner-grid" role="list">
-        <li>
-          <a class="partner-card" href="https://www.caryfounded.com/" target="_blank" rel="noopener noreferrer">
-            <img class="partner-logo" src="/cary-founded.png" width="564" height="354"
-                 alt="" loading="lazy" decoding="async">
-            <span class="partner-name">Cary Founded</span>
-            <span class="partner-role">Venue partner</span>
-            <span class="sr-only">(opens in a new tab)</span>
-          </a>
-        </li>
-      </ul>
-
-      <p class="partners-more">Want to be on this list? <a href="/sponsors">See the ways to help</a>.</p>
-    </div>
-  </section>
+  <!-- The partners section is out while there are no partners to name. An
+       empty grid under "the people who make it free" reads worse than no
+       section at all. Restore it, with its grid, when there is a partner. -->
 
   <section class="section-support" id="support" aria-labelledby="support-title">
     <div class="wrap">
@@ -388,8 +365,8 @@
     <div class="wrap">
       <h2 class="apply-statement" id="apply-title">You do not need a good idea <em>yet</em>.</h2>
       <p class="apply-sub">That is what Friday one is for. Apply with whatever you have, including nothing, and we will help you find it.</p>
-      <a class="btn-block-cta" href="/apply">Apply to Cohort 1</a>
-      <p class="apply-deadline">Applications close November 4. First Friday is November 6.</p>
+      <a class="btn-block-cta" href="/apply">Apply to Cohort 2</a>
+      <p class="apply-deadline">Cohort 2 applications close January 8, 2027. First Friday is January 15.</p>
       <p class="apply-fine">We collect only what the application asks. We do not share student information.</p>
 
       <form class="signup" action="/api/signup" method="POST">
@@ -410,7 +387,7 @@
 <footer class="site-foot" id="privacy">
   <div class="wrap">
     <p class="foot-statement">Cohort 1, fall 2026. NC Ignyte is a free startup accelerator and pitch competition for North Carolina high school students. Five Fridays, November 6 to December 4, 2026, in the downtown Cary area.</p>
-    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. Read the <a href="code-of-conduct.html">code of conduct</a> and the <a href="/privacy">privacy page</a>. For families, see <a href="/parents">for parents and guardians</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    <p class="foot-run">Write to <a href="mailto:hello@ncignyte.org">hello@ncignyte.org</a>. See <a href="/startups">what our founders are building</a>. Read the <a href="code-of-conduct.html">code of conduct</a> and the <a href="/privacy">privacy page</a>. For families, see <a href="/parents">for parents and guardians</a>. Find us on Instagram at <a href="https://www.instagram.com/nc.ignyte/" target="_blank" rel="noopener noreferrer">@nc.ignyte</a> and on <a href="https://www.linkedin.com/company/ncignyte/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     <p class="foot-privacy">Privacy: we collect only what the application asks. We do not sell student information, and we do not share it with sponsors, partners, or schools. See the <a href="/privacy">privacy page</a> for the one narrow exception, used to help draft decision letters. We email students and their parent or guardian about NC Ignyte only. Ask us to delete your information at any time.</p>
   </div>
 </footer>

@@ -1,13 +1,11 @@
 // @ts-nocheck
+import { GOV_PRACTICE } from "./apContent/govPractice";
+import { AP_EXAMS } from "./apContent/exams";
+import { AP_EXPANDED_CONTENT } from "./apContent";
 /* ================================================================
-   apQuestions.ts — seed AP question bank (MCQ + FRQ), one course at
-   a time. This is a static seed set (like actLessons.ts /
-   actDiagnosticExamQuestions.ts were for ACT before the sheet grew
-   ACT rows) — 1 MCQ per unit + 1 FRQ per course across all 9 AP
-   courses, so practice/drills/diagnostics have real content to serve
-   instead of an empty state. Expand by adding more rows per course;
-   the shape matches what parseQuestionBankTsv produces so this can
-   later be replaced/augmented by real sheet rows with `test: ap`.
+   Authored AP question banks, including retained seed material for disabled
+   courses. AP_COURSES controls availability. Expanded content replaces the
+   three selected seed banks; admin content is merged/deduplicated at launch.
 
    MCQ row shape:  { domain, difficulty, question, choices[4], answer, explanation, questionType, format:"mcq" }
    FRQ row shape:  { domain, difficulty, question, format:"frq", rubric, explanation }
@@ -582,12 +580,17 @@ In your response, you should do the following:
   },
 };
 
+AP_QUESTION_BANK["ap-us-gov"].mcq = GOV_PRACTICE;
+
+Object.entries(AP_EXPANDED_CONTENT).forEach(([id,c])=>{AP_QUESTION_BANK[id]={mcq:[...c.mcq],frq:[...c.frq]};});
+Object.entries(AP_EXAMS).forEach(([id,exam])=>{AP_QUESTION_BANK[id].mcq.push(...exam.mcq); AP_QUESTION_BANK[id].frq.push(...[...(exam.saq||[]),...exam.writing].map(q=>({...q,set:3})));});
+
 export const getApQuestions = (courseId) => AP_QUESTION_BANK[courseId] || { mcq: [], frq: [] };
 
 // Flattened into the same row shape parseQuestionBankTsv produces, so it can be
 // merged straight into the app's `questionBank` state and reuse all existing
 // filtering (startQuiz, adaptive, drills) with zero extra plumbing.
 export const AP_QUESTION_BANK_FLAT = Object.values(AP_QUESTION_BANK).flatMap((course) => [
-  ...course.mcq.map((q) => ({ ...q, testType: "ap", format: q.format || "mcq" })),
+  ...course.mcq.map((q) => ({ ...q, questionType:q.questionType || "New", testType: "ap", format: q.format || "mcq" })),
   ...course.frq.map((q) => ({ ...q, testType: "ap", format: "frq" })),
 ]);
