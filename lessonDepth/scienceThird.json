@@ -1,0 +1,1593 @@
+{
+  "CSP: Creative Development::1.1 Purpose, input, output, and an iterative design process": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a user-facing purpose from implementation details.",
+      "Turn an informal requirement into observable input-output behavior.",
+      "Use boundary tests and feedback to guide an iterative revision."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A program’s purpose is the problem or goal it helps a user address. Functionality describes what it does, while implementation describes how instructions and data produce that behavior. A study planner might help a learner choose work that fits available time. Reading an integer, using an IF statement and drawing a green button are implementation or interface details, not complete statements of that purpose. Begin by identifying a user, the information supplied and the useful outcome. Otherwise, a program may execute correctly while solving a different problem from the one the user actually has."
+      },
+      {
+        "type": "text",
+        "text": "A requirement becomes testable when expected behavior is specified. “Choose something appropriate” is less precise than “if available time is below 10 minutes, return a short activity; otherwise return a long activity.” The second rule can be traced, but it may still omit important cases. What happens for zero, a negative entry or a missing value? A design should decide which values are permitted and what response is useful for each category. Input need not be typed by a person; a sensor, file or another program can supply it. Output can also be a stored result or signal rather than visible text."
+      },
+      {
+        "type": "text",
+        "text": "An iterative development process uses evidence to revisit decisions. A prototype is a limited version used to test an idea, not a promise that every requirement has been completed. Check ordinary cases, exact boundaries and invalid inputs, then collect feedback about the user’s task and interface. A failed test can reveal a logic error, a misunderstood requirement or a usability problem; those are different reasons to revise. State what changed and why, and rerun earlier checks to look for regressions. This design use of iteration means revising the solution over time; it is distinct from iteration as a loop repeating instructions during one execution."
+      },
+      {
+        "type": "prediction",
+        "id": "st-csp-design-predict",
+        "prompt": "Which statement best expresses a study planner’s purpose?",
+        "choices": [
+          "Use a variable called minutes",
+          "Help a learner choose work that fits the time they have",
+          "Store a list in memory",
+          "Use a comparison operator"
+        ],
+        "answer": 1,
+        "explanation": "The purpose connects functionality to a user need. Variables and operators describe implementation choices.",
+        "hint": "Ask whose problem is being solved and what outcome helps them."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-csp-design-guide",
+        "title": "Test a requirement at its boundary",
+        "scenario": "A prototype accepts an integer minutes. Its stated rule is short activity if minutes < 10, otherwise long activity. A developer instead writes short activity if minutes ≤ 10. For now, assume positive inputs are valid.",
+        "steps": [
+          {
+            "prompt": "For input 9, do the stated rule and implementation agree?",
+            "choices": [
+              "No; both must choose long",
+              "Yes; both choose short",
+              "No; only the implementation chooses short",
+              "The comparison cannot be evaluated"
+            ],
+            "answer": 1,
+            "explanation": "9 is less than 10 and also at most 10. Both choose short, so this test does not expose the boundary difference.",
+            "hint": "Evaluate each comparison separately."
+          },
+          {
+            "prompt": "Which input directly exposes the difference?",
+            "choices": [
+              "1",
+              "9",
+              "10",
+              "11"
+            ],
+            "answer": 2,
+            "explanation": "At 10, the stated rule chooses long because 10 < 10 is false. The implementation chooses short because 10 ≤ 10 is true.",
+            "hint": "Test the exact threshold, not only nearby values."
+          },
+          {
+            "prompt": "What is the smallest correction that matches the stated positive-input rule?",
+            "choices": [
+              "Replace ≤ 10 with < 10",
+              "Rename the variable but keep the comparison",
+              "Make every input choose short",
+              "Remove every test"
+            ],
+            "answer": 0,
+            "explanation": "Changing the comparison restores the specified equality behavior. A variable name does not repair that logic.",
+            "hint": "Identify the differing behavior rather than changing unrelated features."
+          },
+          {
+            "prompt": "User feedback says a 1-minute learner cannot finish the short activity. What issue does this reveal?",
+            "choices": [
+              "The processor must be broken",
+              "The original purpose is irrelevant",
+              "No change is allowed because the comparison works",
+              "The requirement may need a smaller activity or a clearer minimum-time response"
+            ],
+            "answer": 3,
+            "explanation": "The code can follow a rule while the design rule fails a real user need. Revisit the requirement using the feedback.",
+            "hint": "Separate correct execution of a rule from usefulness of that rule."
+          }
+        ],
+        "takeaway": "Test the implementation against the requirement, then test the requirement against the user’s actual task."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-csp-design-transfer",
+        "prompt": "Propose behavior for minutes = 0, a negative number and a blank entry. Explain why a choice should be specified rather than left to an accidental default.",
+        "sampleAnswer": "A reasonable plan rejects a negative or missing value with a clear request for valid input and offers a no-time or very brief option at zero if that fits the purpose. Other coherent choices can work when explicit. These cases should not silently become a long activity through an otherwise branch designed only for positive integers.",
+        "checklist": [
+          "Identify which inputs are valid.",
+          "Specify an observable response for each case.",
+          "Connect the response to the planner’s purpose."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-csp-design-recall",
+        "prompt": "Give three tests that check below, at and above a cutoff of 15 minutes for the rule short if minutes < 15, otherwise long. State the expected output for each.",
+        "sampleAnswer": "For 14, expect short; for 15, expect long; for 16, expect long. These tests distinguish an incorrect inclusive comparison from the stated strict rule.",
+        "math": false
+      }
+    ]
+  },
+  "CSP: Creative Development::1.2 Collaboration, documentation, and debugging with evidence": {
+    "revision": 1,
+    "objectives": [
+      "Identify a reproducible mismatch between expected and observed behavior.",
+      "Locate the first incorrect state in a trace.",
+      "Use regression tests without treating finite examples as a universal proof."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Debugging begins with a specific, reproducible mismatch. State the input, the expected output and the observed output before changing instructions. A syntax error violates a language rule and may prevent execution. A runtime error occurs during execution, such as an invalid list access in a system that reports it. A logic error allows execution but produces behavior different from the intended specification. The same general complaint—“the program failed”—does not identify which category or mechanism applies. A trace of intermediate values can reveal where the behavior first departs from the plan."
+      },
+      {
+        "type": "text",
+        "text": "An accumulator stores a result across iterations. Initialization belongs at a point consistent with that role. If total is supposed to sum an entire list, setting total to zero before the loop establishes the starting sum. Resetting it inside every iteration discards earlier contributions. When tracing, write the current value after each executed assignment rather than assuming that a variable automatically remembers the intended mathematical quantity. An instruction can be syntactically valid and still be placed incorrectly. Moving it, not changing the addition operator or the input data, may be the relevant correction."
+      },
+      {
+        "type": "text",
+        "text": "A useful testing plan includes the failing case, ordinary cases and edge cases such as an empty or one-element list when those inputs are allowed. After a fix, rerun previously passing cases because a local change can cause a regression elsewhere. A passing example is evidence about that example; it does not prove correctness for every possible input. Collaboration helps when another programmer explains the intended invariant—such as total equaling the sum of all visited values—and challenges a mistaken assumption. Documentation should record purpose, input conditions and notable decisions, so another person can reproduce the test and understand why the correction addresses the original mismatch."
+      },
+      {
+        "type": "prediction",
+        "id": "st-csp-debug-predict",
+        "prompt": "A summing program runs and displays only the last list element. Which conclusion is most directly supported?",
+        "choices": [
+          "A logic error is plausible even though the program executes",
+          "The hardware has certainly failed",
+          "The list contains no valid values",
+          "A syntax error must have prevented execution"
+        ],
+        "answer": 0,
+        "explanation": "A running program can follow valid instructions that implement the wrong logic. The observed pattern can guide a trace.",
+        "hint": "Do not equate successful execution with correct behavior."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-csp-debug-guide",
+        "title": "Find the first lost contribution",
+        "scenario": "The intended task is summing [3, 5, 2]. The buggy program executes FOR EACH value IN values { total ← 0; total ← total + value }, then displays total. The loop is nonempty in this example.",
+        "steps": [
+          {
+            "prompt": "What is total after the first iteration?",
+            "choices": [
+              "0",
+              "10",
+              "3",
+              "5"
+            ],
+            "answer": 2,
+            "explanation": "The iteration resets total to 0 and adds the first value 3, leaving 3. This happens to match the intended partial sum.",
+            "hint": "Execute both assignments in order."
+          },
+          {
+            "prompt": "What is total after the second iteration?",
+            "choices": [
+              "8",
+              "5",
+              "3",
+              "0"
+            ],
+            "answer": 1,
+            "explanation": "The reset discards the earlier 3, then adds 5. The first incorrect partial sum appears here: 5 rather than 8.",
+            "hint": "Track the reset rather than carrying the intended sum forward."
+          },
+          {
+            "prompt": "What is the final displayed value?",
+            "choices": [
+              "10",
+              "8",
+              "5",
+              "2"
+            ],
+            "answer": 3,
+            "explanation": "The last iteration resets again and adds 2, leaving only 2.",
+            "hint": "Apply the same two instructions to the third value."
+          },
+          {
+            "prompt": "Which fix addresses the lost accumulation and defines a zero sum for an allowed empty list?",
+            "choices": [
+              "Initialize total ← 0 before the loop, then only add inside",
+              "Initialize total after the loop instead",
+              "Replace every list value with the final value",
+              "Remove addition entirely"
+            ],
+            "answer": 0,
+            "explanation": "A pre-loop zero handles empty input and permits each later addition to retain the previous partial sum.",
+            "hint": "State the value total should have before any elements are visited."
+          }
+        ],
+        "takeaway": "The first incorrect intermediate state is often more informative than the final wrong answer."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-csp-debug-transfer",
+        "prompt": "The corrected program passes [3, 5, 2]. Explain why testing [7] alone would not have exposed the original reset-inside-loop problem, and why the empty list is still worth checking.",
+        "sampleAnswer": "With one element, resetting immediately before its only addition still returns 7, so the original bug can go unnoticed. Empty input checks whether total is initialized even when the loop never executes; the corrected pre-loop initialization produces 0 for an intended empty sum. Different tests probe different assumptions.",
+        "checklist": [
+          "Trace the one-element case.",
+          "Describe zero loop executions.",
+          "Connect each test to a particular failure mechanism."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-csp-debug-recall",
+        "prompt": "Using the corrected pre-loop initialization and addition inside the loop, what is the sum of [4, 0, 6]? Enter only the result.",
+        "sampleAnswer": "The partial sums are 0 initially, then 4, 4 and 10. Zero contributes no change but is still visited.",
+        "math": true,
+        "acceptedAnswers": [
+          "10"
+        ]
+      }
+    ]
+  },
+  "CSP: Algorithms & Programming::3.3 Iteration, termination, and simulation": {
+    "revision": 1,
+    "objectives": [
+      "Trace a stopping condition separately from updates in the loop body.",
+      "Distinguish a repeated-trial estimate from a guaranteed pattern.",
+      "Explain which assumptions connect a random simulation to an event."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Iteration repeats instructions under a rule. REPEAT n TIMES performs a specified number of repetitions, while a condition-controlled loop continues or stops according to a Boolean expression. The AP-style REPEAT UNTIL convention used here checks whether its stopping condition is already true before a possible body execution. If true initially, the body does not run. Count executions rather than merely listing values: the starting value is a state before the first update, and the final update may be the one that first makes the stopping condition true."
+      },
+      {
+        "type": "text",
+        "text": "Every condition-controlled loop needs a plausible termination argument for its permitted inputs. An update must move the state toward satisfying the stopping condition, or another mechanism must make termination possible. A loop multiplying a positive value by 2 will eventually exceed a fixed positive bound in an unbounded-number teaching model. That statement depends on the model; fixed numeric ranges, a zero starting value or an update in the wrong direction can change behavior. Trace edge cases before claiming that a familiar loop pattern always finishes. Nesting also matters: an inner counter may need resetting for each outer iteration."
+      },
+      {
+        "type": "text",
+        "text": "Random simulation adds another distinction. RANDOM(a, b) in the stated AP-style model returns each integer from a through b with equal probability. A condition can map those outcomes to a modeled event, and repeated trials can estimate a proportion. The estimate can vary across runs even when the underlying probability is fixed. More trials can reduce ordinary sampling fluctuation without fixing an unrealistic model or biased random mapping. State whether calls are treated as independent and explain which outcomes represent success. A one-third event does not require exactly one success in every three consecutive trials; randomness permits uneven short sequences."
+      },
+      {
+        "type": "prediction",
+        "id": "st-csp-loop-predict",
+        "prompt": "Under the stated REPEAT UNTIL convention, a stopping condition is true before the first possible execution. How many times does the body run?",
+        "choices": [
+          "Exactly once",
+          "Zero times",
+          "Twice",
+          "It must loop forever"
+        ],
+        "answer": 1,
+        "explanation": "The condition is checked before the body; an already satisfied stopping condition prevents entry.",
+        "hint": "Read the stopping rule rather than assuming a do-while convention from another language."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-csp-loop-guide",
+        "title": "Separate the condition check from the update",
+        "scenario": "Trace x ← 1; REPEAT UNTIL(x > 8) { x ← 2 × x }. Use an unbounded positive-integer teaching model.",
+        "steps": [
+          {
+            "prompt": "After one body execution, what is x?",
+            "choices": [
+              "1",
+              "2",
+              "8",
+              "16"
+            ],
+            "answer": 1,
+            "explanation": "The initially false stopping condition allows an update: 2 × 1 = 2.",
+            "hint": "The starting value is not itself a body execution."
+          },
+          {
+            "prompt": "When x reaches 8, does the loop stop at the next check?",
+            "choices": [
+              "Yes, because 8 is the bound",
+              "Yes, because a power of two was reached",
+              "No, because 8 > 8 is false",
+              "No condition is checked"
+            ],
+            "answer": 2,
+            "explanation": "The comparison is strict. x = 8 does not satisfy x > 8, so another update occurs.",
+            "hint": "Distinguish > from ≥."
+          },
+          {
+            "prompt": "How many body executions occur before stopping?",
+            "choices": [
+              "4",
+              "3",
+              "8",
+              "5"
+            ],
+            "answer": 0,
+            "explanation": "The updated states are 2, 4, 8 and 16. After the fourth update, 16 > 8 is true.",
+            "hint": "List only values produced by executed updates."
+          },
+          {
+            "prompt": "If only the condition changes to x ≥ 8, how many executions occur?",
+            "choices": [
+              "4",
+              "8",
+              "0",
+              "3"
+            ],
+            "answer": 3,
+            "explanation": "The updated states 2, 4 and 8 reach the inclusive condition after three executions.",
+            "hint": "Check equality at the boundary again."
+          }
+        ],
+        "takeaway": "A one-character comparison change can change the number of iterations. Trace the exact supplied rule."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-csp-loop-transfer",
+        "prompt": "A simulation counts success when RANDOM(1, 6) ≤ 2. Explain its modeled success probability and why three trials are not guaranteed to contain exactly one success.",
+        "sampleAnswer": "Outcomes 1 and 2 satisfy the condition out of six equally likely outcomes, giving probability 2/6 = 1/3 per call. Independent calls can produce zero, one or several successes in three trials. The probability describes the model’s distribution, not a forced quota over every short run.",
+        "checklist": [
+          "Identify the successful outcomes.",
+          "Use the stated inclusive random range.",
+          "Distinguish probability from a guaranteed observed count."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-csp-loop-recall",
+        "prompt": "Trace x ← 2; REPEAT UNTIL(x ≥ 18) { x ← x + 4 }. How many body executions occur? Enter only the count.",
+        "sampleAnswer": "Updates give 6, 10, 14 and 18. The condition is then true, so four body executions occur.",
+        "math": true,
+        "acceptedAnswers": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "APES: The Living World: Biodiversity::2.1 Biodiversity, ecosystem services, and habitat diversity": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish species richness, abundance and evenness.",
+      "Connect a specified ecosystem process to a service without assuming every diverse system performs identically.",
+      "Identify what a sample count cannot establish about genetic diversity or resilience."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Biodiversity can be described at several levels. Genetic diversity concerns inherited variation within and among populations; species diversity concerns the kinds of organisms and their distribution; ecosystem diversity concerns different ecological systems and habitats. A list of species is not a complete measurement of all three. Species richness counts the number of species present in a defined sample or area. Total abundance counts individuals. Evenness describes how individuals are distributed among the species. Two samples can have the same richness and total abundance but very different evenness."
+      },
+      {
+        "type": "text",
+        "text": "The sampling method and spatial scale matter. A small plot is an observation of that plot, not proof that every species in the larger region has been counted. Repeated, standardized sampling can reveal changes while reducing confusion from different effort or conditions. Keep identification rules and sampling area consistent when making comparisons. A community dominated by one species and a community with similar numbers of several species can receive the same richness count, so reporting richness alone can hide a major structural difference. Counting individuals also does not tell us how genetically varied those individuals are."
+      },
+      {
+        "type": "text",
+        "text": "Ecosystem services describe benefits people obtain through ecological processes, such as food or materials, water regulation, pollination, cultural experiences and supporting processes. Explain the mechanism rather than treating the label as a guarantee. Wetland vegetation and soils can affect water movement and retention, but performance depends on site conditions, capacity and disturbance. Diversity can contribute to functional redundancy or different responses to changing conditions, yet one snapshot of species counts does not prove an exact recovery rate after a future disturbance. Evaluate the function, environmental conditions and relevant evidence. A conservation comparison also involves connectivity, habitat quality and which species or processes are at risk, not only one high-level diversity score."
+      },
+      {
+        "type": "prediction",
+        "id": "st-apes-diversity-predict",
+        "prompt": "Community A has species counts [10, 10, 10] and community B has [28, 1, 1]. What is the same in these samples?",
+        "choices": [
+          "Evenness only",
+          "Genetic diversity is proven identical",
+          "Species richness and total abundance",
+          "Every ecosystem service must be equal"
+        ],
+        "answer": 2,
+        "explanation": "Both samples contain three species and 30 individuals. Their evenness differs, and neither count table measures all genetic variation or services.",
+        "hint": "Count species and individuals separately."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-apes-diversity-guide",
+        "title": "Read the structure before judging the system",
+        "scenario": "Original hypothetical equal-area samples: A has 10 individuals each of species X, Y and Z; B has 28 of X and 1 each of Y and Z. Sampling method and effort are identical.",
+        "steps": [
+          {
+            "prompt": "What is species richness in sample A?",
+            "choices": [
+              "30",
+              "3",
+              "10",
+              "1"
+            ],
+            "answer": 1,
+            "explanation": "There are three observed species. Richness does not count every individual.",
+            "hint": "Count distinct species labels."
+          },
+          {
+            "prompt": "What is species X’s relative abundance in sample B?",
+            "choices": [
+              "28/30",
+              "1/3",
+              "28/3",
+              "1/30"
+            ],
+            "answer": 0,
+            "explanation": "Species X accounts for 28 of the 30 observed individuals, so its relative abundance is 28/30, approximately 93.3%.",
+            "hint": "Use the total individual count as the denominator."
+          },
+          {
+            "prompt": "Which sample is more even?",
+            "choices": [
+              "B, because one species has more individuals",
+              "They must be equally even because richness matches",
+              "The table cannot distinguish abundance at all",
+              "A, because individuals are distributed equally across its species"
+            ],
+            "answer": 3,
+            "explanation": "A has equal representation; B is strongly dominated by X. Matching richness does not imply matching evenness.",
+            "hint": "Compare the distribution, not just the number of species."
+          },
+          {
+            "prompt": "Can these counts alone prove that A will recover from every disturbance faster?",
+            "choices": [
+              "Yes, by exactly the richness ratio",
+              "Yes, because its individuals are identical",
+              "No; recovery depends on function, disturbance and other conditions not supplied",
+              "No; diversity can never affect recovery"
+            ],
+            "answer": 2,
+            "explanation": "The counts describe sampled structure, not a controlled recovery experiment or a universal response function.",
+            "hint": "Identify the evidence missing for the recovery claim."
+          }
+        ],
+        "takeaway": "Describe what the data actually measure before extending them to ecological function or a management prediction."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-apes-diversity-transfer",
+        "prompt": "A manager says, “Both reserves have three species, so preserving either one protects the same biodiversity.” Give two reasons why this conclusion is too broad.",
+        "sampleAnswer": "The reserves may differ in species identities, evenness, genetic variation, habitat diversity, connectivity or species’ functional roles. Equal richness alone does not establish equivalence in those dimensions. The decision should identify its conservation goal and collect evidence relevant to that goal rather than assume one count captures all biodiversity.",
+        "checklist": [
+          "Name dimensions not determined by richness.",
+          "Connect one missing dimension to the conservation purpose.",
+          "Avoid claiming a precise benefit without an appropriate model or evidence."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-apes-diversity-recall",
+        "prompt": "A sample has 12, 6 and 2 individuals of three species. What fraction of the sampled individuals belongs to the first species? Enter a fraction or decimal.",
+        "sampleAnswer": "Total abundance is 12 + 6 + 2 = 20. The first species’ relative abundance is 12/20 = 3/5 = 0.6.",
+        "math": true,
+        "acceptedAnswers": [
+          "3/5",
+          "0.6"
+        ]
+      }
+    ]
+  },
+  "APES: Populations::3.1 Population growth, limiting factors, and carrying capacity": {
+    "revision": 1,
+    "objectives": [
+      "Reconcile birth, death and migration counts in a population ledger.",
+      "Distinguish population size, change and proportional growth.",
+      "Explain carrying capacity as a condition-dependent model rather than a guaranteed fixed count."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A population is a group of individuals of the same species in a defined area and interval. Its count changes through births, deaths, immigration and emigration. Births and immigration add individuals; deaths and emigration remove them. Natural increase counts births minus deaths, while total change also includes migration. Specify which category each value represents and preserve its sign. A final count, a change in count and a percentage change are related quantities, not interchangeable names for the same number."
+      },
+      {
+        "type": "text",
+        "text": "Proportional growth compares a change with a stated starting population. If a population rises from 200 to 220, it gains 20 individuals, or 20/200 = 10% over that interval. An identical gain of 20 from a population of 2,000 is only 1%. Exponential growth uses a constant proportional-rate model, so equal intervals can add increasing counts as the population increases. Linear growth instead adds a fixed count per interval. Neither model becomes correct simply because a short dataset can be fit with a curve; the ecological mechanism and interval matter."
+      },
+      {
+        "type": "text",
+        "text": "Carrying capacity summarizes what a stated environment can support under relevant resource and ecological conditions. It can change with habitat, weather, resource use and interactions. Density-dependent processes, such as competition for limited resources or some disease transmission, can become stronger as density changes. A flood or another disturbance can also affect a population without responding in the same way to its density. Logistic growth is an idealized model of slowing growth under density feedback, not a promise that every real population smoothly approaches one permanent number. Delays can allow overshoot, resources can change, and immigration can alter local counts. A calculated rate at one instant is not automatically an exact full-year increase when the factors determining that rate change during the year."
+      },
+      {
+        "type": "prediction",
+        "id": "st-apes-pop-predict",
+        "prompt": "Two populations each gain 20 individuals. One begins at 200 and one at 2,000. Which comparison is correct?",
+        "choices": [
+          "Both grow by 20%",
+          "Both grow by 10%",
+          "The larger initial population has the larger percentage increase",
+          "The percentage increases are 10% and 1%, respectively"
+        ],
+        "answer": 3,
+        "explanation": "Divide each gain by its own starting population: 20/200 = 0.10 and 20/2,000 = 0.01.",
+        "hint": "A percentage requires a denominator, not just a change count."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-apes-pop-guide",
+        "title": "Account for each route of change",
+        "scenario": "Original hypothetical one-interval census: initial population 200; births 60; deaths 30; immigration 10; emigration 20. Treat these as complete observed counts for the interval, not rates projected into future years.",
+        "steps": [
+          {
+            "prompt": "What is natural increase?",
+            "choices": [
+              "30 individuals",
+              "20 individuals",
+              "60 individuals",
+              "10 individuals"
+            ],
+            "answer": 0,
+            "explanation": "Births minus deaths is 60 − 30 = 30. Natural increase excludes migration.",
+            "hint": "Use only births and deaths for this subtotal."
+          },
+          {
+            "prompt": "What is net migration?",
+            "choices": [
+              "+30 individuals",
+              "+10 individuals",
+              "−10 individuals",
+              "−20 individuals"
+            ],
+            "answer": 2,
+            "explanation": "Immigration minus emigration is 10 − 20 = −10. More individuals leave than enter.",
+            "hint": "Distinguish the two migration directions."
+          },
+          {
+            "prompt": "What is the final population?",
+            "choices": [
+              "200",
+              "220",
+              "230",
+              "190"
+            ],
+            "answer": 1,
+            "explanation": "Total change is 30 + (−10) = 20, so final population is 200 + 20 = 220.",
+            "hint": "Add the complete net change to the initial stock."
+          },
+          {
+            "prompt": "What is the percentage change from the initial population?",
+            "choices": [
+              "20%",
+              "1%",
+              "110%",
+              "10%"
+            ],
+            "answer": 3,
+            "explanation": "The gain is 20 relative to an initial 200: (20/200) × 100 = 10%. Final/initial × 100 would give a different quantity.",
+            "hint": "Use final minus initial in the numerator."
+          }
+        ],
+        "takeaway": "A census ledger describes an interval. Forecasting another interval requires assumptions about whether the relevant processes remain the same."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-apes-pop-transfer",
+        "prompt": "A drought lowers a modeled carrying capacity from 500 to 300 while the observed population is 400. Does that statement mean the population instantly becomes 300? Explain what it does and does not establish.",
+        "sampleAnswer": "No. The model now indicates that the stated conditions support a lower level, but actual change occurs through births, deaths and movement over time. Resource feedback, delays and further environmental changes affect the path. The capacity change alone does not provide the exact timing or number of deaths, births or migrants.",
+        "checklist": [
+          "Keep a model parameter separate from an instantaneous census.",
+          "Name the processes that change the count.",
+          "Identify the timing information not supplied."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-apes-pop-recall",
+        "prompt": "A complete interval begins with 100 individuals and records 20 births, 8 deaths, 5 immigrants and 7 emigrants. What is the final count? Enter only the number.",
+        "sampleAnswer": "Net change is 20 − 8 + 5 − 7 = 10, giving a final count of 110.",
+        "math": true,
+        "acceptedAnswers": [
+          "110"
+        ]
+      }
+    ]
+  },
+  "APES: Atmospheric Pollution::7.1 Primary and secondary pollutants, photochemical smog, and inversions": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish primary emissions from secondary pollutant formation.",
+      "Explain how a stable inversion can limit mixing without creating emissions.",
+      "Use a stated concentration model while recognizing its atmospheric limitations."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A primary pollutant is emitted directly into the environment, while a secondary pollutant forms through reactions involving other substances. The distinction describes origin, not whether the pollutant is natural, harmless or regulated. Ground-level ozone can form through photochemical processes involving nitrogen oxides, volatile organic compounds and sunlight. Its concentration is not determined by adding the emitted masses of its precursors as if every molecule reacted in one fixed proportion. Chemical conditions and transport matter, so the response to a control measure can be more complicated than a universal linear rule."
+      },
+      {
+        "type": "text",
+        "text": "A temperature inversion occurs when a layer’s temperature increases with height rather than following the usual near-surface decrease assumed in a simple well-mixed model. A stable arrangement can inhibit vertical mixing and allow emitted pollutants to accumulate nearer the surface. The inversion does not itself manufacture all of those pollutants. Changes in emissions, chemical formation, horizontal movement, deposition and mixing can each affect the observed concentration. To explain a pollution episode, distinguish a source process from the atmospheric conditions that influence its dilution and removal."
+      },
+      {
+        "type": "text",
+        "text": "Concentration is an amount per volume. Under an explicitly fixed-mass, well-mixed box model, the same pollutant amount in half the air volume has twice the concentration. That proportional calculation illustrates dilution; it is not a complete city-atmosphere forecast. Convert mass units before dividing: one milligram is 1,000 micrograms. A concentration in micrograms per cubic meter is not an individual’s total inhaled dose, which would require exposure time and other information. Ground-level ozone and protective stratospheric ozone are the same molecule in different contexts; their location and role affect the environmental consequence. A useful answer follows a specific pathway from emission or reaction through transport to exposure, rather than using “pollution” as one undifferentiated mechanism."
+      },
+      {
+        "type": "prediction",
+        "id": "st-apes-air-predict",
+        "prompt": "What is a temperature inversion’s relevant role in the described pollution model?",
+        "choices": [
+          "It always creates every pollutant chemically",
+          "It can suppress vertical mixing and increase near-surface accumulation",
+          "It guarantees zero primary emissions",
+          "It is another name for every greenhouse process"
+        ],
+        "answer": 1,
+        "explanation": "A stable inversion can restrict dilution and transport. The pollutant may still originate from sources or chemical formation.",
+        "hint": "Separate the source of material from how it disperses."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-apes-air-guide",
+        "title": "Hold pollutant mass fixed and change the mixing volume",
+        "scenario": "Original hypothetical box model: 30 mg of a pollutant is uniformly mixed in 1,000 m³ of air. A second modeled state has the same mass in 500 m³. Ignore reactions, continuing emissions, deposition and horizontal exchange.",
+        "steps": [
+          {
+            "prompt": "How many micrograms is 30 mg?",
+            "choices": [
+              "30 µg",
+              "300 µg",
+              "30,000 µg",
+              "3,000,000 µg"
+            ],
+            "answer": 2,
+            "explanation": "30 mg × 1,000 µg/mg = 30,000 µg.",
+            "hint": "Convert mass before dividing by volume."
+          },
+          {
+            "prompt": "What is the initial modeled concentration?",
+            "choices": [
+              "30 µg/m³",
+              "0.03 µg/m³",
+              "1,000 µg/m³",
+              "300 µg/m³"
+            ],
+            "answer": 0,
+            "explanation": "30,000 µg / 1,000 m³ = 30 µg/m³.",
+            "hint": "Use concentration = amount/volume."
+          },
+          {
+            "prompt": "What is the concentration in the second state?",
+            "choices": [
+              "15 µg/m³",
+              "30 µg/m³",
+              "500 µg/m³",
+              "60 µg/m³"
+            ],
+            "answer": 3,
+            "explanation": "30,000 µg / 500 m³ = 60 µg/m³. Halving the volume doubles concentration with mass fixed.",
+            "hint": "Identify which numerator and denominator changed."
+          },
+          {
+            "prompt": "Does the concentration increase prove that emissions doubled?",
+            "choices": [
+              "Yes, concentration always measures emissions directly",
+              "No, this supplied example kept mass fixed and changed dilution volume",
+              "Yes, every secondary pollutant is emitted directly",
+              "No, because concentration can never change"
+            ],
+            "answer": 1,
+            "explanation": "The model deliberately changes mixing volume rather than emitted amount. The same observed direction can have different mechanisms.",
+            "hint": "Distinguish a concentration measurement from a source-rate measurement."
+          }
+        ],
+        "takeaway": "A checked dilution calculation is useful only within its assumptions. Real air requires additional source, chemistry and transport accounting."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-apes-air-transfer",
+        "prompt": "A city observes high ground-level ozone on a sunny day. Explain why “ozone is protective in the stratosphere” is not a reason to treat the surface concentration as beneficial, and name evidence relevant to its formation.",
+        "sampleAnswer": "The molecule’s environmental role depends on location and exposure. Stratospheric ozone absorbs ultraviolet radiation, while elevated ground-level ozone can be a harmful air pollutant. Relevant evidence includes precursor emissions or concentrations, sunlight, meteorological conditions and transport; the label ozone alone does not identify the source or benefit.",
+        "checklist": [
+          "Distinguish atmospheric location and function.",
+          "Connect secondary formation to precursors and conditions.",
+          "Avoid treating one beneficial role as proof of benefit everywhere."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-apes-air-recall",
+        "prompt": "A hypothetical well-mixed box contains 12 mg of pollutant in 600 m³. What is concentration in µg/m³? Enter only the number.",
+        "sampleAnswer": "12 mg is 12,000 µg. Dividing by 600 m³ gives 20 µg/m³ under the stated model.",
+        "math": true,
+        "acceptedAnswers": [
+          "20"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Kinematics::1.2 Velocity graphs and constant acceleration": {
+    "revision": 1,
+    "objectives": [
+      "Read velocity, acceleration and displacement from distinct features of a velocity–time graph.",
+      "Preserve signed areas when motion reverses.",
+      "Separate distance traveled from net displacement."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A graph must be read through its axes, not through the shape alone. On a velocity–time graph, vertical height gives velocity, slope gives acceleration, and signed area over an interval gives displacement. A horizontal segment can therefore represent motion at constant nonzero velocity. It does not necessarily represent an object at rest; that would require zero velocity. A line sloping downward can still have positive velocity over part of its interval, meaning the object moves in the positive direction while slowing down. Velocity direction and acceleration direction are separate statements."
+      },
+      {
+        "type": "text",
+        "text": "For constant acceleration, the velocity graph is a straight line and the displacement can be found from rectangle, triangle or trapezoid areas. Use the signed velocities in a displacement calculation. A region below the time axis contributes negative displacement, not negative elapsed time. If the graph crosses the axis, locate the crossing before finding distance: total distance adds the magnitudes of the areas on each side, whereas displacement adds their signed values. The average velocity over the interval is net displacement divided by total time, not necessarily the average of a few selected graph heights."
+      },
+      {
+        "type": "text",
+        "text": "Piecewise motion requires a separate model for each segment. A corner in an ideal velocity graph can mark a change in acceleration while velocity remains continuous. A jump in velocity would represent a different idealization and cannot be silently replaced by a gradual line. Check units as an additional safeguard: a velocity slope has units (m/s)/s = m/s², while an area has units (m/s)×s = m. These dimensional checks help distinguish acceleration from displacement even when both calculations use the same two plotted points. A zero net area can coexist with considerable travel in opposite directions; canceling signed displacement does not mean that the object never moved."
+      },
+      {
+        "type": "prediction",
+        "id": "st-physics-vgraph-predict",
+        "prompt": "A velocity–time line is above the time axis but slopes downward. What can be true?",
+        "choices": [
+          "The object moves positively while its speed decreases",
+          "The object must already be moving negatively",
+          "The object must have positive acceleration",
+          "The graph height gives displacement directly"
+        ],
+        "answer": 0,
+        "explanation": "Positive graph height means positive velocity. Negative slope means negative acceleration; together they can describe slowing positive motion.",
+        "hint": "Use height and slope for their own quantities."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-physics-vgraph-guide",
+        "title": "Find slope and signed area separately",
+        "scenario": "Original idealized motion: velocity rises linearly from 0 to 6 m/s during 0–3 s; stays 6 m/s during 3–5 s; then decreases linearly from 6 to −2 m/s during 5–9 s.",
+        "steps": [
+          {
+            "prompt": "What is acceleration during 0–3 s?",
+            "choices": [
+              "6 m/s²",
+              "3 m/s²",
+              "2 m/s²",
+              "18 m/s²"
+            ],
+            "answer": 2,
+            "explanation": "Slope is (6 − 0)/(3 − 0) = 2 m/s². The area over that interval answers another question.",
+            "hint": "Divide the velocity change by the elapsed time."
+          },
+          {
+            "prompt": "What displacement occurs during 0–3 s?",
+            "choices": [
+              "18 m",
+              "9 m",
+              "6 m",
+              "2 m"
+            ],
+            "answer": 1,
+            "explanation": "The triangle area is ½(3 s)(6 m/s) = 9 m.",
+            "hint": "Identify the triangular region under the graph."
+          },
+          {
+            "prompt": "What is net displacement during 5–9 s?",
+            "choices": [
+              "24 m",
+              "−8 m",
+              "16 m",
+              "8 m"
+            ],
+            "answer": 3,
+            "explanation": "The trapezoid signed area is ((6 + (−2))/2)(4) = 8 m. Equivalently, positive area 9 m minus negative-area magnitude 1 m gives 8 m.",
+            "hint": "Use signed endpoint velocities or split at the zero crossing."
+          },
+          {
+            "prompt": "What is total displacement during 0–9 s?",
+            "choices": [
+              "29 m",
+              "31 m",
+              "8 m",
+              "27 m"
+            ],
+            "answer": 0,
+            "explanation": "The segments contribute 9 m, (6)(2) = 12 m, and 8 m, totaling 29 m.",
+            "hint": "Add signed segment areas, including the constant-velocity rectangle."
+          }
+        ],
+        "takeaway": "One graph supports several quantities. Ask which feature and which sign convention answer the specific question before calculating."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-physics-vgraph-transfer",
+        "prompt": "For the same motion, explain why total distance is 31 m rather than the 29 m displacement. Locate the reversal in the final segment.",
+        "sampleAnswer": "The final slope is (−2 − 6)/4 = −2 m/s², so velocity reaches zero 3 s after t = 5 s, at t = 8 s. The last segment has positive area ½(3)(6) = 9 m and negative-area magnitude ½(1)(2) = 1 m. It contributes 10 m of distance but 8 m of displacement. Total distance is 9 + 12 + 10 = 31 m.",
+        "checklist": [
+          "Find the axis crossing.",
+          "Add area magnitudes for distance.",
+          "Keep signed areas for displacement."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-physics-vgraph-recall",
+        "prompt": "A different velocity graph rises linearly from −2 m/s at t = 0 to +2 m/s at t = 4 s. What distance is traveled in those 4 seconds? Enter only the number of meters.",
+        "sampleAnswer": "Velocity is zero at t = 2 s. Each side has triangular area magnitude ½(2)(2) = 2 m, so total distance is 4 m even though net displacement is zero.",
+        "math": true,
+        "acceptedAnswers": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Force and Translational Dynamics::2.2 Friction, inclines, and contact forces": {
+    "revision": 1,
+    "objectives": [
+      "Determine required static friction before comparing it with its maximum.",
+      "Distinguish static and kinetic-friction regimes in a stated contact model.",
+      "Check normal force from the actual vertical-force balance."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Friction is a contact interaction, and its direction opposes relative sliding or the tendency for relative sliding at that contact. It does not always oppose an object’s velocity relative to the ground. In a common idealized model, static friction adjusts to the amount needed to prevent slipping, up to a maximum magnitude μ_sN. The equality f_s = μ_sN applies at the limiting value, not automatically to every stationary object. An object on a horizontal surface with no horizontal tendency to slip need not experience the maximum friction or any horizontal friction at all."
+      },
+      {
+        "type": "text",
+        "text": "Kinetic friction in the supplied sliding model has magnitude μ_kN. Before selecting that relation, establish that the surfaces are sliding relative to each other. A numerical coefficient alone does not tell us the current regime. The normal force N must also come from the force balance perpendicular to the surface. It equals mg for a horizontal surface when weight and the normal force are the only vertical forces and vertical acceleration is zero. An angled pull, an incline or a changing contact state can change N; using the full weight automatically can therefore give an incorrect friction limit."
+      },
+      {
+        "type": "text",
+        "text": "A consistent solution starts with a candidate contact condition. If the block can remain at rest, solve for the static friction required to balance the horizontal forces and check that it does not exceed μ_sN. If that requirement is too large, the static assumption fails and a different motion model is needed. Once sliding is established under the stated model, use kinetic friction and Newton’s second law to calculate acceleration. Check the direction and sign of the net force separately from velocity. Friction coefficients summarize a chosen approximation to an interaction; real surface behavior can vary with material and conditions, so numerical results belong to the specified model rather than to every possible contact."
+      },
+      {
+        "type": "prediction",
+        "id": "st-physics-friction-predict",
+        "prompt": "A horizontal pull of 10 N is applied to a resting block whose maximum static-friction magnitude is 20 N. What static friction is required if no other horizontal force acts?",
+        "choices": [
+          "20 N, because static friction always equals its maximum",
+          "10 N opposing the pull",
+          "0 N, because the block is stationary",
+          "30 N in the pull direction"
+        ],
+        "answer": 1,
+        "explanation": "Static friction supplies the required 10 N balance, which is below its available maximum. Stationary does not mean force-free.",
+        "hint": "Find the force needed for equilibrium before checking its limit."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-physics-friction-guide",
+        "title": "Choose the contact regime before the formula",
+        "scenario": "A 4 kg block is on a horizontal surface. Use g = 10 m/s², μ_s = 0.50 and μ_k = 0.30. Pulling is horizontal; there are no other vertical forces or vertical acceleration. For the final step, assume the block is sliding to the right under a 24 N rightward pull.",
+        "steps": [
+          {
+            "prompt": "What is the normal-force magnitude?",
+            "choices": [
+              "4 N",
+              "20 N",
+              "40 N",
+              "24 N"
+            ],
+            "answer": 2,
+            "explanation": "Vertical balance gives N = mg = (4)(10) = 40 N in this specified arrangement.",
+            "hint": "Check the vertical forces rather than using the pull magnitude."
+          },
+          {
+            "prompt": "What is the maximum static-friction magnitude?",
+            "choices": [
+              "20 N",
+              "12 N",
+              "40 N",
+              "0.5 N"
+            ],
+            "answer": 0,
+            "explanation": "μ_sN = (0.50)(40) = 20 N. This is a limit, not a guaranteed actual value.",
+            "hint": "Use the static coefficient for the static limit."
+          },
+          {
+            "prompt": "Could static friction balance a 24 N horizontal pull from rest?",
+            "choices": [
+              "Yes, with 24 N of static friction",
+              "Yes, because any stationary block can remain stationary",
+              "Yes, because μ_k is smaller",
+              "No, because the required 24 N exceeds the 20 N maximum"
+            ],
+            "answer": 3,
+            "explanation": "The proposed rest condition would require more static friction than the stated contact model can provide.",
+            "hint": "Compare required friction with available maximum."
+          },
+          {
+            "prompt": "Once sliding right under that 24 N pull, what is acceleration?",
+            "choices": [
+              "6 m/s²",
+              "3 m/s²",
+              "5 m/s²",
+              "0 m/s²"
+            ],
+            "answer": 1,
+            "explanation": "Kinetic friction is (0.30)(40) = 12 N left. Net force is 24 − 12 = 12 N right, so a = 12/4 = 3 m/s².",
+            "hint": "Use the sliding regime’s coefficient, then calculate net force."
+          }
+        ],
+        "takeaway": "“Required friction” and “maximum available friction” are different quantities. Check the regime instead of substituting a coefficient by habit."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-physics-friction-transfer",
+        "prompt": "A package is initially slower than a conveyor belt moving right beneath it. Why can friction on the package point right even though that is the direction the package will speed up relative to the ground?",
+        "sampleAnswer": "The belt surface moves right relative to the package, so friction opposes the relative sliding at the contact by acting right on the package. The resulting acceleration can increase the package’s ground-relative speed. This does not contradict the contact-relative description of friction. The precise regime and magnitude depend on whether sliding is occurring.",
+        "checklist": [
+          "Identify relative motion at the contact.",
+          "Separate ground-relative velocity from belt-relative sliding.",
+          "Avoid the rule that friction must always oppose ground-relative motion."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-physics-friction-recall",
+        "prompt": "For the same initially resting block, a 16 N horizontal pull acts while the maximum static friction remains 20 N. What static-friction magnitude balances the pull? Enter only the number of newtons.",
+        "sampleAnswer": "The required static friction is 16 N, below the maximum of 20 N. The kinetic value 12 N does not apply to this nonsliding state.",
+        "math": true,
+        "acceptedAnswers": [
+          "16"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Torque and Rotational Dynamics::5.1 Torque and rotational equilibrium": {
+    "revision": 1,
+    "objectives": [
+      "Choose a torque axis and use perpendicular lever arms.",
+      "Apply force balance and torque balance as independent equilibrium conditions.",
+      "Distinguish a cable’s full tension from its vertical component."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Torque measures the rotational effect of a force about a specified axis. Its magnitude is rF sinθ, where θ is the angle between the position vector from the axis and the force. Equivalently, multiply the force by the perpendicular distance from the axis to its line of action. A long distance along a beam is not automatically the perpendicular lever arm for an angled force. A force applied at the chosen pivot has zero lever arm about that pivot, even though the force may still be important in translational equilibrium."
+      },
+      {
+        "type": "text",
+        "text": "For a rigid object in static equilibrium, the net force is zero and the net torque is zero. These are separate requirements. Torque balance about a convenient hinge can eliminate the hinge forces from that particular equation, but it does not make the hinge forces vanish physically. After finding an unknown tension from torque balance, use horizontal and vertical force balances to determine or check the support components. Consistent signs are essential: choose clockwise or counterclockwise as positive, then assign each torque by its tendency to rotate the object, not by whether its force points up or down in isolation."
+      },
+      {
+        "type": "text",
+        "text": "A uniform beam’s weight acts at its center of mass in the stated model. A separate hanging load acts at its attachment point. A cable at an angle supplies a force whose vertical component may be much smaller than its full tension. If its vertical component alone contributes torque around the left hinge of a horizontal beam, using the entire tension as though it were vertical gives too little required tension. Check the limit: as that cable becomes nearly horizontal while the same vertical support is required, the tension must become large. This behavior signals a geometrical constraint, not an increase in the beam’s weight. Real supports also have strength limits; the equilibrium equations do not guarantee every mathematically specified arrangement is safely realizable."
+      },
+      {
+        "type": "prediction",
+        "id": "st-physics-torque-predict",
+        "prompt": "Taking torques about a hinge removes the hinge-force terms from that torque equation. What can be concluded?",
+        "choices": [
+          "The hinge exerts no force in any direction",
+          "The hinge force does not matter to force balance",
+          "The hinge’s lever arm about that axis is zero",
+          "The beam no longer has weight"
+        ],
+        "answer": 2,
+        "explanation": "A force through the chosen axis has zero torque about it, but can still contribute to net force.",
+        "hint": "Separate a zero lever arm from a zero force."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-physics-torque-guide",
+        "title": "Use torque first, then vertical force balance",
+        "scenario": "A uniform horizontal 3.0 m beam is hinged at its left end and weighs 60 N. A 40 N load hangs at the right end. A cable at the right end pulls upward and left at 30° above the horizontal. Take sin30° = 0.5 and neglect other weights.",
+        "steps": [
+          {
+            "prompt": "What is the hanging load’s clockwise torque magnitude about the hinge?",
+            "choices": [
+              "120 N·m",
+              "40 N·m",
+              "60 N·m",
+              "13.3 N·m"
+            ],
+            "answer": 0,
+            "explanation": "The 40 N vertical force acts 3.0 m horizontally from the hinge, so torque magnitude is 120 N·m.",
+            "hint": "Use the perpendicular distance to the load’s vertical line of action."
+          },
+          {
+            "prompt": "Including the beam’s own weight, what total clockwise torque must the cable balance?",
+            "choices": [
+              "180 N·m",
+              "300 N·m",
+              "120 N·m",
+              "210 N·m"
+            ],
+            "answer": 3,
+            "explanation": "Beam weight contributes (60)(1.5) = 90 N·m at its center. Add the load’s 120 N·m to obtain 210 N·m.",
+            "hint": "A uniform beam’s center of mass is halfway along its length."
+          },
+          {
+            "prompt": "What cable tension balances those torques?",
+            "choices": [
+              "70 N",
+              "140 N",
+              "210 N",
+              "420 N"
+            ],
+            "answer": 1,
+            "explanation": "The cable’s vertical component is T sin30° = 0.5T. Its torque is (3.0)(0.5T) = 1.5T, so T = 210/1.5 = 140 N.",
+            "hint": "Use the component perpendicular to the beam."
+          },
+          {
+            "prompt": "What upward vertical hinge component is then required?",
+            "choices": [
+              "70 N",
+              "100 N",
+              "30 N",
+              "0 N"
+            ],
+            "answer": 2,
+            "explanation": "Cable vertical force is 70 N. Total downward weight is 100 N, so the hinge must supply the remaining 30 N upward.",
+            "hint": "Torque balance did not replace vertical force balance."
+          }
+        ],
+        "takeaway": "Choosing a convenient axis simplifies one equation. Complete equilibrium still requires all force components to balance."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-physics-torque-transfer",
+        "prompt": "If the cable becomes vertical while all locations and weights stay the same, how much tension is required? Explain why the original 140 N was not simply the beam and load’s total weight.",
+        "sampleAnswer": "The required counterclockwise torque remains 210 N·m. A vertical cable at 3 m needs tension 210/3 = 70 N. Originally only half of the 140 N tension was vertical; the hinge supplied additional force components. The tension depends on geometry and support sharing, not just the sum of weights.",
+        "checklist": [
+          "Preserve the torque requirement.",
+          "Use the changed force angle.",
+          "Distinguish full tension from the vertical supporting component."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-physics-torque-recall",
+        "prompt": "A 12 N force acts perpendicular to a lever arm 0.25 m from the chosen axis. What is the torque magnitude in N·m? Enter only the number.",
+        "sampleAnswer": "Perpendicular torque magnitude is rF = (0.25)(12) = 3 N·m.",
+        "math": true,
+        "acceptedAnswers": [
+          "3"
+        ]
+      }
+    ]
+  },
+  "Psych: Biological Bases of Behavior::1.5 Sensation, Transduction, and Sensory Coding": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish the physical signal condition from the observer’s reported decision.",
+      "Calculate hit, false-alarm and overall-accuracy rates with appropriate denominators.",
+      "Explain why more yes responses do not by themselves establish improved sensitivity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Sensation involves detecting and transducing physical stimulation into neural processes, while a person’s report also reflects decision processes. A signal-detection task supplies two separate facts: whether the target signal was actually present and whether the observer reported it. A hit occurs when the signal is present and the response is yes; a miss combines signal present with no. A false alarm combines signal absent with yes, while a correct rejection combines signal absent with no. The categories describe task outcomes, not diagnoses or a judgment that an observer intended to be inaccurate."
+      },
+      {
+        "type": "text",
+        "text": "The response criterion reflects how readily an observer says yes under uncertainty. Expectations, incentives and the relative cost of errors can affect it. A more liberal criterion can produce both more hits and more false alarms, so a hit count alone does not establish sharper senses. Sensitivity and criterion are analytically distinct, but a particular observed pattern may involve more than one change. Compare rates and appropriate evidence rather than declaring a unique mechanism from one count. A hit rate uses signal-present trials as its denominator; a false-alarm rate uses signal-absent trials. Overall accuracy uses all trials and therefore also depends on the mixture of signal and no-signal cases."
+      },
+      {
+        "type": "text",
+        "text": "Difference thresholds ask another question: how large a physical change is needed for a specified level of discrimination under stated conditions? In a hypothetical proportional model, detecting a 2% change from a 100-unit baseline would require 2 units, while the same proportion from 200 units would require 4. This illustrates Weber-like reasoning over a range where the approximation is useful, not a universal rule for every stimulus and task. Keep physical intensity, transduction, attention, decision criteria and reported performance distinct. A more frequent yes response is not the same evidence as accurately distinguishing signal from noise at a matched criterion."
+      },
+      {
+        "type": "prediction",
+        "id": "st-psych-detection-predict",
+        "prompt": "The target tone is absent, but an observer says it was present. What task outcome is this?",
+        "choices": [
+          "A hit",
+          "A miss",
+          "A correct rejection",
+          "A false alarm"
+        ],
+        "answer": 3,
+        "explanation": "Signal absent plus yes response defines a false alarm. The category follows the signal and response, not a guess about motives.",
+        "hint": "Build a two-by-two table of condition and response."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-psych-detection-guide",
+        "title": "Choose the denominator before calculating",
+        "scenario": "Original hypothetical task: 100 trials contain 50 signal-present and 50 signal-absent trials. Results are 35 hits, 15 misses, 10 false alarms and 40 correct rejections. Every trial appears in exactly one category.",
+        "steps": [
+          {
+            "prompt": "Which outcomes count as correct?",
+            "choices": [
+              "Hits and misses",
+              "Hits and correct rejections",
+              "False alarms and correct rejections",
+              "All yes responses"
+            ],
+            "answer": 1,
+            "explanation": "A hit correctly identifies a present signal, and a correct rejection correctly reports absence. Yes is not always the correct response.",
+            "hint": "Compare each response with the actual signal condition."
+          },
+          {
+            "prompt": "What is the hit rate?",
+            "choices": [
+              "35%",
+              "50%",
+              "70%",
+              "85%"
+            ],
+            "answer": 2,
+            "explanation": "There are 35 hits among 50 signal-present trials, so the hit rate is 35/50 = 70%.",
+            "hint": "Use only signal-present trials in this denominator."
+          },
+          {
+            "prompt": "What is the false-alarm rate?",
+            "choices": [
+              "20%",
+              "10%",
+              "50%",
+              "80%"
+            ],
+            "answer": 0,
+            "explanation": "There are 10 false alarms among 50 signal-absent trials, so the rate is 10/50 = 20%.",
+            "hint": "Use the no-signal trials, not the total trial count."
+          },
+          {
+            "prompt": "What is overall accuracy?",
+            "choices": [
+              "35%",
+              "70%",
+              "85%",
+              "75%"
+            ],
+            "answer": 3,
+            "explanation": "Correct outcomes total 35 + 40 = 75 out of 100 trials, giving 75%.",
+            "hint": "Add both correct categories and divide by every trial."
+          }
+        ],
+        "takeaway": "Rates summarize different conditional questions. Keep the signal condition, the response and the denominator visible."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-psych-detection-transfer",
+        "prompt": "In another 100-trial block with the same 50/50 signal split, the observer has 43 hits, 7 misses, 20 false alarms and 30 correct rejections. A report says sensitivity definitely improved because hits increased. Evaluate the claim.",
+        "sampleAnswer": "Hits rose, but false alarms also rose. The pattern is consistent with a more liberal response criterion and does not by itself prove improved sensitivity. Overall accuracy is now (43 + 30)/100 = 73%, compared with 75% earlier, although accuracy alone is not a complete sensitivity measure either. Additional suitable analysis or controlled comparisons are needed to separate sensitivity and criterion.",
+        "checklist": [
+          "Compare false alarms as well as hits.",
+          "Do not equate more yes responses with better discrimination.",
+          "Distinguish accuracy from a complete sensitivity analysis."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-psych-detection-recall",
+        "prompt": "A different fictional task has 40 signal trials and 60 no-signal trials. There are 30 hits, 10 misses, 12 false alarms and 48 correct rejections. What is overall accuracy as a percent? Enter only the number.",
+        "sampleAnswer": "Correct outcomes are 30 + 48 = 78 out of 100 trials, so accuracy is 78%. The hit rate would use a different denominator.",
+        "math": true,
+        "acceptedAnswers": [
+          "78"
+        ]
+      }
+    ]
+  },
+  "Psych: Development & Learning::3.1 Developmental Research and Physical Change": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish within-person longitudinal evidence from cross-sectional age comparisons.",
+      "Check whether the baseline and follow-up means refer to the same participants.",
+      "Explain attrition, cohort and practice-effect limitations without assuming a guaranteed bias direction."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Developmental research asks how behavior or mental processes change and remain stable over time. A longitudinal study follows the same participants across time; a cross-sectional study compares people of different ages at one period. These designs answer related but different questions. An age-group difference in one year can reflect age-related development, but it can also reflect cohort experiences, education, technology or other group differences. Researchers do not randomly assign a person to have been born decades earlier, so the presence of age groups alone does not make the study an experiment."
+      },
+      {
+        "type": "text",
+        "text": "Longitudinal data can show within-person change, but repeated measurement brings its own challenges. Participants can leave the study, and those who remain may differ from those lost. Practice with the testing procedure can also change performance independently of the developmental process of interest. When comparing means, identify exactly which people contribute at each occasion. Subtracting a follow-up mean for a retained subset from the original whole-sample mean can mix a change in participant composition with the change being studied. Comparing the retained participants with their own baseline is more directly matched, although it does not remove every other limitation."
+      },
+      {
+        "type": "text",
+        "text": "Attrition is not automatically harmless when a large number remains, and it does not always bias a result in one predetermined direction. Describe who left, how they differed on measured characteristics and what remains unknown about their later outcomes. Consent, privacy and appropriate procedures matter, especially when research involves minors. A respectful developmental explanation allows individual and cultural variation rather than treating one observed average as a rigid schedule everyone must follow. Choose measures that fit the construct: a smartphone task can depend on prior device experience as well as other cognitive processes. Better inference comes from linking the claim to the actual design, comparable participants and task demands—not merely from labeling a study longitudinal or cross-sectional."
+      },
+      {
+        "type": "prediction",
+        "id": "st-psych-development-predict",
+        "prompt": "Researchers compare 12-year-olds and 16-year-olds at one time, without following either group later. What design is described?",
+        "choices": [
+          "Longitudinal",
+          "Cross-sectional",
+          "Random assignment to age",
+          "A guaranteed within-person change estimate"
+        ],
+        "answer": 1,
+        "explanation": "Different age groups are measured at the same period. That is cross-sectional, not repeated measurement of the same people over time.",
+        "hint": "Ask whether the same participants are followed."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-psych-development-guide",
+        "title": "Match the participants before subtracting",
+        "scenario": "Original hypothetical longitudinal study: 40 volunteers complete an initial 20-point task, with whole-sample mean 12. Later, 30 return. Those returners had an initial mean of 14 and later mean of 16; the 10 nonreturners had an initial mean of 6. No later scores are available for nonreturners.",
+        "steps": [
+          {
+            "prompt": "Why is the study longitudinal?",
+            "choices": [
+              "It compares any two groups",
+              "It has more than 20 participants",
+              "It remeasures the same returning participants over time",
+              "The task has a numerical score"
+            ],
+            "answer": 2,
+            "explanation": "Following and remeasuring the same individuals over time defines the longitudinal feature. The label does not by itself remove attrition.",
+            "hint": "Identify the repeated persons, not just the sample size."
+          },
+          {
+            "prompt": "Which baseline mean matches the returning group’s follow-up mean?",
+            "choices": [
+              "14",
+              "12",
+              "6",
+              "16"
+            ],
+            "answer": 0,
+            "explanation": "The 30 returners had baseline mean 14. The original whole-sample mean 12 includes people who did not return.",
+            "hint": "Use the baseline for the same participant subset."
+          },
+          {
+            "prompt": "What is the returners’ change in mean score?",
+            "choices": [
+              "4 points",
+              "10 points",
+              "30 points",
+              "2 points"
+            ],
+            "answer": 3,
+            "explanation": "Their mean changes from 14 to 16, a 2-point difference. Comparing 16 with the original whole-sample mean would mix participant composition with change.",
+            "hint": "Subtract matched-group means."
+          },
+          {
+            "prompt": "Which conclusion is supported?",
+            "choices": [
+              "Every original participant improved by exactly 4 points",
+              "The retained group’s mean rose by 2 points, while full-cohort change cannot be established from the missing outcomes",
+              "No person’s score can possibly change",
+              "The nonreturners must have had later scores of zero"
+            ],
+            "answer": 1,
+            "explanation": "The observed matched-group difference is known, but later outcomes for the ten nonreturners are not. A mean also does not specify each person’s change.",
+            "hint": "Keep observed data separate from assumptions about missing scores."
+          }
+        ],
+        "takeaway": "An appropriate comparison begins with the same people or an explicitly justified population model. Missing observations are not measured zeros."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-psych-development-transfer",
+        "prompt": "Why would following the same people still not prove that age alone caused the 2-point increase? Give one additional mechanism and one relevant design improvement or measurement.",
+        "sampleAnswer": "Practice with the task, educational changes or other experiences over the interval could contribute. An alternate-form task, a suitable comparison design or measurement of relevant experience could help evaluate an alternative. Longitudinal observation establishes temporal change in the retained group, not exclusive causation by age.",
+        "checklist": [
+          "Identify a mechanism other than age itself.",
+          "Connect an improvement to that mechanism.",
+          "Keep change, cause and generalization distinct."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-psych-development-recall",
+        "prompt": "Of the 40 original volunteers, 10 do not return. What is the attrition percentage? Enter only the number.",
+        "sampleAnswer": "Attrition is 10/40 × 100 = 25%. The retention percentage is 75%, a different quantity.",
+        "math": true,
+        "acceptedAnswers": [
+          "25"
+        ]
+      }
+    ]
+  },
+  "Psych: Social Psychology & Personality::4.1 Attribution, Attitudes, and Cognitive Dissonance": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish dispositional and situational explanations using the evidence supplied.",
+      "Apply attribution-bias concepts without treating them as universal laws.",
+      "Explain a possible dissonance-reduction mechanism without claiming to know a person’s motives from one action."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "An attribution is an explanation for behavior. A dispositional account emphasizes characteristics such as a tendency, belief or ability; a situational account emphasizes conditions, constraints or events around the person. Neither category is automatically correct. A speaker presenting an assigned position has performed that role, but the performance alone does not establish a freely chosen personal belief. Ask what alternatives the situation allowed and what additional evidence would distinguish a stable pattern from a context-specific response."
+      },
+      {
+        "type": "text",
+        "text": "The fundamental attribution error describes a tendency to underweight situational influences when interpreting another person’s behavior in relevant contexts. Actor–observer differences can involve explaining one’s own behavior through circumstances while explaining another’s through traits. Self-serving explanations attribute favorable outcomes more to oneself and unfavorable outcomes more to external factors. These patterns are hypotheses to apply with contextual evidence, not universal rules that every person or culture follows identically. A biased inference is not established merely because a dispositional explanation exists; the question is whether relevant constraints or contrary evidence have been ignored."
+      },
+      {
+        "type": "text",
+        "text": "Attitudes can involve evaluations, feelings and action tendencies, but a person’s expressed attitude and behavior need not always match. Cognitive dissonance concerns an aversive inconsistency among relevant beliefs, attitudes or behavior under appropriate conditions. People may reduce it by changing behavior, revising an attitude or adding a justification. That mechanism is different from simply being confused or holding two unrelated ideas. The amount of perceived choice, commitment and external justification can matter. A single observed attitude change does not prove that dissonance was the only cause. Use a specific inconsistency and explain the proposed reduction, then distinguish the conceptual fit from a fully tested causal account."
+      },
+      {
+        "type": "prediction",
+        "id": "st-psych-attribution-predict",
+        "prompt": "A student is assigned to argue for extended library hours. What does the delivered argument alone establish?",
+        "choices": [
+          "The student personally believes that position",
+          "The student presented the assigned position; personal belief is not established",
+          "Every statement must be false",
+          "The assignment cannot influence behavior"
+        ],
+        "answer": 1,
+        "explanation": "An assigned role provides a situational explanation. Additional evidence is needed before equating the delivered position with a freely chosen belief.",
+        "hint": "Separate the behavior from the choices available in the situation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "st-psych-attribution-guide",
+        "title": "Connect an explanation to a specific cue",
+        "scenario": "Use these original fictional cases as conceptual comparisons, not diagnoses. Identify the mechanism best supported by each stated pattern.",
+        "steps": [
+          {
+            "prompt": "An observer knows a speaker’s position was assigned but dismisses that constraint and infers a personal belief from the speech. Which concern fits?",
+            "choices": [
+              "Ignoring a relevant situational influence when making a dispositional inference",
+              "Proof the speaker has no beliefs",
+              "An accurate inference guaranteed by fluent speech",
+              "A memory-storage failure"
+            ],
+            "answer": 0,
+            "explanation": "The assignment constrains behavior. Discounting it supports concern about an attribution that overweights disposition.",
+            "hint": "Which known alternative explanation was disregarded?"
+          },
+          {
+            "prompt": "A learner says success proves personal skill but failure is entirely an unfair test’s fault. Which attribution pattern is illustrated?",
+            "choices": [
+              "Every external explanation is false",
+              "Informational social influence",
+              "Self-serving attribution",
+              "A diagnosis from test performance"
+            ],
+            "answer": 2,
+            "explanation": "The favorable result is attributed internally and the unfavorable result externally. The pattern illustrates the concept without proving every particular explanation wrong.",
+            "hint": "Compare how favorable and unfavorable outcomes are assigned causes."
+          },
+          {
+            "prompt": "A student values honesty, voluntarily acts dishonestly and later argues that small dishonest acts do not matter. Which process could explain that justification?",
+            "choices": [
+              "A certainty that the attitude never existed",
+              "A change in the physical stimulus threshold",
+              "A universal increase in intelligence",
+              "Reducing inconsistency between a valued belief and chosen behavior"
+            ],
+            "answer": 3,
+            "explanation": "The justification can reduce conflict between the prior value and the action. That conceptual fit does not establish a unique private motive from one observation.",
+            "hint": "Identify the two inconsistent elements."
+          },
+          {
+            "prompt": "What evidence would most strengthen an attribution beyond one role-constrained action?",
+            "choices": [
+              "Ignoring every circumstance",
+              "Comparing behavior across relevant contexts and choices while examining situational constraints",
+              "Assuming all group members share one trait",
+              "Treating a label as a complete causal account"
+            ],
+            "answer": 1,
+            "explanation": "A pattern across contexts and available choices can inform the explanation. It should still be evaluated alongside situational influences and alternative accounts.",
+            "hint": "Ask what observations could distinguish competing explanations."
+          }
+        ],
+        "takeaway": "A useful psychological explanation names the relevant evidence and alternatives. A familiar bias label is not a substitute for reasoning."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "st-psych-attribution-transfer",
+        "prompt": "An employee arrives late during a documented transport shutdown. A manager says lateness proves a permanent lack of responsibility. Explain why the conclusion exceeds this observation, without claiming that traits never influence punctuality.",
+        "sampleAnswer": "The shutdown supplies a relevant situational constraint, and one incident does not establish a stable trait across contexts. Other occasions, available alternatives and reliable behavior patterns could inform a broader judgment. Both personal and situational processes can matter; recognizing one does not mean the other is impossible.",
+        "checklist": [
+          "Identify the specific constraint.",
+          "Separate one event from a stable pattern.",
+          "Avoid replacing one absolute explanation with another."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "st-psych-attribution-recall",
+        "prompt": "Give a new harmless example of a conflict between a stated value and a chosen action, then describe two different ways someone could reduce that inconsistency. Do not diagnose a real person.",
+        "sampleAnswer": "For example, a fictional student values careful preparation but chooses not to prepare. They could change future behavior by planning a study session, or revise a justification for the choice. A sound explanation specifies the conflict and how each response changes it; it does not claim every attitude change necessarily results from dissonance.",
+        "math": false
+      }
+    ]
+  }
+}

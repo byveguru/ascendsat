@@ -1,0 +1,1542 @@
+{
+  "Calc AB: Differentiation: Definition & Fundamental Properties::2.2 Power, product and quotient rules": {
+    "revision": 1,
+    "objectives": [
+      "Choose a differentiation rule from the expression structure.",
+      "Use product and quotient rules without dropping terms.",
+      "Check derivative values and preserve domain restrictions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Differentiation rules describe how rates combine. For a power xⁿ, the power rule gives nxⁿ⁻¹ wherever the original function and derivative are defined. A constant multiplier stays outside the derivative, and a sum differentiates term by term. Negative exponents are powers too: x⁻² differentiates to −2x⁻³, with zero still excluded from the domain. The derivative of a constant is zero, not the constant itself. Rewriting a root or reciprocal as a power often makes the correct rule visible, but the rewrite does not erase its domain restrictions.\n\nProducts require two contributions. For f=uv, the derivative u′v+uv′ accounts for change in each factor while retaining the other. Multiplying only u′ and v′ omits both first-order contributions and usually produces a different result. For a quotient u/v, the derivative is (u′v−uv′)/v² wherever v is nonzero. Keep the numerator order consistent and place parentheses around a multi-term numerator before simplifying. The denominator is squared as a whole; squaring its terms separately is not equivalent.\n\nA useful strategy is to decide whether algebra makes the expression easier before differentiating. A polynomial product may be expanded, giving an independent check against the product rule. A rational function might be rewritten using division, but its excluded inputs must remain excluded. After finding a derivative function, substitute the requested input only once the formula is valid there. A derivative value of zero identifies a horizontal tangent candidate, not automatically a maximum or minimum. To interpret that value, examine nearby behavior or an appropriate sign argument. Finally, distinguish checking one numerical derivative value from verifying a full derivative identity; agreement at one input alone cannot establish the whole formula."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-power-product-quotient-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Compare p(x)=(x²+1)(x−2) and q(x)=(x²+1)/(x−2). Derive both derivatives and evaluate them at x=1. Also differentiate x⁻².",
+        "steps": [
+          {
+            "prompt": "What is the derivative of x⁻² for x≠0?",
+            "choices": [
+              "−2x⁻³",
+              "−2x⁻¹",
+              "x⁻³",
+              "−x⁻²"
+            ],
+            "answer": 0,
+            "explanation": "Multiply by the exponent −2 and subtract one from that exponent. The new exponent is −3, and zero remains outside the domain."
+          },
+          {
+            "prompt": "Which expression correctly differentiates p?",
+            "choices": [
+              "2x",
+              "2x(x−2)+(x²+1)",
+              "2x(x−2)",
+              "2x+1"
+            ],
+            "answer": 1,
+            "explanation": "The product rule differentiates each factor once while keeping the other unchanged. The second factor has derivative 1, producing the second term."
+          },
+          {
+            "prompt": "What is p′(1)?",
+            "choices": [
+              "−2",
+              "2",
+              "0",
+              "4"
+            ],
+            "answer": 2,
+            "explanation": "Substitute into both product-rule terms: 2(1)(−1)+(1+1)=−2+2=0. The contributions cancel, producing a horizontal tangent."
+          },
+          {
+            "prompt": "Which derivative of q is correct?",
+            "choices": [
+              "2x/(x−2)",
+              "[2x(x−2)+(x²+1)]/(x−2)²",
+              "[2x−(x²+1)]/(x−2)",
+              "[2x(x−2)−(x²+1)]/(x−2)²"
+            ],
+            "answer": 3,
+            "explanation": "The quotient rule uses u′v−uv′ in that order and divides by v². Here v′=1, so the entire numerator x²+1 is subtracted."
+          },
+          {
+            "prompt": "What is q′(1)?",
+            "choices": [
+              "−4",
+              "0",
+              "4",
+              "−2"
+            ],
+            "answer": 0,
+            "explanation": "The numerator is 2(1)(−1)−2=−4, and the denominator is (−1)²=1. The quotient derivative is therefore −4."
+          }
+        ],
+        "takeaway": "Identify the expression structure before choosing a rule; products and quotients require different combinations of the same component derivatives."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Expanding p gives x³−2x²+x−2, whose derivative 3x²−4x+1 agrees with the simplified product-rule result. It factors as (3x−1)(x−1), so p′ changes from negative to positive at x=1; the horizontal tangent there is a local minimum. For q, polynomial division gives q=x+2+5/(x−2), valid only for x≠2. Differentiating this form gives 1−5/(x−2)², which simplifies to the same quotient-rule expression. This second route is an algebraic identity check rather than a single-point check. At x=2 neither q nor q′ is defined, despite any appearance of a simple numerator in an intermediate expression. These comparisons show why algebra and calculus should support each other: rewriting can simplify the work, while domain tracking keeps the resulting formulas attached to the original function."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-power-product-quotient-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner differentiates p by multiplying the two component derivatives and obtains 2x. Explain the missing contributions and show one independent way to check the correct answer.",
+        "sampleAnswer": "The product rule requires 2x(x−2)+(x²+1), not the product of the derivatives. Expanding p to x³−2x²+x−2 and differentiating gives 3x²−4x+1, the same result.",
+        "checklist": [
+          "Differentiate each factor while retaining the other.",
+          "Include both product-rule terms.",
+          "Check against an equivalent expanded polynomial."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-power-product-quotient-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter q′(1).",
+        "acceptedAnswers": [
+          "−4",
+          "-4"
+        ],
+        "sampleAnswer": "The quotient-rule numerator equals −4 and the squared denominator equals 1, so q′(1)=−4."
+      }
+    ]
+  },
+  "Calc AB: Differentiation: Definition & Fundamental Properties::2.3 Trigonometric, exponential and logarithmic derivatives": {
+    "revision": 1,
+    "objectives": [
+      "Differentiate trigonometric functions in radians.",
+      "Apply the chain rule to exponential and logarithmic composites.",
+      "Combine product and chain rules while preserving the logarithm domain."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Trigonometric derivative formulas assume radian inputs. In radians, the derivative of sin x is cos x and the derivative of cos x is −sin x. If the input is a function u(x), the chain rule multiplies by u′(x): the derivative of sin u is cos(u)u′. The minus sign in the cosine derivative and the inner derivative are separate features. Degree-based inputs require an additional conversion factor, so a calculator display in degrees should not be mixed with a radian derivative formula.\n\nFor exponentials, the derivative of eᵘ is eᵘu′. A general positive base a has derivative aᵘ ln(a)u′, with a≠1 when treating it as an invertible exponential function. The exponential factor remains; differentiating e²ˣ does not produce merely 2 or eˣ. For logarithms, the derivative of ln u is u′/u wherever u is positive. The real-valued logarithm ln|u| has the same derivative u′/u on intervals where u is nonzero. The domain condition belongs to the function, not just to a denominator in its derivative. For log base a, divide the natural-log derivative by ln a.\n\nMany expressions require more than one rule. A product such as e²ˣ sin x needs a product rule, and the exponential factor also needs a chain rule. Write the outer structure first, then handle each composite inside it. Grouping terms with parentheses reduces sign and factor errors. Finally, test the result at an input where the original function is defined and values are simple. A numerical check is useful for detecting errors, but the chain-rule reasoning explains why each factor is present and remains necessary beyond the checked point."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-transcendental-rates-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let f(x)=e^(2x)sin x+ln(1+x²). Find f′ and evaluate it at zero. Then compare the derivatives of ln x and ln|x| on their domains.",
+        "steps": [
+          {
+            "prompt": "What is d/dx[e^(2x)]?",
+            "choices": [
+              "e^(2x)",
+              "2e^(2x)",
+              "2e^x",
+              "2"
+            ],
+            "answer": 1,
+            "explanation": "Differentiate the outer exponential and multiply by the derivative of 2x, which is 2. The original exponential factor is retained."
+          },
+          {
+            "prompt": "What is d/dx[e^(2x)sin x]?",
+            "choices": [
+              "2e^(2x)cos x",
+              "e^(2x)(2sin x−cos x)",
+              "e^(2x)(2sin x+cos x)",
+              "2e^(2x)sin x cos x"
+            ],
+            "answer": 2,
+            "explanation": "The product rule gives 2e^(2x)sin x+e^(2x)cos x. Factoring the shared exponential yields the stated expression."
+          },
+          {
+            "prompt": "What is d/dx[ln(1+x²)]?",
+            "choices": [
+              "1/(1+x²)",
+              "2x ln(1+x²)",
+              "2/(1+x²)",
+              "2x/(1+x²)"
+            ],
+            "answer": 3,
+            "explanation": "The outer logarithm contributes the reciprocal of its argument, and the inner derivative is 2x. Here the argument 1+x² is always positive."
+          },
+          {
+            "prompt": "What is f′(0)?",
+            "choices": [
+              "1",
+              "0",
+              "2",
+              "3"
+            ],
+            "answer": 0,
+            "explanation": "At zero, the exponential is 1, sine is 0, cosine is 1, and the logarithmic derivative term is 0. The total is 1."
+          },
+          {
+            "prompt": "Which domain statement is correct?",
+            "choices": [
+              "Both ln x and ln|x| are defined for every real x",
+              "ln x needs x>0; ln|x| permits x≠0, and both derivatives are 1/x on their domains",
+              "ln|x| is defined only for x>0",
+              "The derivative of ln|x| is always 1/|x|"
+            ],
+            "answer": 1,
+            "explanation": "The absolute value makes the logarithm argument positive on either side of zero. On each allowed interval its derivative is 1/x, including negative values."
+          }
+        ],
+        "takeaway": "Combine rules from the outside inward, retaining inner derivatives, trigonometric signs, and the original function domain."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For negative x, ln|x|=ln(−x), whose derivative is (−1)/(−x)=1/x. This calculation explains why replacing the derivative with 1/|x| is incorrect. The derivative of aˣ also distinguishes a base from an exponent: for 2ˣ, the extra constant is ln2; for e²ˣ, it is the inner derivative 2. These can be reconciled by writing 2ˣ=e^(x ln2). A more elaborate logarithm such as ln[(1+x²)³] can be differentiated directly with a chain rule or simplified to 3ln(1+x²); both give 6x/(1+x²). The simplification is valid because 1+x² is positive. Logarithm identities used without checking signs can change the real domain, so algebraic convenience does not justify dropping those checks. In applied rate problems, also state units: differentiating a dimensionless logarithmic response with respect to seconds yields a rate per second."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-transcendental-rates-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why e^(2x) and 2^x have different derivative multipliers even though both are exponential functions.",
+        "sampleAnswer": "The first has base e and inner input 2x, so the chain rule supplies 2. The second has base 2 and can be written e^(x ln2), so its multiplier is ln2. Each multiplier comes from the derivative of the exponent in base-e form.",
+        "checklist": [
+          "Rewrite the general-base expression using e.",
+          "Identify each inner exponent derivative.",
+          "Retain the original exponential factor."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-transcendental-rates-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For h(x)=ln(1+x²), enter h′(1).",
+        "acceptedAnswers": [
+          "1"
+        ],
+        "sampleAnswer": "The derivative is 2x/(1+x²), so h′(1)=2/2=1."
+      }
+    ]
+  },
+  "Calc AB: Contextual Applications of Differentiation::4.3 L’Hôpital’s Rule and indeterminate forms": {
+    "revision": 1,
+    "objectives": [
+      "Classify a limit before applying L’Hôpital’s Rule.",
+      "Use repeated differentiation only while the indeterminate form remains valid.",
+      "Transform an indeterminate power with logarithms."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "L’Hôpital’s Rule is a conditional limit theorem, not a rule for differentiating quotients. It applies to suitable quotients whose numerator and denominator approach zero together or whose magnitudes both grow without bound, provided the differentiability and denominator-derivative conditions hold on a nearby punctured interval and the derivative-ratio limit supplies the required conclusion. Begin by evaluating the separate numerator and denominator limits. A finite nonzero denominator usually permits direct substitution. A numerator approaching a nonzero constant over a denominator approaching zero requires a sign or one-sided analysis rather than automatic use of this theorem.\n\nWhen the hypotheses apply, replace the quotient by the quotient of the derivatives for the purpose of evaluating its limit. Do not use the quotient-rule derivative; that is a different expression serving a different task. The original quotient and derivative quotient need not be equal as functions. If the new ratio still has a valid zero-over-zero or infinity-over-infinity form, the rule may be applied again after checking the conditions again. Stop when direct evaluation becomes available. An apparently endless cycle of differentiation is a reason to reconsider the structure, not evidence that every limit is zero.\n\nOther indeterminate forms need an algebraic transformation first. A product of a vanishing factor and an unbounded factor can sometimes be rewritten as a quotient. For a positive expression raised to a changing power, introduce its logarithm so the exponent becomes a product, evaluate that logarithmic limit, and then exponentiate using continuity. Forms such as 1 raised to an unbounded power are indeterminate because the base's approach to 1 and the exponent's growth can balance in different ways. The form alone never determines the numerical answer."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-lhopital-forms-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Evaluate lim as x→0 of (e^x−1−x)/x², lim as x→∞ of ln x/x, and lim as x→0 of (1+x)^(1/x), with x>−1 and x≠0 in the last expression.",
+        "steps": [
+          {
+            "prompt": "What is the initial form of (e^x−1−x)/x² at zero?",
+            "choices": [
+              "Zero over zero",
+              "One over zero",
+              "Infinity over infinity",
+              "A directly defined quotient"
+            ],
+            "answer": 0,
+            "explanation": "Both numerator and denominator approach zero. The functions are differentiable nearby, allowing the zero-over-zero version of the theorem to be considered."
+          },
+          {
+            "prompt": "After differentiating numerator and denominator once, what remains?",
+            "choices": [
+              "e^x/2",
+              "(e^x−1)/(2x), still zero over zero",
+              "e^x−1−x",
+              "e^x/(2x)"
+            ],
+            "answer": 1,
+            "explanation": "Differentiate the numerator to e^x−1 and the denominator to 2x. Both still approach zero, so another checked application is possible."
+          },
+          {
+            "prompt": "What is the resulting limit after the second application?",
+            "choices": [
+              "0",
+              "1",
+              "1/2",
+              "2"
+            ],
+            "answer": 2,
+            "explanation": "The second derivative ratio is e^x/2, whose limit is 1/2. This is a limit comparison, not an identity between the original functions."
+          },
+          {
+            "prompt": "What is lim as x→∞ of ln x/x?",
+            "choices": [
+              "1",
+              "∞",
+              "It does not exist",
+              "0"
+            ],
+            "answer": 3,
+            "explanation": "The original form is infinity over infinity. The derivative quotient is (1/x)/1, which approaches zero as x grows without bound."
+          },
+          {
+            "prompt": "What is the logarithmic limit for (1+x)^(1/x)?",
+            "choices": [
+              "1, so the original limit is e",
+              "0, so the original limit is 1",
+              "∞, so the original limit is ∞",
+              "1, so the original limit is 1"
+            ],
+            "answer": 0,
+            "explanation": "The logarithm is ln(1+x)/x, a zero-over-zero quotient. Its derivative ratio 1/(1+x) tends to 1, so exponentiation gives e."
+          }
+        ],
+        "takeaway": "Classify, check hypotheses, transform when necessary, and distinguish the logarithmic limit from the final powered expression."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Consider (1+sin x)/(1+cos x) as x approaches zero. Direct substitution gives 1/2, because the denominator tends to 2. Differentiating numerator and denominator would instead create cos x/(−sin x), which has no matching finite two-sided limit. This is not a contradiction; the theorem's indeterminate-form hypothesis never held. For the powered example, the positivity of 1+x near zero makes the logarithm legitimate on both sides. A useful transfer is (1+ax)^(b/x), where a and b are constants and the base is positive nearby. Its logarithm has limit ab, so the original limit is e^(ab). If a=0 the expression is identically 1 where defined, consistent with that result. The transformation must keep its domain, and a negative base with a noninteger varying exponent would require a different real-valued analysis."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-lhopital-forms-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner differentiates the numerator and denominator of (1+sin x)/(1+cos x) at zero and declares the limit undefined. Explain the invalid step and evaluate correctly.",
+        "sampleAnswer": "The separate limits are 1 and 2, so there is no zero-over-zero or infinity-over-infinity form. Direct substitution is valid and gives 1/2. The derivative-ratio calculation is not licensed by L’Hôpital’s Rule here.",
+        "checklist": [
+          "Evaluate numerator and denominator limits first.",
+          "Identify the missing indeterminate form.",
+          "Use direct substitution for the correct value."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-lhopital-forms-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter lim as x→0 of (e^x−1−x)/x².",
+        "acceptedAnswers": [
+          "1/2",
+          "0.5"
+        ],
+        "sampleAnswer": "Two valid applications give the limit of e^x/2, which is 1/2."
+      }
+    ]
+  },
+  "Calc AB: Differential Equations::7.2 Exponential models and Euler approximation": {
+    "revision": 1,
+    "objectives": [
+      "Solve and interpret a constant-relative-rate differential equation.",
+      "Carry out Euler updates with the current slope.",
+      "Distinguish an approximation from an exact solution."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An exponential differential equation has the form y′=ky, where k is a constant relative rate. For an initial value y(0)=y₀, the function y=y₀e^(kt) satisfies both the equation and the initial condition. A positive k produces growth for positive initial values; a negative k produces decay. The units of k are reciprocal time units, so kt is dimensionless. The magnitude of k is not itself the amount gained or lost each time unit. For example, k=−0.5 means an instantaneous relative decay rate of one-half per unit time; the one-unit multiplier is e^(−0.5), not 0.5.\n\nEuler approximation uses local tangent slopes to build a numerical estimate when a formula is inconvenient or unavailable. Starting at (t_n,y_n), use y_(n+1)=y_n+hF(t_n,y_n) and t_(n+1)=t_n+h for an equation y′=F(t,y). The increment is step width times slope, with the current approximate point determining that slope. Reusing the original slope at every step describes one long tangent-line extrapolation instead of successive Euler updates. Keep a table of time, current estimate, slope, and increment so that changing inputs remain visible.\n\nCourse scope: exponential differential-equation models are assessed in both AB and BC. Euler’s method is assessed in BC and is enrichment in AB. An Euler value is not an exact solution merely because every arithmetic step is exact. Smaller steps often improve an approximation over a fixed interval, but their reliability depends on the differential equation and step size. Use an available exact solution or qualitative slope and concavity information to judge the numerical result. Report the step size and endpoint, because an isolated approximation without that information cannot be reproduced or compared fairly."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-exponential-euler-extension-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "For y′=−0.5y and y(0)=8, compare the exact solution with Euler estimates. Use h=1 from time 0 to 2, then use h=0.5 from time 0 to 1.",
+        "steps": [
+          {
+            "prompt": "Which exact solution satisfies the initial-value problem?",
+            "choices": [
+              "8e^(0.5t)",
+              "8e^(−0.5t)",
+              "8−0.5t",
+              "e^(−4t)"
+            ],
+            "answer": 1,
+            "explanation": "The relative rate is −0.5 and the initial multiplier is 8. Differentiation gives −0.5 times the function, and the initial value is 8."
+          },
+          {
+            "prompt": "With h=1, what is the first Euler estimate?",
+            "choices": [
+              "7.5",
+              "8e^(−0.5)",
+              "4",
+              "−4"
+            ],
+            "answer": 2,
+            "explanation": "At the initial point the slope is −0.5(8)=−4. The update adds 1(−4) to 8, giving the estimate 4 at time 1."
+          },
+          {
+            "prompt": "What is the second h=1 estimate, at time 2?",
+            "choices": [
+              "0",
+              "4",
+              "8e^(−1)",
+              "2"
+            ],
+            "answer": 3,
+            "explanation": "Recompute the slope at the current estimate 4, obtaining −2. Add the increment 1(−2) to 4, giving 2."
+          },
+          {
+            "prompt": "How does that compare with the exact time-2 value?",
+            "choices": [
+              "It is below 8/e≈2.943",
+              "It is above 8/e≈2.943",
+              "It equals the exact value",
+              "The exact value is negative"
+            ],
+            "answer": 0,
+            "explanation": "The exact solution gives 8e^(−1), about 2.943, so the Euler estimate 2 is smaller. The positive decay curve is concave up."
+          },
+          {
+            "prompt": "With h=0.5, what is the estimate after two steps, at time 1?",
+            "choices": [
+              "4",
+              "4.5",
+              "6",
+              "5"
+            ],
+            "answer": 1,
+            "explanation": "The first estimate is 8+0.5(−4)=6. Its new slope is −3, so the next estimate is 6+0.5(−3)=4.5."
+          }
+        ],
+        "takeaway": "An exponential model has an exact relative-rate interpretation; Euler uses successive tangent updates and must retain its step size and endpoint."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For h=1 the Euler recurrence is y_(n+1)=0.5y_n; for h=0.5 it is y_(n+1)=0.75y_n. These multipliers approximate e^(−0.5h), but they are not equal to it. At time 1 the half-step estimate 4.5 is closer to the exact 8e^(−0.5)≈4.852 than the full-step estimate 4. Because the exact solution is positive and concave up, forward tangent segments lie below the curve; the numerical comparison agrees with that geometry in this example. However, an excessively large step such as h=3 gives multiplier −0.5 and produces a negative first estimate, even though the exact solution remains positive. Numerical artifacts can therefore violate the model’s qualitative behavior. Solving an equation and approximating it are different tasks: a differential equation can be correct while a poorly chosen numerical method gives an implausible output."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-exponential-euler-extension-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses slope −4 for every Euler step and obtains zero at time 2. Explain why that is not the requested successive approximation.",
+        "sampleAnswer": "The slope depends on y, so it must be recomputed at each approximate point. After the first h=1 step the estimate is 4, whose slope is −2 rather than −4. The second estimate is therefore 2, not zero.",
+        "checklist": [
+          "Use the current approximate y value.",
+          "Recompute the differential-equation slope.",
+          "Show the second update with its step width."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-exponential-euler-extension-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Using h=0.5, enter the first Euler estimate at time 0.5.",
+        "acceptedAnswers": [
+          "6"
+        ],
+        "sampleAnswer": "The initial slope is −4, so the first estimate is 8+0.5(−4)=6."
+      }
+    ]
+  },
+  "Calc BC: Parametric, Polar & Vector Functions::9.2 Vector motion and distance": {
+    "revision": 1,
+    "objectives": [
+      "Derive vector velocity and acceleration componentwise.",
+      "Distinguish displacement magnitude from total path length.",
+      "Use a dot product to assess changing speed."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A position vector gives an object's coordinates relative to an origin. For planar motion r(t)=〈x(t),y(t)〉, differentiate each component to obtain velocity v(t)=〈x′(t),y′(t)〉 and differentiate again for acceleration a(t). Velocity contains a direction as well as a rate. Speed is the nonnegative magnitude |v|=√[(x′)²+(y′)²], provided the coordinate components use compatible length units. A negative component means motion toward decreasing values of that coordinate; it does not create negative speed. Integrating each velocity component gives displacement components, while adding the initial position produces the final position.\n\nDisplacement over [a,b] is the vector r(b)−r(a). Its magnitude is the length of the straight segment connecting the endpoints. Total distance traveled is the integral of speed, which follows the entire path. These are equal for straight motion without reversal, but a curved path generally has greater length than its endpoint segment. Integrating a signed component or taking the magnitude after integrating the vector does not generally recover distance. Build the speed first, then integrate that scalar quantity.\n\nChanging speed can be analyzed without differentiating a complicated square root. Differentiate |v|²=v·v to obtain 2v·a. At a point where speed is nonzero, the sign of v·a matches the sign of the speed derivative. A positive dot product means speed is increasing, and a negative one means speed is decreasing. Perpendicular acceleration can change direction even when the speed derivative is zero. At an instant with zero velocity, this division-based argument needs separate care. Always state the time interval, because simplifying a speed expression may require an absolute value whose sign changes across that interval."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-vector-distance-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "For 0≤t≤2, let r(t)=〈t²,(2/3)t³〉 in meters. Find velocity, speed, displacement, path length, and whether the particle speeds up.",
+        "steps": [
+          {
+            "prompt": "What are the velocity and acceleration vectors?",
+            "choices": [
+              "v=〈t, t²〉 and a=〈1,2t〉",
+              "v=〈2,4t〉 and a=〈0,4〉",
+              "v=〈2t,2t²〉 and a=〈2,4t〉",
+              "v=〈2t,2t³〉 and a=〈2,6t²〉"
+            ],
+            "answer": 2,
+            "explanation": "Differentiate each coordinate independently. The derivative of (2/3)t³ is 2t², and differentiating the velocity gives the stated acceleration."
+          },
+          {
+            "prompt": "What is speed on this interval?",
+            "choices": [
+              "2t+2t²",
+              "2t²(1+t²)",
+              "2√(1+t²)",
+              "2t√(1+t²)"
+            ],
+            "answer": 3,
+            "explanation": "The magnitude is √(4t²+4t⁴)=2|t|√(1+t²). Since t≥0 on the interval, |t| simplifies to t."
+          },
+          {
+            "prompt": "What is the displacement vector and its magnitude?",
+            "choices": [
+              "〈4,16/3〉 and 20/3",
+              "〈4,8/3〉 and 4",
+              "〈2,4〉 and √20",
+              "〈4,16/3〉 and 28/3"
+            ],
+            "answer": 0,
+            "explanation": "Subtract the initial position r(0)=〈0,0〉 from the final position r(2)=〈4,16/3〉. The displacement magnitude is √(16+256/9)=√(400/9)=20/3 meters."
+          },
+          {
+            "prompt": "What is the total distance?",
+            "choices": [
+              "20/3",
+              "(2/3)(5√5−1)",
+              "(2/3)(5√5+1)",
+              "10√5"
+            ],
+            "answer": 1,
+            "explanation": "Integrate the speed 2t√(1+t²) using u=1+t² and du=2t dt. Evaluating at both endpoints gives [(2/3)(1+t²)^(3/2)]₀²=(2/3)(5√5−1)."
+          },
+          {
+            "prompt": "What does v·a imply for 0<t≤2?",
+            "choices": [
+              "Speed decreases because the path bends",
+              "Speed is constant",
+              "Speed increases because 4t+8t³>0",
+              "Acceleration is perpendicular to velocity"
+            ],
+            "answer": 2,
+            "explanation": "The dot product equals (2t)(2)+(2t²)(4t)=4t+8t³. It is positive for positive t, so the nonzero speed increases."
+          }
+        ],
+        "takeaway": "Vector integration gives displacement; integrating velocity magnitude gives path length. The operations cannot generally be interchanged."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The path length is approximately 6.787 meters, slightly greater than the displacement magnitude 6.667 meters. The difference comes from curvature, not a coordinate-direction reversal: both coordinates increase on the positive-time interval. This is a useful counterexample to the idea that distance exceeds displacement only when a particle turns back along an axis. At t=0 the velocity vector is zero, so the unit tangent v/|v| is not defined by direct substitution. For t>0, however, its direction is 〈1,t〉/√(1+t²), which approaches 〈1,0〉 as t approaches zero from the right. The interval matters again if the same parameterization is considered at negative times: speed retains 2|t|√(1+t²), and dropping the absolute value would give an impossible negative speed. Coordinate translations alter position vectors but leave displacement, velocity, acceleration, and path length unchanged."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-vector-distance-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner integrates each velocity component and takes the resulting vector magnitude to report total distance. Explain which quantity was actually computed and how to obtain distance.",
+        "sampleAnswer": "That procedure gives the magnitude of displacement, the straight endpoint separation 20/3. Distance requires integrating the instantaneous speed √[(2t)²+(2t²)²] over the interval, giving (2/3)(5√5−1). The curved path is longer than its endpoint segment.",
+        "checklist": [
+          "Identify the vector integral as displacement.",
+          "Take magnitude before integrating for distance.",
+          "Connect the difference to the curved path."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-vector-distance-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "At t=1, enter the squared speed |v(1)|².",
+        "acceptedAnswers": [
+          "8"
+        ],
+        "sampleAnswer": "The velocity is 〈2,2〉, so squared speed is 2²+2²=8."
+      }
+    ]
+  },
+  "Precalc: Functions Involving Parameters, Vectors, and Matrices::4.2 Vectors, components, magnitude, and dot products": {
+    "revision": 1,
+    "objectives": [
+      "Combine vectors componentwise while preserving their meaning.",
+      "Use magnitude and dot product to compare directions.",
+      "Distinguish a scalar projection from a vector projection."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "This lesson is Unit 4 enrichment and is not assessed on the AP Precalculus exam. A vector records a magnitude and direction, represented in a coordinate system by its components. The vector 〈a,b〉 describes a displacement of a units horizontally and b units vertically; it is not tied to one starting point. A position vector uses a chosen origin to identify a point, while a displacement vector compares two points. Keep that distinction explicit when translating a geometric diagram into components. Vectors can be added componentwise because successive displacements combine their horizontal and vertical changes.\n\nMultiplying a vector by a scalar changes both components by the same factor. A positive factor preserves direction, a negative factor reverses it, and its magnitude scales by the absolute value of the factor. The Euclidean magnitude is √(a²+b²), obtained from the Pythagorean theorem. A unit vector has magnitude one and gives direction alone; normalize a nonzero vector by dividing it by its magnitude. The zero vector has no unique direction and cannot be normalized by this operation.\n\nThe dot product 〈a,b〉·〈c,d〉=ac+bd is a scalar. For nonzero vectors it also equals the product of their magnitudes times the cosine of their included angle. A zero dot product therefore indicates perpendicular directions, while positive and negative values indicate acute and obtuse included angles. A scalar projection measures a signed component along a chosen unit direction. A vector projection includes that direction as well. Reversing the reference direction reverses a scalar projection's sign, so negative projection does not mean negative length. Distinguish these outputs before interpreting a calculation, and use consistent coordinate units when adding components or applying Euclidean geometry."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-vector-enrichment-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let u=〈3,4〉 and v=〈4,−3〉. Compare their directions, combine them, and project w=〈6,8〉 onto the direction of u.",
+        "steps": [
+          {
+            "prompt": "What are |u| and a unit vector in its direction?",
+            "choices": [
+              "5 and 〈3/5,4/5〉",
+              "7 and 〈3/7,4/7〉",
+              "25 and 〈3/25,4/25〉",
+              "5 and 〈4/5,3/5〉"
+            ],
+            "answer": 0,
+            "explanation": "The magnitude is √(3²+4²)=5. Dividing both original components by 5 produces a vector of magnitude one with the same direction."
+          },
+          {
+            "prompt": "What does u·v show?",
+            "choices": [
+              "The dot product is 24, so they are parallel",
+              "The dot product is 0, so they are perpendicular",
+              "The dot product is −1, so they are opposite",
+              "The dot product is 25, so they are equal"
+            ],
+            "answer": 1,
+            "explanation": "Compute 3(4)+4(−3)=12−12=0. Both vectors are nonzero, so the cosine of their included angle is zero."
+          },
+          {
+            "prompt": "What is u+v and its magnitude?",
+            "choices": [
+              "〈7,7〉 with magnitude 7√2",
+              "〈1,7〉 with magnitude √50",
+              "〈7,1〉 with magnitude √50",
+              "〈12,−12〉 with magnitude 12√2"
+            ],
+            "answer": 2,
+            "explanation": "Add corresponding components to obtain 〈7,1〉. Its magnitude is √(49+1)=√50, not the sum of the individual magnitudes."
+          },
+          {
+            "prompt": "What is the scalar projection of w onto the direction of u?",
+            "choices": [
+              "50",
+              "2",
+              "5",
+              "10"
+            ],
+            "answer": 3,
+            "explanation": "Take w·u/|u|=(6·3+8·4)/5=50/5=10. This is the signed component along u, measured in the original length units."
+          },
+          {
+            "prompt": "What is the vector projection of w onto u?",
+            "choices": [
+              "〈6,8〉",
+              "〈3/5,4/5〉",
+              "〈10,10〉",
+              "〈3,4〉"
+            ],
+            "answer": 0,
+            "explanation": "Multiply the scalar projection 10 by the unit direction 〈3/5,4/5〉 to get 〈6,8〉. Here w already lies along u."
+          }
+        ],
+        "takeaway": "Components, magnitudes, dot products, and projections describe different objects; identify whether the requested result is a scalar or a vector."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For an arbitrary vector z, its projection onto u is [(z·u)/(u·u)]u. The remainder z−proj_u z is perpendicular to u, because its dot product with u is zero. Applying this to v gives zero projection, consistent with the perpendicularity already established. Applying it to w gives coefficient 2 and projection 2u=w. The coefficient 2 is not the scalar projection 10; the former multiplies the original vector u, while the latter multiplies its unit vector. This distinction explains two common formulas that look different but describe the same vector projection. The triangle inequality gives |u+v|≤|u|+|v|; here √50<10 because the vectors do not point in the same direction. If u were replaced with −u, the vector projection onto its line would remain unchanged even though the signed scalar projection would change from 10 to −10."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-vector-enrichment-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why reversing u changes the scalar projection of w but leaves its vector projection onto the line unchanged.",
+        "sampleAnswer": "The reference unit direction reverses, so the signed scalar component becomes −10. Multiplying that scalar by the reversed unit direction reverses twice, leaving the vector 〈6,8〉 unchanged. The line itself has not changed.",
+        "checklist": [
+          "Distinguish an oriented direction from an unoriented line.",
+          "Track the scalar sign.",
+          "Multiply by the unit direction to recover the vector."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-vector-enrichment-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter u·u.",
+        "acceptedAnswers": [
+          "25"
+        ],
+        "sampleAnswer": "The dot product is 3²+4²=25, the squared magnitude of u."
+      }
+    ]
+  },
+  "Precalc: Functions Involving Parameters, Vectors, and Matrices::4.3 Matrix transformations, composition, and inverse systems": {
+    "revision": 1,
+    "objectives": [
+      "Interpret a matrix through its action on column vectors.",
+      "Track composition order.",
+      "Use determinant and inverse calculations to recover an input."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "This lesson is Unit 4 enrichment and is not assessed on the AP Precalculus exam. A two-by-two matrix defines a linear transformation of coordinate vectors when multiplication is performed with a consistent column-vector convention. For M with rows (a,b) and (c,d), the output from 〈x,y〉 is 〈ax+by,cx+dy〉. Each output coordinate combines both input components. The columns of M reveal the images of the coordinate unit vectors 〈1,0〉 and 〈0,1〉. This gives a geometric interpretation of a matrix rather than treating its entries as unrelated numbers.\n\nComposition applies one transformation after another. If A acts first and B acts second, the combined output is B(Ax)=(BA)x. The rightmost matrix therefore acts first. Matrix multiplication is generally not commutative: reversing the order can change the result even when both products exist and have the same dimensions. To check an order, follow one simple input vector through each transformation separately and compare it with the proposed combined matrix. An order mistake often becomes visible immediately.\n\nFor a two-by-two matrix, the determinant ad−bc describes signed area scaling. A nonzero determinant means the transformation is invertible: each output has exactly one input. The inverse matrix is [1/(ad−bc)] times the matrix with rows (d,−b) and (−c,a). If the determinant is zero, the transformation collapses area and does not have a two-sided inverse. A related linear system may then have no solution or infinitely many, depending on the target output. An inverse is a new transformation, not entrywise reciprocation. Keep the original equations available so that a recovered input can be checked by direct substitution."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-matrix-enrichment-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use A with rows (1,2) and (0,1), a horizontal shear, and B with rows (2,0) and (0,1), a horizontal scaling. Apply them to the column vector 〈1,1〉 and recover an input from a combined output.",
+        "steps": [
+          {
+            "prompt": "What is A〈1,1〉?",
+            "choices": [
+              "〈1,3〉",
+              "〈3,1〉",
+              "〈2,1〉",
+              "〈1,1〉"
+            ],
+            "answer": 1,
+            "explanation": "The first output is 1·1+2·1=3, and the second is 0·1+1·1=1. Each row gives one output coordinate."
+          },
+          {
+            "prompt": "What is the output after A first, then B?",
+            "choices": [
+              "〈3,2〉",
+              "〈4,1〉",
+              "〈6,1〉",
+              "〈2,3〉"
+            ],
+            "answer": 2,
+            "explanation": "Apply B to the intermediate output 〈3,1〉. The horizontal coordinate doubles to 6 while the vertical coordinate stays 1."
+          },
+          {
+            "prompt": "Which combined matrix represents that order?",
+            "choices": [
+              "AB with rows (2,2),(0,1)",
+              "A+B with rows (3,2),(0,2)",
+              "BA with rows (2,0),(0,1)",
+              "BA with rows (2,4),(0,1)"
+            ],
+            "answer": 3,
+            "explanation": "Multiplying BA gives first row (2,4) and second row (0,1). The rightmost matrix A acts first under the column-vector convention."
+          },
+          {
+            "prompt": "What is the determinant of BA, and is it invertible?",
+            "choices": [
+              "2, so it is invertible",
+              "0, so it is not invertible",
+              "4, so it is invertible",
+              "2, so it is not invertible"
+            ],
+            "answer": 0,
+            "explanation": "The determinant is 2·1−4·0=2, which is nonzero. The combined transformation therefore has one inverse input for every output."
+          },
+          {
+            "prompt": "Which input produces output 〈10,2〉 under BA?",
+            "choices": [
+              "〈5,2〉",
+              "〈1,2〉",
+              "〈2,1〉",
+              "〈10,2〉"
+            ],
+            "answer": 1,
+            "explanation": "The equations are 2x+4y=10 and y=2. Substituting y=2 gives 2x=2, so x=1. Direct multiplication verifies the result."
+          }
+        ],
+        "takeaway": "Follow transformation order through intermediate vectors, then use a nonzero determinant and inverse equations to recover inputs."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Reversing the order gives AB with rows (2,2) and (0,1). On 〈1,1〉 it produces 〈4,1〉, different from 〈6,1〉. Both products have determinant 2 and thus the same signed area scaling, but equal determinants do not make transformations identical. The inverse of BA has rows (1/2,−2) and (0,1). Applying it to 〈10,2〉 gives 〈5−4,2〉=〈1,2〉. It can also be expressed as A⁻¹B⁻¹, reversing the composition order as well as undoing each factor. For contrast, the matrix with rows (1,2) and (2,4) has determinant zero: its second output is always twice its first. Target 〈3,6〉 has infinitely many input solutions, while target 〈3,7〉 has none. This concrete image restriction explains why zero determinant prevents a unique inverse rather than merely causing a denominator problem in a formula."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-matrix-enrichment-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner argues that AB=BA because both determinants equal 2. Refute the claim with a vector and explain what the determinant does establish.",
+        "sampleAnswer": "On input 〈1,1〉, BA gives 〈6,1〉 while AB gives 〈4,1〉, so the transformations differ. Their common nonzero determinant establishes equal signed area scaling and invertibility, not equality of all outputs.",
+        "checklist": [
+          "Use a specific common input.",
+          "Compute the two different outputs.",
+          "State the determinant conclusion precisely."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-matrix-enrichment-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the x coordinate of the input sent to 〈10,2〉 by BA.",
+        "acceptedAnswers": [
+          "1"
+        ],
+        "sampleAnswer": "The second coordinate equation gives y=2; then 2x+8=10 gives x=1."
+      }
+    ]
+  },
+  "Stats: Exploring One-Variable Data and Collecting Data::1.1 Describing distributions, resistant summaries, and comparing groups": {
+    "revision": 1,
+    "objectives": [
+      "Describe a distribution with shape, unusual features, center, and spread.",
+      "Calculate quartiles and compare resistant with nonresistant summaries.",
+      "Explain why a single summary cannot describe a whole distribution."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A quantitative distribution records which numerical values occur and how frequently they occur. A useful description addresses shape, unusual features, center, and spread in context and with units. Shape includes symmetry, skewness, clusters, gaps, and possible multiple modes. Skewness names the direction of a longer tail, not the side containing most observations. A graph is needed to see features that a mean and standard deviation cannot encode. Two distributions may have the same center and spread yet differ substantially in shape, so numerical summaries should support rather than replace a visual and contextual description.\n\nThe mean is the arithmetic balance point, while the median divides the ordered observations into two halves. The mean uses every magnitude and is sensitive to extreme observations. The median is resistant: moving a distant extreme value farther away may leave it unchanged. Resistance does not mean a statistic can never change; adding or removing enough observations can alter any summary. Quartiles locate the centers of the lower and upper halves, and the interquartile range IQR=Q3−Q1 describes the middle half's spread. State the quartile convention when a small data set makes alternative conventions possible.\n\nA common potential-outlier rule uses fences Q1−1.5IQR and Q3+1.5IQR. A value outside a fence is flagged for examination, not automatically deleted or declared erroneous. The sample standard deviation measures deviations from the mean using a denominator n−1 and is not resistant to extreme values. For skewed data or data with strong outliers, the median and IQR often provide a more stable summary of typical observations. In comparisons, describe both groups directly rather than saying only that they are different, and distinguish an observed difference from a causal or population-level inference."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-distribution-resistance-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Consider the constructed data 2, 3, 4, 5, 6, 7, 8, 25 minutes. Use medians of the lower and upper four values for quartiles. Then replace 25 with 100.",
+        "steps": [
+          {
+            "prompt": "What are the original mean and median?",
+            "choices": [
+              "7.5 and 5.5",
+              "5.5 and 7.5",
+              "7.5 and 6",
+              "6 and 5.5"
+            ],
+            "answer": 0,
+            "explanation": "The sum is 60, so the mean is 60/8=7.5. The middle ordered values are 5 and 6, giving median 5.5."
+          },
+          {
+            "prompt": "What are Q1, Q3, and IQR under the stated convention?",
+            "choices": [
+              "3,8,5",
+              "3.5,7.5,4",
+              "4,7,3",
+              "3.5,8,4.5"
+            ],
+            "answer": 1,
+            "explanation": "The lower half is 2,3,4,5 with median 3.5. The upper half is 6,7,8,25 with median 7.5, giving IQR 4."
+          },
+          {
+            "prompt": "Which upper fence and flag follow?",
+            "choices": [
+              "11.5, flag 8 and 25",
+              "15, flag 25",
+              "13.5, flag 25",
+              "31, no flag"
+            ],
+            "answer": 2,
+            "explanation": "The upper fence is Q3+1.5IQR=7.5+6=13.5. Only 25 exceeds it; the flag calls for investigation rather than automatic removal."
+          },
+          {
+            "prompt": "What happens to the mean and median after replacing 25 by 100?",
+            "choices": [
+              "Both increase by 75",
+              "The mean stays fixed and median rises",
+              "Both stay fixed",
+              "The mean becomes 16.875 while median stays 5.5"
+            ],
+            "answer": 3,
+            "explanation": "The total increases by 75 to 135, so the new mean is 135/8=16.875. The two middle ordered values remain 5 and 6."
+          },
+          {
+            "prompt": "Which description is supported by the original values?",
+            "choices": [
+              "A long right tail, with median and IQR useful for typical values",
+              "A symmetric distribution centered at 25",
+              "A long left tail because most values are small",
+              "No spread because the middle values are close"
+            ],
+            "answer": 0,
+            "explanation": "The isolated high value extends the right tail. The resistant median and IQR describe the central observations without being pulled upward by that extreme value."
+          }
+        ],
+        "takeaway": "Describe the distribution before choosing summaries, and treat outlier flags as prompts for investigation rather than deletion rules."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Changing measurement units applies a linear transformation to the summaries. If a new variable is 2X+10, its mean and median become twice their original values plus 10; its IQR and standard deviation double but do not gain 10. Location changes shift all observations equally, leaving their separations unchanged. The potential-outlier classification under the corresponding transformed fences is unchanged by this positive rescaling. Negative scaling reverses the ordering, so quartiles switch roles while spread still scales by the absolute factor. For the data here, raising the largest value leaves both quartiles unchanged under the stated convention, but that does not imply every conceivable data edit leaves the IQR fixed. Graphs also matter: a boxplot summarizes quartiles and possible outliers but can hide gaps or multiple clusters that a dotplot would reveal."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-distribution-resistance-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner deletes 25 because it lies above the upper fence and then reports the remaining mean as the full data set’s mean. Explain the reporting problem.",
+        "sampleAnswer": "The fence flags a value for investigation; it does not establish an error. Deleting a valid observation changes the data and the question being answered. Report the full-data summaries and any justified exclusion transparently, with its reason and effect.",
+        "checklist": [
+          "Distinguish a flag from a confirmed error.",
+          "Explain that removal changes the data set.",
+          "Require a transparent justification and comparison."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-distribution-resistance-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the original IQR using the stated quartile convention.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "The quartiles are 3.5 and 7.5, so IQR=7.5−3.5=4."
+      }
+    ]
+  },
+  "Stats: Exploring One-Variable Data and Collecting Data::1.3 Randomized experiments, blocking, and ethical data collection": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish random sampling from random assignment.",
+      "Construct a randomized block experiment around a relevant source of variation.",
+      "Interpret causal scope and ethical constraints carefully."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An experiment assigns treatments to experimental units and compares responses. The experimental unit is the smallest entity that can independently receive a treatment; repeated measurements on the same unit do not automatically become additional independent units. Random assignment uses chance to allocate treatments and supports causal comparisons by balancing other influences in expectation. It does not guarantee perfectly identical groups in one experiment. Random sampling selects units from a population and supports generalization to that population. A study may use one, both, or neither, so causal scope and generalization require separate design arguments.\n\nA completely randomized design allocates treatments across all eligible units. A randomized block design first groups units by a pre-treatment characteristic plausibly related to the response, then randomizes treatments separately within each block. Blocking aims to reduce unexplained variation and compare treatments among more similar units. A block is not a treatment; researchers should not put every unit in one block on the same treatment, because that confounds treatment with block. Matched pairs are a special blocking structure, using closely matched units or two measurements on each unit when the timing and design permit.\n\nControl comparison, replication across units, and random assignment serve different purposes. Blinding can reduce expectation-driven differences in treatment delivery or response assessment; a placebo can help separate an active treatment from participation effects when ethical and practical. Ethical design also requires appropriate informed consent, protections against avoidable harm, and responsible treatment of participant information. Statistical convenience does not justify withholding necessary care or misleading participants without appropriate oversight. Finally, nonadherence, attrition, interference between units, and measurement differences can weaken an experiment's interpretation even after a correct random assignment. Record these features rather than assuming the word randomized resolves every limitation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-blocked-experiment-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A constructed tutoring experiment has 24 volunteers: 12 with lower and 12 with higher baseline preparation. Compare method A with method B by assigning six volunteers to each method within each preparation block. Use a common independently scored assessment afterward.",
+        "steps": [
+          {
+            "prompt": "What are the experimental units?",
+            "choices": [
+              "The two preparation blocks",
+              "The 24 individual volunteers",
+              "The assessment questions",
+              "The two tutoring methods"
+            ],
+            "answer": 1,
+            "explanation": "Each volunteer can independently receive one tutoring method, so the volunteer is the unit. Blocks organize randomization but do not replace the units."
+          },
+          {
+            "prompt": "Which allocation implements the block design?",
+            "choices": [
+              "Assign all lower-preparation students to A",
+              "Let each volunteer choose a method",
+              "Randomly assign six to A and six to B within each preparation group",
+              "Use A first for everyone, then B for everyone"
+            ],
+            "answer": 2,
+            "explanation": "Randomization occurs separately within both baseline blocks. This keeps each method represented in both preparation levels and avoids confounding treatment with preparation."
+          },
+          {
+            "prompt": "Why block by baseline preparation?",
+            "choices": [
+              "To eliminate the need for replication",
+              "To make the experiment observational",
+              "To guarantee identical final scores",
+              "To account for a pre-treatment factor related to the response"
+            ],
+            "answer": 3,
+            "explanation": "Preparation is plausibly related to later performance. Comparing methods within similar preparation groups can reduce unexplained variability without treating preparation itself as randomized."
+          },
+          {
+            "prompt": "What scope is best supported by this design?",
+            "choices": [
+              "A causal comparison for these volunteers under the experiment, with limited population generalization",
+              "A representative estimate for all students automatically",
+              "Only association because volunteers were used",
+              "Proof the better method works for every participant"
+            ],
+            "answer": 0,
+            "explanation": "Random assignment supports causal comparison despite volunteer recruitment. Volunteer selection limits generalization beyond the participating group unless additional justification is available."
+          },
+          {
+            "prompt": "Which measure best reduces scoring expectation bias?",
+            "choices": [
+              "Ask students which method they liked",
+              "Keep the scorer unaware of each student’s assigned method",
+              "Give harder assessments to one group",
+              "Remove all low scores before comparing"
+            ],
+            "answer": 1,
+            "explanation": "A scorer blinded to treatment assignment is less able to let expectations affect scoring. The same assessment and rubric also support a fair response measurement."
+          }
+        ],
+        "takeaway": "Randomize treatments within relevant blocks, distinguish causal inference from generalization, and preserve ethical and measurement safeguards."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "If the baseline groups have very different average scores, pooling their raw outcomes without respecting treatment balance can create a misleading comparison. Equal treatment counts within each block help, and analysis should still account for the block structure. Blocking is chosen before treatment using existing information; grouping afterward by a response affected by treatment can introduce bias rather than remove it. Attrition also matters: if many participants assigned to one method leave because it is burdensome, comparing only those who finish can destroy the original comparability. Report how participants were assigned, what they actually received, and how missing outcomes were handled. An intention-to-treat comparison preserves assignment groups but does not magically recover unmeasured outcomes. These issues show why a strong experiment is a chain of design and measurement decisions, not merely a final randomized label."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-blocked-experiment-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says volunteer recruitment makes causal inference impossible, while another says random assignment makes the sample representative. Correct both claims.",
+        "sampleAnswer": "Volunteers can still be randomly assigned, supporting a causal comparison within the experiment. Their selection was not a random sample from all students, so assignment does not make them representative. Causal inference and population generalization come from different design features.",
+        "checklist": [
+          "Identify what assignment controls.",
+          "Identify what sampling controls.",
+          "State a limited but meaningful scope."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-blocked-experiment-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the total number assigned to method A across both blocks.",
+        "acceptedAnswers": [
+          "12"
+        ],
+        "sampleAnswer": "Each of the two blocks assigns six to A, for 6+6=12 volunteers."
+      }
+    ]
+  },
+  "Stats: Inference for Categorical Data: Proportions::3.4 Two-way tables and chi-square tests for homogeneity and independence": {
+    "revision": 1,
+    "objectives": [
+      "Choose independence or homogeneity from the sampling design.",
+      "Calculate expected counts and chi-square contributions.",
+      "Interpret an omnibus result without assigning direction to the statistic."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A two-way table cross-classifies counts by two categorical variables. A chi-square test of independence asks whether those variables are associated in one population sampled once. A chi-square test of homogeneity compares a categorical distribution across separately sampled populations or randomly assigned treatment groups. These tests use the same expected-count calculation and test statistic for an equivalent table, but their designs and contextual hypotheses differ. Use counts of independent observations, not percentages entered as if they were counts. Each observation should contribute to exactly one cell.\n\nUnder the null model of independence or a common distribution, the expected count in a cell is its row total times its column total divided by the grand total. Expected counts are model predictions, not quantities obtained by rounding the observed cells. They retain the table's row and column totals. The statistic χ² sums (observed−expected)²/expected across all cells. Every contribution is nonnegative, so larger values indicate greater discrepancy from the null model. The statistic has no positive-versus-negative direction and does not identify which category is higher by itself.\n\nFor a table with r rows and c columns, degrees of freedom are (r−1)(c−1). Check the relevant random sampling or assignment structure, independence, finite-population sampling conditions when needed, and that all expected counts are at least five for the usual AP approximation. The p-value is an upper-tail probability from the chi-square model. A significant result is an omnibus conclusion: some association or distributional difference is supported, but follow-up cell comparisons require care. It does not establish causality without an appropriate experimental design, and small expected counts are not fixed by combining categories after looking for a desired result."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-chi-square-tables-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A constructed random sample of 100 people gives this table: group A has 30 yes and 20 no; group B has 20 yes and 30 no. Treat group and response as two recorded categorical variables in one population.",
+        "steps": [
+          {
+            "prompt": "Which test matches this one-sample design?",
+            "choices": [
+              "A one-proportion z interval",
+              "A paired t test",
+              "A chi-square test of independence",
+              "A test of regression slope"
+            ],
+            "answer": 2,
+            "explanation": "One random sample records two categorical variables for each person. Independence asks whether group and yes/no response are associated in that population."
+          },
+          {
+            "prompt": "What is the expected count for A-yes?",
+            "choices": [
+              "30",
+              "20",
+              "50",
+              "25"
+            ],
+            "answer": 3,
+            "explanation": "The A row total is 50, the yes column total is 50, and the grand total is 100. Their product divided by the total is 25."
+          },
+          {
+            "prompt": "What is χ² for the whole table?",
+            "choices": [
+              "4",
+              "1",
+              "10",
+              "0"
+            ],
+            "answer": 0,
+            "explanation": "All four expected counts are 25, and each observed count differs by 5. Each contribution is 25/25=1, so the sum is 4."
+          },
+          {
+            "prompt": "What are the degrees of freedom?",
+            "choices": [
+              "2",
+              "1",
+              "3",
+              "4"
+            ],
+            "answer": 1,
+            "explanation": "The table has two rows and two columns. The formula (r−1)(c−1) gives (2−1)(2−1)=1 degree of freedom."
+          },
+          {
+            "prompt": "What conclusion follows from upper-tail p≈0.0455 at α=0.05?",
+            "choices": [
+              "The variables are proven independent",
+              "Group membership causes the response",
+              "There is evidence of association, without a causal conclusion from this sample",
+              "Every category differs by the same population amount"
+            ],
+            "answer": 2,
+            "explanation": "The p-value is below the selected level, so reject independence. The observational sampling design supports association rather than a claim that group membership causes the response."
+          }
+        ],
+        "takeaway": "Expected counts encode the null table; chi-square sums nondirectional discrepancies, and the design determines the scope of the conclusion."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For this two-by-two table, the chi-square statistic equals the square of the pooled two-proportion z statistic, which is 2 in magnitude. The upper-tail χ²₁ p-value therefore matches the two-sided standard-normal tail beyond |z|=2, approximately 0.0455. This connection is specific to the corresponding uncorrected two-by-two procedures and does not give a direction to χ². The observed response rates, 0.60 in group A and 0.40 in group B, provide direction descriptively. If the same counts instead came from independent samples of 50 members of each population, the test would be described as homogeneity and its hypotheses would compare population response distributions. Identical arithmetic does not make the sampling designs identical. A table of paired before-and-after responses would violate the independent-observation structure if treated as two unrelated samples; its pairing requires an appropriate matched analysis."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-chi-square-tables-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner reports χ²=4 as evidence that the true response difference equals four percentage points. Explain what the statistic actually measures and how to report direction.",
+        "sampleAnswer": "The statistic sums squared discrepancies scaled by expected counts; it is not a proportion difference. The observed response proportions are 0.60 and 0.40, a descriptive difference of 0.20. Direction comes from those proportions, while χ² measures overall departure from the null table.",
+        "checklist": [
+          "Identify the statistic’s count-based construction.",
+          "Keep it distinct from a proportion difference.",
+          "Use observed rates for descriptive direction."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-chi-square-tables-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the expected A-yes count under independence.",
+        "acceptedAnswers": [
+          "25"
+        ],
+        "sampleAnswer": "Expected count is (50·50)/100=25."
+      }
+    ]
+  },
+  "Stats: Regression Analysis::5.1 Scatterplots, correlation, and least-squares predictions": {
+    "revision": 1,
+    "objectives": [
+      "Interpret a least-squares slope with units.",
+      "Distinguish an observed response, fitted response, and residual.",
+      "Use correlation and centering relationships without a causal claim."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A scatterplot displays paired quantitative observations, with an explanatory variable on the horizontal axis and a response variable on the vertical axis. Describe direction, form, strength, and unusual points before fitting a line. A curved pattern can have a weak linear correlation despite a strong relationship. Correlation r measures standardized linear association, is unitless, and lies between −1 and 1. It is unchanged by positive changes of units but reverses sign if exactly one variable is multiplied by a negative constant. Correlation treats the variables symmetrically, whereas a regression line distinguishes prediction of y from prediction of x.\n\nA least-squares line has form y-hat=a+bx. The slope b gives the predicted response change for a one-unit increase in the explanatory variable, with response-units per explanatory-unit. The intercept is the predicted response at x=0, but that interpretation may be outside the observed data range or have no meaningful physical setting. A fitted line passes through (x-bar,y-bar), and its slope is r(s_y/s_x) when the sample standard deviations are positive. These relationships provide useful checks on a computed model without making it an exact description of every observation.\n\nA residual is observed y minus predicted y. A positive residual places an observation above the fitted line; a negative residual places it below. Least squares minimizes the sum of squared vertical residuals, not horizontal distances or perpendicular distances to the line. Residual patterns help judge whether a straight line is a useful description. Prediction within the observed range is interpolation; extending beyond it is extrapolation and requires additional justification. A fitted relationship alone does not show that changing x would cause the predicted change in y, because other variables or the data collection process may explain the association."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-regression-prediction-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use the constructed paired data (1,2), (2,3), (3,5), (4,4). Treat x as study-session count and y as a score on a short assessment. Fit and interpret the least-squares line.",
+        "steps": [
+          {
+            "prompt": "What are x-bar and y-bar?",
+            "choices": [
+              "2.5 and 3.5",
+              "3.5 and 2.5",
+              "2 and 3",
+              "3 and 4"
+            ],
+            "answer": 0,
+            "explanation": "The x values sum to 10 and the y values to 14. Dividing each by four gives means 2.5 and 3.5."
+          },
+          {
+            "prompt": "Given Sxx=5 and Sxy=4, what is the slope?",
+            "choices": [
+              "5/4",
+              "4/5",
+              "4",
+              "5"
+            ],
+            "answer": 1,
+            "explanation": "The least-squares slope is Sxy/Sxx=4/5=0.8. Its units are assessment-score units per additional study session."
+          },
+          {
+            "prompt": "What is the fitted line?",
+            "choices": [
+              "y-hat=0.8+1.5x",
+              "y-hat=3.5+0.8x",
+              "y-hat=1.5+0.8x",
+              "y-hat=2.5+0.8x"
+            ],
+            "answer": 2,
+            "explanation": "The intercept is y-bar−b x-bar=3.5−0.8(2.5)=1.5. This ensures the fitted line passes through the means."
+          },
+          {
+            "prompt": "What is the residual for the observation (3,5)?",
+            "choices": [
+              "3.9",
+              "−1.1",
+              "0.8",
+              "1.1"
+            ],
+            "answer": 3,
+            "explanation": "The fitted response at x=3 is 1.5+0.8(3)=3.9. Observed minus fitted is 5−3.9=1.1, so the point lies above the line."
+          },
+          {
+            "prompt": "With Syy=5, what is the correlation?",
+            "choices": [
+              "0.8",
+              "0.64",
+              "−0.8",
+              "1"
+            ],
+            "answer": 0,
+            "explanation": "Correlation is Sxy/√(Sxx Syy)=4/√25=0.8. The positive sign agrees with the positive fitted slope."
+          }
+        ],
+        "takeaway": "A regression prediction is a model output, a residual compares it with an observation, and neither alone establishes a causal effect."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The fitted values at x=1,2,3,4 are 2.3,3.1,3.9,4.7, so the residuals are −0.3,−0.1,1.1,−0.7. Their sum is zero, as it must for a least-squares fit with an intercept. The squared-residual sum is 1.8. The line predicts 9.5 at x=10, but that input lies far outside the observed range 1 through 4; the arithmetic is valid while the prediction’s substantive reliability is unsupported. Regressing x on y would produce a different prediction equation, not the algebraic inverse of y-hat=1.5+0.8x, because the criterion minimizes residuals in a different coordinate direction. A point with an extreme x can have high leverage even if its own residual is small. Its influence on the fitted line should be assessed by comparing fits rather than by looking only for a large vertical residual."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-regression-prediction-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says that one extra study session causes a score increase of exactly 0.8 for every student. Rewrite the interpretation with the model’s proper limits.",
+        "sampleAnswer": "Within the setting and range of these data, the line predicts an average response increase of 0.8 score units per additional session. Individual observations vary around the line, and these paired data alone do not establish a causal effect.",
+        "checklist": [
+          "Use predicted average change and units.",
+          "Allow individual variation.",
+          "Avoid a causal conclusion without a suitable design."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-regression-prediction-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the fitted score at x=3.",
+        "acceptedAnswers": [
+          "3.9",
+          "39/10"
+        ],
+        "sampleAnswer": "The prediction is 1.5+0.8(3)=3.9."
+      }
+    ]
+  },
+  "Stats: Regression Analysis::5.3 Explained variation, residual standard deviation, and responsible prediction": {
+    "revision": 1,
+    "objectives": [
+      "Connect total, residual, and explained sums of squares.",
+      "Interpret r² and residual standard deviation in the response units.",
+      "Evaluate residual patterns and prediction scope."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A regression model describes some of the observed variation in a quantitative response, while residuals record what the fitted model does not capture. The total sum of squares SST adds (y−y-bar)² over observations. The residual sum of squares SSE adds (y−y-hat)². For ordinary least squares with an intercept, these decompose into total variation equal to fitted or explained variation plus residual variation. This decomposition is a property of that fitted model, not a guarantee that the explanatory variable is the physical cause of the response.\n\nThe coefficient of determination r² is 1−SSE/SST when SST is positive. In simple linear regression with an intercept it equals the square of the correlation. Interpret it as the proportion of the observed response variation about its mean accounted for by the fitted linear relationship with the explanatory variable. It is not the proportion of predictions that are correct, the fraction of individuals caused by x, or the size of the slope. Squaring removes the correlation's sign, so a negative association can have a large r². A high value does not rule out curvature, outliers, confounding, or poor predictions outside the observed range.\n\nResidual standard deviation s=√[SSE/(n−2)] measures typical vertical residual size in response units. The denominator reflects the two fitted coefficients, intercept and slope. It differs from r², which is unitless, and from the response sample standard deviation, which measures variation around y-bar. Inspect a residual plot for systematic curvature, changing spread, clusters, and unusual observations before trusting a linear summary. Random-looking residuals support the model’s descriptive use but do not prove every assumption or establish causality. Pair numerical diagnostics with the collection design and a clear prediction range."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-explained-variation-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use a constructed least-squares fit with an intercept, n=6 observations, SST=50, and SSE=18. The fitted slope is negative. Interpret r², correlation, and residual standard deviation; then assess a curved residual pattern.",
+        "steps": [
+          {
+            "prompt": "How much variation is accounted for by the fitted model?",
+            "choices": [
+              "18",
+              "50",
+              "32",
+              "68"
+            ],
+            "answer": 2,
+            "explanation": "The decomposition gives explained sum of squares SST−SSE=50−18=32. It is measured in squared response units, like both input sums."
+          },
+          {
+            "prompt": "What is r²?",
+            "choices": [
+              "0.36",
+              "0.8",
+              "0.32",
+              "0.64"
+            ],
+            "answer": 3,
+            "explanation": "Compute 1−18/50=0.64. The model accounts for 64% of the observed response variation around its sample mean."
+          },
+          {
+            "prompt": "What is r given the negative slope?",
+            "choices": [
+              "−0.8",
+              "0.8",
+              "−0.64",
+              "0.64"
+            ],
+            "answer": 0,
+            "explanation": "The correlation magnitude is √0.64=0.8. In simple linear regression its sign matches the slope, so the correlation is −0.8."
+          },
+          {
+            "prompt": "What is the residual standard deviation?",
+            "choices": [
+              "√3",
+              "√4.5",
+              "18/6",
+              "4.5"
+            ],
+            "answer": 1,
+            "explanation": "Use n−2=4 residual degrees of freedom. The estimated residual variance is 18/4=4.5, and its square root gives the response-unit standard deviation."
+          },
+          {
+            "prompt": "What if the residual plot has a clear U-shaped pattern?",
+            "choices": [
+              "Ignore it because r² exceeds one-half",
+              "Conclude every prediction is wrong",
+              "Reconsider the straight-line form despite r²=0.64",
+              "Conclude the slope must be positive"
+            ],
+            "answer": 2,
+            "explanation": "A systematic curve indicates structure the line has not captured. A moderately large r² cannot erase evidence that the functional form is inadequate."
+          }
+        ],
+        "takeaway": "Explained variation is a descriptive decomposition, while residual scale and residual patterns reveal different limits of a fitted line."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "If response measurements are multiplied by 10, SST and SSE each multiply by 100. Their ratio and r² remain unchanged, while residual standard deviation multiplies by 10. Adding a constant to every response shifts the fitted intercept and mean but leaves residuals, both sums of squares, and r² unchanged. These transformations show why r² cannot describe an absolute prediction error in physical units. Also, a model can have a high r² in a data set spanning a very wide response range and still have prediction errors too large for a particular decision. Conversely, a small r² may accompany a small residual standard deviation when the response itself varies little. Neither number alone establishes usefulness. Regression-slope inference is not an assessed topic in the Fall 2026 AP Statistics framework; the focus here is model interpretation and diagnostics, not an unsupported significance test from summary statistics."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-explained-variation-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says r²=0.64 means 64% of individual predictions are exactly right. Replace that claim and explain what s adds.",
+        "sampleAnswer": "The value means the fitted line accounts for 64% of the observed response variation around the response mean. It does not count exact predictions. The residual standard deviation √4.5≈2.12 reports a typical vertical residual size in response units, adding an absolute error scale.",
+        "checklist": [
+          "Interpret variation rather than a success percentage.",
+          "Keep r² unitless.",
+          "Give residual spread in response units."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-explained-variation-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the residual variance estimate SSE/(n−2).",
+        "acceptedAnswers": [
+          "4.5",
+          "9/2"
+        ],
+        "sampleAnswer": "With n=6, the denominator is 4, so the estimate is 18/4=4.5."
+      }
+    ]
+  }
+}

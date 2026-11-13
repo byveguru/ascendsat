@@ -1,0 +1,1550 @@
+{
+  "APUSH: 1800–1848::4.2 Democracy, Federal Power, and Removal": {
+    "revision": 1,
+    "objectives": [
+      "Connect territorial expansion, foreign conflict and economic policy to different uses of federal authority.",
+      "Distinguish the Louisiana Purchase, War of 1812, Monroe Doctrine and American System by purpose and mechanism.",
+      "Compare stated principles with particular actions instead of assuming a party followed one position in every situation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "From early-republic visions to Jacksonian choices"
+      },
+      {
+        "type": "text",
+        "text": "Before evaluating Jacksonian government, place it after the early republic’s disputes about national power. Jeffersonian Republicans often favored an agrarian republic and a narrower reading of federal authority than the Federalists. Yet officials had to respond to opportunities and threats not fully anticipated in their earlier arguments. A principle is a stated standard; a policy is a particular choice. A historical comparison should identify both before deciding whether an action changed, contradicted or adapted the principle."
+      },
+      {
+        "type": "text",
+        "text": "The Louisiana Purchase in 1803 greatly enlarged the territory claimed by the United States. Jefferson faced a constitutional tension because a specific power to acquire such an extensive territory was not expressly stated. His administration accepted the opportunity through treaty-making. The purchase did not transfer legitimate consent from all Indigenous peoples living there, nor did it settle every boundary or the future status of slavery. Territorial acquisition should therefore be analyzed as a change in federal claims and geopolitical possibilities, not as empty land becoming available without other sovereign peoples."
+      },
+      {
+        "type": "text",
+        "text": "The War of 1812 grew from disputes including British interference with American maritime activity, impressment and conflict on the frontier. Different regions and political groups disagreed about the war. Its aftermath encouraged nationalist sentiment and weakened the Federalist Party, but neither result erased sectional interests. The Monroe Doctrine of 1823 later opposed new European colonization and interference in the Americas while distinguishing existing colonies. It announced a diplomatic position; it did not prove the United States could enforce that position everywhere by itself."
+      },
+      {
+        "type": "text",
+        "text": "Henry Clay’s American System linked a protective tariff, a national bank and internal improvements such as roads and canals. Explain the proposed mechanism: protection could support domestic producers, a bank could stabilize finance, and transport could connect markets. Costs and benefits differed across regions and groups, and opponents disputed constitutional authority or the distribution of advantages. These debates help explain later conflict over tariffs and the bank. They do not support a simple rule that every supporter favored unlimited government or every opponent rejected every national institution."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-early-republic-policy-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original historical summaries, not quotations. A: Jefferson’s administration completes the Louisiana Purchase through a treaty in 1803 despite questions about expressly listed acquisition powers. B: proponents of the American System support a protective tariff, a national bank and internal improvements. C: the Monroe Doctrine announces opposition to new European colonization in the Americas in 1823. These summaries concern different instruments of national policy.",
+        "steps": [
+          {
+            "prompt": "Which constitutional tension is most directly illustrated by A?",
+            "choices": [
+              "How a leader favoring a narrower reading of federal authority could accept a major action not expressly described in the text",
+              "Whether the House can choose Supreme Court justices without the president",
+              "Whether every territory had already become a state",
+              "Whether the Civil War had ended"
+            ],
+            "answer": 0,
+            "explanation": "The purchase connects an earlier view of limited federal power with a specific opportunity exercised through treaty-making. It does not mean every later policy had the same constitutional issue.",
+            "hint": "Compare the leader’s general principle with the particular instrument used."
+          },
+          {
+            "prompt": "What mechanism connects internal improvements to the goals of the American System?",
+            "choices": [
+              "Roads and canals automatically abolish sectional differences.",
+              "Improved transport can connect producers and markets, reducing some costs of exchange.",
+              "A tariff gives every resident the same income.",
+              "A national bank directly elects governors."
+            ],
+            "answer": 1,
+            "explanation": "Transport can change the cost and reach of economic activity. A sound explanation states that mechanism without promising equal outcomes for every group.",
+            "hint": "Explain what a road or canal changes about moving goods."
+          },
+          {
+            "prompt": "Which claim goes beyond Source C?",
+            "choices": [
+              "The doctrine expressed a position about European activity.",
+              "The policy concerned relationships in the Americas.",
+              "The announcement proved that the United States could enforce its position alone in every country.",
+              "The doctrine was announced after the War of 1812."
+            ],
+            "answer": 2,
+            "explanation": "A declaration of policy is evidence of an announced position, not proof of uniform enforcement capacity. The supplied chronology also places 1823 after the war.",
+            "hint": "Separate a policy statement from evidence of implementation."
+          },
+          {
+            "prompt": "Which comparison best connects these developments to the later Bank War?",
+            "choices": [
+              "All national policies had identical supporters.",
+              "Foreign policy and economic institutions were unrelated to national power.",
+              "Every president rejected every national bank.",
+              "Different policies repeatedly raised questions about the purposes, authority and distributional effects of national action."
+            ],
+            "answer": 3,
+            "explanation": "The common analytical thread is national authority and its consequences. Specific coalitions, mechanisms and outcomes still need to be distinguished.",
+            "hint": "Find a shared question without treating different policies as identical."
+          }
+        ],
+        "takeaway": "An argument can compare Jefferson’s purchase with Jackson’s removal policy as exercises of national power affecting Indigenous sovereignty, while distinguishing treaty acquisition claims from forced relocation policy. Another defensible comparison can connect the American System’s bank to Jackson’s bank veto through competing economic priorities and constitutional arguments. The comparison must specify a mechanism and avoid treating territorial expansion as a benefit shared equally by everyone."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-early-republic-policy-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare one early-republic policy with Jackson’s bank veto or removal policy. Explain one continuity in debate about national power and one meaningful difference in instrument or affected population.",
+        "sampleAnswer": "An argument can compare Jefferson’s purchase with Jackson’s removal policy as exercises of national power affecting Indigenous sovereignty, while distinguishing treaty acquisition claims from forced relocation policy. Another defensible comparison can connect the American System’s bank to Jackson’s bank veto through competing economic priorities and constitutional arguments. The comparison must specify a mechanism and avoid treating territorial expansion as a benefit shared equally by everyone.",
+        "checklist": [
+          "Name the policies and keep their chronology accurate.",
+          "Explain a continuity in a question or mechanism, not just a repeated word.",
+          "Identify a relevant difference and an affected group."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-early-republic-policy-recall",
+        "prompt": "Why is an announced foreign-policy doctrine not the same kind of evidence as successful enforcement of that doctrine?",
+        "sampleAnswer": "An announcement establishes what officials declared or claimed. Enforcement requires evidence about actions, resources and responses in particular settings. A government can express a position without having the power to impose it uniformly.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1865–1898::6.1 Industrial Capitalism and Labor Conflict": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish vertical integration, horizontal integration and labor organization by mechanism.",
+      "Explain how corporate scale, public policy and workers’ strategies interacted.",
+      "Compare actors’ claims without assuming that a source’s stated benefit establishes every outcome."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "How industrial organization changes power"
+      },
+      {
+        "type": "text",
+        "text": "Industrial capitalism joined technological change to new ways of financing, owning and managing production. A machine could raise output, but factories also needed workers, materials, transport and customers. Corporations could raise capital from many investors and coordinate operations across large distances. Public decisions about land, patents, tariffs, contracts and enforcement shaped these possibilities. An explanation that treats industrial growth as either entirely private achievement or entirely government action leaves out their interaction."
+      },
+      {
+        "type": "text",
+        "text": "Vertical integration places successive stages of production or distribution under related control. A steel producer might control ore sources, transport and mills. The proposed advantage is coordination and control over input costs or supply. Horizontal integration combines firms operating at a similar stage, such as rival refineries. That can increase market share and reduce competition. Neither label alone proves a particular company’s efficiency or the final price paid by consumers; those outcomes require evidence. Distinguish the organizational mechanism from a promoter’s justification."
+      },
+      {
+        "type": "text",
+        "text": "Workers could respond through union organization, strikes, political demands and everyday negotiation, but conditions and opportunities varied. A craft union organized around particular skills; broader industrial organizing sought to include workers across different jobs. Employers could use replacement labor, court injunctions, private security or public authorities. The role of the state was therefore part of labor conflict, not merely an external observer. Do not assume every strike pursued the same goal or that a loss in one conflict made collective organization disappear."
+      },
+      {
+        "type": "text",
+        "text": "When reading a source, identify the actor’s interest and what the source can show. A manager’s advertisement can reveal the company’s argument for consolidation. A worker’s account can reveal an experience or demand. Neither is automatically a census of all factories or a complete explanation of an entire industry. Compare claims with evidence about wages, hours, prices, safety, ownership and public responses. To evaluate a change in power, specify whose choices expanded or narrowed and through which institution or resource."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-capital-labor-mechanisms-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original hypothetical company and worker accounts, not historical quotations. Source A: a steel company announces that owning mines, rail transport and mills will make supplies more reliable. Source B: a refinery purchases several competing refineries. Source C: workers seek a shorter workday and organize a strike after management refuses negotiation. These model situations illustrate mechanisms found in industrial-era conflicts; the companies and wording are invented.",
+        "steps": [
+          {
+            "prompt": "Which organizational mechanism best describes A?",
+            "choices": [
+              "Horizontal integration because every firm sells the same final product",
+              "Vertical integration across stages of supply and production",
+              "A craft union controlling only one job",
+              "A constitutional amendment"
+            ],
+            "answer": 1,
+            "explanation": "Mines, transport and mills occupy different stages. Coordinating those stages is the defining feature of vertical integration in this example.",
+            "hint": "Ask whether the company combines stages or rivals at the same stage."
+          },
+          {
+            "prompt": "Which conclusion is most directly supported by B?",
+            "choices": [
+              "The firm has combined competitors at a similar stage.",
+              "Every consumer price must fall.",
+              "Every worker becomes an owner.",
+              "The government has ended private ownership."
+            ],
+            "answer": 0,
+            "explanation": "Purchasing competing refineries illustrates horizontal integration. Its effects on prices, work and competition require additional evidence.",
+            "hint": "Separate the observed organizational move from its possible outcomes."
+          },
+          {
+            "prompt": "What would best test A’s claimed supply benefit?",
+            "choices": [
+              "The company’s slogan alone",
+              "The manager’s photograph",
+              "Records of delivery interruptions and costs before and after, interpreted with other relevant changes",
+              "An unrelated election result"
+            ],
+            "answer": 2,
+            "explanation": "The evidence concerns the claimed mechanism and outcome. A before-and-after pattern still needs attention to other changes before a strong causal conclusion is drawn.",
+            "hint": "Choose evidence about supply reliability rather than another expression of confidence."
+          },
+          {
+            "prompt": "Which comparison of C with the company accounts is strongest?",
+            "choices": [
+              "Workers and owners always sought identical goals.",
+              "A strike proves every worker had equal bargaining power.",
+              "Company organization is unrelated to labor conditions.",
+              "The sources show different priorities and resources within the same production system."
+            ],
+            "answer": 3,
+            "explanation": "The accounts can be compared through interests, institutions and leverage. Neither a company announcement nor a strike alone describes every participant’s experience.",
+            "hint": "Compare what each actor wants and what tools each can use."
+          }
+        ],
+        "takeaway": "A court injunction restricting strike activity could reduce a union’s available tactics, while a different policy protecting organization could expand them. The argument needs to identify the institution, the action and the connection to bargaining power. Evidence about participation, enforcement, negotiations and outcomes would help evaluate the effect. Naming a strike or law without explaining the mechanism is not enough."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-capital-labor-mechanisms-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how one public policy or public response could alter the balance between an industrial employer and organized workers. Use a specific institutional mechanism and state what additional evidence would reveal its effect.",
+        "sampleAnswer": "A court injunction restricting strike activity could reduce a union’s available tactics, while a different policy protecting organization could expand them. The argument needs to identify the institution, the action and the connection to bargaining power. Evidence about participation, enforcement, negotiations and outcomes would help evaluate the effect. Naming a strike or law without explaining the mechanism is not enough.",
+        "checklist": [
+          "Identify an institution and its action accurately.",
+          "Connect the action to a particular resource, constraint or opportunity.",
+          "Avoid a universal conclusion about every worker or employer."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-capital-labor-mechanisms-recall",
+        "prompt": "How does vertical integration differ from horizontal integration, and why do those labels not prove an outcome by themselves?",
+        "sampleAnswer": "Vertical integration connects stages such as raw materials, transport and manufacture; horizontal integration combines competitors at a similar stage. Those labels describe organization. Effects on costs, prices, labor and competition require separate evidence.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1945–1980::8.2 Civil Rights and Expanding Rights Movements": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish movement goals, tactics, public response and institutional outcomes.",
+      "Explain the different roles of litigation, organizing, protest and legislation.",
+      "Evaluate rights gains while recognizing continuing barriers and different groups’ experiences."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "From movement strategy to institutional change"
+      },
+      {
+        "type": "text",
+        "text": "A rights movement is not a single event or a gift from one official. Participants can build organizations, develop arguments, challenge practices in court, organize boycotts or demonstrations, register voters and pressure elected institutions. These methods can reinforce one another, but they operate through different mechanisms. Litigation asks courts to resolve legal claims. Organizing builds participation and resources. Protest can expose injustice, disrupt routines or attract attention. Legislation changes statutory rules and can create enforcement tools."
+      },
+      {
+        "type": "text",
+        "text": "Brown v. Board of Education in 1954 rejected state-imposed racial segregation in public schools. The holding was a major legal change, but desegregation depended on implementation amid resistance and unequal power. The Civil Rights Act of 1964 and Voting Rights Act of 1965 addressed different forms of discrimination through national legislation. Do not treat a school ruling, a public-accommodations rule and a voting-protection measure as interchangeable. Identify the barrier a particular action addressed and the institution responsible for carrying it out."
+      },
+      {
+        "type": "text",
+        "text": "Local Black organizing, longstanding legal work, churches, student groups and other networks contributed to the modern civil rights struggle. Campaigns could make violence and exclusion visible to broader audiences, yet attention alone was not the final outcome. Explain the link from a tactic to pressure on decision-makers and then to a specific institutional action. A causal account can acknowledge national officials without erasing participants who created pressure, supplied evidence and took risks. It can also recognize disagreement within a movement over goals and strategies."
+      },
+      {
+        "type": "text",
+        "text": "Other movements sought changes concerning women’s rights, Mexican American rights, Indigenous sovereignty, sexuality, disability and other forms of exclusion. Their histories intersected without becoming identical. For comparison, choose a shared dimension such as access to education, representation or the relation between local activism and national policy. A formal victory does not show that every practical barrier vanished. Conversely, continued inequality does not mean that legal changes and organizing achieved nothing. Evaluate a stated outcome with evidence about both rules and implementation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-rights-strategy-institutions-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original historical summaries, not quotations. A: Brown v. Board of Education (1954) rejects state-imposed segregation in public schools. B: local campaigns organize against barriers to Black voter registration, and violent suppression attracts national attention. C: Congress enacts the Voting Rights Act in 1965, creating national tools to address racial discrimination in voting. This selected sequence is not a complete account of either school desegregation or voting-rights activism.",
+        "steps": [
+          {
+            "prompt": "What outcome does A establish directly?",
+            "choices": [
+              "Equal school resources in every community",
+              "The disappearance of resistance",
+              "A constitutional ruling against a specific government-imposed practice",
+              "Universal voter registration"
+            ],
+            "answer": 2,
+            "explanation": "A court holding establishes a legal rule. The implementation and wider social outcomes require additional evidence.",
+            "hint": "Separate the ruling’s subject from other civil rights goals."
+          },
+          {
+            "prompt": "Which explanation best connects B with C?",
+            "choices": [
+              "Local organizing and public responses helped create pressure for a national institutional response.",
+              "Violence automatically caused the same law without political decisions.",
+              "Congress created all local activism only after 1965.",
+              "Attention alone is identical to successful enforcement."
+            ],
+            "answer": 0,
+            "explanation": "The explanation identifies a plausible political process involving participants and decision-makers, rather than erasing agency or treating a sequence as automatic.",
+            "hint": "Look for the connection between tactics, pressure and institutional action."
+          },
+          {
+            "prompt": "Which evidence would best evaluate implementation of C?",
+            "choices": [
+              "A list of congressional building heights",
+              "Dated registration and participation records alongside evidence about barriers and enforcement",
+              "An unrelated school lunch menu",
+              "The law’s title alone"
+            ],
+            "answer": 1,
+            "explanation": "Implementation concerns how the rules operated. Participation, barriers and enforcement are relevant, although no one measure describes every community.",
+            "hint": "Choose evidence about access in practice."
+          },
+          {
+            "prompt": "Which comparison with another rights movement is most defensible?",
+            "choices": [
+              "All movements had the same membership and identical demands.",
+              "A shared protest tactic proves identical outcomes.",
+              "Only one group ever used courts.",
+              "Compare a shared goal or tactic while explaining differences in the barrier, institution and affected population."
+            ],
+            "answer": 3,
+            "explanation": "Comparison requires a common dimension and meaningful differences. It should not flatten distinct histories into one template.",
+            "hint": "Hold one dimension constant before explaining the differences."
+          }
+        ],
+        "takeaway": "Two movements might both use litigation to challenge a government practice, while addressing different barriers and relying on different legal arguments. A strong comparison names the action, explains how it could produce change and identifies a difference that matters. Other supported comparisons can concern organizing, protest or legislative pressure. Do not infer identical experiences from a shared tactic or treat a formal legal gain as proof that all barriers ended."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-rights-strategy-institutions-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare one strategy used in the Black freedom struggle with a strategy used by another rights movement in this period. Explain a shared mechanism and a relevant difference in goals, institutions or outcomes.",
+        "sampleAnswer": "Two movements might both use litigation to challenge a government practice, while addressing different barriers and relying on different legal arguments. A strong comparison names the action, explains how it could produce change and identifies a difference that matters. Other supported comparisons can concern organizing, protest or legislative pressure. Do not infer identical experiences from a shared tactic or treat a formal legal gain as proof that all barriers ended.",
+        "checklist": [
+          "Use specific and historically accurate evidence for both movements.",
+          "Explain a shared mechanism rather than only naming a tactic.",
+          "Include a relevant difference and a limit on the outcome claim."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-rights-strategy-institutions-recall",
+        "prompt": "Why are a movement’s tactic, a court holding and a law’s implementation different pieces of a causal explanation?",
+        "sampleAnswer": "A tactic is an action participants use to pursue a goal. A holding establishes a legal decision. Implementation concerns how an institutional rule is carried out. Connecting them requires evidence about pressure, decisions, enforcement and consequences.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: The Global Tapestry::1.1 State authority across Afro-Eurasia": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish governing institutions, sources of legitimacy and economic resources.",
+      "Compare states using the same analytical dimension while preserving regional differences.",
+      "Explain how a source about official ideals differs from evidence of actual access or enforcement."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build a regional comparison before using a global label"
+      },
+      {
+        "type": "text",
+        "text": "Begin a comparison of states by locating the places and period. Around 1200 to 1450, Afro-Eurasia contained many states, communities and overlapping networks rather than one political system. A state needs ways to make decisions, obtain resources and maintain authority. Legitimacy concerns why authority is presented or accepted as justified. Administration concerns how rules and resources are organized. Military capacity can support rule without answering either of those questions fully. These dimensions can interact, but they are not synonyms."
+      },
+      {
+        "type": "text",
+        "text": "Song China offers a case of extensive civil administration associated with Confucian learning and examinations. Examinations could provide a route into official service while still favoring families with the resources for education. Calling the system merit-based therefore does not establish equal opportunity for every person. Agricultural and commercial activity could support population, cities and taxable resources. Explain the connection between those resources and the state’s capacity rather than treating an ideology as the only source of power."
+      },
+      {
+        "type": "text",
+        "text": "In the Islamic world, the decline of a single caliphate’s effective political control did not end religious, commercial or scholarly connections. Different rulers and institutions governed particular territories while merchants and scholars crossed borders. The Delhi Sultanate ruled parts of South Asia, where political authority and the religious identities of the population did not coincide neatly. A source celebrating a ruler’s religious role can help explain legitimation, but it does not show that all subjects shared that religion or that local practices were uniform."
+      },
+      {
+        "type": "text",
+        "text": "European political authority in this period also varied. Monarchs, nobles, religious authorities and towns could hold different kinds of power, and bargaining shaped the reach of central rule. A useful comparison with Song administration asks about recruitment, revenue or the relation between rulers and local elites. It does not rank entire regions as naturally advanced or backward. For any region, connect a named institution to a mechanism and recognize the limits of a source. A royal statement can establish an official claim; records of appointments, taxes or disputes can help test how that claim operated."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-authority-region-comparison-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original comparative summaries, not historical quotations. Source A: Song officials gain status through examinations associated with Confucian learning, but preparation is easier for families with educational resources. Source B: rulers in a different model state rely on local hereditary nobles to supply troops and help collect resources. Source B is a simplified instructional model, not a claim that every European state had identical institutions.",
+        "steps": [
+          {
+            "prompt": "Which dimension provides the clearest direct comparison between A and B?",
+            "choices": [
+              "Methods of recruiting or relying on governing elites",
+              "Which region has better food",
+              "Whether all people speak one language",
+              "Which state exists in the twenty-first century"
+            ],
+            "answer": 0,
+            "explanation": "Both summaries describe the relationship between rulers and important groups involved in governing. A common dimension makes the comparison meaningful.",
+            "hint": "Ask what both sources actually describe."
+          },
+          {
+            "prompt": "Which inference from A goes too far?",
+            "choices": [
+              "Examinations are associated with official status.",
+              "Educational resources can affect preparation.",
+              "An examination system guarantees equal opportunity for every social group.",
+              "Official recruitment can be connected to learning."
+            ],
+            "answer": 2,
+            "explanation": "The source explicitly identifies unequal resources. A formal procedure is not proof of equal access or outcomes.",
+            "hint": "Separate the stated recruitment procedure from access to preparation."
+          },
+          {
+            "prompt": "Which sentence best explains a possible mechanism in B?",
+            "choices": [
+              "Hereditary nobles always eliminate every conflict.",
+              "Relying on local nobles can supply resources while leaving those elites with independent leverage.",
+              "Troops and taxes have no relationship to governing.",
+              "A ruler’s statement proves all local actors complied."
+            ],
+            "answer": 1,
+            "explanation": "Delegation can lower administrative costs and secure cooperation, but it can also preserve local power. The explanation identifies a tradeoff rather than a universal result.",
+            "hint": "What does the ruler gain, and what resource can the local elite retain?"
+          },
+          {
+            "prompt": "What would most directly test a ruler’s claim of uniform administration?",
+            "choices": [
+              "The ruler’s title alone",
+              "An undated decorative image",
+              "An unrelated poem without context",
+              "Records from different regions showing appointments, taxes or disputes"
+            ],
+            "answer": 3,
+            "explanation": "Evidence from administration across regions can test uniformity more directly than a single assertion. Such records still need contextual evaluation.",
+            "hint": "Choose evidence about implementation across more than one setting."
+          }
+        ],
+        "takeaway": "A comparison can contrast examination-linked recruitment with reliance on hereditary local elites. The first can connect official service to learned credentials while unequal preparation resources limit access; the second can secure cooperation while preserving elite leverage. A strong answer keeps the region, period and evidence specific and does not assume either arrangement describes every institution in an entire civilization."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-authority-region-comparison-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare two states in this period on one shared dimension. Identify an institution in each, explain a mechanism and qualify the comparison with a relevant limitation.",
+        "sampleAnswer": "A comparison can contrast examination-linked recruitment with reliance on hereditary local elites. The first can connect official service to learned credentials while unequal preparation resources limit access; the second can secure cooperation while preserving elite leverage. A strong answer keeps the region, period and evidence specific and does not assume either arrangement describes every institution in an entire civilization.",
+        "checklist": [
+          "Use the same comparison dimension.",
+          "Name an institution and explain its connection to authority.",
+          "Avoid ranking whole populations or claiming uniform implementation without evidence."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-authority-region-comparison-recall",
+        "prompt": "How do legitimacy and administration differ, and why can an official statement be insufficient evidence of administrative uniformity?",
+        "sampleAnswer": "Legitimacy concerns a justification for authority; administration concerns how governing is carried out. An official statement shows a claim or goal. Evidence from institutions and local practice is needed to evaluate its reach.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Transoceanic Interconnections::4.3 Mercantilism, silver and colonial society": {
+    "revision": 1,
+    "objectives": [
+      "Trace how demand, extraction, transport and trade policy connect distant regions.",
+      "Distinguish a flow of bullion from equal gains for every participant.",
+      "Compare mercantilist goals with the varied practices and consequences of global exchange."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Follow silver through institutions and exchange"
+      },
+      {
+        "type": "text",
+        "text": "A global exchange system can be explained as a set of connected decisions rather than a list of commodities. Between about 1450 and 1750, silver mined in the Americas entered Atlantic and Pacific networks. Extraction required labor, finance and administrative institutions. Transport depended on ships, ports and protection. Demand in another region could influence what merchants were willing to trade. A complete causal explanation connects these stages without assuming that one ruler controlled the whole system."
+      },
+      {
+        "type": "text",
+        "text": "In parts of Spanish America, mines such as Potosí became centers of production using coercive labor arrangements alongside other forms of work. The Andean mita draft was adapted by colonial authorities to support mining, with severe burdens on Indigenous communities. Do not describe all mine labor as one identical legal status or treat the violence of extraction as an incidental detail. The organization of labor helps explain how silver could be produced and who bore its costs."
+      },
+      {
+        "type": "text",
+        "text": "Some American silver traveled through Atlantic routes, while other silver crossed the Pacific through Manila in exchange networks linked to Asian goods. Chinese demand for silver was influenced in part by commercial activity and fiscal arrangements. This connection does not mean that every Chinese household bought imported products or that every transaction was controlled by European merchants. Older Asian networks remained important. Explain what a particular route or demand condition changed while identifying continuities in regional commerce."
+      },
+      {
+        "type": "text",
+        "text": "Mercantilist policies sought to link commercial activity to state power through controlled colonial trade, access to bullion and favorable balances. Actual exchange also involved merchants, smuggling, local negotiation and competing states. A government’s goal is not the same as proof of complete control. Rising trade or a rich port can coexist with coercive labor and unequal gains elsewhere. Evaluate effects at the level of states, merchants, workers and communities instead of making one universal statement that silver benefited or harmed everyone equally."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-silver-flow-systems-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original instructional route summaries, not historical quotations or a complete map. A: colonial mining in Spanish America produces silver through labor systems that include coercive drafts. B: some silver crosses the Pacific through Manila and enters exchange networks involving Asian goods. C: commercial and fiscal demand for silver in China helps make the metal desirable in exchange. These summaries identify selected connections, not every route or participant.",
+        "steps": [
+          {
+            "prompt": "Which explanation connects A and B most directly?",
+            "choices": [
+              "Mining labor is unrelated to global trade.",
+              "A product extracted through local institutions can enter long-distance networks through transport and merchant activity.",
+              "Every miner receives the same share of trade profits.",
+              "Silver is produced by the voyage itself."
+            ],
+            "answer": 1,
+            "explanation": "Extraction and transport are different linked stages. The connection does not establish equal benefits for the people involved.",
+            "hint": "Identify how a locally produced good moves into a wider system."
+          },
+          {
+            "prompt": "What role does C play in explaining the flow?",
+            "choices": [
+              "It identifies a demand condition that can influence exchange.",
+              "It proves China controls every ocean route.",
+              "It establishes that every Chinese person uses identical goods.",
+              "It shows that Asian commerce began only after European arrival."
+            ],
+            "answer": 0,
+            "explanation": "Demand helps explain why merchants exchange other goods for silver. It does not prove universal control or erase older networks.",
+            "hint": "Separate demand for a good from control over its entire route."
+          },
+          {
+            "prompt": "Which claim would require more evidence than the summaries provide?",
+            "choices": [
+              "Some silver crossed the Pacific.",
+              "Mining relied partly on coercive institutions.",
+              "Every community along the route experienced equal gains.",
+              "Chinese demand influenced exchange."
+            ],
+            "answer": 2,
+            "explanation": "A universal distributional claim needs evidence about different groups and locations. The supplied route connections cannot establish it.",
+            "hint": "What does knowing a trade route fail to tell you about each participant?"
+          },
+          {
+            "prompt": "Which statement best evaluates a mercantilist goal?",
+            "choices": [
+              "A royal trade rule proves that no smuggling occurred.",
+              "The possession of bullion proves equal welfare.",
+              "All traders and rulers necessarily shared identical goals.",
+              "Policies could seek state control and wealth while practice included competing interests and uneven enforcement."
+            ],
+            "answer": 3,
+            "explanation": "A sound analysis distinguishes official objectives from the institutions and behavior through which exchange actually operated.",
+            "hint": "Compare a declared goal with evidence needed to show implementation."
+          }
+        ],
+        "takeaway": "Coercive mining arrangements helped produce silver, while commercial and fiscal demand made silver valuable in distant exchange. That connection explains a flow without proving that coerced workers shared merchants’ gains. Evidence about labor obligations, mortality, wages, community disruption or local negotiation would help evaluate consequences for a specified group. Other supported examples can focus on merchants, state revenue or consumers."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-silver-flow-systems-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how one local institution and one distant demand condition interacted in this system. Then identify evidence needed to evaluate a social consequence for a particular group.",
+        "sampleAnswer": "Coercive mining arrangements helped produce silver, while commercial and fiscal demand made silver valuable in distant exchange. That connection explains a flow without proving that coerced workers shared merchants’ gains. Evidence about labor obligations, mortality, wages, community disruption or local negotiation would help evaluate consequences for a specified group. Other supported examples can focus on merchants, state revenue or consumers.",
+        "checklist": [
+          "Connect two stages through an explicit mechanism.",
+          "Keep the population or institution being evaluated specific.",
+          "Distinguish aggregate trade from the distribution of gains and burdens."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-silver-flow-systems-recall",
+        "prompt": "Why is a map of increasing trade not enough to prove that everyone along a route became better off?",
+        "sampleAnswer": "A map can show connections and flows. Welfare and distribution require evidence about who controlled exchange, who worked under what conditions, and how costs and gains were allocated.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Global Conflict::7.1 World War I and the collapse of empires": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a long-term condition, an immediate trigger and a political decision.",
+      "Explain why alliance commitments and mobilization matter through specific mechanisms.",
+      "Evaluate causal importance without treating war as an automatic or universally desired outcome."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate conditions, triggers and decisions in the origins of war"
+      },
+      {
+        "type": "text",
+        "text": "A multicausal explanation identifies how conditions and choices interact. Before World War I, imperial rivalries, nationalist movements, military planning and alliance systems shaped European politics. These conditions did not make every crisis end in a general war. To explain 1914, connect them to the particular sequence of decisions after a triggering event. A list of causes is a starting inventory, not yet an argument about how or why they mattered."
+      },
+      {
+        "type": "text",
+        "text": "The assassination of Archduke Franz Ferdinand in Sarajevo in June 1914 triggered an international crisis. It did not by itself determine every later declaration or military action. Governments assessed threats, commitments, domestic pressures and expectations about the costs of delay. An ultimatum, a decision to mobilize and a declaration of war are different actions. The explanation should identify actors and choices rather than making “Europe” act as one person."
+      },
+      {
+        "type": "text",
+        "text": "Alliances can widen a conflict when leaders support partners or fear the consequences of abandoning them. Military plans and mobilization schedules can create pressure for rapid action because officials believe delay will leave them at a disadvantage. These are mechanisms, not proof that leaders had no alternatives or that treaties mechanically made every decision. Nationalist arguments could justify action while different groups within a state held different priorities. A source calling for war can reveal one position without measuring an entire population’s opinion."
+      },
+      {
+        "type": "text",
+        "text": "Distinguish a source’s date, author, audience and purpose from the accuracy of every claim it makes. An official explanation of mobilization may present a defensive rationale; another state or a later analyst may interpret the same action differently. Compare the supplied evidence and its limits before deciding what it supports. To weigh causes, explain relative importance in a defined question: which factor helps explain escalation, participation or timing? A qualified argument can recognize several causes while giving a reason one mattered especially in the particular sequence."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-war-causes-decisions-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified instructional chronology, not diplomatic quotations. Before June 1914: rivalries, alliances and military plans shape relations among states. June 1914: the assassination in Sarajevo creates an immediate crisis. During the following weeks: leaders issue demands, make commitments and order mobilizations. A model official statement claims that its own mobilization is defensive; this statement is fictional and is included only to practice source analysis.",
+        "steps": [
+          {
+            "prompt": "Which item is the immediate trigger in the supplied chronology?",
+            "choices": [
+              "The existence of every European empire",
+              "A later historian’s publication",
+              "The assassination in Sarajevo in June 1914",
+              "Every battle fought after the war began"
+            ],
+            "answer": 2,
+            "explanation": "The assassination initiates the particular crisis. Longer-term conditions and later military conduct belong to different parts of the explanation.",
+            "hint": "Identify the event that begins this crisis, not the whole background."
+          },
+          {
+            "prompt": "Which sentence explains a mechanism rather than merely naming a cause?",
+            "choices": [
+              "Alliances existed.",
+              "A commitment to support a partner could draw another state into an expanding crisis.",
+              "War is caused by war.",
+              "Nationalism was a word."
+            ],
+            "answer": 1,
+            "explanation": "The sentence connects a condition to a possible action and outcome. It still leaves room to examine actual decisions and limits.",
+            "hint": "Look for an actor, a constraint or incentive, and a consequence."
+          },
+          {
+            "prompt": "What does the fictional official statement establish directly?",
+            "choices": [
+              "That every opponent was the aggressor",
+              "That all citizens supported mobilization",
+              "That the mobilization caused no fear elsewhere",
+              "That an official source presented its action as defensive"
+            ],
+            "answer": 3,
+            "explanation": "The statement is evidence of a representation or rationale. Its accuracy and reception require additional evidence.",
+            "hint": "Separate what the source says from what it proves about other actors."
+          },
+          {
+            "prompt": "Which thesis is most defensible from these teaching materials?",
+            "choices": [
+              "Long-term tensions shaped the crisis, but decisions about commitments and mobilization help explain how it escalated.",
+              "The assassination alone made every later event unavoidable.",
+              "No political choices mattered after June.",
+              "Every member of every population wanted the same outcome."
+            ],
+            "answer": 0,
+            "explanation": "The thesis links conditions with decisions and gives them explanatory roles without treating the sequence as inevitable or populations as uniform.",
+            "hint": "Choose a claim that can explain interaction rather than an exclusive universal cause."
+          }
+        ],
+        "takeaway": "An alliance commitment could influence a government to support its partner, helping widen a crisis that began with an assassination. Military planning could make leaders treat rapid mobilization as important, while their actual decisions still need to be examined. The simplified chronology does not establish every government’s motives or every public response. A strong answer uses a mechanism and does not confuse the fictional official rationale with independently verified truth."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-war-causes-decisions-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Write a causal explanation of escalation using one background condition, one decision and the connection between them. State one limit on the evidence supplied here.",
+        "sampleAnswer": "An alliance commitment could influence a government to support its partner, helping widen a crisis that began with an assassination. Military planning could make leaders treat rapid mobilization as important, while their actual decisions still need to be examined. The simplified chronology does not establish every government’s motives or every public response. A strong answer uses a mechanism and does not confuse the fictional official rationale with independently verified truth.",
+        "checklist": [
+          "Distinguish the roles of condition, trigger and decision.",
+          "Explain a connection rather than only listing factors.",
+          "Identify what the simplified or fictional source cannot establish."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-war-causes-decisions-recall",
+        "prompt": "What is the difference between identifying a trigger and explaining why a crisis escalated?",
+        "sampleAnswer": "A trigger identifies the event that begins a particular crisis. Explaining escalation requires mechanisms and decisions connecting that event to wider outcomes; background conditions can shape those choices without making them automatic.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Reasoning and Organization::3.2 Inductive, deductive, causal, and analogical reasoning": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a claim, a reason, evidence and the assumption connecting them.",
+      "Evaluate causal and analogical reasoning using the actual scope of the evidence.",
+      "Revise a conclusion when a comparison omits a relevant difference."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Trace the inference before naming the reasoning pattern"
+      },
+      {
+        "type": "text",
+        "text": "An argument’s conclusion is the claim its reasons are meant to support. A premise supplies a stated reason; evidence can support that premise; an assumption helps connect a reason to the conclusion. These roles depend on the argument, not on whether a sentence appears first or contains a number. Before naming a reasoning pattern, restate the connection in plain language. Ask what would need to be true for this particular evidence to support this particular claim."
+      },
+      {
+        "type": "text",
+        "text": "Inductive reasoning moves from observations toward a broader conclusion. Its strength depends on the relevance, range and quality of those observations; a few examples do not automatically represent a whole population. Deductive reasoning applies premises so that a conclusion follows if the reasoning is valid and the premises hold. A valid structure does not make an unsupported premise true. In either case, distinguish the logic of the connection from the reliability of the information used."
+      },
+      {
+        "type": "text",
+        "text": "Causal reasoning asks why an outcome occurred. A pattern in which two things change together can be relevant, but timing and correlation alone do not remove alternative causes or establish the direction of influence. An analogy uses a similarity between cases to support an inference about another feature. Identify the relevant shared mechanism and then test differences that could affect the outcome. An appealing comparison can be weak if the very condition needed for transfer is absent in the new case."
+      },
+      {
+        "type": "text",
+        "text": "A response need not reject an entire argument when one inference is too broad. It can qualify the claim, ask for additional evidence or distinguish the part supported from the part still uncertain. In rhetorical analysis, explain how a writer uses reasoning for a particular audience and purpose; do not substitute your own policy debate for analysis of the text. In your own argument, choose a conclusion whose scope matches the support. Naming a fallacy is less useful than explaining the exact unsupported step and how a revision repairs it."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-reasoning-assumptions-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional argument: “A nearby town opened its library on Sundays, and annual visits increased. Our town should open on Sundays too, because the same change will produce the same increase.” Supplied facts: the nearby town also moved its library beside a major bus stop that year. No additional evidence about either town’s residents or other changes is provided. This is a reasoning example, not a report about a real library.",
+        "steps": [
+          {
+            "prompt": "What is the argument’s policy conclusion?",
+            "choices": [
+              "Our town should open its library on Sundays.",
+              "The nearby town had a library.",
+              "A bus stop exists somewhere.",
+              "Every resident used the library every day."
+            ],
+            "answer": 0,
+            "explanation": "The conclusion is the action the writer recommends. The nearby town’s experience is offered as support, not as the recommendation itself.",
+            "hint": "Separate the proposed action from the example used to support it."
+          },
+          {
+            "prompt": "Which assumption matters most to the promised identical result?",
+            "choices": [
+              "Both towns have the same name.",
+              "Conditions relevant to the effect are sufficiently similar, and Sunday opening is responsible for the increase.",
+              "Every public service is free.",
+              "All annual totals measure individual people rather than visits."
+            ],
+            "answer": 1,
+            "explanation": "The analogy and causal inference need relevant comparability and a supported explanation of the earlier increase. Neither is established simply by sharing the label town.",
+            "hint": "What must connect the first town’s result to the second town’s proposal?"
+          },
+          {
+            "prompt": "How does the move beside a bus stop affect the inference?",
+            "choices": [
+              "It proves Sunday opening never helps.",
+              "It makes library visits impossible.",
+              "It supplies a plausible alternative or contributing explanation that should be examined.",
+              "It proves both towns have identical transport."
+            ],
+            "answer": 2,
+            "explanation": "A concurrent change can matter to visits. It qualifies the attribution without proving the policy has no effect.",
+            "hint": "Look for another change related to access."
+          },
+          {
+            "prompt": "Which revision best preserves a defensible position?",
+            "choices": [
+              "The increase proves identical results are guaranteed everywhere.",
+              "No evidence can ever inform another town’s decision.",
+              "The nearby town’s result settles every budget question.",
+              "The nearby town’s increase supports investigating Sunday opening, but transport changes and local demand should be assessed before predicting the effect."
+            ],
+            "answer": 3,
+            "explanation": "The revision keeps the example relevant while limiting the causal and analogical claims to what the supplied evidence can support.",
+            "hint": "Retain the useful observation without claiming it answers every uncertainty."
+          }
+        ],
+        "takeaway": "The argument attributes an increase to Sunday opening and predicts the same effect elsewhere without resolving relevant differences or the nearby town’s transport change. Information about visit patterns by day, transport access, local demand and other changes could help evaluate the proposal. A sound response should not claim that one omitted factor proves the policy cannot work."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-reasoning-assumptions-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Write two sentences explaining the argument’s unsupported inference and proposing one kind of evidence that would strengthen or qualify it.",
+        "sampleAnswer": "The argument attributes an increase to Sunday opening and predicts the same effect elsewhere without resolving relevant differences or the nearby town’s transport change. Information about visit patterns by day, transport access, local demand and other changes could help evaluate the proposal. A sound response should not claim that one omitted factor proves the policy cannot work.",
+        "checklist": [
+          "Identify the actual conclusion and connection being evaluated.",
+          "Explain why a specific alternative or difference matters.",
+          "Propose relevant evidence rather than asserting the opposite conclusion without support."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-reasoning-assumptions-recall",
+        "prompt": "How can an analogy be relevant but still insufficient to support a guaranteed outcome?",
+        "sampleAnswer": "A shared feature can make another case informative, but differences in the causal mechanism or conditions can limit transfer. The conclusion should be qualified unless the evidence supports the relevant similarities and rules out important alternatives.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Positions, Sources, and Synthesis::6.3 Attribution, evidence integration, and source-based argument": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish quotation, paraphrase and the writer’s own commentary.",
+      "Preserve a source’s scope and identify its contribution to a claim.",
+      "Synthesize sources through a subclaim rather than assigning each source an isolated paragraph."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Use sources without borrowing more certainty than they provide"
+      },
+      {
+        "type": "text",
+        "text": "Attribution identifies where information or a position comes from. A quotation reproduces wording exactly; a paraphrase restates the meaning in different language. Both require a clear source signal when used as evidence. Commentary is the writer’s explanation of how that evidence supports, limits or complicates a claim. A source signal alone does not supply the connection, and a confident commentary sentence cannot make a source support something it never established."
+      },
+      {
+        "type": "text",
+        "text": "Choose the form of evidence for a purpose. Quote when the exact language is important to the analysis, such as a revealing comparison or a carefully qualified claim. Paraphrase when the relevant contribution is an idea or finding rather than its particular wording. Do not remove a qualifier such as some, in this sample or during this period when restating the information. A paraphrase that changes a limited observation into a universal rule is inaccurate even if none of its words are copied."
+      },
+      {
+        "type": "text",
+        "text": "Organize a synthesis around your own relevant subclaims. One source may describe an access problem, another may offer preliminary numerical evidence, and another may identify a practical constraint. Their contributions can belong in the same paragraph if you explain their relationship. Not every paragraph needs every source, and sources do not need to be forced into disagreement. Accurate integration requires selection: use details that help the argument and retain the limitations that affect the inference."
+      },
+      {
+        "type": "text",
+        "text": "Evaluate the kind of support each source offers. A personal account can establish a reported experience without representing everyone. A small hypothetical dataset can illustrate measured use without predicting all future demand. A budget note can identify a cost without deciding whether the benefit is worth that cost. The strongest paragraph lets readers see these distinctions while following the writer’s line of reasoning. For an official synthesis task, follow the prompt’s source-use directions; a short classroom mini-set is practice with the skill, not a substitute for the full task."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-attribution-source-control-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Complete original fictional mini-source set. Source A, a student statement: “I can use the school computer lab only after my shift ends, but it closes before I arrive.” Source B, a hypothetical four-day trial: keeping the lab open one extra hour resulted in eight additional users per day on average; the trial did not measure later academic outcomes. Source C, a hypothetical staffing note: the extra hour requires paid supervision. These sources are invented for instruction, not published findings.",
+        "steps": [
+          {
+            "prompt": "Which paraphrase of Source B preserves its scope?",
+            "choices": [
+              "Keeping labs open guarantees every student higher grades.",
+              "A four-day trial recorded an average of eight additional daily users, without measuring later academic outcomes.",
+              "Exactly eight students always need the lab throughout the year.",
+              "The trial proved supervision costs nothing."
+            ],
+            "answer": 1,
+            "explanation": "The paraphrase retains the period, measured result and limitation. Removing those boundaries would change what the source supports.",
+            "hint": "Keep the observation and its limits together."
+          },
+          {
+            "prompt": "Which sentence most clearly supplies commentary rather than only attribution?",
+            "choices": [
+              "Source A is a student statement.",
+              "Source B has trial data.",
+              "A’s scheduling conflict suggests that access depends on operating hours, which makes the trial’s additional use relevant to the proposal.",
+              "Source C discusses supervision."
+            ],
+            "answer": 2,
+            "explanation": "The sentence explains the relationship between a reported access barrier and measured use, connecting sources through a subclaim.",
+            "hint": "Look for an explanation of why the detail matters to the argument."
+          },
+          {
+            "prompt": "Which detail needs quotation rather than paraphrase most directly in an analysis of wording?",
+            "choices": [
+              "The exact contrast between “my shift ends” and the lab closing before arrival",
+              "The label Source B",
+              "The fact that a staffing note exists",
+              "The number of sources in the set"
+            ],
+            "answer": 0,
+            "explanation": "If the analysis concerns how the speaker presents competing schedules, the precise wording can matter. Other information can be accurately paraphrased for different purposes.",
+            "hint": "Identify the evidence whose exact language is part of the analytical claim."
+          },
+          {
+            "prompt": "Which synthesis claim best represents the sources together?",
+            "choices": [
+              "The lab must stay open all night because every cost is zero.",
+              "The budget note proves students do not need access.",
+              "The trial proves that grades improved.",
+              "The sources support considering later access while assessing whether demand persists and how supervision would be funded."
+            ],
+            "answer": 3,
+            "explanation": "The claim draws on access and use evidence while incorporating the staffing constraint and limited trial. It does not invent measured outcomes.",
+            "hint": "Let the sources contribute different kinds of evidence without making any one do more than it can."
+          }
+        ],
+        "takeaway": "A qualified proposal can support a longer trial because Source A identifies a scheduling barrier and Source B supplies preliminary evidence of additional use. Source C makes supervision and funding relevant to the design. The paragraph should not convert additional visits into proven academic improvement or treat one student’s experience as a measure of the whole population."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-attribution-source-control-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Write a short paragraph proposing a qualified position on later lab hours. Identify sources by letter, accurately paraphrase at least one and explain a relationship between two of them.",
+        "sampleAnswer": "A qualified proposal can support a longer trial because Source A identifies a scheduling barrier and Source B supplies preliminary evidence of additional use. Source C makes supervision and funding relevant to the design. The paragraph should not convert additional visits into proven academic improvement or treat one student’s experience as a measure of the whole population.",
+        "checklist": [
+          "State a position that the supplied evidence could support.",
+          "Preserve source limitations in paraphrase.",
+          "Use commentary to connect details to a subclaim rather than merely listing sources."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-attribution-source-control-recall",
+        "prompt": "What changes when a writer drops a source’s qualifier while paraphrasing?",
+        "sampleAnswer": "The meaning and evidentiary scope can change. Turning a four-day trial into a claim about every day or every student makes the source appear more conclusive than it is, even if the sentence uses different wording.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Complexity and Counterargument::7.2 Evaluating assumptions and responding to competing perspectives": {
+    "revision": 1,
+    "objectives": [
+      "Separate a stated premise from an inferred assumption.",
+      "Choose a response that addresses the actual claim rather than a stronger invented version.",
+      "Distinguish qualification, concession and rebuttal as available reasoning moves."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Represent the position fairly before challenging its assumption"
+      },
+      {
+        "type": "text",
+        "text": "Begin with an accurate account of the position you are responding to. A claim that a course can help students practice a skill is not the same as a guarantee that every student will master it or obtain a job. A fair paraphrase preserves words that limit scope, probability or purpose. If your response attacks a stronger claim than the writer made, it can miss the argument even when the criticism would be valid against that stronger version."
+      },
+      {
+        "type": "text",
+        "text": "An assumption is an idea that helps connect a reason to a conclusion. Some assumptions are necessary to the particular inference; others are plausible background beliefs but are not required. Ask why the conclusion would follow from the stated evidence. Then test the condition that actually matters. Finding another possible influence can limit a causal claim, but it does not automatically make every part of an argument false. Explain what the objection changes: certainty, scope, feasibility or the choice among alternatives."
+      },
+      {
+        "type": "text",
+        "text": "A concession acknowledges a supported point without surrendering the whole position. A rebuttal challenges a reason or inference. A qualification narrows or conditions the claim. These moves can be combined, but there is no universal rule that every paragraph must begin with agreement and then use however. The right choice depends on the argument and rhetorical purpose. A response can grant that an approach has a benefit while asking whether the evidence establishes the size of that benefit or its availability in a particular setting."
+      },
+      {
+        "type": "text",
+        "text": "Evidence must remain real or explicitly hypothetical. Do not invent a study, a percentage or an expert to make an objection sound specific. If a needed fact is not supplied, identify the question and explain why answering it would matter. In rhetorical analysis, your task is to explain a writer’s choices and their functions, not automatically to praise a policy you support or criticize a policy you oppose. In argument and synthesis, develop your own position with relevant support while representing other views accurately."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-fair-counterargument-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional statement: “The school should offer an optional source-evaluation workshop. Students who want more guided practice could compare online claims and receive feedback. The workshop would not replace skills taught in other classes.” Supplied context: the school has not yet determined demand, staffing or the workshop’s effect on performance. No survey results or research findings are supplied.",
+        "steps": [
+          {
+            "prompt": "Which paraphrase is most faithful?",
+            "choices": [
+              "The writer promises employment to every participant.",
+              "The writer wants to abolish all other classes.",
+              "The writer proposes optional guided practice that supplements existing instruction.",
+              "The writer claims every student lacks digital access."
+            ],
+            "answer": 2,
+            "explanation": "The statement describes an optional supplement and an opportunity for practice. It does not make the stronger claims in the alternatives.",
+            "hint": "Preserve the source’s limits and its stated role for other classes."
+          },
+          {
+            "prompt": "Which assumption is relevant to the proposal’s intended benefit?",
+            "choices": [
+              "A well-designed workshop can provide useful practice and feedback for interested students.",
+              "Only workshops can teach any useful skill.",
+              "Every student already wants to enroll.",
+              "Every participant will receive the same score."
+            ],
+            "answer": 0,
+            "explanation": "The benefit depends on the usefulness of the proposed practice and feedback. It does not require exclusive effectiveness or universal demand.",
+            "hint": "What needs to work for the stated opportunity to be useful?"
+          },
+          {
+            "prompt": "Which response most directly qualifies feasibility without misrepresenting the claim?",
+            "choices": [
+              "Optional means the school must close every other class.",
+              "Before adopting the workshop, the school should assess interested participation and available supervision.",
+              "The proposal guarantees immediate mastery, so it is false.",
+              "All workshop participants must have identical schedules."
+            ],
+            "answer": 1,
+            "explanation": "Demand and staffing are relevant unanswered conditions. The response addresses feasibility instead of attacking a nonexistent guarantee.",
+            "hint": "Use the supplied unknowns rather than inventing a claim."
+          },
+          {
+            "prompt": "Which sentence improperly fabricates support?",
+            "choices": [
+              "The staffing needs remain uncertain.",
+              "A pilot could collect information about demand.",
+              "The source does not provide performance evidence.",
+              "A recent study proves ninety percent of students will gain ten points, although no study is identified or supplied."
+            ],
+            "answer": 3,
+            "explanation": "An unsupported numerical research claim is not valid evidence. A learning response should identify the missing information, not manufacture it.",
+            "hint": "Specific numbers are not trustworthy merely because they sound precise."
+          }
+        ],
+        "takeaway": "The workshop could give interested students additional guided practice and feedback, as the proposal states. Its feasibility and value would be clearer after the school assessed demand, staffing and evidence from a limited trial. This response preserves the optional, supplementary scope and does not invent a guarantee or research result."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-fair-counterargument-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Write a fair two-sentence response that concedes one potential benefit and qualifies the proposal with one relevant unanswered condition. Do not add a statistic.",
+        "sampleAnswer": "The workshop could give interested students additional guided practice and feedback, as the proposal states. Its feasibility and value would be clearer after the school assessed demand, staffing and evidence from a limited trial. This response preserves the optional, supplementary scope and does not invent a guarantee or research result.",
+        "checklist": [
+          "Represent the actual position accurately.",
+          "Connect the qualification to a condition that matters.",
+          "Use supplied evidence or name an unanswered question rather than fabricating support."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-fair-counterargument-recall",
+        "prompt": "How does a qualification differ from a straw-man rebuttal?",
+        "sampleAnswer": "A qualification limits or conditions the actual claim. A straw man replaces that claim with a different or stronger version and attacks the substitute. A fair response preserves scope before explaining what its objection changes.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: Foundations of American Democracy::1.8 Constitutional Interpretations of Federalism": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish enumerated powers, implied means and federal supremacy.",
+      "Compare the historical holdings of McCulloch and Lopez without turning either into an unlimited rule.",
+      "Apply a supplied case comparison through facts, constitutional question, holding and reasoning."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Match the national action to a constitutional power"
+      },
+      {
+        "type": "text",
+        "text": "Federalism distributes authority between national and state governments. It is different from separation of powers, which distributes authority among branches. To evaluate a disputed national action, begin with the relevant constitutional power. Enumerated powers are expressly granted; implied powers concern means used to carry those grants into effect. The Necessary and Proper Clause connects means to a legitimate constitutional end. It is not a separate permission for Congress to pursue any goal it chooses."
+      },
+      {
+        "type": "text",
+        "text": "McCulloch v. Maryland in 1819 addressed Congress’s power to establish a national bank and Maryland’s attempt to tax it. The Court upheld the bank as a permissible means of carrying out national powers and rejected the state tax. The reasoning links implied means to enumerated responsibilities and connects valid national action to federal supremacy. It does not say that every bank policy is wise or that Congress has unlimited power over every subject. A constitutional holding answers a legal question, not every question about a policy’s outcomes."
+      },
+      {
+        "type": "text",
+        "text": "United States v. Lopez in 1995 concerned a federal law prohibiting gun possession in a school zone. The Court held that the law exceeded Congress’s authority under the Commerce Clause in that case. The decision illustrates that an enumerated power can have judicially enforced limits. It did not abolish the commerce power or establish that Congress can never regulate activity affecting interstate commerce. Explain the specific action and constitutional connection rather than using “states’ rights” or “national power” as complete explanations."
+      },
+      {
+        "type": "text",
+        "text": "The Supremacy Clause gives valid federal law priority over conflicting state law. Validity matters: supremacy does not supply a missing constitutional power or make every federal official’s preference controlling. A useful comparison therefore asks two separate questions. First, is the national action within constitutional authority? Second, if it is, how does it interact with conflicting state action? When comparing cases, identify a material similarity or difference in the government action, constitutional issue and reasoning before predicting a bounded result. Historical holdings support analysis; they are not a complete account of every later legal development."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-federalism-clause-comparison-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original summaries of required historical cases, not court quotations. A: McCulloch v. Maryland (1819) upholds a national bank as a permissible means tied to national powers and rejects Maryland’s tax on the bank. B: United States v. Lopez (1995) holds that the federal school-zone possession law at issue exceeded Congress’s Commerce Clause authority. Fictional comparison: a state says it can tax a valid federal institution simply because it disagrees with the institution’s policy.",
+        "steps": [
+          {
+            "prompt": "Which constitutional connection is central to the bank portion of A?",
+            "choices": [
+              "The Necessary and Proper Clause connects a permissible means to enumerated national powers.",
+              "The Tenth Amendment gives Congress every power not listed.",
+              "Every federal institution must be elected directly.",
+              "The Commerce Clause has been eliminated."
+            ],
+            "answer": 0,
+            "explanation": "The bank is analyzed as a means of carrying out national responsibilities. An implied means must connect to constitutional ends rather than replace the need for them.",
+            "hint": "Separate the policy instrument from the constitutional goal it serves."
+          },
+          {
+            "prompt": "What does B illustrate most directly?",
+            "choices": [
+              "All federal laws are invalid.",
+              "An enumerated national power can have limits enforced through judicial review.",
+              "States can cancel every law they dislike.",
+              "The federal government cannot regulate any commerce."
+            ],
+            "answer": 1,
+            "explanation": "Lopez limits a particular exercise of commerce authority. The holding should not be expanded into the abolition of national power.",
+            "hint": "Keep the conclusion as specific as the supplied case."
+          },
+          {
+            "prompt": "What is the main problem with the fictional state’s argument?",
+            "choices": [
+              "A state can never collect any tax.",
+              "Policy disagreement automatically creates a constitutional exception.",
+              "Disagreement alone does not justify a state burden on a valid federal institution under the supplied supremacy reasoning.",
+              "The bank has no relationship to government."
+            ],
+            "answer": 2,
+            "explanation": "The supplied comparison requires attention to the validity of national action and the state burden. Disagreement about policy does not settle those questions.",
+            "hint": "Use the distinction between disliking a policy and possessing constitutional authority."
+          },
+          {
+            "prompt": "Which comparison accurately relates the two cases?",
+            "choices": [
+              "They make the same action legal and illegal under identical facts.",
+              "One eliminates federalism and the other eliminates judicial review.",
+              "Both decide every future policy dispute without further facts.",
+              "One supports implied national means and supremacy, while the other demonstrates a limit on a claimed enumerated power."
+            ],
+            "answer": 3,
+            "explanation": "The cases illuminate different constitutional questions within federalism. A good comparison states their mechanisms and limits rather than assigning simple pro-state or pro-national labels.",
+            "hint": "Explain what constitutional issue each case resolves."
+          }
+        ],
+        "takeaway": "First identify whether the national program rests on constitutional authority; then examine the conflict between valid national action and the state rule. McCulloch illustrates a connection between implied means, enumerated powers and supremacy, while Lopez shows why a claimed power must still be evaluated. The label federal does not by itself resolve the first question, and state disagreement does not by itself resolve the second."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-federalism-clause-comparison-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A fictional federal program and a state rule conflict. What two questions should you answer before invoking federal supremacy? Explain how one of the supplied cases helps frame the analysis without guaranteeing every outcome.",
+        "sampleAnswer": "First identify whether the national program rests on constitutional authority; then examine the conflict between valid national action and the state rule. McCulloch illustrates a connection between implied means, enumerated powers and supremacy, while Lopez shows why a claimed power must still be evaluated. The label federal does not by itself resolve the first question, and state disagreement does not by itself resolve the second.",
+        "checklist": [
+          "Name the constitutional power or question.",
+          "Use the supplied case through its reasoning, not merely its name.",
+          "State a limit on the inference or identify facts still needed."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-federalism-clause-comparison-recall",
+        "prompt": "Why does the Supremacy Clause not mean that the national government has unlimited authority?",
+        "sampleAnswer": "Supremacy concerns the priority of valid federal law over conflicting state law. It does not replace the need to establish constitutional authority for the national action in the first place.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: American Political Ideologies & Beliefs::4.9 Ideology and Economic Policy": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish fiscal policy from monetary policy and identify the responsible institutions.",
+      "Separate a budget deficit, accumulated debt and a policy’s distributional effects.",
+      "Explain a proposed economic mechanism while recognizing uncertainty, timing and tradeoffs."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Distinguish the actor, instrument and economic mechanism"
+      },
+      {
+        "type": "text",
+        "text": "Economic policy arguments connect values to institutions and predictions. A proposal can invoke growth, stable prices, equality of opportunity, employment or individual choice, but those goals do not identify the policy instrument by themselves. First name the actor and the action. Fiscal policy involves government taxing and spending decisions. In the United States, Congress has central taxing and spending powers, while the president proposes priorities and participates in the legislative and implementation processes."
+      },
+      {
+        "type": "text",
+        "text": "Monetary policy concerns money, credit and financial conditions through the central bank. The Federal Reserve uses tools that influence short-term interest rates and broader financial conditions under its legal responsibilities. Congress does not ordinarily choose the policy rate through the same annual appropriations process used to fund a public program. Central-bank independence does not mean the institution has no statutory framework or accountability. Distinguish the institution’s legal role from a claim that one party directly controls every technical decision."
+      },
+      {
+        "type": "text",
+        "text": "Explain how a tool is intended to affect behavior. Increased public spending can directly purchase goods, services or labor and can influence demand elsewhere in the economy. A tax change can alter disposable income or incentives, depending on its design. A change in interest-rate conditions can affect borrowing, saving and investment decisions. These mechanisms are conditional: capacity, expectations, timing, distribution and other events can affect the outcome. A policy intended to increase demand does not guarantee the same effect on every household or a cost-free result."
+      },
+      {
+        "type": "text",
+        "text": "A deficit occurs when spending exceeds revenue over a particular budget period. Debt is accumulated borrowing outstanding, not simply another name for one year’s deficit. A change in either measure does not by itself establish whether every component of policy helped or harmed the economy. Evaluate proposals with a specified outcome and evidence: employment, prices, output, access or distribution. Political ideologies can shape preferences over government’s role, but party labels are not substitutes for explaining an instrument and its likely tradeoffs. A strong response separates the proposal, the mechanism, the prediction and the evidence needed to assess it."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-economic-policy-tools-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original hypothetical policy descriptions, not reports of current decisions. A: Congress authorizes additional bridge-repair spending, and the program purchases materials and hires workers. B: the central bank lowers its target interest-rate range to ease borrowing conditions. C: a government spends 120 million dollars and collects 100 million dollars in revenue during one budget year. No estimate of every policy’s final effect is supplied.",
+        "steps": [
+          {
+            "prompt": "Which classification and mechanism best fit A?",
+            "choices": [
+              "Monetary policy because Congress sets all interest rates",
+              "Fiscal policy that directly purchases goods and labor and can affect demand",
+              "A court ruling that determines private wages",
+              "A guarantee that every price will fall"
+            ],
+            "answer": 1,
+            "explanation": "A government spending decision is fiscal policy. The purchase-and-employment channel is a mechanism, not a guarantee about all later outcomes.",
+            "hint": "Identify the actor and the action before assigning the policy label."
+          },
+          {
+            "prompt": "What distinguishes B from A?",
+            "choices": [
+              "It uses the central bank’s monetary-policy tools rather than the same spending instrument.",
+              "It has no relationship to borrowing.",
+              "It proves Congress has no economic powers.",
+              "It directly appropriates bridge money."
+            ],
+            "answer": 0,
+            "explanation": "The institution and tool differ. Both may affect economic activity, but their channels and decision processes should not be collapsed.",
+            "hint": "The same broad goal can be pursued through different instruments."
+          },
+          {
+            "prompt": "What does C establish?",
+            "choices": [
+              "The government’s accumulated debt is exactly 20 million dollars.",
+              "Every program is ineffective.",
+              "A deficit of 20 million dollars for the stated year",
+              "An annual surplus of 20 million dollars"
+            ],
+            "answer": 2,
+            "explanation": "Spending exceeds revenue by 20 million dollars during that period. Accumulated debt requires information beyond that one-year difference.",
+            "hint": "Compare flows within the year and distinguish them from an accumulated stock."
+          },
+          {
+            "prompt": "Which evaluation is best supported by the supplied descriptions?",
+            "choices": [
+              "All tools guarantee identical outcomes.",
+              "A policy’s intended goal proves its success.",
+              "One household’s experience must describe the entire economy.",
+              "The tools have identifiable mechanisms, but their final effects require evidence and attention to conditions and tradeoffs."
+            ],
+            "answer": 3,
+            "explanation": "The descriptions explain actions and intended channels. They do not settle every outcome or its distribution.",
+            "hint": "Separate the policy’s mechanism from a demonstrated result."
+          }
+        ],
+        "takeaway": "Bridge spending can directly create purchases and employment, but the final effect depends on factors such as available workers, materials, timing and what other spending changes. Easier borrowing conditions can affect investment and consumption, but responses also depend on expectations and willingness to borrow. A useful evaluation names an outcome and compares evidence with the prediction instead of treating fiscal or monetary as a verdict."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-economic-policy-tools-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Choose A or B and explain one intended economic mechanism and one condition that could limit the predicted effect. Identify an outcome you would examine rather than judging the policy by its label alone.",
+        "sampleAnswer": "Bridge spending can directly create purchases and employment, but the final effect depends on factors such as available workers, materials, timing and what other spending changes. Easier borrowing conditions can affect investment and consumption, but responses also depend on expectations and willingness to borrow. A useful evaluation names an outcome and compares evidence with the prediction instead of treating fiscal or monetary as a verdict.",
+        "checklist": [
+          "Identify the correct actor and instrument.",
+          "Explain the behavioral or institutional channel.",
+          "State a relevant condition or tradeoff and an outcome to examine."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-economic-policy-tools-recall",
+        "prompt": "What is the difference between a deficit and debt, and why can that distinction matter in a policy argument?",
+        "sampleAnswer": "A deficit is a spending-revenue difference over a period. Debt is accumulated borrowing outstanding. Confusing them can turn a statement about one year’s budget into an unsupported claim about the entire financial position.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: Political Participation::5.11 Campaign Finance": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish direct contributions, independent expenditures and lobbying.",
+      "Explain why coordination matters to the concept of independent spending.",
+      "Describe the historical Citizens United holding without claiming that it removed every campaign-finance restriction."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Classify the political activity before applying the argument"
+      },
+      {
+        "type": "text",
+        "text": "Campaign finance concerns how resources enter electoral activity, but different activities are not interchangeable. A direct contribution gives money or another covered resource to a candidate’s campaign or a political committee. An independent expenditure pays for electoral advocacy without coordination with the candidate’s campaign. Lobbying communicates with officials to influence policy. One organization can undertake more than one kind of activity; identify the particular action instead of assigning a rule solely from its name."
+      },
+      {
+        "type": "text",
+        "text": "Coordination matters because independence is not established merely by using a separate bank account or calling a group independent. In the simplified course comparison, ask whether the spending is planned or carried out independently of the campaign. The precise legal treatment of a real activity can depend on detailed rules and facts, so the instructional distinction should not be turned into a complete legal checklist. Likewise, a message asking a legislator to change a bill is not automatically a campaign contribution simply because politics is involved."
+      },
+      {
+        "type": "text",
+        "text": "Citizens United v. Federal Election Commission in 2010 protected independent political expenditures by corporations and unions as political expression. The holding did not grant corporations an unlimited right to donate directly to candidates or erase all disclosure requirements and contribution rules. The course comparison centers on independent spending versus direct contributions. Super PACs are associated with independent expenditures, not unlimited direct candidate donations; their development involved more than this one decision. Keep the historical holding and its limits explicit."
+      },
+      {
+        "type": "text",
+        "text": "Campaign-finance arguments often weigh political expression and association against concerns about corruption, access and unequal influence. Explain the mechanism an argument claims. A large donor might gain opportunities for access, but evidence of spending alone does not prove that a particular official exchanged a policy for money. An independent advertisement might broaden speech while increasing the prominence of wealthy speakers. A strong response can describe these competing concerns without assuming all spending is identical or that every member of a political group holds one view. When evaluating a claim, specify the activity, actor, evidence and constitutional principle rather than using a slogan as the conclusion."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-finance-activity-classification-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified scenarios for conceptual comparison, not a complete compliance guide. A: a person gives money directly to a candidate’s campaign. B: a group pays for an advertisement supporting a candidate and makes its decisions without coordination with that campaign. C: a neighborhood association asks a legislator to revise a housing bill. D: a purportedly independent group plans an advertisement together with the candidate’s campaign. No current contribution thresholds or additional eligibility facts are supplied.",
+        "steps": [
+          {
+            "prompt": "Which comparison correctly classifies A and B as described?",
+            "choices": [
+              "A is lobbying and B is a constitutional amendment.",
+              "Both are automatically identical direct donations.",
+              "A is a direct contribution; B is described as an independent expenditure.",
+              "B proves that every finance rule has disappeared."
+            ],
+            "answer": 2,
+            "explanation": "The scenarios distinguish giving resources to the campaign from independently paying for advocacy. The label depends on the specified activity.",
+            "hint": "Follow where the money goes and who makes the decisions."
+          },
+          {
+            "prompt": "What feature of D prevents simply treating it as independent under the stated concept?",
+            "choices": [
+              "The group has a name.",
+              "The advertisement is planned with the campaign.",
+              "The message discusses an election.",
+              "The advertisement costs money."
+            ],
+            "answer": 1,
+            "explanation": "The supplied coordination is the relevant difference. Electoral subject matter or spending alone does not settle independence.",
+            "hint": "Compare D with the explicit no-coordination fact in B."
+          },
+          {
+            "prompt": "Which description best fits C?",
+            "choices": [
+              "Lobbying to influence a policy decision",
+              "An unlimited direct campaign donation",
+              "A judicial holding",
+              "A popular vote to remove a legislator"
+            ],
+            "answer": 0,
+            "explanation": "The association is communicating with an official about a bill. That is a policy-influence activity, not automatically an electoral contribution.",
+            "hint": "Identify whether the immediate target is a policy decision or a campaign’s resources."
+          },
+          {
+            "prompt": "Which statement accurately limits the Citizens United conclusion taught here?",
+            "choices": [
+              "It abolished all disclosure rules.",
+              "It authorized unlimited corporate donations directly to candidates.",
+              "It guaranteed that money cannot influence access.",
+              "It concerned independent political spending and did not eliminate every other campaign-finance rule."
+            ],
+            "answer": 3,
+            "explanation": "The historical holding should not be expanded into a claim that every type of political resource transfer is unlimited or unregulated.",
+            "hint": "Keep the ruling tied to the activity it addressed."
+          }
+        ],
+        "takeaway": "A protection argument can connect independent advocacy to political expression and association. A concern can connect concentrated resources to the volume or reach of political messages and unequal opportunities for access. Spending data can show amounts and patterns, but it does not alone prove a particular corrupt exchange or the effect of each message on every voter. A reasoned comparison distinguishes the constitutional argument from empirical claims that need evidence."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-finance-activity-classification-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain one argument for protecting independent political spending and one concern about its political effects. Use a mechanism for each, and identify one conclusion that spending data alone cannot establish.",
+        "sampleAnswer": "A protection argument can connect independent advocacy to political expression and association. A concern can connect concentrated resources to the volume or reach of political messages and unequal opportunities for access. Spending data can show amounts and patterns, but it does not alone prove a particular corrupt exchange or the effect of each message on every voter. A reasoned comparison distinguishes the constitutional argument from empirical claims that need evidence.",
+        "checklist": [
+          "Identify independent spending rather than treating all activity as a direct contribution.",
+          "Explain both mechanisms accurately.",
+          "Limit claims about corruption, persuasion or universal effects to what the evidence supports."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-finance-activity-classification-recall",
+        "prompt": "Why is “the group is independent” not a sufficient explanation without facts about the particular activity?",
+        "sampleAnswer": "Independence concerns how the relevant spending is planned or carried out in relation to the campaign. A group’s label alone does not establish those facts, and the organization may undertake several different kinds of political activity.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  }
+}

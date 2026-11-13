@@ -1,0 +1,342 @@
+{
+  "Algebra & Functions::Lesson 4 — Functions and Function Notation": {
+    "revision": 1,
+    "objectives": [
+      "Read a function call as an input-output instruction.",
+      "Evaluate compositions in the stated order.",
+      "Find an inverse while checking whether the original function is one-to-one."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate the definitions"
+      },
+      {
+        "type": "text",
+        "text": "A function assigns exactly one output to every input in its domain. The notation f(2) asks for the output when the input is 2; it is not multiplication of f by 2. A formula, table, or graph can represent that assignment. Before evaluating, confirm that the requested input belongs to the domain. An output from one function can become the input of another, but it must lie in the second function’s domain."
+      },
+      {
+        "type": "text",
+        "text": "Composition means applying one function and then another. In f(g(x)), evaluate the inner g first and apply f to its result. Order generally matters: f(g(x)) need not equal g(f(x)). An inverse function reverses an input-output relationship only when each relevant output identifies one original input. A linear function with nonzero slope has an inverse over all real inputs, but x² over all real numbers is not one-to-one because x and −x have the same square. A domain restriction can resolve that ambiguity."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Calculate with a reason"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-functions-order-guided",
+        "scenario": "Let f(x)=2x+3 and g(x)=x². First use their real-number domains, then consider the restriction x≥0 for g when constructing its inverse.",
+        "steps": [
+          {
+            "prompt": "What is f(g(2))?",
+            "choices": [
+              "49",
+              "11",
+              "14"
+            ],
+            "answer": 1,
+            "explanation": "Evaluate g(2)=4, then f(4)=2(4)+3=11."
+          },
+          {
+            "prompt": "What is g(f(2))?",
+            "choices": [
+              "49",
+              "11",
+              "7"
+            ],
+            "answer": 0,
+            "explanation": "Evaluate f(2)=7, then g(7)=49. Reversing the order changes the result."
+          },
+          {
+            "prompt": "Which formula reverses f?",
+            "choices": [
+              "f⁻¹(y)=2y−3",
+              "f⁻¹(y)=1/(2y+3)",
+              "f⁻¹(y)=(y−3)/2"
+            ],
+            "answer": 2,
+            "explanation": "Solve y=2x+3 for the original input: x=(y−3)/2. An inverse function is not the reciprocal 1/f."
+          },
+          {
+            "prompt": "With g restricted to x≥0, which inverse returns that nonnegative input?",
+            "choices": [
+              "−√y",
+              "√y for y≥0",
+              "±√y as two outputs"
+            ],
+            "answer": 1,
+            "explanation": "The restriction chooses the nonnegative branch. An inverse function must return one output per input, not both signs."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Explain a changed condition"
+      },
+      {
+        "type": "text",
+        "text": "Compositions can also impose new domain restrictions. If h(x)=√x, then h(f(x))=√(2x+3) requires 2x+3≥0, or x≥−3/2. In contrast, f(h(x))=2√x+3 requires x≥0. The formulas differ and so do their domains. Graphically, inverse input-output pairs exchange coordinates: if (2,7) lies on f, then (7,2) lies on f⁻¹. This is a reflection across y=x, not across an axis. These relationships let you check an inverse without relying only on algebra."
+      },
+      {
+        "type": "reflection",
+        "id": "act-functions-order-transfer",
+        "math": true,
+        "prompt": "Why would using 1/(2x+3) as the inverse of f fail the reversal check at input 2?",
+        "sampleAnswer": "f maps 2 to 7. A true inverse must map 7 back to 2. The reciprocal expression at 7 gives 1/17 instead. The correct inverse gives (7−3)/2=2, so it actually reverses the assignment.",
+        "checklist": [
+          "Identify the relevant definition or restriction.",
+          "Use the original quantities and order.",
+          "Explain why the alternative method would change the result."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "id": "act-functions-order-recall",
+        "math": true,
+        "prompt": "Using f(x)=2x+3 and g(x)=x², enter f(g(−3)).",
+        "acceptedAnswers": [
+          "21"
+        ],
+        "sampleAnswer": "First g(−3)=9, then f(9)=18+3=21. Preserve the order and square the entire negative input."
+      }
+    ]
+  },
+  "Statistics & Probability::Lesson 8 — Probability, Counting, Permutations & Combinations": {
+    "revision": 1,
+    "objectives": [
+      "Track changing sample spaces in sampling without replacement.",
+      "Distinguish ordered outcomes from unordered groups.",
+      "Use complements when they simplify an at-least-one event."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate the definitions"
+      },
+      {
+        "type": "text",
+        "text": "Probability compares favorable outcomes with all possible outcomes under a specified random mechanism. Equally likely labels can be counted directly; unequal probabilities require their weights. In successive draws without replacement, both the total remaining count and possibly the favorable count change. A multiplication rule follows conditional probabilities: P(A and B)=P(A)P(B|A). Replacing the second factor with P(B) requires independence."
+      },
+      {
+        "type": "text",
+        "text": "Counting depends on whether order matters. Selecting two people for an unordered committee differs from assigning two different roles. For distinct objects, an ordered pair contains a first and a second selection; an unordered pair treats the same two selected objects as one group regardless of sequence. Either representation can solve a probability question if the favorable and total counts use the same convention. A complement gives P(at least one A)=1−P(no A), which can be easier than separately adding one-A and two-A cases."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Calculate with a reason"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-probability-draws-guided",
+        "scenario": "A bag contains three distinct red tokens and two distinct blue tokens. Two tokens are drawn uniformly at random without replacement. No other tokens are present.",
+        "steps": [
+          {
+            "prompt": "What is the probability both tokens are red?",
+            "choices": [
+              "(3/5)(3/5)",
+              "(3/5)(2/4)",
+              "(2/5)(1/4)"
+            ],
+            "answer": 1,
+            "explanation": "After a red first draw, two red tokens remain among four total tokens. The probability is 6/20=3/10."
+          },
+          {
+            "prompt": "How many unordered pairs of distinct tokens can be selected?",
+            "choices": [
+              "10",
+              "20",
+              "25"
+            ],
+            "answer": 0,
+            "explanation": "There are 5 choose 2 = 10 unordered pairs. The 20 ordered selections count each unordered pair twice."
+          },
+          {
+            "prompt": "What is the probability of one red and one blue in either order?",
+            "choices": [
+              "3/10",
+              "2/5",
+              "3/5"
+            ],
+            "answer": 2,
+            "explanation": "Red-then-blue has probability (3/5)(2/4)=3/10. Blue-then-red has (2/5)(3/4)=3/10. The disjoint orders add to 3/5."
+          },
+          {
+            "prompt": "What is the probability of at least one red?",
+            "choices": [
+              "1/10",
+              "9/10",
+              "3/5"
+            ],
+            "answer": 1,
+            "explanation": "The complement is two blue: (2/5)(1/4)=1/10. Thus at least one red has probability 1−1/10=9/10."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Explain a changed condition"
+      },
+      {
+        "type": "text",
+        "text": "If a drawn token were replaced before the second draw and the bag remixed, the second red probability would remain 3/5. Then two-red probability would be 9/25 rather than 3/10. Replacement changes the mechanism, not merely the arithmetic style. Mutually exclusive events are also different from independent events: two colors on the same single token can be mutually exclusive, while colors on successive draws have a dependence determined by replacement. State the experiment before assigning a rule."
+      },
+      {
+        "type": "reflection",
+        "id": "act-probability-draws-transfer",
+        "math": true,
+        "prompt": "Explain why dividing the three favorable unordered red-red pairs by 20 ordered pairs gives an inconsistent probability.",
+        "sampleAnswer": "The numerator uses unordered pairs while the denominator uses ordered pairs. With unordered counting, use 3/10. With ordered counting, the favorable red-red sequences are 3×2=6 and total sequences are 5×4=20, again giving 6/20=3/10. The conventions must match.",
+        "checklist": [
+          "Identify the relevant definition or restriction.",
+          "Use the original quantities and order.",
+          "Explain why the alternative method would change the result."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "id": "act-probability-draws-recall",
+        "math": true,
+        "prompt": "For the original without-replacement draws, enter the probability both tokens are blue.",
+        "acceptedAnswers": [
+          "1/10",
+          "0.1"
+        ],
+        "sampleAnswer": "The probability is (2/5)(1/4)=2/20=1/10. Only one blue remains after drawing a blue first."
+      }
+    ]
+  },
+  "Geometry::Lesson 8 — Trigonometry": {
+    "revision": 1,
+    "objectives": [
+      "Identify opposite and adjacent sides relative to a specified acute angle.",
+      "Keep sine, cosine, and tangent ratios attached to that reference angle.",
+      "Explain how similar triangles preserve ratios while lengths scale."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate the definitions"
+      },
+      {
+        "type": "text",
+        "text": "In a right triangle, the hypotenuse is opposite the right angle and is the longest side. Relative to one acute angle θ, the opposite leg lies across from θ and the adjacent leg touches θ without being the hypotenuse. Sine is opposite divided by hypotenuse, cosine is adjacent divided by hypotenuse, and tangent is opposite divided by adjacent. The words opposite and adjacent depend on the selected acute angle; the hypotenuse does not change when you switch between the two acute angles."
+      },
+      {
+        "type": "text",
+        "text": "Similar right triangles preserve their acute angles and corresponding side ratios. That is why trigonometric ratios describe angles rather than one particular triangle size. If the problem supplies a side ratio, a scale factor may remain unknown until another length is given. Keep angle units consistent when using a calculator: a numerical degree measure and the same numerical radian measure are generally different angles. In a right triangle with acute angles θ and φ, θ+φ=90°, so sinφ=cosθ and cosφ=sinθ."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Calculate with a reason"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-trig-reference-angle-guided",
+        "scenario": "A right triangle has legs 5 and 12 and hypotenuse 13. Angle θ is opposite the length-5 leg. The other acute angle is φ.",
+        "steps": [
+          {
+            "prompt": "What is sinθ?",
+            "choices": [
+              "5/13",
+              "12/13",
+              "5/12"
+            ],
+            "answer": 0,
+            "explanation": "The opposite side for θ is 5 and the hypotenuse is 13."
+          },
+          {
+            "prompt": "What is tanθ?",
+            "choices": [
+              "12/5",
+              "5/13",
+              "5/12"
+            ],
+            "answer": 2,
+            "explanation": "Tangent uses opposite over adjacent: 5/12. The hypotenuse is not its denominator."
+          },
+          {
+            "prompt": "What is sinφ?",
+            "choices": [
+              "5/13",
+              "12/13",
+              "12/5"
+            ],
+            "answer": 1,
+            "explanation": "For the other acute angle, the opposite leg is 12. The hypotenuse is still 13, so sinφ=12/13=cosθ."
+          },
+          {
+            "prompt": "If all side lengths double, what happens to sinθ?",
+            "choices": [
+              "It remains 5/13",
+              "It doubles to 10/13",
+              "It becomes 5/26"
+            ],
+            "answer": 0,
+            "explanation": "Both numerator and denominator double: 10/26=5/13. Scaling preserves the angle and ratio."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Explain a changed condition"
+      },
+      {
+        "type": "text",
+        "text": "Ratios can connect to coordinates without an actual drawn triangle. A point (12,5) on a circle of radius 13 in the first quadrant defines an angle from the positive x-axis with cosine 12/13 and sine 5/13. Outside the first quadrant, coordinate signs matter, so a positive-length triangle alone cannot determine the signs of sine and cosine. A triangle side ratio is also not an angle measure: sinθ=5/13 does not mean θ=5/13 degrees. To find the angle numerically, an inverse trigonometric operation and the appropriate angle convention are needed."
+      },
+      {
+        "type": "reflection",
+        "id": "act-trig-reference-angle-transfer",
+        "math": true,
+        "prompt": "A student changes the reference from θ to φ but keeps the opposite side labeled 5. Explain the error and give the correct opposite side for φ.",
+        "sampleAnswer": "Opposite is defined relative to the selected angle. The leg opposite θ is 5, but the leg opposite φ is 12. The hypotenuse stays 13. Changing the reference angle exchanges the two legs’ roles.",
+        "checklist": [
+          "Identify the relevant definition or restriction.",
+          "Use the original quantities and order.",
+          "Explain why the alternative method would change the result."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "id": "act-trig-reference-angle-recall",
+        "math": true,
+        "prompt": "A triangle similar to this 5–12–13 triangle has hypotenuse 39. Enter the side opposite the angle corresponding to θ.",
+        "acceptedAnswers": [
+          "15"
+        ],
+        "sampleAnswer": "The length scale factor is 39/13=3. Multiply the corresponding opposite side 5 by 3 to obtain 15."
+      }
+    ]
+  }
+}

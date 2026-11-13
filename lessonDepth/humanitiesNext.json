@@ -1,0 +1,650 @@
+{
+  "APUSH: 1607–1754::2.2 Slavery, Resistance, and Indigenous Power": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish indentured servitude from racialized hereditary slavery.",
+      "Explain how law and economic incentives reinforced one another without making the development inevitable.",
+      "Use a legal source as evidence of a rule while identifying what it cannot reveal about every person’s experience."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "Indentured servants entered a legally bounded term of labor, although coercion, abuse, restricted freedom, and unequal bargaining power could characterize that arrangement. Enslaved people were held as property under developing colonial legal systems and generally could not end that status when a contracted term expired. These systems were not interchangeable. Their relative importance varied by colony, crop, period, and access to labor. A comparison should specify the place and time instead of treating all British North America as one labor market."
+      },
+      {
+        "type": "text",
+        "text": "Racialized hereditary slavery developed through a combination of Atlantic commerce, plantation production, force, and legal choices. Virginia’s 1662 law made a child’s enslaved or free status follow the mother’s status, a departure from the English paternal-status principle often discussed in this context. Laws also restricted movement, marriage, testimony, and opportunities for freedom. Identify the mechanism: hereditary status reproduced a coerced labor force and made the children of enslaved women vulnerable to enslavement. This was a constructed legal system, not a natural connection between ancestry and rights."
+      },
+      {
+        "type": "text",
+        "text": "Enslaved people acted within and against these constraints through family and community formation, preservation and adaptation of cultural practices, resistance in daily work, escape, petitions, and organized rebellion. Resistance does not imply that opportunities were equal or that coercion was minor. Indigenous peoples also remained distinct political actors: diplomacy, trade, warfare, migration, and control over territory shaped colonial possibilities. Avoid reducing Indigenous power to a background condition of European development."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-slavery-law-guided",
+        "scenario": "Original instructional source summaries, not quotations. Source A: a Virginia law enacted in 1662 ties a child’s enslaved or free status to the mother’s status. Source B: colonial records include laws regulating enslaved people’s movement and accounts of people escaping enslavement. These summaries are selected evidence, not a complete record of every colony.",
+        "steps": [
+          {
+            "prompt": "What change is most directly illustrated by Source A?",
+            "choices": [
+              "A fixed term of service for all workers",
+              "The legal reproduction of enslaved status through maternal descent",
+              "The immediate abolition of coerced labor"
+            ],
+            "answer": 1,
+            "explanation": "The stated rule links a child’s status to the mother’s. It helps explain hereditary slavery; it does not establish a universal contract term or abolition."
+          },
+          {
+            "prompt": "What can the existence of a law restricting movement establish by itself?",
+            "choices": [
+              "That lawmakers sought to regulate movement",
+              "That every person obeyed the law",
+              "That no enslaved person ever traveled"
+            ],
+            "answer": 0,
+            "explanation": "A legal rule is direct evidence of an institutional prescription. Actual enforcement and behavior require additional evidence."
+          },
+          {
+            "prompt": "How should an escape account affect an explanation of slavery?",
+            "choices": [
+              "It proves slavery was easy to leave",
+              "It shows that law had no importance",
+              "It adds evidence of agency and resistance within a coercive system"
+            ],
+            "answer": 2,
+            "explanation": "Resistance and severe constraint can coexist. An individual escape does not establish a general ability to leave or eliminate legal coercion."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "Build a causal explanation by separating conditions, decisions, and consequences. Plantation demand made a large controlled labor force profitable for some colonists; law helped secure and reproduce that force; violence enforced claims of ownership; resistance shaped the costs and practices of control. These elements interacted rather than forming a single automatic chain. A law’s date can document a formal rule without proving that the practice began on that exact day. Likewise, a source written by an enslaver may reveal assumptions about control while obscuring the experiences of enslaved people. Ask whose perspective survives in the record and seek sources that can test or complicate it."
+      },
+      {
+        "type": "reflection",
+        "id": "apush-slavery-law-transfer",
+        "prompt": "Revise the claim “Plantation demand naturally created slavery, and the laws show that enslaved people never resisted.” Explain both problems.",
+        "sampleAnswer": "Plantation demand helps explain incentives but does not make a particular legal system natural or inevitable; lawmakers, traders, and enslavers made choices enforced through coercion. Laws show intended rules, not universal compliance. Escape accounts and other evidence document resistance within that system.",
+        "checklist": [
+          "Name at least one legal or institutional choice.",
+          "Distinguish prescribed conduct from observed behavior.",
+          "Explain agency without minimizing coercion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "apush-slavery-law-retrieve",
+        "prompt": "Which evidence best tests how consistently a movement restriction was enforced in one county?",
+        "choices": [
+          "The restriction’s title alone",
+          "Dated local court records and relevant accounts of movement or escape",
+          "A claim about every colony based on one law"
+        ],
+        "answer": 1,
+        "explanation": "Local records can connect the rule to enforcement and behavior in a specified setting. A title or universal claim cannot do that."
+      }
+    ]
+  },
+  "APUSH: 1890–1945::7.3 Depression, New Deal, and World War II": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish relief, recovery, and reform as overlapping analytical categories.",
+      "Explain changes in federal responsibility alongside limits and exclusions.",
+      "Compare policies by their mechanisms rather than treating every New Deal program as the same."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "The Great Depression involved a major contraction of output and employment, financial instability, and widespread hardship. A historical explanation should distinguish the 1929 stock-market crash from the longer crisis rather than treating one event as a complete explanation. Banking failures, reduced spending, debt burdens, and international economic problems interacted. The New Deal was a changing collection of policies, not one program with one effect."
+      },
+      {
+        "type": "text",
+        "text": "Relief addressed immediate hardship, such as assistance or paid work. Recovery sought to restore economic activity. Reform changed institutions or rules to reduce future insecurity or instability. A policy can serve more than one purpose. Banking changes, work programs, labor protections, and social insurance acted through different mechanisms, so classify them by what they did rather than memorizing a rigid label for each acronym."
+      },
+      {
+        "type": "text",
+        "text": "Federal responsibilities expanded, but implementation was uneven and contested. Some programs relied on state or local administration; some protections excluded occupational categories that included many Black workers and women. Labor organizing, business opposition, constitutional disputes, and congressional bargaining affected outcomes. Explaining a policy’s stated purpose is therefore only the first step: also ask who qualified, who administered it, what resources it supplied, and what evidence shows its effects."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-new-deal-comparison-guided",
+        "scenario": "Original historical summaries. A: a federal work program pays eligible people to undertake public projects. B: federal deposit insurance protects covered bank deposits within stated rules. C: the original Social Security framework establishes forms of social insurance while initially excluding many agricultural and domestic workers from major coverage provisions. These summaries simplify selected mechanisms and do not list every program or exception.",
+        "steps": [
+          {
+            "prompt": "Which mechanism most directly addresses immediate unemployment in Summary A?",
+            "choices": [
+              "Paying eligible workers for public work",
+              "Insuring every business profit",
+              "Eliminating all private employment"
+            ],
+            "answer": 0,
+            "explanation": "The summary describes wages connected to public projects. Its mechanism is different from guaranteeing profits or ending private work."
+          },
+          {
+            "prompt": "Why is B an institutional reform rather than merely a cash-relief example?",
+            "choices": [
+              "It means banking crises can never occur",
+              "It changes protection and incentives within the banking system",
+              "It guarantees every financial investment"
+            ],
+            "answer": 1,
+            "explanation": "Insurance for covered deposits changes an institutional arrangement. Coverage has rules and limits; it is not a guarantee for every investment."
+          },
+          {
+            "prompt": "What does C add to a claim that federal responsibility expanded?",
+            "choices": [
+              "It disproves any expansion",
+              "It shows that every worker received equal coverage immediately",
+              "It qualifies the expansion by identifying initial exclusions"
+            ],
+            "answer": 2,
+            "explanation": "A system can expand federal responsibility while distributing protection unevenly. Both dimensions belong in the explanation."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "Comparison requires a common dimension. You might compare immediate income, long-term security, labor bargaining power, or the federal-state relationship. Do not compare one program’s intention with another’s measured outcome and call that a balanced result. Periodization also matters: World War II mobilization brought a different scale and organization of federal spending, production, and employment. That does not erase New Deal institutional changes, but it complicates a claim that a single program fully ended the Depression. Claims about economic effects need the particular outcome, time interval, and supporting evidence."
+      },
+      {
+        "type": "reflection",
+        "id": "apush-new-deal-comparison-transfer",
+        "prompt": "Write a qualified thesis about whether the New Deal changed the federal government’s role. Include one mechanism of change and one limitation.",
+        "sampleAnswer": "The New Deal expanded federal responsibility for economic security through work programs and social-insurance institutions, but occupational exclusions and uneven administration limited how uniformly people experienced that expansion. Specific policies and evidence are needed to assess the scale of each effect.",
+        "checklist": [
+          "Identify a concrete policy mechanism.",
+          "Explain continuity or limitation without denying all change.",
+          "Avoid a claim that one policy guaranteed recovery for everyone."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "apush-new-deal-comparison-retrieve",
+        "prompt": "Which comparison is best structured?",
+        "choices": [
+          "Which program had the most memorable name?",
+          "How did a work program and social insurance address different time horizons of economic insecurity?",
+          "Why did every New Deal program have exactly the same effect?"
+        ],
+        "answer": 1,
+        "explanation": "A shared dimension—economic insecurity—allows analysis of different mechanisms and time horizons without assuming identical effects."
+      }
+    ]
+  },
+  "World Hist: Revolutions::5.3 Industrialization and its social consequences": {
+    "revision": 1,
+    "objectives": [
+      "Connect energy, machinery, labor organization, and transport in an industrialization explanation.",
+      "Distinguish increased production from the distribution of its benefits.",
+      "Compare timing and institutions without assuming that every region followed one path."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "Industrialization changes how goods are produced, including the use of machinery, new energy sources, factory organization, and expanding transport systems. Mechanization is a change in tools; factory organization is a change in where and how labor is coordinated. They often reinforced one another but are not synonyms. Steam power drew on fuel and engineering systems rather than relying solely on water flow or muscle. Coal access, capital, commercial connections, state policies, and labor supplies mattered in different combinations."
+      },
+      {
+        "type": "text",
+        "text": "Britain’s early industrial development cannot be explained by one invention alone. Textile production, coal and iron industries, financial and commercial institutions, imperial connections, and agricultural and demographic changes interacted. Later industrialization in other states involved different roles for government, foreign technology, and investment. A comparison should identify a shared outcome, such as railway expansion or factory production, and then compare the mechanisms producing it."
+      },
+      {
+        "type": "text",
+        "text": "Industrialization altered work routines and social relationships. Wage labor and urban growth created opportunities for some while also exposing workers to dangerous conditions, long hours, insecure income, and crowded housing. Labor movements, reform campaigns, socialist arguments, and laws responded to these conditions. Changes in gender and family work varied by class, region, and industry. Greater total output does not establish that every group enjoyed equal gains or that living conditions improved immediately."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-industrialization-mechanisms-guided",
+        "scenario": "Original model evidence for reasoning, not a historical dataset. Factory A produces more cloth per worker-hour after machinery is introduced; workers still report long shifts and hazardous equipment. A railway reduces the travel time between a producing district and a port. A government finances part of the railway. These observations describe separate outcomes and mechanisms.",
+        "steps": [
+          {
+            "prompt": "Which conclusion follows most directly from the first observation?",
+            "choices": [
+              "Every worker’s real wage increased",
+              "Measured cloth productivity increased",
+              "All work became safe"
+            ],
+            "answer": 1,
+            "explanation": "Cloth per worker-hour measures productivity. Wages and safety are different outcomes that need their own evidence."
+          },
+          {
+            "prompt": "How can the railway contribute to industrial expansion?",
+            "choices": [
+              "By reducing transport time and connecting producers with markets",
+              "By proving factories no longer need fuel",
+              "By eliminating all price differences"
+            ],
+            "answer": 0,
+            "explanation": "The stated transport change can lower some barriers to moving inputs and outputs. It does not establish the universal effects in the other choices."
+          },
+          {
+            "prompt": "What does government financing add to a comparison?",
+            "choices": [
+              "It proves private investment did not exist anywhere",
+              "It makes technology irrelevant",
+              "It identifies a state role in building infrastructure"
+            ],
+            "answer": 2,
+            "explanation": "The evidence identifies one institutional contribution. It does not establish that the state was the only investor or that tools no longer mattered."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "A strong argument connects a mechanism to a result while preserving alternative influences. Machinery can raise output per worker-hour, but real wages also depend on prices, bargaining power, labor supply, and institutions. Railways can expand markets while also supporting military control or imperial extraction. A comparative thesis can therefore identify a shared technological change and different political or social consequences. Be careful with period labels: an early industrial transition in one region and a later state-led expansion in another should be compared at comparable stages or with the time difference explicitly acknowledged."
+      },
+      {
+        "type": "reflection",
+        "id": "world-industrialization-mechanisms-transfer",
+        "prompt": "Explain why “industrialization improved everyone’s life because factories produced more” is inadequate. Offer a more defensible claim.",
+        "sampleAnswer": "Increased production measures one outcome and does not show how gains were distributed or what happened to safety, housing, wages, or leisure. A stronger claim is that mechanized factory production expanded output while its benefits and costs varied across groups and prompted labor organizing and reform.",
+        "checklist": [
+          "Distinguish output from welfare and distribution.",
+          "Identify at least two relevant social outcomes.",
+          "Keep the claim specific enough to test with evidence."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "world-industrialization-mechanisms-retrieve",
+        "prompt": "Which additional evidence would best assess workers’ purchasing power?",
+        "choices": [
+          "Factory output alone",
+          "Comparable wage and price records over time",
+          "The number of machines without any wage information"
+        ],
+        "answer": 1,
+        "explanation": "Purchasing power depends on what wages can buy, so both pay and prices matter."
+      }
+    ]
+  },
+  "World Hist: Consequences of Industrialization::6.3 Migration, commodities and economic dependency": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish voluntary migration, indenture, and forced movement without flattening differences in coercion.",
+      "Explain how transport and labor demand can interact with state rules and family networks.",
+      "Analyze unequal commodity relationships without assuming that every participant had the same power."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "Migration describes movement, but the label alone does not explain choice or power. A migrant might seek wages, flee violence, follow a family network, be bound by an indenture contract, or be forcibly displaced. Legal freedom to move can coexist with severe economic pressure, discriminatory laws, debt, or restrictions at the destination. Identify the labor arrangement and the particular constraints before comparing experiences."
+      },
+      {
+        "type": "text",
+        "text": "Nineteenth-century transport developments reduced some costs and travel times, while expanding commercial production created demand for labor. After formal abolition in several imperial settings, indentured labor connected regions such as South Asia with plantations and other workplaces abroad. Indenture was not legally identical to hereditary slavery, but contracts and enforcement could impose serious coercion and limit workers’ ability to leave. Diaspora communities maintained and adapted family, cultural, religious, and commercial connections."
+      },
+      {
+        "type": "text",
+        "text": "Commodity production also linked regions unequally. A region specializing in an export crop or mineral could depend on foreign demand, credit, transport infrastructure, and political decisions. Specialization might generate income while increasing vulnerability to price changes or extraction by powerful institutions. Do not infer complete dependence from a single shipment or assume that local producers lacked all agency. Track who controlled land, labor, finance, and access to markets."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-migration-labor-guided",
+        "scenario": "Original hypothetical comparison, not historical measurements. Region A exports most of one crop through a foreign-controlled port and imports many manufactured goods. Region B sells several crops through multiple routes. A fall in the world price of A’s main crop reduces local export revenue. Some workers travel to another region using relatives’ job contacts.",
+        "steps": [
+          {
+            "prompt": "Which feature most directly explains A’s vulnerability to this price change?",
+            "choices": [
+              "Reliance on a single major export",
+              "The mere existence of any trade",
+              "The absence of all local decisions"
+            ],
+            "answer": 0,
+            "explanation": "Concentration in the affected export exposes revenue to that commodity’s price. Trade itself does not establish identical vulnerability in every region."
+          },
+          {
+            "prompt": "What role do relatives’ contacts illustrate?",
+            "choices": [
+              "A universal guarantee of safe work",
+              "A migration network that can reduce information barriers",
+              "Proof that the destination has no restrictions"
+            ],
+            "answer": 1,
+            "explanation": "Contacts can supply information and connections. They do not remove all risk or legal constraints."
+          },
+          {
+            "prompt": "Which additional evidence best supports a claim about coercion in a labor arrangement?",
+            "choices": [
+              "Only the distance traveled",
+              "Only the crop’s name",
+              "Contract terms, enforcement practices, and workers’ ability to leave"
+            ],
+            "answer": 2,
+            "explanation": "Coercion concerns restrictions and enforcement, so these records directly address the claim."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "Use push and pull factors as a starting organization, not as a complete explanation. “Jobs attracted migrants” leaves open who could travel, how fares were financed, what contracts required, and whether governments admitted or excluded particular groups. A stronger comparison combines incentives with institutions and networks. Likewise, an export economy’s vulnerability depends on diversification, bargaining power, ownership, and political context. Two regions can participate in the same global market while occupying very different positions within it."
+      },
+      {
+        "type": "reflection",
+        "id": "world-migration-labor-transfer",
+        "prompt": "Explain how migration could involve both purposeful choices and unequal constraints. Use the hypothetical family network and one labor condition.",
+        "sampleAnswer": "A person could deliberately use relatives’ information to seek a better-paid job while still facing restrictive contracts, debt, or discriminatory entry rules. The decision demonstrates agency; the surrounding conditions determine which options were available and how costly leaving might be.",
+        "checklist": [
+          "Describe a specific choice.",
+          "Identify an institutional or economic constraint.",
+          "Avoid equating all migration with either complete freedom or identical forced labor."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "world-migration-labor-retrieve",
+        "prompt": "Which question most improves a comparison of two migration systems?",
+        "choices": [
+          "Did both involve people moving?",
+          "Who could leave the job, under what rules, and with what consequences?",
+          "Which journey had the shorter name?"
+        ],
+        "answer": 1,
+        "explanation": "The ability to leave and its consequences illuminate power and labor conditions beyond the shared fact of movement."
+      }
+    ]
+  },
+  "AP Lang: Developing and Revising Arguments::5.2 Counterarguments, concessions, and rebuttals": {
+    "revision": 1,
+    "objectives": [
+      "Represent a competing position in a form its supporters could recognize.",
+      "Distinguish conceding a valid concern from abandoning a thesis.",
+      "Revise the scope or conditions of a claim when the evidence warrants it."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "A counterargument identifies a serious challenge to a claim, reason, assumption, or proposed action. It is more useful than an invented objection that no reasonable reader would hold. Begin by reconstructing the opposing position accurately: what outcome does it value, what evidence does it use, and how does its reasoning work? You can disagree after representing it fairly. Do not substitute an attack on a person’s intelligence or motives for an answer to the argument."
+      },
+      {
+        "type": "text",
+        "text": "A concession accepts a limited point. A rebuttal explains why the competing argument does not defeat the position being defended, or why a revised position is stronger. These moves are not a required sentence template. Sometimes a counterargument reveals that your original thesis is too broad; the honest response is to qualify it. Qualification can concern time, population, conditions, evidence strength, or implementation. Merely adding however does not create a reasoned response."
+      },
+      {
+        "type": "text",
+        "text": "Argument writing differs from rhetorical analysis. In an argument, you defend a position using reasons and evidence. In rhetorical analysis, you explain how a writer’s choices work within a rhetorical situation. Recognizing that distinction helps keep a counterargument paragraph focused on the actual task. In either task, claims about effects should follow from the supplied evidence and context rather than from a guessed audience reaction."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-counterargument-conditions-guided",
+        "scenario": "Original fictional policy debate. Proposal: keep a library open two hours later every weekday. Supporters argue that people working until evening need access. Opponents note that the current staffing budget cannot cover five additional evenings without reducing other services. No attendance study or new funding commitment has been supplied.",
+        "steps": [
+          {
+            "prompt": "Which sentence represents the opposing concern fairly?",
+            "choices": [
+              "Opponents hate reading",
+              "The staffing constraint could make the five-evening plan displace other services",
+              "No one could ever benefit from later access"
+            ],
+            "answer": 1,
+            "explanation": "The stated concern is about resources and displaced services, not hostility to reading or a denial of every benefit."
+          },
+          {
+            "prompt": "Which concession can fit a position favoring some later access?",
+            "choices": [
+              "Additional hours require a workable staffing plan",
+              "There is certainly unlimited funding",
+              "Every service must close immediately"
+            ],
+            "answer": 0,
+            "explanation": "Recognizing the staffing requirement accepts a real concern without abandoning the access goal."
+          },
+          {
+            "prompt": "Which revised claim best responds to both concerns without inventing evidence?",
+            "choices": [
+              "Five evenings are proven affordable",
+              "All opponents are dishonest",
+              "The library should test one later evening with a staffing plan and evaluate use before expanding"
+            ],
+            "answer": 2,
+            "explanation": "A limited pilot and explicit plan address uncertainty and cost. This is a proposed response, not a claim that the pilot has already succeeded."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "A sophisticated response does not have to split every dispute down the middle. If strong evidence defeats an objection, explain that evidence. If a value conflict remains, state the tradeoff. If information is missing, distinguish a decision under uncertainty from a proven conclusion. A pilot is useful only when its scale, duration, measures, and decision criteria address the actual question. An arbitrary trial without a staffing plan would not answer the budget objection here. Likewise, agreeing that access matters does not determine exactly how many evenings are justified."
+      },
+      {
+        "type": "reflection",
+        "id": "lang-counterargument-conditions-transfer",
+        "prompt": "Write a short concession and response to the budget concern. Identify one piece of evidence needed before claiming the revised plan is effective.",
+        "sampleAnswer": "Later access needs a feasible staffing plan, and expanding five evenings at once could displace other services. A one-evening pilot could test whether added access is used while making costs visible. Attendance by time, actual staffing costs, and effects on other services would help assess whether to continue or expand it.",
+        "checklist": [
+          "State the concern accurately.",
+          "Connect the proposed response to that concern.",
+          "Keep proposed benefits separate from measured results."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "lang-counterargument-conditions-retrieve",
+        "prompt": "Which sentence is a concession rather than an unsupported surrender?",
+        "choices": [
+          "Staffing costs matter, so the proposal needs a funding and evaluation plan.",
+          "Because one concern exists, no library should ever extend hours.",
+          "Anyone concerned about cost opposes education."
+        ],
+        "answer": 0,
+        "explanation": "The sentence accepts a relevant condition and uses it to improve the proposal rather than making an absolute conclusion or attacking motives."
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Choices and Style::4.2 Analyzing rhetorical choices through audience and purpose": {
+    "revision": 1,
+    "objectives": [
+      "Name a rhetorical choice only after identifying textual evidence.",
+      "Connect the choice to a plausible function in the supplied audience and purpose.",
+      "Distinguish an intended or potential effect from a demonstrated audience response."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the historical or rhetorical foundation"
+      },
+      {
+        "type": "text",
+        "text": "Rhetorical analysis explains how a writer’s choices contribute to a purpose within a particular situation. A device label is not an explanation. Identifying repetition, a metaphor, or a short sentence is useful only when you show what the repeated words, comparison, or placement does in this text. Begin with the writer’s claim and the audience’s relevant concerns, then examine the language and organization."
+      },
+      {
+        "type": "text",
+        "text": "A reasoning chain can move from evidence to choice to function: the writer repeats a shared pronoun; that choice groups writer and listeners within a common undertaking; in the supplied setting, the appeal can make cooperation seem like a shared responsibility. Keep the effect appropriately qualified. The text can support an explanation of an appeal without proving that every listener was persuaded. A measured response would require evidence beyond your interpretation of the speech."
+      },
+      {
+        "type": "text",
+        "text": "Choices also work together. An opening concession can establish awareness of a concern before a contrast introduces a proposal. Specific examples can make an abstract policy consequence concrete. Syntax can control emphasis through order, accumulation, parallel structure, or a deliberately brief conclusion. Do not assign a universal effect to each feature: a short sentence can reassure, command, summarize, or interrupt depending on its wording and position."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Use the evidence, then explain the connection"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-choice-function-guided",
+        "scenario": "Original fictional address to residents considering a neighborhood flood-preparation plan: “You have already given weekends to clearing the drains. You have already checked on neighbors after the storms. This plan asks us to connect those efforts, not to pretend that another storm will never come. We cannot stop every downpour. We can prepare together.”",
+        "steps": [
+          {
+            "prompt": "Which observation identifies a specific textual choice?",
+            "choices": [
+              "The speaker repeats “You have already” before naming residents’ actions",
+              "The speaker proves that storms have ended",
+              "The speaker gives a scientific rainfall model"
+            ],
+            "answer": 0,
+            "explanation": "The repeated opening is visible in the passage. No rainfall model or end to storms is stated."
+          },
+          {
+            "prompt": "What function is best supported by that repetition in this setting?",
+            "choices": [
+              "Guaranteeing unanimous approval",
+              "Recognizing existing contributions before asking for coordinated action",
+              "Showing that residents have never helped"
+            ],
+            "answer": 1,
+            "explanation": "The examples credit work already done and create a basis for the new request. That is a plausible rhetorical function, not evidence of unanimous response."
+          },
+          {
+            "prompt": "How does the final contrast contribute to the purpose?",
+            "choices": [
+              "It promises complete flood prevention",
+              "It changes the subject to an unrelated event",
+              "It shifts from a limit on control to a practical shared action"
+            ],
+            "answer": 2,
+            "explanation": "The contrast acknowledges an uncontrollable hazard and then emphasizes preparation. It narrows the promise rather than guaranteeing safety."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Make a more precise argument"
+      },
+      {
+        "type": "text",
+        "text": "Analysis becomes stronger when it follows movement across the passage. Here, recognition comes before the request, which can make the proposal appear continuous with existing effort. The admission that storms cannot all be stopped limits the promise; the final sentence then offers a manageable action. A body paragraph might explain that sequence rather than list three unrelated devices. Avoid claiming the speech proves a policy will work: rhetorical effectiveness and engineering effectiveness are different questions. Also avoid treating the interpretation as mind reading; ground it in the wording and supplied audience."
+      },
+      {
+        "type": "reflection",
+        "id": "lang-choice-function-transfer",
+        "prompt": "Write two or three sentences analyzing how the acknowledgment of limits supports the request. Use a phrase from the passage and keep the effect qualified.",
+        "sampleAnswer": "“We cannot stop every downpour” limits the promise and acknowledges a constraint the residents may already recognize. The following “We can prepare together” redirects attention to a shared action within their control, presenting coordination as practical rather than as a guarantee that flooding will disappear.",
+        "checklist": [
+          "Use precise textual evidence.",
+          "Explain the relationship between the two sentences.",
+          "Describe a supported function without inventing measured persuasion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve and apply"
+      },
+      {
+        "type": "prediction",
+        "id": "lang-choice-function-retrieve",
+        "prompt": "Which sentence goes beyond the available evidence?",
+        "choices": [
+          "The final contrast presents preparation as a practical response.",
+          "Every resident voted for the plan because the speech used repetition.",
+          "The opening recognizes work that residents have already done."
+        ],
+        "answer": 1,
+        "explanation": "The passage supplies no vote or causal evidence about every listener. The other statements analyze choices visible in the text."
+      }
+    ]
+  }
+}

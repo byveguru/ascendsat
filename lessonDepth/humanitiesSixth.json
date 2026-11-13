@@ -1,0 +1,1490 @@
+{
+  "APUSH: 1754–1800::3.3 Politics and Power in the Early Republic": {
+    "revision": 1,
+    "objectives": [
+      "Connect financial policy and foreign affairs to early party formation.",
+      "Distinguish opposition within the Constitution from abandonment of constitutional government."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain disagreement within a constitutional system"
+      },
+      {
+        "type": "text",
+        "text": "The new federal government had to make the Constitution operate through decisions about revenue, debt, executive authority and relations with other nations. The document did not settle every policy dispute. Different interpretations of its powers could lead officials who accepted the Constitution to disagree sharply. Begin by identifying the specific power being claimed and the institutional argument for it, rather than describing every dispute as a simple division between people who wanted government and people who wanted none."
+      },
+      {
+        "type": "text",
+        "text": "Alexander Hamilton’s financial program sought to establish federal credit and strengthen national economic capacity through measures including funding federal debt, assuming state debts and creating a national bank. Supporters connected these measures to stability and commercial development. Critics questioned their distributional consequences, constitutional basis and potential concentration of power. The bank debate illustrates the contrast between broader and narrower constructions of federal authority. Explain how an interpretation supports a policy; do not substitute a party label for the actual constitutional reasoning."
+      },
+      {
+        "type": "text",
+        "text": "Foreign affairs intensified domestic division. The French Revolution and conflict between Britain and France posed questions about neutrality, trade and political sympathy. Disputes over agreements such as Jay’s Treaty intersected with different visions of the republic. Party formation therefore involved both domestic policy and international pressures. The Federalists and Democratic-Republicans were emerging coalitions, not perfectly unified groups whose later positions can be projected backward into every earlier controversy. Timing and the particular issue matter."
+      },
+      {
+        "type": "text",
+        "text": "The Alien and Sedition Acts and the responses associated with the Virginia and Kentucky Resolutions exposed conflict over security, dissent and the location of constitutional authority. A claim that a policy threatens national safety does not by itself establish that restrictions are legitimate; an opposition claim also requires examining the constitutional theory it proposes. The transfer of presidential power after the election of 1800 showed that fierce partisan conflict could coexist with a change of governing party through constitutional procedures. It did not resolve all disputes about rights, participation or federal power."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-republic-authority-opposition-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: Hamilton defended a national bank as part of a program for public credit and economic development. B: opponents disputed its constitutional basis and feared concentrated power. C: conflict with European powers sharpened disputes about neutrality and treaties. D: the election of 1800 led to a transfer of presidential power between opposing political coalitions.",
+        "steps": [
+          {
+            "prompt": "What question most directly explains the bank dispute?",
+            "choices": [
+              "Whether implied federal powers could justify the bank and whether its effects were desirable.",
+              "Whether either side had read any document.",
+              "Whether every opponent rejected the Constitution entirely."
+            ],
+            "answer": 0,
+            "explanation": "The controversy involved constitutional interpretation and political economy, not a single yes-or-no attitude toward government.",
+            "hint": "Identify the claimed power and its consequences."
+          },
+          {
+            "prompt": "What does C add to party formation?",
+            "choices": [
+              "Proof that domestic issues were irrelevant.",
+              "International pressures that interacted with domestic policy differences.",
+              "Proof that every coalition member agreed on everything."
+            ],
+            "answer": 1,
+            "explanation": "Foreign affairs sharpened existing divisions without replacing domestic sources of conflict.",
+            "hint": "Allow interacting causes."
+          },
+          {
+            "prompt": "Which inference from D is justified?",
+            "choices": [
+              "All political disagreement ended.",
+              "Universal voting rights existed.",
+              "Opposing coalitions could exchange executive power through the constitutional system."
+            ],
+            "answer": 2,
+            "explanation": "The transfer supports a bounded claim about institutional practice, not complete political inclusion.",
+            "hint": "Keep the conclusion proportional to the event."
+          },
+          {
+            "prompt": "Which evidence would help evaluate a restriction on dissent?",
+            "choices": [
+              "The law’s provisions, its constitutional defense and how it was enforced against speakers.",
+              "Only the title of the law.",
+              "A claim that security makes every restriction valid."
+            ],
+            "answer": 0,
+            "explanation": "Evaluating liberty and authority requires rules, arguments and practice.",
+            "hint": "Separate a stated purpose from legal and practical effects."
+          }
+        ],
+        "takeaway": "A constitutional text establishes institutions and powers but may leave questions about their scope. Different interpretations can support competing policy decisions. Agreement to operate within the system therefore does not eliminate disagreement, and a peaceful transfer of power can demonstrate institutional continuity amid policy change."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-republic-authority-opposition-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain why accepting a constitution does not require agreement about every policy it permits. Use the distinction between a text, an interpretation and a governmental decision.",
+        "sampleAnswer": "A constitutional text establishes institutions and powers but may leave questions about their scope. Different interpretations can support competing policy decisions. Agreement to operate within the system therefore does not eliminate disagreement, and a peaceful transfer of power can demonstrate institutional continuity amid policy change.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-republic-authority-opposition-recall",
+        "prompt": "Why should party labels not replace an explanation of an early republic dispute?",
+        "sampleAnswer": "A label names a coalition, not the mechanism. Explain the particular economic interest, constitutional interpretation or foreign-policy concern, and recognize that coalitions developed over time.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1865–1898::6.3 Cities, Race, and Agrarian Protest": {
+    "revision": 1,
+    "objectives": [
+      "Explain how urban institutions could provide services while concentrating power.",
+      "Connect agrarian protest to credit, transportation and monetary policy."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Connect economic change to competing reform demands"
+      },
+      {
+        "type": "text",
+        "text": "Industrialization and commercial agriculture connected people to larger markets while exposing them to forms of power they did not control individually. Urban workers, immigrants and farmers faced different conditions, but each could depend on employers, creditors, transport companies or political intermediaries. A comparison should identify a shared problem, such as unequal bargaining power, and then explain the distinct institution involved. Shared pressure does not mean these groups formed one unified movement or experienced identical disadvantages."
+      },
+      {
+        "type": "text",
+        "text": "Cities expanded through migration, immigration and industrial employment. Political machines could provide assistance, jobs or access to services while using patronage and sometimes corruption to maintain control. Their practical role helps explain support without making corruption harmless or treating immigrant voters as incapable of independent judgment. Evaluate both service provision and accountability. Urban growth also intensified disputes over housing, work, public health and membership, while racial discrimination and exclusion shaped access to opportunity."
+      },
+      {
+        "type": "text",
+        "text": "Farmers faced concerns about debt, crop prices, railroad charges and the terms of credit. Individual production decisions occurred within markets that no single farmer controlled. Farmers’ organizations and the Populist movement sought collective and governmental responses, including railroad regulation and changes to monetary policy. Support for the free coinage of silver reflected the hope that expanded currency would ease some debt burdens and economic pressures. Explain that proposed mechanism without assuming every farmer supported it or that inflation benefits every social group equally."
+      },
+      {
+        "type": "text",
+        "text": "Race complicated coalition building and reform. Black farmers confronted economic pressures alongside disenfranchisement, segregation and violence. Some organizing efforts crossed racial lines, while many white political actors preserved or reinforced racial hierarchy. A movement’s criticism of concentrated economic power does not automatically establish its commitment to equal rights. To assess a coalition, examine membership, leadership, policy and responses to exclusion. Comparing urban and agrarian politics therefore requires attention both to material demands and to the boundaries of solidarity: who received assistance, who could participate and whose interests were left outside the reform program."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-urban-agrarian-power-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: an urban machine distributed jobs and assistance while relying on patronage. B: farmers’ organizations criticized railroad charges and credit conditions. C: Populists advocated measures including monetary expansion and greater public regulation. D: Black farmers also faced disenfranchisement and racial violence. These summarize recurring issues, not a claim that every locality behaved identically.",
+        "steps": [
+          {
+            "prompt": "Why might some voters support A?",
+            "choices": [
+              "Assistance and access to jobs could meet immediate needs.",
+              "Every voter approved corruption.",
+              "No other political motives existed."
+            ],
+            "answer": 0,
+            "explanation": "Material services help explain support without proving universal approval or eliminating accountability concerns.",
+            "hint": "Explain an incentive without stereotyping voters."
+          },
+          {
+            "prompt": "What links B to collective organization?",
+            "choices": [
+              "Every farmer had identical conditions.",
+              "Individual farmers could have limited leverage over powerful transport and credit institutions.",
+              "Markets never affected agriculture."
+            ],
+            "answer": 1,
+            "explanation": "Collective action could address problems beyond the control of one producer.",
+            "hint": "Connect institutional dependence to a proposed response."
+          },
+          {
+            "prompt": "What was the proposed monetary mechanism in C?",
+            "choices": [
+              "Silver would abolish all debt immediately.",
+              "Every group benefits equally from rising prices.",
+              "Expanded currency was expected to ease some debt and price pressures."
+            ],
+            "answer": 2,
+            "explanation": "The proposal involved expectations about money and debt, not guaranteed universal relief.",
+            "hint": "State the intended mechanism and its limit."
+          },
+          {
+            "prompt": "What does D prevent us from assuming?",
+            "choices": [
+              "Economic reform automatically secured racial equality.",
+              "Black farmers had no economic concerns.",
+              "Coalitions never existed."
+            ],
+            "answer": 0,
+            "explanation": "Economic grievances and racial oppression interacted, while reform movements could remain exclusionary.",
+            "hint": "Evaluate who could participate and benefit."
+          }
+        ],
+        "takeaway": "Both could organize access to resources or influence that individuals lacked. A machine often mediated services through patronage and electoral loyalty, while a farmers’ alliance pursued collective economic action and policy demands. Their democratic quality requires evidence about membership, accountability and exclusions rather than a single label."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-urban-agrarian-power-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare an urban machine and a farmers’ alliance as responses to unequal power. Give one useful similarity and one difference without declaring either entirely democratic or entirely corrupt.",
+        "sampleAnswer": "Both could organize access to resources or influence that individuals lacked. A machine often mediated services through patronage and electoral loyalty, while a farmers’ alliance pursued collective economic action and policy demands. Their democratic quality requires evidence about membership, accountability and exclusions rather than a single label.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-urban-agrarian-power-recall",
+        "prompt": "Why should a movement’s economic program and membership boundaries be studied together?",
+        "sampleAnswer": "The program identifies the power it seeks to change; membership and exclusion show who can shape or benefit from that change. A reform can challenge one hierarchy while preserving another.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1890–1945::7.1 Progressivism and Overseas Empire": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish Progressive reform mechanisms and their limits.",
+      "Compare domestic regulation with overseas assertions of power."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Analyze reform goals alongside unequal participation"
+      },
+      {
+        "type": "text",
+        "text": "Progressivism describes a range of reform efforts responding to industrialization, urban growth, concentrated economic power and perceived failures of government. Reformers did not share one program. Some emphasized professional administration and investigation; others sought labor protections, consumer safeguards, regulation or changes in political participation. Begin with a problem and the mechanism proposed to address it. A label such as progressive cannot tell us whether a particular measure expanded democratic influence or concentrated decisions in expert hands."
+      },
+      {
+        "type": "text",
+        "text": "Investigative journalism and social research helped make problems visible, while settlement work and organizing connected reform to everyday conditions. Federal measures such as the Pure Food and Drug Act and the Meat Inspection Act in 1906 addressed particular regulatory concerns. Antitrust action and debates over corporate power likewise raised questions about the state’s role in markets. Government action did not mean that all businesses were dismantled or that inequality disappeared. Assess the actual rule, institution and enforcement rather than treating reform as a completed solution."
+      },
+      {
+        "type": "text",
+        "text": "Political reforms and women’s suffrage expanded some opportunities for participation, but racial exclusion and disenfranchisement persisted. Some reformers promoted coercive or discriminatory projects, including eugenic ideas. Black reformers and civil rights organizations challenged racial oppression rather than waiting for other reforms to deliver equality automatically. A movement can criticize concentrated power while accepting another hierarchy. Comparing its stated democratic language with the people included in decisions reveals the limits and conflicts within reform."
+      },
+      {
+        "type": "text",
+        "text": "Overseas expansion raised related questions about authority and consent. The war of 1898 and subsequent control of territories, including the Philippines, generated debate about empire and self-government. Supporters invoked strategy, commerce and claims of uplift; opponents challenged domination and its compatibility with republican principles. Domestic reform and overseas expansion could coexist within the same political era, and sometimes within the views of one leader. Explain the tension with specific policies and affected populations rather than assuming that a reform reputation predicts a consistent commitment to equality in every setting."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-progressive-empire-tensions-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: food and drug regulation sought public safeguards through federal rules. B: some political reforms expanded participation while racial disenfranchisement continued. C: the United States exercised control in the Philippines after the war of 1898, prompting debate over empire and self-government. Task: evaluate what the reform label does and does not establish.",
+        "steps": [
+          {
+            "prompt": "What mechanism does A illustrate?",
+            "choices": [
+              "Using governmental rules to address a market-related public concern.",
+              "Ending all private enterprise.",
+              "Proving every consumer problem was solved."
+            ],
+            "answer": 0,
+            "explanation": "Regulation creates standards and enforcement questions without abolishing markets or guaranteeing complete success.",
+            "hint": "Identify the institutional response."
+          },
+          {
+            "prompt": "What does B show?",
+            "choices": [
+              "No participation changed anywhere.",
+              "Expanded participation for some could coexist with exclusion of others.",
+              "All reforms applied equally."
+            ],
+            "answer": 1,
+            "explanation": "The evidence requires specifying the group and right involved rather than declaring universal democratization.",
+            "hint": "Ask who was included."
+          },
+          {
+            "prompt": "What is the central tension in C?",
+            "choices": [
+              "Whether the territory had a name.",
+              "Whether domestic regulation was impossible.",
+              "How domination of another population could be reconciled with claims of self-government."
+            ],
+            "answer": 2,
+            "explanation": "The controversy connected foreign power to principles of political consent.",
+            "hint": "Compare the principle with the governing relationship."
+          },
+          {
+            "prompt": "Which research question best evaluates a Progressive policy?",
+            "choices": [
+              "Who defined the problem, what rule changed and which groups could influence or benefit from it?",
+              "Was its supporter called progressive?",
+              "Did every reform occur in one year?"
+            ],
+            "answer": 0,
+            "explanation": "The question examines mechanism, agency and distribution rather than relying on reputation.",
+            "hint": "Move from label to operation."
+          }
+        ],
+        "takeaway": "The policies concern different institutions and affected groups. Consumer safeguards may limit business practices, while colonial rule restricts political autonomy. Evaluate each rule and its consequences, then explain the coexistence or contradiction rather than assuming one reform establishes universal democratic consistency."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-progressive-empire-tensions-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A leader supports consumer regulation but denies another population meaningful control over its government. Explain why the first policy cannot settle an evaluation of the second.",
+        "sampleAnswer": "The policies concern different institutions and affected groups. Consumer safeguards may limit business practices, while colonial rule restricts political autonomy. Evaluate each rule and its consequences, then explain the coexistence or contradiction rather than assuming one reform establishes universal democratic consistency.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-progressive-empire-tensions-recall",
+        "prompt": "Why is Progressivism not a sufficient explanation by itself?",
+        "sampleAnswer": "It names a diverse reform era. An explanation must identify the problem, proposed mechanism, institutional change, affected groups and limits, including exclusions and competing reform visions.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1890–1945::7.2 World War I and the Contested 1920s": {
+    "revision": 1,
+    "objectives": [
+      "Connect wartime mobilization to debates about civil liberties and membership.",
+      "Explain the 1920s as simultaneous cultural change and restriction."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain the contested relationship between unity and dissent"
+      },
+      {
+        "type": "text",
+        "text": "United States entry into World War I in 1917 required mobilizing soldiers, industry, finance and public support. Mobilization expanded federal coordination and made loyalty a powerful political claim. A government can seek participation while restricting dissent, so participation and liberty must be examined separately. Identify the policy and the people affected rather than assuming that an appeal to national unity describes a universally shared experience."
+      },
+      {
+        "type": "text",
+        "text": "The Espionage Act of 1917 and Sedition Act of 1918 enabled restrictions and prosecutions affecting antiwar expression. Supporters defended wartime security, while critics challenged the suppression of dissent. The Supreme Court’s decision in Schenck v. United States belongs to this historical wartime setting; its reasoning should not be presented as the complete modern free-speech standard. Evaluating a civil-liberties conflict requires distinguishing an official justification, a law’s language, enforcement and subsequent legal change. Opposition to a war is not itself evidence that a speaker intended every harm alleged by authorities."
+      },
+      {
+        "type": "text",
+        "text": "War and migration also transformed social relationships. The Great Migration involved large numbers of Black Americans moving from the South toward northern and midwestern cities, seeking work and escape from racial oppression while encountering new discrimination and violence. The Red Summer of 1919 and the first Red Scare revealed conflict over race, labor, radicalism and belonging. Migration created possibilities and pressures; it did not make racial equality automatic. Follow both changes in opportunity and the institutions that constrained them."
+      },
+      {
+        "type": "text",
+        "text": "The 1920s combined consumer culture, mass media and artistic experimentation with restrictive immigration policy, renewed white supremacist organizing and disputes over religion, gender and modernity. The Nineteenth Amendment prohibited denial of voting rights on account of sex, but many women still faced racial and other barriers to effective participation. Immigration quota laws sharply restricted access and favored some origins over others. These developments are not mutually exclusive exceptions to a simple decade: they show how expanded expression for some and intensified exclusion for others could develop together. Explain whose freedom or participation changed and through which institution."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-war-liberty-modernity-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: wartime federal laws restricted some antiwar expression. B: Black migrants sought employment and escape from southern oppression while facing discrimination elsewhere. C: the Nineteenth Amendment changed the constitutional rule on sex-based voting exclusion. D: 1920s immigration quotas restricted entry and favored some origins. Task: explain uneven change in participation.",
+        "steps": [
+          {
+            "prompt": "Which inference from A is defensible?",
+            "choices": [
+              "Mobilization could expand state power while constraining dissent.",
+              "Every resident opposed the war.",
+              "Wartime restrictions define all current speech law."
+            ],
+            "answer": 0,
+            "explanation": "The inference concerns a historical relationship, not universal opinion or an unchanged modern standard.",
+            "hint": "Keep time and scope clear."
+          },
+          {
+            "prompt": "How should B affect a migration explanation?",
+            "choices": [
+              "Migration removed every racial barrier.",
+              "Both opportunity and continuing oppression shaped choices and outcomes.",
+              "Migrants had no agency."
+            ],
+            "answer": 1,
+            "explanation": "The explanation recognizes purposeful movement within constrained circumstances.",
+            "hint": "Avoid choosing between agency and constraint."
+          },
+          {
+            "prompt": "Which qualification belongs with C?",
+            "choices": [
+              "The amendment changed nothing.",
+              "Every adult woman could vote without obstruction.",
+              "Sex-based constitutional protection did not remove racial and other voting barriers."
+            ],
+            "answer": 2,
+            "explanation": "Legal change was significant but did not ensure equal practical access.",
+            "hint": "Distinguish the rule changed from every barrier remaining."
+          },
+          {
+            "prompt": "What interpretation accommodates C and D?",
+            "choices": [
+              "Participation expanded along one dimension while national membership was restricted along another.",
+              "The entire decade moved uniformly toward inclusion.",
+              "The entire decade contained no change."
+            ],
+            "answer": 0,
+            "explanation": "Different institutions and populations experienced different trajectories.",
+            "hint": "Specify the dimension rather than assigning a single direction to an era."
+          }
+        ],
+        "takeaway": "Mass media and artistic movements expanded forms of expression, while immigration quotas and white supremacist politics restricted membership and power. These affected different groups and institutions and sometimes directly contested one another. The tension helps explain the era rather than requiring one side to be dismissed."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-war-liberty-modernity-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how an account of the 1920s could include both cultural innovation and restrictive politics without treating either as irrelevant.",
+        "sampleAnswer": "Mass media and artistic movements expanded forms of expression, while immigration quotas and white supremacist politics restricted membership and power. These affected different groups and institutions and sometimes directly contested one another. The tension helps explain the era rather than requiring one side to be dismissed.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-war-liberty-modernity-recall",
+        "prompt": "Why should formal rights and effective access be distinguished?",
+        "sampleAnswer": "A legal protection changes the formal rule, but enforcement, violence, administrative barriers and other inequalities shape whether people can exercise it. Both the change and the remaining obstacles require evidence.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Land-Based Empires::3.2 Religion, art and the language of legitimacy": {
+    "revision": 1,
+    "objectives": [
+      "Explain how rulers used religious institutions and artistic patronage to support legitimacy.",
+      "Distinguish a ruler’s representation of power from evidence of universal acceptance."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Read public representation as a claim to authority"
+      },
+      {
+        "type": "text",
+        "text": "Legitimacy concerns the reasons people recognize or are asked to recognize authority as rightful. Rulers can claim military success, religious duty, ancestry, justice or protection as grounds for obedience. Such claims are communicated through institutions and public forms, not only through written political theory. A monument, ceremony or religious donation can place a ruler within a meaningful tradition. To analyze it, ask who commissioned it, which symbols it used and what relationship between ruler and audience it presented."
+      },
+      {
+        "type": "text",
+        "text": "Early modern empires used religious institutions and cultural patronage in varied ways. Ottoman rulers supported Islamic institutions while governing diverse populations. Safavid rulers promoted Shi’a Islam as an important element of state identity. Mughal rulers adopted different approaches to religious diversity across reigns, so one policy should not stand for the entire empire. These comparisons require specificity: a shared use of religion in politics does not mean identical doctrines, institutions or treatment of subjects."
+      },
+      {
+        "type": "text",
+        "text": "Art and architecture could also display resources, order and dynastic continuity. Monumental construction depended on labor, financing, skilled craftspeople and administrative capacity. A building’s grandeur is therefore evidence of organized patronage, but not proof that every subject approved the ruler or shared its intended meaning. Audiences could interpret symbols differently, and costly projects could coexist with conflict or unequal burdens. Connect the visual or material feature to the political claim without assuming the claim was fully successful."
+      },
+      {
+        "type": "text",
+        "text": "Use source analysis to distinguish representation, reception and enforcement. A court-sponsored image tells us how a patron wanted authority portrayed. A visitor’s account may reveal one response, while tax or labor records illuminate the resources behind production. No single source answers every question. Comparisons should establish a common function, such as connecting a dynasty to sacred authority, and then examine different means and limits. This avoids reducing religious patronage to decoration or treating cultural achievements as independent of power. It also leaves room for religious commitment and political strategy to coexist rather than assuming one necessarily makes the other insincere."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-legitimacy-art-religion-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original source models, not surviving historical objects: A: a court commissions an image placing its ruler beside symbols of sacred duty and dynastic ancestors. B: an account book records payments to builders of a royal monument. C: a local petition objects to the labor demands for the project. Task: determine what each source could establish.",
+        "steps": [
+          {
+            "prompt": "What does A most directly reveal?",
+            "choices": [
+              "How the court wanted the ruler’s authority represented.",
+              "What every subject privately believed.",
+              "Proof that no political purpose existed."
+            ],
+            "answer": 0,
+            "explanation": "Commissioned representation provides evidence of a claim, not universal reception.",
+            "hint": "Separate intended message from acceptance."
+          },
+          {
+            "prompt": "What question can B help answer?",
+            "choices": [
+              "Whether every resident liked the image.",
+              "How material resources supported the project.",
+              "Whether sacred symbols had one timeless meaning."
+            ],
+            "answer": 1,
+            "explanation": "Payments illuminate patronage and production, though they may not record every form of labor or cost.",
+            "hint": "Match the source to its information."
+          },
+          {
+            "prompt": "How does C complicate the interpretation?",
+            "choices": [
+              "It proves the monument did not exist.",
+              "It proves all religious commitment was false.",
+              "It shows that public grandeur could coexist with contested burdens."
+            ],
+            "answer": 2,
+            "explanation": "A petition provides a particular challenge to the project’s demands without representing every subject.",
+            "hint": "Allow achievement and conflict to coexist."
+          },
+          {
+            "prompt": "Which comparison is most useful?",
+            "choices": [
+              "Compare how two courts connected authority to religion, then examine different institutions and audiences.",
+              "Assume every empire used identical symbols.",
+              "Rank legitimacy only by building height."
+            ],
+            "answer": 0,
+            "explanation": "A shared function with specific differences produces an explanatory comparison.",
+            "hint": "Compare mechanisms rather than labels."
+          }
+        ],
+        "takeaway": "The monument can support claims about patronage, imagery, materials and the authority its design presents. Without additional evidence, it cannot establish universal admiration or obedience. Reception and the distribution of burdens require other sources."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-legitimacy-art-religion-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A royal monument survives but no record of public reaction is supplied. Explain what an analysis can reasonably claim and what should remain uncertain.",
+        "sampleAnswer": "The monument can support claims about patronage, imagery, materials and the authority its design presents. Without additional evidence, it cannot establish universal admiration or obedience. Reception and the distribution of burdens require other sources.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-legitimacy-art-religion-recall",
+        "prompt": "How do representation and reception differ?",
+        "sampleAnswer": "Representation concerns the message a patron or maker presents. Reception concerns how particular audiences understand or respond to it. Intended meaning alone does not prove successful persuasion.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Transoceanic Interconnections::4.2 The Columbian Exchange and coerced labor": {
+    "revision": 1,
+    "objectives": [
+      "Explain biological exchange and forced migration as distinct connected processes.",
+      "Connect plantation demand to coercive labor systems without treating people as commodities by nature."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate transfers from the institutions governing them"
+      },
+      {
+        "type": "text",
+        "text": "The Columbian Exchange names movements of plants, animals, pathogens and people associated with sustained connections between the Americas and Afro-Eurasia after 1492. The term describes interconnection, not an equal exchange freely negotiated by all participants. Different things moved by different mechanisms. Crops could be carried and cultivated intentionally, while pathogens spread without an intention to cause disease. People also moved through voluntary migration, conquest and forced transportation. Identify the transfer and the relationship of power governing it."
+      },
+      {
+        "type": "text",
+        "text": "American crops, including maize and potatoes, expanded food possibilities in parts of Afro-Eurasia. Introduced livestock and crops changed land use in the Americas, while epidemic disease contributed to catastrophic Indigenous population losses. Consequences depended on environment and institutions rather than being uniform. Disease interacted with warfare, displacement and coerced labor, so it should not be treated as an excuse to erase colonial decisions or Indigenous responses. A demographic process can have biological mechanisms and still unfold within a political setting."
+      },
+      {
+        "type": "text",
+        "text": "Atlantic plantation production created powerful demand for labor under colonial systems organized around extraction. European merchants, colonial governments and slaveholders participated in the forced transport and enslavement of Africans, drawing on unequal commercial and political relationships. The Middle Passage was a coercive journey involving extreme suffering and death, not a neutral movement of workers seeking jobs. Enslaved people maintained relationships, created cultures and resisted despite severe constraints. Recognizing agency does not make coercion voluntary or remove responsibility from the institutions that imposed it."
+      },
+      {
+        "type": "text",
+        "text": "Compare outcomes by group, place and measure. Increased plantation output or merchant revenue does not measure the well-being of enslaved laborers. A crop’s contribution to food supply does not establish that all populations benefited equally from the Atlantic system. Sources such as shipping records, plantation accounts and personal narratives answer different questions and may omit important experiences. An effective explanation connects biological transfer, commercial demand and institutional coercion while keeping their mechanisms distinct. This avoids both a simple story of mutual benefit and a story in which institutions and human choices disappear behind anonymous movement."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-atlantic-exchange-coercion-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical summaries for instruction: A: potatoes and maize spread from the Americas to other regions. B: introduced pathogens, conquest and displacement contributed to Indigenous demographic collapse. C: plantation expansion increased demand for enslaved labor and forced African migration. D: a plantation account records rising output. Task: interpret connection without equating output with welfare.",
+        "steps": [
+          {
+            "prompt": "What is the best first question about A?",
+            "choices": [
+              "What moved, through which connections and with what regional effects?",
+              "Why did all people benefit equally?",
+              "Why were all transfers accidental?"
+            ],
+            "answer": 0,
+            "explanation": "The question opens an analysis of mechanism and varied consequences rather than assuming an outcome.",
+            "hint": "Begin with a traceable transfer."
+          },
+          {
+            "prompt": "What distinction matters in B?",
+            "choices": [
+              "Biology makes colonial decisions irrelevant.",
+              "Disease and coercive political processes interacted but were not the same mechanism.",
+              "Conquest caused no displacement."
+            ],
+            "answer": 1,
+            "explanation": "A multicausal account can include pathogens without erasing warfare, labor and policy.",
+            "hint": "Connect causes without collapsing them."
+          },
+          {
+            "prompt": "Which language accurately describes C?",
+            "choices": [
+              "Workers freely relocated to every plantation.",
+              "Labor naturally belonged to merchants.",
+              "Institutions forcibly transported and enslaved people to meet production demands."
+            ],
+            "answer": 2,
+            "explanation": "The wording identifies coercion and responsible institutions rather than naturalizing exploitation.",
+            "hint": "Name who imposed the relationship."
+          },
+          {
+            "prompt": "What can D establish alone?",
+            "choices": [
+              "A change in recorded output, not the well-being or consent of laborers.",
+              "Universal prosperity.",
+              "An end to coercion."
+            ],
+            "answer": 0,
+            "explanation": "An economic measure does not automatically measure freedom, health or distribution.",
+            "hint": "Ask what the account actually records."
+          }
+        ],
+        "takeaway": "The account may reveal production, expenditures and an owner’s priorities, while a narrative may illuminate coercion, experience and resistance. Their purposes and limits differ. Reading them together can connect economic organization to human consequences without reducing either source to a complete view."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-atlantic-exchange-coercion-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain why a historian might use both a plantation account and a narrative by an enslaved person without expecting them to answer the same question.",
+        "sampleAnswer": "The account may reveal production, expenditures and an owner’s priorities, while a narrative may illuminate coercion, experience and resistance. Their purposes and limits differ. Reading them together can connect economic organization to human consequences without reducing either source to a complete view.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-atlantic-exchange-coercion-recall",
+        "prompt": "Why is exchange an insufficient description of forced migration by itself?",
+        "sampleAnswer": "The word does not identify consent or power. Forced migration requires naming the institutions and actions that coerced people, as well as their constrained responses and experiences.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Revolutions::5.2 Atlantic revolutions and nationalism": {
+    "revision": 1,
+    "objectives": [
+      "Compare Atlantic revolutions through authority, slavery and political membership.",
+      "Distinguish national sovereignty from universal equality."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare revolutions by the order they sought to change"
+      },
+      {
+        "type": "text",
+        "text": "Atlantic revolutions challenged established authority but did not pursue identical transformations. To compare them, identify the old political relationship, the people mobilized and the institutions proposed in its place. Independence from an imperial government, a constitutional limit on monarchy and abolition of slavery are distinct changes even when movements connect them. A shared vocabulary of liberty does not prove that revolutionaries agreed about property, gender, race or citizenship."
+      },
+      {
+        "type": "text",
+        "text": "The American Revolution created an independent republic while leaving slavery in place. The French Revolution challenged monarchy and inherited privilege through changing and contested political arrangements. The Haitian Revolution emerged from the struggle of enslaved people and others in Saint-Domingue, bringing the abolition of slavery and the establishment of an independent Haiti. These are broad comparisons, not substitutes for chronology or internal conflict. Each involved shifting coalitions and competing interests, so avoid treating a revolution as a single actor with an unchanging intention."
+      },
+      {
+        "type": "text",
+        "text": "Movements for independence in Latin America likewise combined opposition to imperial rule with disputes about local authority and social hierarchy. Creole elites, Indigenous communities, free people of color and enslaved people did not necessarily define freedom or the desired political order in the same way. A declaration of independence can transfer sovereignty while leaving many relationships of property and status intact. Evaluate which structures changed and which survived rather than assuming either total transformation or no meaningful change."
+      },
+      {
+        "type": "text",
+        "text": "Nationalism linked political authority to a claimed people or nation. It could support movements for independence or unification while raising difficult questions about who belonged. Language, shared history, culture and political ideals could all be used to define membership, sometimes excluding minorities or rival claims. National self-government therefore does not automatically mean equal participation for every resident. An analytical comparison should specify a dimension of change, use evidence from each case and explain a meaningful difference. Rights language matters partly because groups could use it to challenge restrictions that revolutionary governments preserved."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-revolutions-nationalism-membership-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional comparison: A: the American Revolution established independence while slavery persisted. B: the Haitian Revolution resulted in abolition of slavery and an independent state. C: independence movements in Latin America challenged imperial rule while social hierarchies remained contested. Task: compare political sovereignty and social transformation.",
+        "steps": [
+          {
+            "prompt": "Which shared question makes a useful comparison?",
+            "choices": [
+              "Which authority was displaced and which relationships of power changed?",
+              "Which revolution had the shortest name?",
+              "Why did every revolution have identical goals?"
+            ],
+            "answer": 0,
+            "explanation": "The question creates dimensions for comparing change without assuming uniformity.",
+            "hint": "Choose a common problem with variable outcomes."
+          },
+          {
+            "prompt": "What difference between A and B is central?",
+            "choices": [
+              "Only one involved Atlantic connections.",
+              "The relationship between independence and abolition differed.",
+              "Neither changed political authority."
+            ],
+            "answer": 1,
+            "explanation": "Both established sovereignty, but slavery’s fate distinguishes the extent and kind of transformation.",
+            "hint": "Compare a specific institution."
+          },
+          {
+            "prompt": "What does C warn against?",
+            "choices": [
+              "Treating independence as insignificant.",
+              "Recognizing local actors.",
+              "Assuming imperial separation automatically eliminated internal hierarchy."
+            ],
+            "answer": 2,
+            "explanation": "Sovereignty can change while property and social power remain contested.",
+            "hint": "Separate external rule from internal relations."
+          },
+          {
+            "prompt": "Which claim about nationalism is defensible?",
+            "choices": [
+              "A claim to national self-government leaves questions about membership and equal participation unresolved.",
+              "Every nationalist movement included every resident equally.",
+              "Nationalism concerns only trade prices."
+            ],
+            "answer": 0,
+            "explanation": "Defining a nation and distributing political rights are connected but distinct questions.",
+            "hint": "Ask who counts as the people."
+          }
+        ],
+        "takeaway": "Identify the transfer of sovereignty as a significant institutional change, then examine eligibility rules and remaining hierarchies. Compare universal language with actual membership and enforcement. The declaration can both establish a new political order and supply language for later challenges to its exclusions."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-revolutions-nationalism-membership-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A new state declares independence and uses universal language of liberty but preserves restricted political participation. Explain how to assess both its achievement and its limits.",
+        "sampleAnswer": "Identify the transfer of sovereignty as a significant institutional change, then examine eligibility rules and remaining hierarchies. Compare universal language with actual membership and enforcement. The declaration can both establish a new political order and supply language for later challenges to its exclusions.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-revolutions-nationalism-membership-recall",
+        "prompt": "How can a revolution be transformative without transforming every hierarchy?",
+        "sampleAnswer": "It may change sovereignty, constitutional authority or one institution while leaving other arrangements intact. Specify the dimension, groups and chronology rather than using transformation as an all-or-nothing label.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Global Conflict::7.2 Revolution, depression and authoritarian alternatives": {
+    "revision": 1,
+    "objectives": [
+      "Connect war and depression to challenges against political systems.",
+      "Distinguish ideological claims, institutional mechanisms and coercive practices."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain crisis without treating dictatorship as inevitable"
+      },
+      {
+        "type": "text",
+        "text": "War, revolution and economic depression challenged the legitimacy of existing governments in the early twentieth century. Crisis could make established institutions appear unable to provide security or livelihoods, but it did not produce one inevitable political response. Different societies had different organizations, state structures and conflicts. An explanation of authoritarianism must identify the actors, alliances and institutional decisions through which power became concentrated rather than treating hardship as a sufficient cause."
+      },
+      {
+        "type": "text",
+        "text": "The Russian Revolution of 1917 developed amid wartime strain, inequality and dissatisfaction with the tsarist order. The Bolsheviks gained power through a contested process, and civil war and state building shaped the new regime. Later Soviet policies under Stalin pursued rapid industrialization and collectivization through coercive state action, with severe human consequences. Claims to represent workers and peasants must be distinguished from the institutions through which the party governed and the repression used against opposition. A stated constituency does not establish democratic accountability to it."
+      },
+      {
+        "type": "text",
+        "text": "The Great Depression disrupted production, employment and trade across an interconnected world. Governments adopted different responses, including economic intervention within constitutional systems as well as authoritarian projects. Fascist movements mobilized extreme nationalism, hostility toward liberal democracy and claims of national rebirth. Nazi ideology included virulent racial antisemitism and pursued a genocidal project. Similarities in concentrated authority do not make all dictatorships ideologically identical. Compare the specific enemy images, institutions and objectives as well as the methods of repression."
+      },
+      {
+        "type": "text",
+        "text": "To analyze a political alternative, separate its promised solution from its means and effects. Propaganda can show how a movement presented itself; laws and administrative changes show how it altered institutions; testimony and other records help establish consequences for targeted groups. Economic distress may explain vulnerability to a message, but support also depends on organization, elite decisions, violence and political opportunities. Include alternatives that remained available and the choices that narrowed them. This approach avoids both excusing repression as necessary and assuming people automatically chose the same response to a shared economic shock."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-crisis-regime-alternatives-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original comparative models, not historical quotations: A: a movement promises recovery and unity while demanding suppression of opposition parties. B: a government expands economic intervention but retains competitive elections. C: a ruling party claims to represent workers while repressing independent organization. Task: evaluate mechanisms rather than equating every response to crisis.",
+        "steps": [
+          {
+            "prompt": "What does A ask supporters to exchange?",
+            "choices": [
+              "Political pluralism for a promised solution under concentrated authority.",
+              "Every form of public policy for no government.",
+              "Only a change in vocabulary."
+            ],
+            "answer": 0,
+            "explanation": "Suppressing opposition changes the ability to contest power, regardless of the recovery promise.",
+            "hint": "Identify the institutional demand."
+          },
+          {
+            "prompt": "Why is B distinct from A?",
+            "choices": [
+              "Economic intervention always means dictatorship.",
+              "The means of accountability and political competition differ.",
+              "Both necessarily eliminate elections."
+            ],
+            "answer": 1,
+            "explanation": "A state’s economic role does not alone determine its political regime.",
+            "hint": "Compare institutions, not one policy category."
+          },
+          {
+            "prompt": "What must be examined in C?",
+            "choices": [
+              "Only the party’s name.",
+              "Whether the claim is repeated often.",
+              "Whether workers can independently influence, organize or challenge the authorities."
+            ],
+            "answer": 2,
+            "explanation": "Representation is an institutional relationship, not merely a declared identity.",
+            "hint": "Test a claim against mechanisms of control."
+          },
+          {
+            "prompt": "Which explanation avoids determinism?",
+            "choices": [
+              "Crisis created pressures, while organization, alliances and institutional choices shaped different outcomes.",
+              "Depression automatically produces one regime everywhere.",
+              "Ideology never affects decisions."
+            ],
+            "answer": 0,
+            "explanation": "The explanation connects common pressures to contingent political mechanisms.",
+            "hint": "Explain how actors turned conditions into outcomes."
+          }
+        ],
+        "takeaway": "Spending describes an economic instrument. Regime classification also requires examining competition, accountability, civil liberties and coercion. The same instrument can operate within different distributions of political power, so its presence alone does not establish democracy or dictatorship."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-crisis-regime-alternatives-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Two governments respond to unemployment with public spending, but one permits opposition and the other imprisons critics. Explain why the shared spending policy is insufficient to classify their political systems.",
+        "sampleAnswer": "Spending describes an economic instrument. Regime classification also requires examining competition, accountability, civil liberties and coercion. The same instrument can operate within different distributions of political power, so its presence alone does not establish democracy or dictatorship.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-crisis-regime-alternatives-recall",
+        "prompt": "Why should crisis be treated as a condition rather than a complete explanation of authoritarianism?",
+        "sampleAnswer": "Crisis creates pressures and openings, but organizations, leaders, alliances and institutional decisions determine how power is contested and concentrated. Different outcomes under similar pressures demonstrate the need to explain those mechanisms.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Reasoning and Organization::3.3 Developing coherent commentary rather than summary": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish accurate summary from explanatory commentary.",
+      "Develop a paragraph through connected inferences rather than repeated labels."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Make each sentence advance the interpretation"
+      },
+      {
+        "type": "text",
+        "text": "Summary tells a reader what a source says or does. Commentary explains why a detail matters for the interpretation being developed. Both can be necessary: a reader may need enough context to understand a quotation before following the analysis. The problem arises when a paragraph repeatedly reports content without explaining its function. A longer summary is not automatically deeper commentary, and adding the word persuasive does not supply the missing connection."
+      },
+      {
+        "type": "text",
+        "text": "Begin with a paragraph claim that gives the evidence a purpose. If your claim is that a writer turns an abstract obligation into a practical choice, choose details showing that movement. Briefly establish the situation, identify a relevant choice and explain the inference. Then develop rather than repeat it: show how another detail extends, qualifies or complicates the first. A paragraph becomes coherent when each sentence helps the reader move through the interpretation, not merely because every sentence mentions the same topic."
+      },
+      {
+        "type": "text",
+        "text": "Commentary can work at different levels. It may explain the meaning of a particular contrast, connect that contrast to an audience’s concern and show how the paragraph prepares for a later request. These levels do not require a prescribed sentence count. Some details need more explanation than others, and commentary should not invent motives or reader reactions that the source does not establish. Use language such as frames or invites when analyzing a plausible rhetorical function rather than claiming that all readers were convinced."
+      },
+      {
+        "type": "text",
+        "text": "A useful revision method is to label each sentence by its job: claim, context, evidence, inference, qualification or transition. The labels are diagnostic tools, not a required order. If every sentence is evidence or context, the reader may be doing the interpretive work alone. If several sentences repeat the same inference, replace repetition with a new relationship or remove it. The goal is a paragraph whose reasoning can be followed and tested. An effective final sentence can show why the point matters to the essay’s direction instead of announcing that the quotation is very important."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-commentary-paragraph-progress-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original appeal: “The river is not a line at the edge of our map. It is the water behind our taps. When we vote on the cleanup plan, we decide what we are willing to maintain together.” Draft paragraph: “The speaker mentions a river. Then the speaker mentions taps. The speaker ends with voting. This is very persuasive.”",
+        "steps": [
+          {
+            "prompt": "Which claim gives the paragraph an analytical direction?",
+            "choices": [
+              "The speaker connects a distant-seeming environmental feature to household dependence before making cleanup a shared decision.",
+              "The passage has three sentences.",
+              "Rivers exist on maps."
+            ],
+            "answer": 0,
+            "explanation": "The claim identifies a progression and its function rather than only listing content.",
+            "hint": "Explain the relationship among details."
+          },
+          {
+            "prompt": "Which sentence is commentary rather than summary?",
+            "choices": [
+              "The speaker says taps.",
+              "Linking the river to household water reframes cleanup as maintaining something residents already rely on.",
+              "The last sentence mentions a vote."
+            ],
+            "answer": 1,
+            "explanation": "It explains why the connection matters for the appeal.",
+            "hint": "Move from what is said to what it does."
+          },
+          {
+            "prompt": "Which next sentence develops the analysis?",
+            "choices": [
+              "This is persuasive and very persuasive.",
+              "The river is mentioned again.",
+              "The final plural we turns the practical dependence into a collective responsibility."
+            ],
+            "answer": 2,
+            "explanation": "The sentence extends the interpretation from dependence to shared action using a new detail.",
+            "hint": "Give the next sentence a distinct inferential job."
+          },
+          {
+            "prompt": "Which claim should be avoided?",
+            "choices": [
+              "Every listener voted for the plan after hearing the speech.",
+              "The appeal presents a collective choice.",
+              "The household detail makes the issue concrete."
+            ],
+            "answer": 0,
+            "explanation": "The passage supports an interpretation of strategy, not a verified voting outcome.",
+            "hint": "Separate textual function from measured effect."
+          }
+        ],
+        "takeaway": "Choose a precise paragraph claim, explain how one quoted detail supports it, and show how another develops or complicates that relationship. Replace vague praise with commentary about audience concern, message and progression. Remove a quotation if it adds no distinct support."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-commentary-paragraph-progress-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A paragraph has three accurate quotations and three sentences saying each is effective. Describe a revision that would deepen it without adding another quotation.",
+        "sampleAnswer": "Choose a precise paragraph claim, explain how one quoted detail supports it, and show how another develops or complicates that relationship. Replace vague praise with commentary about audience concern, message and progression. Remove a quotation if it adds no distinct support.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-commentary-paragraph-progress-recall",
+        "prompt": "How can a paragraph stay on topic yet lack coherence?",
+        "sampleAnswer": "Its sentences may all concern the same subject but fail to establish a logical progression. Coherence requires relationships among claims, evidence and inferences, not topic repetition alone.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Choices and Style::4.1 Diction, syntax, imagery, and tone in nonfiction": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish diction, syntax, imagery and tone without reducing analysis to labels.",
+      "Connect a stylistic choice to a particular message and audience."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain style through context and relationships"
+      },
+      {
+        "type": "text",
+        "text": "Diction concerns word choice, syntax concerns sentence arrangement, imagery evokes sensory or concrete experience, and tone describes a speaker’s attitude as conveyed through language. These categories can overlap in an actual passage. A short sentence may contain vivid imagery and evaluative diction at the same time. Naming the category is only a starting point. Analysis must explain what the particular choice contributes in this context and how it relates to the message."
+      },
+      {
+        "type": "text",
+        "text": "Examine alternatives to understand a choice. Calling a delay a pause differs from calling it an obstruction because the words imply different degrees of difficulty and responsibility. A question can invite reflection, challenge an assumption or signal uncertainty depending on its wording and situation. Short sentences may emphasize urgency, but they can also sound calm or conclusive. Avoid memorized equations such as short sentences always create excitement. The nearby language, audience and purpose determine which interpretation is defensible."
+      },
+      {
+        "type": "text",
+        "text": "Tone is especially vulnerable to vague labeling. Instead of listing three adjectives, explain which words or arrangements support the attitude you identify and whether it shifts. A writer may begin with frustration about a barrier and end with a practical invitation. That movement can be more important than assigning one tone to the whole passage. Keep the speaker’s attitude distinct from your emotional reaction, and distinguish an interpretation of tone from evidence that actual readers felt a particular emotion."
+      },
+      {
+        "type": "text",
+        "text": "Style should be analyzed in relationships. A concrete image can make an abstract claim visible; parallel syntax can present two obligations as comparable; a shift from a long explanation to a brief request can concentrate attention. Select the feature relevant to your interpretation rather than cataloging every device. Then connect it to a specific audience concern or purpose, acknowledging limits. You do not need to claim a writer consciously calculated every possible effect to explain how a passage works. The strongest commentary stays close enough to the wording that a reader can inspect the proposed connection."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-style-choice-context-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original notice to residents: “For months, the broken fountain has been a dry bowl in the center of our square. We have walked around it, complained about it, and waited. Now we can repair it. Join Saturday’s cleanup and help reopen the space.”",
+        "steps": [
+          {
+            "prompt": "Which detail is concrete imagery?",
+            "choices": [
+              "A dry bowl in the center of our square.",
+              "The category nonfiction.",
+              "The fact that the notice is written."
+            ],
+            "answer": 0,
+            "explanation": "The phrase gives the reader a visible object through which to understand the neglected fountain.",
+            "hint": "Find language that evokes a concrete scene."
+          },
+          {
+            "prompt": "What does the series walked, complained, and waited contribute?",
+            "choices": [
+              "Proof that every resident behaved identically.",
+              "A pattern of repeated inaction that prepares the contrast with repair.",
+              "A universal rule about all lists."
+            ],
+            "answer": 1,
+            "explanation": "The sequence organizes the past around delay and supports the later turn toward action.",
+            "hint": "Explain this list’s role in this passage."
+          },
+          {
+            "prompt": "Which interpretation of Now we can repair it is strongest?",
+            "choices": [
+              "Short sentences always frighten readers.",
+              "The sentence proves the repair is complete.",
+              "Its brevity and transition mark a shift from describing delay to proposing action."
+            ],
+            "answer": 2,
+            "explanation": "The effect follows from the sentence’s placement and content, not length alone.",
+            "hint": "Connect syntax to the surrounding progression."
+          },
+          {
+            "prompt": "How should the tone be described?",
+            "choices": [
+              "It moves from dissatisfaction toward a practical, encouraging invitation.",
+              "It is one unchanging emotion because passages cannot shift.",
+              "Every reader necessarily feels joy."
+            ],
+            "answer": 0,
+            "explanation": "The interpretation accounts for both the complaint and the action-oriented ending.",
+            "hint": "Trace the attitude across the whole notice."
+          }
+        ],
+        "takeaway": "The list of walking, complaining and waiting would lead toward resignation rather than a pivot into collective action. The earlier frustration would remain, but the ending would withdraw the practical invitation. This shows why the function of a stylistic feature depends on its relationships and placement."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-style-choice-context-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "If the final line instead said, “Nothing will change,” how would that alter your interpretation of the preceding list and the overall tone?",
+        "sampleAnswer": "The list of walking, complaining and waiting would lead toward resignation rather than a pivot into collective action. The earlier frustration would remain, but the ending would withdraw the practical invitation. This shows why the function of a stylistic feature depends on its relationships and placement.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-style-choice-context-recall",
+        "prompt": "Why is identifying parallel syntax not a complete analysis?",
+        "sampleAnswer": "The label names a pattern. Analysis explains what the parallel elements make comparable or cumulative and how that relationship develops the message in the particular context.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Developing and Revising Arguments::5.3 Revising paragraph unity, coherence, and rhetorical effectiveness": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish unity from coherence and connect both to argumentative purpose.",
+      "Revise misplaced or unsupported material without discarding useful evidence."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Revise for a paragraph’s job in the argument"
+      },
+      {
+        "type": "text",
+        "text": "Paragraph unity means that the material contributes to a central purpose. Coherence means that readers can follow the relationships among its sentences and ideas. A paragraph can remain on one topic while lacking a clear direction, or contain smooth transitions between claims that do not belong together. Revision therefore begins by asking what the paragraph must establish in the larger argument, not by inserting transition words wherever the prose feels awkward."
+      },
+      {
+        "type": "text",
+        "text": "Write a short description of the paragraph’s job, such as establish a scheduling barrier or evaluate a proposed alternative. Compare each sentence with that job. A vivid anecdote may be relevant elsewhere yet distract here. A qualification may seem inconvenient but be necessary to keep the claim accurate. Remove, move or develop material according to function rather than treating all deletion as improvement. Unity should not be achieved by hiding counterevidence that genuinely bears on the claim."
+      },
+      {
+        "type": "text",
+        "text": "Coherence often depends on explicit relationships and clear references. A sentence may introduce a problem and the next may offer a response, but readers need to see the link. Pronouns should have identifiable referents, and shifts between groups, times or measures should be marked. Words such as however and therefore assert relationships; they cannot create those relationships when the reasoning does not support them. If therefore joins a preference survey to a guaranteed outcome, the problem is the inference, not merely the transition."
+      },
+      {
+        "type": "text",
+        "text": "Evaluate revisions at paragraph and essay scales. A paragraph that clearly explains one benefit may still repeat another paragraph’s function or leave the central objection unanswered. Conversely, a useful qualification may deserve its own developed section rather than a hurried sentence. After rearranging, check whether claims still match their evidence and whether the order helps the intended audience understand the decision. Effective revision improves the line of reasoning while preserving accurate meaning. There is no mandatory paragraph length or universal placement for every concession; the structure should serve the argument being made."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-paragraph-unity-revision-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original hypothetical draft: claim—offer a trial evening study session. Paragraph purpose—explain a scheduling barrier. Sentences: A: “Some students finish supervised practice after the study room closes.” B: “Our mascot was redesigned last year.” C: “For those students, a later session could provide an on-campus option after practice.” D: “However, staffing the later session would require a separate plan.” No trial attendance data are supplied.",
+        "steps": [
+          {
+            "prompt": "Which sentence most clearly lacks unity with the stated purpose?",
+            "choices": [
+              "B, the mascot sentence.",
+              "A, the schedule detail.",
+              "C, the proposed access connection."
+            ],
+            "answer": 0,
+            "explanation": "The mascot detail has no supplied relationship to the scheduling barrier or proposal.",
+            "hint": "Judge relevance by the paragraph’s job."
+          },
+          {
+            "prompt": "Why does C follow A coherently?",
+            "choices": [
+              "It changes topics without warning.",
+              "It explains how the proposed timing responds to the identified barrier.",
+              "It proves every student would attend."
+            ],
+            "answer": 1,
+            "explanation": "The connection is practical and bounded to the students named, not a universal attendance claim.",
+            "hint": "Trace problem to possible response."
+          },
+          {
+            "prompt": "What is the strongest treatment of D?",
+            "choices": [
+              "Delete it because every qualification weakens an argument.",
+              "Replace it with a guarantee of success.",
+              "Retain or develop it where the essay evaluates feasibility, with a clear link to the proposal."
+            ],
+            "answer": 2,
+            "explanation": "Staffing is relevant counterpressure; placement and development should serve the argument.",
+            "hint": "A useful objection may need relocation rather than suppression."
+          },
+          {
+            "prompt": "Which transition would overstate the supplied reasoning?",
+            "choices": [
+              "Therefore, the trial is guaranteed to improve grades.",
+              "For those students, later access could help.",
+              "A separate staffing question remains."
+            ],
+            "answer": 0,
+            "explanation": "No attendance or learning outcome evidence is supplied, so the conclusion is unsupported.",
+            "hint": "Check the relationship a transition claims."
+          }
+        ],
+        "takeaway": "I could group the benefit and its evidence before addressing the cost, or organize point-by-point if each cost directly qualifies a corresponding benefit. I would choose the arrangement that makes the tradeoff and my conclusion easiest to follow, preserving the objection rather than hiding it."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-paragraph-unity-revision-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A paragraph includes a relevant objection but becomes hard to follow because it switches repeatedly between benefit and cost. Explain two possible revisions and how you would choose between them.",
+        "sampleAnswer": "I could group the benefit and its evidence before addressing the cost, or organize point-by-point if each cost directly qualifies a corresponding benefit. I would choose the arrangement that makes the tradeoff and my conclusion easiest to follow, preserving the objection rather than hiding it.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-paragraph-unity-revision-recall",
+        "prompt": "How do unity and coherence differ?",
+        "sampleAnswer": "Unity concerns whether material serves a central paragraph purpose. Coherence concerns whether the relationships and progression are understandable. Relevant sentences still need clear logical connections.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Positions, Sources, and Synthesis::6.2 Synthesizing agreements and tensions across sources": {
+    "revision": 1,
+    "objectives": [
+      "Identify agreements and tensions without inventing direct contradiction.",
+      "Organize source evidence around a qualified position rather than a source-by-source list."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Synthesize by the question sources help answer"
+      },
+      {
+        "type": "text",
+        "text": "Synthesis develops your argument through relationships among sources. It is not a sequence of summaries joined by also. Begin with the question your position must answer, then identify which source contributes to which part. One source may establish a benefit, another a constraint and another an alternative. Your commentary explains how these contributions affect the position. Sources do not need to disagree dramatically for synthesis to occur; their different roles can help define a more precise proposal."
+      },
+      {
+        "type": "text",
+        "text": "Diagnose apparent disagreement before announcing a contradiction. Two sources may discuss different populations, time periods, outcomes or meanings of a key word. A source reporting interest in a program does not directly contradict a source describing its staffing cost. Both can be accurate and relevant. A direct factual disagreement requires incompatible claims about the same question under comparable conditions. A tension can instead arise when one value or practical demand makes another harder to satisfy. Naming the relationship precisely strengthens the argument."
+      },
+      {
+        "type": "text",
+        "text": "Preserve qualifications when bringing sources together. If a source says a change may help a particular group, do not turn it into a guarantee for everyone. If another notes a limitation, do not portray it as rejecting every version of the proposal. Quote or paraphrase accurately, then explain the inference that combines them. Your position might support a limited trial, prioritize one goal with a reasoned tradeoff or reject a proposal because a central constraint remains unresolved. The position should emerge from reasoning rather than a vote counting sources on each side."
+      },
+      {
+        "type": "text",
+        "text": "A planning matrix can organize a claim, relevant evidence, source limits and the relationship to other material. Use the matrix to design paragraphs around issues such as access, feasibility and evaluation, not around source labels alone. Follow the actual assignment’s source-use requirements, but remember that citation count and reasoning quality are different. Several sources can appear in one paragraph when they contribute distinct evidence. One source can also appear in multiple places for different relevant purposes. Attribution keeps the contributions visible while your commentary supplies the argument’s direction."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-synthesis-source-relationships-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Complete original hypothetical source set about a weekend museum program. A, visitor statement: “Weekdays conflict with my work, so a Saturday option would let me consider attending.” B, operations note: “Saturday opening would require staff scheduling beyond the current weekday plan.” C, proposal: “Begin with one Saturday trial, record attendance and staffing needs, and review before extending.” These are constructed materials, not real research.",
+        "steps": [
+          {
+            "prompt": "What is the relationship between A and B?",
+            "choices": [
+              "They identify a possible access benefit and an operational constraint, not a direct factual contradiction.",
+              "They make incompatible claims about the same attendance count.",
+              "One must be false because their emphases differ."
+            ],
+            "answer": 0,
+            "explanation": "A concerns an individual’s availability; B concerns staffing. Both can inform the decision.",
+            "hint": "Compare the actual questions answered."
+          },
+          {
+            "prompt": "How does C relate to A and B?",
+            "choices": [
+              "It proves permanent expansion will succeed.",
+              "It offers a bounded way to investigate the benefit and constraint.",
+              "It makes both earlier sources irrelevant."
+            ],
+            "answer": 1,
+            "explanation": "The trial can gather relevant evidence while limiting commitment, though success remains uncertain.",
+            "hint": "Identify the proposal’s response to both concerns."
+          },
+          {
+            "prompt": "Which thesis synthesizes the set?",
+            "choices": [
+              "Source A exists, Source B exists and Source C exists.",
+              "All museums should always open every day.",
+              "A limited Saturday trial is worth considering if attendance and staffing are evaluated before expansion."
+            ],
+            "answer": 2,
+            "explanation": "The thesis draws a qualified position from the sources’ different contributions.",
+            "hint": "Your claim should organize the relationship."
+          },
+          {
+            "prompt": "Which paragraph plan is strongest?",
+            "choices": [
+              "Explain the access rationale using A, qualify it with B, then evaluate how C addresses the uncertainty.",
+              "Summarize each source without connecting them.",
+              "Count how many sources sound positive."
+            ],
+            "answer": 0,
+            "explanation": "The plan develops a line of reasoning rather than treating sources as independent reports or votes.",
+            "hint": "Give evidence a role in the decision."
+          }
+        ],
+        "takeaway": "Compare location, audience, hours, publicity, transportation and what attendance measure was used. The result may raise a useful caution, but a different setting does not automatically predict the same outcome. Explain which similarities support transfer and which differences limit it."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-synthesis-source-relationships-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Suppose a fourth source reports low attendance at a different museum’s Saturday program. Explain what you would compare before applying that result to this proposal.",
+        "sampleAnswer": "Compare location, audience, hours, publicity, transportation and what attendance measure was used. The result may raise a useful caution, but a different setting does not automatically predict the same outcome. Explain which similarities support transfer and which differences limit it.",
+        "checklist": [
+          "Identify the relevant actors, claims or choices.",
+          "Connect specific evidence to the mechanism.",
+          "State a meaningful limit on the conclusion."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-synthesis-source-relationships-recall",
+        "prompt": "How does a tension differ from a direct factual contradiction?",
+        "sampleAnswer": "A tension involves goals, constraints or implications that are difficult to reconcile. A factual contradiction involves incompatible claims about the same matter under comparable conditions. Accurate synthesis identifies the actual relationship.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  }
+}

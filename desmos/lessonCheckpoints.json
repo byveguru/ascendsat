@@ -1,0 +1,282 @@
+{
+  "linear-regression": [
+    {
+      "type": "prediction",
+      "id": "desmos-linear-regression-predict",
+      "title": "Predict before calculating",
+      "prompt": "For points (0,2), (1,5), and (2,8), predict the fitted slope before entering a table.",
+      "choices": [
+        "2",
+        "3",
+        "5"
+      ],
+      "answer": 1,
+      "explanation": "Each one-unit x increase adds 3 to y, so all points lie on y = 3x + 2. Regression should reproduce slope 3."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-linear-regression-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Why does fitting a line to three exact collinear points not prove that a real process stays linear outside the observed inputs?",
+      "sampleAnswer": "The fit describes these points. Extrapolation assumes the same relationship continues beyond the observations, which needs contextual evidence. A perfect in-sample fit does not establish that assumption.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "sliders": [
+    {
+      "type": "prediction",
+      "id": "desmos-sliders-predict",
+      "title": "Predict before calculating",
+      "prompt": "In y = a(x−2)² + 1, which slider value produces a downward-opening parabola?",
+      "choices": [
+        "a = 2",
+        "a = 0",
+        "a = −2"
+      ],
+      "answer": 2,
+      "explanation": "A negative coefficient reverses the vertical orientation. At a = 0 the relation is the horizontal line y = 1, not a parabola."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-sliders-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Explain which features remain fixed while a changes through nonzero values, and what happens at a = 0.",
+      "sampleAnswer": "For nonzero a, the vertex remains (2,1) and the symmetry line remains x = 2. The sign changes opening direction and the magnitude changes vertical scale. At zero the relation becomes y = 1, so there is no unique parabola vertex.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "type": "prediction",
+      "id": "desmos-systems-predict",
+      "title": "Predict before calculating",
+      "prompt": "Before graphing y = 2x + 1 and y = 2x − 3, predict the number of intersections.",
+      "choices": [
+        "Zero",
+        "One",
+        "Infinitely many"
+      ],
+      "answer": 0,
+      "explanation": "The distinct lines have equal slopes and different intercepts, so they are parallel."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-systems-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Why can a graphing window make y = x and y = 1.001x − 100 appear to have no intersection? Find the intersection algebraically.",
+      "sampleAnswer": "The slopes differ, so an intersection exists. Solving x = 1.001x − 100 gives x = 100000 and y = 100000. A typical window hides that location; absence from the screen is not proof of no solution.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "absolute-value": [
+    {
+      "type": "prediction",
+      "id": "desmos-absolute-value-predict",
+      "title": "Predict before calculating",
+      "prompt": "How many real solutions does |x−3| = −2 have?",
+      "choices": [
+        "Two",
+        "One",
+        "Zero"
+      ],
+      "answer": 2,
+      "explanation": "Absolute value is nonnegative for every real input; it cannot equal −2."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-absolute-value-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Explain why solving |x−3| = 2 by graphing y = x−3 and y = 2 misses a solution.",
+      "sampleAnswer": "The absolute-value graph has two branches. The equation requires x−3 = 2 or x−3 = −2, giving x = 5 or x = 1. The single straight line represents only one branch.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "inequalities": [
+    {
+      "type": "prediction",
+      "id": "desmos-inequalities-predict",
+      "title": "Predict before calculating",
+      "prompt": "Does (0,0) satisfy y > 2x − 1?",
+      "choices": [
+        "Yes",
+        "No",
+        "Only if the boundary is solid"
+      ],
+      "answer": 0,
+      "explanation": "Substitution gives 0 > −1, which is true. The strict inequality excludes the boundary itself."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-inequalities-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "How would replacing > with ≥ change the graph and the solution set?",
+      "sampleAnswer": "The boundary line becomes included, usually shown solid instead of dashed. Points strictly above stay included; points on y = 2x − 1 are newly included. The shaded side remains the same.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "parabolas": [
+    {
+      "type": "prediction",
+      "id": "desmos-parabolas-predict",
+      "title": "Predict before calculating",
+      "prompt": "Where is the vertex of y = (x+3)² − 4?",
+      "choices": [
+        "(3,−4)",
+        "(−3,−4)",
+        "(−3,4)"
+      ],
+      "answer": 1,
+      "explanation": "The squared expression is zero at x = −3, giving the minimum output −4."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-parabolas-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "A graph shows only one intercept of y = (x−50)² − 1. How can you find and verify both without trusting the window?",
+      "sampleAnswer": "Set the output to zero: (x−50)² = 1, so x = 49 or 51. Substitute both into the equation, then adjust the window to include them. A narrow window may hide a valid root.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "circles": [
+    {
+      "type": "prediction",
+      "id": "desmos-circles-predict",
+      "title": "Predict before calculating",
+      "prompt": "What is the radius of (x−2)² + (y+1)² = 9?",
+      "choices": [
+        "9",
+        "3",
+        "√3"
+      ],
+      "answer": 1,
+      "explanation": "The constant is the radius squared, so r² = 9 and r = 3. The center is (2,−1)."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-circles-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Explain why x² + y² = 9 can look like an ellipse on a screen, and give an algebraic check of its intercepts.",
+      "sampleAnswer": "Unequal visual scales on the axes can distort appearance. Setting y = 0 gives x = ±3; setting x = 0 gives y = ±3. Equal coordinate distances confirm a radius of 3, even if the screen stretches one direction.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "mean-median": [
+    {
+      "type": "prediction",
+      "id": "desmos-mean-median-predict",
+      "title": "Predict before calculating",
+      "prompt": "For [1,2,3,4,100], which statistic changes more if 100 is replaced by 1000?",
+      "choices": [
+        "The median",
+        "Both change equally",
+        "The mean"
+      ],
+      "answer": 2,
+      "explanation": "The median remains 3. The sum increases by 900, so the mean rises by 900/5 = 180."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-mean-median-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "Why does entering a frequency table as a plain list of the distinct values give the wrong mean when frequencies differ?",
+      "sampleAnswer": "A distinct-value list gives each listed value equal weight. A frequency table requires each value to contribute according to its count. Compute the weighted sum divided by the total count, or construct the full repeated-value list.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "fractions": [
+    {
+      "type": "prediction",
+      "id": "desmos-fractions-predict",
+      "title": "Predict before calculating",
+      "prompt": "Predict 1/2 + 1/3 before using the calculator.",
+      "choices": [
+        "2/5",
+        "5/6",
+        "1/6"
+      ],
+      "answer": 1,
+      "explanation": "Use sixths: 3/6 + 2/6 = 5/6. Adding denominators does not represent the sum."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-fractions-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "A calculator shows 0.333333 for one third. Why should you retain 1/3 when multiplying it by 3?",
+      "sampleAnswer": "The displayed decimal is rounded. Keeping the exact fraction gives 3 × (1/3) = 1, while multiplying a truncated decimal can give 0.999999. Preserve exact forms until the requested final rounding.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ],
+  "percents": [
+    {
+      "type": "prediction",
+      "id": "desmos-percents-predict",
+      "title": "Predict before calculating",
+      "prompt": "A quantity rises by 20% and then falls by 20%. What fraction of its original value remains?",
+      "choices": [
+        "1",
+        "0.96",
+        "0.80"
+      ],
+      "answer": 1,
+      "explanation": "Successive changes multiply: 1.20 × 0.80 = 0.96. The second change uses the increased base."
+    },
+    {
+      "type": "reflection",
+      "id": "desmos-percents-transfer",
+      "title": "Check the tool’s limits",
+      "math": true,
+      "prompt": "An amount after a 20% increase is 72. Why is subtracting 20% of 72 the wrong way to recover the original?",
+      "sampleAnswer": "The original was multiplied by 1.20, so divide 72 by 1.20 to get 60. Subtracting 20% of 72 uses a different base and gives 57.6. Reverse the multiplier instead.",
+      "checklist": [
+        "State the mathematical relationship.",
+        "Explain what the calculator display alone cannot establish.",
+        "Use the original quantities or equation to verify the conclusion."
+      ]
+    }
+  ]
+}

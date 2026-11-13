@@ -1,0 +1,659 @@
+{
+  "Calc BC: Limits & Continuity::1.2 Continuity and the Intermediate Value Theorem": {
+    "revision": 1,
+    "objectives": [
+      "Check continuity using a value and two-sided limit.",
+      "Apply the Intermediate Value Theorem with its hypotheses.",
+      "Distinguish existence, uniqueness, and a numerical approximation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Continuity at an input a requires three statements: f(a) is defined, the two-sided limit of f(x) as x approaches a exists, and that limit equals f(a). Checking only the function value misses the nearby behavior. Checking only a limit misses a possible hole or a reassigned value. For a piecewise formula, first evaluate the left-hand and right-hand limits using the formulas that apply on the appropriate sides. Then compare the common limit, if one exists, with the formula or explicit value assigned at a. A jump cannot be repaired by changing a single point, because its two one-sided limits disagree. A removable discontinuity can be repaired by assigning the missing common limit.\n\nThe Intermediate Value Theorem concerns a function continuous on an entire closed interval [a,b]. Every number between f(a) and f(b) is achieved somewhere in that interval. If the target lies strictly between the endpoint values, an achieving input lies strictly between the endpoints. A sign change is the special case where the target output is zero. The conclusion asserts existence, not the number of solutions or a formula for them. Without continuity, a function can jump across the target and never attain it.\n\nSeparate three jobs in a root problem. First, establish existence using continuity and bracketing. Second, establish uniqueness if requested, perhaps by proving the function is strictly increasing. Third, approximate the root with a stated method and error interval. Repeatedly bisecting an interval that brackets a continuous root preserves an existence guarantee while shrinking uncertainty. A rounded calculator output alone supplies neither the continuity argument nor a uniqueness proof. Always identify the function and interval explicitly so that a reader can check the theorem's hypotheses."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-continuity-ivt-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let g(x)=x³+x−1. Establish a unique zero in (0,1), then use bisection. Separately consider r(x)=(x²−1)/(x−1) for x≠1, with r(1)=k.",
+        "steps": [
+          {
+            "prompt": "Why may IVT be used for g on [0,1]?",
+            "choices": [
+              "All polynomials are continuous on every real interval",
+              "A sign change always suffices without continuity",
+              "The graph has been drawn",
+              "Every function is continuous on a closed interval"
+            ],
+            "answer": 0,
+            "explanation": "The expression is a polynomial, so it is continuous at every point of the closed interval. This supplies the required hypothesis."
+          },
+          {
+            "prompt": "Which endpoint values bracket zero?",
+            "choices": [
+              "g(0)=1 and g(1)=−1",
+              "g(0)=−1 and g(1)=1",
+              "Both endpoints equal zero",
+              "g(0)=0 and g(1)=1"
+            ],
+            "answer": 1,
+            "explanation": "Substitution gives g(0)=−1 and g(1)=1. Zero lies strictly between these outputs, so some interior input has output zero."
+          },
+          {
+            "prompt": "What additional fact proves uniqueness?",
+            "choices": [
+              "The endpoint values have opposite signs",
+              "The interval is short",
+              "g′(x)=3x²+1>0 for every x",
+              "The function is continuous"
+            ],
+            "answer": 2,
+            "explanation": "A positive derivative makes g strictly increasing. Two distinct zeros would contradict strict increase, so the IVT zero is unique."
+          },
+          {
+            "prompt": "After testing 0.5 and then 0.75, which bracket remains?",
+            "choices": [
+              "[0,0.5]",
+              "[0.75,1]",
+              "[0,0.75]",
+              "[0.5,0.75]"
+            ],
+            "answer": 3,
+            "explanation": "Here g(0.5)=−0.375 and g(0.75)=0.171875. Continuity and the opposite signs preserve a root between those two test inputs."
+          },
+          {
+            "prompt": "Which k makes r continuous at 1?",
+            "choices": [
+              "2",
+              "0",
+              "1",
+              "No value can work"
+            ],
+            "answer": 0,
+            "explanation": "For x≠1, factor and cancel to get r(x)=x+1. Its limit at 1 is 2, so the assigned value must be 2."
+          }
+        ],
+        "takeaway": "Use continuity to prove attainment, monotonicity to prove uniqueness, and bracketing to control approximation error."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The rational example has an important domain distinction: cancellation gives an equivalent expression only away from the excluded input. Assigning k=2 creates a continuous extension; it does not retroactively make the original quotient defined at 1. Compare this removable case with s(x)=−1 for x<0 and s(x)=1 for x≥0. On [−1,1], its endpoint values surround zero, but it never equals zero because it is not continuous at 0. IVT is a sufficient condition, not a rule that every discontinuous function misses intermediate values. For g, the bracket [0.5,0.75] has width 0.25; its midpoint 0.625 is at most 0.125 from the root, even before another function evaluation. Each further bisection halves this guaranteed bound. A derivative can provide uniqueness here, but some strictly increasing functions have a zero derivative at isolated inputs, so positivity everywhere is sufficient rather than necessary."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-continuity-ivt-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says that g has exactly one root because IVT applies. Repair the reasoning and state what the midpoint of [0.5,0.75] guarantees.",
+        "sampleAnswer": "IVT proves at least one root. Strict increase, justified by g′(x)=3x²+1>0, proves at most one. The midpoint 0.625 is within half the bracket width, 0.125, of the unique root.",
+        "checklist": [
+          "State the existence conclusion separately.",
+          "Supply a uniqueness argument.",
+          "Use half the bracket width for midpoint error."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-continuity-ivt-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "The root remains in [0.5,0.75]. Enter the guaranteed maximum error when its midpoint is used.",
+        "acceptedAnswers": [
+          "0.125",
+          "1/8"
+        ],
+        "sampleAnswer": "Half the bracket width is (0.75−0.5)/2=0.125."
+      }
+    ]
+  },
+  "Calc BC: Contextual Applications of Differentiation::4.1 Motion: position, velocity and acceleration": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish position, velocity, acceleration, and speed.",
+      "Use a sign chart to decide when speed increases.",
+      "Calculate displacement and distance across a direction change."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Position tells where an object is relative to a chosen origin. For one-dimensional motion, velocity is the derivative of position and gives both signed direction and instantaneous rate. Acceleration is the derivative of velocity. The units change with each derivative: if position is in meters and time is in seconds, velocity is in meters per second and acceleration is in meters per second squared. Negative position does not mean negative velocity; an object left of the origin can move to the right. Negative acceleration does not automatically mean slowing down; it means velocity is decreasing as a signed quantity.\n\nSpeed is the magnitude of velocity, |v(t)|. Away from a zero of velocity, speed increases when velocity and acceleration have the same sign and decreases when their signs differ. If both are negative, the velocity becomes more negative and the magnitude grows. Use a sign chart split at zeros of velocity and acceleration rather than judging a graph by whether it lies above the axis. At an instant with zero velocity, determine the nearby signs before deciding whether there is a direction change. A zero of velocity without a sign change is a stop without reversal.\n\nDisplacement is final position minus initial position, equivalently the signed integral of velocity. Total distance accumulates nonnegative travel and equals the integral of |v|. When velocity changes sign, split the interval at those times and add the magnitudes of the signed integrals. Initial position matters for the final location, but it cancels from displacement and distance. A complete solution identifies the physical quantity, handles units, and distinguishes an interval of motion from an isolated instant. These distinctions prevent the common error of reporting a negative distance or treating an integral of acceleration as distance."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-motion-signs-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A particle has v(t)=t²−4t+3 meters per second for 0≤t≤4 and initial position x(0)=2 meters. Analyze its direction, changing speed, displacement, and total distance.",
+        "steps": [
+          {
+            "prompt": "When is the particle moving in the negative direction?",
+            "choices": [
+              "0<t<1",
+              "1<t<3",
+              "3<t<4",
+              "Throughout the interval"
+            ],
+            "answer": 1,
+            "explanation": "Factor v(t)=(t−1)(t−3). Between 1 and 3 the factors have opposite signs, so velocity is negative."
+          },
+          {
+            "prompt": "On which intervals is speed increasing?",
+            "choices": [
+              "(0,1) and (2,3)",
+              "Only (1,2)",
+              "(1,2) and (3,4)",
+              "Throughout (0,4)"
+            ],
+            "answer": 2,
+            "explanation": "Acceleration is a(t)=2t−4. Velocity and acceleration are both negative on (1,2) and both positive on (3,4)."
+          },
+          {
+            "prompt": "What is the displacement from t=0 to t=4?",
+            "choices": [
+              "4",
+              "0",
+              "−4/3",
+              "4/3"
+            ],
+            "answer": 3,
+            "explanation": "An antiderivative is F(t)=t³/3−2t²+3t. Evaluate the final value minus the initial value: F(4)−F(0)=64/3−32+12=4/3 meters. This is signed displacement."
+          },
+          {
+            "prompt": "What is the total distance traveled?",
+            "choices": [
+              "4",
+              "4/3",
+              "8/3",
+              "16/3"
+            ],
+            "answer": 0,
+            "explanation": "The signed integrals on [0,1], [1,3], and [3,4] are 4/3, −4/3, and 4/3. Their magnitudes sum to 4 meters."
+          },
+          {
+            "prompt": "What is the final position x(4)?",
+            "choices": [
+              "4/3",
+              "10/3",
+              "4",
+              "−2/3"
+            ],
+            "answer": 1,
+            "explanation": "Add the displacement to the initial position: x(4)=2+4/3=10/3 meters. Distance does not determine final signed position."
+          }
+        ],
+        "takeaway": "A speed claim needs both velocity and acceleration signs; distance needs absolute accumulation, while position needs the initial value."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "At t=2, acceleration is zero while velocity is −1. The particle is still moving to the left, and its speed switches from increasing to decreasing. At t=1 and t=3, velocity changes sign, so the particle reverses direction. The speed |t²−4t+3| has corners at these simple zeros even though the position function is smooth. This shows why differentiating speed without checking where velocity is zero can hide important behavior. On an interval where v<0, the derivative of speed is −a; where v>0, it is a. A translation of the position origin would change x(0) and x(4) by the same amount while leaving velocity, acceleration, displacement, and distance unchanged. Extending the motion past t=4 would require a new interval analysis rather than assuming the same sign pattern indefinitely."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-motion-signs-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Compare t=0.5 with t=1.5. At both times acceleration is negative; explain why the first time corresponds to decreasing speed and the second to increasing speed.",
+        "sampleAnswer": "At 0.5 the velocity is positive and acceleration is negative, so the magnitude of velocity decreases. At 1.5 both velocity and acceleration are negative, so the velocity becomes more negative and its magnitude increases.",
+        "checklist": [
+          "Identify the sign of velocity at each time.",
+          "Identify the acceleration sign.",
+          "Explain the magnitude rather than only the signed value."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-motion-signs-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "With the same velocity on [0,4], change the initial position to 5 meters. Enter the final position.",
+        "acceptedAnswers": [
+          "19/3"
+        ],
+        "sampleAnswer": "The displacement remains 4/3, so the final position is 5+4/3=19/3 meters."
+      }
+    ]
+  },
+  "Calc BC: Applications of Integration::8.2 Volume, displacement and distance": {
+    "revision": 1,
+    "objectives": [
+      "Build a volume integral from cross-sectional area.",
+      "Distinguish disk, washer, and known-cross-section models.",
+      "Explain why axis position determines the radii."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A volume integral adds thin slices. Begin with the geometry of one representative slice: its area A(x) multiplied by a small thickness Δx approximates a small volume. Summing and taking a limit gives V=∫A(x) dx across the solid's extent. Area is measured in square units, thickness in length units, and volume in cubic units. A sketch should identify the integration variable, the direction of slicing, and the boundaries of each slice. The formula follows from that geometry rather than from a memorized keyword.\n\nFor a solid of revolution sliced perpendicular to its axis, a filled circular slice has area πR². A washer has area π(R²−r²), where R is the outer radius and r is the inner radius. Each radius is a nonnegative distance from the axis to a boundary curve. It is not automatically the function value. If the axis is shifted, compute distances from the shifted axis explicitly. Subtracting radii and then squaring, π(R−r)², usually describes a different area because it ignores the full annulus. Before integrating, verify that the proposed outer radius is at least the inner radius throughout the interval.\n\nSolids with known cross sections need not be formed by rotation. If each slice is a square with side s(x), use A(x)=s(x)². For an equilateral triangle with side s, use A=√3 s²/4. In both settings, the base region determines a length, and the stated cross-sectional shape converts that length into area. If curves intersect inside the interval or exchange which is farther from the axis, split the integral. Always interpret the bounds as the actual extent of the solid rather than arbitrary algebraic roots."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-volume-slices-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "The region between y=x and y=x² for 0≤x≤1 is rotated about y=−1. Build the washer integral. Then compare the solid whose perpendicular cross sections are squares on the same vertical base segments.",
+        "steps": [
+          {
+            "prompt": "Which curve is above the other on [0,1]?",
+            "choices": [
+              "x² is above x",
+              "They have no ordering",
+              "x is at least x²",
+              "Both are negative"
+            ],
+            "answer": 2,
+            "explanation": "Since x−x²=x(1−x)≥0 on this interval, the upper boundary is y=x and the lower boundary is y=x²."
+          },
+          {
+            "prompt": "What are the radii about y=−1?",
+            "choices": [
+              "R=x and r=x²",
+              "R=x−1 and r=x²−1",
+              "R=x−x² and r=0",
+              "R=x+1 and r=x²+1"
+            ],
+            "answer": 3,
+            "explanation": "Both curves lie above the axis. Their vertical distances from −1 are x+1 and x²+1, with the first distance larger."
+          },
+          {
+            "prompt": "Which washer area is correct?",
+            "choices": [
+              "π[(x+1)²−(x²+1)²]",
+              "π(x−x²)²",
+              "π[(x−1)²−(x²−1)²]",
+              "π(x+x²+2)²"
+            ],
+            "answer": 0,
+            "explanation": "Subtract the area of the inner circle from the area of the outer circle. Squaring only the difference would lose the annular geometry."
+          },
+          {
+            "prompt": "What is the volume of revolution?",
+            "choices": [
+              "π/30",
+              "7π/15",
+              "π/3",
+              "2π/15"
+            ],
+            "answer": 1,
+            "explanation": "The difference of squares expands to 2x−x²−x⁴. Integrating from 0 to 1 gives 1−1/3−1/5=7/15, then multiply by π."
+          },
+          {
+            "prompt": "What is the volume with square cross sections instead?",
+            "choices": [
+              "7/15",
+              "1/6",
+              "1/30",
+              "π/30"
+            ],
+            "answer": 2,
+            "explanation": "Each square side is x−x². Integrate x²−2x³+x⁴ from 0 to 1: 1/3−1/2+1/5=1/30 cubic units."
+          }
+        ],
+        "takeaway": "Choose the slice area from the geometry, then integrate. A shifted axis changes radii, while a changed slice shape changes the area formula."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Moving the rotation axis farther below the region increases the volume even though the vertical gap between the curves is unchanged. About y=−c with c≥0, the difference of squared radii is (x+c)²−(x²+c)²=x²−x⁴+2c(x−x²). The volume is π(2/15+c/3). This linear dependence on c reveals why using only the gap x−x² cannot describe a washer. At c=0 the volume is 2π/15; at c=1 it is 7π/15. If an axis passes through the region, the inner radius may become zero and the farther boundary may switch, so this below-the-region formula cannot simply be continued to arbitrary negative c. The square-cross-section solid is a separate construction and does not acquire a factor π."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-volume-slices-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says rotating about y=−1 and y=−2 gives the same volume because the gap between the curves is unchanged. Explain the missing geometric feature.",
+        "sampleAnswer": "The gap is unchanged but both radii increase, enlarging the annulus. Its area is π(R²−r²), which depends on both the gap and the sum of the radii. Using c=2 gives volume π(2/15+2/3)=4π/5, larger than 7π/15.",
+        "checklist": [
+          "Define radii as distances to the axis.",
+          "Use the difference of squared radii.",
+          "Explain why an unchanged gap is insufficient."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-volume-slices-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For rotation about y=−2, enter V/π.",
+        "acceptedAnswers": [
+          "4/5",
+          "0.8"
+        ],
+        "sampleAnswer": "The general coefficient is 2/15+c/3. With c=2 this equals 12/15=4/5."
+      }
+    ]
+  },
+  "Calc BC: Integration & Accumulation of Change::6.2 Fundamental Theorem and substitution": {
+    "revision": 1,
+    "objectives": [
+      "Connect an accumulated amount to its rate using the Fundamental Theorem.",
+      "Find increasing/decreasing behavior and extrema from a signed rate.",
+      "Distinguish net change from total variation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Start with the relationships"
+      },
+      {
+        "type": "text",
+        "text": "Before integrating, name the quantity whose values you want. If r(t) is a flow rate in liters per minute, then r(t)Δt estimates a change in liters; it is not the amount already in the tank. A starting amount must be added separately. Write A(t) = A(0)+∫₀ᵗr(s) ds and check that the integration variable s is a placeholder while t determines the upper bound. For continuous r, A′(t) = r(t): positive rate means the amount increases, even when the rate itself is decreasing. Where r is differentiable, A″(t) = r′(t), so the slope of the rate graph controls the concavity of the amount graph. Do not confuse an amount maximum with a rate maximum. A maximum of A can occur when r crosses from positive to negative, not necessarily where r is largest."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict, calculate, then explain"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-bc-accumulation-guided",
+        "title": "Work through the model",
+        "scenario": "A tank begins with 5 liters. Its signed net flow rate is r(t) = 2−2 t for 0 ≤ t ≤ 2 and r(t) = 2 t−6 for 2 ≤ t ≤ 4, in liters per minute. The continuous rate graph joins (0,2), (2, −2), and (4,2).",
+        "steps": [
+          {
+            "prompt": "Without computing any areas, when does the amount decrease?",
+            "choices": [
+              "Only when the rate graph slopes downward",
+              "From t = 1 to t = 3",
+              "From t = 0 to t = 2",
+              "Never, because the starting amount is positive"
+            ],
+            "answer": 1,
+            "explanation": "A′ = r. Both pieces give r<0 between t = 1 and t = 3. The rate slope changes at 2, but the sign of the rate stays negative across that point.",
+            "hint": "Find where the rate graph lies below the horizontal axis."
+          },
+          {
+            "prompt": "What is A(1)?",
+            "choices": [
+              "1 liter",
+              "5 liters",
+              "7 liters",
+              "6 liters"
+            ],
+            "answer": 3,
+            "explanation": "From 0 to 1, the signed area is a triangle with base 1 minute and height 2 liters/minute, hence 1 liter. Add the starting 5 liters to obtain 6 liters."
+          },
+          {
+            "prompt": "Compare A(2), A(3), and A(4). Which triple is correct?",
+            "choices": [
+              "(5,4,5) liters",
+              "(0, −1,0) liters",
+              "(7,8,9) liters",
+              "(5,6,5) liters"
+            ],
+            "answer": 0,
+            "explanation": "Each of the four one-minute triangles has area magnitude 1. Their signs are +, −, −, +. Thus the cumulative amounts are 5 at 2,4 at 3, and 5 at 4. A negative signed change is not a negative tank amount."
+          },
+          {
+            "prompt": "Where is the absolute maximum amount on [0,4]?",
+            "choices": [
+              "t = 0, because r is largest there",
+              "t = 2, where the rate changes slope",
+              "t = 1, with amount 6 liters",
+              "t = 4, because total time is largest"
+            ],
+            "answer": 2,
+            "explanation": "Compare endpoints and candidates where A′ changes sign: A(0) = 5, A(1) = 6, A(3) = 4, A(4) = 5. The maximum is 6 liters at 1 minute."
+          },
+          {
+            "prompt": "What are the net change and total variation in amount?",
+            "choices": [
+              "Both are 0 liters",
+              "Net change 0 liters; total variation 4 liters",
+              "Net change 4 liters; total variation 0 liters",
+              "Both are 4 liters"
+            ],
+            "answer": 1,
+            "explanation": "The signed areas cancel to 0. Integrating |r| adds four triangle magnitudes of 1 liter, giving 4 liters. This is total variation of tank amount, not the total volume through each separate inlet/outlet."
+          }
+        ],
+        "takeaway": "The sign of the rate determines amount increase/decrease; the slope of the rate determines concavity. Always add the initial condition when finding an amount."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "The same graph also reveals concavity. On (0,2), r′ = −2, so A is concave down even while A initially increases. On (2,4), r′ = 2, so A is concave up even while A initially decreases. At t = 2, r is continuous, so A′ exists and equals−2. However, r has different slopes on either side, so A″(2) does not exist. A can therefore be differentiable at an inflection point without having a second derivative there. This distinction matters when reconstructing a graph from derivative data. The initial 5 liters shifts the whole amount graph vertically; changing that initial amount would change every A-value by the same constant but would not change the times of its extrema, its increasing/decreasing intervals, or its concavity. Finally, if only a table of rates were supplied rather than piecewise-linear behavior, trapezoids would normally provide approximations. The exact geometric areas here are justified by the stated linear pieces, not merely by connecting three measurements on a screen."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-bc-accumulation-transfer",
+        "title": "Explain the transfer",
+        "math": true,
+        "prompt": "If the initial amount changes from 5 liters to 8 liters, which conclusions change and which remain the same? Explain the amount at t = 1, the maximum time, and the net change over [0,4].",
+        "sampleAnswer": "Every amount increases by 3 liters, so A(1) becomes 9 liters. The maximum still occurs at t = 1 because the rate is unchanged. Net change remains 0 liters because it depends on the integral of r, not on the initial amount. The concavity and monotonicity intervals also stay the same.",
+        "checklist": [
+          "Distinguish amount from rate.",
+          "Use a vertical shift for a changed initial condition.",
+          "Keep the rate-based maximum time and net change unchanged."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-bc-accumulation-recall",
+        "title": "Retrieve the relationship",
+        "math": true,
+        "prompt": "Using the original starting amount of 5 liters, enter the minimum amount on [0,4], in liters.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "The minimum is 4 liters at t = 3: the first three signed triangle areas total−1 liter, so 5−1 = 4."
+      },
+      {
+        "type": "sequence",
+        "id": "depth-bc-accumulation-sequence",
+        "title": "Rebuild the reasoning",
+        "prompt": "Put these steps in order when recovering an amount from a rate graph.",
+        "items": [
+          "State the initial amount and rate units.",
+          "Locate sign changes and relevant interval boundaries.",
+          "Accumulate signed areas and add the initial amount.",
+          "Compare endpoints and critical-time amounts for the requested conclusion."
+        ],
+        "initialOrder": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "explanation": "Accumulation starts from an initial amount; sign analysis guides the areas and candidate extrema."
+      }
+    ]
+  },
+  "Calc BC: Analytical Applications of Differentiation::5.2 Derivative signs, concavity and optimization": {
+    "revision": 1,
+    "objectives": [
+      "Create an optimization objective from a geometric constraint.",
+      "Find the feasible domain before solving derivative equations.",
+      "Justify an absolute maximum rather than merely reporting a critical number."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Start with the relationships"
+      },
+      {
+        "type": "text",
+        "text": "Optimization begins with a modeling decision. The objective is the quantity to make largest or smallest, while a constraint relates the available resources. Define variables with units, draw or describe the geometry, and use the constraint to express the objective in one variable. The feasible domain comes from the original context, not from a calculator window. A derivative equal to zero produces a candidate; it does not by itself prove that the candidate is feasible, a local extremum, or an absolute extremum. For a continuous objective on a closed bounded interval, the Extreme Value Theorem guarantees that absolute extrema exist. Comparing all relevant critical values with boundary values is then a complete method. If the physical problem excludes degenerate boundaries, explain how those boundary limits help rule out larger values near the edge."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict, calculate, then explain"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-bc-optimization-guided",
+        "title": "Work through the model",
+        "scenario": "A gardener has 12 meters of fence for three sides of a rectangular plot; a straight river forms the fourth side. Let x be each perpendicular side and y the side parallel to the river. Ignore gate widths and assume the riverbank is straight.",
+        "steps": [
+          {
+            "prompt": "Which constraint represents the fence actually used?",
+            "choices": [
+              "2 x+2 y = 12",
+              "x+y = 12",
+              "2 x+y = 12",
+              "xy = 12"
+            ],
+            "answer": 2,
+            "explanation": "Two perpendicular sides each have lengthx, and only one parallel side needs fencing. Therefore 2 x+y = 12. The river side is not counted."
+          },
+          {
+            "prompt": "After eliminating y, which objective and closed comparison domain are appropriate?",
+            "choices": [
+              "A(x) = 12 x−2 x² on 0 ≤ x ≤ 6",
+              "A(x) = 12 x−x² on 0 ≤ x ≤ 12",
+              "A(x) = 12−2 x on all realx",
+              "A(x) = x(12−x) on 0 ≤ x ≤ 6"
+            ],
+            "answer": 0,
+            "explanation": "Area is xy. The constraint gives y = 12−2 x, so A = x(12−2 x). Nonnegative side lengths require 0 ≤ x ≤ 6. Positive-area plots use the interior, and the closed interval includes degenerate boundary cases for comparison."
+          },
+          {
+            "prompt": "Which feasible critical point follows from A′(x) = 0?",
+            "choices": [
+              "x = 6",
+              "x = 12",
+              "x = −3",
+              "x = 3"
+            ],
+            "answer": 3,
+            "explanation": "A′(x) = 12−4 x. Setting this equal to zero gives x = 3, which is in the feasible interval. Then y = 12−2(3) = 6."
+          },
+          {
+            "prompt": "Which argument proves the absolute maximum?",
+            "choices": [
+              "A′(3) = 0 alone",
+              "A(0) = 0, A(3) = 18, A(6) = 0 and these are all closed-interval candidates",
+              "A(3)>0 alone",
+              "The graph looks high near 3"
+            ],
+            "answer": 1,
+            "explanation": "A is continuous on [0,6] and differentiable inside. Its only interior critical number is 3. Comparing the two endpoints and this critical value proves that 18 squaremeters is the absolute maximum."
+          }
+        ],
+        "takeaway": "A successful optimization solution includes the model, feasible domain, complete candidate comparison, and contextual answer:3 meters by 6 meters, area 18 squaremeters."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "An equivalent sign-chart argument strengthens the interpretation: A′>0 for x<3 and A′<0 for x>3 within the feasible interval. Increasing the short side initially gains useful area, but eventually uses too much fence and forces the long side to shrink. The second derivative A″ = −4 is negative, confirming concavity, yet the feasible-domain argument is still important: derivatives do not know whether negative side lengths are allowed. Generalize the available fence to F>0. The same reasoning gives y = F−2 x, A = Fx−2 x², x = F/4, and y = F/2. Thus the optimal fenced parallel side is twice either perpendicular side. Replacing the river with a fourth fenced side changes the constraint to 2 x+2 y = F and produces a square instead. Never transfer an optimum from one geometry to another without rebuilding the resource equation. Dimensional checks also matter: A′ has units of area per length, while the final area has square units."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-bc-optimization-transfer",
+        "title": "Explain the transfer",
+        "math": true,
+        "prompt": "If the fence supply doubles to 24 meters but the geometry remains the same, does the maximum area double or quadruple? Explain with the constraint and new side lengths.",
+        "sampleAnswer": "The new constraint is 2 x+y = 24. The optimum is x = 6 and y = 12, so the maximum area is 72 squaremeters. Both linear dimensions double, and the area becomes four times 18, not twice 18. In general the maximum area is F²/8.",
+        "checklist": [
+          "Use the same three-sided constraint.",
+          "Find both new side lengths.",
+          "Explain the square scaling of area."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-bc-optimization-recall",
+        "title": "Retrieve the relationship",
+        "math": true,
+        "prompt": "For F = 20 meters of three-sided fencing, enter the optimal perpendicular side x in meters.",
+        "acceptedAnswers": [
+          "5"
+        ],
+        "sampleAnswer": "The general optimum x = F/4 gives 20/4 = 5 meters. The parallel side is 10 meters and the maximum area is 50 squaremeters."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1301 @@
+{
+  "Calc AB: Contextual Applications of Differentiation::4.2 Related rates and linear approximation": {
+    "revision": 1,
+    "objectives": [
+      "Relate changing quantities before substituting an instant’s values.",
+      "Differentiate with respect to the shared time variable and interpret the sign.",
+      "Use a tangent model locally and reason about its error from concavity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "Related rates begins with a geometric or physical relationship valid throughout a time interval. Define each changing quantity as a function of time and distinguish a value from a rate. A length of 6 meters is not a rate of 6 meters per second. Differentiate the relationship with respect to time, applying the chain rule to every changing quantity. Only then insert the values at the requested instant. Substituting a momentary length too early can turn a changing quantity into an apparent constant and erase its rate."
+      },
+      {
+        "type": "text",
+        "text": "A linear approximation uses a derivative in a different way. Near a known input a, the tangent model is L(x) = f(a) + f′(a)(x−a). It gives a local estimate, not an identity for the original function. The derivative’s units convert an input change into an estimated output change. Concavity can tell you the direction of the approximation error when it is known across the relevant interval. It does not automatically supply a numerical error bound."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-ab-related-rates-guided",
+        "scenario": "A 10-foot ladder rests against a vertical wall. Its bottom is x feet from the wall and its top is y feet above the ground, with x>0 and y>0. The bottom moves away at dx/dt = 2 ft/s. Find the top’s rate when x = 6 feet, assuming the ladder remains in contact with the wall.",
+        "steps": [
+          {
+            "prompt": "Which relationship remains valid while the ladder moves?",
+            "choices": [
+              "x+y=10",
+              "x²+y²=100",
+              "x²+y²=10"
+            ],
+            "answer": 1,
+            "explanation": "The wall and ground form a right angle. The fixed ladder is the hypotenuse, so the Pythagorean relation is x²+y²=10²."
+          },
+          {
+            "prompt": "Which differentiated equation is correct?",
+            "choices": [
+              "2x(dx/dt)+2y(dy/dt)=0",
+              "2x+2y=0",
+              "x(dx/dt)+y=10"
+            ],
+            "answer": 0,
+            "explanation": "Differentiate both squared lengths with respect to time. The fixed squared ladder length has derivative zero."
+          },
+          {
+            "prompt": "At x=6, what is y?",
+            "choices": [
+              "4 feet",
+              "10 feet",
+              "8 feet"
+            ],
+            "answer": 2,
+            "explanation": "The positive height is √(100−36)=8 feet."
+          },
+          {
+            "prompt": "What is dy/dt at that instant?",
+            "choices": [
+              "1.5 ft/s",
+              "−1.5 ft/s",
+              "−2 ft/s"
+            ],
+            "answer": 1,
+            "explanation": "Use 6(2)+8(dy/dt)=0. Thus dy/dt=−12/8=−1.5 ft/s; the negative sign means the top descends."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "For a second application, estimate √16.4 from a=16. Here f(16)=4 and f′(16)=1/(2√16)=1/8, so L(16.4)=4+(1/8)(0.4)=4.05. Since the square-root function is concave down for positive inputs, its tangent lies above the curve; this estimate is an overestimate. In the ladder model, solving dy/dt=−(x/y)(dx/dt) also reveals why a fixed horizontal rate need not produce a fixed vertical rate. As y becomes small, the ratio can grow. That does not establish that the ideal contact model remains physically valid all the way to the ground."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-ab-related-rates-transfer",
+        "math": true,
+        "prompt": "Explain why setting y=8 in x²+y²=100 before differentiating would lose information. Then explain why 4.05 is not an exact value of √16.4.",
+        "sampleAnswer": "The height equals 8 only at the selected instant; it is changing during the motion. Replacing it with a constant before differentiation removes the dy/dt term. The square-root estimate uses the tangent line, which matches the function’s value and slope at 16 but not its entire curved graph. Concavity shows the estimate is high.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-ab-related-rates-recall",
+        "math": true,
+        "prompt": "Using the same ladder and dx/dt=2 ft/s, enter dy/dt when x=8 and y=6, in ft/s.",
+        "acceptedAnswers": [
+          "-8/3"
+        ],
+        "sampleAnswer": "The rate is −(8/6)(2)=−8/3 ft/s. The top is descending."
+      }
+    ]
+  },
+  "Calc AB: Integration & Accumulation of Change::6.1 Riemann sums and numerical accumulation": {
+    "revision": 1,
+    "objectives": [
+      "Use actual interval widths in left, right, and trapezoidal sums.",
+      "Distinguish a signed net change from a final amount.",
+      "State when a table-based calculation is exact and when it is an approximation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "An integral of a rate accumulates signed change. A Riemann rectangle multiplies a chosen rate by its interval width, so rate units times time units give amount units. A left sum uses each interval’s left endpoint; a right sum uses its right endpoint. Unequal time gaps require unequal widths. A trapezoid averages the two endpoint heights for each interval and then multiplies by that interval’s width. Negative rates contribute negative signed change."
+      },
+      {
+        "type": "text",
+        "text": "A table does not uniquely determine the curve between measurements. Trapezoids are exact for a stated piecewise-linear model, but a table alone usually supports an approximation. Likewise, a left sum is not always an underestimate: the sign of its error depends on how the actual rate changes on each interval, not merely on the method’s name. To obtain a final amount, add the initial amount to the net change. To obtain total variation, integrate the magnitude of the rate instead."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Signed flow measurements",
+          "columns": [
+            "Time (min)",
+            "0",
+            "1",
+            "3",
+            "4"
+          ],
+          "rows": [
+            [
+              "Flow (L/min)",
+              "2",
+              "4",
+              "0",
+              "−2"
+            ]
+          ],
+          "note": "Original hypothetical values; interval widths are not all equal."
+        }
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "chart",
+          "title": "Rate under the explicit piecewise-linear assumption",
+          "xLabel": "Time (min)",
+          "yLabel": "Flow (L/min)",
+          "lines": [
+            {
+              "label": "r(t), linear between listed points",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 2
+                },
+                {
+                  "x": 1,
+                  "y": 4
+                },
+                {
+                  "x": 3,
+                  "y": 0
+                },
+                {
+                  "x": 4,
+                  "y": -2
+                }
+              ]
+            }
+          ],
+          "note": "The line segments are part of this stated model. A table alone would not establish linear behavior between readings."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-ab-numerical-integral-guided",
+        "scenario": "Original hypothetical table: time t in minutes is [0,1,3,4], and signed flow r(t) in liters/minute is [2,4,0,−2]. A tank initially holds 8 liters. First compute numerical sums; then assume the rate is linear between each consecutive pair of table points.",
+        "steps": [
+          {
+            "prompt": "Which interval widths are correct?",
+            "choices": [
+              "1,2,1 minutes",
+              "1,1,1 minutes",
+              "0,1,3,4 minutes"
+            ],
+            "answer": 0,
+            "explanation": "Subtract consecutive times: 1−0=1, 3−1=2, and 4−3=1."
+          },
+          {
+            "prompt": "What is the left sum for net change?",
+            "choices": [
+              "6 liters",
+              "2 liters",
+              "10 liters"
+            ],
+            "answer": 2,
+            "explanation": "Use left rates 2,4,0 with widths 1,2,1: 2(1)+4(2)+0(1)=10 liters."
+          },
+          {
+            "prompt": "What is the right sum?",
+            "choices": [
+              "10 liters",
+              "2 liters",
+              "4 liters"
+            ],
+            "answer": 1,
+            "explanation": "Use right rates 4,0,−2: 4(1)+0(2)+(−2)(1)=2 liters."
+          },
+          {
+            "prompt": "What is the trapezoidal sum?",
+            "choices": [
+              "6 liters",
+              "12 liters",
+              "3 liters"
+            ],
+            "answer": 0,
+            "explanation": "The contributions are [(2+4)/2](1)=3, [(4+0)/2](2)=4, and [(0−2)/2](1)=−1. Their sum is 6 liters."
+          },
+          {
+            "prompt": "Under the stated piecewise-linear model, what is the amount at t=4?",
+            "choices": [
+              "6 liters",
+              "8 liters",
+              "14 liters"
+            ],
+            "answer": 2,
+            "explanation": "The trapezoids give exact signed change for linear pieces. Add the initial 8 liters: 8+6=14 liters."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "Under the piecewise-linear model, the first two intervals contribute positive areas 3 and 4 liters; the last contributes a negative area of −1 liter. The net change is 6 liters, while the total variation is 3+4+1=8 liters. Neither is automatically the total volume passing through every inlet and outlet separately: a signed net-flow function has already combined those streams. If the model were replaced by measurements with no specified between-point behavior, the same sums would no longer be justified as exact integrals. An error claim requires additional shape or bound information."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-ab-numerical-integral-transfer",
+        "math": true,
+        "prompt": "Why would another rate curve through the same four table points potentially give a different final amount? Which assumption made 14 liters exact here?",
+        "sampleAnswer": "The integral depends on values between the sampled times as well as at the four points. A curve could rise or dip between them and change the signed area. The explicit piecewise-linear assumption fixes those intervening values, making each trapezoid exact and the final amount 14 liters.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-ab-numerical-integral-recall",
+        "math": true,
+        "prompt": "Under the same piecewise-linear model, enter the total variation of tank amount from t=0 to t=4, in liters.",
+        "acceptedAnswers": [
+          "8"
+        ],
+        "sampleAnswer": "Add the magnitudes of the signed areas: 3+4+1=8 liters. This differs from the 6-liter net change."
+      }
+    ]
+  },
+  "Calc AB: Analytical Applications of Differentiation::5.1 Mean Value Theorem and extrema": {
+    "revision": 1,
+    "objectives": [
+      "Check continuity and differentiability separately before applying the Mean Value Theorem.",
+      "Find all guaranteed tangent-slope matches rather than assuming uniqueness.",
+      "Distinguish sufficient conditions for extrema from necessary conditions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "The Mean Value Theorem says that if f is continuous on [a,b] and differentiable on (a,b), then at least one interior point c satisfies f′(c)=[f(b)−f(a)]/(b−a). The secant slope is an endpoint calculation; the theorem supplies an interior derivative match under stronger hypotheses. The theorem does not promise one unique c, and failure of a hypothesis means the theorem cannot be invoked, not that a slope match is impossible in every such function."
+      },
+      {
+        "type": "text",
+        "text": "The Extreme Value Theorem is different: continuity on a closed bounded interval guarantees absolute maximum and minimum values there. It does not identify their locations. Find candidates at interior critical numbers and endpoints, then compare function values. An interior critical number can occur where f′=0 or where f′ does not exist while f itself is defined. A theorem’s sufficient hypotheses should not be turned into a claim that extrema are impossible whenever those hypotheses fail."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-ab-mvt-hypotheses-guided",
+        "scenario": "Compare f(x)=x³ on [−1,1] with g(x)=|x| on the same interval. Both have endpoint values, but their differentiability differs.",
+        "steps": [
+          {
+            "prompt": "What is the secant slope of f on [−1,1]?",
+            "choices": [
+              "0",
+              "1",
+              "3"
+            ],
+            "answer": 1,
+            "explanation": "The endpoint difference is 1−(−1)=2 over an input width of 2, so the slope is 1."
+          },
+          {
+            "prompt": "Which interior points satisfy f′(c)=1?",
+            "choices": [
+              "Only c=0",
+              "No interior point",
+              "c=−1/√3 and c=1/√3"
+            ],
+            "answer": 2,
+            "explanation": "Since f′(x)=3x², solve 3c²=1. Both solutions lie inside (−1,1). The theorem does not require uniqueness."
+          },
+          {
+            "prompt": "Why can the Mean Value Theorem not be applied to g on this interval?",
+            "choices": [
+              "g is not differentiable at 0",
+              "g has no endpoint values",
+              "g is discontinuous everywhere"
+            ],
+            "answer": 0,
+            "explanation": "The corner at zero breaks differentiability on the open interval even though g is continuous on the whole closed interval."
+          },
+          {
+            "prompt": "Does g have an interior point with derivative equal to its zero secant slope?",
+            "choices": [
+              "Yes, because every continuous graph must",
+              "No: its derivative is −1 or 1 where defined",
+              "Yes: the derivative at 0 is 0"
+            ],
+            "answer": 1,
+            "explanation": "Away from zero, the derivative is −1 on the left and 1 on the right. At zero it does not exist. This example shows why the differentiability hypothesis matters."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "The absolute-value example still has an absolute minimum at zero and absolute maxima at the endpoints. That is consistent with the Extreme Value Theorem, which needs continuity but not differentiability. For another contrast, f(x)=x on the open interval (0,1) has neither an attained minimum nor an attained maximum, although it is bounded and has finite endpoint limits. A bound or limiting value is not automatically a value attained in the domain. Conversely, some continuous functions on open intervals do attain extrema, so a missing closed-interval condition removes the guarantee rather than ruling out every possible extremum."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-ab-mvt-hypotheses-transfer",
+        "math": true,
+        "prompt": "A student says, “The Mean Value Theorem fails for |x|, so |x| cannot have a minimum.” Explain the confusion.",
+        "sampleAnswer": "The Mean Value Theorem concerns an interior derivative matching a secant slope and requires differentiability. The Extreme Value Theorem concerns attained extreme values and requires continuity on a closed bounded interval. |x| is continuous on [−1,1], attains its minimum 0 at x=0, and does not need a derivative at that point to do so.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-ab-mvt-hypotheses-recall",
+        "math": true,
+        "prompt": "For f(x)=x² on [1,3], enter the interior c satisfying the Mean Value Theorem equation.",
+        "acceptedAnswers": [
+          "2"
+        ],
+        "sampleAnswer": "The secant slope is (9−1)/(3−1)=4. Solve f′(c)=2c=4 to obtain c=2."
+      }
+    ]
+  },
+  "Calc AB: Applications of Integration::8.1 Area and average value": {
+    "revision": 1,
+    "objectives": [
+      "Separate signed integral, geometric area, and average function value.",
+      "Split an absolute-area calculation where the curves exchange order.",
+      "Check the units and scale of an average value."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "A definite integral accumulates signed contributions. When finding geometric area between two graphs, use the nonnegative vertical distance: upper function minus lower function on each interval. Solve for intersections and check the ordering between them. A single signed difference can cancel positive and negative contributions if the graphs cross. The average value of f over [a,b] is (1/(b−a))∫ from a to b of f(x) dx. It is a constant output level with the same signed integral as f across the interval."
+      },
+      {
+        "type": "text",
+        "text": "Average function value is not generally the mean of the two endpoint outputs. That endpoint shortcut is exact for a linear function but can fail for curved functions. Units supply a useful check: integrating a height over distance gives area, while dividing by the input-interval length returns height units. The average should lie between a continuous function’s minimum and maximum on the interval, although that check alone does not prove the calculation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-ab-area-average-guided",
+        "scenario": "Let the two curves be y=x and y=x² on 0≤x≤2. Also find the average value of f(x)=x² on that interval.",
+        "steps": [
+          {
+            "prompt": "Where do the curves intersect?",
+            "choices": [
+              "x=0 and x=1",
+              "Only x=2",
+              "x=−1 and x=1"
+            ],
+            "answer": 0,
+            "explanation": "Solve x²=x by factoring x(x−1)=0. Both 0 and 1 lie in the interval."
+          },
+          {
+            "prompt": "Which difference is nonnegative on 0<x<1?",
+            "choices": [
+              "x²−x",
+              "x+x²",
+              "x−x²"
+            ],
+            "answer": 2,
+            "explanation": "For example, at x=1/2, x=1/2 exceeds x²=1/4. Thus line minus parabola is positive there."
+          },
+          {
+            "prompt": "Which setup gives total geometric area on [0,2]?",
+            "choices": [
+              "One integral of x−x² on [0,2]",
+              "The integral of x−x² on [0,1] plus the integral of x²−x on [1,2]",
+              "The integral of x+x² on [0,2]"
+            ],
+            "answer": 1,
+            "explanation": "The upper curve changes at x=1, so the nonnegative distances require separate expressions."
+          },
+          {
+            "prompt": "What is that total geometric area?",
+            "choices": [
+              "−2/3",
+              "2/3",
+              "1"
+            ],
+            "answer": 2,
+            "explanation": "The first area is 1/6. The second is 5/6. Adding gives 1 square unit; the signed integral of x−x² would instead be −2/3."
+          },
+          {
+            "prompt": "What is the average value of x² on [0,2]?",
+            "choices": [
+              "4/3",
+              "8/3",
+              "2"
+            ],
+            "answer": 0,
+            "explanation": "The integral is [x³/3] from 0 to 2, or 8/3. Divide by interval length 2 to obtain 4/3."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "The constant line y=4/3 has area (4/3)(2)=8/3 above the x-axis over this interval, matching the integral of x². The integral Mean Value Theorem guarantees a point with that output because x² is continuous; the point is c=2/√3 in [0,2]. This statement concerns a function value, not a derivative and not the derivative Mean Value Theorem. On an interval containing negative function values, an average can also be negative. Geometric area remains nonnegative, while signed accumulation and average value can have either sign."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-ab-area-average-transfer",
+        "math": true,
+        "prompt": "Explain why averaging the endpoint values 0 and 4 gives the wrong average for x² on [0,2]. Compare with y=x on the same interval.",
+        "sampleAnswer": "The endpoint mean 2 ignores how the curved function behaves between the endpoints. Integration gives the actual average 4/3. For the line y=x, the endpoint mean is 1 and equals its integral average because a linear graph changes uniformly; that special property does not apply to every function.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-ab-area-average-recall",
+        "math": true,
+        "prompt": "Enter the geometric area between y=x and y=x² on [0,1].",
+        "acceptedAnswers": [
+          "1/6"
+        ],
+        "sampleAnswer": "The line is above the parabola on (0,1), so integrate x−x²: [x²/2−x³/3] from 0 to 1 = 1/2−1/3=1/6."
+      }
+    ]
+  },
+  "Calc BC: Contextual Applications of Differentiation::4.2 Related rates and linear approximation": {
+    "revision": 1,
+    "objectives": [
+      "Relate changing quantities before substituting an instant’s values.",
+      "Differentiate with respect to the shared time variable and interpret the sign.",
+      "Use a tangent model locally and reason about its error from concavity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "Related rates begins with a geometric or physical relationship valid throughout a time interval. Define each changing quantity as a function of time and distinguish a value from a rate. A length of 6 meters is not a rate of 6 meters per second. Differentiate the relationship with respect to time, applying the chain rule to every changing quantity. Only then insert the values at the requested instant. Substituting a momentary length too early can turn a changing quantity into an apparent constant and erase its rate."
+      },
+      {
+        "type": "text",
+        "text": "A linear approximation uses a derivative in a different way. Near a known input a, the tangent model is L(x) = f(a) + f′(a)(x−a). It gives a local estimate, not an identity for the original function. The derivative’s units convert an input change into an estimated output change. Concavity can tell you the direction of the approximation error when it is known across the relevant interval. It does not automatically supply a numerical error bound."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-bc-related-rates-guided",
+        "scenario": "A 10-foot ladder rests against a vertical wall. Its bottom is x feet from the wall and its top is y feet above the ground, with x>0 and y>0. The bottom moves away at dx/dt = 2 ft/s. Find the top’s rate when x = 6 feet, assuming the ladder remains in contact with the wall.",
+        "steps": [
+          {
+            "prompt": "Which relationship remains valid while the ladder moves?",
+            "choices": [
+              "x+y=10",
+              "x²+y²=100",
+              "x²+y²=10"
+            ],
+            "answer": 1,
+            "explanation": "The wall and ground form a right angle. The fixed ladder is the hypotenuse, so the Pythagorean relation is x²+y²=10²."
+          },
+          {
+            "prompt": "Which differentiated equation is correct?",
+            "choices": [
+              "2x(dx/dt)+2y(dy/dt)=0",
+              "2x+2y=0",
+              "x(dx/dt)+y=10"
+            ],
+            "answer": 0,
+            "explanation": "Differentiate both squared lengths with respect to time. The fixed squared ladder length has derivative zero."
+          },
+          {
+            "prompt": "At x=6, what is y?",
+            "choices": [
+              "4 feet",
+              "10 feet",
+              "8 feet"
+            ],
+            "answer": 2,
+            "explanation": "The positive height is √(100−36)=8 feet."
+          },
+          {
+            "prompt": "What is dy/dt at that instant?",
+            "choices": [
+              "1.5 ft/s",
+              "−1.5 ft/s",
+              "−2 ft/s"
+            ],
+            "answer": 1,
+            "explanation": "Use 6(2)+8(dy/dt)=0. Thus dy/dt=−12/8=−1.5 ft/s; the negative sign means the top descends."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "For a second application, estimate √16.4 from a=16. Here f(16)=4 and f′(16)=1/(2√16)=1/8, so L(16.4)=4+(1/8)(0.4)=4.05. Since the square-root function is concave down for positive inputs, its tangent lies above the curve; this estimate is an overestimate. In the ladder model, solving dy/dt=−(x/y)(dx/dt) also reveals why a fixed horizontal rate need not produce a fixed vertical rate. As y becomes small, the ratio can grow. That does not establish that the ideal contact model remains physically valid all the way to the ground."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-bc-related-rates-transfer",
+        "math": true,
+        "prompt": "Explain why setting y=8 in x²+y²=100 before differentiating would lose information. Then explain why 4.05 is not an exact value of √16.4.",
+        "sampleAnswer": "The height equals 8 only at the selected instant; it is changing during the motion. Replacing it with a constant before differentiation removes the dy/dt term. The square-root estimate uses the tangent line, which matches the function’s value and slope at 16 but not its entire curved graph. Concavity shows the estimate is high.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-bc-related-rates-recall",
+        "math": true,
+        "prompt": "Using the same ladder and dx/dt=2 ft/s, enter dy/dt when x=8 and y=6, in ft/s.",
+        "acceptedAnswers": [
+          "-8/3"
+        ],
+        "sampleAnswer": "The rate is −(8/6)(2)=−8/3 ft/s. The top is descending."
+      }
+    ]
+  },
+  "Calc BC: Integration & Accumulation of Change::6.1 Riemann sums and numerical accumulation": {
+    "revision": 1,
+    "objectives": [
+      "Use actual interval widths in left, right, and trapezoidal sums.",
+      "Distinguish a signed net change from a final amount.",
+      "State when a table-based calculation is exact and when it is an approximation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "An integral of a rate accumulates signed change. A Riemann rectangle multiplies a chosen rate by its interval width, so rate units times time units give amount units. A left sum uses each interval’s left endpoint; a right sum uses its right endpoint. Unequal time gaps require unequal widths. A trapezoid averages the two endpoint heights for each interval and then multiplies by that interval’s width. Negative rates contribute negative signed change."
+      },
+      {
+        "type": "text",
+        "text": "A table does not uniquely determine the curve between measurements. Trapezoids are exact for a stated piecewise-linear model, but a table alone usually supports an approximation. Likewise, a left sum is not always an underestimate: the sign of its error depends on how the actual rate changes on each interval, not merely on the method’s name. To obtain a final amount, add the initial amount to the net change. To obtain total variation, integrate the magnitude of the rate instead."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Signed flow measurements",
+          "columns": [
+            "Time (min)",
+            "0",
+            "1",
+            "3",
+            "4"
+          ],
+          "rows": [
+            [
+              "Flow (L/min)",
+              "2",
+              "4",
+              "0",
+              "−2"
+            ]
+          ],
+          "note": "Original hypothetical values; interval widths are not all equal."
+        }
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "chart",
+          "title": "Rate under the explicit piecewise-linear assumption",
+          "xLabel": "Time (min)",
+          "yLabel": "Flow (L/min)",
+          "lines": [
+            {
+              "label": "r(t), linear between listed points",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 2
+                },
+                {
+                  "x": 1,
+                  "y": 4
+                },
+                {
+                  "x": 3,
+                  "y": 0
+                },
+                {
+                  "x": 4,
+                  "y": -2
+                }
+              ]
+            }
+          ],
+          "note": "The line segments are part of this stated model. A table alone would not establish linear behavior between readings."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-bc-numerical-integral-guided",
+        "scenario": "Original hypothetical table: time t in minutes is [0,1,3,4], and signed flow r(t) in liters/minute is [2,4,0,−2]. A tank initially holds 8 liters. First compute numerical sums; then assume the rate is linear between each consecutive pair of table points.",
+        "steps": [
+          {
+            "prompt": "Which interval widths are correct?",
+            "choices": [
+              "1,2,1 minutes",
+              "1,1,1 minutes",
+              "0,1,3,4 minutes"
+            ],
+            "answer": 0,
+            "explanation": "Subtract consecutive times: 1−0=1, 3−1=2, and 4−3=1."
+          },
+          {
+            "prompt": "What is the left sum for net change?",
+            "choices": [
+              "6 liters",
+              "2 liters",
+              "10 liters"
+            ],
+            "answer": 2,
+            "explanation": "Use left rates 2,4,0 with widths 1,2,1: 2(1)+4(2)+0(1)=10 liters."
+          },
+          {
+            "prompt": "What is the right sum?",
+            "choices": [
+              "10 liters",
+              "2 liters",
+              "4 liters"
+            ],
+            "answer": 1,
+            "explanation": "Use right rates 4,0,−2: 4(1)+0(2)+(−2)(1)=2 liters."
+          },
+          {
+            "prompt": "What is the trapezoidal sum?",
+            "choices": [
+              "6 liters",
+              "12 liters",
+              "3 liters"
+            ],
+            "answer": 0,
+            "explanation": "The contributions are [(2+4)/2](1)=3, [(4+0)/2](2)=4, and [(0−2)/2](1)=−1. Their sum is 6 liters."
+          },
+          {
+            "prompt": "Under the stated piecewise-linear model, what is the amount at t=4?",
+            "choices": [
+              "6 liters",
+              "8 liters",
+              "14 liters"
+            ],
+            "answer": 2,
+            "explanation": "The trapezoids give exact signed change for linear pieces. Add the initial 8 liters: 8+6=14 liters."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "Under the piecewise-linear model, the first two intervals contribute positive areas 3 and 4 liters; the last contributes a negative area of −1 liter. The net change is 6 liters, while the total variation is 3+4+1=8 liters. Neither is automatically the total volume passing through every inlet and outlet separately: a signed net-flow function has already combined those streams. If the model were replaced by measurements with no specified between-point behavior, the same sums would no longer be justified as exact integrals. An error claim requires additional shape or bound information."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-bc-numerical-integral-transfer",
+        "math": true,
+        "prompt": "Why would another rate curve through the same four table points potentially give a different final amount? Which assumption made 14 liters exact here?",
+        "sampleAnswer": "The integral depends on values between the sampled times as well as at the four points. A curve could rise or dip between them and change the signed area. The explicit piecewise-linear assumption fixes those intervening values, making each trapezoid exact and the final amount 14 liters.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-bc-numerical-integral-recall",
+        "math": true,
+        "prompt": "Under the same piecewise-linear model, enter the total variation of tank amount from t=0 to t=4, in liters.",
+        "acceptedAnswers": [
+          "8"
+        ],
+        "sampleAnswer": "Add the magnitudes of the signed areas: 3+4+1=8 liters. This differs from the 6-liter net change."
+      }
+    ]
+  },
+  "Calc BC: Analytical Applications of Differentiation::5.1 Mean Value Theorem and extrema": {
+    "revision": 1,
+    "objectives": [
+      "Check continuity and differentiability separately before applying the Mean Value Theorem.",
+      "Find all guaranteed tangent-slope matches rather than assuming uniqueness.",
+      "Distinguish sufficient conditions for extrema from necessary conditions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "The Mean Value Theorem says that if f is continuous on [a,b] and differentiable on (a,b), then at least one interior point c satisfies f′(c)=[f(b)−f(a)]/(b−a). The secant slope is an endpoint calculation; the theorem supplies an interior derivative match under stronger hypotheses. The theorem does not promise one unique c, and failure of a hypothesis means the theorem cannot be invoked, not that a slope match is impossible in every such function."
+      },
+      {
+        "type": "text",
+        "text": "The Extreme Value Theorem is different: continuity on a closed bounded interval guarantees absolute maximum and minimum values there. It does not identify their locations. Find candidates at interior critical numbers and endpoints, then compare function values. An interior critical number can occur where f′=0 or where f′ does not exist while f itself is defined. A theorem’s sufficient hypotheses should not be turned into a claim that extrema are impossible whenever those hypotheses fail."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-bc-mvt-hypotheses-guided",
+        "scenario": "Compare f(x)=x³ on [−1,1] with g(x)=|x| on the same interval. Both have endpoint values, but their differentiability differs.",
+        "steps": [
+          {
+            "prompt": "What is the secant slope of f on [−1,1]?",
+            "choices": [
+              "0",
+              "1",
+              "3"
+            ],
+            "answer": 1,
+            "explanation": "The endpoint difference is 1−(−1)=2 over an input width of 2, so the slope is 1."
+          },
+          {
+            "prompt": "Which interior points satisfy f′(c)=1?",
+            "choices": [
+              "Only c=0",
+              "No interior point",
+              "c=−1/√3 and c=1/√3"
+            ],
+            "answer": 2,
+            "explanation": "Since f′(x)=3x², solve 3c²=1. Both solutions lie inside (−1,1). The theorem does not require uniqueness."
+          },
+          {
+            "prompt": "Why can the Mean Value Theorem not be applied to g on this interval?",
+            "choices": [
+              "g is not differentiable at 0",
+              "g has no endpoint values",
+              "g is discontinuous everywhere"
+            ],
+            "answer": 0,
+            "explanation": "The corner at zero breaks differentiability on the open interval even though g is continuous on the whole closed interval."
+          },
+          {
+            "prompt": "Does g have an interior point with derivative equal to its zero secant slope?",
+            "choices": [
+              "Yes, because every continuous graph must",
+              "No: its derivative is −1 or 1 where defined",
+              "Yes: the derivative at 0 is 0"
+            ],
+            "answer": 1,
+            "explanation": "Away from zero, the derivative is −1 on the left and 1 on the right. At zero it does not exist. This example shows why the differentiability hypothesis matters."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "The absolute-value example still has an absolute minimum at zero and absolute maxima at the endpoints. That is consistent with the Extreme Value Theorem, which needs continuity but not differentiability. For another contrast, f(x)=x on the open interval (0,1) has neither an attained minimum nor an attained maximum, although it is bounded and has finite endpoint limits. A bound or limiting value is not automatically a value attained in the domain. Conversely, some continuous functions on open intervals do attain extrema, so a missing closed-interval condition removes the guarantee rather than ruling out every possible extremum."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-bc-mvt-hypotheses-transfer",
+        "math": true,
+        "prompt": "A student says, “The Mean Value Theorem fails for |x|, so |x| cannot have a minimum.” Explain the confusion.",
+        "sampleAnswer": "The Mean Value Theorem concerns an interior derivative matching a secant slope and requires differentiability. The Extreme Value Theorem concerns attained extreme values and requires continuity on a closed bounded interval. |x| is continuous on [−1,1], attains its minimum 0 at x=0, and does not need a derivative at that point to do so.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-bc-mvt-hypotheses-recall",
+        "math": true,
+        "prompt": "For f(x)=x² on [1,3], enter the interior c satisfying the Mean Value Theorem equation.",
+        "acceptedAnswers": [
+          "2"
+        ],
+        "sampleAnswer": "The secant slope is (9−1)/(3−1)=4. Solve f′(c)=2c=4 to obtain c=2."
+      }
+    ]
+  },
+  "Calc BC: Applications of Integration::8.1 Area and average value": {
+    "revision": 1,
+    "objectives": [
+      "Separate signed integral, geometric area, and average function value.",
+      "Split an absolute-area calculation where the curves exchange order.",
+      "Check the units and scale of an average value."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "A definite integral accumulates signed contributions. When finding geometric area between two graphs, use the nonnegative vertical distance: upper function minus lower function on each interval. Solve for intersections and check the ordering between them. A single signed difference can cancel positive and negative contributions if the graphs cross. The average value of f over [a,b] is (1/(b−a))∫ from a to b of f(x) dx. It is a constant output level with the same signed integral as f across the interval."
+      },
+      {
+        "type": "text",
+        "text": "Average function value is not generally the mean of the two endpoint outputs. That endpoint shortcut is exact for a linear function but can fail for curved functions. Units supply a useful check: integrating a height over distance gives area, while dividing by the input-interval length returns height units. The average should lie between a continuous function’s minimum and maximum on the interval, although that check alone does not prove the calculation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "calc-bc-area-average-guided",
+        "scenario": "Let the two curves be y=x and y=x² on 0≤x≤2. Also find the average value of f(x)=x² on that interval.",
+        "steps": [
+          {
+            "prompt": "Where do the curves intersect?",
+            "choices": [
+              "x=0 and x=1",
+              "Only x=2",
+              "x=−1 and x=1"
+            ],
+            "answer": 0,
+            "explanation": "Solve x²=x by factoring x(x−1)=0. Both 0 and 1 lie in the interval."
+          },
+          {
+            "prompt": "Which difference is nonnegative on 0<x<1?",
+            "choices": [
+              "x²−x",
+              "x+x²",
+              "x−x²"
+            ],
+            "answer": 2,
+            "explanation": "For example, at x=1/2, x=1/2 exceeds x²=1/4. Thus line minus parabola is positive there."
+          },
+          {
+            "prompt": "Which setup gives total geometric area on [0,2]?",
+            "choices": [
+              "One integral of x−x² on [0,2]",
+              "The integral of x−x² on [0,1] plus the integral of x²−x on [1,2]",
+              "The integral of x+x² on [0,2]"
+            ],
+            "answer": 1,
+            "explanation": "The upper curve changes at x=1, so the nonnegative distances require separate expressions."
+          },
+          {
+            "prompt": "What is that total geometric area?",
+            "choices": [
+              "−2/3",
+              "2/3",
+              "1"
+            ],
+            "answer": 2,
+            "explanation": "The first area is 1/6. The second is 5/6. Adding gives 1 square unit; the signed integral of x−x² would instead be −2/3."
+          },
+          {
+            "prompt": "What is the average value of x² on [0,2]?",
+            "choices": [
+              "4/3",
+              "8/3",
+              "2"
+            ],
+            "answer": 0,
+            "explanation": "The integral is [x³/3] from 0 to 2, or 8/3. Divide by interval length 2 to obtain 4/3."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "The constant line y=4/3 has area (4/3)(2)=8/3 above the x-axis over this interval, matching the integral of x². The integral Mean Value Theorem guarantees a point with that output because x² is continuous; the point is c=2/√3 in [0,2]. This statement concerns a function value, not a derivative and not the derivative Mean Value Theorem. On an interval containing negative function values, an average can also be negative. Geometric area remains nonnegative, while signed accumulation and average value can have either sign."
+      },
+      {
+        "type": "reflection",
+        "id": "calc-bc-area-average-transfer",
+        "math": true,
+        "prompt": "Explain why averaging the endpoint values 0 and 4 gives the wrong average for x² on [0,2]. Compare with y=x on the same interval.",
+        "sampleAnswer": "The endpoint mean 2 ignores how the curved function behaves between the endpoints. Integration gives the actual average 4/3. For the line y=x, the endpoint mean is 1 and equals its integral average because a linear graph changes uniformly; that special property does not apply to every function.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "calc-bc-area-average-recall",
+        "math": true,
+        "prompt": "Enter the geometric area between y=x and y=x² on [0,1].",
+        "acceptedAnswers": [
+          "1/6"
+        ],
+        "sampleAnswer": "The line is above the parabola on (0,1), so integrate x−x²: [x²/2−x³/3] from 0 to 1 = 1/2−1/3=1/6."
+      }
+    ]
+  },
+  "Precalc: Exponential and Logarithmic Functions::2.2 Logarithms as inverses, equations, and domain conditions": {
+    "revision": 1,
+    "objectives": [
+      "Use a logarithm’s real domain before combining expressions.",
+      "Check algebraic candidates in the original equation.",
+      "Distinguish logarithmic identities from invalid distribution over sums."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "For a positive base b other than 1, log_b(u) is the exponent that produces u, and its real input must satisfy u>0. Equality of two logarithms with the same valid base implies equality of their positive arguments. The product rule log_b(u)+log_b(v)=log_b(uv) assumes u and v are separately positive. Combining the algebraic expressions does not remove those original restrictions."
+      },
+      {
+        "type": "text",
+        "text": "Exponential and logarithmic forms describe the same inverse relationship: log_b(u)=k means b^k=u. There is no identity log(u+v)=log(u)+log(v). To evaluate or solve, preserve the actual operation inside the argument. A calculator output cannot replace domain reasoning. Extraneous candidates often arise when a transformed expression has a wider domain than the original."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "guidedExample",
+        "id": "precalc-log-domain-guided",
+        "scenario": "Solve log₂(x−1)+log₂(x+1)=3 over the real numbers.",
+        "steps": [
+          {
+            "prompt": "What domain is required by the original two logarithms?",
+            "choices": [
+              "x>1",
+              "x>−1",
+              "All x except ±1"
+            ],
+            "answer": 0,
+            "explanation": "Both arguments must be positive: x−1>0 and x+1>0. Their intersection is x>1."
+          },
+          {
+            "prompt": "Which equation follows by combining valid logarithms?",
+            "choices": [
+              "x²−1=3",
+              "x²−1=8",
+              "2x=8"
+            ],
+            "answer": 1,
+            "explanation": "The product argument is (x−1)(x+1)=x²−1. A base-2 logarithm equal to 3 means its argument is 2³=8."
+          },
+          {
+            "prompt": "Which real solution survives the original restrictions?",
+            "choices": [
+              "Both −3 and 3",
+              "Only −3",
+              "Only 3"
+            ],
+            "answer": 2,
+            "explanation": "The quadratic candidates are ±3. Only 3 lies in x>1. At −3 both original arguments are negative even though their product is positive."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "At x=−3, log₂((x−1)(x+1)) exists because the product equals 8, but neither separate real logarithm exists. The combined expression therefore has a larger domain unless the original restrictions are carried along. This is a precise reason to check candidates, rather than a vague rule that algebra sometimes “adds errors.” A similar distinction appears when cancelling a factor in a rational function: an equivalent expression on the original domain does not automatically restore an excluded input."
+      },
+      {
+        "type": "reflection",
+        "id": "precalc-log-domain-transfer",
+        "math": true,
+        "prompt": "Why does checking only the product argument fail to reject x=−3? Identify the domain condition that was lost.",
+        "sampleAnswer": "The product of two negative numbers can be positive. Checking x²−1>0 permits x<−1 as well as x>1, while the original separate logarithms require x−1>0 and x+1>0. Carrying both restrictions gives x>1 and rejects −3.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "precalc-log-domain-recall",
+        "math": true,
+        "prompt": "Enter the real solution of log₂(x−1)=2.",
+        "acceptedAnswers": [
+          "5"
+        ],
+        "sampleAnswer": "Convert to x−1=2²=4, giving x=5. Its argument is positive, so the candidate is valid."
+      }
+    ]
+  },
+  "Stats: Probability, Random Variables, and Probability Distributions::2.1 Conditional probability, independence, and simulation": {
+    "revision": 1,
+    "objectives": [
+      "Identify the reference group named by a conditional probability.",
+      "Calculate probabilities from a complete two-way table.",
+      "Test independence with an actual conditional comparison."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Establish the quantities and conditions"
+      },
+      {
+        "type": "text",
+        "text": "A conditional probability changes the reference group. P(A|B) asks what fraction of cases in B also belong to A, so its denominator is the number or probability of B. P(B|A) reverses the question and usually has a different denominator. Before dividing, describe the conditioning group in words. A complete two-way table helps separate the relevant intersection from row totals, column totals, and the overall total."
+      },
+      {
+        "type": "text",
+        "text": "Events A and B are independent when knowing B does not change the probability of A, provided the conditional probability is defined. One comparison is P(A|B)=P(A). Independence does not mean that the events cannot occur together. Mutually exclusive positive-probability events are dependent because occurrence of one rules out the other. A simulation must preserve the stated probability mechanism; generating equally likely labels is not appropriate when the actual categories have unequal probabilities."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work through the decisions"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Hypothetical inspection counts",
+          "columns": [
+            "Actual status",
+            "Flagged",
+            "Unflagged",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Defective",
+              "80",
+              "20",
+              "100"
+            ],
+            [
+              "Not defective",
+              "90",
+              "810",
+              "900"
+            ],
+            [
+              "Total",
+              "170",
+              "830",
+              "1,000"
+            ]
+          ],
+          "note": "Original teaching data. Choose the conditioning group before selecting a denominator."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "stats-conditional-base-guided",
+        "scenario": "Original hypothetical inspection table for 1,000 manufactured items: 100 are defective and 900 are not. A flagging device flags 80 defective items and 90 nondefective items. It leaves 20 defective and 810 nondefective items unflagged. The table is supplied for probability practice, not as a performance claim about any real device.",
+        "steps": [
+          {
+            "prompt": "Among defective items, what fraction are flagged?",
+            "choices": [
+              "80/170",
+              "80/100",
+              "80/1000"
+            ],
+            "answer": 1,
+            "explanation": "Conditioning on defective restricts the group to 100 items. Of these, 80 are flagged, giving 0.80."
+          },
+          {
+            "prompt": "Among flagged items, what fraction are defective?",
+            "choices": [
+              "80/100",
+              "100/1000",
+              "80/170"
+            ],
+            "answer": 2,
+            "explanation": "There are 80+90=170 flagged items. The defective-and-flagged intersection contains 80, so the probability is 8/17, about 0.471."
+          },
+          {
+            "prompt": "Are defect status and flagging independent in this table?",
+            "choices": [
+              "No: P(flagged|defective)=0.80 differs from P(flagged)=0.17",
+              "Yes: both categories exist",
+              "Yes: 80 items are in their intersection"
+            ],
+            "answer": 0,
+            "explanation": "Independence would require the conditional flagging probability to equal the overall flagging probability. These differ substantially."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Check the limits of the method"
+      },
+      {
+        "type": "text",
+        "text": "The underlying frequency of defects affects the composition of the flagged group. To see the arithmetic, keep the conditional rates fixed but imagine a model with 10 defective and 990 nondefective items per 1,000. Expected flagged counts would be 8 and 99, giving an expected flagged-group defect fraction of 8/107, about 0.075. This is a model-based expected-count comparison, not a new observed table. The device’s conditional detection rate can stay at 80% while the chance that a flagged item is defective changes. Never substitute one conditional direction for the other."
+      },
+      {
+        "type": "reflection",
+        "id": "stats-conditional-base-transfer",
+        "math": true,
+        "prompt": "A student says, “The device flags 80% of defective items, so 80% of flagged items are defective.” Explain the denominator error using the supplied table.",
+        "sampleAnswer": "The first probability uses all 100 defective items as its denominator, while the second uses all 170 flagged items. Their shared numerator is 80, but the probabilities are 80/100=0.80 and 80/170=8/17. The 90 nondefective flagged items must be included in the second group.",
+        "checklist": [
+          "State the relationship and its conditions.",
+          "Show how the changed facts affect the reasoning.",
+          "Check signs, units, and the contextual conclusion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it independently"
+      },
+      {
+        "type": "recall",
+        "id": "stats-conditional-base-recall",
+        "math": true,
+        "prompt": "Using the original table, enter the probability that an item is defective given that it is unflagged.",
+        "acceptedAnswers": [
+          "2/83",
+          "20/830"
+        ],
+        "sampleAnswer": "The unflagged group contains 20+810=830 items, including 20 defective items. The conditional probability is 20/830=2/83."
+      }
+    ]
+  }
+}

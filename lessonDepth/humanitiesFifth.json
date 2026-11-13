@@ -1,0 +1,1490 @@
+{
+  "APUSH: 1491–1607::1.3 Conquest, Labor, and Debates over Empire": {
+    "revision": 1,
+    "objectives": [
+      "Explain Indigenous alliances and coercive colonial labor without erasing political variation.",
+      "Distinguish an imperial reform’s stated obligations from its enforcement."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain conquest without treating power as consent"
+      },
+      {
+        "type": "text",
+        "text": "Spanish conquest in the Americas was a process involving military violence, Indigenous alliances, disease, competing political interests and colonial institutions. It was not a meeting between a unified European actor and a unified Indigenous population. Different communities pursued different goals, and some allied with Spaniards against existing rivals. An alliance in one conflict did not imply agreement with every later colonial demand. Identify the actors and the moment before explaining a decision, because relationships could change as conquest developed into settlement and extraction."
+      },
+      {
+        "type": "text",
+        "text": "Colonial labor systems translated claims of authority into material demands. Under encomienda, the Spanish Crown granted colonists rights to demand tribute or labor from designated Indigenous communities, alongside stated obligations of protection and Christian instruction. This was not simply a grant of ownership of Indigenous people or of land, and its formal description should not obscure coercion and exploitation in practice. Later arrangements also compelled labor, while slavery and forced African migration became important within Atlantic colonial economies. Keep the institution, legal claim and lived effects distinct."
+      },
+      {
+        "type": "text",
+        "text": "Arguments about empire reveal conflicts over legitimacy rather than proof that conquest had ended. Bartolomé de las Casas criticized brutal treatment of Indigenous peoples and challenged justifications for their subjugation. Debates involving Las Casas and Juan Ginés de Sepúlveda addressed conquest, conversion and Indigenous status. Such arguments did not give Indigenous communities equal control over colonial policy, nor did a reform decree automatically end exploitation. To evaluate reform, compare what authorities prescribed with enforcement, local resistance, economic incentives and the options available to affected people."
+      },
+      {
+        "type": "text",
+        "text": "Historical interpretation requires moving between different kinds of evidence. A royal order can show an official standard; a tribute record can show demands; an Indigenous petition can reveal a grievance and a strategy for seeking redress. None alone represents every community or establishes universal compliance. Explain how a source’s purpose shapes what it records, without assuming purpose makes every statement false. A persuasive account of empire can recognize disagreement among colonizers while showing how coercive institutions continued. Legal criticism and persistent domination can coexist, and that coexistence is itself something to explain."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-conquest-labor-claims-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: some Indigenous groups allied with Spaniards against regional rivals. B: encomienda authorized tribute or labor demands alongside stated protective and religious obligations. C: critics condemned colonial abuses, and royal authorities issued reforms, while coercive exploitation persisted in many settings.",
+        "steps": [
+          {
+            "prompt": "What does A most directly challenge?",
+            "choices": [
+              "All Indigenous peoples had identical political interests.",
+              "All alliances were permanent.",
+              "Disease never mattered."
+            ],
+            "answer": 0,
+            "explanation": "Different alliances demonstrate differing immediate interests, not a complete explanation of conquest.",
+            "hint": "Identify the generalization contradicted by multiple actors."
+          },
+          {
+            "prompt": "Which distinction clarifies B?",
+            "choices": [
+              "Official obligations guarantee humane enforcement.",
+              "A legal framework and its implementation are separate questions.",
+              "Encomienda was only voluntary wage work."
+            ],
+            "answer": 1,
+            "explanation": "The presence of stated obligations does not establish that colonists honored them.",
+            "hint": "Compare prescription with evidence of practice."
+          },
+          {
+            "prompt": "What can a reform decree establish by itself?",
+            "choices": [
+              "Every abuse stopped.",
+              "Every community endorsed empire.",
+              "Authorities announced a particular rule or standard."
+            ],
+            "answer": 2,
+            "explanation": "A decree records policy, while compliance requires additional evidence.",
+            "hint": "Do not turn an order into its own enforcement record."
+          },
+          {
+            "prompt": "Which interpretation fits all three summaries?",
+            "choices": [
+              "Colonial power involved alliances and contested justifications while maintaining coercive extraction.",
+              "Criticism proves colonial rule was consensual.",
+              "All Europeans agreed on every policy."
+            ],
+            "answer": 0,
+            "explanation": "The interpretation accommodates political variation and institutional continuity.",
+            "hint": "Account for both disagreement and continuing power."
+          }
+        ],
+        "takeaway": "Using official language could be a practical way to demand relief within an unequal system. The petition would show a particular grievance and strategy, not unconditional consent. Its wording should be read alongside the demands being challenged and the community’s constrained options."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-conquest-labor-claims-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A community petitions colonial officials using the officials’ own protective language. Explain why this can be evidence of strategic resistance without proving the community freely accepted colonial rule.",
+        "sampleAnswer": "Using official language could be a practical way to demand relief within an unequal system. The petition would show a particular grievance and strategy, not unconditional consent. Its wording should be read alongside the demands being challenged and the community’s constrained options.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-conquest-labor-claims-recall",
+        "prompt": "Why must an imperial reform be distinguished from its effects?",
+        "sampleAnswer": "A reform states an intended legal change. Its effects depend on enforcement, competing interests and responses from affected people. Continuing exploitation does not mean no debate occurred, and debate does not prove exploitation ended.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1607–1754::2.3 Religion, Enlightenment, and Imperial Regulation": {
+    "revision": 1,
+    "objectives": [
+      "Compare religious and Enlightenment challenges to authority without equating their goals.",
+      "Connect long-term intellectual conditions to postwar imperial revenue disputes."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate cultural challenge from imperial breakdown"
+      },
+      {
+        "type": "text",
+        "text": "The British colonies developed within an empire but did not share one uniform religious culture or political experience. Established churches, dissenting congregations and varying degrees of toleration shaped local authority. Religious participation could connect communities while also defining who belonged and who was excluded. Begin with those institutions rather than imagining either complete religious freedom or a single church controlling every colony. A challenge to one minister or establishment could change local relationships without immediately becoming a demand for independence."
+      },
+      {
+        "type": "text",
+        "text": "The eighteenth-century Great Awakening emphasized conversion and religious experience through revivals and itinerant preaching. Some revivalists challenged the authority of established ministers, and disputes divided congregations. This could encourage people to evaluate religious leadership more actively, yet the movement was not a unified democratic program and did not automatically erase racial, gender or legal inequalities. Explain the mechanism carefully: a new basis for judging spiritual authority could unsettle particular hierarchies, but the political consequences depended on context and later choices."
+      },
+      {
+        "type": "text",
+        "text": "Enlightenment ideas emphasized reason, inquiry and arguments about natural rights or legitimate government. Colonial readers adapted these ideas through print, education and debate. Religious commitment and Enlightenment reasoning were not always mutually exclusive; individuals could draw on both. Avoid treating an intellectual movement as a switch that instantly changed everyone’s beliefs. To trace influence, identify the concept being used, the audience encountering it and the institutional claim it challenged. Shared language can support different conclusions when speakers define rights or membership differently."
+      },
+      {
+        "type": "text",
+        "text": "Imperial regulation formed a separate but connected setting. Mercantilist rules sought to channel commerce to benefit the empire, while enforcement and colonial practices varied. The period sometimes described as salutary neglect involved uneven oversight rather than the absence of imperial authority. After the Seven Years’ War, Britain’s attempts to increase revenue and control sharpened disputes over representation, sovereignty and colonial rights. Earlier religious or intellectual challenges help explain available habits and arguments, but they are not sufficient causes of revolution. Distinguish long-term conditions from the later decisions and conflicts that made an imperial crisis acute."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-religion-reason-regulation-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original analytical comparison, based on historical processes: A: a revival participant judges a minister by the experience of conversion rather than position alone. B: a political essay evaluates government by consent and rights. C: imperial officials seek more effective collection of colonial revenue after an expensive war. These are selected mechanisms, not quotations from historical individuals.",
+        "steps": [
+          {
+            "prompt": "Which question best connects A and B without equating them?",
+            "choices": [
+              "How do people justify or challenge authority?",
+              "Which one proves all colonists wanted independence?",
+              "Why did religion disappear?"
+            ],
+            "answer": 0,
+            "explanation": "Both concern standards of authority, though their settings and implications differ.",
+            "hint": "Compare a shared problem, not identical outcomes."
+          },
+          {
+            "prompt": "Which claim about revivalism is too broad?",
+            "choices": [
+              "Some congregations divided.",
+              "It automatically established political equality for everyone.",
+              "It could challenge established ministers."
+            ],
+            "answer": 1,
+            "explanation": "Spiritual challenge did not erase legal and social inequalities.",
+            "hint": "Separate a possible mechanism from a universal outcome."
+          },
+          {
+            "prompt": "What does C add to an explanation of the imperial crisis?",
+            "choices": [
+              "Proof that Enlightenment arguments were irrelevant.",
+              "Proof that every rule was new.",
+              "A fiscal and administrative pressure that helped sharpen political conflict."
+            ],
+            "answer": 2,
+            "explanation": "Postwar revenue demands help explain the timing of disputes without replacing ideas or local interests.",
+            "hint": "Ask why tensions intensified at a particular time."
+          },
+          {
+            "prompt": "Which causal sentence is most defensible?",
+            "choices": [
+              "Earlier challenges supplied arguments and practices later used during disputes over imperial policy.",
+              "The Great Awakening alone caused independence.",
+              "Uneven enforcement meant Britain possessed no authority."
+            ],
+            "answer": 0,
+            "explanation": "The sentence identifies a contributing connection while leaving room for later triggers and decisions.",
+            "hint": "Use a causal claim proportional to the evidence."
+          }
+        ],
+        "takeaway": "The same general vocabulary can conceal different definitions of rights and political membership. I would compare explicit statements about eligibility, representation and excluded groups. Shared terminology alone cannot establish agreement about institutions or equality."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-religion-reason-regulation-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how two writers could both invoke natural rights but disagree about who should participate in government. What evidence would establish the difference?",
+        "sampleAnswer": "The same general vocabulary can conceal different definitions of rights and political membership. I would compare explicit statements about eligibility, representation and excluded groups. Shared terminology alone cannot establish agreement about institutions or equality.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-religion-reason-regulation-recall",
+        "prompt": "How do a background condition and an immediate trigger differ?",
+        "sampleAnswer": "A background condition supplies enduring tensions, institutions or arguments. An immediate trigger intensifies conflict at a particular moment. An explanation should connect them through decisions rather than treating either as an automatic cause.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1844–1877::5.2 Civil War and Emancipation": {
+    "revision": 1,
+    "objectives": [
+      "Explain how enslaved people’s actions interacted with wartime federal policy.",
+      "Distinguish the proclamation’s scope from constitutional abolition and later citizenship questions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Trace emancipation through policy, action and constitutional change"
+      },
+      {
+        "type": "text",
+        "text": "The Civil War began after secession by slaveholding states threatened the Union. Slavery was central to the sectional conflict and secession, while the Union government’s stated war aims and military policies developed during the war. Do not confuse the cause of the conflict with the timing of every federal policy. Explaining change requires identifying what a policy did at a particular date, what authority supported it and how the circumstances of war affected its reach."
+      },
+      {
+        "type": "text",
+        "text": "Enslaved people acted within and against wartime conditions by escaping to Union lines, withholding labor, sharing information and pressing claims to freedom. Their actions created practical and political questions for Union forces and weakened the Confederacy’s labor system. Federal decisions therefore emerged in interaction with people’s actions, military needs, abolitionist pressure and political constraints. Recognizing this agency does not mean that every person had the same opportunity to escape or that freedom followed immediately wherever Union forces appeared."
+      },
+      {
+        "type": "text",
+        "text": "The Emancipation Proclamation, effective January 1, 1863, used presidential war powers to declare freedom for enslaved people in designated areas in rebellion. It did not abolish slavery everywhere in the United States and did not apply to loyal slave states. Its implementation depended on military reach and the changing course of the war. It nevertheless changed the federal war effort’s relationship to slavery and authorized the enlistment of Black men in Union armed service. Evaluate both its legal boundaries and its substantial military and political significance."
+      },
+      {
+        "type": "text",
+        "text": "The Thirteenth Amendment supplied a different and broader constitutional change: it abolished slavery and involuntary servitude in the United States, except as punishment for crime after conviction. Ratified in 1865, it did not by itself settle citizenship, suffrage, land ownership or equal protection. Those issues became central to Reconstruction. Distinguish emancipation, citizenship and voting rights rather than treating them as synonyms. A strong explanation can follow interacting changes in personal action, military control, executive policy and constitutional law while acknowledging that legal abolition did not remove all forms of coercion or racial inequality."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-war-emancipation-authority-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional evidence: A: enslaved people escaped to Union forces and sought freedom. B: the 1863 proclamation applied to designated rebellious areas, not loyal slave states. C: Black soldiers served in Union forces. D: the Thirteenth Amendment was ratified in 1865 and prohibited slavery, with its stated criminal-punishment exception.",
+        "steps": [
+          {
+            "prompt": "What does A contribute to the explanation?",
+            "choices": [
+              "Emancipation was shaped partly by enslaved people’s own actions.",
+              "Every escape immediately produced full citizenship.",
+              "Federal policy never mattered."
+            ],
+            "answer": 0,
+            "explanation": "Escape and claims to freedom affected wartime circumstances without replacing the role of law and military power.",
+            "hint": "Recognize agency without making it omnipotent."
+          },
+          {
+            "prompt": "Which statement accurately describes B?",
+            "choices": [
+              "It abolished slavery in every state immediately.",
+              "It used wartime authority with a specified geographic scope.",
+              "It was a constitutional amendment."
+            ],
+            "answer": 1,
+            "explanation": "The proclamation’s scope followed its war-powers basis and designated areas.",
+            "hint": "Keep executive action separate from constitutional amendment."
+          },
+          {
+            "prompt": "Which evidence best shows that the proclamation mattered despite its limits?",
+            "choices": [
+              "Its limits mean it had no consequences.",
+              "Every enslaved person could leave safely.",
+              "It linked Union victory to emancipation and authorized Black enlistment."
+            ],
+            "answer": 2,
+            "explanation": "A bounded policy can still alter military participation and federal objectives.",
+            "hint": "Evaluate effect as well as reach."
+          },
+          {
+            "prompt": "What question remained unresolved by abolition alone?",
+            "choices": [
+              "Whether slavery was constitutionally prohibited.",
+              "How citizenship and political equality would be secured.",
+              "Whether the war had occurred."
+            ],
+            "answer": 1,
+            "explanation": "Citizenship and suffrage required additional constitutional and political struggles.",
+            "hint": "Separate different legal statuses."
+          }
+        ],
+        "takeaway": "Its legal scope excluded loyal slave states and other exempted areas, and enforcement depended on wartime control. Yet it declared freedom in designated rebellious areas, changed the Union war effort and authorized Black enlistment. Limited reach and substantial consequences can coexist."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-war-emancipation-authority-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain why it is misleading both to say the proclamation freed everyone immediately and to say it did nothing. Use scope, implementation and significance.",
+        "sampleAnswer": "Its legal scope excluded loyal slave states and other exempted areas, and enforcement depended on wartime control. Yet it declared freedom in designated rebellious areas, changed the Union war effort and authorized Black enlistment. Limited reach and substantial consequences can coexist.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-war-emancipation-authority-recall",
+        "prompt": "Why are emancipation, citizenship and suffrage distinct?",
+        "sampleAnswer": "Emancipation ends enslavement; citizenship defines political and legal membership; suffrage concerns voting rights. Ending slavery did not automatically establish all the other rights or their effective enforcement.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1865–1898::6.2 Western Expansion and Indigenous Dispossession": {
+    "revision": 1,
+    "objectives": [
+      "Connect settlement incentives, infrastructure and federal force to changes in land control.",
+      "Explain how allotment affected collective property and Indigenous sovereignty."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain western settlement through land policy and sovereignty"
+      },
+      {
+        "type": "text",
+        "text": "Western expansion after the Civil War involved federal policy, private investment, migration and Indigenous nations defending homelands and sovereignty. Describing land as empty conceals existing communities, economies and political authority. A map showing a new railroad or a parcel available to settlers records one government’s project or claim; it does not establish that no one already used or governed the land. Ask whose rights a policy recognized and whose it displaced."
+      },
+      {
+        "type": "text",
+        "text": "The federal government encouraged settlement and economic integration through measures including the Homestead Act and support for railroad construction. Access to land could create opportunities for some settlers, but possession required resources, labor and the ability to survive difficult conditions. Railroads connected markets and encouraged migration while also concentrating economic power and transforming land use. Federal military action and broken or coercively imposed agreements helped secure expansion against Indigenous resistance. Settlement, markets and force should be analyzed as connected mechanisms rather than unrelated stories of individual achievement."
+      },
+      {
+        "type": "text",
+        "text": "Indigenous nations responded through diplomacy, legal claims, migration, armed resistance and adaptations to changing circumstances. They were not one uniform group and did not disappear when a military campaign ended. Destruction of bison herds damaged livelihoods for many Plains peoples, while confinement to reservations and federal interventions restricted autonomy. To explain a conflict, identify the particular nation, land demand and government action instead of replacing historical actors with a generic clash of cultures. A cultural difference alone does not explain who could enforce a policy."
+      },
+      {
+        "type": "text",
+        "text": "The Dawes Act of 1887 pursued allotment of communally held reservation land into individual parcels and made lands classified as surplus available to non-Indigenous acquisition. Its assimilationist premises linked individual landholding to a federal vision of citizenship and economic life. The policy contributed to major losses of Indigenous land and weakened collective control, despite promises of improvement. Evaluate the difference between official justification and institutional effect. Allotment, military conquest and settler incentives were distinct instruments, but together they help explain how expansion changed sovereignty, property and access to resources."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-west-land-sovereignty-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical summaries: A: federal settlement and railroad policies encouraged migration and market connections. B: Indigenous nations maintained claims to homelands and pursued varied responses to expansion. C: the Dawes Act divided reservation lands into individual allotments and opened lands designated surplus to non-Indigenous acquisition. Task: explain how policy changed control of land.",
+        "steps": [
+          {
+            "prompt": "What is missing from a description of the West as empty opportunity?",
+            "choices": [
+              "The existence of Indigenous communities, land use and sovereignty.",
+              "The date of every train journey.",
+              "The claim that no settler worked hard."
+            ],
+            "answer": 0,
+            "explanation": "Recognizing prior communities changes the account of whose opportunity and dispossession expansion involved.",
+            "hint": "Ask whose presence the description erases."
+          },
+          {
+            "prompt": "Which mechanism connects railroads to expansion?",
+            "choices": [
+              "Railroads removed every federal role.",
+              "Transportation investment supported migration, market access and changes in land use.",
+              "Railroads proved every land transfer was voluntary."
+            ],
+            "answer": 1,
+            "explanation": "Economic infrastructure helped make settlement and extraction feasible without proving consent.",
+            "hint": "Explain how infrastructure changes incentives and access."
+          },
+          {
+            "prompt": "What distinction best evaluates allotment?",
+            "choices": [
+              "Individual parcels guaranteed tribal sovereignty.",
+              "Assimilation was only a private choice.",
+              "The stated promise of improvement differed from effects on collective land control."
+            ],
+            "answer": 2,
+            "explanation": "The institutional change weakened communal ownership and enabled land loss regardless of its stated rationale.",
+            "hint": "Compare justification with the rule governing property."
+          },
+          {
+            "prompt": "Which evidence would best complicate a claim of uniform Indigenous response?",
+            "choices": [
+              "Records of diplomacy by one nation and armed resistance by another in specified circumstances.",
+              "A statement that all people shared one opinion.",
+              "A map with no communities labeled."
+            ],
+            "answer": 0,
+            "explanation": "Specific contrasting actions show variation without denying shared pressures.",
+            "hint": "Identify actions by particular actors."
+          }
+        ],
+        "takeaway": "Ask who defines ownership, whether community consent is required, how parcels are allocated, what happens to land labeled surplus and who can purchase it. Compare actual control before and after the policy rather than assuming an individual title necessarily expands collective autonomy."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-west-land-sovereignty-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A government advertises a land policy as expanding individual opportunity. What questions would reveal its effects on a community whose property was previously held collectively?",
+        "sampleAnswer": "Ask who defines ownership, whether community consent is required, how parcels are allocated, what happens to land labeled surplus and who can purchase it. Compare actual control before and after the policy rather than assuming an individual title necessarily expands collective autonomy.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-west-land-sovereignty-recall",
+        "prompt": "How can a policy promote opportunity for some while producing dispossession for others?",
+        "sampleAnswer": "The policy can redistribute access and enforcement power. Settler access to land or markets may depend on overriding existing communities’ claims. Identify the beneficiaries, the displaced rights and the mechanism linking the two.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: The Global Tapestry::1.2 Belief, society and regional adaptation": {
+    "revision": 1,
+    "objectives": [
+      "Explain how institutions transmit beliefs and shape authority.",
+      "Compare regional adaptation without treating religious identity as institutional uniformity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Trace belief through institutions and regional adaptation"
+      },
+      {
+        "type": "text",
+        "text": "A belief system can connect distant communities without producing identical societies. Religious and philosophical traditions offer ideas about ethical conduct, authority, salvation or social relationships, but people encounter them through institutions, teachers, families and local practices. To explain influence, identify an institution or practice through which an idea affects social life. Merely labeling a society Muslim, Buddhist, Hindu or Confucian does not explain how its rulers governed or how all its inhabitants lived."
+      },
+      {
+        "type": "text",
+        "text": "In East Asia, Confucian traditions informed ideals of social relationships and government, while civil service examinations connected classical learning to official status in imperial China. Access to preparation was unequal, and examination ideals should not be mistaken for equal opportunity. Neo-Confucian thought developed amid engagement with Buddhist and other intellectual traditions. Regional adaptation matters: neighboring states borrowed and modified aspects of Chinese institutions rather than simply becoming replicas. A shared source of ideas can support distinct local arrangements."
+      },
+      {
+        "type": "text",
+        "text": "Across parts of South and Southeast Asia, Hindu and Buddhist traditions helped shape rulership, religious communities, art and social organization. In Islamic societies, scholars, merchants and Sufi networks contributed to the transmission of religious learning and practices across regions. Political authority and religious authority could reinforce one another without being identical institutions. Conversion and adaptation unfolded over time through multiple relationships. Avoid reducing religious expansion either to force alone or to an entirely peaceful movement free of political circumstances."
+      },
+      {
+        "type": "text",
+        "text": "Comparison works best with a defined question. To compare how traditions supported authority, examine who interpreted the ideas, which institutions conveyed them and what behavior rulers or communities expected. To compare regional adaptation, identify a practice retained and a practice changed. A temple, school or examination record provides evidence of a particular institution, not a census of every person’s beliefs. Recognize internal differences, including distinctions of class, gender and locality. This method explains both connection and diversity: traditions traveled, but their effects depended on the social and political settings in which people used them."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-belief-adaptation-institutions-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical instructional summaries: A: imperial Chinese examinations used classical learning in recruitment for official service, with unequal access to preparation. B: merchants and Sufi networks helped transmit Islam across parts of Afro-Eurasia. C: rulers and communities in South and Southeast Asia adapted Hindu and Buddhist traditions in local institutions. These summaries identify selected mechanisms, not exhaustive regional descriptions.",
+        "steps": [
+          {
+            "prompt": "Which inference about A is justified?",
+            "choices": [
+              "Classical learning was connected to state recruitment.",
+              "Every person could become an official equally easily.",
+              "Examinations eliminated inherited advantage."
+            ],
+            "answer": 0,
+            "explanation": "The institutional link is supported, while equality of preparation is explicitly not established.",
+            "hint": "Separate an ideal of recruitment from access."
+          },
+          {
+            "prompt": "What do B and C show together?",
+            "choices": [
+              "Belief spread only through armies.",
+              "Ideas traveled through networks and were adapted in particular communities.",
+              "All regions adopted identical institutions."
+            ],
+            "answer": 1,
+            "explanation": "Transmission and local adaptation explain connection without uniformity.",
+            "hint": "Identify both movement and reception."
+          },
+          {
+            "prompt": "Which comparison question is most analytical?",
+            "choices": [
+              "Which tradition had the longest name?",
+              "Which region had no differences?",
+              "How did educational or religious institutions support authority in each setting?"
+            ],
+            "answer": 2,
+            "explanation": "The question establishes a shared function and allows mechanisms to differ.",
+            "hint": "Choose a function that evidence can compare."
+          },
+          {
+            "prompt": "What is a limit of one temple inscription?",
+            "choices": [
+              "It can show a specific patron’s claims but not every resident’s beliefs.",
+              "It cannot reveal anything historical.",
+              "It proves universal agreement with the ruler."
+            ],
+            "answer": 0,
+            "explanation": "A source can be useful for patronage and legitimacy while limited as evidence of universal belief.",
+            "hint": "Match the source to the claim."
+          }
+        ],
+        "takeaway": "Beliefs provide ideas and sources of legitimacy, but recruitment rules, education, local elites and political histories shape institutions. Compare actual procedures and access rather than inferring the entire government from its religious affiliation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-belief-adaptation-institutions-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Two rulers support the same religious tradition but organize recruitment differently. Explain why shared belief does not establish identical political institutions.",
+        "sampleAnswer": "Beliefs provide ideas and sources of legitimacy, but recruitment rules, education, local elites and political histories shape institutions. Compare actual procedures and access rather than inferring the entire government from its religious affiliation.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-belief-adaptation-institutions-recall",
+        "prompt": "What is the difference between transmission and adaptation?",
+        "sampleAnswer": "Transmission concerns how ideas or practices move through networks. Adaptation concerns how people reshape or combine them in a receiving setting. Both are needed to explain connection without assuming uniform results.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Networks of Exchange::2.3 Travel, disease and cultural exchange": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a traveler’s observation from secondhand information.",
+      "Explain why shared networks produced varied cultural and demographic consequences."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Distinguish what travelers observed from what networks carried"
+      },
+      {
+        "type": "text",
+        "text": "Long-distance networks before 1450 carried more than goods. Merchants, pilgrims, scholars and other travelers moved knowledge, religious practices and accounts of unfamiliar places. Plants and technologies could travel through the same connected regions, while pathogens moved with human and animal hosts. These processes were related but not identical. A merchant might intentionally transport a commodity without intending disease transmission, and a travel account might circulate an interpretation rather than an accurate description of every place it mentioned."
+      },
+      {
+        "type": "text",
+        "text": "Travel writing requires attention to access and purpose. Ibn Battuta’s journeys connected him with Islamic institutions and patrons across many regions; Marco Polo’s account described Asian societies for audiences outside them. Such accounts can reveal networks, institutions and the writer’s assumptions. They should not automatically be treated as transparent recordings of entire cultures. Ask what the traveler could observe, what may have been learned from others, how the account was produced and which details served an audience’s expectations."
+      },
+      {
+        "type": "text",
+        "text": "The spread of the plague across connected Eurasian and North African regions during the fourteenth century demonstrates how commercial and political connections could also transmit danger. The Black Death caused severe population losses and disrupted economic and social relationships, but consequences varied across places. Labor scarcity could strengthen some workers’ bargaining position while authorities attempted to constrain mobility or wages. Do not infer an identical political outcome from the existence of a shared disease. Explain how demographic shocks interacted with local institutions and power."
+      },
+      {
+        "type": "text",
+        "text": "Cultural exchange likewise involved selection and adaptation rather than automatic acceptance. A religious practice or technical process could move through several intermediaries before being used in a different setting. Evidence of movement does not by itself identify a single inventor, a direct route or universal adoption. Build a chain with supported links: a connection enabled contact; people or materials carried something; recipients adopted, modified or resisted it; institutions shaped consequences. A careful account can recognize the opportunities and risks of integration without assuming that connectivity is always beneficial or that every effect was intentional."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-travel-exchange-disease-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original instructional source model, not a historical quotation: a traveler describes a busy port, lists goods seen in its market and reports a ruler’s ceremony after hearing about it from a host. Historical context: long-distance routes also contributed to the spread of fourteenth-century plague. Task: distinguish observation, report and broader network effects.",
+        "steps": [
+          {
+            "prompt": "Which detail is most directly an observation in the model?",
+            "choices": [
+              "Goods the traveler says were seen in the market.",
+              "Every ceremony across the kingdom.",
+              "The beliefs of all residents."
+            ],
+            "answer": 0,
+            "explanation": "The account identifies a specific observed setting, though its accuracy can still be evaluated.",
+            "hint": "Track how the writer obtained each detail."
+          },
+          {
+            "prompt": "How should the ceremony report be used?",
+            "choices": [
+              "As proof the traveler witnessed it.",
+              "As information mediated through a host, with that limit acknowledged.",
+              "As evidence no ceremonies existed."
+            ],
+            "answer": 1,
+            "explanation": "Secondhand information can be useful, but it differs from claimed direct observation.",
+            "hint": "Keep the chain of information visible."
+          },
+          {
+            "prompt": "Which network claim is strongest?",
+            "choices": [
+              "Disease spread proves merchants intended epidemics.",
+              "Every connected region suffered identical consequences.",
+              "Routes enabled movement of goods, people and pathogens through different mechanisms."
+            ],
+            "answer": 2,
+            "explanation": "Connectivity can facilitate unintended as well as intended transfers.",
+            "hint": "Distinguish the route from intention and outcome."
+          },
+          {
+            "prompt": "Why might plague produce different labor outcomes?",
+            "choices": [
+              "Institutions and power shaped responses to demographic change.",
+              "Population change never affects labor.",
+              "A shared pathogen guarantees identical laws."
+            ],
+            "answer": 0,
+            "explanation": "Authorities and workers responded within different legal and economic settings.",
+            "hint": "Connect a common shock to local conditions."
+          }
+        ],
+        "takeaway": "Look for wages, labor obligations, household conditions and records from groups beyond merchants or patrons. Visible commercial wealth does not establish how gains were distributed. The account can show a prosperous market while leaving workers’ experiences unresolved."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-travel-exchange-disease-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A travel account praises a port’s wealth. What additional evidence would help determine how trade affected workers who did not own ships or warehouses?",
+        "sampleAnswer": "Look for wages, labor obligations, household conditions and records from groups beyond merchants or patrons. Visible commercial wealth does not establish how gains were distributed. The account can show a prosperous market while leaving workers’ experiences unresolved.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-travel-exchange-disease-recall",
+        "prompt": "Why is evidence of connection insufficient to prove uniform consequences?",
+        "sampleAnswer": "Connections enable movement, but local institutions, resources and power shape reception and effects. The same network can create opportunity for one group and vulnerability for another.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Revolutions::5.1 Enlightenment and the politics of rights": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a rights principle from membership rules and implementation.",
+      "Explain how excluded groups could use universal language to challenge restrictions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Examine who is included in a claim of universal rights"
+      },
+      {
+        "type": "text",
+        "text": "Enlightenment political thought developed arguments about reason, government and human relationships in eighteenth-century contexts, while drawing on earlier intellectual traditions. Thinkers disagreed about authority, religion, property and political participation. Treat the Enlightenment as a set of debates rather than a single program that every writer endorsed. To understand an argument, identify the source of legitimate authority it proposes and the powers or practices it challenges."
+      },
+      {
+        "type": "text",
+        "text": "Ideas of natural rights and consent offered ways to criticize inherited authority. A government might be evaluated by whether it protected rights or represented those it governed rather than solely by a ruler’s lineage. Social contract arguments asked how political authority could be justified, but writers differed about the terms of that relationship and the acceptable distribution of power. A claim that authority requires justification does not automatically specify universal suffrage, gender equality or the abolition of slavery. Those questions require examining membership and implementation."
+      },
+      {
+        "type": "text",
+        "text": "Print culture, salons and other networks helped ideas circulate, while access to literacy and public debate remained unequal. Reformers and revolutionaries adapted arguments to their circumstances, and excluded groups used the language of rights to challenge exclusion. These uses could expose contradictions between a declaration’s universal phrasing and a political order’s restrictions. Analyze that contradiction with specific evidence rather than dismissing the language as meaningless or assuming it had already achieved equality. A principle can support later challenges even when its authors apply it narrowly."
+      },
+      {
+        "type": "text",
+        "text": "Historical comparison should separate a principle, a proposed institution and an actual practice. A statement that people possess rights is a principle. A rule defining who may vote is an institutional design. A record of who could register or exercise power concerns implementation. Connecting these levels reveals both change and limits. When a writer invokes reason or liberty, ask whose reasoning counts, which liberties are protected and what remedy exists when government violates them. These questions turn abstract vocabulary into an analysis of power and explain why shared political language could fuel divergent reform projects."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-enlightenment-rights-membership-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original analytical statements, not historical quotations: A: legitimate government should protect the rights of those it governs. B: a proposed constitution permits voting only by a specified category of property-holding men. C: an excluded group argues that the principle in A also supports its political participation. Task: analyze the relationship between principle and membership.",
+        "steps": [
+          {
+            "prompt": "What does A establish?",
+            "choices": [
+              "A standard for judging government.",
+              "A complete voting law.",
+              "Proof that every right was enforced."
+            ],
+            "answer": 0,
+            "explanation": "A principle supplies a criterion but not all institutional details or evidence of implementation.",
+            "hint": "Identify the level of the statement."
+          },
+          {
+            "prompt": "Which relationship between A and B needs investigation?",
+            "choices": [
+              "Whether they use identical punctuation.",
+              "Whether restricted membership is consistent with the stated scope of rights.",
+              "Whether every person approved both."
+            ],
+            "answer": 1,
+            "explanation": "Universal language and limited participation create a substantive question about inclusion.",
+            "hint": "Ask who can exercise the principle."
+          },
+          {
+            "prompt": "What is C doing?",
+            "choices": [
+              "Rejecting all political reasoning.",
+              "Proving the restriction had already ended.",
+              "Using the stated principle to challenge its limited application."
+            ],
+            "answer": 2,
+            "explanation": "Excluded people can appropriate political language to press new claims.",
+            "hint": "Distinguish an argument for change from completed change."
+          },
+          {
+            "prompt": "Which evidence would test implementation?",
+            "choices": [
+              "Registration rules and records of who could actually participate.",
+              "Only the declaration’s title.",
+              "A claim that ideals enforce themselves."
+            ],
+            "answer": 0,
+            "explanation": "Institutional records help evaluate whether principles translated into access.",
+            "hint": "Look beyond a statement of intention."
+          }
+        ],
+        "takeaway": "The declaration may articulate a principle while restricting its immediate application. Later movements can invoke that principle to expose inconsistency and demand broader rights. Evaluating this requires both the original limits and evidence of later use, not an assumption of automatic progress."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-enlightenment-rights-membership-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how a political declaration can be both a limited achievement in its own moment and a resource for later movements.",
+        "sampleAnswer": "The declaration may articulate a principle while restricting its immediate application. Later movements can invoke that principle to expose inconsistency and demand broader rights. Evaluating this requires both the original limits and evidence of later use, not an assumption of automatic progress.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-enlightenment-rights-membership-recall",
+        "prompt": "What three levels should be separated when studying rights?",
+        "sampleAnswer": "Separate the principle proclaimed, the institution or rule designed and the practice implemented. Differences among them reveal exclusions, enforcement problems and opportunities for challenge.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Consequences of Industrialization::6.1 Imperial expansion and its justifications": {
+    "revision": 1,
+    "objectives": [
+      "Separate strategic and economic motives from capacities and public justifications.",
+      "Evaluate bargaining power and control rather than assuming a concession establishes free consent."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Connect imperial motives, capacities and justifications"
+      },
+      {
+        "type": "text",
+        "text": "Nineteenth-century imperial expansion involved states and private actors seeking strategic advantage, resources, markets and prestige. These motives could reinforce one another without being identical. A naval base might serve military competition, while a concession could secure access to a commodity. Begin with a specific actor and objective rather than assuming every territory was conquered for the same reason. Economic interest alone does not explain why expansion became possible at a particular moment or why it took a particular institutional form."
+      },
+      {
+        "type": "text",
+        "text": "Industrial technologies could increase imperial capacity through transportation, communications and weaponry. Steamships and railroads changed movement, while telegraph connections accelerated some forms of coordination. These advantages did not eliminate geographic obstacles, local knowledge or resistance. Imperial power also depended on financing, administration, intermediaries and unequal political relationships. Distinguish a capacity from its use: possessing a technology does not by itself establish the motive for conquest or guarantee complete control over a population."
+      },
+      {
+        "type": "text",
+        "text": "Imperial justifications presented domination as legitimate or beneficial. Claims of a civilizing mission, racial hierarchies and distorted applications of evolutionary ideas sought to naturalize inequality or portray conquest as a duty. Such claims are evidence of how supporters defended expansion, not valid explanations of inherent human worth. Missionaries, officials, investors and settlers could have different priorities even when their activities intersected. Analyze the relationship between an asserted moral purpose and the institutions of labor, land or political control that expansion produced."
+      },
+      {
+        "type": "text",
+        "text": "Forms of empire varied. Direct colonial administration differed from control exercised through concessions, unequal treaties or economic dependence. Colonized peoples responded through negotiation, accommodation, resistance and new political movements. A treaty signed under military pressure should not automatically be treated as an equal agreement. Compare bargaining power, the terms imposed and the ability to refuse. A strong causal explanation links motives to available capacities and political decisions, then evaluates justification against consequences. It does not substitute an imperial claim about benevolence for evidence about who controlled resources and whose choices were constrained."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-imperial-justification-capacity-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original hypothetical model for comparing imperial mechanisms: State A seeks a naval station and demands a port concession after threatening force. Its supporters describe the demand as bringing progress. A company expects revenue from port fees. Local authorities object that the concession removes their control over customs. This is a constructed case, not a named historical event.",
+        "steps": [
+          {
+            "prompt": "Which detail identifies a strategic motive?",
+            "choices": [
+              "Seeking a naval station.",
+              "Calling the demand progress.",
+              "The spelling of the company’s name."
+            ],
+            "answer": 0,
+            "explanation": "A naval station serves military positioning; a justification is a different part of the explanation.",
+            "hint": "Separate objective from public defense."
+          },
+          {
+            "prompt": "What does the company’s expectation show?",
+            "choices": [
+              "Every actor has the same motive.",
+              "Economic interests can intersect with state strategy.",
+              "The concession must benefit every resident."
+            ],
+            "answer": 1,
+            "explanation": "Private revenue and strategic positioning can reinforce one another without being identical.",
+            "hint": "Allow multiple actors and purposes."
+          },
+          {
+            "prompt": "Why is the threatened force relevant?",
+            "choices": [
+              "It proves consent was completely free.",
+              "It determines every later outcome.",
+              "It affects bargaining power and whether refusal is meaningful."
+            ],
+            "answer": 2,
+            "explanation": "Coercive circumstances matter when evaluating the terms of an agreement.",
+            "hint": "Ask what alternatives the local authorities had."
+          },
+          {
+            "prompt": "Which evidence best tests the progress claim?",
+            "choices": [
+              "Changes in control, revenue distribution and local access under the concession.",
+              "Repeating the slogan more often.",
+              "Assuming a positive word proves a positive result."
+            ],
+            "answer": 0,
+            "explanation": "Consequences and institutional arrangements test a justification rather than merely restating it.",
+            "hint": "Evaluate who gains power and who loses it."
+          }
+        ],
+        "takeaway": "A railroad can move people and goods more efficiently, but routes, ownership, fees and labor arrangements determine whom it serves. If it connects extraction sites to export ports under external control, increased capacity can strengthen imperial revenue without giving local communities equal authority or benefits."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-imperial-justification-capacity-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain why a railroad built under imperial rule could increase transportation capacity while also strengthening extraction and unequal control.",
+        "sampleAnswer": "A railroad can move people and goods more efficiently, but routes, ownership, fees and labor arrangements determine whom it serves. If it connects extraction sites to export ports under external control, increased capacity can strengthen imperial revenue without giving local communities equal authority or benefits.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-imperial-justification-capacity-recall",
+        "prompt": "How do motive, capacity and justification differ?",
+        "sampleAnswer": "A motive is an objective pursued; a capacity is a means that makes action possible; a justification is an argument presenting the action as legitimate. A causal explanation should connect them without treating them as interchangeable.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Situation and Purpose::1.3 Selecting evidence and explaining its relevance": {
+    "revision": 1,
+    "objectives": [
+      "Choose textual details that support a specific interpretive claim.",
+      "Explain when exact wording matters and preserve a source’s qualification."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Select the detail that does the argumentative work"
+      },
+      {
+        "type": "text",
+        "text": "Evidence selection begins with a specific claim. A passage may contain many memorable details, but only some directly support the interpretation you are developing. Before quoting, state what the paragraph must establish. Then choose a detail whose language, relationship or implication helps establish that point. A detail is not relevant merely because it appears in the same passage or concerns the same general topic. Relevance is a connection you must be able to explain."
+      },
+      {
+        "type": "text",
+        "text": "For rhetorical analysis, select language that reveals how the writer develops the message. If your claim concerns a contrast between a public promise and a practical barrier, quote or paraphrase the two sides of that contrast. An unrelated date may establish context but will not by itself demonstrate the strategy. For argument, select an example with enough accurate detail to support the principle at issue. A familiar name without an explained action often functions as a label rather than evidence. For synthesis, preserve the source’s actual position and scope when choosing a useful detail."
+      },
+      {
+        "type": "text",
+        "text": "Quotation and paraphrase serve different needs. Quote when the wording itself matters, such as a repeated phrase or a loaded term. Paraphrase when the relevant feature is an idea or sequence rather than the exact words. Either method requires accuracy and attribution where appropriate. Avoid lifting a phrase in a way that reverses a concession or turns a reported possibility into a certainty. A short quotation can be powerful when commentary explains its function; a long quotation can still leave the reasoning absent."
+      },
+      {
+        "type": "text",
+        "text": "Test evidence by imagining a skeptical reader asking why this detail belongs here. Your explanation should connect the detail to the paragraph’s claim and the essay’s direction. If that connection requires an invented fact or an unsupported assumption about every reader, revise the interpretation or choose better evidence. Sometimes two details work together: one establishes an expectation and another disrupts it. Selection then includes their relationship, not just their individual content. Effective evidence is sufficiently specific to examine and sufficiently connected to advance the reasoning; it is not simply the largest amount of text you can include."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-select-evidence-function-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original appeal to neighborhood residents: “The park gate says ‘Open to everyone.’ Yet its only entrance has three steps. A ramp would not redesign the whole park. It would make the gate’s promise reachable. At Monday’s meeting, support the entrance project.” Claim to support: the writer contrasts an inclusive promise with a physical barrier to frame the ramp as fulfilling an existing commitment.",
+        "steps": [
+          {
+            "prompt": "Which pair best supports the claim?",
+            "choices": [
+              "Open to everyone and three steps.",
+              "Monday and meeting.",
+              "Park and neighborhood."
+            ],
+            "answer": 0,
+            "explanation": "The first phrase states the promise and the second identifies the obstacle that makes it incomplete.",
+            "hint": "Choose both sides of the contrast."
+          },
+          {
+            "prompt": "Which commentary explains relevance?",
+            "choices": [
+              "The writer uses nouns.",
+              "The mismatch turns access into a test of whether the park honors its stated invitation.",
+              "Everyone reading immediately votes yes."
+            ],
+            "answer": 1,
+            "explanation": "This connects the textual contrast to the message without inventing measured persuasion.",
+            "hint": "Explain the function of the relationship."
+          },
+          {
+            "prompt": "When is quoting Open to everyone especially useful?",
+            "choices": [
+              "When it lets the writer avoid commentary.",
+              "When every quotation must be at least a paragraph.",
+              "When the exact inclusive wording is central to analyzing the contrast."
+            ],
+            "answer": 2,
+            "explanation": "The wording matters because the appeal tests the breadth of the promise.",
+            "hint": "Quote because language does work, not because quotation is mandatory."
+          },
+          {
+            "prompt": "Which limit should the analysis preserve?",
+            "choices": [
+              "The passage argues for an entrance project, not proof that every park access problem will be solved.",
+              "The ramp necessarily fixes every possible barrier.",
+              "A qualification means the writer makes no request."
+            ],
+            "answer": 0,
+            "explanation": "The concession narrows the project while retaining a clear appeal.",
+            "hint": "Respect the stated scope of the proposal."
+          }
+        ],
+        "takeaway": "I would use the statement that a ramp would not redesign the whole park and connect it to the specific entrance project. The concession narrows the scale of the request, while the final call to support it gives residents a concrete action. I would not claim the passage establishes actual project costs."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-select-evidence-function-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "If your paragraph instead claimed that the writer makes the proposal seem limited and practical, which evidence would you select and why?",
+        "sampleAnswer": "I would use the statement that a ramp would not redesign the whole park and connect it to the specific entrance project. The concession narrows the scale of the request, while the final call to support it gives residents a concrete action. I would not claim the passage establishes actual project costs.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-select-evidence-function-recall",
+        "prompt": "What makes a quotation relevant rather than merely related?",
+        "sampleAnswer": "A relevant quotation supplies a detail or relationship that supports the specific claim being developed. Commentary explains that connection. Sharing a topic or sounding memorable is not enough.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Audience, Claims, and Evidence::2.3 Commentary that connects evidence to a line of reasoning": {
+    "revision": 1,
+    "objectives": [
+      "Make the inference connecting evidence to a claim explicit.",
+      "Distinguish policy reasoning from rhetorical commentary about the same detail."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Make the inference between evidence and claim visible"
+      },
+      {
+        "type": "text",
+        "text": "Commentary explains why evidence supports a claim. It is not merely a restatement in different words or a judgment that the evidence is good. The missing element is often an inference: the relationship that lets a reader move from a detail to an interpretation. If evidence shows that a service closes before many workers finish their shifts, commentary might explain why the schedule limits access for that group. The reasoning must still acknowledge what is known about the workers and the service."
+      },
+      {
+        "type": "text",
+        "text": "A useful way to inspect commentary is to identify the claim, evidence and connecting assumption. The assumption need not be announced with a technical label, but it must be plausible and appropriately supported. If the claim says a policy will help every resident and the evidence concerns only one neighborhood, the connection is too broad. Narrowing the claim may be more effective than adding emphatic language. Good commentary makes the strength and limits of the inference clear rather than hiding them behind words such as obviously."
+      },
+      {
+        "type": "text",
+        "text": "In rhetorical analysis, commentary connects choices to a writer’s message for an audience. It can explain how an example makes an abstract issue concrete, how a concession anticipates a concern or how a shift changes the reader’s perspective. It should remain grounded in the passage and rhetorical situation. Saying a writer makes readers emotional names a vague possible effect; explaining which concern is activated and how that concern advances the appeal provides a more precise interpretation. Neither statement alone proves what actual readers felt."
+      },
+      {
+        "type": "text",
+        "text": "Within a line of reasoning, each paragraph should do more than repeat the thesis. One may establish a problem, another evaluate a response and a third qualify the conditions under which that response is worthwhile. Commentary explains these relationships as well as individual details. There is no universal number of commentary sentences required after every quotation. Some inferences need several steps; a simple connection may need less space. Judge sufficiency by whether a reader can follow the reasoning and assess its limits, not by a fixed evidence-to-commentary ratio."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-commentary-warrant-links-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original instructional evidence: the community clinic offers appointments until four in the afternoon. A neighborhood association reports that several members work until five. Draft claim: extending some appointment hours could improve access for those members. Draft paragraph: “The clinic closes at four. Some members finish at five. This is important and proves everything.”",
+        "steps": [
+          {
+            "prompt": "Which sentence supplies the missing inference?",
+            "choices": [
+              "Those members cannot normally attend a four-o’clock appointment after a five-o’clock work shift, so later slots could remove a scheduling barrier.",
+              "The clinic exists in a community.",
+              "The word four is persuasive."
+            ],
+            "answer": 0,
+            "explanation": "The sentence explains the timing conflict and links the proposed change to a specific group.",
+            "hint": "Connect the two times to practical access."
+          },
+          {
+            "prompt": "Which claim exceeds the evidence?",
+            "choices": [
+              "Some members report a scheduling conflict.",
+              "Later hours will solve every resident’s healthcare problem.",
+              "A trial could investigate demand for later appointments."
+            ],
+            "answer": 1,
+            "explanation": "The evidence concerns one barrier for some members, not all health needs or residents.",
+            "hint": "Identify the leap in scope."
+          },
+          {
+            "prompt": "What further uncertainty matters?",
+            "choices": [
+              "Whether numbers are allowed in essays.",
+              "Whether clinics have doors.",
+              "Whether staffing and other access barriers would allow later slots to help as intended."
+            ],
+            "answer": 2,
+            "explanation": "The proposal’s usefulness depends on conditions beyond the documented schedule conflict.",
+            "hint": "A plausible mechanism is not a guarantee."
+          },
+          {
+            "prompt": "Which revision strengthens the line of reasoning?",
+            "choices": [
+              "After identifying the scheduling barrier, evaluate whether a limited evening trial could address it and what evidence would test that.",
+              "Repeat this is important three times.",
+              "Add an unrelated quotation."
+            ],
+            "answer": 0,
+            "explanation": "The next step develops the argument from diagnosis to a bounded response and evaluation.",
+            "hint": "Give each paragraph a distinct job."
+          }
+        ],
+        "takeaway": "In my argument I would use the time conflict to support a bounded claim about access. In rhetorical analysis I would explain how the speaker juxtaposes the times to make the barrier concrete for an audience and motivate a proposal. The evidence is similar, but the analytical task changes."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-commentary-warrant-links-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how commentary would differ if the same two times appeared in a persuasive speech rather than as evidence in your own policy argument.",
+        "sampleAnswer": "In my argument I would use the time conflict to support a bounded claim about access. In rhetorical analysis I would explain how the speaker juxtaposes the times to make the barrier concrete for an audience and motivate a proposal. The evidence is similar, but the analytical task changes.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-commentary-warrant-links-recall",
+        "prompt": "Why is repeating evidence not sufficient commentary?",
+        "sampleAnswer": "Repetition does not explain the inference linking the detail to the claim. Commentary identifies the relationship, its argumentative function and relevant limits so a reader can evaluate the reasoning.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Developing and Revising Arguments::5.1 Developing claims, reasons, and sufficient evidence": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish claims, reasons and examples in an argument.",
+      "Evaluate evidence sufficiency against scope and relevant competing concerns."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build reasons that genuinely support the claim"
+      },
+      {
+        "type": "text",
+        "text": "A claim states the position or interpretation you want a reader to accept. A reason explains why the reader should accept it. Evidence gives the reader specific grounds for evaluating the reason. These roles are related but not interchangeable. Saying a proposal is beneficial because it is good repeats the evaluation rather than supplying a reason. Saying the proposal reduces a documented scheduling conflict identifies a possible basis for support, which then needs evidence and an explanation of relevance."
+      },
+      {
+        "type": "text",
+        "text": "Map the argument before adding more examples. Ask whether each reason is distinct, whether it supports the actual claim and whether the reasons together address the central decision. Two examples of the same benefit may strengthen that point without answering a different concern such as feasibility or unequal access. An argument can acknowledge a tradeoff without becoming indecisive. A qualified claim states which considerations matter most and under what conditions the position remains defensible."
+      },
+      {
+        "type": "text",
+        "text": "Evidence sufficiency is contextual rather than a fixed count. A broad causal claim about an entire population requires stronger support than a modest claim about a documented local situation. One well-explained example may illustrate a principle, but it may not establish how frequently that principle holds. Several examples selected from similar settings may still leave a generalization narrow. Consider relevance, accuracy, representativeness where appropriate and the availability of counterevidence. More citations do not automatically repair a mismatch between evidence and conclusion."
+      },
+      {
+        "type": "text",
+        "text": "A useful stress test is to imagine the strongest reasonable objection. If a plan saves time for one group but burdens another, explain how the burden affects your position. You might modify the plan, narrow the claim or show why the benefit outweighs the cost using relevant evidence. Do not invent a simplistic opponent who rejects every benefit. Addressing an actual competing consideration helps reveal the conditions of your argument. A clear line of reasoning lets readers see not only what you believe but how the evidence and priorities lead to that belief."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-claims-reasons-sufficiency-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original hypothetical planning case: a school considers moving one weekly club meeting from evening to lunchtime. The stated goals are to reduce transportation barriers and keep participation open. Supplied facts: students already on campus would not need an evening ride; some students use lunch for required support sessions; no attendance trial has occurred. Claim under consideration: a lunchtime option may broaden access if students with conflicting obligations retain another way to participate.",
+        "steps": [
+          {
+            "prompt": "Which is a genuine reason for the claim?",
+            "choices": [
+              "It is better because it is superior.",
+              "Students already on campus would not need an additional evening ride.",
+              "Everyone loves lunch meetings."
+            ],
+            "answer": 1,
+            "explanation": "The reason identifies a specific mechanism related to transportation access.",
+            "hint": "Avoid circular evaluation and unsupported universal preferences."
+          },
+          {
+            "prompt": "Which detail creates a meaningful qualification?",
+            "choices": [
+              "Some students have required support sessions at lunch.",
+              "The meeting occurs once a week.",
+              "The word option appears in the claim."
+            ],
+            "answer": 0,
+            "explanation": "The conflict shows why a single mandatory lunchtime slot could exclude another group.",
+            "hint": "Look for evidence that changes the conditions of support."
+          },
+          {
+            "prompt": "What does the absence of a trial limit?",
+            "choices": [
+              "Any discussion of transportation.",
+              "The possibility of making a qualified proposal.",
+              "Certainty about actual attendance changes."
+            ],
+            "answer": 2,
+            "explanation": "The mechanism is plausible, but its behavioral outcome has not been observed in the case.",
+            "hint": "Separate predicted benefit from measured outcome."
+          },
+          {
+            "prompt": "Which next step best tests the argument?",
+            "choices": [
+              "Declare success before implementation.",
+              "Offer a limited option, track participation and conflicting obligations, and compare with the stated goals.",
+              "Add more adjectives describing the club."
+            ],
+            "answer": 1,
+            "explanation": "The evaluation targets both the intended benefit and the relevant access concern.",
+            "hint": "Choose evidence that could confirm or challenge the proposal."
+          }
+        ],
+        "takeaway": "The fourth example may repeat an established benefit while leaving the competing concern unresolved. The argument needs to examine the access barrier and explain whether it requires a modification, a narrower claim or a reasoned tradeoff. Sufficiency depends on the decision’s relevant considerations, not example count alone."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-claims-reasons-sufficiency-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A draft provides three examples of convenience but ignores a documented access barrier for another group. Explain why adding a fourth convenience example may not make the argument sufficient.",
+        "sampleAnswer": "The fourth example may repeat an established benefit while leaving the competing concern unresolved. The argument needs to examine the access barrier and explain whether it requires a modification, a narrower claim or a reasoned tradeoff. Sufficiency depends on the decision’s relevant considerations, not example count alone.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-claims-reasons-sufficiency-recall",
+        "prompt": "What is the difference between an additional example and an additional reason?",
+        "sampleAnswer": "An example provides concrete support; a reason identifies a basis for accepting the claim. Several examples can support the same reason. A new reason addresses a distinct relevant basis and still requires evidence and commentary.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Positions, Sources, and Synthesis::6.1 Reading source positions, credibility, and limitations": {
+    "revision": 1,
+    "objectives": [
+      "Reconstruct a source’s position and limits before evaluating it.",
+      "Evaluate credibility for a particular claim and distinguish independent corroboration from repetition."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Evaluate credibility for a particular use"
+      },
+      {
+        "type": "text",
+        "text": "Reading a source begins with reconstructing its position accurately. Identify the main claim, the reasons offered and any qualification before deciding whether you agree. A source may describe a problem without endorsing every proposed solution, or support a policy only under specified conditions. Summarizing it as simply for or against can erase the very distinction your argument needs. Preserve the relationship between the author’s evidence and the conclusion actually drawn."
+      },
+      {
+        "type": "text",
+        "text": "Credibility is not a single permanent label attached to a person or institution. Ask whether the source has relevant access or expertise for the claim you want to use. A maintenance worker may have direct knowledge of recurring repair problems; an accountant may understand a budget record; a resident may explain an experience of access. None automatically has complete knowledge of every aspect of a policy. The intended use determines which knowledge and methods matter."
+      },
+      {
+        "type": "text",
+        "text": "Purpose and interest deserve examination but do not automatically invalidate evidence. A group advocating a project may accurately describe its goals while emphasizing favorable information. A source that claims neutrality may still omit a relevant perspective. Look for transparent methods, specific support, definitions, dates and opportunities to verify claims. Distinguish a source’s prediction from an observed result and a testimonial from a population estimate. When information is incomplete, acknowledge the limitation rather than inventing missing methodology."
+      },
+      {
+        "type": "text",
+        "text": "A synthesis argument benefits from using sources for different functions. One may establish a constraint, another describe an experience and another explain an alternative. Corroboration is strongest when independent evidence addresses the same claim; two statements derived from the same report are not automatically two independent confirmations. Disagreement also requires diagnosis: sources may use different definitions, time periods or priorities rather than contradicting the same fact. Your commentary should explain why a source is relevant and what it cannot establish. This lets readers evaluate the reasoning instead of being asked to trust a reputation or reject an interested speaker without examination."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-source-position-credibility-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Three complete original hypothetical source summaries about a proposed evening library program. A, library director: the current staffing plan covers existing hours; an extension would require a revised schedule. B, student volunteer: I could attend after sports practice, but I do not know how many others would come. C, advocacy flyer: longer hours will help every student; no attendance data or method is supplied. These are constructed sources, not real research.",
+        "steps": [
+          {
+            "prompt": "Which use of A best matches the source’s access?",
+            "choices": [
+              "Evidence that the existing staffing plan does not already cover the extension.",
+              "Proof that students dislike libraries.",
+              "Proof that no revised schedule is possible."
+            ],
+            "answer": 0,
+            "explanation": "The director describes the current plan, not all possible future arrangements or student preferences.",
+            "hint": "Keep the inference within the stated administrative information."
+          },
+          {
+            "prompt": "What can B support?",
+            "choices": [
+              "A schoolwide estimate of attendance.",
+              "An example of one student’s potential use, with an explicit limit.",
+              "A guarantee of higher grades."
+            ],
+            "answer": 1,
+            "explanation": "The statement offers an individual perspective and acknowledges that it cannot estimate broader demand.",
+            "hint": "Distinguish experience from prevalence."
+          },
+          {
+            "prompt": "What is the strongest evaluation of C?",
+            "choices": [
+              "Advocacy makes every sentence false.",
+              "A confident tone substitutes for a method.",
+              "The universal claim lacks supplied evidence and should not be treated as an established outcome."
+            ],
+            "answer": 2,
+            "explanation": "The problem is the unsupported scope of the claim, not merely the source’s interest in the proposal.",
+            "hint": "Evaluate the claim and support rather than rejecting a category of speaker."
+          },
+          {
+            "prompt": "How should an essay combine A and B?",
+            "choices": [
+              "Use B to show a possible access benefit and A to identify a staffing condition that the proposal must address.",
+              "Pretend both sources measured attendance.",
+              "State that the sources directly contradict each other."
+            ],
+            "answer": 0,
+            "explanation": "The sources concern different aspects and can inform a qualified position together.",
+            "hint": "Different functions can complement rather than contradict."
+          }
+        ],
+        "takeaway": "Trace whether both depend on the same underlying data and analysis. If they do, agreement may repeat one evidence base rather than provide an independent test. Examine the original report’s population, methods and limitations, then seek genuinely separate evidence for the same claim if needed."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-source-position-credibility-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Two articles cite the same attendance report and reach the same conclusion. Explain what you would check before calling them independent corroboration.",
+        "sampleAnswer": "Trace whether both depend on the same underlying data and analysis. If they do, agreement may repeat one evidence base rather than provide an independent test. Examine the original report’s population, methods and limitations, then seek genuinely separate evidence for the same claim if needed.",
+        "checklist": [
+          "Identify the relevant actors or claims precisely.",
+          "Connect a concrete detail to the interpretation.",
+          "Explain a significant limit or qualification."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-source-position-credibility-recall",
+        "prompt": "Why should credibility be evaluated relative to a claim?",
+        "sampleAnswer": "A source may have strong access or expertise for one question and limited knowledge of another. Relevance, method, scope and support determine an appropriate use more precisely than a blanket trustworthy or biased label.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  }
+}

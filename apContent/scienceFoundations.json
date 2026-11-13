@@ -1,0 +1,3294 @@
+{
+  "ap-computer-science-principles": [
+    {
+      "id": "csp-depth-strings",
+      "title": "3.7 Strings: representation, concatenation, and slicing",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish a string representation from a numeric value.",
+        "Trace explicitly specified string operations without importing a different language’s conventions.",
+        "Test boundary and formatting assumptions."
+      ],
+      "frameworkTopics": [
+        "3.4"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: a representation has a type"
+        },
+        {
+          "type": "text",
+          "text": "A string is a sequence of characters. The string \"12\" contains two characters; the number 12 is a numeric value. A program can store a postal code as a string so that leading zeros remain meaningful. A variable’s name does not determine its type, and visual similarity does not guarantee that two values support the same operations. When a question supplies string procedures, follow their stated contracts rather than assuming that a particular language’s + operator, indexing rule or substring rule applies."
+        },
+        {
+          "type": "text",
+          "text": "In this lesson only, JOIN(a, b) returns the characters of string a immediately followed by the characters of string b; it inserts no spaces. SLICE(s, start, count) returns count consecutive characters beginning at the stated 1-based position in s. All calls below use valid positive positions and counts. These are supplied teaching procedures, not a claim that the AP reference sheet or every language uses these names. String indexing must distinguish a position from the character stored there. For \"PLAN\", positions 1, 2, 3 and 4 hold P, L, A and N."
+        },
+        {
+          "type": "prediction",
+          "id": "csp-strings-predict",
+          "title": "Predict the operation",
+          "prompt": "What does JOIN(\"12\", \"3\") return under the supplied contract?",
+          "choices": [
+            "The number 15",
+            "The string \"123\"",
+            "The string \"12 3\"",
+            "The number 36"
+          ],
+          "answer": 1,
+          "explanation": "JOIN combines character sequences without numeric addition or an inserted separator. The result is the three-character string \"123\"."
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-strings-guide",
+          "title": "Trace one supplied operation at a time",
+          "scenario": "Evaluate JOIN(\"B\", SLICE(\"CODES\", 2, 3)). Work from the inner call to the outer call.",
+          "steps": [
+            {
+              "prompt": "Which characters are selected by SLICE(\"CODES\", 2, 3)?",
+              "choices": [
+                "\"COD\"",
+                "\"ODE\"",
+                "\"ODES\"",
+                "\"DES\""
+              ],
+              "answer": 1,
+              "explanation": "Positions 2, 3 and 4 contain O, D and E. The third argument is a count of characters, not a final index.",
+              "hint": "Label the five character positions before selecting three of them."
+            },
+            {
+              "prompt": "What string does the full expression produce?",
+              "choices": [
+                "\"B ODE\"",
+                "\"BCODE\"",
+                "\"BODE\"",
+                "\"B3\""
+              ],
+              "answer": 2,
+              "explanation": "The inner result is \"ODE\". JOIN places B directly before it, producing \"BODE\".",
+              "hint": "Substitute the complete inner return value into the outer call."
+            },
+            {
+              "prompt": "How many characters are in the resulting string?",
+              "choices": [
+                "3",
+                "5",
+                "1",
+                "4"
+              ],
+              "answer": 3,
+              "explanation": "B, O, D and E are four characters. The input argument count is not the output character count.",
+              "hint": "Count the resulting characters, including any spaces only if the contract inserted them."
+            }
+          ],
+          "takeaway": "Name each intermediate result and its type. Similar-looking operators and procedure names can have different contracts in different environments."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: preserve what the data mean"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-strings-transfer",
+          "title": "Explain a representation choice",
+          "prompt": "Why might converting the identifier \"0072\" to the number 72 lose important information? Would numeric equality alone establish that the two identifiers should be treated as the same record?",
+          "sampleAnswer": "The conversion removes the leading zeros. If the identifier’s format matters, its character sequence is part of its meaning; a numeric comparison does not establish the intended identity rules. The data specification must say whether leading zeros are meaningful and how identifiers are matched.",
+          "checklist": [
+            "Distinguish a numeric quantity from an identifier.",
+            "Identify the information lost by conversion.",
+            "State why the representation contract matters."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the trace"
+        },
+        {
+          "type": "recall",
+          "id": "csp-strings-recall",
+          "title": "Try a new slice",
+          "prompt": "Under this lesson’s contract, what does SLICE(\"STUDY\", 2, 3) return? Write the string and explain the selected positions.",
+          "sampleAnswer": "The result is \"TUD\" from positions 2, 3 and 4. The count is three characters. This is a comparison activity, not an automated string grade.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-libraries",
+      "title": "3.8 Libraries: contracts, calls, and hidden implementation",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Use a supplied library contract to choose and trace calls.",
+        "Distinguish returned data from mutations of input data.",
+        "Explain what an interface does and does not reveal."
+      ],
+      "frameworkTopics": [
+        "3.14"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: reuse an operation through an interface"
+        },
+        {
+          "type": "text",
+          "text": "A software library provides reusable procedures that other programs can call. Its interface describes the available names, inputs, results and important conditions. A caller can use a procedure without reproducing all of its implementation. This abstraction can reduce repeated work, but it does not remove the need to read documentation, satisfy preconditions or test the way the program uses the result. A library’s name alone is not a specification."
+        },
+        {
+          "type": "text",
+          "text": "This lesson supplies two fictional library contracts. SORT_ASC(values) accepts a list of numbers and returns a new list sorted from smallest to largest; it does not modify the original list. FIRST(values) returns the first element of a nonempty list. The contracts do not identify the sorting algorithm or promise a particular runtime. They also do not define FIRST on an empty list, so a program must not invent a returned zero for that invalid call. A different library could make different choices; the documentation is what resolves those differences."
+        },
+        {
+          "type": "prediction",
+          "id": "csp-library-predict",
+          "title": "Read the side-effect rule",
+          "prompt": "After ordered ← SORT_ASC(original), what can be concluded about original under the stated contract?",
+          "choices": [
+            "It must now be sorted too",
+            "Its contents are unchanged by that call",
+            "It becomes empty",
+            "Its name changes to ordered"
+          ],
+          "answer": 1,
+          "explanation": "The supplied contract says SORT_ASC returns a new list and does not modify its input. That statement—not a universal sorting rule—supports the conclusion."
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-library-guide",
+          "title": "Combine two documented calls",
+          "scenario": "Start original ← [8, 2, 5]. Then execute ordered ← SORT_ASC(original), followed by result ← FIRST(ordered).",
+          "steps": [
+            {
+              "prompt": "What value is returned by SORT_ASC(original)?",
+              "choices": [
+                "[8, 2, 5]",
+                "2",
+                "[2, 5, 8]",
+                "[8, 5, 2]"
+              ],
+              "answer": 2,
+              "explanation": "The sorted new list is [2, 5, 8]. The procedure returns a list, not just its smallest value.",
+              "hint": "Keep the return type in view."
+            },
+            {
+              "prompt": "What is result after FIRST(ordered)?",
+              "choices": [
+                "8",
+                "5",
+                "0",
+                "2"
+              ],
+              "answer": 3,
+              "explanation": "The first element of the new ordered list is 2. The caller uses the prior return value as the next call’s input.",
+              "hint": "Apply FIRST to ordered rather than to original."
+            },
+            {
+              "prompt": "Can this output identify whether the library used insertion sort or another sorting algorithm?",
+              "choices": [
+                "No; different implementations can satisfy the same contract",
+                "Yes; every ascending result proves insertion sort",
+                "Yes; a sorted list proves constant runtime",
+                "No; therefore the return value is unusable"
+              ],
+              "answer": 0,
+              "explanation": "The interface can hide implementation details. Several algorithms can produce the same required sorted result.",
+              "hint": "Separate observable required behavior from the hidden method."
+            }
+          ],
+          "takeaway": "A procedure contract supports reasoning about a call. It does not reveal every implementation detail or excuse the caller from meeting preconditions."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: inspect the edge case"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-library-transfer",
+          "title": "Repair a caller rather than invent a return value",
+          "prompt": "A programmer writes result ← FIRST(SORT_ASC(values)) even when values may be empty. Explain the missing condition and a safe high-level plan.",
+          "sampleAnswer": "FIRST requires a nonempty list. The program should test whether values contains at least one element and define an appropriate no-data outcome before making that call. The library contract does not justify assuming FIRST([]) returns 0.",
+          "checklist": [
+            "Name the violated precondition.",
+            "Keep an absent value distinct from numeric zero.",
+            "Describe selection before the invalid call."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve the abstraction"
+        },
+        {
+          "type": "recall",
+          "id": "csp-library-recall",
+          "title": "Explain what was reused",
+          "prompt": "In two sentences, explain how this library manages complexity and why the caller still needs documentation.",
+          "sampleAnswer": "The caller can request sorting or a first element without implementing those operations itself. Documentation is still needed to know the accepted inputs, result type, mutation behavior and edge-case conditions; reuse does not guarantee that every call is meaningful.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-expressions",
+      "title": "3.9 Arithmetic precedence and equivalent Boolean conditions",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Evaluate MOD, ordinary division and mixed arithmetic with stated precedence.",
+        "Translate negated compound conditions into equivalent inclusive bounds.",
+        "Use endpoints and counterexamples to test a Boolean claim."
+      ],
+      "frameworkTopics": [
+        "3.3",
+        "3.5"
+      ],
+      "coveredGapIds": [
+        "CSP-G05",
+        "CSP-G06"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "Expressions describe calculations that produce values, while assignments store the values produced. In the AP-style pseudocode used here, division is ordinary division rather than automatic integer truncation: 17 / 5 is 3.4. MOD returns the remainder for a nonnegative integer dividend and a positive integer divisor. Thus 17 MOD 5 is 2 because 17 = 3 × 5 + 2. The quotient and remainder answer different questions. Do not substitute one for the other merely because both mention division. Parentheses explicitly group operations and should be read before surrounding arithmetic."
+        },
+        {
+          "type": "text",
+          "text": "Use the ordinary mathematical order of operations. Multiplication, division and MOD share a precedence level and are evaluated from left to right when parentheses do not decide the grouping. Addition and subtraction follow. For 17 MOD 5 * 2 + 1, first compute the remainder 2, then multiply by 2 and add 1, producing 5. Changing grouping to 17 MOD (5 * 2 + 1) instead produces a remainder of 6. A correct numerical answer must therefore be connected to the actual expression rather than to a remembered list of operations with unspecified grouping."
+        },
+        {
+          "type": "text",
+          "text": "Boolean expressions produce true or false rather than numeric totals. AND requires both operands to be true; OR permits either or both; NOT reverses a Boolean result. The condition NOT((x < 3) OR (x > 7)) means that x is not outside the inclusive interval from 3 to 7. An equivalent condition is (x >= 3) AND (x <= 7). To test a proposed equivalence, examine outside values, endpoints and an interior value. One matching case is not proof that all cases agree, while one permitted counterexample is enough to disprove equivalence. Replacing AND with OR in that range condition changes the behavior dramatically. Translate the verbal requirement first and keep parentheses visible when negating a compound condition."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-expressions-predict",
+          "prompt": "What is 17 / 5 in the stated pseudocode?",
+          "choices": [
+            "2",
+            "3.4",
+            "3"
+          ],
+          "answer": 1,
+          "explanation": "Division gives the numerical quotient; MOD gives the remainder.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-expressions-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Use ordinary division, left-to-right evaluation for operators at the same precedence, and nonnegative integer inputs for MOD. Let a = 17 MOD 5 * 2 + 1. Let inside = NOT((x < 3) OR (x > 7)). Compare inside with candidate = (x >= 3) AND (x <= 7).",
+          "steps": [
+            {
+              "prompt": "What is the first remainder in a?",
+              "choices": [
+                "2",
+                "3",
+                "5"
+              ],
+              "answer": 0,
+              "explanation": "17 = 3 × 5 + 2.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "What value does a receive?",
+              "choices": [
+                "7",
+                "5",
+                "6"
+              ],
+              "answer": 1,
+              "explanation": "The evaluation is 2 × 2 + 1 = 5.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "At x = 3, what is inside?",
+              "choices": [
+                "false",
+                "It is undefined",
+                "true"
+              ],
+              "answer": 2,
+              "explanation": "Neither 3 < 3 nor 3 > 7 is true, so NOT(false OR false) is true.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "At x = 8, what is candidate?",
+              "choices": [
+                "false",
+                "true",
+                "8"
+              ],
+              "answer": 0,
+              "explanation": "Although 8 >= 3 is true, 8 <= 7 is false, so AND is false.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Which condition matches inside for every numeric x?",
+              "choices": [
+                "(x > 3) AND (x < 7)",
+                "(x >= 3) AND (x <= 7)",
+                "(x >= 3) OR (x <= 7)"
+              ],
+              "answer": 1,
+              "explanation": "Being neither below 3 nor above 7 includes both endpoints and requires both bounds.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "The worked arithmetic gives 17 MOD 5 * 2 + 1 = 5. The condition NOT((x < 3) OR (x > 7)) includes both endpoints and is equivalent to (x >= 3) AND (x <= 7); test outside values as well as interior values."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-expressions-transfer",
+          "prompt": "A programmer replaces the candidate with (x >= 3) OR (x <= 7). Supply one counterexample, then explain why checking only x = 5 would miss the error.",
+          "sampleAnswer": "At x = 8, the OR condition is true because 8 >= 3, while inside is false. At x = 5 both versions are true, so that single interior check cannot establish equivalence. Endpoint and outside cases test distinct parts of the requirement.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-expressions-recall",
+          "prompt": "Evaluate 20 MOD 6 + 8 / 4 and explain the difference between its MOD and division operations.",
+          "sampleAnswer": "20 MOD 6 = 2 and 8 / 4 = 2, so the total is 4. MOD returns a remainder, while / returns the numerical quotient.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-nested-selection",
+      "title": "3.10 Nested decisions and reachable branches",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Trace only reachable branches in a nested conditional.",
+        "Compare nested decisions with independent overwriting IF statements.",
+        "Select tests covering outer-false and both inner outcomes."
+      ],
+      "frameworkTopics": [
+        "3.7"
+      ],
+      "coveredGapIds": [
+        "CSP-G07"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "Nested selection places a conditional inside another conditional. The outer decision controls whether execution reaches the inner decision at all. Trace the outer condition first rather than evaluating every visible expression as if each belonged to an independent statement. In a program that first checks registration and then checks a score, an unregistered person may receive a registration message without any score-based action occurring. Indentation and braces make the grouping visible, but their meaning comes from the control structure, not from how familiar the variable names sound."
+        },
+        {
+          "type": "text",
+          "text": "An IF–ELSE chooses exactly one of its two branches during a particular evaluation. Two separate IF statements can both execute, and a later assignment can replace a value produced by an earlier one. A nested program can therefore differ from a flattened version even when the comparisons look similar. To compare them, record which statements execute and which assignments overwrite earlier values. A condition being true is not enough to make its body execute if an enclosing branch is not entered. This distinction becomes especially important when statements produce output or modify state rather than merely calculate a Boolean value."
+        },
+        {
+          "type": "text",
+          "text": "A complete test set should include inputs that follow each reachable path. For two nested binary decisions, that might mean an outer-false case, an outer-true/inner-false case and an outer-true/inner-true case, not necessarily four combinations: the inner result may be irrelevant when the outer branch is skipped. Check equality at thresholds separately. If a score of 80 belongs in the advanced group, >= 80 includes that boundary while > 80 excludes it. When designing a nested structure, write the policy in words and identify which question is conditional on which other answer. Branch coverage supports testing, but does not by itself prove correctness for every possible input or ensure that the policy is well designed."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-nested-selection-predict",
+          "prompt": "If an inner IF lies inside an outer branch that is not entered, what happens to its body?",
+          "choices": [
+            "It executes twice",
+            "It is not executed",
+            "It always executes if its own comparison would be true"
+          ],
+          "answer": 1,
+          "explanation": "Reachability depends on entering the enclosing branch.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-nested-selection-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Use Boolean registered and numeric score. IF (registered) { IF (score >= 80) { result ← \"Advanced\" } ELSE { result ← \"Standard\" } } ELSE { result ← \"Register first\" }. There are no other assignments or outputs.",
+          "steps": [
+            {
+              "prompt": "For registered = false and score = 95, what is result?",
+              "choices": [
+                "\"Register first\"",
+                "\"Advanced\"",
+                "\"Standard\""
+              ],
+              "answer": 0,
+              "explanation": "The outer ELSE runs; the score-based branch is not entered.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "For registered = true and score = 79, what is result?",
+              "choices": [
+                "\"Advanced\"",
+                "\"Standard\"",
+                "\"Register first\""
+              ],
+              "answer": 1,
+              "explanation": "The outer branch is entered, but 79 >= 80 is false.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "For registered = true and score = 80, what is result?",
+              "choices": [
+                "\"Standard\"",
+                "No assignment",
+                "\"Advanced\""
+              ],
+              "answer": 2,
+              "explanation": "Equality satisfies >= 80.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Which test adds a distinct reachable path after testing (true, 79) and (true, 95)?",
+              "choices": [
+                "(false, 95)",
+                "(true, 90)",
+                "(true, 81)"
+              ],
+              "answer": 0,
+              "explanation": "The existing tests cover both inner branches but not the outer ELSE.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "A different program uses IF (NOT registered) {result ← \"Register first\"}; IF (score >= 80) {result ← \"Advanced\"} ELSE {result ← \"Standard\"}. For (false,95), what remains?",
+              "choices": [
+                "Both strings are stored simultaneously",
+                "\"Advanced\"",
+                "\"Register first\""
+              ],
+              "answer": 1,
+              "explanation": "The independent second IF runs and overwrites the registration result.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "In the stated nested program, (false, 95) produces \"Register first\", (true, 79) produces \"Standard\", and (true, 80) produces \"Advanced\". The outer condition controls whether either inner branch is reached. The independent-IF variant instead overwrites the registration result for (false, 95)."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-nested-selection-transfer",
+          "prompt": "Rewrite the policy with three mutually exclusive outcomes using compound conditions or an equivalent nested arrangement. Explain how you prevent score-based assignments for unregistered input.",
+          "sampleAnswer": "One option keeps the original outer registration test. Another uses IF (NOT registered) for the first outcome, with score decisions only inside its ELSE. Separate unguarded score statements are not equivalent because they can overwrite the first result.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-nested-selection-recall",
+          "prompt": "Why can a program with two visibly nested binary decisions have only three reachable paths in this example?",
+          "sampleAnswer": "When registered is false, execution takes the outer ELSE and never enters either inner branch. When registered is true, the inner comparison chooses Advanced or Standard, producing three reachable outcomes total.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-nested-loops",
+      "title": "3.11 Nested iteration and the lifetime of a counter",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Trace counters and accumulated state across nested iterations.",
+        "Explain how reset placement changes later outer passes.",
+        "Distinguish execution count from the value added each execution."
+      ],
+      "frameworkTopics": [
+        "3.8"
+      ],
+      "coveredGapIds": [
+        "CSP-G08"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "A nested loop places a repeated block inside another repeated block. The outer loop can begin a new execution of the inner loop, but the state used by that inner loop must be prepared correctly each time. A counter is not automatically reset merely because execution returns to the top of an enclosing structure. Track assignments as events that change stored values. When i and j are counters, write separate columns for them and another column for the accumulator or output. This prevents counting the initial state as an execution or overlooking an update that makes a stopping condition true."
+        },
+        {
+          "type": "text",
+          "text": "In the AP-style REPEAT UNTIL convention used here, the stopping condition is checked before a possible body execution. If it is already true, the body runs zero times. Therefore j left at its previous final value can make a later inner loop skip entirely. The placement of j ← 1 is part of the algorithm: placing it inside the outer loop resets it for every outer pass; placing it before the outer loop initializes it only once. A statement after the inner loop still runs on that outer pass even when the inner loop does not. Trace control flow rather than assuming each visible loop contributes a fixed multiplier."
+        },
+        {
+          "type": "text",
+          "text": "Nested iteration does not always mean n² work. Two independent loops each running n times produce n × n body executions, but a changing inner bound or an early stopping condition changes that count. A row-based pattern whose inner loop runs i times on outer pass i has 1 + 2 + ... + n executions rather than n². Both counts can have squared growth, but exact counts differ. Distinguish total operations from the value accumulated: adding i each execution produces a different result from adding 1. A good explanation names the invariant, describes when each counter is reset and shows a complete small trace before generalizing to larger input."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-nested-loops-predict",
+          "prompt": "What happens when a REPEAT UNTIL condition is true before its first body execution?",
+          "choices": [
+            "The counter resets automatically",
+            "The body executes zero times",
+            "The body must execute once"
+          ],
+          "answer": 1,
+          "explanation": "The stated AP-style stopping condition is checked before execution.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "stimulus",
+          "stimulus": {
+            "type": "table",
+            "title": "State to track in the correct program",
+            "columns": [
+              "Outer pass",
+              "i during inner loop",
+              "j values that execute",
+              "Count after pass"
+            ],
+            "rows": [
+              [
+                "1",
+                "1",
+                "1",
+                "1"
+              ],
+              [
+                "2",
+                "2",
+                "1, 2",
+                "3"
+              ],
+              [
+                "3",
+                "3",
+                "1, 2, 3",
+                "6"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Trace, compare and justify"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-nested-loops-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Use count ← 0; i ← 1; REPEAT 3 TIMES { j ← 1; REPEAT UNTIL(j > i) { count ← count + 1; j ← j + 1 }; i ← i + 1 }. The inner condition is prechecked. No other statements change count, i or j.",
+          "steps": [
+            {
+              "prompt": "After the first outer pass, what is count?",
+              "choices": [
+                "1",
+                "0",
+                "3"
+              ],
+              "answer": 0,
+              "explanation": "At i=1, j=1 executes once and becomes 2; j>i then stops the inner loop.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "At the start of the second inner loop, what is j?",
+              "choices": [
+                "3",
+                "1",
+                "2"
+              ],
+              "answer": 1,
+              "explanation": "The j ← 1 assignment is inside the outer loop, so it runs again.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "How many inner body executions occur on outer pass i=2?",
+              "choices": [
+                "1",
+                "3",
+                "2"
+              ],
+              "answer": 2,
+              "explanation": "The body runs for j=1 and j=2 before j=3 makes j>2 true.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "What is final count after all three outer passes?",
+              "choices": [
+                "6",
+                "9",
+                "3"
+              ],
+              "answer": 0,
+              "explanation": "The three passes contribute 1, 2 and 3 executions.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Now move j ← 1 before the outer loop and remove its inner reset. What is final count?",
+              "choices": [
+                "1",
+                "3",
+                "6"
+              ],
+              "answer": 1,
+              "explanation": "j persists: pass 1 executes at j=1, pass 2 at j=2, pass 3 at j=3, for one new increment per pass.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "With j reset inside each outer pass, the inner body executes 1, 2 and 3 times, so final count is 6. Moving j’s initialization outside the outer loop leaves it at its previous value and produces final count 3 in this specific program."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-nested-loops-transfer",
+          "prompt": "Keep the correct reset but change count ← count + 1 to count ← count + i. Find the final count and explain why the total number of inner executions is unchanged.",
+          "sampleAnswer": "The body still executes 1+2+3=6 times. Its additions are 1 once, 2 twice and 3 three times, so count becomes 1+4+9=14. Changing the accumulated value does not change the loop conditions or update schedule.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-nested-loops-recall",
+          "prompt": "A correctly reset outer loop has passes i=1 through 4, and its inner body runs i times adding 1 each time. What is final count, starting from 0?",
+          "sampleAnswer": "Final count is 1+2+3+4=10. Each outer pass resets its inner state and adds the number of executions specified by that pass, rather than always adding four.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-robot-grid",
+      "title": "3.12 Robot grids: position, heading and safe movement",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Track coordinates separately from orientation.",
+        "Use relative CAN_MOVE probes and official blocked-movement termination rules.",
+        "Trace and test an original route using sequence, turns and repetition."
+      ],
+      "frameworkTopics": [
+        "3.8",
+        "3.9"
+      ],
+      "coveredGapIds": [
+        "CSP-G09"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "A robot-grid representation separates location from heading. Location is a square such as (1,1); heading is the direction the robot faces. In this lesson, x increases to the right, y increases upward, and both coordinates start at 1. MOVE_FORWARD attempts to move one square in the current heading. ROTATE_LEFT turns in place 90 degrees counterclockwise, and ROTATE_RIGHT turns in place 90 degrees clockwise. A rotation changes heading without changing coordinates. Never treat a right turn as a move to the square on the robot’s right: movement requires a separate command."
+        },
+        {
+          "type": "text",
+          "text": "CAN_MOVE(direction) is a Boolean probe whose direction is relative to the robot’s current heading. It reports whether a move in that relative direction could enter an open square inside the grid. Evaluating the probe does not itself move or rotate the robot. In the official reference-style rules used here, attempting MOVE_FORWARD into a blocked square or beyond the grid keeps the robot in its current square and terminates the program. It does not simply wait and continue to the next instruction. A false CAN_MOVE result does not terminate the program; it supplies information that can be used in a conditional to avoid an invalid move."
+        },
+        {
+          "type": "text",
+          "text": "Trace every executed command using a row containing command, coordinates and heading. When a movement is blocked, mark termination and do not execute later commands. For a repeated movement block, determine whether the path stays open for every repetition, not just the first step. A route that reaches the goal is different from a general maze-solving algorithm: a short fixed command sequence may solve one supplied grid without solving every possible arrangement. Explain the topology, initial heading and goal that make a result valid. This representation exercises the same sequence, selection and iteration ideas as a numeric program, but its state is spatial rather than a single accumulator."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-robot-grid-predict",
+          "prompt": "What changes when a robot executes ROTATE_RIGHT?",
+          "choices": [
+            "Both coordinates always increase",
+            "Heading changes; position stays the same",
+            "Position moves one square right"
+          ],
+          "answer": 1,
+          "explanation": "A rotation is an in-place 90-degree turn.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "stimulus",
+          "stimulus": {
+            "type": "table",
+            "title": "Original 4×4 grid; North is toward increasing y",
+            "columns": [
+              "y \\ x",
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "rows": [
+              [
+                "4",
+                "open",
+                "open",
+                "open",
+                "open"
+              ],
+              [
+                "3",
+                "open",
+                "open",
+                "open",
+                "GOAL"
+              ],
+              [
+                "2",
+                "open",
+                "BLOCKED",
+                "open",
+                "open"
+              ],
+              [
+                "1",
+                "START ↑",
+                "BLOCKED",
+                "open",
+                "open"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Build and test the route"
+        },
+        {
+          "type": "robotLab",
+          "id": "csp-gap-robot-grid-lab",
+          "title": "Build and test the route",
+          "prompt": "Reach (4,3) from (1,1), North. Compare safe probes with an actual blocked move. A blocked move stays in place and terminates execution; reset to try again.",
+          "grid": {
+            "width": 4,
+            "height": 4,
+            "blocked": [
+              [
+                2,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ]
+          },
+          "start": {
+            "x": 1,
+            "y": 1,
+            "heading": "N"
+          },
+          "goal": {
+            "x": 4,
+            "y": 3
+          },
+          "commands": [
+            "MOVE_FORWARD",
+            "MOVE_FORWARD",
+            "ROTATE_RIGHT",
+            "MOVE_FORWARD",
+            "MOVE_FORWARD",
+            "MOVE_FORWARD"
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Trace, compare and justify"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-robot-grid-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "A 4×4 grid uses x right and y up. Blocked squares are (2,1) and (2,2); all others are open. Start at (1,1), heading North. Goal is (4,3). Execute MOVE_FORWARD; MOVE_FORWARD; ROTATE_RIGHT; REPEAT 3 TIMES { MOVE_FORWARD }. A blocked MOVE_FORWARD stays in place and terminates the program.",
+          "steps": [
+            {
+              "prompt": "After the first two MOVE_FORWARD commands, what is the state?",
+              "choices": [
+                "(1,3), North",
+                "(3,1), North",
+                "(1,2), East"
+              ],
+              "answer": 0,
+              "explanation": "Facing North increases y by 1 for each move, reaching (1,3).",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After ROTATE_RIGHT, what is the state?",
+              "choices": [
+                "(1,3), West",
+                "(1,3), East",
+                "(2,3), East"
+              ],
+              "answer": 1,
+              "explanation": "North rotated clockwise becomes East; location does not change.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After the three repeated moves, what is the final state?",
+              "choices": [
+                "(4,4), North",
+                "(3,3), East",
+                "(4,3), East"
+              ],
+              "answer": 2,
+              "explanation": "From (1,3), three open eastward moves reach x=4.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Reset to the start (1,1), North. What is CAN_MOVE(right)?",
+              "choices": [
+                "false; the robot remains at (1,1), North and the probe does not halt execution",
+                "true because turning is always possible",
+                "false and the program immediately terminates"
+              ],
+              "answer": 0,
+              "explanation": "Right relative to North is East, whose neighboring square (2,1) is blocked. A probe does not attempt the move.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "From that reset start, execute ROTATE_RIGHT; MOVE_FORWARD; ROTATE_LEFT. What happens?",
+              "choices": [
+                "It enters blocked square (2,1)",
+                "It stays at (1,1), East and terminates before ROTATE_LEFT",
+                "It stays at (1,1), then faces North"
+              ],
+              "answer": 1,
+              "explanation": "The forward move is blocked, so the remaining turn is not executed.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "The valid route goes from (1,1), North to (1,3), turns East and reaches (4,3). A false CAN_MOVE(right) probe at the start does not move or halt the robot. Actually turning East and attempting the blocked move stays at (1,1), East and terminates before the next command."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-robot-grid-transfer",
+          "prompt": "Replace the three eastward MOVE_FORWARD commands on the valid route with REPEAT UNTIL(x = 4) { MOVE_FORWARD }, assuming x is supplied by this teaching environment. Does the replacement solve every grid? Explain the limits.",
+          "sampleAnswer": "It reaches the same goal on this stated route because the robot starts that segment at (1,3), East and every square through (4,3) is open. A different row, heading or obstacle arrangement can block movement or invalidate the target condition. Coordinate access is a supplied teaching feature here, not a claim that the AP robot reference commands include a built-in x variable.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-robot-grid-recall",
+          "prompt": "From (3,3), heading West in this grid, execute ROTATE_LEFT then MOVE_FORWARD. Give the state and explain why the move is valid.",
+          "sampleAnswer": "West rotated left becomes South. The robot moves to (3,2), heading South; that square is inside the grid and is not one of the two blocked squares.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-construct-traversal",
+      "title": "3.13 Constructing a traversal with a parameter and a no-match contract",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Maintain a conditional minimum invariant with an explicit no-match outcome.",
+        "Use a parameter to change eligibility without duplicating a traversal.",
+        "Write and test a complete count procedure with boundary and empty cases."
+      ],
+      "frameworkTopics": [
+        "3.9",
+        "3.10",
+        "3.13"
+      ],
+      "coveredGapIds": [
+        "CSP-G10",
+        "CSP-G13"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "Constructing an algorithm begins with a contract, not with copying a familiar loop. Specify the accepted input, the desired result and what happens when no result exists. This lesson asks for the smallest list value that is at least a supplied floor. The list can be empty, order does not matter for the result, and repeated values are allowed. If no value qualifies, the procedure returns the string \"none\" rather than pretending that zero was observed. This explicit result convention lets the caller distinguish a real zero from no match. A different program could choose another convention, but its caller must know that choice."
+        },
+        {
+          "type": "text",
+          "text": "A traversal examines each relevant element and preserves information needed for later decisions. Here found records whether a qualifying value has been seen, while best stores the smallest qualifying value found so far when found is true. The first eligible value initializes best; later eligible values replace best only when they are smaller. This avoids an unjustified initial value such as zero, which would defeat a minimum search through all-positive data. The central invariant is conditional: after each examined element, if found is true, best is the minimum of the qualifying elements examined so far. Before the first match, best’s temporary zero has no meaning as a result."
+        },
+        {
+          "type": "text",
+          "text": "A parameter makes the same algorithm useful for different lists and thresholds. Changing floor changes which values qualify without rewriting the traversal. The list manages a collection whose size can vary; the procedure hides the repeated selection and comparison behind a contract. To develop confidence, test empty input, no matches, one match, repeated minima, a true zero and values exactly at the threshold. A complete explanation connects sequence, selection and iteration to the result instead of merely naming those structures. An original practice procedure is a learning exercise, not a ready-made official performance-task submission; explain your own decisions and follow the rules governing any actual assessment."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-construct-traversal-predict",
+          "prompt": "Why is best ← 0 alone unsafe for finding a minimum in an all-positive nonempty list?",
+          "choices": [
+            "Positive values cannot be compared",
+            "No actual value may be smaller than zero, leaving a result not in the list",
+            "Zero is always the smallest valid list value"
+          ],
+          "answer": 1,
+          "explanation": "Initialization must reflect actual eligible input or a justified sentinel convention.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "stimulus",
+          "stimulus": {
+            "type": "table",
+            "title": "Trace the conditional minimum invariant",
+            "columns": [
+              "x examined",
+              "Eligible x >= −3?",
+              "found after step",
+              "best when found"
+            ],
+            "rows": [
+              [
+                "−5",
+                "No",
+                "false",
+                "not yet meaningful"
+              ],
+              [
+                "7",
+                "Yes",
+                "true",
+                "7"
+              ],
+              [
+                "3",
+                "Yes",
+                "true",
+                "3"
+              ],
+              [
+                "7",
+                "Yes",
+                "true",
+                "3"
+              ],
+              [
+                "−2",
+                "Yes",
+                "true",
+                "−2"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Trace, compare and justify"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-construct-traversal-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Contract: smallestAtOrAbove(values, floor) returns the smallest value x with x >= floor, or string \"none\" if no value qualifies. Algorithm: found ← false; best ← 0; FOR EACH x IN values { IF(x >= floor) { IF(NOT found) { best ← x; found ← true } ELSE { IF(x < best) { best ← x } } } }; IF(found) { RETURN best } ELSE { RETURN \"none\" }. Trace values = [−5,7,3,7,−2], floor = −3.",
+          "steps": [
+            {
+              "prompt": "After examining −5, what is found?",
+              "choices": [
+                "false",
+                "true",
+                "−5"
+              ],
+              "answer": 0,
+              "explanation": "−5 < −3, so the value is not eligible and initialization of a match has not occurred.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After examining the first 7, what are found and best?",
+              "choices": [
+                "true and 0",
+                "true and 7",
+                "false and 0"
+              ],
+              "answer": 1,
+              "explanation": "The first qualifying element sets best to 7 and found to true.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After examining 3, what is best?",
+              "choices": [
+                "7",
+                "0",
+                "3"
+              ],
+              "answer": 2,
+              "explanation": "3 qualifies and is less than the previous best 7.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After examining the next 7, what is best?",
+              "choices": [
+                "3",
+                "7",
+                "10"
+              ],
+              "answer": 0,
+              "explanation": "7 qualifies but is not smaller than 3, so best stays unchanged.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After the full traversal, what is returned?",
+              "choices": [
+                "\"none\"",
+                "−2",
+                "3"
+              ],
+              "answer": 1,
+              "explanation": "−2 qualifies because it is at least −3, and it is smaller than 3.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "For [−5, 7, 3, 7, −2] with floor −3, the qualifying values are 7, 3, 7 and −2, and the procedure returns −2. The found flag distinguishes the first eligible value from the temporary initialization, while best tracks the smallest qualifying value examined so far."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-construct-traversal-transfer",
+          "prompt": "Write your own complete countAtOrAbove(values, floor) procedure returning the number of qualifying entries. Include initialization, sequence, selection, iteration and RETURN. Give an empty-input test and an equality-boundary test.",
+          "sampleAnswer": "One solution is PROCEDURE countAtOrAbove(values,floor) { count ← 0; FOR EACH x IN values { IF(x >= floor) { count ← count + 1 } }; RETURN count }. For([],4), return 0. For([3,4,4,8],4), return 3; this checks equality and repeated values. The list permits variable-length input and floor changes the selection rule without duplicating the procedure.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-construct-traversal-recall",
+          "prompt": "Using smallestAtOrAbove, what is returned for [−9,−4,−7] with floor = −8, and for an empty list with the same floor? Explain the no-match rule.",
+          "sampleAnswer": "Eligible values are −4 and −7, so the minimum is −7. An empty list returns \"none\" because found remains false; it does not return the temporary best value 0.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-efficiency-categories",
+      "title": "3.14 Growth tables and reasonable-time classifications",
+      "domain": "CSP: Algorithms & Programming",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Compare linear, polynomial, exponential and factorial operation counts.",
+        "Apply the framework’s reasonable/unreasonable-time growth categories.",
+        "Distinguish practical heuristics from guarantees and undecidability."
+      ],
+      "frameworkTopics": [
+        "3.17"
+      ],
+      "coveredGapIds": [
+        "CSP-G11"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "Algorithmic efficiency describes how the work needed to solve a problem grows with input size. A count of selected operations provides a model for that work, not a universal stopwatch reading. An algorithm that checks every item once may have a count proportional to n, while checking every ordered pair can yield n squared work. Hardware speed, implementation details and constants affect elapsed time, but they do not change the growth pattern represented by the algorithm. Always state the operation being counted and the input variable before comparing formulas. Two algorithms can solve the same task correctly yet have very different resource demands."
+        },
+        {
+          "type": "text",
+          "text": "The current course framework describes polynomial-or-lower growth, including constant, logarithmic, linear and squared examples, as reasonable time. Exponential and factorial growth are examples of unreasonable time in this framework classification. These are statements about how demands grow, not claims that every polynomial program finishes instantly or every exponential program is unusable on a tiny input. For example, n squared grows from 16 to 64 when n doubles from 4 to 8, while 2 to the n grows from 16 to 256. A large enough input can make even a reasonable-time algorithm costly; the category is not a promise that a particular device has sufficient memory or time."
+        },
+        {
+          "type": "text",
+          "text": "Factorial n means the product of the positive integers from 1 through n. Counts such as n factorial grow rapidly because the next input size multiplies the count by another increasing factor. Comparing small tables reveals different growth mechanisms without requiring formal asymptotic notation. If exact optimization becomes impractical, a heuristic can provide a useful solution without guaranteeing the optimum for every permitted input. That is different from undecidability, which concerns the absence of a generally correct algorithm for a decision problem, not merely high resource use. Faster hardware or parallel work can help some computations but does not automatically erase an exponential pattern or turn an undecidable general problem into a decidable one."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-efficiency-categories-predict",
+          "prompt": "Which classification follows the course’s growth convention?",
+          "choices": [
+            "2^n is always reasonable because n can be small",
+            "n² is polynomial reasonable-time growth",
+            "Every n² run is instantaneous"
+          ],
+          "answer": 1,
+          "explanation": "The category concerns polynomial growth, not a fixed timing guarantee.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "stimulus",
+          "stimulus": {
+            "type": "table",
+            "title": "Original calculated operation-count comparison",
+            "columns": [
+              "n",
+              "n",
+              "n²",
+              "2^n",
+              "n!"
+            ],
+            "rows": [
+              [
+                "4",
+                "4",
+                "16",
+                "16",
+                "24"
+              ],
+              [
+                "8",
+                "8",
+                "64",
+                "256",
+                "40,320"
+              ],
+              [
+                "12",
+                "12",
+                "144",
+                "4,096",
+                "479,001,600"
+              ]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "text": "Trace, compare and justify"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-efficiency-categories-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Four hypothetical exact algorithms have selected operation counts n, n², 2^n and n!. All are correctly implemented for their stated tasks. Compare growth counts, not measured hardware time. Use the supplied original count table.",
+          "steps": [
+            {
+              "prompt": "For n=8, which count is 64?",
+              "choices": [
+                "n²",
+                "2^n",
+                "n!"
+              ],
+              "answer": 0,
+              "explanation": "8²=64; 2^8=256 and 8!=40,320.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Which pair belongs to polynomial-or-lower reasonable-time examples?",
+              "choices": [
+                "n² and n!",
+                "n and n²",
+                "2^n and n!"
+              ],
+              "answer": 1,
+              "explanation": "Linear and squared growth are polynomial; exponential and factorial are not in that category.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "When n doubles from 4 to 8, by what factor does n² increase?",
+              "choices": [
+                "2",
+                "16",
+                "4"
+              ],
+              "answer": 2,
+              "explanation": "64/16=4.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "When n changes from 8 to 9, by what factor does 2^n increase?",
+              "choices": [
+                "2",
+                "9",
+                "81"
+              ],
+              "answer": 0,
+              "explanation": "2^9/2^8=2; each added input unit multiplies this count by 2.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "An exact optimization algorithm is too expensive, so a heuristic is used. What must be acknowledged?",
+              "choices": [
+                "It guarantees the same optimum with no assumptions",
+                "The heuristic can miss the exact optimum on some allowed inputs",
+                "It makes the general problem undecidable"
+              ],
+              "answer": 1,
+              "explanation": "A useful shortcut does not carry the exact-optimization guarantee merely because it is fast.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "In the count table, n and n² are polynomial-or-lower reasonable-time examples, while 2^n and n! are unreasonable-time examples in the framework’s growth classification. Doubling n from 4 to 8 multiplies n² by 4; increasing n from 8 to 9 multiplies 2^n by 2. A heuristic does not guarantee the exact optimum."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-efficiency-categories-transfer",
+          "prompt": "A programmer reports that an exponential algorithm finishes quickly for n=4 and concludes that it has reasonable-time growth. Explain the error and a better evaluation.",
+          "sampleAnswer": "At n=4, 2^n is only 16, so a quick run is compatible with exponential growth. Examine how the count changes over increasing n and keep the hardware timing claim separate from the framework classification. A small test says little about large-input scalability.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-efficiency-categories-recall",
+          "prompt": "For n! growth, what is the factor change from n=5 to n=6? Does that factor remain constant for every subsequent step?",
+          "sampleAnswer": "6!/5!=6. The next ratio 7!/6! is 7, so the multiplier increases rather than remaining a fixed factor. Factorial is an unreasonable-time growth example in the course framework.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-gap-event-state",
+      "title": "1.4 Event-driven programs and shared state",
+      "domain": "CSP: Creative Development",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish startup initialization, handler definition and event activation.",
+        "Trace shared state across repeated and differently ordered events.",
+        "Explain why resetting inside a handler changes accumulation."
+      ],
+      "frameworkTopics": [
+        "1.2"
+      ],
+      "coveredGapIds": [
+        "CSP-G01"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Build the foundations"
+        },
+        {
+          "type": "text",
+          "text": "An event is an occurrence to which a program can respond, such as a button press, a sensor signal or a received message. An event handler describes instructions to execute in response to a specified event. Defining a handler does not by itself mean that its body immediately runs. In a simple interface program, startup instructions can initialize state and register handlers, after which the environment supplies events. To predict behavior, distinguish the instructions that run at startup from those triggered later. The existence of an input control does not establish which handler it activates; the mapping must be specified."
+        },
+        {
+          "type": "text",
+          "text": "Event-driven programs can preserve shared state between events. If a counter is initialized once at startup, the next button press may use the value left by the previous press. Moving initialization into a handler changes that behavior because every activation can reset the value. Event order therefore matters when handlers change the same variable. An Add event followed by Reset need not leave the same final state as Reset followed by Add. Trace one event completely, record the new state and displayed output, then use that state as the next event’s input. This lesson assumes events are handled one at a time in the stated order; it does not import unspecified concurrent execution."
+        },
+        {
+          "type": "text",
+          "text": "A handler can call a separate procedure, letting multiple events reuse an operation without duplicating its implementation. The handler’s role is responding to the trigger, while the procedure’s contract describes the reusable computation. A familiar button label alone does not determine either behavior. Test repeated events, reversed event order and a restart that reruns initialization. For real interfaces, also consider whether the visible display is updated consistently with internal state, rather than assuming the two always match. When practicing assessed programming explanations, distinguish language structures such as event handlers from a student-developed procedure; an event handler is not automatically evidence of the separate procedural abstraction required by an official task. These examples are original learning practice and do not replace official submission rules."
+        },
+        {
+          "type": "heading",
+          "text": "Predict before the trace"
+        },
+        {
+          "type": "prediction",
+          "id": "csp-gap-event-state-predict",
+          "prompt": "A button handler is defined during startup, but its button has not been activated. What must be assumed?",
+          "choices": [
+            "Every handler must run in alphabetical order",
+            "Its body has not run merely because it was defined",
+            "Its body must already have run once"
+          ],
+          "answer": 1,
+          "explanation": "The specified event, not the definition alone, triggers the handler body.",
+          "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-gap-event-state-guide",
+          "title": "Trace, compare and justify",
+          "scenario": "Startup sets count ← 1 and defines two handlers. On Add: count ← count + 2; DISPLAY(count). On Reset: count ← 0; DISPLAY(count). Startup does not otherwise display a value. Events execute completely one at a time in the stated order. Trace Add, Add, Reset.",
+          "steps": [
+            {
+              "prompt": "Immediately after startup, before any event, what is count?",
+              "choices": [
+                "1",
+                "3",
+                "0"
+              ],
+              "answer": 0,
+              "explanation": "Only initialization has run; defining Add does not activate it.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After the first Add event, what is displayed?",
+              "choices": [
+                "2",
+                "3",
+                "1"
+              ],
+              "answer": 1,
+              "explanation": "The handler uses current count 1, adds 2 and displays 3.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After the second Add event, what is displayed?",
+              "choices": [
+                "3",
+                "4",
+                "5"
+              ],
+              "answer": 2,
+              "explanation": "State persists between events, so the second Add uses count 3.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "After Reset, what is count and the displayed value?",
+              "choices": [
+                "Both are 0",
+                "Both are 1",
+                "Count 0 but the displayed value must stay 5"
+              ],
+              "answer": 0,
+              "explanation": "Reset explicitly sets count 0 and then displays it.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            },
+            {
+              "prompt": "Starting from count 1 in separate fresh runs, compare Reset→Add with Add→Reset. What are the final counts?",
+              "choices": [
+                "Both 3",
+                "2 and 0, respectively",
+                "0 and 2, respectively"
+              ],
+              "answer": 1,
+              "explanation": "Reset then Add gives 0+2=2; Add then Reset ends at 0.",
+              "hint": "Trace the stated rules one step at a time, using current values and the specified conditions."
+            }
+          ],
+          "takeaway": "Startup initializes count to 1 without activating either handler. The event sequence Add, Add, Reset displays 3, 5 and 0. Reset→Add ends at 2, while Add→Reset ends at 0 because each handler uses and changes the current shared state."
+        },
+        {
+          "type": "heading",
+          "text": "Connect and transfer"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-gap-event-state-transfer",
+          "prompt": "A programmer moves count ← 1 from startup to the first line of the Add handler. What changes after two Add events, and how would you test whether shared state is accumulating?",
+          "sampleAnswer": "Each Add now resets count to 1 before adding 2, so it displays 3 every time rather than 3 then 5. Activate Add repeatedly in one run and compare outputs; restarting the app between taps would hide the distinction because startup also resets state.",
+          "checklist": [
+            "Apply the exact stated rules.",
+            "Explain the key intermediate state or counterexample.",
+            "State the conditions under which the conclusion holds."
+          ]
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve without the worked steps"
+        },
+        {
+          "type": "recall",
+          "id": "csp-gap-event-state-recall",
+          "prompt": "Why can two event orders produce different outputs even though the handlers are unchanged?",
+          "sampleAnswer": "Handlers can read and change shared state. The state produced by the first event becomes input to the next, so Reset→Add and Add→Reset can produce different final values.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-finite-precision",
+      "title": "2.4 Finite precision: rounding before arithmetic",
+      "domain": "CSP: Data",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Trace a specified finite-precision encoding and locate the first rounding error.",
+        "Distinguish rounding from overflow and compare rounding policies."
+      ],
+      "frameworkTopics": [
+        "2.1"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Finite precision: rounding before arithmetic"
+        },
+        {
+          "type": "text",
+          "text": "A digital representation provides a finite set of stored patterns. The values a system can represent depend on its encoding rule, not merely on the number of digits visible on a screen. A measurement or fraction may fall between representable values and therefore need an approximation. Rounding error is the difference introduced when the stored value differs from the ideal value. It can exist even when the calculation follows every instruction correctly."
+        },
+        {
+          "type": "text",
+          "text": "This lesson uses a deliberately simple decimal teaching model rather than a description of a processor’s internal format. The model stores nonnegative values from 0.0 through 9.9 in increments of 0.1. Every incoming value is rounded to the nearest tenth; an exact halfway case rounds upward. An addition result is also rounded to the nearest tenth before storage. These rules make the precision explicit. They do not authorize assumptions about a real language’s binary representation, and no binary floating-point layout is needed."
+        },
+        {
+          "type": "text",
+          "text": "For inputs 0.14 and 0.14, each input is stored as 0.1. Adding the stored values produces 0.2. The ideal sum of the original inputs is 0.28, so the stored result is 0.08 below that ideal. If a different system added the original inputs first and rounded only the final 0.28, it would store 0.3. The order of approximation and arithmetic therefore matters. Always trace when rounding occurs instead of applying one final rounding step to a model that rounds earlier."
+        },
+        {
+          "type": "text",
+          "text": "Overflow is a different problem: a result lies outside the representable range. In this model, 9.9 plus 0.1 produces 10.0, which is not a permitted stored value. The rules do not specify what the system does next, so report overflow rather than inventing wraparound or clipping. More precision can reduce some rounding effects, while a larger range can address some overflow cases; the two goals are not identical. When evaluating a computing result, identify the ideal calculation, the encoding policy and the first point where information is lost."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-finite-precision-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original finite-precision model: allowed stored values are 0.0, 0.1, …, 9.9. Each incoming value rounds to the nearest tenth, with exact halfway cases rounded upward. Addition uses the stored operands and rounds its result before storage. Overflow behavior is unspecified. Inputs for the main trace are 0.14 and 0.14.",
+          "steps": [
+            {
+              "prompt": "What is the first stored operand?",
+              "choices": [
+                "0.1",
+                "0.14",
+                "0.2"
+              ],
+              "answer": 0,
+              "explanation": "0.14 is nearer to 0.1 than 0.2; the input is rounded before addition.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What does adding the two stored operands produce?",
+              "choices": [
+                "0.28",
+                "0.2",
+                "0.3"
+              ],
+              "answer": 1,
+              "explanation": "Both operands are 0.1, so their sum is 0.2 and is already representable.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "How far below the ideal original-input sum is the result?",
+              "choices": [
+                "0.02",
+                "0.14",
+                "0.08"
+              ],
+              "answer": 2,
+              "explanation": "The ideal is 0.28; 0.28 minus 0.20 equals 0.08.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What would round-only-at-the-end store for 0.14 + 0.14?",
+              "choices": [
+                "0.3",
+                "0.2",
+                "0.28"
+              ],
+              "answer": 0,
+              "explanation": "That different policy adds to 0.28 first and rounds it to 0.3.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What can be concluded about storing 9.9 + 0.1?",
+              "choices": [
+                "It necessarily wraps to 0.0.",
+                "It overflows; the subsequent behavior is not supplied.",
+                "It is merely the same rounding issue as 0.14."
+              ],
+              "answer": 1,
+              "explanation": "10.0 exceeds the stated range. No handling policy is specified.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "Each 0.14 input rounds to 0.1 before addition, so the model stores 0.2 rather than the ideal sum 0.28. Final-only rounding would instead store 0.3. A result of 10.0 exceeds the stated range; its handling is unspecified."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-finite-precision-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "Under the same model, compare storing 0.15 and 0.15 before adding with adding those original inputs before rounding. Explain why this example does not establish that one policy always gives a larger result.",
+          "sampleAnswer": "Each 0.15 rounds upward to 0.2, so early rounding gives 0.4. The ideal sum is 0.30, which final-only rounding stores as 0.3. Here early rounding is larger; in the 0.14 example it was smaller. The direction depends on the inputs and rule.",
+          "checklist": [
+            "Trace a specified finite-precision encoding and locate the first rounding error.",
+            "Distinguish rounding from overflow and compare rounding policies."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-finite-precision-recall",
+          "prompt": "How do rounding and overflow differ?",
+          "sampleAnswer": "Rounding approximates a value within the model’s range because available stored values are discrete. Overflow occurs when a value exceeds the supported range. Trace the supplied handling rules; do not assume wraparound.",
+          "checklist": [
+            "Trace a specified finite-precision encoding and locate the first rounding error.",
+            "Distinguish rounding from overflow and compare rounding policies."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-metadata-queries",
+      "title": "2.5 Metadata: query the description without changing the content",
+      "domain": "CSP: Data",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Choose primary data or metadata according to the query.",
+        "Explain why editing descriptive metadata need not alter underlying media."
+      ],
+      "frameworkTopics": [
+        "2.3"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Metadata: query the description without changing the content"
+        },
+        {
+          "type": "text",
+          "text": "Metadata is data about data. It can describe such properties as a file’s capture time, author, location, size or format. Primary data is the content being represented, such as an image’s pixel values or the sound samples in a recording. The distinction depends on the object and task: a timestamp can be metadata about a photograph while becoming the primary field analyzed in a study of recording times. Metadata is not inherently less useful than content, and it is not always harmless."
+        },
+        {
+          "type": "text",
+          "text": "Start with a query before choosing fields. To find photographs recorded after noon, inspect capture-time metadata if that field is available and trustworthy. To determine which photographs show a red bicycle, examine image content or an appropriate content-derived description. A timestamp does not establish what the pixels depict. Conversely, looking at a photograph may not reveal its exact recorded capture time. Some queries require combining content with metadata rather than choosing one universally superior source."
+        },
+        {
+          "type": "text",
+          "text": "Editing metadata need not edit the primary content. A tool can remove a location tag while preserving every pixel value in an image. That changes which location queries can be answered directly from the file, not the scene visible in the pixels. It also does not guarantee anonymity: a street sign or distinctive landmark may reveal location from the content itself, and other copies or records may preserve the removed field. Explain the particular information changed instead of treating one deletion as proof that every identifying clue vanished."
+        },
+        {
+          "type": "text",
+          "text": "Metadata quality must also be evaluated. A device clock may be wrong, a field may be missing or software may rewrite descriptive information. Recorded time is evidence of a stored description, not an infallible witness to an event. Cleaning a dataset should preserve the difference between an original field and a corrected estimate, documenting the basis for any change. Using metadata well means understanding its meaning, provenance and limits, then choosing fields that match the question without claiming that the file contains information never recorded."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-metadata-queries-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original dataset model: Photo A has pixels showing a red bicycle, recorded capture time 09:10 and location tag Park. Photo B shows a blue bench, time 14:20 and tag Square. Photo C shows a red bicycle, time 15:05 and no location tag. A tool removes B’s location tag while leaving its pixels and time unchanged. Assume recorded times are accurate for the main query.",
+          "steps": [
+            {
+              "prompt": "Which field answers which photos were captured after noon?",
+              "choices": [
+                "Recorded capture time.",
+                "Location tag alone.",
+                "Whether a bicycle is red."
+              ],
+              "answer": 0,
+              "explanation": "The query concerns time, which is supplied as metadata.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which photos meet that query?",
+              "choices": [
+                "A and C",
+                "B and C",
+                "A and B"
+              ],
+              "answer": 1,
+              "explanation": "14:20 and 15:05 are after noon; 09:10 is not.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What answers which photos show a red bicycle?",
+              "choices": [
+                "Time alone.",
+                "The filename regardless of its rule.",
+                "The image content: A and C."
+              ],
+              "answer": 2,
+              "explanation": "The pixels supply the depicted objects; the metadata fields do not encode their colors.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "After the tool’s edit, what is definitely unchanged in B?",
+              "choices": [
+                "The pixels and recorded capture time.",
+                "Every possible clue to location is removed.",
+                "The scene becomes a different color."
+              ],
+              "answer": 0,
+              "explanation": "The tool’s contract explicitly preserves those two components.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What if a clock error is later discovered?",
+              "choices": [
+                "Metadata is never useful again.",
+                "Reevaluate time-based conclusions and document corrections.",
+                "Change pixels to repair the clock."
+              ],
+              "answer": 1,
+              "explanation": "The reliability of a field affects queries based on it; it does not require changing image content.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "B and C meet the after-noon query using recorded time; A and C show a red bicycle in their pixels. Removing B’s location tag preserves its supplied pixels and time. Metadata and content answer different questions, and a field’s reliability limits conclusions drawn from it."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-metadata-queries-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "An image loses its GPS tag but still contains a readable street sign. Explain the change in query capability and the remaining privacy limit.",
+          "sampleAnswer": "A direct GPS-field query is no longer available from that edited file, but the street sign may still support a location inference from the pixels. Removing one metadata field changes that field, not every route to identifying information.",
+          "checklist": [
+            "Choose primary data or metadata according to the query.",
+            "Explain why editing descriptive metadata need not alter underlying media."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-metadata-queries-recall",
+          "prompt": "Why can metadata removal preserve primary data while reducing some information?",
+          "sampleAnswer": "The file can store descriptive fields separately from its media content. Removing a field can eliminate a direct query about that description without altering pixel or sound values; other content-based inferences may remain.",
+          "checklist": [
+            "Choose primary data or metadata according to the query.",
+            "Explain why editing descriptive metadata need not alter underlying media."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-data-pipeline",
+      "title": "2.6 Combine, normalize and summarize data with a purpose",
+      "domain": "CSP: Data",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Normalize compatible fields before joining records.",
+        "Distinguish row counts from sums and choose a display for a stated question."
+      ],
+      "frameworkTopics": [
+        "2.4"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Combine, normalize and summarize data with a purpose"
+        },
+        {
+          "type": "text",
+          "text": "A data analysis pipeline transforms collected records into evidence for a question. The stages may include cleaning, combining, filtering, grouping and displaying, but their order depends on the task. Start by defining what one row represents and what the result should measure. A row could represent a person, a session or a transaction; counting rows has different meanings in each case. A computation can be numerically correct while answering the wrong question."
+        },
+        {
+          "type": "text",
+          "text": "Combining sources requires compatible keys and meanings. If one file uses room code R1 and another uses r1 with surrounding spaces, a documented normalization rule can make matching possible. Removing surrounding spaces and converting letters to uppercase is appropriate only when the dataset’s convention says those differences do not distinguish rooms. Do not automatically merge similar names or erase meaningful distinctions. A join also needs a rule for duplicates and missing matches; otherwise one session could be counted more than once or silently lost."
+        },
+        {
+          "type": "text",
+          "text": "After matching, preserve units and definitions. Minutes and hours cannot be summed as if they were the same unit. A count of sessions is not total time, and neither alone measures learning. In the model below, every row is one distinct completed session, durations are minutes and room codes identify the same rooms after the specified normalization. Grouping by room then permits both a session count and a sum of durations. Those summaries answer different questions and should receive different labels."
+        },
+        {
+          "type": "text",
+          "text": "Choose a display according to the comparison. A bar chart can compare total minutes across rooms, while a time-series line chart requires meaningful ordered time observations. A table is useful when readers need exact values for more than one measure. Titles, units and denominators should remain visible. An observed association, such as one room having more minutes, does not establish that the room caused better study. Explain what was measured, which records were included and what additional evidence would be required for a broader claim. Documentation makes the analysis reproducible rather than merely plausible."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-data-pipeline-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original complete data model. Room file: R1 → Cedar; R2 → Birch. Session file, one distinct completed session per row: s1, room \" r1 \", 20 minutes; s2, room \"R1\", 30 minutes; s3, room \"r2\", 15 minutes. The code convention ignores letter case and surrounding spaces. Normalize by trimming spaces and uppercasing. No duplicate session IDs or missing room matches occur.",
+          "steps": [
+            {
+              "prompt": "What does normalizing \" r1 \" produce?",
+              "choices": [
+                "R1",
+                "Cedar before any lookup",
+                "R2"
+              ],
+              "answer": 0,
+              "explanation": "Trimming and uppercasing produces the key R1; the room name comes from a separate lookup.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which room does s3 match?",
+              "choices": [
+                "Cedar",
+                "Birch",
+                "No room because lowercase is always a different code."
+              ],
+              "answer": 1,
+              "explanation": "r2 normalizes to R2, which maps to Birch.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What is Cedar’s total duration?",
+              "choices": [
+                "2 minutes",
+                "30 minutes",
+                "50 minutes"
+              ],
+              "answer": 2,
+              "explanation": "The two Cedar sessions contribute 20 + 30 = 50 minutes.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "How many Cedar sessions are recorded?",
+              "choices": [
+                "2",
+                "50",
+                "3"
+              ],
+              "answer": 0,
+              "explanation": "Count rows s1 and s2; the duration sum is a separate measure.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which display best answers which room has more recorded total minutes?",
+              "choices": [
+                "An unlabeled drawing.",
+                "A bar chart labeled Cedar 50 minutes and Birch 15 minutes.",
+                "A claim that Cedar necessarily causes better learning."
+              ],
+              "answer": 1,
+              "explanation": "The bar chart compares the requested grouped measure with units; it does not establish causation.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "Trimming spaces and uppercasing maps the session keys to the room file. Cedar has 2 sessions totaling 50 minutes; Birch has 1 session totaling 15 minutes. A labeled bar chart can compare these recorded totals, but the records do not establish learning effects or preferences."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-data-pipeline-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "A new row uses room code R3, which has no room-file match. Explain a defensible pipeline response and why silently assigning the nearest-looking room is inappropriate.",
+          "sampleAnswer": "Flag the unmatched key and document whether the summary excludes it or reports an unknown category pending correction. Investigate the source before assigning a room. Similar-looking codes do not establish identity, so guessing could alter totals and create false comparisons.",
+          "checklist": [
+            "Normalize compatible fields before joining records.",
+            "Distinguish row counts from sums and choose a display for a stated question."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-data-pipeline-recall",
+          "prompt": "Why must a dataset define what one row represents?",
+          "sampleAnswer": "The row definition determines what counting means and helps identify duplicates or incompatible joins. Counting session rows measures sessions, while summing a duration field measures time; neither is automatically a count of distinct people.",
+          "checklist": [
+            "Normalize compatible fields before joining records.",
+            "Distinguish row counts from sums and choose a display for a stated question."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-packet-fields",
+      "title": "4.4 Packet content, addressing and reassembly",
+      "domain": "CSP: Computer Systems & Networks",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish a packet’s payload from routing and reassembly information.",
+        "Reconstruct a message under a supplied packet-order model."
+      ],
+      "frameworkTopics": [
+        "4.1"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Packet content, addressing and reassembly"
+        },
+        {
+          "type": "text",
+          "text": "A network can divide a message into packets so that information travels in smaller units. A packet carries some message content together with information used by the communication system. The content portion is its payload. Other fields can identify where the packet is going or help the receiving system associate it with a message and restore the intended order. The exact fields and responsibilities depend on protocols; the conceptual distinction does not require memorizing a particular Internet header layout."
+        },
+        {
+          "type": "text",
+          "text": "Routing and reassembly answer different questions. A router forwards packets toward a destination using network information; it need not understand the complete file’s meaning. A receiving system uses the relevant protocol information to place content in order and identify missing or duplicate pieces when the protocol supports those tasks. Arrival order is not necessarily original message order. Packets can follow different routes, encounter different delays or be lost, so a successful reconstruction needs rules beyond simply concatenating whatever arrived first."
+        },
+        {
+          "type": "text",
+          "text": "This lesson supplies a simplified reassembly contract. Every packet contains a message ID, destination, position number, total number of pieces and a payload. All pieces of one message must arrive before that message can be reconstructed; position determines order. These fields are a teaching model, not a claim that every real packet contains this exact collection. The model makes visible which information is user content and which describes delivery or organization. One packet’s payload is only its portion of the message, not automatically the entire file."
+        },
+        {
+          "type": "text",
+          "text": "A packet system can support flexible routing and shared use of network links, but packetization alone does not guarantee security, delivery or correctness. Reliability mechanisms can detect gaps and arrange recovery under a specified protocol, while encryption serves a different purpose. If a piece is missing and no recovery rule is supplied, report that the message is incomplete. Do not invent the missing content or assume that metadata itself contains a backup. Explaining a network task requires identifying both the information available and the protocol behavior promised."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-packet-fields-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original packet model. Every packet has fields (message ID, destination, position, total, payload). Three packets arrive in this order: (M7, Device B, 3, 3, \"NOW\"); (M7, Device B, 1, 3, \"MEET \"); (M7, Device B, 2, 3, \"HERE \"). Reassemble only after all three positions are present, concatenating payloads in position order. Quoted trailing spaces are part of the payload.",
+          "steps": [
+            {
+              "prompt": "Which field is payload in the first arriving packet?",
+              "choices": [
+                "NOW",
+                "Device B",
+                "3 as the position number"
+              ],
+              "answer": 0,
+              "explanation": "NOW is message content; the destination and position describe delivery or organization.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which field helps route toward the recipient?",
+              "choices": [
+                "The letters in NOW.",
+                "Destination Device B.",
+                "Only the total number of pieces."
+              ],
+              "answer": 1,
+              "explanation": "The destination identifies where the packet is addressed.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What is the reassembled message?",
+              "choices": [
+                "NOWMEET HERE ",
+                "MEET NOWHERE ",
+                "MEET HERE NOW"
+              ],
+              "answer": 2,
+              "explanation": "Position 1 contributes MEET , position 2 HERE , and position 3 NOW.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "If position 2 has not arrived, what does the model permit?",
+              "choices": [
+                "Identify an incomplete message, not guess the missing payload.",
+                "Declare the message complete after two arrivals.",
+                "Read the missing word from the destination."
+              ],
+              "answer": 0,
+              "explanation": "The contract requires all positions and does not encode missing content in other fields.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which claim is justified about arrival order?",
+              "choices": [
+                "It must always equal message order.",
+                "It can differ from intended message order; position supports reassembly.",
+                "It eliminates the need for any protocol."
+              ],
+              "answer": 1,
+              "explanation": "The supplied example arrives 3,1,2 but reconstructs 1,2,3.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "Group the packets as message M7 for Device B, then order their payloads by positions 1, 2 and 3 to recover MEET HERE NOW. Arrival order 3, 1, 2 is not message order. A missing position makes the message incomplete under the stated contract."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-packet-fields-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "A second message also has a position-1 packet. Explain why a receiver needs more than a position number when handling several messages, using the model’s fields.",
+          "sampleAnswer": "A position is meaningful within a particular message. The receiver groups pieces by message ID and destination before ordering them. Without that association, position 1 from a different message could be combined incorrectly with M7’s other pieces.",
+          "checklist": [
+            "Distinguish a packet’s payload from routing and reassembly information.",
+            "Reconstruct a message under a supplied packet-order model."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-packet-fields-recall",
+          "prompt": "How do payload, destination and position serve different roles?",
+          "sampleAnswer": "Payload carries the message portion; destination identifies the addressed recipient; position describes where that portion belongs within the supplied reassembly model. These roles are not interchangeable.",
+          "checklist": [
+            "Distinguish a packet’s payload from routing and reassembly information.",
+            "Reconstruct a message under a supplied packet-order model."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-distributed-contributions",
+      "title": "5.4 Crowdsourcing, citizen science and shared funding",
+      "domain": "CSP: Impact of Computing",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish contributions of data, interpretation, computing resources and funding.",
+        "Design a quality check while recognizing participation and sampling limits."
+      ],
+      "frameworkTopics": [
+        "5.4"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Crowdsourcing, citizen science and shared funding"
+        },
+        {
+          "type": "text",
+          "text": "Computing networks make it possible for people in different places to contribute to a shared project. Crowdsourcing obtains contributions from a large or distributed group rather than relying only on a small central team. Contributions can include observations, classifications, ideas or other work. Citizen science involves public participation in scientific work, such as collecting environmental observations or classifying images. The categories can overlap: a citizen-science project may crowdsource observations, but not every crowdsourced design contest is scientific research."
+        },
+        {
+          "type": "text",
+          "text": "The benefit depends on the contribution. Many volunteers can cover locations or inspect more images than a small team could manage alone. Distributed computing instead contributes processing resources from multiple devices to a task. Crowdfunding contributes money from many supporters to finance a project. These approaches can support collaboration, but they solve different resource problems. A collection of donations is not itself a dataset of environmental observations, and more donated processing time does not automatically improve a flawed measurement protocol."
+        },
+        {
+          "type": "text",
+          "text": "Participation requires quality controls matched to the task. A project can provide clear instructions, record relevant metadata, compare independent classifications, use known examples for training or ask qualified reviewers to examine uncertain cases. Agreement is useful evidence but not a guarantee of truth: contributors may share the same mistaken instruction. Preserve uncertainty and document exclusions rather than silently discarding inconvenient results. The project’s goal determines whether a check assesses accuracy, completeness, consistency or some combination."
+        },
+        {
+          "type": "text",
+          "text": "Scale and representativeness are also distinct. Thousands of observations from one accessible neighborhood can leave other areas unobserved. Volunteers may differ from the wider population in access, interest or available time. A larger count does not remove those selection limits. Ethical design considers privacy, consent, credit and who benefits from the results. When describing a collaborative innovation, identify who contributes what, why that expands capacity and which checks keep the resulting claim proportional to the evidence. Collaboration is a mechanism for pooling resources, not an automatic certification of unbiased or valid conclusions."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-distributed-contributions-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original project model: volunteers record whether a public tree has visible flowers, together with date and location. Most observations come from streets near volunteers’ homes. Two volunteers independently classify each submitted photograph; a reviewer checks disagreements. Separate supporters donate money for equipment. Some participants donate unused device time to process images. No actual research results are asserted.",
+          "steps": [
+            {
+              "prompt": "Which activity is citizen science in this model?",
+              "choices": [
+                "Public participation in collecting tree observations.",
+                "Only donating money.",
+                "Only choosing a project logo."
+              ],
+              "answer": 0,
+              "explanation": "The public contributes observations to a scientific investigation; that can also be crowdsourcing.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What does the money contribution represent?",
+              "choices": [
+                "A flower measurement.",
+                "Crowdfunding for project resources.",
+                "Proof of scientific accuracy."
+              ],
+              "answer": 1,
+              "explanation": "Funding supplies money rather than directly supplying an observation.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What do donated device resources primarily expand?",
+              "choices": [
+                "Geographic representativeness by themselves.",
+                "The amount of money collected.",
+                "Available computational processing capacity."
+              ],
+              "answer": 2,
+              "explanation": "Distributed computation contributes processing resources, which is distinct from collecting representative data.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What does independent classification plus review help address?",
+              "choices": [
+                "Inconsistent or uncertain image classification.",
+                "Every missing neighborhood automatically.",
+                "All possible privacy concerns."
+              ],
+              "answer": 0,
+              "explanation": "The check targets classification quality; it does not ensure geographic coverage or resolve every ethical issue.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What limits a citywide conclusion?",
+              "choices": [
+                "There are multiple volunteers.",
+                "Observations cluster near volunteers’ homes, leaving possible coverage gaps.",
+                "Dates are recorded."
+              ],
+              "answer": 1,
+              "explanation": "Selection and spatial coverage can limit generalization even when the number of observations is large.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "Tree observations are citizen-science contributions; donations fund resources; donated device time supplies processing capacity. Independent classifications and review target classification quality. Observations clustered near volunteers’ homes still limit citywide conclusions despite many contributions."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-distributed-contributions-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "A project receives ten times as many observations, all from the same two streets. Propose a next step that improves the evidence for a citywide claim rather than merely increasing the count.",
+          "sampleAnswer": "Map which areas and dates are represented, identify gaps and recruit or organize observations across additional relevant locations using a common protocol. Keep classification checks and privacy protections. More observations from the same streets improve detail there but do not by themselves establish citywide coverage.",
+          "checklist": [
+            "Distinguish contributions of data, interpretation, computing resources and funding.",
+            "Design a quality check while recognizing participation and sampling limits."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-distributed-contributions-recall",
+          "prompt": "How do crowdsourcing, crowdfunding and distributed computing differ?",
+          "sampleAnswer": "Crowdsourcing obtains contributions of work or information; crowdfunding pools financial contributions; distributed computing pools processing across devices. A project may combine them, but their contributions and quality checks remain distinct.",
+          "checklist": [
+            "Distinguish contributions of data, interpretation, computing resources and funding.",
+            "Design a quality check while recognizing participation and sampling limits."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-access-permissions",
+      "title": "5.5 Creative Commons, open source and open access",
+      "domain": "CSP: Impact of Computing",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish permissions for media, software source and research access.",
+        "Evaluate a proposed reuse against explicit license terms rather than visibility alone."
+      ],
+      "frameworkTopics": [
+        "5.5"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Creative Commons, open source and open access"
+        },
+        {
+          "type": "text",
+          "text": "Digital material can be easy to view or copy without granting every right to reuse it. Copyright, licenses and access conditions answer related but different questions. Access concerns whether you can obtain or read a work. A license states permissions and conditions for activities such as copying, sharing, modifying or commercial use. Attribution identifies the creator or source; it is important but does not automatically supply permission for a use that the license does not allow."
+        },
+        {
+          "type": "text",
+          "text": "Creative Commons provides standardized licenses that creators can apply to works such as images, writing and recordings. The particular license matters. Some permit adaptations and commercial reuse with attribution; others add restrictions such as noncommercial use or no derivatives, and some require sharing adaptations under the same terms. Do not treat the Creative Commons name as one identical permission set. Read the supplied terms and distinguish copying an unchanged work from publishing an adaptation. The original creator’s rights and any third-party rights also deserve attention."
+        },
+        {
+          "type": "text",
+          "text": "Open-source software involves licenses that allow access to source code together with permissions to use, modify and redistribute under stated conditions. A publicly visible repository is not automatically open source if no license grants those rights. Open source also does not mean every modification may ignore attribution, notices or other conditions. In course reasoning, use the license details supplied rather than assuming every license has the same requirements. Source availability describes what is visible; permission describes what you may do with it."
+        },
+        {
+          "type": "text",
+          "text": "Open access concerns research outputs made available online without access barriers and with reuse conditions that should be checked. A freely readable article is not necessarily unrestricted public-domain material, and a paywall’s absence does not make its code or illustrations automatically open source. These models can broaden participation by reducing barriers to information, collaboration and adaptation. A sound reuse decision identifies the material, the intended action and the applicable conditions. When conditions are not supplied, acknowledge the uncertainty and seek permission or clarification instead of treating citation as a universal substitute for a license."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-access-permissions-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original licensing exercise; use these explicit terms. Image A uses a license allowing copying and adaptation, including commercial use, if the creator is credited. Image B allows redistribution with credit only for noncommercial use and forbids distributing adaptations. Software C has a source-code license allowing use, modification and redistribution if its notice is retained. Research article D is freely readable online, but no reuse terms for its figures are supplied.",
+          "steps": [
+            {
+              "prompt": "Can a credited commercial poster adapt Image A under the supplied terms?",
+              "choices": [
+                "Yes, the terms explicitly allow that use with credit.",
+                "No, every Creative Commons-style license forbids commerce.",
+                "Only if the source code is visible."
+              ],
+              "answer": 0,
+              "explanation": "The intended adaptation and commercial use are both allowed by A’s explicit terms.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Can someone distribute an edited Image B merely by crediting it?",
+              "choices": [
+                "Yes, attribution cancels every restriction.",
+                "No, the supplied terms forbid distributing adaptations.",
+                "Yes, if the image was easy to download."
+              ],
+              "answer": 1,
+              "explanation": "Credit does not override the no-adaptation condition.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What condition accompanies redistribution of modified Software C?",
+              "choices": [
+                "No condition exists because code is visible.",
+                "The work must become an image.",
+                "Retain its specified notice."
+              ],
+              "answer": 2,
+              "explanation": "The model’s software license permits modification and redistribution with the stated notice condition.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What can be concluded about D’s figures?",
+              "choices": [
+                "Reading is available; figure-reuse permission is not established by the supplied information.",
+                "All figures are public domain.",
+                "Freely readable means every license restriction disappears."
+              ],
+              "answer": 0,
+              "explanation": "Access and reuse permission are distinct.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which process is best before reusing material?",
+              "choices": [
+                "Download first and invent terms later.",
+                "Identify the intended action, inspect applicable terms and satisfy the conditions.",
+                "Assume credit authorizes everything."
+              ],
+              "answer": 1,
+              "explanation": "The decision must match both the material and the specific proposed use.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "A permits the credited commercial adaptation; B forbids distributing an adaptation even with credit. C permits modified-code redistribution if its notice is retained. D supplies reading access but does not establish figure-reuse permission. Match the proposed action to the actual terms."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-access-permissions-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "A code repository is publicly visible but contains no license statement. Explain why that is insufficient to call it open source or assume permission to redistribute a modified version.",
+          "sampleAnswer": "Visibility shows that the code can be inspected, not that the rights holder has granted modification and redistribution permissions. Look for applicable license terms or seek clarification. Attribution alone does not establish missing permissions.",
+          "checklist": [
+            "Distinguish permissions for media, software source and research access.",
+            "Evaluate a proposed reuse against explicit license terms rather than visibility alone."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-access-permissions-recall",
+          "prompt": "How do access, attribution and permission differ?",
+          "sampleAnswer": "Access concerns obtaining or reading material. Attribution credits its creator or source. Permission concerns allowed actions and conditions. A responsible reuse may require all three, and one does not automatically replace the others.",
+          "checklist": [
+            "Distinguish permissions for media, software source and research access.",
+            "Evaluate a proposed reuse against explicit license terms rather than visibility alone."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-keys-trust",
+      "title": "5.6 Encryption key roles and certificate trust",
+      "domain": "CSP: Impact of Computing",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Assign sender and recipient key roles in the supplied confidentiality model.",
+        "Explain what certificate validation supports and what it does not guarantee."
+      ],
+      "frameworkTopics": [
+        "5.6"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Encryption key roles and certificate trust"
+        },
+        {
+          "type": "text",
+          "text": "Encryption transforms readable data into an encoded form intended to prevent unauthorized reading. Decryption restores readable data using the appropriate key and method. The goal in this lesson is confidentiality of a message sent to a particular recipient. Keep that goal explicit: a method used for confidential delivery should not be confused with a separate method for signing a message or proving its origin. The course-level model requires key roles, not cryptographic mathematics."
+        },
+        {
+          "type": "text",
+          "text": "Symmetric encryption uses the same secret key for encryption and decryption. Both authorized participants need that shared secret, and its distribution and protection matter. A person who obtains the secret may be able to read protected messages under the supplied model. Calling the secret symmetric does not mean it should be published. Encryption is useful only within its assumptions, including keeping necessary secrets from unauthorized people and protecting the devices that handle the readable data."
+        },
+        {
+          "type": "text",
+          "text": "Public-key encryption uses a paired public and private key. For the confidential-delivery example, the sender encrypts with the recipient’s public key, and the recipient decrypts with the matching private key. The sender does not need the recipient’s private key. Publishing the public key is compatible with this model; publishing the private key defeats the intended secrecy. The key question then becomes identity: how does the sender know that a displayed public key belongs to the intended recipient rather than an impostor?"
+        },
+        {
+          "type": "text",
+          "text": "Digital certificates address this trust question by binding an identity, such as a website domain, to a public key under a certificate-authority trust model. A client checks the certificate’s claimed identity and validity through its trusted system. That supports authentication of the addressed service, not a guarantee that its content is honest or its business is safe. A protected connection to a look-alike domain can still reach an attacker’s site. Likewise, encryption in transit does not stop software on a compromised endpoint from reading data before encryption or after decryption. Match each protection to the risk it actually addresses."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-keys-trust-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original abstract confidentiality model. Ari wants to send Bea a private message. Bea has public key B-public and matching private key B-private. Assume the encryption method is sound and only Bea holds B-private. Separately, a website certificate claims that a public key belongs to library.example; the client must check the domain and trust validation. These are teaching identifiers, not working keys or a real service.",
+          "steps": [
+            {
+              "prompt": "Which key should Ari use to encrypt a confidential message for Bea?",
+              "choices": [
+                "B-public.",
+                "Ari’s unrelated public key.",
+                "B-private, which Bea must publish."
+              ],
+              "answer": 0,
+              "explanation": "The recipient’s public key is the encryption key in this confidentiality model.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which key decrypts that message for Bea?",
+              "choices": [
+                "Any visitor’s key.",
+                "B-private.",
+                "The website’s domain name."
+              ],
+              "answer": 1,
+              "explanation": "The matching recipient private key decrypts the message under the supplied assumptions.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What changes in a symmetric-key model?",
+              "choices": [
+                "No key is needed.",
+                "The secret must be public.",
+                "Both participants use the shared secret for encryption and decryption."
+              ],
+              "answer": 2,
+              "explanation": "Symmetric encryption uses the same secret key for both operations.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What does trusted certificate validation help establish?",
+              "choices": [
+                "The claimed domain-to-public-key binding under the trust model.",
+                "That every claim on the website is true.",
+                "That the user chose the intended domain."
+              ],
+              "answer": 0,
+              "explanation": "Validation supports key ownership and identity for the addressed domain, not universal trustworthiness or user intent.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "A message links to a look-alike domain with a valid certificate. What follows?",
+              "choices": [
+                "The message must be from the real library.",
+                "The connection may protect traffic to the wrong domain; independently verify the intended destination.",
+                "Encryption has mathematically failed."
+              ],
+              "answer": 1,
+              "explanation": "The problem can be deceptive identity selection rather than a failure of encryption.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "Ari encrypts the confidential message with B-public; Bea decrypts with B-private. Symmetric encryption instead uses a shared secret. Certificate validation supports a domain-to-key binding, not the honesty of site content or the user’s choice of destination. A valid connection to a look-alike domain can still support phishing."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-keys-trust-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "An attacker replaces a displayed recipient public key with a different key. Explain why encrypting successfully is not enough to ensure the intended person can read the message, and what trust check is missing.",
+          "sampleAnswer": "The message may be encrypted to the substituted key’s owner rather than the intended recipient. A successful encryption operation does not establish key ownership. The sender needs a trustworthy binding between the recipient identity and the public key, such as appropriate certificate validation for the website model.",
+          "checklist": [
+            "Assign sender and recipient key roles in the supplied confidentiality model.",
+            "Explain what certificate validation supports and what it does not guarantee."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-keys-trust-recall",
+          "prompt": "Which keys serve which roles in the lesson’s public-key confidentiality model?",
+          "sampleAnswer": "The sender encrypts with the recipient’s public key; the recipient decrypts with the matching private key. The private key stays secret. A trusted identity-to-key binding helps prevent sending confidential data to an impostor’s key.",
+          "checklist": [
+            "Assign sender and recipient key roles in the supplied confidentiality model.",
+            "Explain what certificate validation supports and what it does not guarantee."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "csp-depth-threat-boundaries",
+      "title": "5.7 Endpoint threats, rogue access points and matched defenses",
+      "domain": "CSP: Impact of Computing",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish phishing, keylogging, malware and rogue wireless access points.",
+        "Match updates, permissions, verification and encryption to their defensive boundaries."
+      ],
+      "frameworkTopics": [
+        "5.6"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Endpoint threats, rogue access points and matched defenses"
+        },
+        {
+          "type": "text",
+          "text": "Cybersecurity reasoning begins by identifying what an attacker can observe or change. A threat against a user’s decision, a device’s software or a network connection may require different defenses. Phishing attempts to trick someone into revealing information or taking an unsafe action, often through a misleading identity or destination. A deceptive login form can collect a password even when its own network connection is encrypted. Independently verifying the intended service addresses the deception more directly than assuming a lock symbol proves the request is legitimate."
+        },
+        {
+          "type": "text",
+          "text": "Malware is software intended to damage a system or take unauthorized control over its operation. A computer virus is a form of malicious code that can copy itself and spread through infected files or programs under appropriate conditions. Not every malware infection has the same behavior. Keylogging records a user’s keystrokes and can expose credentials or other information typed on a compromised device. It targets readable input at the endpoint, so encrypting later network traffic does not erase what was already recorded."
+        },
+        {
+          "type": "text",
+          "text": "A rogue access point is an unauthorized wireless access point that can present itself as an expected network. A familiar-looking network name is not proof of authorization. Connecting through an attacker-controlled path can expose unprotected traffic or enable deceptive redirection, but it does not automatically make all properly encrypted traffic readable. Verify the authorized network and the intended service, heed meaningful certificate warnings and avoid treating either network familiarity or encryption as a universal security guarantee."
+        },
+        {
+          "type": "text",
+          "text": "Defenses should change the mechanism described. Software updates can repair known vulnerabilities that attackers might exploit; they do not guarantee that no future flaw exists. Malware scanning can detect some threats but is not perfect. Permissions can reduce what a program may access, and users should review whether requested access is necessary. Multifactor authentication can reduce reliance on a password alone, while incident response may require cleaning a compromised device and changing exposed credentials through a trusted device or process. Distinguish prevention, detection and recovery. A layered plan recognizes that no single action fixes deceptive requests, compromised endpoints and unsafe network assumptions simultaneously."
+        },
+        {
+          "type": "heading",
+          "text": "Trace the model and check each decision"
+        },
+        {
+          "type": "guidedExample",
+          "id": "csp-depth-threat-boundaries-guided",
+          "title": "Trace the model and check each decision",
+          "scenario": "Original defensive cases, with no attack instructions. A: a look-alike school message asks a student to type a password into a deceptive form. B: unauthorized software on a laptop records keystrokes before network transmission. C: a wireless network uses the school’s familiar name, but staff confirm it is not an authorized access point. D: an application has a known vulnerability for which its developer has released a security update.",
+          "steps": [
+            {
+              "prompt": "Which mechanism best describes A?",
+              "choices": [
+                "Phishing.",
+                "Ordinary lossless compression.",
+                "Packet reassembly."
+              ],
+              "answer": 0,
+              "explanation": "A misleading request attempts to obtain a credential through deception.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Why does network encryption alone not fix B?",
+              "choices": [
+                "It makes keystrokes public by definition.",
+                "The recording occurs on the endpoint before transit protection.",
+                "It guarantees the malware disappears."
+              ],
+              "answer": 1,
+              "explanation": "Data can be observed while readable at the device even if later transmission is protected.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which description fits C?",
+              "choices": [
+                "A certificate authority.",
+                "Proof of an authorized school service.",
+                "A rogue access point using a misleading network identity."
+              ],
+              "answer": 2,
+              "explanation": "A familiar name is not sufficient to establish authorization.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "What most directly addresses D’s known software flaw?",
+              "choices": [
+                "Apply the legitimate security update through the trusted maintenance process.",
+                "Rename the network.",
+                "Assume every update is unnecessary."
+              ],
+              "answer": 0,
+              "explanation": "The update is designed to repair the specified vulnerability; it does not guarantee universal protection.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            },
+            {
+              "prompt": "Which conclusion about defensive tools is strongest?",
+              "choices": [
+                "Antivirus guarantees that phishing can never work.",
+                "Use layered defenses matched to the threat and recognize their limits.",
+                "Encryption prevents every endpoint compromise."
+              ],
+              "answer": 1,
+              "explanation": "The cases involve different observation points and mechanisms, so no single protection covers all of them.",
+              "hint": "Identify what the stated model guarantees, then separate it from an unsupported inference."
+            }
+          ],
+          "takeaway": "A is phishing; B records readable keystrokes at the endpoint; C is a rogue access point; D calls for the legitimate security update. Verification, endpoint protection, network checks and updates address different mechanisms. Network encryption alone does not undo keystroke recording or prove a request is authentic."
+        },
+        {
+          "type": "heading",
+          "text": "Apply the distinction in a new setting"
+        },
+        {
+          "type": "reflection",
+          "id": "csp-depth-threat-boundaries-transfer",
+          "title": "Apply the distinction in a new setting",
+          "prompt": "A user entered a password while a keylogger may have been active, then removed the suspicious program. Explain why removal alone may be insufficient and propose a bounded recovery response.",
+          "sampleAnswer": "Previously recorded credentials may already be exposed even if recording stops. Use a trusted device or established recovery process to change affected credentials and review access, while checking the compromised device through appropriate support. Removing one program is not proof that every effect or unauthorized session has ended.",
+          "checklist": [
+            "Distinguish phishing, keylogging, malware and rogue wireless access points.",
+            "Match updates, permissions, verification and encryption to their defensive boundaries."
+          ],
+          "hint": "State the relevant mechanism, use the supplied evidence and explain a limit."
+        },
+        {
+          "type": "heading",
+          "text": "Try it independently"
+        },
+        {
+          "type": "recall",
+          "id": "csp-depth-threat-boundaries-recall",
+          "prompt": "How do a vulnerability, an attack and a defense differ?",
+          "sampleAnswer": "A vulnerability is a weakness; an attack attempts to exploit a weakness or influence behavior; a defense changes exposure, detection or recovery. State the observation point and mechanism before choosing a protection.",
+          "checklist": [
+            "Distinguish phishing, keylogging, malware and rogue wireless access points.",
+            "Match updates, permissions, verification and encryption to their defensive boundaries."
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    }
+  ],
+  "ap-environmental-science": [
+    {
+      "id": "apes-depth-sewage",
+      "title": "8.4 Sewage treatment: what each stage removes",
+      "domain": "APES: Aquatic and Terrestrial Pollution",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish physical solids removal, biological treatment and disinfection.",
+        "Explain why removing organic oxygen demand is different from removing dissolved nutrients.",
+        "Evaluate a treatment sequence without assuming one stage removes every pollutant."
+      ],
+      "frameworkTopics": [
+        "8.11"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: name the material and the mechanism"
+        },
+        {
+          "type": "text",
+          "text": "Wastewater can contain suspended solids, biodegradable organic material, dissolved nutrients, pathogens and other contaminants. These categories do not all respond to the same treatment mechanism. An organic pollutant’s biochemical oxygen demand concerns oxygen consumed by biological processes under specified measurement conditions. Removing a visible particle and inactivating a pathogen are different outcomes. Begin with the material a stage is designed to affect, then identify how the stage changes or separates it."
+        },
+        {
+          "type": "text",
+          "text": "Primary treatment commonly uses physical processes such as screening and settling to remove some suspended material. Secondary biological treatment uses organisms to break down biodegradable organic material, often with oxygen supplied in an aerobic process; a later separation step removes biological solids. Disinfection aims to reduce viable pathogens. Additional or advanced processes can target nutrients or other contaminants not adequately removed earlier. Actual treatment plants vary, so these are functional categories rather than a promise that every facility has identical equipment or that every stage removes nothing outside its main target."
+        },
+        {
+          "type": "prediction",
+          "id": "apes-sewage-predict",
+          "title": "Predict the remaining problem",
+          "prompt": "After settling removes many suspended solids, can you conclude that dissolved nitrate and all pathogens have also been removed?",
+          "choices": [
+            "Yes, because all pollution is particulate",
+            "Yes, because clear water is sterile",
+            "No, different materials require different mechanisms"
+          ],
+          "answer": 2,
+          "explanation": "Clarity is not proof of low dissolved nutrient concentration or effective pathogen reduction. Identify the treatment mechanism and measured outcome."
+        },
+        {
+          "type": "guidedExample",
+          "id": "apes-sewage-guide",
+          "title": "Match an outcome to a process",
+          "scenario": "A hypothetical town needs to reduce large debris, biodegradable organic load and viable pathogens. Consider one function at a time.",
+          "steps": [
+            {
+              "prompt": "Which stage most directly addresses large screened debris and settling solids?",
+              "choices": [
+                "Disinfection alone",
+                "Primary physical treatment",
+                "Measuring river temperature",
+                "Adding fertilizer"
+              ],
+              "answer": 1,
+              "explanation": "Screening and settling physically separate suitable solids. They do not automatically establish that dissolved nutrients or pathogens meet another target.",
+              "hint": "Look for a separation process."
+            },
+            {
+              "prompt": "What is the main purpose of the described secondary biological process?",
+              "choices": [
+                "Destroy every dissolved ion",
+                "Guarantee drinking-water quality",
+                "Use biological activity to reduce biodegradable organic material",
+                "Increase untreated oxygen demand in the receiving stream"
+              ],
+              "answer": 2,
+              "explanation": "Biological treatment can reduce biodegradable organic load before discharge. The system must also handle the resulting biomass and other residuals.",
+              "hint": "Which component can the microorganisms use or transform?"
+            },
+            {
+              "prompt": "Which claim requires additional evidence or treatment beyond showing lower organic load?",
+              "choices": [
+                "The treatment changed something",
+                "The process used microorganisms",
+                "Some biodegradable material was processed",
+                "All excess dissolved nutrients and all viable pathogens have been removed"
+              ],
+              "answer": 3,
+              "explanation": "Those are separate outcomes. Nutrient measurements, appropriate nutrient-removal processes and verified disinfection may be needed.",
+              "hint": "Do not turn evidence for one target into a guarantee about every contaminant."
+            }
+          ],
+          "takeaway": "Follow the contaminant through the process. Treatment effectiveness must be evaluated for the specified target, not inferred from a generic label such as “clean.”"
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: evaluate a river result"
+        },
+        {
+          "type": "reflection",
+          "id": "apes-sewage-transfer",
+          "title": "Connect treatment to eutrophication",
+          "prompt": "A new biological-treatment stage lowers measured organic oxygen demand, but downstream algal blooms remain. Give one scientifically plausible explanation and one measurement that would help evaluate it.",
+          "sampleAnswer": "Dissolved nitrogen or phosphorus loading may remain high even though biodegradable organic load falls. Nutrient loading can support algal growth under suitable conditions; later decay can increase oxygen demand. Measure relevant nutrient concentrations and flow to estimate loading, and consider light, temperature and other sources. The bloom alone does not prove which source caused it.",
+          "checklist": [
+            "Keep organic load and nutrient load distinct.",
+            "Connect nutrients, biomass and oxygen through a mechanism.",
+            "Propose a relevant measurement rather than claiming certainty from one observation."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve the distinctions"
+        },
+        {
+          "type": "recall",
+          "id": "apes-sewage-recall",
+          "title": "Compare three functions",
+          "prompt": "Explain why screening, biological processing and disinfection cannot simply be treated as three names for the same operation.",
+          "sampleAnswer": "Screening separates suitable solids; biological processing transforms biodegradable material; disinfection reduces viable pathogens. They target different properties. A complete evaluation also considers residual solids, dissolved nutrients, other contaminants and actual measured performance.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "apes-depth-pathogens",
+      "title": "8.5 Pathogen pathways, prevention, and evidence",
+      "domain": "APES: Aquatic and Terrestrial Pollution",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish infectious agents, vectors, reservoirs and exposure pathways.",
+        "Connect a prevention measure to the transmission link it changes.",
+        "Evaluate observational evidence without making an unsupported diagnosis or causal claim."
+      ],
+      "frameworkTopics": [
+        "8.15"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: trace a route of transmission"
+        },
+        {
+          "type": "text",
+          "text": "A pathogen is an agent capable of causing disease under appropriate host and exposure conditions. An infectious disease is not the same category as illness from a noninfectious toxic substance. A reservoir is a setting or host in which an infectious agent is maintained. A vector can carry an agent between hosts. Waterborne transmission can occur when an agent reaches a person through contaminated water, while vector-borne transmission involves an intermediary such as a mosquito. A mosquito is not automatically the pathogen itself."
+        },
+        {
+          "type": "text",
+          "text": "A useful environmental explanation traces source or reservoir, movement through the environment, exposure and a susceptible host. Prevention can interrupt different links. Protecting a water source and treating contaminated water address a different pathway from reducing suitable mosquito breeding habitat. The choice depends on the agent and actual transmission route. Environmental conditions, infrastructure, access to treatment, behavior and population movement can affect risk; one environmental measurement does not determine whether an individual has an infection. Classroom scenarios are for understanding pathways, not for diagnosing people."
+        },
+        {
+          "type": "prediction",
+          "id": "apes-pathogen-predict",
+          "title": "Identify the role",
+          "prompt": "In a fictional scenario, a mosquito carries an infectious agent between hosts. Which term describes the mosquito’s stated role?",
+          "choices": [
+            "Pathogen, necessarily",
+            "Vector",
+            "Dissolved nutrient",
+            "Dose-response curve"
+          ],
+          "answer": 1,
+          "explanation": "The mosquito is the intermediary carrying the agent. The infectious agent itself is the pathogen; those roles are distinct."
+        },
+        {
+          "type": "guidedExample",
+          "id": "apes-pathogen-guide",
+          "title": "Match prevention to the pathway",
+          "scenario": "A hypothetical community investigates two problems: infectious agents in untreated drinking water, and a mosquito-borne illness. No individual patient data are used.",
+          "steps": [
+            {
+              "prompt": "Which action most directly targets the stated drinking-water pathway?",
+              "choices": [
+                "Only reducing standing water for mosquitoes",
+                "Only wearing ear protection",
+                "Protecting the source and applying verified appropriate water treatment",
+                "Increasing fertilizer application"
+              ],
+              "answer": 2,
+              "explanation": "Source protection and suitable treatment address ingestion of contaminated water. A measure aimed at another pathway does not automatically control this one.",
+              "hint": "Identify how the agent reaches the host in this scenario."
+            },
+            {
+              "prompt": "Which action is relevant to the stated mosquito pathway?",
+              "choices": [
+                "Reducing suitable mosquito breeding habitat under an appropriate local control plan",
+                "Assuming clearer drinking water removes all mosquitoes",
+                "Measuring only soil acidity",
+                "Adding nutrients to ponds"
+              ],
+              "answer": 0,
+              "explanation": "Reducing suitable breeding habitat can affect vector abundance. Effectiveness depends on the species, setting and implementation; it is not a universal guarantee.",
+              "hint": "Which step changes the vector’s environment?"
+            },
+            {
+              "prompt": "A survey finds more cases where stagnant water is common. What conclusion is best supported without an experimental design?",
+              "choices": [
+                "Stagnant water proves every case has one cause",
+                "Every exposed person must be ill",
+                "The association justifies investigating the pathway and possible confounders",
+                "No environmental evidence can ever be useful"
+              ],
+              "answer": 2,
+              "explanation": "An association can motivate investigation, but other differences and measurement limitations may matter. It does not diagnose individuals or isolate a cause by itself.",
+              "hint": "Separate evidence of association from identification of a causal mechanism."
+            }
+          ],
+          "takeaway": "Target a defined transmission link, and then evaluate whether the intervention changed exposure and outcomes in the relevant setting."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: distinguish environmental roles"
+        },
+        {
+          "type": "reflection",
+          "id": "apes-pathogen-transfer",
+          "title": "Explain why a toxin lesson is not enough",
+          "prompt": "Why does a dose-response curve for a chemical not by itself explain the spread of an infectious disease between hosts?",
+          "sampleAnswer": "A chemical dose-response relation links a specified exposure to an effect under stated conditions. Infectious transmission also involves an agent, host interactions, reservoirs, possible vectors and routes of spread. Both concern exposure, but the mechanisms and prevention questions are not interchangeable.",
+          "checklist": [
+            "Name a transmission mechanism beyond chemical concentration.",
+            "Keep pathogen and vector distinct.",
+            "Do not replace epidemiological evidence with a generic toxicity label."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve the pathway"
+        },
+        {
+          "type": "recall",
+          "id": "apes-pathogen-recall",
+          "title": "Build a cause-and-effect chain",
+          "prompt": "Write a four-step hypothetical waterborne transmission pathway and identify which link a water-treatment intervention would address.",
+          "sampleAnswer": "One example is an infectious agent entering a water source, surviving or moving through untreated water, a person ingesting that water, and infection under suitable host conditions. Appropriate water treatment targets the agent before ingestion. Real effectiveness requires evidence about the agent and process; the chain is not a diagnosis of a person.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    }
+  ],
+  "ap-physics-1": [
+    {
+      "id": "physics1-depth-gravity",
+      "title": "2.4 Universal gravitation and inverse-square models",
+      "domain": "Physics 1: Force and Translational Dynamics",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish gravitational force from gravitational field strength.",
+        "Use center-to-center distance in the inverse-square model.",
+        "Explain free fall without assuming gravity vanishes."
+      ],
+      "frameworkTopics": [
+        "2.6"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: identify both masses and the distance"
+        },
+        {
+          "type": "text",
+          "text": "For the stated spherical-body or point-mass model, Newton’s law of universal gravitation gives F = GMm/r², where M and m are the two masses and r is their center-to-center separation. G is a proportionality constant. The forces on the two bodies have equal magnitudes and opposite directions, but they act on different bodies. The acceleration of the body of mass m due to the central mass M is F/m = GM/r². Its own mass cancels in this idealized field model; the gravitational force itself still depends on both masses."
+        },
+        {
+          "type": "text",
+          "text": "Near a planet’s surface, the familiar mg relation uses the local field strength g. Farther from the planet, do not assume that g has exactly the same value. If the planet’s radius is R and an object is height h above its surface, the separation in the spherical model is r = R + h, not h. Outside the spherical central body, doubling center-to-center distance reduces the field and force for a fixed test mass to one quarter. This inverse-square statement follows from the denominator; it does not mean that every doubled height above the surface quarters gravity."
+        },
+        {
+          "type": "prediction",
+          "id": "physics-gravity-predict",
+          "title": "Predict force and acceleration",
+          "prompt": "At the same position, a test object’s mass doubles while the central body is unchanged. What happens under the stated model?",
+          "choices": [
+            "Force and free-fall acceleration both double",
+            "Force doubles; free-fall acceleration is unchanged",
+            "Force is unchanged; acceleration doubles",
+            "Both become half as large"
+          ],
+          "answer": 1,
+          "explanation": "F is proportional to the test mass, but acceleration is F/m. The same mass factor appears in both numerator and denominator.",
+          "hint": "Write force first, then divide by the accelerated object’s mass."
+        },
+        {
+          "type": "guidedExample",
+          "id": "physics-gravity-guide",
+          "title": "Scale the separation rather than the height",
+          "scenario": "A hypothetical spherical planet has radius R. Compare otherwise identical small test objects at its surface and at height R above its surface. Ignore other bodies and the planet’s rotation.",
+          "steps": [
+            {
+              "prompt": "What center-to-center separation applies at height R?",
+              "choices": [
+                "R/2",
+                "R",
+                "2R",
+                "3R"
+              ],
+              "answer": 2,
+              "explanation": "The distance from the center is the planet’s radius plus height: R + R = 2R.",
+              "hint": "Mark the center, surface and object position."
+            },
+            {
+              "prompt": "What is the field-strength ratio g_high/g_surface?",
+              "choices": [
+                "1/4",
+                "1/2",
+                "2",
+                "4"
+              ],
+              "answer": 0,
+              "explanation": "GM/(2R)² divided by GM/R² is 1/4. Keep the whole distance inside the square.",
+              "hint": "Compare denominators after substituting the two separations."
+            },
+            {
+              "prompt": "Does a satellite experiencing apparent weightlessness necessarily have negligible gravitational force?",
+              "choices": [
+                "Yes, weightlessness means gravity is zero",
+                "Yes, every object above the atmosphere loses its mass",
+                "No, apparent weightlessness can occur during shared free fall",
+                "No, but only if the satellite is not moving"
+              ],
+              "answer": 2,
+              "explanation": "An orbiting satellite can have substantial gravitational acceleration while its contents share free fall and lack an ordinary support force. Apparent weight is not the same quantity as gravitational force.",
+              "hint": "Distinguish gravity from a support-scale reading."
+            }
+          ],
+          "takeaway": "Always identify the measured distance and which quantity is being compared: force, field strength, acceleration or apparent weight."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: two interacting bodies"
+        },
+        {
+          "type": "reflection",
+          "id": "physics-gravity-transfer",
+          "title": "Reconcile the third and second laws",
+          "prompt": "Earth and a small satellite exert equal-magnitude gravitational forces on each other. Explain why their accelerations do not need to be equal.",
+          "sampleAnswer": "Newton’s third law pairs the forces on different objects. Newton’s second law divides each force by the mass of the object experiencing it. With very different masses, the equal forces correspond to very different acceleration magnitudes. The planet’s recoil is often negligible in a simplified central-body model, not literally prohibited.",
+          "checklist": [
+            "Place the two interaction forces on different objects.",
+            "Use a = F/m for each object.",
+            "Distinguish a negligible approximation from a force of exactly zero."
+          ],
+          "math": true
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve with a new distance factor"
+        },
+        {
+          "type": "recall",
+          "id": "physics-gravity-recall",
+          "title": "Use the inverse-square relation",
+          "prompt": "Outside the same spherical body, center-to-center distance triples while the test mass stays fixed. What fraction of the original gravitational-force magnitude remains? Enter a fraction.",
+          "sampleAnswer": "The new force is GMm/(3r)² = F_original/9, so the remaining fraction is 1/9.",
+          "math": true,
+          "acceptedAnswers": [
+            "1/9"
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "physics1-depth-orbits",
+      "title": "6.4 Circular orbits, orbital energy, and satellite representations",
+      "domain": "Physics 1: Energy and Momentum of Rotating Systems",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Derive circular orbital speed from gravity and centripetal acceleration.",
+        "Distinguish comparisons of different circular orbits from motion along one elliptical orbit.",
+        "Connect orbital energy to the ideal escape-speed condition."
+      ],
+      "frameworkTopics": [
+        "6.6"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: combine models without adding a fictitious force"
+        },
+        {
+          "type": "text",
+          "text": "In the ideal central-body model, gravity supplies the inward net force for a circular orbit. Set GMm/r² = mv²/r. Cancel the satellite mass and one factor of r to obtain v² = GM/r and v = √(GM/r). This is a circular-orbit relation, not a formula for speed at every point on any possible path. The period is circumference divided by speed: T = 2πr/v, which gives T = 2π√(r³/GM). Center-to-center radius, a consistent central mass and negligible drag are part of this model."
+        },
+        {
+          "type": "text",
+          "text": "For an isolated central interaction, gravitational potential energy is U = −GMm/r when zero is chosen at infinite separation. In a circular orbit K = ½mv² = GMm/(2r), so total mechanical energy is E = −GMm/(2r). The negative total energy describes a bound orbit under the stated zero convention. An ideal escape threshold has total energy zero with speed approaching zero infinitely far away, giving v_escape = √(2GM/r). These energy statements assume no additional propulsion, drag or external work during the modeled motion."
+        },
+        {
+          "type": "prediction",
+          "id": "physics-orbit-predict",
+          "title": "Predict the circular-orbit trend",
+          "prompt": "Compare two circular orbits around the same central body. If radius becomes four times as large, what happens to circular speed?",
+          "choices": [
+            "It becomes four times as large",
+            "It becomes one quarter as large",
+            "It becomes twice as large",
+            "It becomes half as large"
+          ],
+          "answer": 3,
+          "explanation": "v is proportional to 1/√r for circular orbits. Multiplying r by 4 divides v by 2.",
+          "hint": "Apply the square root to the radius factor."
+        },
+        {
+          "type": "guidedExample",
+          "id": "physics-orbit-guide",
+          "title": "Separate speed, period and energy",
+          "scenario": "Use only the ideal circular central-body model. Compare a circular orbit of radius r with one of radius 4r; keep the central mass and satellite mass unchanged.",
+          "steps": [
+            {
+              "prompt": "What is the period ratio T_large/T_small?",
+              "choices": [
+                "2",
+                "4",
+                "8",
+                "16"
+              ],
+              "answer": 2,
+              "explanation": "T is proportional to r^(3/2), so 4^(3/2) = 8. A larger circumference and a lower speed both lengthen the period.",
+              "hint": "Use T = 2πr/v together with the predicted half-speed."
+            },
+            {
+              "prompt": "What is the large-orbit total-energy ratio E_large/E_small under U = 0 at infinity?",
+              "choices": [
+                "1/4",
+                "4",
+                "−4",
+                "0"
+              ],
+              "answer": 0,
+              "explanation": "Both totals are negative and E = −GMm/(2r), so their ratio is 1/4. The larger-orbit energy is less negative and therefore greater, not more tightly bound.",
+              "hint": "Keep the sign when interpreting the energies."
+            },
+            {
+              "prompt": "At a given radius, how does ideal escape speed compare with circular speed?",
+              "choices": [
+                "It is the same",
+                "It is twice as large",
+                "It is half as large",
+                "It is √2 times as large"
+              ],
+              "answer": 3,
+              "explanation": "Divide √(2GM/r) by √(GM/r) to obtain √2. Escape does not require gravity to vanish at the launch point.",
+              "hint": "Compare the two square-root expressions."
+            }
+          ],
+          "takeaway": "Check which assumptions make a relation valid. Different circular orbits can have different total energies and angular momenta; moving between them requires appropriate energy and momentum transfer."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: do not mix two comparisons"
+        },
+        {
+          "type": "reflection",
+          "id": "physics-orbit-transfer",
+          "title": "Compare circular and elliptical reasoning",
+          "prompt": "In one elliptical orbit under a central gravitational force, compare the two apsides where velocity is perpendicular to the radius. If one apsis is twice as far from the center, what is its speed relative to the other? Why is this not the same as comparing two separate circular orbits?",
+          "sampleAnswer": "Zero external torque about the central point conserves the satellite’s angular momentum. At the apsides, L = mrv because radius and velocity are perpendicular. Thus doubling r within the same elliptical orbit halves v at the other apsis. The circular relation v = √(GM/r) applies to circular paths with the required centripetal geometry, not to an arbitrary point on this ellipse.",
+          "checklist": [
+            "Identify the same system and conserved angular momentum.",
+            "Use the perpendicular geometry at the two apsides.",
+            "State why the circular-speed formula cannot be substituted here."
+          ],
+          "math": true
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve with a fresh radius factor"
+        },
+        {
+          "type": "recall",
+          "id": "physics-orbit-recall",
+          "title": "Scale the period",
+          "prompt": "For two circular orbits around the same central body, radius changes from r to 9r. What is T_new/T_old? Enter only the ratio.",
+          "sampleAnswer": "The period ratio is 9^(3/2) = 27. Equivalently, circumference is 9 times as large and circular speed is one third as large, so time is 27 times as large.",
+          "math": true,
+          "acceptedAnswers": [
+            "27"
+          ]
+        }
+      ],
+      "practiceQuestions": []
+    }
+  ],
+  "ap-psychology": [
+    {
+      "id": "psych-depth-positive",
+      "title": "5.6 Positive psychology: well-being, strengths, and evidence",
+      "domain": "Psych: Mental & Physical Health",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Describe positive psychology without equating it to forced optimism or absence of illness.",
+        "Operationalize a well-being construct and distinguish a measure from the whole construct.",
+        "Evaluate a controlled study of gratitude or strengths with appropriate limits."
+      ],
+      "frameworkTopics": [
+        "5.2"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: define the construct before measuring it"
+        },
+        {
+          "type": "text",
+          "text": "Positive psychology investigates factors associated with well-being, resilience, positive emotion and psychological health. It does not imply that difficulties are imaginary or that people should feel happy in every circumstance. Subjective well-being includes people’s own evaluations and experiences; one questionnaire is a particular measure, not the whole of a person’s life. A study should state what was measured, when it was measured and whose experiences are represented."
+        },
+        {
+          "type": "text",
+          "text": "Research can examine gratitude, use of signature strengths and possible positive changes following difficult experiences. Character strengths are often grouped under wisdom, courage, humanity, justice, temperance and transcendence. These categories organize constructs; they do not supply a moral ranking or a diagnosis from one behavior. Posttraumatic growth may occur for some people, but it is not inevitable, does not make trauma desirable and should not be required as a response. Cultural norms and circumstances can affect how people describe well-being or express a strength. Distinguish a useful research question from a demand that an individual disclose personal experiences."
+        },
+        {
+          "type": "prediction",
+          "id": "psych-positive-predict",
+          "title": "Choose the defensible interpretation",
+          "prompt": "A study finds that people who report more gratitude also report greater well-being. Without random assignment, what is supported?",
+          "choices": [
+            "Gratitude necessarily causes all well-being",
+            "The two measured variables are associated in that sample",
+            "Every person must use the same gratitude practice",
+            "People reporting distress lack character strengths"
+          ],
+          "answer": 1,
+          "explanation": "An observed association does not isolate causal direction or eliminate third variables. It does not justify judging individuals or prescribing one response for everyone."
+        },
+        {
+          "type": "guidedExample",
+          "id": "psych-positive-guide",
+          "title": "Read a hypothetical controlled comparison",
+          "scenario": "Original fictional study: 80 adult student volunteers are randomly assigned to a brief gratitude-reflection activity or a neutral daily-planning activity. Contact time is matched and everyone completes follow-up. Both groups start at mean 4 on a stated 0–10 well-being rating. Later means are 6 for the reflection group and 5 for the comparison group.",
+          "steps": [
+            {
+              "prompt": "What is the reflection group’s mean change?",
+              "choices": [
+                "1 point",
+                "2 points",
+                "6 points",
+                "50 points"
+              ],
+              "answer": 1,
+              "explanation": "The mean increases from 4 to 6, a change of 2 scale points. Keep the measured scale distinct from a universal amount of happiness.",
+              "hint": "Subtract the initial mean from the later mean."
+            },
+            {
+              "prompt": "How much larger is that change than the comparison group’s change?",
+              "choices": [
+                "6 points",
+                "5 points",
+                "1 point",
+                "0 points"
+              ],
+              "answer": 2,
+              "explanation": "The comparison changes by 5−4 = 1 point. The difference in mean changes is 2−1 = 1 point.",
+              "hint": "The comparison group may change too."
+            },
+            {
+              "prompt": "Which statement best reflects the design?",
+              "choices": [
+                "The design supports an effect relative to this active comparison under the stated conditions, with limits on generalization and measurement",
+                "Every participant improved by exactly one extra point",
+                "Volunteers from one setting guarantee population representativeness",
+                "These means alone supply a p-value"
+              ],
+              "answer": 0,
+              "explanation": "Random assignment and a matched active comparison strengthen causal interpretation, while volunteer recruitment, self-report and limited context constrain conclusions. The means do not show every individual’s change or statistical significance.",
+              "hint": "Separate assignment, sampling and measurement."
+            }
+          ],
+          "takeaway": "Positive-psychology claims require the same care about constructs, comparison conditions and evidence as other psychological claims."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: distinguish possible from required"
+        },
+        {
+          "type": "reflection",
+          "id": "psych-positive-transfer",
+          "title": "Evaluate an overstatement",
+          "prompt": "A headline says, “People must grow stronger after adversity, so continued distress is a failure.” Explain why this does not follow from research on posttraumatic growth.",
+          "sampleAnswer": "Posttraumatic growth is a possible reported pattern, not a requirement for every person or a claim that adversity is beneficial. People vary in circumstances, resources and responses. A research association or average does not define an individual’s obligations or psychological health.",
+          "checklist": [
+            "Distinguish a possible outcome from an inevitable outcome.",
+            "Avoid moral judgment about distress.",
+            "Explain why group findings do not determine an individual experience."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve a research distinction"
+        },
+        {
+          "type": "recall",
+          "id": "psych-positive-recall",
+          "title": "Explain two different study choices",
+          "prompt": "In the fictional study, what did random assignment help address, and what limitation remained because participants were volunteers from one setting?",
+          "sampleAnswer": "Random assignment helps make the treatment groups comparable and supports causal inference about the assigned activities under the study conditions. Volunteer recruitment from one setting still limits generalizability; random assignment does not turn the sample into a representative population sample.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    },
+    {
+      "id": "psych-depth-language",
+      "title": "3.6 Language structure, developmental patterns, and evidence",
+      "domain": "Psych: Development & Learning",
+      "difficulty": "Medium",
+      "videoUrl": "",
+      "depthRevision": 1,
+      "learningObjectives": [
+        "Distinguish sound units, meaningful units and grammatical organization.",
+        "Explain overregularization as evidence of active rule use.",
+        "Evaluate developmental language evidence without treating a single utterance as a diagnosis."
+      ],
+      "frameworkTopics": [
+        "3.5"
+      ],
+      "content": [
+        {
+          "type": "heading",
+          "text": "Foundations: sound, meaning and organization are different levels"
+        },
+        {
+          "type": "text",
+          "text": "A phoneme is a contrastive sound unit in a language, whereas a morpheme is a smallest meaningful unit. A written letter is not necessarily one phoneme. For the specified pronunciation /sh/ /i/ /p/, the written word ship has three sound units despite four letters; use the sound system specified in an example rather than counting letters. In cats, the base cat and plural ending -s supply two morphemes. Semantics concerns meaning, while syntax concerns rules for organizing words into larger expressions. Changing word order can change meaning even when the individual words remain the same."
+        },
+        {
+          "type": "text",
+          "text": "Language development includes changes in comprehension and production, and these do not always advance at the same rate. Commonly described patterns include babbling, early words and combinations of words, but timing varies across individuals, languages and environments. Biological preparedness, social interaction and learning all contribute. A learner may apply a productive rule to an exception: goed uses a familiar past-tense pattern where adult English usually uses went. Such overregularization can reveal active rule use rather than mere copying. It does not show that every aspect of grammar has been mastered or diagnose a developmental condition."
+        },
+        {
+          "type": "prediction",
+          "id": "psych-language-predict",
+          "title": "Distinguish meaning units from letters",
+          "prompt": "In the stated example cats = cat + plural -s, how many morphemes are identified?",
+          "choices": [
+            "Four, one per letter",
+            "Three, one per sound",
+            "Two",
+            "One, because it is one written word"
+          ],
+          "answer": 2,
+          "explanation": "The example identifies a meaningful base and a meaningful plural ending. A word can contain more than one morpheme; letter count answers a different question."
+        },
+        {
+          "type": "guidedExample",
+          "id": "psych-language-guide",
+          "title": "Explain the mechanism in a language example",
+          "scenario": "Consider original fictional observations of a child learning English. Use the behavior given, and avoid inferring an entire ability profile from one utterance.",
+          "steps": [
+            {
+              "prompt": "A child says goed after learning several regular past-tense forms. Which explanation best fits overregularization?",
+              "choices": [
+                "Applying a learned rule to an exception",
+                "Merely repeating an adult’s exact error in every case",
+                "Evidence that grammar contains no patterns",
+                "Proof the child cannot understand past events"
+              ],
+              "answer": 0,
+              "explanation": "The child applies a productive -ed pattern to a verb whose usual adult form is irregular. This supports active rule use, not a complete conclusion about ability.",
+              "hint": "Identify the rule and the exception."
+            },
+            {
+              "prompt": "The sentences The dog chased the cat and The cat chased the dog use the same words but reverse the roles. Which level is most directly illustrated?",
+              "choices": [
+                "Only a difference in phoneme count",
+                "A syntax-related change in organization and interpreted meaning",
+                "No possible difference because the word list is identical",
+                "A diagnosis of memory loss"
+              ],
+              "answer": 1,
+              "explanation": "Word order changes which noun is interpreted as actor and which as recipient. Syntax and semantics interact.",
+              "hint": "Track who performs the action in each sentence."
+            },
+            {
+              "prompt": "A child follows a direction but cannot yet produce the same complete sentence. What distinction matters?",
+              "choices": [
+                "All comprehension and production must be identical",
+                "Following the direction proves every language skill is adult-like",
+                "One unsuccessful utterance establishes a disorder",
+                "Comprehension and production are related but distinct abilities"
+              ],
+              "answer": 3,
+              "explanation": "The tasks place different demands on the learner. Performance on one should not be substituted for every aspect of language ability.",
+              "hint": "Ask what each observation actually requires the child to do."
+            }
+          ],
+          "takeaway": "Apply a concept to the observed structure or behavior. Naming a term is less informative than identifying the specific rule, unit or task demand."
+        },
+        {
+          "type": "heading",
+          "text": "Advanced transfer: evaluate a developmental comparison"
+        },
+        {
+          "type": "reflection",
+          "id": "psych-language-transfer",
+          "title": "Control the task demand",
+          "prompt": "Two age groups are compared on understanding a spoken instruction, but the older group also has more experience with the vocabulary and testing format. Why is a simple age-only explanation incomplete?",
+          "sampleAnswer": "Vocabulary familiarity, task experience, attention and other group differences can affect performance. Age may be associated with change, but the design does not isolate one mechanism. Use appropriate familiarization, relevant measurements and study designs while respecting ethical limits; a single test result is not a complete account of development.",
+          "checklist": [
+            "Identify at least one demand beyond the target ability.",
+            "Distinguish an association with age from an isolated cause.",
+            "Avoid a diagnosis or universal age cutoff from one observation."
+          ],
+          "math": false
+        },
+        {
+          "type": "heading",
+          "text": "Retrieve the levels of language"
+        },
+        {
+          "type": "recall",
+          "id": "psych-language-recall",
+          "title": "Make your own contrast",
+          "prompt": "Give one example that distinguishes a sound unit from a written letter, and one example that distinguishes a morpheme from a whole word. Explain the distinction in each case.",
+          "sampleAnswer": "Using the specified pronunciation, ship has three sound units but four letters. Cats contains the base cat and the plural -s, two meaningful units within one word. Other accurately specified language examples can also demonstrate these distinctions.",
+          "math": false
+        }
+      ],
+      "practiceQuestions": []
+    }
+  ]
+}

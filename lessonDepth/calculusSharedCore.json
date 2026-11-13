@@ -1,0 +1,386 @@
+{
+  "Calc BC: Differentiation: Definition & Fundamental Properties::2.1 Derivative as a limit and a rate": {
+    "revision": 1,
+    "objectives": [
+      "Derive a derivative using a difference quotient.",
+      "Construct a tangent line from both slope and point.",
+      "Distinguish continuity from differentiability at a corner."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An average rate compares two distinct inputs. For a function f, the quotient [f(a+h)−f(a)]/h is the secant slope from input a to input a+h, provided h is nonzero and both outputs exist. The derivative f′(a) asks whether these secant slopes approach one finite value as h approaches zero from both sides. The variable h approaches zero; it is not set equal to zero in the original quotient. Algebraic cancellation is justified only after a common factor has been identified. If the limit exists, it describes a local rate or tangent slope at input a. If x measures seconds and f(x) measures meters, the derivative has units of meters per second. Dividing f(a) by a is generally a different calculation and does not produce the derivative.\n\nKeep the derivative value f′(a) separate from the derivative function f′(x). A formula for f′ gives rates at many inputs; substituting a chooses one of them. A tangent line also needs a point on the original graph. Use y=f(a)+f′(a)(x−a), which ensures that the line goes through (a,f(a)); the slope alone does not determine its vertical position. Finally, a continuous graph need not have a finite derivative everywhere. A corner can have different left and right limiting slopes, while a vertical tangent can have unbounded slopes. Differentiability implies continuity, but the reverse implication fails. A short table or a smooth-looking screen image is evidence for exploration, not a substitute for checking the relevant limit or algebraic structure. These distinctions let you explain a rate rather than merely quote a differentiation rule."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-derivative-limit-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use f(x)=x²+3x. Derive its derivative at a general input a, then find the tangent line at a=2. Compare this smooth example with c(x)=|x−1| at x=1.",
+        "steps": [
+          {
+            "prompt": "What is f(a+h)−f(a) after expansion?",
+            "choices": [
+              "h(2a+3)+h²",
+              "2a+3+h",
+              "a²+3a",
+              "h²+3a"
+            ],
+            "answer": 0,
+            "explanation": "Expand (a+h)²+3(a+h), then subtract a²+3a. The remaining terms are 2ah+h²+3h, which factor as h(2a+3)+h²."
+          },
+          {
+            "prompt": "For h ≠ 0, which simplified difference quotient is correct?",
+            "choices": [
+              "2a+3",
+              "2a+3+h",
+              "2a+3+h²",
+              "a+h"
+            ],
+            "answer": 1,
+            "explanation": "Divide the whole numerator h(2a+3+h) by h. The simplified quotient still depends on h until its limit is taken."
+          },
+          {
+            "prompt": "What is the derivative value at a=2?",
+            "choices": [
+              "5",
+              "10",
+              "7",
+              "3"
+            ],
+            "answer": 2,
+            "explanation": "The quotient tends to 2a+3, so f′(2)=2(2)+3=7. The function value f(2)=10 is a different number."
+          },
+          {
+            "prompt": "Which line is tangent at x=2?",
+            "choices": [
+              "y=7x",
+              "y=10x+7",
+              "y=7x+10",
+              "y=10+7(x−2)"
+            ],
+            "answer": 3,
+            "explanation": "The tangent must have slope 7 and pass through (2,10). The point-slope expression satisfies both requirements; it is equivalent to y=7x−4."
+          },
+          {
+            "prompt": "Why is c(x)=|x−1| not differentiable at 1?",
+            "choices": [
+              "The left slope is −1 and the right slope is 1",
+              "The function is not continuous there",
+              "Its value is zero",
+              "Every absolute-value function is nowhere differentiable"
+            ],
+            "answer": 0,
+            "explanation": "The two one-sided difference-quotient limits disagree. The graph is continuous at 1, so this is a counterexample to continuity implying differentiability."
+          }
+        ],
+        "takeaway": "A derivative is a limiting rate. Its value, the function value, and the tangent-line equation play different roles."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For the quadratic, the tangent-line error can be found exactly rather than guessed from a drawing. At input 2+h, the function is 10+7h+h², while the tangent line gives 10+7h. Their difference is h², which is nonnegative. Thus this tangent lies below the quadratic, with equality only at the contact point. Over the forward interval from 2 to 2.1, the secant slope is 7.1; over the backward interval from 2 to 1.9, its difference quotient is 6.9. Both approach 7 as the interval shrinks. This connects the algebraic limit with numerical estimates and with the geometric tangent. The exact nonnegative error is special information supplied by this quadratic model; do not assume every tangent is an underestimate for every function. Concavity provides the appropriate comparison when that later tool is available."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-derivative-limit-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses f(2)/2=5 as the tangent slope. Explain what quantities were divided and why the difference quotient gives a different answer.",
+        "sampleAnswer": "The ratio f(2)/2 compares the graph point with the origin as if the origin were the relevant second point. It is not the limit of nearby secant slopes at input 2. The correct quotient uses f(2+h)−f(2) and h, and its limit is 7.",
+        "checklist": [
+          "Identify the missing subtraction of the nearby function values.",
+          "Explain the shrinking input interval.",
+          "State the correct derivative without confusing it with f(2)."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-derivative-limit-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For f(x)=x²+3x, enter f′(3).",
+        "acceptedAnswers": [
+          "9"
+        ],
+        "sampleAnswer": "The derivative function is f′(x)=2x+3, so f′(3)=9."
+      }
+    ]
+  },
+  "Calc BC: Differentiation: Composite, Implicit & Inverse Functions::3.2 Implicit differentiation": {
+    "revision": 1,
+    "objectives": [
+      "Differentiate an implicit relation using product and chain rules.",
+      "Verify a point before evaluating a slope.",
+      "Derive a second implicit derivative while retaining y as a function of x."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An implicit equation describes a relation between x and y without necessarily solving globally for one variable. A closed curve may have two y-values for the same x, yet each regular local branch can still have a tangent. When differentiating with respect to x, treat y as a function of x on the branch being studied. Thus the derivative of y² is 2y y′. The product xy contributes y+x y′, because both factors can change. Collect every term containing y′ before solving for it; substituting an instant-specific numerical y too early would incorrectly turn a changing quantity into a constant.\n\nA formula for y′ is meaningful at a proposed point only if that point lies on the original relation. First substitute the coordinates into the original equation. Then check the denominator of the derivative expression. A nonzero denominator allows a finite slope calculation. A zero denominator with a nonzero numerator can correspond to a vertical tangent at a regular point. If both vanish, the formula alone does not classify the point: local branch structure or another argument is needed. Do not label every zero denominator a vertical tangent without checking.\n\nHigher implicit derivatives use the same principles again. Differentiate y′ terms as functions of x, keep y″ wherever the product or chain rule creates it, and only substitute a point after the general derivative relation has been established. A second derivative measures how the slope changes with x; it is not the square of the first derivative. Organized notation is especially useful when several appearances of y′ occur, because a missed product-rule term can change both the sign and the size of the resulting curvature."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-implicit-higher-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Analyze the curve x²+xy+y²=7 at the point (1,2). Find y′ and then y″ at that point.",
+        "steps": [
+          {
+            "prompt": "Does (1,2) lie on the original curve?",
+            "choices": [
+              "No, because 1+2 is not 7",
+              "Yes, because 1+2+4=7",
+              "Yes, because every point defines a slope",
+              "No, because the relation has two variables"
+            ],
+            "answer": 1,
+            "explanation": "Substitute into all three terms: 1²+(1)(2)+2²=1+2+4=7. Point membership must be checked before interpreting a derivative at those coordinates."
+          },
+          {
+            "prompt": "Which differentiated equation is correct?",
+            "choices": [
+              "2x+y+xy′+2yy′=0",
+              "2x+y+2y=0",
+              "2x+xy′+2y′=0",
+              "2x+y′+2y=7"
+            ],
+            "answer": 0,
+            "explanation": "The derivative of xy is y+xy′ and the derivative of y² is 2yy′. The derivative of the constant 7 is zero."
+          },
+          {
+            "prompt": "What is the slope at (1,2)?",
+            "choices": [
+              "−5/4",
+              "4/5",
+              "−4/5",
+              "−2"
+            ],
+            "answer": 2,
+            "explanation": "Collect (x+2y)y′=−(2x+y). At the point, this gives y′=−4/5, with a nonzero denominator 5."
+          },
+          {
+            "prompt": "After differentiating again, which equation is correct?",
+            "choices": [
+              "2+2(y′)²=0",
+              "(x+2y)y″=−2",
+              "2+2y′+(x+2y)y″=0",
+              "2+2y′+2(y′)²+(x+2y)y″=0"
+            ],
+            "answer": 3,
+            "explanation": "Differentiate 2x+y+xy′+2yy′. Apply the product rule separately to the two terms containing products, giving 2+y′+y′+xy″+2(y′)²+2yy″=0."
+          },
+          {
+            "prompt": "What is y″ at (1,2)?",
+            "choices": [
+              "−42/125",
+              "42/25",
+              "−4/5",
+              "16/25"
+            ],
+            "answer": 0,
+            "explanation": "Substitute y′=−4/5: the numerator 2+2y′+2(y′)² is 2−8/5+32/25=42/25. Divide its negative by x+2y=5 to get −42/125."
+          }
+        ],
+        "takeaway": "Retain the dependence of y on x through every differentiation, and verify both the original point and the derivative denominator."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The same relation illustrates why a derivative formula is local rather than a global declaration that y is one function of x everywhere. Vertical-tangent candidates satisfy x+2y=0. Substituting x=−2y into the curve gives 3y²=7. At those points, the numerator 2x+y=−3y is nonzero, so the tangent is vertical. The only point where both partial derivatives 2x+y and x+2y vanish is the origin, which is not on this curve. This additional analysis justifies the classification here; a different implicit relation could have a singular point requiring more care. At (2,1), the same curve has slope −5/4, showing that the coordinates must be substituted consistently rather than copied from a symmetric-looking earlier calculation."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-implicit-higher-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Why would substituting y=2 into x²+xy+y²=7 before differentiating fail to find the tangent to the curve at (1,2)?",
+        "sampleAnswer": "It would treat y as constant while x changes, replacing the curve by an equation along a horizontal line. The local branch generally has changing y. Differentiating first retains y′ terms, after which evaluating the specified point is legitimate.",
+        "checklist": [
+          "Treat y as a local function of x.",
+          "Identify the lost product/chain-rule terms.",
+          "Differentiate before substituting the coordinates."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-implicit-higher-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For the same curve, enter y′ at (2,1).",
+        "acceptedAnswers": [
+          "-5/4"
+        ],
+        "sampleAnswer": "The point satisfies 4+2+1=7, and y′=−(2x+y)/(x+2y)=−5/4."
+      }
+    ]
+  },
+  "Calc BC: Differential Equations::7.1 Slope fields and separable equations": {
+    "revision": 1,
+    "objectives": [
+      "Read qualitative slopes from a differential equation.",
+      "Solve a separable equation without losing an equilibrium solution.",
+      "Apply an initial condition and verify the resulting function."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A differential equation gives a rule for a derivative. It does not initially identify one particular solution curve. At a point (x,y), an equation y′=F(x,y) prescribes the slope of a short tangent segment. Reading these slopes before solving can reveal where solutions rise, fall, or remain horizontal. For example, if F(x,y) factors, determine the sign of each factor and locate rows or columns where the slope is zero. A slope field records these local directions, not the function values of a unique solution. An initial condition selects a curve through a specified point when the equation and local conditions support such a solution.\n\nA separable equation can be rearranged into one expression involving y and dy and another involving x and dx. This manipulation is useful, but division can silently exclude solutions. In y′=x(y−1), dividing by y−1 assumes y is not identically 1. Check y=1 directly in the original equation before dividing. That constant function is an equilibrium solution, since both its derivative and the right-hand side are zero.\n\nAfter integrating, retain a constant and apply the initial condition. A logarithm such as ln|y−1| allows either sign of y−1 on the interval under consideration. When exponentiating, absorb the sign into a new nonzero constant rather than pretending every solution is above 1. Reintroduce the separately checked equilibrium when describing the full solution family. Finally, verify a proposed particular solution by differentiating it and checking both the derivative equation and the initial value. A function that satisfies only one of those requirements is not a solution to the stated initial-value problem."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-separable-equilibrium-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Solve y′=x(y−1) with y(0)=3. First predict the slopes relative to the line y=1, then find and verify a formula.",
+        "steps": [
+          {
+            "prompt": "Which horizontal line gives an equilibrium solution?",
+            "choices": [
+              "y=0",
+              "y=3",
+              "y=1",
+              "x=0"
+            ],
+            "answer": 2,
+            "explanation": "If y=1 for every x, then y′=0 and x(y−1)=0. The vertical line x=0 has zero prescribed slopes along it but is not a solution function y(x)."
+          },
+          {
+            "prompt": "For a non-equilibrium solution, which separation is valid?",
+            "choices": [
+              "dy/dx=x−1",
+              "dy/(y−1)=x dx",
+              "(y−1)dy=dx/x",
+              "dy/y=(x−1)dx"
+            ],
+            "answer": 1,
+            "explanation": "Divide by y−1 only on a branch where it is nonzero, and multiply by dx. Keep the excluded equilibrium solution in mind."
+          },
+          {
+            "prompt": "Which general expression follows from integration?",
+            "choices": [
+              "y=1+C e^(x²/2)",
+              "y=C e^x",
+              "y=1+C x²/2",
+              "y=C+ln|x|"
+            ],
+            "answer": 0,
+            "explanation": "Integrating gives ln|y−1|=x²/2+K, so y−1=C e^(x²/2). The sign and exponential constant are represented by C."
+          },
+          {
+            "prompt": "Which constant satisfies the initial condition?",
+            "choices": [
+              "C=3",
+              "C=1",
+              "C=0",
+              "C=2"
+            ],
+            "answer": 3,
+            "explanation": "At x=0, the formula gives 3=1+C. Hence C=2 and y=1+2e^(x²/2), which also preserves the initial value."
+          },
+          {
+            "prompt": "What does the formula imply for x>0?",
+            "choices": [
+              "The solution is below 1 and decreasing",
+              "The solution is above 1 and increasing",
+              "The solution crosses y=1",
+              "The solution is constant"
+            ],
+            "answer": 1,
+            "explanation": "The exponential is positive, so y−1=2e^(x²/2)>0. With x>0, the equation gives a positive derivative. It cannot cross the equilibrium line in this solution."
+          }
+        ],
+        "takeaway": "A complete solution includes the equilibrium check, separation, integration constant, initial condition, and verification."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For this particular solution, y(0)=3 is the global minimum: e^(x²/2) is at least 1 for every real x. The derivative is negative when x<0 and positive when x>0, consistent with decreasing toward the initial point and increasing afterward. If the initial value were below 1, then C would be negative and the derivative signs would reverse. This is why discarding the absolute value during logarithmic integration can remove an entire family of solutions. The formula is defined for every real x, but other separable equations may impose finite interval boundaries because of denominators, logarithm arguments, or blow-up. Determine the interval containing the initial input rather than assuming every symbolic expression works globally. Direct verification is a powerful final check: differentiating 1+2e^(x²/2) gives 2x e^(x²/2), exactly x times the quantity y−1."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-separable-equilibrium-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner divides by y−1 and concludes that y=1 is not a solution because ln|y−1| would be undefined. Explain the mistake.",
+        "sampleAnswer": "The logarithmic calculation applied only after excluding y=1 during division. It cannot decide whether the excluded function solves the original equation. Checking y=1 directly gives y′=0 and x(y−1)=0, so the equilibrium is valid even though it was absent from the separated branch.",
+        "checklist": [
+          "Identify the division that excluded a case.",
+          "Return to the original equation.",
+          "Check both sides for the constant function."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-separable-equilibrium-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For y=1+C e^(x²/2), enter C when the initial condition is y(0)=5.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "At x=0, e^0=1, so 5=1+C and C=4."
+      }
+    ]
+  }
+}

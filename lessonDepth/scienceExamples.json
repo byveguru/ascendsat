@@ -1,0 +1,948 @@
+{
+  "CSP: Algorithms & Programming::3.1 Variables, expressions, Boolean logic, and selection": {
+    "revision": 1,
+    "objectives": [
+      "Trace assignment, selection and accumulation using current variable values.",
+      "Use MOD for the stated nonnegative integer inputs.",
+      "Find a counterexample that exposes a reset-inside-loop error."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: values, positions and state"
+      },
+      {
+        "type": "text",
+        "text": "An assignment evaluates the right-hand side using the current state, then replaces the left-hand variable. In the AP-style pseudocode here, ← means assignment and = compares values. MOD gives the remainder for the nonnegative integers used in this activity. For example, 6 MOD 2 = 0 while 3 MOD 2 = 1. A condition can skip the IF body without skipping the surrounding loop iteration. Keep a separate trace row for each iteration; a variable retains its previous value unless an executed instruction changes it."
+      },
+      {
+        "type": "prediction",
+        "id": "csp-depth-state-predict",
+        "title": "Predict before tracing",
+        "prompt": "A loop visits the values [3, 6, 9] and adds a value only if value MOD 2 = 0. Which values will be added?",
+        "choices": [
+          "3 and 9",
+          "6 only",
+          "All three values",
+          "The value at index 2, regardless of its value"
+        ],
+        "answer": 1,
+        "explanation": "Only 6 has remainder 0 when divided by 2. The condition tests each element’s value, not whether its list position is even.",
+        "hint": "Work out the remainder for one value at a time."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "csp-depth-state-guide",
+        "title": "Watch one instruction change the state",
+        "scenario": "Use this original program:\nvalues ← [3, 6, 9]\ntotal ← 0\nFOR EACH x IN values\n{\n  IF (x MOD 2 = 0)\n  { total ← total + x }\n}\nDISPLAY(total)",
+        "steps": [
+          {
+            "prompt": "After the iteration with x = 3, what is total?",
+            "choices": [
+              "3",
+              "1",
+              "0",
+              "6"
+            ],
+            "answer": 2,
+            "explanation": "The condition is false, so total remains its initialized value 0. The program does not count this item or add it.",
+            "hint": "Which instruction could change total, and does that instruction execute?"
+          },
+          {
+            "prompt": "After the iteration with x = 6, what is total?",
+            "choices": [
+              "6",
+              "9",
+              "2",
+              "0"
+            ],
+            "answer": 0,
+            "explanation": "The condition is true. Read the previous total 0, compute 0 + 6, and store 6.",
+            "hint": "Use the value of total from the preceding step."
+          },
+          {
+            "prompt": "After the iteration with x = 9, what is displayed?",
+            "choices": [
+              "9",
+              "15",
+              "0",
+              "6"
+            ],
+            "answer": 3,
+            "explanation": "The final condition is false, so the retained total is 6. Entering a new iteration does not automatically reset the accumulator.",
+            "hint": "Does the program execute another assignment to total?"
+          }
+        ],
+        "takeaway": "Trace the data and the control flow together. A loop visits elements; the condition decides which visits update the accumulator."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer: detect the bug with the right input"
+      },
+      {
+        "type": "reflection",
+        "id": "csp-depth-state-transfer",
+        "title": "Build a counterexample",
+        "prompt": "A programmer moves total ← 0 inside the loop, immediately before IF. A classmate claims that [2, 4] exposes an error but [1, 2, 3] does not. Trace both lists. Is the classmate’s second claim correct? Then give a list on which both versions agree.",
+        "sampleAnswer": "For [2, 4], the intended sum is 6, but resetting before each iteration leaves 4. For [1, 2, 3], only 2 qualifies; both versions finish with 0 if the buggy reset also runs on the last odd item, so this list actually exposes an error too: the intended result is 2 but the buggy result is 0. A better example that does not expose the bug is [1, 3, 2], whose final item is its only qualifying value; both versions return 2. Counterexamples must be traced, not guessed.",
+        "checklist": [
+          "Compute the intended result.",
+          "Trace every reset, including iterations whose IF condition is false.",
+          "If a proposed comparison list also fails, revise it rather than forcing the original claim."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked trace"
+      },
+      {
+        "type": "recall",
+        "id": "csp-depth-state-recall",
+        "title": "Try a fresh list",
+        "prompt": "Using the original correct program, what number is displayed for [2, 0, 5, 8]? Enter only the final number.",
+        "sampleAnswer": "The successive totals are 2, 2, 2, 10. Zero passes the even-number test but adds zero, and 5 is skipped. The displayed result is 10.",
+        "math": true,
+        "acceptedAnswers": [
+          "10"
+        ],
+        "hint": "Add qualifying values; do not count how many qualify."
+      }
+    ]
+  },
+  "CSP: Computer Systems & Networks::4.2 Bandwidth, parallel work, and limits on speedup": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish fixed sequential work from divisible parallel work.",
+      "Calculate ideal elapsed time and speedup with consistent units.",
+      "Explain why more processors do not remove a sequential bottleneck."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: identify what can overlap"
+      },
+      {
+        "type": "text",
+        "text": "Elapsed time is the duration from start to finish, not the sum of processor activity across every processor. Sequential steps depend on an ordered chain. Independent work may be divided across processors, but its maximum possible speedup is limited by fixed work and any coordination overhead. For this activity only, assume the parallel portion divides perfectly and overhead is zero. First mark the work that cannot overlap; only then divide the remaining work by the processor count."
+      },
+      {
+        "type": "prediction",
+        "id": "csp-depth-parallel-predict",
+        "title": "Predict the bottleneck",
+        "prompt": "A task takes 10 seconds of fixed sequential work plus 30 seconds of perfectly divisible parallel work. Do three processors necessarily make the whole task three times faster?",
+        "choices": [
+          "Yes, processor count always equals speedup",
+          "Yes, because the total is 40 seconds",
+          "No, the sequential work remains",
+          "No, parallel computing can never help"
+        ],
+        "answer": 2,
+        "explanation": "The 10 fixed seconds remain. Only the 30-second parallel portion divides by 3; total elapsed time is 10 + 10 = 20 seconds."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "csp-depth-parallel-guide",
+        "title": "Put time on the critical path",
+        "scenario": "Original runtime is 40 seconds: 10 fixed sequential seconds plus 30 parallelizable processor-seconds. Use 3 processors and ignore overhead.",
+        "steps": [
+          {
+            "prompt": "How long does the divided parallel portion take?",
+            "choices": [
+              "30 s",
+              "10 s",
+              "3 s",
+              "40/3 s"
+            ],
+            "answer": 1,
+            "explanation": "30 processor-seconds / 3 processors = 10 seconds elapsed time. This division applies only to the parallelizable work.",
+            "hint": "Identify the amount of work that was actually divided."
+          },
+          {
+            "prompt": "What is total elapsed time?",
+            "choices": [
+              "10 s",
+              "40/3 s",
+              "30 s",
+              "20 s"
+            ],
+            "answer": 3,
+            "explanation": "Add the fixed 10 seconds and the divided 10 seconds: 20 seconds. The sequential component has not disappeared.",
+            "hint": "Add the portions that occur successively on the critical path."
+          },
+          {
+            "prompt": "What is the speedup relative to 40 seconds?",
+            "choices": [
+              "2",
+              "3",
+              "20",
+              "0.5"
+            ],
+            "answer": 0,
+            "explanation": "Speedup is original time / improved time = 40/20 = 2, a dimensionless ratio.",
+            "hint": "The numerator is the original runtime, not the processor count."
+          }
+        ],
+        "takeaway": "Always state the divisible-work and overhead assumptions. A faster result under this model is not a guarantee for an arbitrary real program."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: the serial limit"
+      },
+      {
+        "type": "reflection",
+        "id": "csp-depth-parallel-transfer",
+        "title": "Explain an upper bound",
+        "prompt": "For the same task, what lower bound on elapsed time remains even with arbitrarily many processors? Why does this imply an ideal speedup that approaches 4 rather than increasing without limit?",
+        "sampleAnswer": "The fixed sequential work still requires 10 seconds. The idealized parallel portion can approach zero time, so the total approaches 10 seconds and speedup approaches 40/10 = 4. Real coordination overhead or additional dependencies can make the achieved time larger.",
+        "checklist": [
+          "Identify the fixed 10-second component.",
+          "Use original/improved time for speedup.",
+          "Distinguish the idealized bound from real-world performance."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve on a changed design"
+      },
+      {
+        "type": "recall",
+        "id": "csp-depth-parallel-recall",
+        "title": "Apply the same model",
+        "prompt": "A revised 40-second task has 4 fixed sequential seconds and 36 parallelizable processor-seconds. With 4 processors and zero overhead, what is total time in seconds? Enter only the number.",
+        "sampleAnswer": "The divided portion takes 36/4 = 9 seconds. Add the fixed 4 seconds to obtain 13 seconds. Its speedup is 40/13 ≈ 3.08, not 4.",
+        "math": true,
+        "acceptedAnswers": [
+          "13"
+        ]
+      }
+    ]
+  },
+  "APES: Earth Systems and Resources::4.1 Plate tectonics, soil formation, and erosion": {
+    "revision": 1,
+    "objectives": [
+      "Convert a soil mass-loss rate into volume and depth using consistent units.",
+      "Track whether a result is annual or cumulative.",
+      "Explain the limitations of a constant-rate soil-loss model."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: keep a unit ledger"
+      },
+      {
+        "type": "text",
+        "text": "Density is mass divided by volume, so volume = mass/density. An erosion rate in kg per square meter per year becomes annual mass loss when multiplied by area. Divide the resulting volume by surface area to obtain average depth loss. Do not drop the year from a rate. A soil bulk density of 1.25 g/cm³ is 1,250 kg/m³, not 1.25 kg/m³. The numerical factor changes because the volume unit changes by a million while the mass unit changes by a thousand."
+      },
+      {
+        "type": "prediction",
+        "id": "apes-depth-soil-predict",
+        "title": "Check the density first",
+        "prompt": "Which value is equivalent to a dry bulk density of 1.25 g/cm³?",
+        "choices": [
+          "1.25 kg/m³",
+          "1,250 kg/m³",
+          "0.00125 kg/m³",
+          "125,000 kg/m³"
+        ],
+        "answer": 1,
+        "explanation": "One gram is 0.001 kg and one cubic centimeter is 0.000001 m³. Dividing these conversion factors gives 1,000 kg/m³ for each g/cm³."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "apes-depth-soil-guide",
+        "title": "Move from mass to volume to depth",
+        "scenario": "Original hypothetical model: a 500 m² field loses 2.5 kg of soil per m² each year. Soil dry bulk density is 1,250 kg/m³. Assume uniform density, no deposition, and the stated constant rate.",
+        "steps": [
+          {
+            "prompt": "What is annual eroded mass?",
+            "choices": [
+              "200 kg/year",
+              "2.5 kg/year",
+              "1,250 kg/year",
+              "500 kg/year"
+            ],
+            "answer": 2,
+            "explanation": "(500 m²)(2.5 kg/m²/year) = 1,250 kg/year. The square-meter units cancel.",
+            "hint": "Multiply area by the mass-loss rate per unit area."
+          },
+          {
+            "prompt": "What is annual soil-volume loss?",
+            "choices": [
+              "1 m³/year",
+              "1,000 m³/year",
+              "1,562,500 m³/year",
+              "0.001 m³/year"
+            ],
+            "answer": 0,
+            "explanation": "(1,250 kg/year)/(1,250 kg/m³) = 1 m³/year. Using 1.25 kg/m³ would create a thousandfold density error.",
+            "hint": "Use volume = mass/density."
+          },
+          {
+            "prompt": "Spread across 500 m², what is average depth loss?",
+            "choices": [
+              "2 m/year",
+              "0.2 m/year",
+              "0.02 m/year",
+              "0.002 m/year"
+            ],
+            "answer": 3,
+            "explanation": "1 m³/year / 500 m² = 0.002 m/year, or 2 mm/year.",
+            "hint": "A cubic-meter quantity divided by square meters leaves meters."
+          }
+        ],
+        "takeaway": "An internally consistent calculation must preserve units, spatial meaning and time interval at every step."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: extrapolation is a model"
+      },
+      {
+        "type": "reflection",
+        "id": "apes-depth-soil-transfer",
+        "title": "Evaluate a century claim",
+        "prompt": "A report says the model predicts exactly 0.20 m of actual soil loss over the next century. Separate the arithmetic from the claim about nature.",
+        "sampleAnswer": "The constant-rate calculation is 0.002 m/year × 100 years = 0.20 m. But actual erosion, deposition, vegetation, land use and density can change. The arithmetic is valid under the stated assumptions; “exactly” is not a justified real-world forecast.",
+        "checklist": [
+          "Show the annual-to-century multiplication.",
+          "Name at least one process the model holds fixed or omits.",
+          "Do not confuse a checked model calculation with a guaranteed observed outcome."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve with a conservation change"
+      },
+      {
+        "type": "recall",
+        "id": "apes-depth-soil-recall",
+        "title": "Change the erosion rate",
+        "prompt": "A conservation method reduces the erosion rate by 40%, leaving all other model quantities fixed. What is new average annual depth loss in millimeters? Enter only the number.",
+        "sampleAnswer": "Retain 60% of the original rate: 2 mm/year × 0.60 = 1.2 mm/year. Equivalently, mass loss is 750 kg/year and volume loss is 0.60 m³/year.",
+        "math": true,
+        "acceptedAnswers": [
+          "1.2",
+          "6/5"
+        ],
+        "hint": "A 40% reduction leaves 60%, not 40%, of the original value."
+      }
+    ]
+  },
+  "APES: Energy Resources and Consumption::6.1 Energy units, efficiency, demand, and electricity calculations": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish power, useful energy, energy input and price.",
+      "Rearrange efficiency before calculating input energy.",
+      "Explain why daily energy sufficiency is different from all-hour supply."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: power is not an energy amount"
+      },
+      {
+        "type": "text",
+        "text": "A kilowatt is a rate of energy use; a kilowatt-hour is energy. A constant 2 kW device operating for 5 hours uses 10 kWh. Efficiency = useful output/input, so required input = useful output/efficiency. Use the efficiency as a fraction between 0 and 1. A modeled energy charge is consumed kWh multiplied by dollars per kWh; fixed bill charges are a separate quantity."
+      },
+      {
+        "type": "prediction",
+        "id": "apes-depth-energy-predict",
+        "title": "Predict the input-output relationship",
+        "prompt": "A generator is 35% efficient. To deliver 300 kWh of electric output, must fuel-energy input be greater than, equal to, or less than 300 kWh-equivalent?",
+        "choices": [
+          "Less, because efficiency reduces input",
+          "Equal, because energy cannot be conserved",
+          "Greater, because only part of input becomes the useful output"
+        ],
+        "answer": 2,
+        "explanation": "Required input is output/0.35. The remaining input energy goes to other outputs such as waste heat; it is not destroyed."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "apes-depth-energy-guide",
+        "title": "Follow the energy and the bill",
+        "scenario": "A hypothetical 2 kW device operates 5 hours per day for 30 days. Electricity costs 0.18 dollars/kWh. Ignore fixed charges. A source generator converts 35% of fuel energy to delivered electric output for this simplified comparison.",
+        "steps": [
+          {
+            "prompt": "What is the device’s 30-day electric energy use?",
+            "choices": [
+              "10 kWh",
+              "300 kWh",
+              "60 kWh",
+              "3,000 kWh"
+            ],
+            "answer": 1,
+            "explanation": "2 kW × 5 h/day × 30 days = 300 kWh. Units connect a rate to a duration.",
+            "hint": "First find one day’s energy."
+          },
+          {
+            "prompt": "What is the modeled energy charge?",
+            "choices": [
+              "54 dollars",
+              "1 dollars,666.67",
+              "300 dollars",
+              "0.60 dollars"
+            ],
+            "answer": 0,
+            "explanation": "300 kWh × 0.18 dollars/kWh = 54 dollars. The kWh units cancel.",
+            "hint": "Multiply by the price per unit of energy."
+          },
+          {
+            "prompt": "What fuel-energy input supplies this output at 35% efficiency?",
+            "choices": [
+              "105 kWh-equivalent",
+              "300 kWh-equivalent",
+              "About 857.14 kWh-equivalent",
+              "About 8.57 kWh-equivalent"
+            ],
+            "answer": 2,
+            "explanation": "Input = output/efficiency = 300/0.35 ≈ 857.14 kWh-equivalent. Multiplication by 0.35 answers the reverse question.",
+            "hint": "Start with efficiency = output/input and isolate input."
+          }
+        ],
+        "takeaway": "An efficiency relation does not violate energy conservation: distinguish the desired output from other energy transfers."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: timing and storage"
+      },
+      {
+        "type": "reflection",
+        "id": "apes-depth-energy-transfer",
+        "title": "Test an all-hour supply claim",
+        "prompt": "A 20 m² array receives 4 kWh of solar energy per m² per day and converts 20% to electricity. A household uses 10 kWh per day. Compute the modeled array output, then explain why that alone does not guarantee electricity whenever the household needs it.",
+        "sampleAnswer": "Modeled output is (20 m²)(4 kWh/m²/day)(0.20) = 16 kWh/day. This exceeds the stated daily use, but generation timing, changing weather, storage, delivery and conversion losses affect supply hour by hour. A daily total is not proof that nighttime demand is met.",
+        "checklist": [
+          "Calculate 16 kWh/day with units.",
+          "Distinguish an energy total from its time distribution.",
+          "Identify storage, timing or a stated model limitation."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve with a new usage pattern"
+      },
+      {
+        "type": "recall",
+        "id": "apes-depth-energy-recall",
+        "title": "Reduce consumption",
+        "prompt": "If electric consumption falls 25% from 300 kWh, at the same 0.18 dollars/kWh price, what is the new modeled monthly charge in dollars? Enter only the number.",
+        "sampleAnswer": "New energy is 300 × 0.75 = 225 kWh. The charge is 225 × 0.18 = 40.50 dollars, saving 13.50 dollars.",
+        "math": true,
+        "acceptedAnswers": [
+          "40.5",
+          "81/2"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Torque and Rotational Dynamics::5.3 Rolling constraints and translational-rotational dynamics": {
+    "revision": 1,
+    "objectives": [
+      "Draw separate translational and rotational models for rolling.",
+      "Derive required static friction instead of assuming it equals its maximum.",
+      "Check the no-slip assumption against the available friction."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: three equations, one model"
+      },
+      {
+        "type": "text",
+        "text": "For rolling without slipping on a fixed surface, the center-of-mass acceleration and angular acceleration satisfy a = Rα. This is a constraint, not a force law. Newton’s second law for translation gives the net force, and the rotational form gives net torque about the chosen axis. Static friction can supply a torque while the instantaneous contact point is not sliding. Its magnitude is whatever the motion requires, up to μ_sN; it is not automatically μ_sN."
+      },
+      {
+        "type": "prediction",
+        "id": "physics-depth-rolling-predict",
+        "title": "Predict the friction direction",
+        "prompt": "A uniform solid cylinder is released on a rough incline and rolls downhill without slipping. What direction does static friction act in the standard fixed-incline model?",
+        "choices": [
+          "Downhill because the cylinder moves downhill",
+          "Uphill, supplying the torque that spins it up",
+          "There is no friction because there is no slipping",
+          "In the direction of its weight"
+        ],
+        "answer": 1,
+        "explanation": "Gravity’s component accelerates the center downhill. About the center, uphill friction supplies the torque needed to increase the cylinder’s rotation consistently with rolling. Friction opposes impending relative sliding at contact, not always the center’s motion."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "physics-depth-rolling-guide",
+        "title": "Derive and then test the constraint",
+        "scenario": "A solid cylinder of mass 3 kg and radius R rolls down a 30° fixed incline. Use g = 10 m/s² and I_cm = ½mR². Choose downhill positive and take f as the magnitude of uphill static friction. Begin by assuming no slip, then check whether friction can support it.",
+        "steps": [
+          {
+            "prompt": "Which equations correctly combine translation, rotation and the rolling constraint?",
+            "choices": [
+              "mg sinθ + f = ma; fR = Iα; a = Rα",
+              "mg sinθ − f = ma; fR = Iα; a = Rα",
+              "mg − f = ma; f = μ_smg in every case",
+              "mg sinθ = ma; rotational motion is independent"
+            ],
+            "answer": 1,
+            "explanation": "Translation uses the downslope component of weight minus uphill friction. Torque about the center is fR, and no slip relates a and α.",
+            "hint": "Keep the force equation along the incline and the torque equation about the center."
+          },
+          {
+            "prompt": "What friction relation follows from fR = ½mR²(a/R)?",
+            "choices": [
+              "f = ma",
+              "f = 2ma",
+              "f = ½ma",
+              "f = 0"
+            ],
+            "answer": 2,
+            "explanation": "Cancel R to obtain f = ½ma. This required friction comes from the coupled motion, not from setting friction to its maximum.",
+            "hint": "Substitute the rolling constraint before simplifying."
+          },
+          {
+            "prompt": "What acceleration follows after substitution into the translational equation?",
+            "choices": [
+              "a = g sinθ",
+              "a = (2/3)g sinθ = 10/3 m/s²",
+              "a = 2g sinθ",
+              "a = 0"
+            ],
+            "answer": 1,
+            "explanation": "mg sinθ − ½ma = ma, so mg sinθ = 1.5ma. With sin30° = ½, a = 10/3 m/s².",
+            "hint": "Collect the acceleration terms on one side."
+          },
+          {
+            "prompt": "What minimum static-friction coefficient can support this motion?",
+            "choices": [
+              "0",
+              "1/3",
+              "√3",
+              "1/(3√3) ≈ 0.19245"
+            ],
+            "answer": 3,
+            "explanation": "Required f = ½(3)(10/3) = 5 N. Normal force N = (3)(10)cos30° = 15√3 N. Thus μ_s must be at least f/N = 1/(3√3).",
+            "hint": "Use required friction divided by the normal force, not by the full weight."
+          }
+        ],
+        "takeaway": "Derive a candidate motion, calculate the friction it requires, then test whether the assumed contact condition is physically available."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: when the assumption fails"
+      },
+      {
+        "type": "reflection",
+        "id": "physics-depth-rolling-transfer",
+        "title": "Reject an unsupported constraint",
+        "prompt": "The same incline has μ_s = 0.18. Can you keep using a = Rα and the derived acceleration 10/3 m/s²? Explain what additional information would be needed to model sliding.",
+        "sampleAnswer": "No. The required coefficient is approximately 0.19245, greater than 0.18, so the no-slip model cannot be sustained from these conditions. During sliding, translation and rotation require the appropriate sliding-friction model and initial conditions; the no-slip constraint no longer supplies a = Rα. A kinetic-friction coefficient would be needed for the standard sliding model.",
+        "checklist": [
+          "Compare 0.18 with the required minimum.",
+          "State which assumed equation becomes unsupported.",
+          "Do not invent a sliding acceleration without a specified friction model."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the relation on a new incline"
+      },
+      {
+        "type": "recall",
+        "id": "physics-depth-rolling-recall",
+        "title": "Change only the angle",
+        "prompt": "For the same uniform solid-cylinder no-slip model, use g = 10 m/s² and sinθ = 0.3. What is the downhill acceleration in m/s²? Enter only the number.",
+        "sampleAnswer": "a = (2/3)g sinθ = (2/3)(10)(0.3) = 2 m/s², provided adequate static friction supports no slip.",
+        "math": true,
+        "acceptedAnswers": [
+          "2"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Fluids::8.2 Buoyancy, floating equilibrium, and apparent weight": {
+    "revision": 1,
+    "objectives": [
+      "Identify displaced fluid rather than object mass in the buoyant-force model.",
+      "Use a force balance to interpret apparent weight.",
+      "Explain why hydrostatic pressure and buoyant force have different depth behavior."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: label every force"
+      },
+      {
+        "type": "text",
+        "text": "For an object immersed in a fluid, Archimedes’ principle gives buoyant force F_B = ρ_fluid g V_displaced. The displaced volume is the submerged volume. For a fully submerged, incompressible object in a uniform-density fluid, moving deeper raises absolute pressure but does not change this volume or the hydrostatic pressure gradient. A support scale measures tension in the stated arrangement, not automatically the object’s gravitational force. Choose an object and draw the forces before setting any two quantities equal."
+      },
+      {
+        "type": "prediction",
+        "id": "physics-depth-buoyancy-predict",
+        "title": "Predict before calculating",
+        "prompt": "A dense rigid object is fully submerged in water and held at rest by a scale from above. Which equality is correct when buoyancy and tension both act upward?",
+        "choices": [
+          "T = mg + F_B",
+          "F_B = mg in every submerged case",
+          "T + F_B = mg",
+          "T = F_B"
+        ],
+        "answer": 2,
+        "explanation": "At rest, the upward forces tension and buoyancy sum to the downward weight. Floating without another support would be a different force balance."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "physics-depth-buoyancy-guide",
+        "title": "Separate weight, buoyancy and the scale reading",
+        "scenario": "A 3 kg rigid object of volume 0.002 m³ hangs fully underwater from a scale without touching the container. Water density is 1,000 kg/m³ and g = 10 m/s². The object and water are treated as incompressible.",
+        "steps": [
+          {
+            "prompt": "What is the object’s weight?",
+            "choices": [
+              "3 N",
+              "20 N",
+              "30 N",
+              "10 N"
+            ],
+            "answer": 2,
+            "explanation": "Weight is mg = (3)(10) = 30 N downward. Water immersion does not remove the gravitational interaction.",
+            "hint": "Use the object’s mass for its weight."
+          },
+          {
+            "prompt": "What is the buoyant force?",
+            "choices": [
+              "30 N",
+              "20 N",
+              "2 N",
+              "10 N"
+            ],
+            "answer": 1,
+            "explanation": "F_B = (1,000)(10)(0.002) = 20 N upward. Use fluid density and submerged volume.",
+            "hint": "Which density belongs in Archimedes’ relation?"
+          },
+          {
+            "prompt": "What does the scale read?",
+            "choices": [
+              "10 N",
+              "20 N",
+              "30 N",
+              "50 N"
+            ],
+            "answer": 0,
+            "explanation": "At rest, T + 20 = 30, giving T = 10 N. This is the apparent weight in this particular support arrangement.",
+            "hint": "Solve the force balance, preserving directions."
+          },
+          {
+            "prompt": "What happens to buoyancy if the fully submerged object moves from 2 m to 5 m depth under the same ideal assumptions?",
+            "choices": [
+              "It becomes 2.5 times larger",
+              "It becomes zero",
+              "It equals the object’s weight",
+              "It remains 20 N"
+            ],
+            "answer": 3,
+            "explanation": "Fluid density, g and displaced volume remain fixed, so buoyancy remains 20 N. Absolute pressure increases, but its depth gradient determines the net hydrostatic force.",
+            "hint": "Identify which factors in ρgV actually changed."
+          }
+        ],
+        "takeaway": "A scale reading is one force, not a new name for mass or weight. Increased absolute pressure does not imply increased buoyancy for this ideal fully submerged object."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: choose the appropriate model"
+      },
+      {
+        "type": "reflection",
+        "id": "physics-depth-buoyancy-transfer",
+        "title": "Find the model boundary",
+        "prompt": "Why might a flexible air-filled balloon behave differently as it moves deeper? Why should you not automatically reuse the depth-independent result?",
+        "sampleAnswer": "A flexible gas-filled balloon can compress as external pressure increases. Its submerged volume then changes, so ρgV can change even if the fluid density is approximately uniform. The earlier conclusion required a rigid incompressible object with fixed displaced volume. A quantitative balloon prediction would require an appropriate pressure-volume model and other stated conditions.",
+        "checklist": [
+          "Name the fixed-volume assumption.",
+          "Connect changing volume to buoyant force.",
+          "Do not claim a numerical result without a model of compression."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve after changing the fluid"
+      },
+      {
+        "type": "recall",
+        "id": "physics-depth-buoyancy-recall",
+        "title": "Change the surrounding fluid",
+        "prompt": "The same rigid 3 kg, 0.002 m³ object is held fully submerged at rest in a fluid of density 1,200 kg/m³. With g = 10 m/s², what is the scale reading in newtons? Enter only the number.",
+        "sampleAnswer": "Buoyancy is (1,200)(10)(0.002) = 24 N. The support tension is 30 − 24 = 6 N.",
+        "math": true,
+        "acceptedAnswers": [
+          "6"
+        ]
+      }
+    ]
+  },
+  "Psych: Development & Learning::3.5 Operant Conditioning and Observational Learning": {
+    "revision": 1,
+    "objectives": [
+      "Classify consequences using their observed function and whether a stimulus is added or removed.",
+      "Distinguish a consequence’s intended purpose from its demonstrated effect.",
+      "Explain why reinforcement terminology does not establish a causal claim from an uncontrolled correlation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: two independent questions"
+      },
+      {
+        "type": "text",
+        "text": "First identify the behavior and whether its future frequency increases or decreases under the stated consequence. An increase is reinforcement; a decrease is punishment. Separately identify whether the consequence adds a stimulus (positive) or removes one (negative). Positive and negative are operations, not moral judgments. In these fictional learning examples, the stated consequence–behavior relationship is part of the scenario. In an actual study, a simple before–after change alone would not exclude other causes."
+      },
+      {
+        "type": "prediction",
+        "id": "psych-depth-operant-predict",
+        "title": "Predict from function",
+        "prompt": "After fastening a seat belt, an irritating chime stops. Under the stated contingency, fastening becomes more frequent. Which classification fits?",
+        "choices": [
+          "Negative punishment",
+          "Positive punishment",
+          "Positive reinforcement",
+          "Negative reinforcement"
+        ],
+        "answer": 3,
+        "explanation": "The behavior increases, so the consequence functions as reinforcement. An aversive stimulus is removed, so it is negative reinforcement.",
+        "hint": "Answer “increase or decrease?” before answering “add or remove?”"
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "psych-depth-operant-guide",
+        "title": "Use the two-by-two decision rule",
+        "scenario": "Classify each hypothetical consequence by its stated effect on the specified behavior, rather than by what an adult intended.",
+        "steps": [
+          {
+            "prompt": "A student completes more practice when specific praise follows completion. Praise adds a stimulus. What is the stated function?",
+            "choices": [
+              "Negative reinforcement",
+              "Positive reinforcement",
+              "Negative punishment",
+              "Positive punishment"
+            ],
+            "answer": 1,
+            "explanation": "Completion increases and praise is added, so the stated consequence is positive reinforcement. The label does not mean every use of praise will have that effect.",
+            "hint": "Classify the direction of the behavior change first."
+          },
+          {
+            "prompt": "A previously available game privilege is removed after disruption, and disruption decreases under that contingency. What is the classification?",
+            "choices": [
+              "Negative punishment",
+              "Positive reinforcement",
+              "Negative reinforcement",
+              "Positive punishment"
+            ],
+            "answer": 0,
+            "explanation": "Disruption decreases, so the consequence functions as punishment. The privilege is removed, so it is negative punishment.",
+            "hint": "Removal alone does not tell you reinforcement versus punishment."
+          },
+          {
+            "prompt": "A reprimand is added after calling out, but calling out increases under that contingency. What label describes the observed function?",
+            "choices": [
+              "Positive punishment, because reprimands are intended to punish",
+              "Negative punishment, because the event is unpleasant",
+              "Negative reinforcement, because calling out increases",
+              "Positive reinforcement"
+            ],
+            "answer": 3,
+            "explanation": "Calling out increases and a stimulus is added. The reprimand therefore functions as positive reinforcement in this hypothetical example, despite the intended purpose.",
+            "hint": "Use the effect stated in the scenario, not the everyday meaning of “reprimand.”"
+          }
+        ],
+        "takeaway": "Intention, pleasantness and moral evaluation are different from the behavioral definition of a consequence’s function."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: function requires evidence"
+      },
+      {
+        "type": "reflection",
+        "id": "psych-depth-operant-transfer",
+        "title": "Evaluate a causal explanation",
+        "prompt": "A school introduces a reward and practice rises during exam week. The report says the reward caused the increase. Identify one alternative explanation and a design improvement.",
+        "sampleAnswer": "An approaching exam, a changed assignment or prior motivation could contribute to the increase. A suitable comparison condition, consistent measurement and ethically assigned conditions can strengthen the inference about the reward. The before–after pattern alone does not isolate its causal effect, even though the intended mechanism is reinforcement.",
+        "checklist": [
+          "Specify the measured behavior.",
+          "Name a plausible alternative supported by the scenario.",
+          "Explain how a comparison would address the alternative."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the distinction"
+      },
+      {
+        "type": "recall",
+        "id": "psych-depth-operant-recall",
+        "title": "Explain the difference",
+        "prompt": "In one or two sentences, explain how negative reinforcement differs from negative punishment. Give a new harmless example of each.",
+        "sampleAnswer": "Both involve removing a stimulus. Negative reinforcement increases the specified behavior; negative punishment decreases it. For example, completing a task may become more frequent when it removes an irritating reminder, while disruption may decrease when it removes an optional privilege. Classify the function from the stated change, not from intention alone.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Cognition::2.5 Intelligence, Testing, and Data Interpretation": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish reliability, validity and a score’s intended use.",
+      "Interpret an explicitly defined percentile-rank convention.",
+      "Avoid inferring raw accuracy or universal ability from a norm-referenced score."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Before you start: define the comparison"
+      },
+      {
+        "type": "text",
+        "text": "Reliability concerns consistency of measurement. Validity concerns evidence supporting a particular interpretation and use of scores. A repeatable reading test is not automatically valid for selecting musicians. Percentile rank compares a score with a reference distribution; it is not the percentage of questions answered correctly. Percentile conventions differ, so this activity explicitly defines percentile rank as 100 × (number of reference scores strictly below the target score)/(number of reference scores). Use that definition rather than silently switching to an “at or below” convention."
+      },
+      {
+        "type": "prediction",
+        "id": "psych-depth-measure-predict",
+        "title": "Predict the justified claim",
+        "prompt": "A reading test gives similar results on repeated administrations, but has not been evaluated for musical ability. Which conclusion is supported?",
+        "choices": [
+          "It is valid for every high-stakes decision",
+          "Its repeatability supports reliability in that context, not validity for selecting musicians",
+          "Its percentile equals raw accuracy",
+          "Reliable tests cannot contain cultural assumptions"
+        ],
+        "answer": 1,
+        "explanation": "Consistent scores support a reliability claim for the tested conditions. A new use requires relevant validity evidence; consistency alone does not supply it."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "psych-depth-measure-guide",
+        "title": "Read a norm comparison carefully",
+        "scenario": "Original hypothetical reference scores: [40, 45, 50, 55, 60, 65, 70, 75, 80, 85]. Target score: 75. For this activity, percentile rank counts reference scores strictly below the target.",
+        "steps": [
+          {
+            "prompt": "How many reference scores are strictly below 75?",
+            "choices": [
+              "6",
+              "8",
+              "7",
+              "75"
+            ],
+            "answer": 2,
+            "explanation": "The scores 40, 45, 50, 55, 60, 65 and 70 are below 75: seven values. Do not count the equal score under the stated convention.",
+            "hint": "Mark each value satisfying score < 75."
+          },
+          {
+            "prompt": "What percentile rank follows under this activity’s definition?",
+            "choices": [
+              "70",
+              "75",
+              "80",
+              "7"
+            ],
+            "answer": 0,
+            "explanation": "100 × 7/10 = 70. A different convention for equal scores could produce another rank, which is why the rule was stated.",
+            "hint": "Divide the counted values by the total number of reference values."
+          },
+          {
+            "prompt": "Does this show that the target respondent answered 70% of test questions correctly?",
+            "choices": [
+              "Yes, because all percentages are interchangeable",
+              "Yes, because the score is 75",
+              "Only if the scores are normally distributed",
+              "No; percentile rank is a reference-group comparison"
+            ],
+            "answer": 3,
+            "explanation": "The computation uses relative standing among reference scores, not the number of correct responses. The item count and scoring rules were not supplied.",
+            "hint": "What quantities appeared in the numerator and denominator?"
+          }
+        ],
+        "takeaway": "Always connect a numerical description to its definition, reference population and intended interpretation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Advanced connection: evaluate a new use"
+      },
+      {
+        "type": "reflection",
+        "id": "psych-depth-measure-transfer",
+        "title": "Challenge an unsupported generalization",
+        "prompt": "A test developed with adult volunteers is proposed for comparing children from several language communities. Explain why reliability in the original sample is insufficient, and identify evidence that would matter.",
+        "sampleAnswer": "The new population, language and purpose can change how scores should be interpreted. Appropriate administration, comprehensibility, relevant norms, consistency in the new conditions and evidence linking scores to the intended construct would matter. An observed group-average difference would not establish every individual’s capability or one biological cause.",
+        "checklist": [
+          "Identify the changed population or use.",
+          "Separate reliability evidence from validity evidence.",
+          "Consider language, opportunity and comparison-group relevance."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the ranking walkthrough"
+      },
+      {
+        "type": "recall",
+        "id": "psych-depth-measure-recall",
+        "title": "Calculate a new rank",
+        "prompt": "Using the same ten reference scores and the same strictly-below convention, what percentile rank corresponds to a score of 60? Enter only the numerical rank.",
+        "sampleAnswer": "Four scores—40, 45, 50 and 55—are strictly below 60. Thus 100 × 4/10 = 40. This is not a statement of 40% raw accuracy.",
+        "math": true,
+        "acceptedAnswers": [
+          "40"
+        ]
+      }
+    ]
+  }
+}

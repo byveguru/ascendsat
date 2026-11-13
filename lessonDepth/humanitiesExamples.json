@@ -1,0 +1,1424 @@
+{
+  "APUSH: 1754–1800::3.1 From Imperial War to Independence": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: chronology, causes and constitutional claims.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Chronology, causes and constitutional claims"
+      },
+      {
+        "type": "text",
+        "text": "Chronology tells you when events occurred. A causal explanation identifies a mechanism connecting conditions or actions to an outcome. Separate a long-term condition, a trigger and a response. The end of a war can create debt and new administrative demands; a revenue law is a later policy choice. Resistance can then involve both material burdens and arguments about legitimate authority. These are connected categories, not interchangeable labels."
+      },
+      {
+        "type": "text",
+        "text": "In this period, an imperial policy is an action taken within Britain’s empire. A constitutional claim concerns the basis and limits of political authority; it need not refer to the later written U.S. Constitution. Colonists could object to a particular tax while differing about whether to seek reform or independence. A sequence does not prove that every actor wanted the eventual outcome."
+      }
+    ],
+    "guided": [
+      {
+        "type": "sequence",
+        "id": "humanities-apush-causal-chain-sequence",
+        "title": "Establish the dated sequence",
+        "prompt": "Arrange the supplied events by date. This checks chronology; use the next activity to explain causation.",
+        "items": [
+          "1763 — Britain emerges from the Seven Years’ War with enlarged North American responsibilities and substantial war debt.",
+          "1765 — Parliament imposes the Stamp Act, taxing many printed materials in the colonies.",
+          "1765 — Colonial protests begin in response to the imposed Stamp Act.",
+          "1766 — Parliament repeals the Stamp Act while asserting its authority in the Declaratory Act."
+        ],
+        "initialOrder": [
+          2,
+          0,
+          3,
+          1
+        ],
+        "correctOrder": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "explanation": "The war ends in 1763, the Stamp Act is imposed in 1765, and protests begin in response. Repeal with the Declaratory Act follows in 1766. The wording explicitly supplies the dependency for the two 1765 items; the task does not impose an arbitrary order on independent events."
+      },
+      {
+        "type": "guidedExample",
+        "id": "humanities-apush-causal-chain-guided",
+        "title": "From imperial war to a dispute over authority",
+        "scenario": "Dated events — original historical summaries\n\n1763 — Britain emerges from the Seven Years’ War with enlarged North American responsibilities and substantial war debt.\n\n1765 — Parliament imposes the Stamp Act, taxing many printed materials in the colonies.\n\n1765–1766 — Colonial protests, petitions and boycotts challenge the tax and Parliament’s authority.\n\n1766 — Parliament repeals the Stamp Act while asserting its authority in the Declaratory Act.",
+        "steps": [
+          {
+            "prompt": "Which event belongs first in this supplied timeline?",
+            "choices": [
+              "The Stamp Act",
+              "The end of the Seven Years’ War",
+              "The Declaratory Act",
+              "The repeal of the Stamp Act"
+            ],
+            "answer": 1,
+            "explanation": "The war ends in 1763; the tax and the listed responses follow in 1765–1766. This establishes chronology, not yet a complete causal argument.",
+            "hint": "Read the dates before using what you remember about causes."
+          },
+          {
+            "prompt": "Which explanation connects the first two events without overclaiming?",
+            "choices": [
+              "The debt automatically made independence inevitable.",
+              "Every British taxpayer opposed colonial revenue.",
+              "War debt and enlarged responsibilities helped motivate imperial revenue measures.",
+              "The Stamp Act caused the Seven Years’ War."
+            ],
+            "answer": 2,
+            "explanation": "The explanation names a plausible fiscal and administrative mechanism. It does not claim that one cause made every later outcome inevitable.",
+            "hint": "Look for the step that explains why officials might seek revenue."
+          },
+          {
+            "prompt": "What does repeal combined with the Declaratory Act most directly show?",
+            "choices": [
+              "Parliament abandoned every claim to colonial authority.",
+              "Colonists obtained representation in Parliament.",
+              "The colonies had already become independent.",
+              "Parliament changed one tax policy while maintaining its broader claim to legislative authority."
+            ],
+            "answer": 3,
+            "explanation": "Repeal changed a particular measure; the Declaratory Act asserted a continuing claim. A policy retreat and a continuing constitutional dispute can coexist.",
+            "hint": "Separate the specific tax from the claim about who had authority."
+          }
+        ],
+        "takeaway": "The Stamp Act’s repeal removed one disputed tax, but the Declaratory Act preserved Parliament’s claim to authority. The policy changed while the underlying dispute could continue."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-apush-causal-chain-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Write two sentences explaining one cause of resistance and one reason the repeal did not resolve the broader conflict.",
+        "sampleAnswer": "The Stamp Act’s repeal removed one disputed tax, but the Declaratory Act preserved Parliament’s claim to authority. The policy changed while the underlying dispute could continue. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Identify a specific policy or constitutional dispute.",
+          "Explain a mechanism rather than merely listing dates.",
+          "Do not claim that all colonists held the same position or independence was inevitable."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-apush-causal-chain-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The Stamp Act’s repeal removed one disputed tax, but the Declaratory Act preserved Parliament’s claim to authority. The policy changed while the underlying dispute could continue.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1844–1877::5.3 Reconstruction and Contested Citizenship": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: define the outcome before judging change.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Define the outcome before judging change"
+      },
+      {
+        "type": "text",
+        "text": "A historical evaluation needs a criterion. “Did citizenship change in constitutional law?” and “Could people exercise their rights without intimidation?” are related questions, but they are not identical. A legal amendment is strong evidence of a formal change. Registration records, school organization, officeholding and accounts of coercion can help evaluate implementation. One type of evidence should not be made to answer every question."
+      },
+      {
+        "type": "text",
+        "text": "Agency means that people acted within constraints rather than merely receiving policy. Freedpeople’s voting, organizing and education efforts belong alongside federal laws and violent resistance. A qualified judgment can recognize substantial constitutional change while explaining unequal or restricted implementation. Qualification should identify the dimension or population involved, not merely add “however” to an otherwise absolute claim."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-apush-law-practice-guided",
+        "title": "Legal change is evidence, but of what?",
+        "scenario": "Original summaries; not historical quotations\n\nA — Constitutional change: The Thirteenth Amendment abolished slavery, except as punishment after conviction; the Fourteenth established national citizenship and equal-protection guarantees; the Fifteenth prohibited racial discrimination in voting.\n\nB — Implementation context: Freedpeople voted, organized schools and held office during Reconstruction. White-supremacist violence and coercive labor arrangements restricted the exercise of newly claimed rights in many communities.",
+        "steps": [
+          {
+            "prompt": "Which conclusion is directly supported by Source A?",
+            "choices": [
+              "Everyone exercised equal political power after 1870.",
+              "National constitutional protections changed substantially.",
+              "All state governments willingly enforced the amendments.",
+              "Racial discrimination ended."
+            ],
+            "answer": 1,
+            "explanation": "A legal text establishes a formal rule. It does not, by itself, prove equal enforcement or equal power.",
+            "hint": "Ask whether Source A describes a law or measures lived outcomes."
+          },
+          {
+            "prompt": "How does Source B change a simple claim that Reconstruction achieved equal citizenship in practice?",
+            "choices": [
+              "It shows the amendments were repealed.",
+              "It proves no freedpeople gained political influence.",
+              "It qualifies the claim by showing both new political activity and serious restrictions.",
+              "It makes constitutional protections irrelevant."
+            ],
+            "answer": 2,
+            "explanation": "The source supports neither total success nor complete absence of change. It asks us to distinguish legal status, political agency and barriers to implementation.",
+            "hint": "A qualification can preserve one part of a claim while limiting another."
+          },
+          {
+            "prompt": "Which evidence would best test local enforcement of voting protections?",
+            "choices": [
+              "A decorative map without a date",
+              "A later textbook’s index",
+              "An unrelated tariff schedule",
+              "Dated local records about registration, participation and documented intimidation"
+            ],
+            "answer": 3,
+            "explanation": "Evidence about actual access and barriers is more directly relevant to enforcement than the constitutional text alone. Records still need sourcing and contextual evaluation.",
+            "hint": "Choose evidence about what happened locally rather than another statement of ideals."
+          }
+        ],
+        "takeaway": "Formal protections changed substantially, but violence and other barriers restricted their realization. This does not mean that constitutional change was meaningless or that political gains were shared equally."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-apush-law-practice-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Make a qualified claim evaluating one Reconstruction outcome. Use both a formal change and evidence about implementation.",
+        "sampleAnswer": "Formal protections changed substantially, but violence and other barriers restricted their realization. This does not mean that constitutional change was meaningless or that political gains were shared equally. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "State the outcome or criterion being evaluated.",
+          "Connect relevant evidence to the claim.",
+          "Distinguish formal change from the extent of its realization; do not erase freedpeople’s agency."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-apush-law-practice-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "Formal protections changed substantially, but violence and other barriers restricted their realization. This does not mean that constitutional change was meaningless or that political gains were shared equally.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1800–1848::4.1 Market Revolution and Unequal Opportunity": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: compare interpretations on the same question.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare interpretations on the same question"
+      },
+      {
+        "type": "text",
+        "text": "An interpretation is an argument about the significance or explanation of historical developments. Two interpretations can agree that an event occurred while weighing its consequences differently. First state their shared question, then identify the relationship each draws between the development and the outcome. Avoid replacing comparison with labels such as optimistic, pessimistic, good or bad."
+      },
+      {
+        "type": "text",
+        "text": "Evidence can support one part of an interpretation while qualifying another. Young women earning wages outside a household can show a new option; low pay and employer rules can show limits on independence. Neither observation automatically describes every worker. Distinguish economic opportunity, legal rights, social expectations and control over working conditions when assessing “independence.”"
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-apush-competing-interpretations-guided",
+        "title": "Two interpretations of the market revolution",
+        "scenario": "Fictional historians’ arguments written for instruction\n\nA: Interpretation A argues that expanding wage labor gave some young women opportunities to earn money outside their households and build new social networks.\n\nB: Interpretation B argues that employers’ authority, low wages and expectations about gender sharply limited the independence created by wage work.\n\nThese are original model interpretations, not quotations or attributions to real historians.",
+        "steps": [
+          {
+            "prompt": "What is the main difference in emphasis?",
+            "choices": [
+              "Whether wage work existed at all",
+              "Whether transportation changed",
+              "The opportunities created by wage labor versus the restrictions that limited them",
+              "Whether the United States had a Constitution"
+            ],
+            "answer": 2,
+            "explanation": "Both interpretations can recognize wage work. They weigh its implications for independence differently.",
+            "hint": "Find what each argument emphasizes about the same development."
+          },
+          {
+            "prompt": "Which evidence could support A while still allowing B to be partly valid?",
+            "choices": [
+              "No young women ever earned wages.",
+              "Some textile workers earned wages and joined worker associations while facing employer rules.",
+              "Every worker controlled the factory.",
+              "Wage work guaranteed equal rights."
+            ],
+            "answer": 1,
+            "explanation": "The same development can create opportunities and constraints. Evidence should not be forced into an all-or-nothing account.",
+            "hint": "Look for a concrete example that does not erase conditions of employment."
+          },
+          {
+            "prompt": "Which sentence best advances a comparison?",
+            "choices": [
+              "Interpretation A is positive and B is negative, so one must be false.",
+              "Both arguments mention women, so they are identical.",
+              "Workers had experiences.",
+              "A emphasizes increased options, while B argues that workplace and social constraints limited the independence those options provided."
+            ],
+            "answer": 3,
+            "explanation": "The comparison identifies a shared subject and a precise difference in interpretation, rather than assigning vague attitudes.",
+            "hint": "Compare the relationship each argument draws between wage work and independence."
+          }
+        ],
+        "takeaway": "Wage labor could expand some workers’ choices while employer rules and gender expectations limited their control. The interpretations differ in emphasis and need not be mutually exclusive."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-apush-competing-interpretations-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Give one specific additional piece of historical evidence and explain how it would support or qualify one interpretation.",
+        "sampleAnswer": "Wage labor could expand some workers’ choices while employer rules and gender expectations limited their control. The interpretations differ in emphasis and need not be mutually exclusive. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "The evidence must be historically plausible and specific.",
+          "Explain its relevance rather than simply naming an event.",
+          "Do not invent a quotation or assume one experience represents every worker."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-apush-competing-interpretations-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "Wage labor could expand some workers’ choices while employer rules and gender expectations limited their control. The interpretations differ in emphasis and need not be mutually exclusive.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "World Hist: Networks of Exchange::2.2 Indian Ocean and trans-Saharan systems": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: compare a shared problem before different solutions.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare a shared problem before different solutions"
+      },
+      {
+        "type": "text",
+        "text": "A network connects places through recurring movement and institutions. Geography shapes the possibilities, but merchants and governments also make choices about transport, security, credit and taxation. A mechanism explains how one condition affects exchange: seasonal wind knowledge can change voyage timing; shelter can reduce travel risk; credit can reduce the need to carry cash."
+      },
+      {
+        "type": "text",
+        "text": "A useful comparison holds a dimension constant. Compare how two networks managed risk, not the name of one network with the religion of another. A travel account is evidence of what one observer recorded for a purpose in a setting. Its usefulness does not make it a census of every port, household or traveler. Specific observation and global generalization require different support."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-world-network-mechanisms-guided",
+        "title": "How did a network make exchange possible?",
+        "scenario": "Original instructional summaries\n\nIndian Ocean merchants planned sailings around seasonal monsoon winds.\n\nCaravanserai offered shelter and services along many overland commercial routes.\n\nCredit arrangements could reduce the need to carry cash, although practices varied across networks.",
+        "steps": [
+          {
+            "prompt": "Which mechanism connects monsoon knowledge to Indian Ocean trade?",
+            "choices": [
+              "It eliminated every political barrier.",
+              "It helped merchants plan sailing schedules around seasonal winds.",
+              "It replaced the need for ships.",
+              "It made all cargo weightless."
+            ],
+            "answer": 1,
+            "explanation": "Seasonal wind patterns affected when and in which direction ships could sail. Knowing them reduced some logistical uncertainty, not every risk.",
+            "hint": "Explain what the winds change about an actual voyage."
+          },
+          {
+            "prompt": "Which comparison is best supported?",
+            "choices": [
+              "Every network used identical transport technology.",
+              "Only the Indian Ocean had merchants.",
+              "Both networks used institutions to manage risk, but their transport environments differed.",
+              "Overland trade did not require infrastructure."
+            ],
+            "answer": 2,
+            "explanation": "The examples support a shared problem and different adaptations. A sound comparison holds the dimension—managing exchange—constant.",
+            "hint": "Compare the same function before describing differences."
+          },
+          {
+            "prompt": "A traveler praises one port’s prosperity. What is the safest use of that account?",
+            "choices": [
+              "Proof that every port and household prospered equally",
+              "Proof that the author counted the world’s total trade",
+              "Proof that monsoons never caused difficulties",
+              "Evidence of one observer’s account of that setting, to be checked against purpose and other evidence"
+            ],
+            "answer": 3,
+            "explanation": "An individual account can illuminate local experience and perspective without supporting universal claims.",
+            "hint": "What population or location did the traveler actually observe?"
+          }
+        ],
+        "takeaway": "Indian Ocean and overland networks both used practices to manage exchange, but seasonal winds and land-route facilities created different logistical solutions. A local account cannot establish equal prosperity everywhere."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-world-network-mechanisms-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Explain one similarity and one difference between two exchange networks, using a specific mechanism for each.",
+        "sampleAnswer": "Indian Ocean and overland networks both used practices to manage exchange, but seasonal winds and land-route facilities created different logistical solutions. A local account cannot establish equal prosperity everywhere. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Use the same comparison dimension.",
+          "Identify a technology, environmental adaptation or institution.",
+          "Avoid universal conclusions from one local account."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-world-network-mechanisms-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "Indian Ocean and overland networks both used practices to manage exchange, but seasonal winds and land-route facilities created different logistical solutions. A local account cannot establish equal prosperity everywhere.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "World Hist: Land-Based Empires::3.3 Diversity, continuity and the limits of empire": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: a policy, its purposes and its limits.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "A policy, its purposes and its limits"
+      },
+      {
+        "type": "text",
+        "text": "Imperial authority can depend on cooperation as well as force. Accommodation means making room for particular practices or groups within a system of rule. It does not automatically mean equal citizenship. A policy can reduce a burden on one group while other legal, social or administrative distinctions remain. State the particular policy before describing its effects."
+      },
+      {
+        "type": "text",
+        "text": "Within the same empire, different rulers can change their strategies and priorities. Compare policies across rulers without treating either reign as an unchanging experience for every subject. A statement of policy is evidence about an announced rule. Evidence about local administration or affected communities is needed to assess implementation and consequences."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-world-accommodation-guided",
+        "title": "Accommodation, hierarchy and a changed policy",
+        "scenario": "App-authored historical summaries; not royal quotations\n\nA: Mughal ruler Akbar pursued policies of religious accommodation, including ending the jizya tax on non-Muslims.\n\nB: Later Mughal ruler Aurangzeb reinstated the jizya. Mughal policies therefore varied across rulers and circumstances.\n\nThese short summaries support a bounded comparison; they do not describe every religious practice or every subject’s experience.",
+        "steps": [
+          {
+            "prompt": "Which conclusion follows from the supplied comparison?",
+            "choices": [
+              "All Mughal rulers followed identical religious policies.",
+              "Modern equal citizenship existed throughout the empire.",
+              "Religious policy changed across rulers within the same empire.",
+              "The empire had no administrative institutions."
+            ],
+            "answer": 2,
+            "explanation": "The two summaries give a concrete policy change within one dynasty. They do not support uniformity across all rulers or modern equality.",
+            "hint": "Identify which feature changes while the imperial setting remains related."
+          },
+          {
+            "prompt": "What additional claim would require more evidence?",
+            "choices": [
+              "A tax policy changed.",
+              "The summaries concern rulers in the same empire.",
+              "Accommodation and hierarchy can coexist.",
+              "All non-Muslim subjects experienced identical treatment under either ruler."
+            ],
+            "answer": 3,
+            "explanation": "A universal claim about all subjects exceeds the supplied policy evidence and would require local and group-specific records.",
+            "hint": "Compare a stated policy with the much broader claim about every person."
+          },
+          {
+            "prompt": "Which analytical sentence is strongest?",
+            "choices": [
+              "An empire can alter its accommodation policies as rulers pursue different sources of authority and support.",
+              "Aurangzeb’s policy proves no accommodation ever occurred.",
+              "Akbar’s policy proves all inequality disappeared.",
+              "Religion always explains every imperial decision."
+            ],
+            "answer": 0,
+            "explanation": "The sentence identifies a mechanism and leaves room for other institutions, motives and varied outcomes.",
+            "hint": "Choose a bounded explanation rather than a totalizing verdict."
+          }
+        ],
+        "takeaway": "The Mughal example demonstrates change within one empire. Religious accommodation can help secure cooperation, but a general claim about all subjects’ treatment needs more evidence than a tax-policy summary."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-world-accommodation-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Compare religious accommodation with another method of imperial rule, explaining how each could support authority and also face limits.",
+        "sampleAnswer": "The Mughal example demonstrates change within one empire. Religious accommodation can help secure cooperation, but a general claim about all subjects’ treatment needs more evidence than a tax-policy summary. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Name a specific policy or institution.",
+          "Explain a mechanism linking it to authority.",
+          "Qualify effects across rulers, groups or settings."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-world-accommodation-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The Mughal example demonstrates change within one empire. Religious accommodation can help secure cooperation, but a general claim about all subjects’ treatment needs more evidence than a tax-policy summary.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "World Hist: Cold War & Decolonization::8.2 Decolonization and the difficult work of state building": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: independence is a milestone inside a longer process.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Independence is a milestone inside a longer process"
+      },
+      {
+        "type": "text",
+        "text": "Political independence concerns a change in formal authority. Decolonization includes the struggles, negotiations, conflicts and institutional changes surrounding that milestone. Independence does not by itself reveal how power, resources or social relations changed afterward. Compare a process with a process, and an outcome with an outcome, before evaluating success."
+      },
+      {
+        "type": "text",
+        "text": "Dates establish sequence. To establish causation, you also need evidence of a mechanism, such as organizational influence, diplomatic pressure, war costs or policy decisions. Movements can learn from earlier events without those events being the sole cause. Local participants pursue goals within international conditions; neither local agency nor global context should be erased."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-world-independence-paths-guided",
+        "title": "Chronology does not explain a whole decolonization process",
+        "scenario": "Selected independence milestones — original summaries\n\n1947 — India becomes independent; partition creates India and Pakistan amid large-scale displacement and violence.\n\n1957 — Ghana becomes independent through a process involving mass political organizing and negotiation.\n\n1962 — Algeria becomes independent after a prolonged anticolonial war.",
+        "steps": [
+          {
+            "prompt": "What is the chronological order of the listed independence milestones?",
+            "choices": [
+              "Ghana, India, Algeria",
+              "India, Ghana, Algeria",
+              "Algeria, India, Ghana",
+              "India, Algeria, Ghana"
+            ],
+            "answer": 1,
+            "explanation": "The supplied dates are 1947,1957 and 1962. Ordering them establishes sequence; it does not establish that one directly caused the next.",
+            "hint": "Use the provided dates, not an assumed regional sequence."
+          },
+          {
+            "prompt": "Which conclusion is supported by the examples?",
+            "choices": [
+              "Every colony gained independence peacefully.",
+              "Every colony gained independence only by warfare.",
+              "Decolonization followed different paths and could involve negotiation, warfare and severe social disruption.",
+              "Independence immediately eliminated every inequality."
+            ],
+            "answer": 2,
+            "explanation": "The selected cases show different processes and consequences. They should not be collapsed into a single universal pathway.",
+            "hint": "Find the contrast among the mechanisms and consequences described."
+          },
+          {
+            "prompt": "Which statement confuses chronology with a demonstrated causal claim?",
+            "choices": [
+              "India’s independence milestone occurred before Ghana’s.",
+              "Algeria’s independence followed a war.",
+              "Partition accompanied India’s independence.",
+              "Because India’s milestone came first, it alone caused Ghana’s independence."
+            ],
+            "answer": 3,
+            "explanation": "The timeline does not show a sufficient causal mechanism for that exclusive claim. Chronology is necessary for many causal accounts but not sufficient by itself.",
+            "hint": "Ask whether the source supplies evidence connecting the events, not just dates."
+          }
+        ],
+        "takeaway": "The selected dates establish India before Ghana before Algeria. Their different pathways show why chronological order alone cannot supply a complete causal explanation of decolonization."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-world-independence-paths-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Compare two independence movements using one similarity and one difference in process or outcome. Explain a role for local actors.",
+        "sampleAnswer": "The selected dates establish India before Ghana before Algeria. Their different pathways show why chronological order alone cannot supply a complete causal explanation of decolonization. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Keep dates and places accurate.",
+          "Explain at least one mechanism rather than merely ranking countries.",
+          "Do not equate political independence with immediate resolution of economic or social problems."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-world-independence-paths-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The selected dates establish India before Ghana before Algeria. Their different pathways show why chronological order alone cannot supply a complete causal explanation of decolonization.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "US Gov: Civil Liberties & Civil Rights::3.7 Selective Incorporation": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: three questions in constitutional application.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Three questions in constitutional application"
+      },
+      {
+        "type": "text",
+        "text": "Begin with the government actor. The Bill of Rights originally restricted the federal government; the state applicability of particular protections developed through constitutional interpretation. Selective incorporation concerns specific protections applied against state and local governments through the Fourteenth Amendment. It does not mean that every provision was incorporated at once."
+      },
+      {
+        "type": "text",
+        "text": "Next name the right, and then evaluate the relevant facts. Whether a protection binds the state is distinct from whether a particular action violates it. In a case comparison, identify material similarities in facts and constitutional issue before applying the supplied holding. This lesson simplifies the case to practice reasoning; it is not a complete guide to every legal exception."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-gov-incorporation-guided",
+        "title": "State action, incorporation and the merits are separate questions",
+        "scenario": "Required-case summary plus a fictional comparison\n\nGideon v. Wainwright (1963) applied the Sixth Amendment right to counsel to indigent felony defendants in state courts. Fictional scenario: State X prosecutes a person for a felony. The person cannot afford counsel, and the state refuses to appoint an attorney merely because the state legislature disapproves of that protection. This scenario isolates the right described here; it is not legal advice.",
+        "steps": [
+          {
+            "prompt": "Which fact makes state applicability relevant?",
+            "choices": [
+              "The prosecution is conducted by State X.",
+              "The defendant prefers a particular attorney.",
+              "The case mentions a legislature.",
+              "The person has read a newspaper."
+            ],
+            "answer": 0,
+            "explanation": "The original Bill of Rights limited the federal government. Applying a protection in a state prosecution requires the state-applicability analysis.",
+            "hint": "Identify the government actor before discussing the outcome."
+          },
+          {
+            "prompt": "Which connection best applies the supplied required-case rule?",
+            "choices": [
+              "The Tenth Amendment automatically cancels every federal right.",
+              "The Sixth Amendment protection applies to this state-court context through the Fourteenth Amendment and Gideon’s rule.",
+              "All Bill of Rights provisions apply to states at once without interpretation.",
+              "A private club must appoint attorneys for its members."
+            ],
+            "answer": 1,
+            "explanation": "Selective incorporation applies particular protections against state action; the supplied Gideon summary identifies the relevant right and context.",
+            "hint": "Name the particular right and the amendment connection rather than the whole Bill of Rights."
+          },
+          {
+            "prompt": "Why is saying “incorporation means the defendant wins every constitutional claim” incorrect?",
+            "choices": [
+              "Courts never apply rights.",
+              "The Sixth Amendment protects only voting.",
+              "State applicability and whether particular facts violate a right are distinct questions.",
+              "Incorporation concerns only federal taxes."
+            ],
+            "answer": 2,
+            "explanation": "A protection can bind a state without resolving every factual or doctrinal issue in every case. Here the supplied facts directly engage the particular counsel rule.",
+            "hint": "Distinguish whether a rule applies from whether given conduct satisfies it."
+          }
+        ],
+        "takeaway": "The state-court felony prosecution makes the state-applicability question relevant. Gideon’s supplied counsel rule and the Fourteenth Amendment connection should be explained before drawing a conclusion about those facts."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-gov-incorporation-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Explain one material similarity between the fictional facts and Gideon’s supplied holding, and identify a fact change that would require further analysis.",
+        "sampleAnswer": "The state-court felony prosecution makes the state-applicability question relevant. Gideon’s supplied counsel rule and the Fourteenth Amendment connection should be explained before drawing a conclusion about those facts. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Identify state action and the specific counsel protection.",
+          "Connect the Fourteenth Amendment to state applicability.",
+          "Do not generalize the simplified example into a complete rule for every legal setting."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-gov-incorporation-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The state-court felony prosecution makes the state-applicability question relevant. Gideon’s supplied counsel rule and the Fourteenth Amendment connection should be explained before drawing a conclusion about those facts.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "US Gov: American Political Ideologies & Beliefs::4.6 Evaluating Public Opinion Data": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: the estimate is not the whole population.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "The estimate is not the whole population"
+      },
+      {
+        "type": "text",
+        "text": "A sample estimate is computed from respondents; a population claim extends beyond them. A probability-sample margin describes a particular source of uncertainty under the survey’s assumptions. It does not account for every problem with coverage, nonresponse, question wording or self-selection. Compare surveys only after checking the target population, method and wording."
+      },
+      {
+        "type": "text",
+        "text": "Percentage-point change subtracts two percentages. Relative percent change compares the size of the change with the starting value. Neither operation by itself establishes that the population changed. Reported uncertainty must be considered, and overlapping intervals do not prove equality. When a table omits information needed for a formal difference test, say so instead of turning a point estimate into certainty."
+      }
+    ],
+    "guided": [
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Two hypothetical probability samples",
+          "columns": [
+            "Poll",
+            "Support estimate",
+            "Reported sampling margin"
+          ],
+          "rows": [
+            [
+              "A",
+              "52%",
+              "±3 percentage points"
+            ],
+            [
+              "B",
+              "49%",
+              "±3 percentage points"
+            ]
+          ],
+          "note": "Question wording is held constant. This table alone does not supply a formal significance test of the difference."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "humanities-gov-polling-guided",
+        "title": "What changed: the point estimate or proven public opinion?",
+        "scenario": "Hypothetical surveys of registered voters\n\nPoll | Support estimate | Reported sampling margin\n\nA | 52% | ±3 percentage points\n\nB | 49% | ±3 percentage points\n\nSeparate hypothetical probability samples, identical question wording. The table does not supply all information needed for a formal difference test.",
+        "steps": [
+          {
+            "prompt": "How much did the point estimate change from A to B?",
+            "choices": [
+              "A 3% decrease relative to its original value",
+              "A 3-percentage-point decrease",
+              "A 6-percentage-point decrease",
+              "No numerical change"
+            ],
+            "answer": 1,
+            "explanation": "52%−49%=3 percentage points. Relative percent change would use a different denominator and is not what this subtraction reports.",
+            "hint": "Subtract the two percentages and name the resulting unit."
+          },
+          {
+            "prompt": "Which conclusion is most defensible from this table alone?",
+            "choices": [
+              "Support certainly fell by exactly 3 points in the population.",
+              "Support certainly did not change.",
+              "The point estimate fell, but the table alone does not establish a real population change.",
+              "Poll B proves exactly half the population opposes the policy."
+            ],
+            "answer": 2,
+            "explanation": "Sampling uncertainty matters. Overlapping reported intervals do not prove equality, and a raw difference does not by itself establish a population change.",
+            "hint": "Separate the observed sample estimate from the broader inference."
+          },
+          {
+            "prompt": "Which change would create an additional comparability problem?",
+            "choices": [
+              "Reporting both sample sizes",
+              "Using the same target population",
+              "Keeping the question wording fixed",
+              "Changing Poll B to a self-selected online poll with leading wording"
+            ],
+            "answer": 3,
+            "explanation": "Selection and wording changes can create differences unrelated to genuine opinion change. A sampling margin does not repair those sources of bias.",
+            "hint": "Check how respondents were selected and what they were asked."
+          }
+        ],
+        "takeaway": "The reported point estimate falls from 52% to 49%, a 3-percentage-point decrease. This table alone does not establish a population change, and interval overlap does not prove there was no change."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-gov-polling-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Write a two-sentence description of the observed trend and one limitation on the inference.",
+        "sampleAnswer": "The reported point estimate falls from 52% to 49%, a 3-percentage-point decrease. This table alone does not establish a population change, and interval overlap does not prove there was no change. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Use percentage points correctly.",
+          "Distinguish an estimate from population certainty.",
+          "Do not claim that interval overlap proves no change or that margin of error covers all bias."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-gov-polling-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The reported point estimate falls from 52% to 49%, a 3-percentage-point decrease. This table alone does not establish a population change, and interval overlap does not prove there was no change.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "US Gov: Interactions Among Branches::2.10 The Court in Action": {
+    "revision": 2,
+    "objectives": [
+      "Distinguish a constitutional holding from an interpretation of a statute.",
+      "Explain appointments, legislation, amendments and jurisdictional powers as different checks with different limits.",
+      "Separate an institution’s practical resistance from a general legal authority to ignore a judgment.",
+      "Apply a supplied case holding to a new institutional scenario and justify a bounded response."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Match the constitutional mechanism to the ruling"
+      },
+      {
+        "type": "text",
+        "text": "Judicial review allows courts to assess government action against constitutional requirements. Other branches have checks, but a policy disagreement is not itself authority to cancel a constitutional holding. First identify whether a ruling interprets a statute or rests on a constitutional requirement. A revised statute can address the former; the latter requires attention to the constitutional defect."
+      },
+      {
+        "type": "text",
+        "text": "Congress can change statutory language, structure lower courts, exercise constitutionally permitted jurisdictional powers and propose amendments. The president nominates federal judges, and the Senate considers confirmation; later appointments can affect the Court’s composition without automatically reversing an existing decision. Implementation can be contested or delayed in practice, but delay is not a general legal right to disregard a binding judgment."
+      },
+      {
+        "type": "heading",
+        "text": "Current framework topic 2.11: checks on the judicial branch"
+      },
+      {
+        "type": "text",
+        "text": "Start by distinguishing a court’s legal authority, the political debate about that authority, and the practical work of implementing a decision. A court can hold an action unconstitutional without having its own large enforcement organization. Implementation therefore depends on other institutions, but dependence does not make disobedience generally lawful."
+      },
+      {
+        "type": "text",
+        "text": "Appointments change personnel, not a decision’s legal status by themselves. The president nominates federal judges and the Senate decides whether to confirm them. Federal judges generally hold office during good behavior rather than serving fixed electoral terms. A later appointment can influence how a future case is decided, yet a new justice does not automatically erase every earlier opinion. Impeachment and removal are constitutional procedures involving the House and Senate; a president cannot simply dismiss a federal judge for disliking a ruling."
+      },
+      {
+        "type": "text",
+        "text": "Legislation and constitutional amendment answer different problems. If a court interprets the meaning of a statute, Congress can often revise that statute within constitutional limits. If the court identifies a constitutional defect, repeating the same defect in a new statute does not fix it. Legislators may change the policy to address the constitutional reasoning. They may also pursue an amendment: the congressional proposal route requires two-thirds of each chamber followed by ratification by three-fourths of the states. The president does not sign an amendment as an ordinary bill."
+      },
+      {
+        "type": "text",
+        "text": "Congress also has powers concerning the federal judiciary’s structure, appropriations and much of its appellate jurisdiction, subject to constitutional limits. Do not describe these powers as a blank check to eliminate every form of judicial review. Likewise, implementing institutions can sometimes slow or resist a decision, but a description of what political actors do is not a statement that they possess an unlimited legal right to do it. In a scenario response, identify the actor, the mechanism, the legal basis and a limit."
+      },
+      {
+        "type": "text",
+        "text": "Judicial activism and judicial restraint are concepts used in debates about courts’ roles. They should not be treated as automatic synonyms for liberal and conservative outcomes. A useful comparison asks whether a court defers to elected officials, follows or changes precedent, and how it explains its constitutional interpretation. You can analyze those choices without being required to endorse a particular decision. The central skill is explaining how an institutional arrangement affects power under specified facts."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-gov-judicial-checks-guided",
+        "title": "A constitutional holding is not a statutory disagreement",
+        "scenario": "Fictional institutional choices\n\nA federal court holds that a statute violates a specific constitutional protection. Members of Congress want a different policy outcome. Compare this with a separate case in which a court interprets an ambiguous statute without deciding that the Constitution requires that interpretation.",
+        "steps": [
+          {
+            "prompt": "Which distinction matters most before Congress selects a response?",
+            "choices": [
+              "Whether the court building is large",
+              "Whether the ruling rests on constitutional requirements or statutory interpretation",
+              "Whether a newspaper agrees",
+              "Whether the statute has a short title"
+            ],
+            "answer": 1,
+            "explanation": "Congress can revise statutory language, but an ordinary statute cannot simply override a binding constitutional requirement.",
+            "hint": "Identify the legal basis of the decision before picking an institutional tool."
+          },
+          {
+            "prompt": "Which proposed response is least defensible as an automatic solution to the constitutional holding?",
+            "choices": [
+              "Drafting a different law that addresses the court’s constitutional reasoning",
+              "Using the amendment process if sufficient support exists",
+              "Passing the same unconstitutional requirement again while declaring the court ignored",
+              "Litigating a later case through lawful procedures"
+            ],
+            "answer": 2,
+            "explanation": "Reenacting the same constitutional defect does not remove it. Different legislation, amendment or later lawful review are distinct possible routes with their own limits.",
+            "hint": "Which option changes neither the defect nor the constitutional rule?"
+          },
+          {
+            "prompt": "If Congress uses the Article V proposal route, which next step is constitutionally required?",
+            "choices": [
+              "Presidential signature alone",
+              "Approval by a simple majority of voters nationwide",
+              "Ratification by three-fourths of the states through the constitutionally specified method",
+              "A press conference by both party leaders"
+            ],
+            "answer": 2,
+            "explanation": "For the congressional route, a proposal needs two-thirds of each chamber and ratification by three-fourths of states; ordinary presidential presentment is not part of amendment approval.",
+            "hint": "An amendment is not an ordinary bill."
+          }
+        ],
+        "takeaway": "An ordinary law does not automatically override a constitutional holding. A lawful response must address the constitutional issue or follow a distinct process, such as amendment, with its own requirements."
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-judicial-checks-tools-guided",
+        "title": "Choose the check that addresses the problem",
+        "scenario": "Original fictional scenarios. Scenario A: a court interprets a statute’s ambiguous definition of an eligible applicant. Congress wants a different, constitutionally permissible definition. Scenario B: a court invalidates a statute because it imposes the same prohibited constitutional condition on every applicant. Scenario C: a president dislikes a federal judge’s decision and says the judge will be dismissed tomorrow.",
+        "steps": [
+          {
+            "prompt": "Which response directly addresses Scenario A?",
+            "choices": [
+              "The president removes the judge.",
+              "Congress revises the statutory definition through the legislative process, within constitutional limits.",
+              "The Senate declares that the Constitution no longer applies.",
+              "An appointment automatically cancels the interpretation."
+            ],
+            "answer": 1,
+            "explanation": "A statutory interpretation can be addressed by revising the statute. The revised law must still satisfy constitutional requirements.",
+            "hint": "Identify whether the problem is the meaning of a law or a constitutional requirement."
+          },
+          {
+            "prompt": "Why is merely reenacting the same prohibited condition insufficient in Scenario B?",
+            "choices": [
+              "Courts can never review legislation.",
+              "Every constitutional rule expires after an election.",
+              "The constitutional defect remains even if Congress prefers a different outcome.",
+              "A majority vote is always stronger than a constitutional protection."
+            ],
+            "answer": 2,
+            "explanation": "A new ordinary statute does not automatically override the same constitutional requirement. A different policy or a distinct constitutional process must address the problem.",
+            "hint": "Ask what, if anything, changes about the constitutional defect."
+          },
+          {
+            "prompt": "What is wrong with the announced response in Scenario C?",
+            "choices": [
+              "The president cannot unilaterally dismiss a federal judge for disagreeing with a decision.",
+              "Federal judges are elected every two years.",
+              "The Senate alone can dismiss any federal judge by a simple majority.",
+              "All judges serve at the president’s pleasure."
+            ],
+            "answer": 0,
+            "explanation": "Good-behavior tenure and the impeachment/removal process limit unilateral executive control over federal judges.",
+            "hint": "Separate appointment from removal and identify which institutions participate."
+          }
+        ],
+        "takeaway": "Each check has a mechanism and a limit. A policy disagreement does not automatically supply the authority to cancel a court’s action."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-gov-judicial-checks-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Explain one lawful congressional check and one limit on that check in the fictional scenario.",
+        "sampleAnswer": "An ordinary law does not automatically override a constitutional holding. A lawful response must address the constitutional issue or follow a distinct process, such as amendment, with its own requirements. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Identify the institution and constitutional mechanism.",
+          "Distinguish a policy preference from constitutional authority.",
+          "Do not imply that Congress can cancel any court ruling through an ordinary majority vote."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      },
+      {
+        "type": "reflection",
+        "id": "gov-judicial-checks-implementation-transfer",
+        "title": "Legal authority and practical implementation",
+        "prompt": "A fictional state official delays carrying out a federal judgment and argues that the delay proves the judiciary has no legitimate power. Explain why the conclusion does not follow. Then identify one lawful institutional response to a disputed decision and one limit on that response.",
+        "sampleAnswer": "The delay can show that implementing a judgment depends on other actors; it does not by itself establish that the court lacks authority or that ignoring a binding judgment is lawful. Congress might revise a statute when the dispute concerns statutory meaning, but an ordinary law cannot simply override a constitutional requirement. Other reasoned responses are possible if their mechanism and limits are accurately explained.",
+        "checklist": [
+          "Separate an observed action from a justified constitutional conclusion.",
+          "Identify a specific actor and mechanism.",
+          "State a limit instead of claiming that a branch can always prevail."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-gov-judicial-checks-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "An ordinary law does not automatically override a constitutional holding. A lawful response must address the constitutional issue or follow a distinct process, such as amendment, with its own requirements.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Situation and Purpose::1.1 Speaker, audience, exigence, and purpose in context": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: topic, exigence, purpose and audience.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Topic, exigence, purpose and audience"
+      },
+      {
+        "type": "text",
+        "text": "The topic is the broad subject. Exigence is the condition or event calling for a response. Purpose is what the writer wants this audience to understand, believe or do. Context includes circumstances that shape the communication. Locate each element in the supplied facts and language rather than inventing an audience or a result."
+      },
+      {
+        "type": "text",
+        "text": "A rhetorical choice can include an example, a comparison, a sequence of ideas, a particular word or a sentence pattern. Explain its function in this situation. An image of a doorway can frame a class as access for people with limited schedules; it does not supply measured proof that the class is cost-effective. A plausible rhetorical effect and an established external fact are different claims."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-lang-rhetorical-situation-guided",
+        "title": "What called for this speech, and what does its writer want?",
+        "scenario": "Original fictional speech to a school board\n\nMembers of the board, you have asked departments to reduce next year’s budget. I teach the evening art class, and I know its enrollment is small. But its twenty students include employees who cannot attend during the day. Before removing the class, please compare its cost per student with the cost of the district’s other evening programs. A small class can still be an important doorway.",
+        "steps": [
+          {
+            "prompt": "Which fact supplies the immediate exigence?",
+            "choices": [
+              "The teacher has used a metaphor.",
+              "The board has requested budget reductions.",
+              "Art has existed for centuries.",
+              "The teacher likes evening classes."
+            ],
+            "answer": 1,
+            "explanation": "The specific budget pressure occasions the argument. The broader topic is arts access; the purpose is a proposed response to the pressure.",
+            "hint": "Look for the event or condition calling for a response now."
+          },
+          {
+            "prompt": "Which description best states the speaker’s purpose?",
+            "choices": [
+              "Prove every small class is equally cost-effective",
+              "Describe the whole history of art education",
+              "Persuade the board to evaluate comparative costs and access before eliminating this class",
+              "Guarantee that the board has unlimited money"
+            ],
+            "answer": 2,
+            "explanation": "The requested action is a comparison before elimination. The speech does not claim that cost is irrelevant or already prove the best final budget choice.",
+            "hint": "Identify the action the writer asks this particular audience to take."
+          },
+          {
+            "prompt": "What does “doorway” most plausibly contribute in this context?",
+            "choices": [
+              "Statistical proof of class effectiveness",
+              "A literal claim that the room lacks a door",
+              "A threat of punishment for disagreement",
+              "An image of access that connects a small enrollment to the needs of excluded daytime learners"
+            ],
+            "answer": 3,
+            "explanation": "The image frames the class as an access opportunity for a specific group. That is an interpretation of its rhetorical function, not empirical proof of educational outcomes.",
+            "hint": "Connect the image to the sentence about who can attend."
+          }
+        ],
+        "takeaway": "The budget-cut request is the immediate pressure. The teacher asks the board to compare cost and access before elimination, and the doorway image frames a small class as a meaningful access point."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-lang-rhetorical-situation-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Write one sentence explaining how one language choice serves the stated audience and purpose.",
+        "sampleAnswer": "The budget-cut request is the immediate pressure. The teacher asks the board to compare cost and access before elimination, and the doorway image frames a small class as a meaningful access point. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Refer to a precise detail from the passage.",
+          "Name a plausible effect through a mechanism rather than saying it “makes readers feel”.",
+          "Do not assume the speech has proved a cost comparison it merely requests."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-lang-rhetorical-situation-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The budget-cut request is the immediate pressure. The teacher asks the board to compare cost and access before elimination, and the doorway image frames a small class as a meaningful access point.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Independent Composition and Revision::9.3 Editing precise sentences and reflecting on writing choices": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: precision preserves the evidence.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Precision preserves the evidence"
+      },
+      {
+        "type": "text",
+        "text": "Editing should make the intended claim clearer without inventing support. Start by separating the measured fact from a judgment about its value or cause. Numbers, dates, agents and technical terms are useful when the information actually establishes them. A more impressive-sounding sentence is less accurate if it adds an unsupported explanation."
+      },
+      {
+        "type": "text",
+        "text": "A change in a count is not automatically a change in quality. An aggregate count does not show that every person changed behavior. Statistical significance requires an appropriate analysis; it is not a synonym for “large” or “important.” A good revision can state the observation clearly and leave a causal question open for further investigation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-lang-revision-truth-guided",
+        "title": "Improve precision without inventing evidence",
+        "scenario": "Original hypothetical data note and draft\n\nA town recorded bus ridership in 2024 and 2025.\n\nThe recorded annual totals were 100,000 and 110,000 trips.\n\nNo information about causes or statistical testing is supplied.\n\nDraft: The data showed that buses were getting much better because of smart decisions.",
+        "steps": [
+          {
+            "prompt": "Which revision is both more precise and supported by the supplied facts?",
+            "choices": [
+              "Town bus trips rose from 100,000 in 2024 to 110,000 in 2025.",
+              "A brilliant new mayor caused ridership to soar.",
+              "The data prove the bus service became statistically significantly better.",
+              "Every resident rode buses more often."
+            ],
+            "answer": 0,
+            "explanation": "The revision supplies the measured quantity, values and dates while avoiding unsupported judgments, causes or distributional claims.",
+            "hint": "Use the actual measured variable and values."
+          },
+          {
+            "prompt": "Which phrase would require information the note does not provide?",
+            "choices": [
+              "Recorded trips",
+              "From 2024 to 2025",
+              "Because the mayor improved the routes",
+              "An increase of 10,000 trips"
+            ],
+            "answer": 2,
+            "explanation": "A causal attribution needs relevant evidence. Adding a specific-sounding cause is not a valid editing improvement if the facts do not support it.",
+            "hint": "Precision must preserve truth conditions."
+          },
+          {
+            "prompt": "Which statement correctly describes the relative change?",
+            "choices": [
+              "It increased by 10 percentage points.",
+              "It increased by 10% relative to the 2024 total.",
+              "It increased by 110%.",
+              "It decreased by 10%."
+            ],
+            "answer": 1,
+            "explanation": "The increase is 10,000/100,000=0.10=10%. There is no percentage share in the supplied totals, so “percentage points” is inappropriate.",
+            "hint": "Compare the increase with the starting value."
+          }
+        ],
+        "takeaway": "The supported revision names bus trips, values and dates. It does not add a mayor’s policy, improved service quality or statistical significance that the hypothetical note does not provide."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-lang-revision-truth-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Revise the draft into two clear sentences: one supported observation and one explicitly identified question for further investigation.",
+        "sampleAnswer": "The supported revision names bus trips, values and dates. It does not add a mayor’s policy, improved service quality or statistical significance that the hypothetical note does not provide. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "Preserve the given data and dates.",
+          "Do not add causality, universal effects or statistical significance.",
+          "Distinguish the supported observation from the open question."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-lang-revision-truth-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The supported revision names bus trips, values and dates. It does not add a mayor’s policy, improved service quality or statistical significance that the hypothetical note does not provide.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Sustained Analysis and Synthesis::8.2 Building a synthesis argument with multiple relevant sources": {
+    "revision": 1,
+    "objectives": [
+      "Explain the distinction: let the claim organize the sources.",
+      "Use specific evidence to justify a bounded conclusion.",
+      "Apply the method to a new example and identify a limitation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Let the claim organize the sources"
+      },
+      {
+        "type": "text",
+        "text": "Synthesis explains how relevant sources contribute to a position. One source can identify a need, another can supply preliminary evidence, and a third can introduce a limitation or constraint. A paragraph organized by the writer’s subclaim can connect those contributions instead of reporting each source in isolation."
+      },
+      {
+        "type": "text",
+        "text": "Attribution identifies which source supplies an observation or position. Commentary explains how that detail supports, qualifies or complicates the claim. Do not overstate a small dataset or dismiss a source merely because it introduces a difficulty. This three-source activity is a mini-lesson, not a full official synthesis task; on an exam, follow the prompt’s supplied-source directions."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "humanities-lang-mini-synthesis-guided",
+        "title": "Three sources, one bounded argument",
+        "scenario": "Original fictional mini-source set: late buses\n\nA — Resident statement: A student who works until 9 p.m. says the last bus leaves too early to reach home safely without an expensive ride.\n\nB — Hypothetical pilot data: On six trial evenings, the added 10 p.m.bus carried an average of 18 passengers. The sample does not establish demand throughout the year.\n\nC — Hypothetical budget note: Operating the extra bus costs 240 dollars per evening. The city has not yet identified a continuing funding source.\n\nThis three-source activity is targeted synthesis practice, not a full official six-source synthesis task.",
+        "steps": [
+          {
+            "prompt": "Which thesis best engages all three sources without overclaiming?",
+            "choices": [
+              "Late buses solve every transport problem and pay for themselves.",
+              "The city should consider a time-limited late-bus pilot with a funding plan because the sources suggest an access need but leave demand and cost questions.",
+              "The budget note proves nobody needs a late bus.",
+              "One resident’s statement establishes year-round demand for every route."
+            ],
+            "answer": 1,
+            "explanation": "The thesis takes a position, uses the access evidence, and incorporates demand and funding limits. It does not pretend the small trial answers every question.",
+            "hint": "Look for a position whose conditions respond to both need and limitations."
+          },
+          {
+            "prompt": "Which use of Source B is accurate?",
+            "choices": [
+              "The six trials prove every resident will use the bus.",
+              "The average of 18 passengers is a guarantee of future daily use.",
+              "The trials offer preliminary evidence of use, while their short duration limits a year-round inference.",
+              "The trial counted nobody."
+            ],
+            "answer": 2,
+            "explanation": "Evidence can be relevant without being conclusive. Both the measured result and its limitation belong in the inference.",
+            "hint": "Preserve the scope of the data."
+          },
+          {
+            "prompt": "Which sentence does the most synthesis rather than isolated source summary?",
+            "choices": [
+              "Source A discusses a resident.Source B discusses trials.Source C discusses costs.",
+              "Late buses are a topic in every source.",
+              "Source C is last, so it defeats the other sources.",
+              "A’s access concern and B’s preliminary use support testing the service, while C makes a continuing funding plan part of a defensible proposal."
+            ],
+            "answer": 3,
+            "explanation": "The sentence relates evidence to a student-led subclaim and explains how a limitation modifies the proposal.",
+            "hint": "Use your claim to connect what the sources contribute."
+          }
+        ],
+        "takeaway": "The access concern and preliminary use support testing late service, while the small sample and funding gap support a bounded pilot rather than a universal claim that the policy is already proven."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "humanities-lang-mini-synthesis-transfer",
+        "title": "Transfer the reasoning",
+        "prompt": "Write a short paragraph supporting a qualified position, accurately identifying all three sources by letter.",
+        "sampleAnswer": "The access concern and preliminary use support testing late service, while the small sample and funding gap support a bounded pilot rather than a universal claim that the policy is already proven. A strong explanation identifies the relevant evidence, explains its connection to the claim, and keeps the conclusion within the source’s scope.",
+        "checklist": [
+          "State a defensible position rather than merely listing sources.",
+          "Use specific relevant details and explain their relationships.",
+          "Acknowledge a meaningful limitation without claiming that only disagreement can create sophistication."
+        ],
+        "hint": "State the claim first. Then name the relevant detail and explain what it does—and does not—support."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "humanities-lang-mini-synthesis-retrieve",
+        "title": "Retrieve the distinction",
+        "prompt": "Without rereading the example, explain the key distinction in this activity and why confusing the two ideas would weaken the conclusion.",
+        "sampleAnswer": "The access concern and preliminary use support testing late service, while the small sample and funding gap support a bounded pilot rather than a universal claim that the policy is already proven.",
+        "checklist": [
+          "Name both ideas being distinguished.",
+          "Explain the difference in your own words.",
+          "Use one detail from the activity to make the distinction concrete."
+        ]
+      }
+    ]
+  },
+  "US Gov: American Political Ideologies & Beliefs::4.1 American Attitudes About Government and Politics": {
+    "revision": 1,
+    "objectives": [
+      "Explain self-interest, competition and specialization as mechanisms associated with free-enterprise arguments.",
+      "Distinguish a source’s economic argument from a guarantee that every real market is fair or efficient.",
+      "Connect different interpretations of shared values to a specific policy tradeoff.",
+      "Use an original source paraphrase to support a qualified comparison of government’s role."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Adam Smith, free enterprise and the role of government"
+      },
+      {
+        "type": "text",
+        "text": "The current course framework includes core principles associated with Adam Smith’s The Wealth of Nations, first published in 1776. In this course, the purpose is to understand an argument about economic coordination and government’s role, not to memorize a slogan. Begin with four ideas: self-interest, exchange, competition and specialization. Self-interest means that participants pursue goals such as earning income or obtaining useful goods. An exchange can benefit both participants when each prefers what is received to what is given up."
+      },
+      {
+        "type": "text",
+        "text": "Competition can constrain sellers because customers can choose alternatives. A seller seeking income may have an incentive to offer a product buyers value at a price they will pay. This is a proposed mechanism connecting individual decisions to wider coordination; it is not a claim that every selfish act benefits society. The mechanism depends on circumstances such as available alternatives, information and the ability to participate. If one seller controls access or buyers cannot evaluate a product, the simple competitive account requires qualification."
+      },
+      {
+        "type": "text",
+        "text": "Specialization, or division of labor, separates a production process into tasks. Workers can become practiced at a task, reduce time switching between tasks and develop improved methods. Increased output can be a consequence, but explaining the mechanism is stronger than merely saying that markets create prosperity. The distribution of gains and the conditions of work are separate questions. An increase in production alone does not establish that every worker’s wages, safety or bargaining power improved."
+      },
+      {
+        "type": "text",
+        "text": "Limited government regulation does not mean that government has no role. A free-enterprise argument can support legal rules that protect contracts and property, maintain order and allow exchange. Smith’s broader work also discussed public responsibilities; do not reduce his position to opposition to every public institution or regulation. For AP Government, compare how different interpretations of liberty, individualism, equality of opportunity and economic coordination shape policy preferences."
+      },
+      {
+        "type": "text",
+        "text": "A market-failure argument identifies a reason why private decisions might not produce a desired social outcome. Examples include costs imposed on people outside a transaction or a service whose benefits are difficult to restrict to paying users. Identifying such a problem does not automatically prove that any proposed intervention will work. Compare the mechanism, likely effects, enforcement requirements and tradeoffs of a particular policy. Shared values can support competing proposals when people disagree about how those mechanisms operate."
+      },
+      {
+        "type": "text",
+        "text": "Keep source analysis separate from endorsement. You can explain a market-oriented argument accurately while identifying the conditions it needs or comparing it with a different view. Do not infer that every member of a political party holds an identical policy position. The skill is to connect a principle to a policy mechanism and explain why reasonable disagreement can persist over evidence, priorities or tradeoffs."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "gov-smith-source-guided",
+        "title": "Read an economic argument through its mechanism",
+        "scenario": "Original instructional paraphrase of ideas associated with Smith, not a historical quotation: “When buyers can choose among sellers, a seller pursuing income has reason to offer goods that buyers value. Dividing production into specialized tasks can also raise output by improving skill and reducing time lost between tasks.” Hypothetical policy context: one town has several competing repair shops; another has only one shop and residents cannot easily travel elsewhere.",
+        "steps": [
+          {
+            "prompt": "Which mechanism is described in the first sentence?",
+            "choices": [
+              "A seller’s income incentive can interact with buyers’ ability to choose alternatives.",
+              "Every seller acts only out of charity.",
+              "Government action is logically impossible.",
+              "Every buyer and seller has identical information."
+            ],
+            "answer": 0,
+            "explanation": "The paraphrase connects an incentive to a condition: buyers have alternatives. It does not assert the other conclusions.",
+            "hint": "Identify both the actor’s goal and the constraint on that actor."
+          },
+          {
+            "prompt": "Why might the one-shop town require a qualified application of the competitive account?",
+            "choices": [
+              "A shop cannot charge money.",
+              "Competition is necessarily stronger with only one option.",
+              "Residents have fewer practical alternatives, weakening the stated competitive constraint.",
+              "Every repair must be a public good."
+            ],
+            "answer": 2,
+            "explanation": "The mechanism depends partly on the ability to choose another seller. A case lacking alternatives changes that condition; it does not by itself determine the best policy.",
+            "hint": "Compare the two towns using the condition explicitly named in the source."
+          },
+          {
+            "prompt": "Which observation would support the specialization mechanism most directly?",
+            "choices": [
+              "A shop uses a new slogan.",
+              "Workers repeatedly practice separate tasks and reduce delays between tasks while increasing output.",
+              "The shop has the oldest building.",
+              "All workers receive identical wages."
+            ],
+            "answer": 1,
+            "explanation": "The observation connects task organization to the proposed changes in skill, switching time and output. Wages and other outcomes need separate evidence.",
+            "hint": "Choose evidence about how production is organized and what changes as a result."
+          }
+        ],
+        "takeaway": "A strong explanation names the economic mechanism, checks its conditions and keeps claims about output distinct from claims about fairness or every person’s welfare."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "reflection",
+        "id": "gov-smith-policy-transfer",
+        "title": "Compare two roles for government",
+        "prompt": "A fictional town considers a rule requiring repair shops to publish prices before accepting a job. Explain how one argument for the rule could appeal to informed choice, and how one concern could appeal to regulatory cost or flexibility. State what evidence would help assess the tradeoff. Do not assume that either proposal follows automatically from a party label.",
+        "sampleAnswer": "Publishing prices could make comparison easier and strengthen buyers’ ability to choose among sellers. A concern might be that a rigid publication rule makes uncertain diagnostic work harder to price or creates compliance costs. Evidence about consumers’ information, actual price variability and the rule’s costs would help evaluate the proposal. The argument should explain mechanisms rather than treat “markets” and “government” as complete answers.",
+        "checklist": [
+          "Connect a value or principle to a specific mechanism.",
+          "Represent both arguments accurately.",
+          "Identify evidence relevant to the actual policy tradeoff."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "recall",
+        "id": "gov-smith-retrieval",
+        "title": "Retrieve the conditions",
+        "prompt": "Without rereading, explain how self-interest and competition can work together in an economic argument. Then identify one condition that could limit the argument’s application.",
+        "sampleAnswer": "A seller pursuing income may offer goods buyers value when buyers can choose among alternatives. Limited alternatives or poor information can weaken that mechanism. This does not prove that all self-interested acts help everyone or that any particular government response must succeed.",
+        "checklist": [
+          "Name the incentive and the competitive constraint.",
+          "State a relevant condition.",
+          "Avoid a universal guarantee about fairness or prosperity."
+        ]
+      }
+    ]
+  }
+}

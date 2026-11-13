@@ -1,0 +1,807 @@
+{
+  "Geometry & Trigonometry::Circles": {
+    "revision": 1,
+    "objectives": [
+      "Translate a circle equation into its center and radius.",
+      "Use a right triangle to find chord endpoints and length.",
+      "Distinguish a point on a circle from a tangent line at that point."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "A circle consists of points at one fixed distance, the radius, from its center. The equation (x−h)²+(y−k)²=r² expresses that distance condition. Read the signs carefully: x−h and y−k identify the center (h,k), and the number on the right is the square of the radius. A chord joins two points on the circle. A diameter is a chord through the center and has length 2r. A tangent touches the circle at one point and is perpendicular to the radius drawn to that point."
+      },
+      {
+        "type": "text",
+        "text": "Coordinate geometry turns a chord question into an equation or a right triangle. For a circle centered at the origin, a vertical chord on x=a has endpoints determined by a²+y²=r². When |a|<r, its length is twice the positive square-root value √(r²−a²). At |a|=r the two intersection values coincide, giving tangency rather than a positive-length chord. If |a|>r there is no real intersection. Do not assume that a visually central line passes through the actual center unless the coordinates or conditions establish it."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-circle-chord-guided",
+        "scenario": "A circle has equation x²+y²=25. A vertical line has equation x=3.",
+        "steps": [
+          {
+            "prompt": "What is the circle’s radius?",
+            "choices": [
+              "25",
+              "5",
+              "√5"
+            ],
+            "answer": 1,
+            "explanation": "The radius squared is 25, so the positive radius is 5."
+          },
+          {
+            "prompt": "Which points lie on both the circle and the line?",
+            "choices": [
+              "(3,4) and (3,−4)",
+              "(3,5) and (3,−5)",
+              "(4,3) and (−4,3)"
+            ],
+            "answer": 0,
+            "explanation": "Substitute x=3: 9+y²=25, so y²=16 and y=±4."
+          },
+          {
+            "prompt": "What is the chord’s length?",
+            "choices": [
+              "4",
+              "10",
+              "8"
+            ],
+            "answer": 2,
+            "explanation": "The x-coordinates are the same, so the distance is the vertical difference 4−(−4)=8."
+          },
+          {
+            "prompt": "What is the slope of the tangent at (3,4)?",
+            "choices": [
+              "4/3",
+              "−3/4",
+              "3/4"
+            ],
+            "answer": 1,
+            "explanation": "The radius from (0,0) to (3,4) has slope 4/3. A perpendicular nonvertical line has slope −3/4."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "The tangent equation is y−4=−(3/4)(x−3), or 3x+4y=25. A point on that line need not be on the circle: the tangent describes a whole line, while the radius condition defines a curved set. For the family of vertical lines x=a, the chord is longest when a=0 and shortens as |a| increases toward 5. This follows from the square-root expression; a sketch can suggest the pattern but the equation explains it. Translating the circle changes the center coordinates, not these distance relationships when distances are measured from the new center."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-circle-chord-transfer",
+        "math": true,
+        "prompt": "Explain why x=5 is tangent to this circle but x=6 does not meet it.",
+        "sampleAnswer": "At x=5, the circle equation gives y²=0, so there is exactly one intersection, (5,0). At x=6 it gives y²=−11, which has no real solution. A line’s position relative to the center and radius determines the intersection count.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "For the same circle, enter the length of the vertical chord on x=4.",
+        "acceptedAnswers": [
+          "6"
+        ],
+        "sampleAnswer": "Substitution gives y²=25−16=9, so the endpoints have y=±3. Their separation is 6.",
+        "id": "sat-circle-chord-recall"
+      }
+    ]
+  },
+  "Geometry & Trigonometry::Triangles": {
+    "revision": 1,
+    "objectives": [
+      "Use similarity to identify corresponding side ratios.",
+      "Distinguish scale factors for length, area, and perimeter.",
+      "Use a perpendicular height rather than an arbitrary side in the area formula."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "Similar triangles have equal corresponding angles and a common ratio among corresponding side lengths. Match the vertices before setting a proportion: a short side in one drawing need not correspond to whichever side looks shortest on an inaccurate diagram. If the length scale factor from one triangle to another is k>0, every corresponding side and the perimeter are multiplied by k. Area is multiplied by k² because it involves two linear dimensions."
+      },
+      {
+        "type": "text",
+        "text": "Triangle area is one half of a selected base times the height perpendicular to that base. In a right triangle, the two legs can serve as base and perpendicular height. The hypotenuse is not a perpendicular height to either leg. A different base can be used if its corresponding altitude is found. For example, a 3–4–5 right triangle has area 6. Using base 5, its altitude to the hypotenuse must satisfy (1/2)(5)h=6, so h=12/5. The area remains the same even though the base-height pair changes."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "geometry",
+          "kind": "triangle",
+          "title": "Triangle A: corresponding legs and hypotenuse",
+          "vertices": [
+            {
+              "x": 20,
+              "y": 20,
+              "label": "A"
+            },
+            {
+              "x": 20,
+              "y": 80,
+              "label": "B"
+            },
+            {
+              "x": 75,
+              "y": 80,
+              "label": "C"
+            }
+          ],
+          "dimensions": [
+            {
+              "from": 0,
+              "to": 1,
+              "label": "AB, leg",
+              "value": "3"
+            },
+            {
+              "from": 1,
+              "to": 2,
+              "label": "BC, leg",
+              "value": "4"
+            },
+            {
+              "from": 2,
+              "to": 0,
+              "label": "AC, hypotenuse",
+              "value": "5"
+            }
+          ],
+          "note": "Angle B is a right angle. Use the stated lengths and correspondence, rather than measuring the drawing."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-similar-area-guided",
+        "scenario": "Right triangle A has legs 3 and 4 and hypotenuse 5. Triangle B is similar, and the side corresponding to A’s length-3 leg is 9.",
+        "steps": [
+          {
+            "prompt": "What is the length scale factor from A to B?",
+            "choices": [
+              "6",
+              "1/3",
+              "3"
+            ],
+            "answer": 2,
+            "explanation": "The corresponding side ratio is 9/3=3."
+          },
+          {
+            "prompt": "What is B’s other leg?",
+            "choices": [
+              "12",
+              "9",
+              "16"
+            ],
+            "answer": 0,
+            "explanation": "Multiply the corresponding length 4 by the common scale factor 3 to obtain 12."
+          },
+          {
+            "prompt": "What is B’s area?",
+            "choices": [
+              "18",
+              "54",
+              "36"
+            ],
+            "answer": 1,
+            "explanation": "A’s area is (1/2)(3)(4)=6. Multiply by 3²=9 to obtain 54. Equivalently, use (1/2)(9)(12)."
+          },
+          {
+            "prompt": "How does B’s perimeter compare with A’s?",
+            "choices": [
+              "Nine times as large",
+              "The same",
+              "Three times as large"
+            ],
+            "answer": 2,
+            "explanation": "Perimeter is a sum of side lengths, each multiplied by 3, so it scales by 3 rather than 9."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "If you know an area ratio instead, take its positive square root to recover the length factor for similar figures. An area ratio of 16 corresponds to a length factor of 4, not 16 or 8. Similarity is essential: two triangles can have equal area without equal angles or proportional side lengths. Likewise, a shared angle alone does not establish similarity. A second matching angle or another valid similarity condition must be given or proved. Keep the reason for similarity separate from the proportional calculation that follows."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-similar-area-transfer",
+        "math": true,
+        "prompt": "A student sees that two triangles have areas 6 and 54 and concludes every side in the second is three times the corresponding side in the first. What extra condition is needed?",
+        "sampleAnswer": "The conclusion needs similarity. For similar triangles, the area ratio 54/6=9 gives positive length factor √9=3. Without similarity, different shapes can have that same area ratio without a common side ratio.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "A triangle similar to the 3–4–5 triangle has perimeter 24. Enter its area.",
+        "acceptedAnswers": [
+          "24"
+        ],
+        "sampleAnswer": "The original perimeter is 12, so length factor is 24/12=2. Area scales by 2²=4, giving 6(4)=24.",
+        "id": "sat-similar-area-recall"
+      }
+    ]
+  },
+  "Advanced Math::Quadratics (Part 1)": {
+    "revision": 1,
+    "objectives": [
+      "Choose factored, expanded, or vertex form for a specific question.",
+      "Connect equivalent forms without changing the function.",
+      "Apply a contextual domain after solving the quadratic."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "A quadratic can be written in forms that emphasize different information. Expanded form ax²+bx+c shows the vertical intercept c. Factored form a(x−r₁)(x−r₂), when real roots exist, shows the zeros. Vertex form a(x−h)²+k shows the vertex (h,k) and the axis x=h. These are representations of the same function only when the algebraic transformations are valid. Changing a sign while completing the square changes the function rather than merely its appearance."
+      },
+      {
+        "type": "text",
+        "text": "For a nonzero quadratic coefficient a, the sign determines opening direction and whether the vertex gives a minimum or maximum over the real line. In a context, the meaningful input interval may be smaller. A negative time can be an algebraic root without being an allowed event after a stated launch. Interpret the requested quantity: a question asking for the maximum output needs the vertex’s vertical coordinate, not the input at which that output occurs."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-quadratic-forms-guided",
+        "scenario": "First analyze f(x)=x²−6x+5. Then compare the hypothetical height model H(t)=−t²+6t+7 for a projectile after t=0 until it reaches height zero. Heights and times use a consistent chosen unit system.",
+        "steps": [
+          {
+            "prompt": "Which vertex form equals f(x)?",
+            "choices": [
+              "(x−3)²−4",
+              "(x+3)²−4",
+              "(x−3)²+5"
+            ],
+            "answer": 0,
+            "explanation": "Expanding (x−3)² gives x²−6x+9, so subtract 4 to obtain the constant 5."
+          },
+          {
+            "prompt": "What are f’s zeros?",
+            "choices": [
+              "−1 and −5",
+              "1 and 5",
+              "3 and 4"
+            ],
+            "answer": 1,
+            "explanation": "Factor x²−6x+5=(x−1)(x−5). The product is zero at 1 or 5."
+          },
+          {
+            "prompt": "Which pair gives H’s maximum time and maximum height?",
+            "choices": [
+              "Time 7, height 0",
+              "Time 3, height 7",
+              "Time 3, height 16"
+            ],
+            "answer": 2,
+            "explanation": "Complete the square: H(t)=−(t−3)²+16. The downward-opening model reaches its maximum 16 at t=3."
+          },
+          {
+            "prompt": "Which zero of H is the landing time after t=0?",
+            "choices": [
+              "7",
+              "−1",
+              "Both zeros are the same event"
+            ],
+            "answer": 0,
+            "explanation": "Solving −t²+6t+7=0 gives t=−1 or 7. The contextual interval after launch excludes −1."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "An equation’s graph and its contextual model have related but different domains. H is a polynomial defined for every real t, while the stated flight interpretation runs from t=0 through t=7. The vertex at 3 lies within that interval and is therefore the modeled maximum. If a question restricted attention to a different time interval not containing 3, comparing the allowed interval’s endpoints would be necessary. The vertex is not automatically the largest permitted output for every restricted problem."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-quadratic-forms-transfer",
+        "math": true,
+        "prompt": "If the height is observed only from t=4 through t=6, why is 16 no longer the maximum over that observation interval? Find the maximum there.",
+        "sampleAnswer": "The vertex time t=3 is outside [4,6]. The model decreases throughout that later interval, so its maximum there occurs at t=4. H(4)=−16+24+7=15.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "For f(x)=x²−6x+5, enter the minimum value over all real x.",
+        "acceptedAnswers": [
+          "-4"
+        ],
+        "sampleAnswer": "Vertex form is (x−3)²−4. The squared term is at least zero, so the minimum output is −4 at x=3.",
+        "id": "sat-quadratic-forms-recall"
+      }
+    ]
+  },
+  "Expression of Ideas::Transitions": {
+    "revision": 1,
+    "objectives": [
+      "Identify the relationship between ideas before choosing a connector.",
+      "Distinguish contrast, consequence, illustration, and continuation.",
+      "Check the connector against the surrounding sentences rather than its familiar sound."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "A transition tells readers how one idea relates to another. It does not create evidence for a relationship that the passage does not establish. Contrast markers such as however introduce a difference or qualification. Consequence markers such as therefore claim that one idea follows from another. Illustration markers such as for example introduce a specific instance of a broader point. First paraphrase the relationship without a transition, then test which choice accurately signals it."
+      },
+      {
+        "type": "text",
+        "text": "The relevant relationship may span more than the sentence immediately before the blank. A paragraph can present an expectation, supply a result that challenges it, and then explain the exception. Identify what the new sentence is doing in that sequence. Do not assume that two sentences about the same topic need an addition marker; one may contradict a prediction or narrow the scope of a claim. Likewise, a later event is not automatically a result of the earlier one."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-transition-relationship-guided",
+        "scenario": "Original fictional passage: “The transit agency expected that running buses more frequently would increase ridership. The revised schedule reduced the average wait at stops. ___ the agency’s passenger counts fell during the first month. The report did not identify a cause for that decline.”",
+        "steps": [
+          {
+            "prompt": "What expectation is established?",
+            "choices": [
+              "Lower waits were expected to accompany higher ridership",
+              "Passenger counts had already doubled",
+              "Every rider preferred a car"
+            ],
+            "answer": 0,
+            "explanation": "The first sentence explicitly connects the schedule proposal to an expectation of increased ridership."
+          },
+          {
+            "prompt": "Which transition best fits the reported result?",
+            "choices": [
+              "Therefore,",
+              "However,",
+              "For example,"
+            ],
+            "answer": 1,
+            "explanation": "The decline contrasts with the stated expectation. Therefore would assert a consequence not established by the report, and the count decline is not an illustration of reduced waiting time."
+          },
+          {
+            "prompt": "What does the last sentence limit?",
+            "choices": [
+              "Whether the passenger counts were reported",
+              "Whether the schedule changed",
+              "What the passage can claim about the cause of the decline"
+            ],
+            "answer": 2,
+            "explanation": "The report gives a result without identifying its cause. A transition should not invent that missing causal explanation."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "A grammatically correct connector can still be logically wrong. “Afterward” would mark time but might fail to express the contrast the question requires when “however” is an available precise choice. On the other hand, two answer choices can sometimes both mark contrast; the full sentence structure and the particular relationship must distinguish them. Write your own paraphrase—“the result did not match the expectation”—before looking back at the choices. This reduces the temptation to choose whichever familiar word sounds polished."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-transition-relationship-transfer",
+        "math": false,
+        "prompt": "Why would replacing however with therefore change the claim rather than merely the style?",
+        "sampleAnswer": "However marks a contrast between expectation and result. Therefore would present the falling counts as a logical consequence of the earlier information, implying a supported connection the report does not establish. The connector changes the reasoning conveyed.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "prediction",
+        "prompt": "“Some materials can be reused in construction. ___ crushed concrete can serve as aggregate under appropriate specifications.” Which transition fits?",
+        "choices": [
+          "For example,",
+          "Nevertheless,",
+          "Consequently,"
+        ],
+        "answer": 0,
+        "explanation": "The second sentence gives a particular instance of reuse, so an illustration marker fits. It is neither a contrast nor an established consequence.",
+        "id": "sat-transition-relationship-recall"
+      }
+    ]
+  },
+  "Expression of Ideas::Rhetorical Synthesis": {
+    "revision": 1,
+    "objectives": [
+      "Read the requested writing goal before selecting notes.",
+      "Combine relevant facts without adding unsupported comparisons.",
+      "Distinguish a shared feature from a difference in materials, timing, or purpose."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "A rhetorical-synthesis task supplies notes and a specific writing goal. The best sentence selects and connects the facts needed for that goal; it does not have to use every note. Read the goal first and identify its required action, such as compare materials, introduce a researcher’s finding, or explain a common feature. Then match each factual phrase in a proposed answer to the relevant note."
+      },
+      {
+        "type": "text",
+        "text": "A comparison needs a shared dimension. If the goal concerns materials, facts about opening dates may be accurate but irrelevant. Avoid adding an evaluative term such as better, more sustainable, or first unless the notes support it. Two works can differ in materials while sharing an audience, location, or date. Accurate synthesis preserves both the scope of each note and the relationship the writer is asked to establish."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-notes-goal-guided",
+        "scenario": "Original fictional notes: Artist Lena Ortiz made a public outdoor mosaic in 2023 using recovered glass from discarded bottles. Artist Niko Bell made an indoor carved installation in 2021 using reclaimed wood from old shelving. Both works were commissioned by the same community arts center. Goal: emphasize a similarity in the artists’ use of materials.",
+        "steps": [
+          {
+            "prompt": "Which facts are most relevant to this goal?",
+            "choices": [
+              "The two completion years alone",
+              "Recovered glass and reclaimed wood as previously used materials",
+              "Outdoor versus indoor placement alone"
+            ],
+            "answer": 1,
+            "explanation": "Both materials have prior use. That shared feature directly addresses the requested similarity."
+          },
+          {
+            "prompt": "Which sentence meets the goal without adding a claim?",
+            "choices": [
+              "Both artists used previously used materials, Ortiz in a glass mosaic and Bell in a wood installation.",
+              "Ortiz’s work was more environmentally beneficial than Bell’s.",
+              "Bell completed the first recycled artwork in the city."
+            ],
+            "answer": 0,
+            "explanation": "The sentence connects the supported material similarity while preserving each work’s specific medium. The other claims require evidence not supplied."
+          },
+          {
+            "prompt": "Why is “Ortiz worked outdoors, whereas Bell worked indoors” insufficient here?",
+            "choices": [
+              "Its grammar is impossible",
+              "It contradicts the notes",
+              "It presents an accurate difference but does not satisfy the requested material similarity"
+            ],
+            "answer": 2,
+            "explanation": "Accuracy is necessary but not sufficient. The sentence must also serve the stated rhetorical goal."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "Check the direction of comparisons carefully. “Both used recovered glass” would improperly transfer Ortiz’s material to Bell. “Both were made in 2023” would similarly merge different dates. A goal can also require introducing a detail to readers unfamiliar with the topic, which may make a name or brief description necessary. Decide what the audience needs based on the goal, then verify that every included fact is anchored in the notes. Selection is an act of reasoning, not a contest to mention the greatest number of details."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-notes-goal-transfer",
+        "math": false,
+        "prompt": "If the goal changed to emphasize a difference in display setting, which details should become central? Write a sentence.",
+        "sampleAnswer": "The outdoor and indoor settings become central. “Ortiz’s mosaic was displayed outdoors, whereas Bell’s carved installation was designed for an indoor setting.” The shared commissioner or material reuse may be omitted because the new goal concerns location.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "prediction",
+        "prompt": "Which claim would require information beyond the supplied notes?",
+        "choices": [
+          "Both works were commissioned by one arts center.",
+          "The works used different materials.",
+          "The glass mosaic had a lower environmental impact than the wood installation."
+        ],
+        "answer": 2,
+        "explanation": "No life-cycle or environmental-impact comparison is provided. Reused material alone does not determine that ranking.",
+        "id": "sat-notes-goal-recall"
+      }
+    ]
+  },
+  "Integration of Knowledge & Ideas::Lesson 8 — Comparative (Dual) Passages & Final Mixed Practice": {
+    "revision": 1,
+    "objectives": [
+      "Attribute each claim to the correct passage.",
+      "Find agreement and disagreement at the same level of specificity.",
+      "Separate a proposed explanation from a result both writers accept."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "Paired passages can agree on an observation while offering different explanations or policies. Build a short map for each text: main claim, supporting evidence, explanation, and any explicit limitation. Compare like with like. A disagreement about cause does not necessarily mean that one writer denies the event itself. Similarly, one writer’s silence on an issue is not automatically opposition to the other writer’s view."
+      },
+      {
+        "type": "text",
+        "text": "When a question asks how one author would respond to the other, anchor the answer in that author’s actual position. Avoid inventing a strong view because it would make a sharper debate. Words such as solely, always, and necessarily can turn a bounded claim into an unsupported universal one. The strongest synthesis often states a precise shared premise and then identifies the particular inference on which the texts differ."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-dual-positions-guided",
+        "scenario": "Original fictional passages. A: “The museum’s free-entry evenings drew more visitors than its regular paid evenings last spring. Lower cost likely helped, although publicity and scheduling may also have mattered.” B: “The reported attendance increase is encouraging, but it does not isolate the effect of price. The museum promoted the free evenings more heavily and scheduled them during a school holiday.”",
+        "steps": [
+          {
+            "prompt": "Which point do both passages accept?",
+            "choices": [
+              "The free evenings had higher reported attendance",
+              "Price was the only cause",
+              "The museum should close all paid evenings"
+            ],
+            "answer": 0,
+            "explanation": "Both discuss the reported increase. Neither makes the other universal claims."
+          },
+          {
+            "prompt": "Which statement best describes the difference?",
+            "choices": [
+              "A denies the increase and B confirms it",
+              "A suggests price contributed, while B emphasizes that the comparison does not isolate price’s effect",
+              "B proves that price had no influence whatsoever"
+            ],
+            "answer": 1,
+            "explanation": "A explicitly offers a qualified price explanation. B focuses on confounding variables, not a proof of zero price effect."
+          },
+          {
+            "prompt": "Which follow-up would most directly improve the comparison?",
+            "choices": [
+              "Only interviewing one publicity designer",
+              "Counting unrelated museum buildings",
+              "Comparing price conditions while holding scheduling and promotion more comparable"
+            ],
+            "answer": 2,
+            "explanation": "The design should address the alternative explanations named by the passages. Simply collecting irrelevant details would not isolate price."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "The authors’ positions are closer than a binary pro-price versus anti-price label suggests. A already acknowledges other possible influences; B specifies why those influences matter for causal inference. A synthesis can therefore identify a difference in emphasis and evidentiary caution without manufacturing absolute opposition. On a real passage task, use the supplied language rather than requiring the authors to adopt the most extreme possible versions of their arguments."
+      },
+      {
+        "type": "reflection",
+        "id": "act-dual-positions-transfer",
+        "math": false,
+        "prompt": "Why would “B believes lower prices never increase museum attendance” misrepresent Passage B?",
+        "sampleAnswer": "B argues that this particular comparison does not isolate the price effect because promotion and scheduling also differ. That methodological limitation is not a universal claim that price can never matter. The response confuses uncertainty about this explanation with proof against every such explanation.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "prediction",
+        "prompt": "Which statement fairly combines the passages?",
+        "choices": [
+          "Both accept the attendance report while treating its causal explanation as qualified.",
+          "Both prove promotion was the only cause.",
+          "A claims price was irrelevant and B denies the event."
+        ],
+        "answer": 0,
+        "explanation": "The shared observation and the qualifications are present in both. Neither supplies an isolated causal estimate.",
+        "id": "act-dual-positions-recall"
+      }
+    ]
+  },
+  "Knowledge of Language::Lesson 5 — Style, Concision, and Word Choice": {
+    "revision": 1,
+    "objectives": [
+      "Remove redundant wording while preserving the sentence’s claim.",
+      "Distinguish unnecessary repetition from meaningful qualification.",
+      "Choose a revision in the context of the complete sentence."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the relationship"
+      },
+      {
+        "type": "text",
+        "text": "Concision reduces words that do not contribute necessary meaning or function. It does not mean choosing the shortest string regardless of what it says. A revision must remain grammatical, preserve the intended relationships, and fit the paragraph’s tone and purpose. Familiar inflated phrases can often be shortened: because can replace due to the fact that when the sentence structure permits. Repetition may also be deliberate for emphasis, so context matters."
+      },
+      {
+        "type": "text",
+        "text": "Qualifiers often carry essential meaning. Some, usually, at least, approximately, and under these conditions limit a claim. Deleting them can make a sentence shorter but less accurate. Likewise, changing a cause into a contrast or replacing a specific noun with an ambiguous pronoun alters the reasoning. Compare the entire proposition before and after revision, including who acts, when it happens, and how strong the claim is."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Decide before checking"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-concision-meaning-guided",
+        "scenario": "Original sentence: “Due to the fact that the sample was small in size, the researchers described the result as preliminary rather than final.” The writer wants a concise revision that preserves the stated reason and qualification.",
+        "steps": [
+          {
+            "prompt": "Which opening is concise and preserves the reason?",
+            "choices": [
+              "Despite the sample",
+              "Because the sample was small",
+              "After every sample became large"
+            ],
+            "answer": 1,
+            "explanation": "Because states the causal relationship directly. Small already conveys the relevant size information."
+          },
+          {
+            "prompt": "Which revision preserves the full claim?",
+            "choices": [
+              "Because the sample was small, the researchers described the result as preliminary.",
+              "The researchers proved the final result.",
+              "Because samples exist, the result is certain."
+            ],
+            "answer": 0,
+            "explanation": "The revision retains the small-sample reason and preliminary status without unnecessary wording. The other choices change the evidence strength."
+          },
+          {
+            "prompt": "Would deleting preliminary in favor of proven be a merely stylistic change?",
+            "choices": [
+              "Yes, because it is shorter",
+              "Yes, because all research proves its results",
+              "No, it strengthens the claim beyond the supplied sentence"
+            ],
+            "answer": 2,
+            "explanation": "Preliminary signals uncertainty or limited evidence. Proven asserts a much stronger conclusion and changes the meaning."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Use the idea in a new setting"
+      },
+      {
+        "type": "text",
+        "text": "An effective revision can also improve reference and sentence focus. “The team repeated the measurement three times in order to verify the reading” can often become “The team repeated the measurement three times to verify the reading.” Keep three times because it specifies the procedure; the longer purpose phrase is the part being shortened. Precision and concision cooperate when a specific verb replaces a vague noun phrase, but the replacement must still match the action actually described."
+      },
+      {
+        "type": "reflection",
+        "id": "act-concision-meaning-transfer",
+        "math": false,
+        "prompt": "Revise “In most cases, the coating usually prevented damage in the tested conditions” without changing a qualified result into a universal guarantee. Explain your choice.",
+        "sampleAnswer": "“The coating usually prevented damage under the tested conditions.” Usually retains the frequency qualification, and under the tested conditions preserves the scope. Removing the redundant in most cases shortens the sentence without claiming that the coating always works everywhere.",
+        "checklist": [
+          "Use the stated facts and conditions.",
+          "Explain the connection rather than only naming a rule.",
+          "Check that the conclusion preserves the intended quantities or meaning."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Try it independently"
+      },
+      {
+        "type": "prediction",
+        "prompt": "Which edit changes meaning rather than only removing needless words?",
+        "choices": [
+          "“in order to measure” → “to measure”",
+          "“approximately 20 grams” → “20 grams”",
+          "“small in size” → “small”"
+        ],
+        "answer": 1,
+        "explanation": "Approximately carries a precision qualification. Removing it can turn an estimate into an exact assertion, unlike the redundant wording in the other examples.",
+        "id": "act-concision-meaning-recall"
+      }
+    ]
+  }
+}

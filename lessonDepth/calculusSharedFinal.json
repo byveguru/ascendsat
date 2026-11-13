@@ -1,0 +1,516 @@
+{
+  "Calc BC: Differentiation: Definition & Fundamental Properties::2.2 Power, product and quotient rules": {
+    "revision": 1,
+    "objectives": [
+      "Choose a differentiation rule from the expression structure.",
+      "Use product and quotient rules without dropping terms.",
+      "Check derivative values and preserve domain restrictions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Differentiation rules describe how rates combine. For a power xⁿ, the power rule gives nxⁿ⁻¹ wherever the original function and derivative are defined. A constant multiplier stays outside the derivative, and a sum differentiates term by term. Negative exponents are powers too: x⁻² differentiates to −2x⁻³, with zero still excluded from the domain. The derivative of a constant is zero, not the constant itself. Rewriting a root or reciprocal as a power often makes the correct rule visible, but the rewrite does not erase its domain restrictions.\n\nProducts require two contributions. For f=uv, the derivative u′v+uv′ accounts for change in each factor while retaining the other. Multiplying only u′ and v′ omits both first-order contributions and usually produces a different result. For a quotient u/v, the derivative is (u′v−uv′)/v² wherever v is nonzero. Keep the numerator order consistent and place parentheses around a multi-term numerator before simplifying. The denominator is squared as a whole; squaring its terms separately is not equivalent.\n\nA useful strategy is to decide whether algebra makes the expression easier before differentiating. A polynomial product may be expanded, giving an independent check against the product rule. A rational function might be rewritten using division, but its excluded inputs must remain excluded. After finding a derivative function, substitute the requested input only once the formula is valid there. A derivative value of zero identifies a horizontal tangent candidate, not automatically a maximum or minimum. To interpret that value, examine nearby behavior or an appropriate sign argument. Finally, distinguish checking one numerical derivative value from verifying a full derivative identity; agreement at one input alone cannot establish the whole formula."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-power-product-quotient-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Compare p(x)=(x²+1)(x−2) and q(x)=(x²+1)/(x−2). Derive both derivatives and evaluate them at x=1. Also differentiate x⁻².",
+        "steps": [
+          {
+            "prompt": "What is the derivative of x⁻² for x≠0?",
+            "choices": [
+              "−2x⁻³",
+              "−2x⁻¹",
+              "x⁻³",
+              "−x⁻²"
+            ],
+            "answer": 0,
+            "explanation": "Multiply by the exponent −2 and subtract one from that exponent. The new exponent is −3, and zero remains outside the domain."
+          },
+          {
+            "prompt": "Which expression correctly differentiates p?",
+            "choices": [
+              "2x",
+              "2x(x−2)+(x²+1)",
+              "2x(x−2)",
+              "2x+1"
+            ],
+            "answer": 1,
+            "explanation": "The product rule differentiates each factor once while keeping the other unchanged. The second factor has derivative 1, producing the second term."
+          },
+          {
+            "prompt": "What is p′(1)?",
+            "choices": [
+              "−2",
+              "2",
+              "0",
+              "4"
+            ],
+            "answer": 2,
+            "explanation": "Substitute into both product-rule terms: 2(1)(−1)+(1+1)=−2+2=0. The contributions cancel, producing a horizontal tangent."
+          },
+          {
+            "prompt": "Which derivative of q is correct?",
+            "choices": [
+              "2x/(x−2)",
+              "[2x(x−2)+(x²+1)]/(x−2)²",
+              "[2x−(x²+1)]/(x−2)",
+              "[2x(x−2)−(x²+1)]/(x−2)²"
+            ],
+            "answer": 3,
+            "explanation": "The quotient rule uses u′v−uv′ in that order and divides by v². Here v′=1, so the entire numerator x²+1 is subtracted."
+          },
+          {
+            "prompt": "What is q′(1)?",
+            "choices": [
+              "−4",
+              "0",
+              "4",
+              "−2"
+            ],
+            "answer": 0,
+            "explanation": "The numerator is 2(1)(−1)−2=−4, and the denominator is (−1)²=1. The quotient derivative is therefore −4."
+          }
+        ],
+        "takeaway": "Identify the expression structure before choosing a rule; products and quotients require different combinations of the same component derivatives."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Expanding p gives x³−2x²+x−2, whose derivative 3x²−4x+1 agrees with the simplified product-rule result. It factors as (3x−1)(x−1), so p′ changes from negative to positive at x=1; the horizontal tangent there is a local minimum. For q, polynomial division gives q=x+2+5/(x−2), valid only for x≠2. Differentiating this form gives 1−5/(x−2)², which simplifies to the same quotient-rule expression. This second route is an algebraic identity check rather than a single-point check. At x=2 neither q nor q′ is defined, despite any appearance of a simple numerator in an intermediate expression. These comparisons show why algebra and calculus should support each other: rewriting can simplify the work, while domain tracking keeps the resulting formulas attached to the original function."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-power-product-quotient-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner differentiates p by multiplying the two component derivatives and obtains 2x. Explain the missing contributions and show one independent way to check the correct answer.",
+        "sampleAnswer": "The product rule requires 2x(x−2)+(x²+1), not the product of the derivatives. Expanding p to x³−2x²+x−2 and differentiating gives 3x²−4x+1, the same result.",
+        "checklist": [
+          "Differentiate each factor while retaining the other.",
+          "Include both product-rule terms.",
+          "Check against an equivalent expanded polynomial."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-power-product-quotient-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter q′(1).",
+        "acceptedAnswers": [
+          "−4",
+          "-4"
+        ],
+        "sampleAnswer": "The quotient-rule numerator equals −4 and the squared denominator equals 1, so q′(1)=−4."
+      }
+    ]
+  },
+  "Calc BC: Differentiation: Definition & Fundamental Properties::2.3 Trigonometric, exponential and logarithmic derivatives": {
+    "revision": 1,
+    "objectives": [
+      "Differentiate trigonometric functions in radians.",
+      "Apply the chain rule to exponential and logarithmic composites.",
+      "Combine product and chain rules while preserving the logarithm domain."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Trigonometric derivative formulas assume radian inputs. In radians, the derivative of sin x is cos x and the derivative of cos x is −sin x. If the input is a function u(x), the chain rule multiplies by u′(x): the derivative of sin u is cos(u)u′. The minus sign in the cosine derivative and the inner derivative are separate features. Degree-based inputs require an additional conversion factor, so a calculator display in degrees should not be mixed with a radian derivative formula.\n\nFor exponentials, the derivative of eᵘ is eᵘu′. A general positive base a has derivative aᵘ ln(a)u′, with a≠1 when treating it as an invertible exponential function. The exponential factor remains; differentiating e²ˣ does not produce merely 2 or eˣ. For logarithms, the derivative of ln u is u′/u wherever u is positive. The real-valued logarithm ln|u| has the same derivative u′/u on intervals where u is nonzero. The domain condition belongs to the function, not just to a denominator in its derivative. For log base a, divide the natural-log derivative by ln a.\n\nMany expressions require more than one rule. A product such as e²ˣ sin x needs a product rule, and the exponential factor also needs a chain rule. Write the outer structure first, then handle each composite inside it. Grouping terms with parentheses reduces sign and factor errors. Finally, test the result at an input where the original function is defined and values are simple. A numerical check is useful for detecting errors, but the chain-rule reasoning explains why each factor is present and remains necessary beyond the checked point."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-transcendental-rates-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let f(x)=e^(2x)sin x+ln(1+x²). Find f′ and evaluate it at zero. Then compare the derivatives of ln x and ln|x| on their domains.",
+        "steps": [
+          {
+            "prompt": "What is d/dx[e^(2x)]?",
+            "choices": [
+              "e^(2x)",
+              "2e^(2x)",
+              "2e^x",
+              "2"
+            ],
+            "answer": 1,
+            "explanation": "Differentiate the outer exponential and multiply by the derivative of 2x, which is 2. The original exponential factor is retained."
+          },
+          {
+            "prompt": "What is d/dx[e^(2x)sin x]?",
+            "choices": [
+              "2e^(2x)cos x",
+              "e^(2x)(2sin x−cos x)",
+              "e^(2x)(2sin x+cos x)",
+              "2e^(2x)sin x cos x"
+            ],
+            "answer": 2,
+            "explanation": "The product rule gives 2e^(2x)sin x+e^(2x)cos x. Factoring the shared exponential yields the stated expression."
+          },
+          {
+            "prompt": "What is d/dx[ln(1+x²)]?",
+            "choices": [
+              "1/(1+x²)",
+              "2x ln(1+x²)",
+              "2/(1+x²)",
+              "2x/(1+x²)"
+            ],
+            "answer": 3,
+            "explanation": "The outer logarithm contributes the reciprocal of its argument, and the inner derivative is 2x. Here the argument 1+x² is always positive."
+          },
+          {
+            "prompt": "What is f′(0)?",
+            "choices": [
+              "1",
+              "0",
+              "2",
+              "3"
+            ],
+            "answer": 0,
+            "explanation": "At zero, the exponential is 1, sine is 0, cosine is 1, and the logarithmic derivative term is 0. The total is 1."
+          },
+          {
+            "prompt": "Which domain statement is correct?",
+            "choices": [
+              "Both ln x and ln|x| are defined for every real x",
+              "ln x needs x>0; ln|x| permits x≠0, and both derivatives are 1/x on their domains",
+              "ln|x| is defined only for x>0",
+              "The derivative of ln|x| is always 1/|x|"
+            ],
+            "answer": 1,
+            "explanation": "The absolute value makes the logarithm argument positive on either side of zero. On each allowed interval its derivative is 1/x, including negative values."
+          }
+        ],
+        "takeaway": "Combine rules from the outside inward, retaining inner derivatives, trigonometric signs, and the original function domain."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For negative x, ln|x|=ln(−x), whose derivative is (−1)/(−x)=1/x. This calculation explains why replacing the derivative with 1/|x| is incorrect. The derivative of aˣ also distinguishes a base from an exponent: for 2ˣ, the extra constant is ln2; for e²ˣ, it is the inner derivative 2. These can be reconciled by writing 2ˣ=e^(x ln2). A more elaborate logarithm such as ln[(1+x²)³] can be differentiated directly with a chain rule or simplified to 3ln(1+x²); both give 6x/(1+x²). The simplification is valid because 1+x² is positive. Logarithm identities used without checking signs can change the real domain, so algebraic convenience does not justify dropping those checks. In applied rate problems, also state units: differentiating a dimensionless logarithmic response with respect to seconds yields a rate per second."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-transcendental-rates-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why e^(2x) and 2^x have different derivative multipliers even though both are exponential functions.",
+        "sampleAnswer": "The first has base e and inner input 2x, so the chain rule supplies 2. The second has base 2 and can be written e^(x ln2), so its multiplier is ln2. Each multiplier comes from the derivative of the exponent in base-e form.",
+        "checklist": [
+          "Rewrite the general-base expression using e.",
+          "Identify each inner exponent derivative.",
+          "Retain the original exponential factor."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-transcendental-rates-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For h(x)=ln(1+x²), enter h′(1).",
+        "acceptedAnswers": [
+          "1"
+        ],
+        "sampleAnswer": "The derivative is 2x/(1+x²), so h′(1)=2/2=1."
+      }
+    ]
+  },
+  "Calc BC: Contextual Applications of Differentiation::4.3 L’Hôpital’s Rule and indeterminate forms": {
+    "revision": 1,
+    "objectives": [
+      "Classify a limit before applying L’Hôpital’s Rule.",
+      "Use repeated differentiation only while the indeterminate form remains valid.",
+      "Transform an indeterminate power with logarithms."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "L’Hôpital’s Rule is a conditional limit theorem, not a rule for differentiating quotients. It applies to suitable quotients whose numerator and denominator approach zero together or whose magnitudes both grow without bound, provided the differentiability and denominator-derivative conditions hold on a nearby punctured interval and the derivative-ratio limit supplies the required conclusion. Begin by evaluating the separate numerator and denominator limits. A finite nonzero denominator usually permits direct substitution. A numerator approaching a nonzero constant over a denominator approaching zero requires a sign or one-sided analysis rather than automatic use of this theorem.\n\nWhen the hypotheses apply, replace the quotient by the quotient of the derivatives for the purpose of evaluating its limit. Do not use the quotient-rule derivative; that is a different expression serving a different task. The original quotient and derivative quotient need not be equal as functions. If the new ratio still has a valid zero-over-zero or infinity-over-infinity form, the rule may be applied again after checking the conditions again. Stop when direct evaluation becomes available. An apparently endless cycle of differentiation is a reason to reconsider the structure, not evidence that every limit is zero.\n\nOther indeterminate forms need an algebraic transformation first. A product of a vanishing factor and an unbounded factor can sometimes be rewritten as a quotient. For a positive expression raised to a changing power, introduce its logarithm so the exponent becomes a product, evaluate that logarithmic limit, and then exponentiate using continuity. Forms such as 1 raised to an unbounded power are indeterminate because the base's approach to 1 and the exponent's growth can balance in different ways. The form alone never determines the numerical answer."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-lhopital-forms-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Evaluate lim as x→0 of (e^x−1−x)/x², lim as x→∞ of ln x/x, and lim as x→0 of (1+x)^(1/x), with x>−1 and x≠0 in the last expression.",
+        "steps": [
+          {
+            "prompt": "What is the initial form of (e^x−1−x)/x² at zero?",
+            "choices": [
+              "Zero over zero",
+              "One over zero",
+              "Infinity over infinity",
+              "A directly defined quotient"
+            ],
+            "answer": 0,
+            "explanation": "Both numerator and denominator approach zero. The functions are differentiable nearby, allowing the zero-over-zero version of the theorem to be considered."
+          },
+          {
+            "prompt": "After differentiating numerator and denominator once, what remains?",
+            "choices": [
+              "e^x/2",
+              "(e^x−1)/(2x), still zero over zero",
+              "e^x−1−x",
+              "e^x/(2x)"
+            ],
+            "answer": 1,
+            "explanation": "Differentiate the numerator to e^x−1 and the denominator to 2x. Both still approach zero, so another checked application is possible."
+          },
+          {
+            "prompt": "What is the resulting limit after the second application?",
+            "choices": [
+              "0",
+              "1",
+              "1/2",
+              "2"
+            ],
+            "answer": 2,
+            "explanation": "The second derivative ratio is e^x/2, whose limit is 1/2. This is a limit comparison, not an identity between the original functions."
+          },
+          {
+            "prompt": "What is lim as x→∞ of ln x/x?",
+            "choices": [
+              "1",
+              "∞",
+              "It does not exist",
+              "0"
+            ],
+            "answer": 3,
+            "explanation": "The original form is infinity over infinity. The derivative quotient is (1/x)/1, which approaches zero as x grows without bound."
+          },
+          {
+            "prompt": "What is the logarithmic limit for (1+x)^(1/x)?",
+            "choices": [
+              "1, so the original limit is e",
+              "0, so the original limit is 1",
+              "∞, so the original limit is ∞",
+              "1, so the original limit is 1"
+            ],
+            "answer": 0,
+            "explanation": "The logarithm is ln(1+x)/x, a zero-over-zero quotient. Its derivative ratio 1/(1+x) tends to 1, so exponentiation gives e."
+          }
+        ],
+        "takeaway": "Classify, check hypotheses, transform when necessary, and distinguish the logarithmic limit from the final powered expression."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Consider (1+sin x)/(1+cos x) as x approaches zero. Direct substitution gives 1/2, because the denominator tends to 2. Differentiating numerator and denominator would instead create cos x/(−sin x), which has no matching finite two-sided limit. This is not a contradiction; the theorem's indeterminate-form hypothesis never held. For the powered example, the positivity of 1+x near zero makes the logarithm legitimate on both sides. A useful transfer is (1+ax)^(b/x), where a and b are constants and the base is positive nearby. Its logarithm has limit ab, so the original limit is e^(ab). If a=0 the expression is identically 1 where defined, consistent with that result. The transformation must keep its domain, and a negative base with a noninteger varying exponent would require a different real-valued analysis."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-lhopital-forms-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner differentiates the numerator and denominator of (1+sin x)/(1+cos x) at zero and declares the limit undefined. Explain the invalid step and evaluate correctly.",
+        "sampleAnswer": "The separate limits are 1 and 2, so there is no zero-over-zero or infinity-over-infinity form. Direct substitution is valid and gives 1/2. The derivative-ratio calculation is not licensed by L’Hôpital’s Rule here.",
+        "checklist": [
+          "Evaluate numerator and denominator limits first.",
+          "Identify the missing indeterminate form.",
+          "Use direct substitution for the correct value."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-lhopital-forms-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter lim as x→0 of (e^x−1−x)/x².",
+        "acceptedAnswers": [
+          "1/2",
+          "0.5"
+        ],
+        "sampleAnswer": "Two valid applications give the limit of e^x/2, which is 1/2."
+      }
+    ]
+  },
+  "Calc BC: Differential Equations::7.2 Exponential models and Euler approximation": {
+    "revision": 1,
+    "objectives": [
+      "Solve and interpret a constant-relative-rate differential equation.",
+      "Carry out Euler updates with the current slope.",
+      "Distinguish an approximation from an exact solution."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An exponential differential equation has the form y′=ky, where k is a constant relative rate. For an initial value y(0)=y₀, the function y=y₀e^(kt) satisfies both the equation and the initial condition. A positive k produces growth for positive initial values; a negative k produces decay. The units of k are reciprocal time units, so kt is dimensionless. The magnitude of k is not itself the amount gained or lost each time unit. For example, k=−0.5 means an instantaneous relative decay rate of one-half per unit time; the one-unit multiplier is e^(−0.5), not 0.5.\n\nEuler approximation uses local tangent slopes to build a numerical estimate when a formula is inconvenient or unavailable. Starting at (t_n,y_n), use y_(n+1)=y_n+hF(t_n,y_n) and t_(n+1)=t_n+h for an equation y′=F(t,y). The increment is step width times slope, with the current approximate point determining that slope. Reusing the original slope at every step describes one long tangent-line extrapolation instead of successive Euler updates. Keep a table of time, current estimate, slope, and increment so that changing inputs remain visible.\n\nCourse scope: exponential differential-equation models are assessed in both AB and BC. Euler’s method is assessed in BC and is enrichment in AB. An Euler value is not an exact solution merely because every arithmetic step is exact. Smaller steps often improve an approximation over a fixed interval, but their reliability depends on the differential equation and step size. Use an available exact solution or qualitative slope and concavity information to judge the numerical result. Report the step size and endpoint, because an isolated approximation without that information cannot be reproduced or compared fairly."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-exponential-euler-extension-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "For y′=−0.5y and y(0)=8, compare the exact solution with Euler estimates. Use h=1 from time 0 to 2, then use h=0.5 from time 0 to 1.",
+        "steps": [
+          {
+            "prompt": "Which exact solution satisfies the initial-value problem?",
+            "choices": [
+              "8e^(0.5t)",
+              "8e^(−0.5t)",
+              "8−0.5t",
+              "e^(−4t)"
+            ],
+            "answer": 1,
+            "explanation": "The relative rate is −0.5 and the initial multiplier is 8. Differentiation gives −0.5 times the function, and the initial value is 8."
+          },
+          {
+            "prompt": "With h=1, what is the first Euler estimate?",
+            "choices": [
+              "7.5",
+              "8e^(−0.5)",
+              "4",
+              "−4"
+            ],
+            "answer": 2,
+            "explanation": "At the initial point the slope is −0.5(8)=−4. The update adds 1(−4) to 8, giving the estimate 4 at time 1."
+          },
+          {
+            "prompt": "What is the second h=1 estimate, at time 2?",
+            "choices": [
+              "0",
+              "4",
+              "8e^(−1)",
+              "2"
+            ],
+            "answer": 3,
+            "explanation": "Recompute the slope at the current estimate 4, obtaining −2. Add the increment 1(−2) to 4, giving 2."
+          },
+          {
+            "prompt": "How does that compare with the exact time-2 value?",
+            "choices": [
+              "It is below 8/e≈2.943",
+              "It is above 8/e≈2.943",
+              "It equals the exact value",
+              "The exact value is negative"
+            ],
+            "answer": 0,
+            "explanation": "The exact solution gives 8e^(−1), about 2.943, so the Euler estimate 2 is smaller. The positive decay curve is concave up."
+          },
+          {
+            "prompt": "With h=0.5, what is the estimate after two steps, at time 1?",
+            "choices": [
+              "4",
+              "4.5",
+              "6",
+              "5"
+            ],
+            "answer": 1,
+            "explanation": "The first estimate is 8+0.5(−4)=6. Its new slope is −3, so the next estimate is 6+0.5(−3)=4.5."
+          }
+        ],
+        "takeaway": "An exponential model has an exact relative-rate interpretation; Euler uses successive tangent updates and must retain its step size and endpoint."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For h=1 the Euler recurrence is y_(n+1)=0.5y_n; for h=0.5 it is y_(n+1)=0.75y_n. These multipliers approximate e^(−0.5h), but they are not equal to it. At time 1 the half-step estimate 4.5 is closer to the exact 8e^(−0.5)≈4.852 than the full-step estimate 4. Because the exact solution is positive and concave up, forward tangent segments lie below the curve; the numerical comparison agrees with that geometry in this example. However, an excessively large step such as h=3 gives multiplier −0.5 and produces a negative first estimate, even though the exact solution remains positive. Numerical artifacts can therefore violate the model’s qualitative behavior. Solving an equation and approximating it are different tasks: a differential equation can be correct while a poorly chosen numerical method gives an implausible output."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-exponential-euler-extension-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses slope −4 for every Euler step and obtains zero at time 2. Explain why that is not the requested successive approximation.",
+        "sampleAnswer": "The slope depends on y, so it must be recomputed at each approximate point. After the first h=1 step the estimate is 4, whose slope is −2 rather than −4. The second estimate is therefore 2, not zero.",
+        "checklist": [
+          "Use the current approximate y value.",
+          "Recompute the differential-equation slope.",
+          "Show the second update with its step width."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-exponential-euler-extension-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Using h=0.5, enter the first Euler estimate at time 0.5.",
+        "acceptedAnswers": [
+          "6"
+        ],
+        "sampleAnswer": "The initial slope is −4, so the first estimate is 8+0.5(−4)=6."
+      }
+    ]
+  }
+}

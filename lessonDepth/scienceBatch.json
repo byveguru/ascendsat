@@ -1,0 +1,1590 @@
+{
+  "CSP: Algorithms & Programming::3.2 Lists, indices, traversals, and data abstraction": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a list index from the value stored at that position.",
+      "Trace mutations in their actual execution order.",
+      "Explain how list abstraction supports varying input sizes without guaranteeing correctness."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A list is an ordered collection of values. An index identifies a position, while the element is the value stored there. In the AP-style convention used here, indexing starts at 1. For values [8, 3, 6], position 2 contains the value 3. The expression values[2] does not search for the number 2. This distinction matters when a list stores identifiers, scores or text: an index describes the representation, not the meaning of the stored element. Other languages may start at 0, so read the supplied convention rather than importing a familiar language’s rule."
+      },
+      {
+        "type": "text",
+        "text": "Mutation changes a list’s current state. INSERT(values, i, x) inserts x at position i and shifts the old element there and later elements to the right. REMOVE(values, i) removes the current element at position i, shifting later elements left. APPEND(values, x) places x at the end. Trace the full list after each operation because earlier operations change the meaning of later positions. When a traversal removes an element and then advances its index, it can skip the element that shifted into the removed position. A safe plan must account for this change rather than assuming the original positions remain fixed."
+      },
+      {
+        "type": "text",
+        "text": "A list abstraction lets one algorithm process a collection whose length can change. A loop can examine five records or fifty without a separate variable and repeated instruction for every record. That is a complexity-management benefit, not a guarantee of constant runtime, valid data or correct indexing. State what an empty list should produce, whether an operation changes the original list, and whether order matters. For a filtering task, initialize a result list, inspect each input element, and append exactly the elements meeting the condition. The result’s values and order should follow the specification, not a guessed pattern from one example."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-csp-list-predict",
+        "prompt": "Using 1-based indexing, what is values[2] when values = [8, 3, 6]?",
+        "choices": [
+          "8",
+          "2",
+          "3",
+          "6"
+        ],
+        "answer": 2,
+        "explanation": "The second position contains 3. The index is a position, not a value to find.",
+        "hint": "Number the positions before reading the element."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-csp-list-guide",
+        "title": "Update the list after every operation",
+        "scenario": "Start values ← [4, 7, 9]. Execute INSERT(values, 2, 5), then REMOVE(values, 3), then APPEND(values, 2). All positions are 1-based.",
+        "steps": [
+          {
+            "prompt": "After insertion, what is the list?",
+            "choices": [
+              "[4, 5, 7, 9]",
+              "[4, 7, 5, 9]",
+              "[5, 4, 7, 9]",
+              "[4, 5, 9]"
+            ],
+            "answer": 0,
+            "explanation": "Inserting at position 2 puts 5 before the previous second element 7. The old second and third elements shift right.",
+            "hint": "Insertion does not overwrite the old element."
+          },
+          {
+            "prompt": "Which value does the next REMOVE delete?",
+            "choices": [
+              "9",
+              "5",
+              "3",
+              "7"
+            ],
+            "answer": 3,
+            "explanation": "The current list is [4, 5, 7, 9], so its third element is now 7. Use the updated list.",
+            "hint": "Do not use the positions from the original list."
+          },
+          {
+            "prompt": "What is the final list after APPEND(values, 2)?",
+            "choices": [
+              "[2, 4, 5, 9]",
+              "[4, 5, 9, 2]",
+              "[4, 2, 5, 9]",
+              "[4, 7, 9, 2]"
+            ],
+            "answer": 1,
+            "explanation": "After removal, the list is [4, 5, 9]. Appending adds 2 at the end, producing [4, 5, 9, 2].",
+            "hint": "APPEND does not sort or insert at the position matching the value."
+          },
+          {
+            "prompt": "What is the final list length?",
+            "choices": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "answer": 2,
+            "explanation": "Start with 3 elements; insertion adds 1, removal subtracts 1, and append adds 1, leaving 4.",
+            "hint": "Track the count as well as the values."
+          }
+        ],
+        "takeaway": "A list operation acts on the current state. Draw positions and elements separately, then rewrite the state after every mutation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-csp-list-transfer",
+        "prompt": "A loop removes a matching element at position i, then always increases i by 1. Explain how this can skip a second adjacent match. Use [2, 2, 5] as an example.",
+        "sampleAnswer": "Removing the first 2 shifts the second 2 into position 1. If the loop immediately advances to position 2, it examines 5 and skips that shifted match. A revised plan can avoid advancing after a removal, use an appropriately designed reverse traversal, or construct a filtered result list. The exact repair must match the specified loop and desired output.",
+        "checklist": [
+          "Show the list after the first removal.",
+          "Identify the shifted element’s new position.",
+          "Explain why the index update, not merely the REMOVE operation, creates the skip."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-csp-list-recall",
+        "prompt": "Start [6, 1, 8]. Insert 4 at position 2, remove position 1, then append 9. What is the final length? Enter only the number.",
+        "sampleAnswer": "The states are [6, 4, 1, 8], then [4, 1, 8], then [4, 1, 8, 9]. Final length is 4.",
+        "math": true,
+        "acceptedAnswers": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "CSP: Algorithms & Programming::3.4 Procedures, parameters, and reusable algorithm design": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish parameters, arguments and returned results.",
+      "Trace a procedure call before resuming the caller.",
+      "Choose cases that test a boundary or reveal a meaningful parameter effect."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A procedure definition names an operation and describes the instructions used when it is called. Parameters are placeholders in the definition; arguments are the actual values supplied by a call. In PROCEDURE bonus(score), score is a parameter. In bonus(75), 75 is an argument. A returned value becomes available to the caller, which may store it, combine it with another expression or display it. Returning a value and displaying a value are different actions. A procedure can calculate a useful result without showing anything on a screen."
+      },
+      {
+        "type": "text",
+        "text": "To trace a call, record the argument bound to each parameter, evaluate the procedure’s instructions using those values, identify the executed branch, and then substitute the returned result into the caller’s expression. RETURN ends the current call. Instructions after an executed RETURN are not reached during that call. A procedure may be called again later with different arguments. In that new call, use the new supplied values rather than retaining an old argument simply because the parameter has the same name. The behavior of variables outside a procedure depends on the language and contract, so avoid assuming unspecified side effects."
+      },
+      {
+        "type": "text",
+        "text": "A procedural abstraction helps callers use a meaningful operation without repeating all of its implementation. Its contract should state accepted inputs, its result or effect, and relevant conditions. It does not automatically validate an empty list or turn a string into a number. Test cases should exercise the actual condition and boundary: two different inputs can still follow the same branch. For a cutoff that includes 80, test below 80, exactly 80, and above 80. To demonstrate a parameter’s effect, explain which decision or calculation changes when the argument changes. A name or an unused parameter alone does not establish useful variability."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-csp-procedure-predict",
+        "prompt": "A procedure returns 3, and the caller executes result ← 2 + that returned value. What is stored in result?",
+        "choices": [
+          "3",
+          "5",
+          "2",
+          "The procedure name"
+        ],
+        "answer": 1,
+        "explanation": "The caller uses the returned 3 in its own expression: 2 + 3 = 5.",
+        "hint": "A returned value can be an input to another calculation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-csp-procedure-guide",
+        "title": "Trace the call and then the caller",
+        "scenario": "Define bonus(score): if score ≥ 80, RETURN 10; otherwise RETURN 3. Evaluate result ← 2 + bonus(75), then consider bonus(80).",
+        "steps": [
+          {
+            "prompt": "What value is bound to score in bonus(75)?",
+            "choices": [
+              "80",
+              "3",
+              "75",
+              "10"
+            ],
+            "answer": 2,
+            "explanation": "The argument at this call is 75, so the parameter score receives 75.",
+            "hint": "Read the value between the call’s parentheses."
+          },
+          {
+            "prompt": "Which result does bonus(75) return?",
+            "choices": [
+              "3",
+              "10",
+              "75",
+              "2"
+            ],
+            "answer": 0,
+            "explanation": "75 ≥ 80 is false, so the otherwise branch returns 3.",
+            "hint": "Evaluate the comparison before choosing the branch."
+          },
+          {
+            "prompt": "What is result after the full caller expression?",
+            "choices": [
+              "3",
+              "12",
+              "75",
+              "5"
+            ],
+            "answer": 3,
+            "explanation": "The call is replaced by its return value 3, and 2 + 3 gives 5.",
+            "hint": "Resume the caller only after finding the return."
+          },
+          {
+            "prompt": "What does bonus(80) return?",
+            "choices": [
+              "3",
+              "10",
+              "0",
+              "80"
+            ],
+            "answer": 1,
+            "explanation": "The condition includes equality: 80 ≥ 80 is true, so the first branch returns 10.",
+            "hint": "Check whether the comparison is strict or inclusive."
+          }
+        ],
+        "takeaway": "A procedure trace and a caller trace are connected, but they are not the same step. Follow the return value across the boundary."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-csp-procedure-transfer",
+        "prompt": "A student tests only bonus(10) and bonus(70), then says every branch has been checked because the arguments differ. Explain the flaw and give a better additional test.",
+        "sampleAnswer": "Both inputs are below 80 and return 3 through the same branch. Different arguments do not imply different branches. Add an input at the boundary, such as 80, to check the inclusive comparison and the branch returning 10; a value above 80 can provide another check.",
+        "checklist": [
+          "Evaluate the condition for both original calls.",
+          "Separate input variety from branch coverage.",
+          "Use an exact boundary value in the improved plan."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-csp-procedure-recall",
+        "prompt": "Using the same bonus procedure, what is 4 + bonus(90)? Enter only the value.",
+        "sampleAnswer": "90 satisfies the condition, so bonus(90) returns 10. The caller computes 4 + 10 = 14.",
+        "math": true,
+        "acceptedAnswers": [
+          "14"
+        ]
+      }
+    ]
+  },
+  "CSP: Algorithms & Programming::3.5 Searching, efficiency, and limits of algorithms": {
+    "revision": 1,
+    "objectives": [
+      "Trace binary search bounds using a fully specified rule.",
+      "Identify why sortedness is necessary for eliminating an interval.",
+      "Compare operation growth without confusing a slow solvable task with an undecidable one."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "An algorithm must be evaluated for correctness under its stated input conditions as well as for resource use. Linear search checks candidates one by one and can work on an unsorted list. The usual binary search instead relies on ascending order: after comparing with a middle element, it can rule out a whole interval because the order tells us what values that interval can contain. Without that assumption, a discarded interval may still contain the target. Sorting first requires work of its own, so a performance comparison should state whether the list is already sorted and whether later searches will reuse it."
+      },
+      {
+        "type": "text",
+        "text": "Exact binary-search traces depend on a specified implementation. This lesson uses 1-based positions, lower = 1 and upper = list length. While lower ≤ upper, choose middle = floor((lower + upper)/2). If the middle value equals the target, stop successfully. If it is smaller than the target, set lower = middle + 1; otherwise set upper = middle − 1. When lower becomes greater than upper, report not found. Repeatedly halving an interval explains logarithmic growth, but it does not justify one universal exact comparison count independent of the target and implementation."
+      },
+      {
+        "type": "text",
+        "text": "Algorithmic efficiency concerns how work grows with input size. A loop that checks n entries has linear comparison growth; two full n-step nested loops perform n² inner iterations. Exponential growth such as 2^n can increase much faster than these polynomial patterns. A faster processor can change elapsed time without changing the underlying growth expression. A heuristic may give a useful solution without guaranteeing an exact optimum. An undecidable general decision problem is different: no algorithm supplies the required correct yes-or-no answer for every possible input. A syntax error or a resource-intensive solvable example is not by itself evidence of undecidability."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-csp-search-predict",
+        "prompt": "Why does the ordinary binary-search elimination rule require a sorted list?",
+        "choices": [
+          "Because every list has even length",
+          "Because sorted values make the discarded interval irrelevant to the target",
+          "Because every value must be positive",
+          "Because a computer cannot search an unsorted list at all"
+        ],
+        "answer": 1,
+        "explanation": "The comparison and ordering together justify discarding a range. Linear search can still search unsorted data.",
+        "hint": "Ask what permits the algorithm to ignore positions it has not checked."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-csp-search-guide",
+        "title": "Keep the bounds visible",
+        "scenario": "Search for 17 in [2, 5, 8, 11, 14, 17, 20] using the stated 1-based binary-search rule and floor for the middle position.",
+        "steps": [
+          {
+            "prompt": "What middle position and value are checked first?",
+            "choices": [
+              "Position 3, value 8",
+              "Position 4, value 11",
+              "Position 5, value 14",
+              "Position 7, value 20"
+            ],
+            "answer": 1,
+            "explanation": "floor((1 + 7)/2) = 4, and position 4 contains 11.",
+            "hint": "Calculate the index, then read the value at that index."
+          },
+          {
+            "prompt": "Because 11 < 17, what are the new bounds?",
+            "choices": [
+              "lower = 1, upper = 3",
+              "lower = 4, upper = 7",
+              "lower = 5, upper = 7",
+              "lower = 1, upper = 7"
+            ],
+            "answer": 2,
+            "explanation": "Values at positions 1 through 4 cannot be 17 in the sorted list, so lower becomes 5 and upper remains 7.",
+            "hint": "Discard the checked middle position as well as the lower interval."
+          },
+          {
+            "prompt": "What happens at the next middle position?",
+            "choices": [
+              "Position 6 contains 17, so the search succeeds",
+              "Position 5 contains 17",
+              "The search fails without another comparison",
+              "The list must be sorted again"
+            ],
+            "answer": 0,
+            "explanation": "floor((5 + 7)/2) = 6; its value is 17. There have been two value comparisons.",
+            "hint": "Use the updated bounds."
+          },
+          {
+            "prompt": "Does this successful example prove binary search is correct on every unsorted list?",
+            "choices": [
+              "Yes, because 17 was found",
+              "Yes, because floor was used",
+              "Yes, if all values are integers",
+              "No, the proof of discarding intervals depends on sortedness"
+            ],
+            "answer": 3,
+            "explanation": "A successful case does not remove an input precondition. An unsorted counterexample can fail despite the target being present.",
+            "hint": "Distinguish one trace from the conditions supporting the algorithm."
+          }
+        ],
+        "takeaway": "An exact trace checks an example; the ordering rule explains why eliminating each interval is justified for permitted inputs."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-csp-search-transfer",
+        "prompt": "Apply the same binary-search rule to the unsorted list [9, 1, 8, 2] while looking for 9. Trace the middle values and explain the failure.",
+        "sampleAnswer": "The rule checks position 2 with value 1, then position 3 with value 8, then position 4 with value 2. Each comparison moves lower rightward until lower > upper, reporting not found even though 9 was at position 1. Ascending order was absent, so the first discarded interval was not safely irrelevant.",
+        "checklist": [
+          "Trace actual bounds rather than sorting the list silently.",
+          "Locate the present target.",
+          "Explain exactly which assumption the elimination rule violated."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-csp-search-recall",
+        "prompt": "A procedure uses two full nested loops, each running n times. If n changes from 5 to 10, what is the factor increase in inner-body executions? Enter only the factor.",
+        "sampleAnswer": "Executions rise from 5² = 25 to 10² = 100. The factor is 100/25 = 4.",
+        "math": true,
+        "acceptedAnswers": [
+          "4"
+        ]
+      }
+    ]
+  },
+  "APES: The Living World: Ecosystems::1.3 Carbon, nitrogen, phosphorus, and water cycles": {
+    "revision": 1,
+    "objectives": [
+      "Trace an element through reservoirs without confusing the element with its chemical form.",
+      "Distinguish a stored amount from a rate of transfer.",
+      "Apply a boundary-specific nutrient budget and explain what the model omits."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A reservoir stores matter; a flux transfers matter between reservoirs. A stock may be measured in kilograms, while a flux may be measured in kilograms per year. Those units answer different questions. An ecosystem can have equal inputs and outputs while large transfers continue within it. Steady storage therefore does not mean that molecules stop moving. Before adding numbers, draw a boundary and decide whether a transfer crosses it or occurs internally. A whole-ecosystem budget and a soil-only budget can classify the same plant-uptake transfer differently because their boundaries differ."
+      },
+      {
+        "type": "text",
+        "text": "The identity of an element and its chemical form must also be separated. Nitrogen can move among atmospheric N₂, ammonium, nitrate and organic compounds. Fixation converts atmospheric nitrogen into biologically usable reactive forms through relevant processes. Assimilation incorporates available nitrogen into organic material. Nitrification transforms ammonium toward nitrite and nitrate, while denitrification can return nitrogen to atmospheric forms. These processes change form and location; they do not create nitrogen atoms. When comparing transfers reported for different compounds, use a consistent elemental basis, such as kilograms of nitrogen, rather than adding kilograms of nitrate directly to kilograms of ammonium as if their nitrogen fractions were identical."
+      },
+      {
+        "type": "text",
+        "text": "Carbon enters producer biomass through photosynthesis and returns through respiration, decomposition and other processes; combustion can transfer stored carbon to the atmosphere. Phosphorus commonly cycles through rocks, soils, organisms and waters without the large atmospheric gas reservoir central to the simplified nitrogen model. Water moves through evaporation, condensation, precipitation, infiltration, runoff and biological pathways. Tracking one cycle does not mean the others are independent: land clearing can alter carbon storage, runoff and nutrient export together. A nutrient input can increase growth when that nutrient is limiting, but light, water, other nutrients and ecological conditions can constrain the response. A balanced mass ledger alone does not prove a particular biological effect."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-apes-cycle-predict",
+        "prompt": "A modeled ecosystem has 12 kg of nitrogen enter and 12 kg leave over one year. What follows about its total nitrogen stock, ignoring unlisted transfers?",
+        "choices": [
+          "No nitrogen processes can occur",
+          "The stock increases by 24 kg",
+          "The stock has no net change",
+          "Every internal reservoir stays unchanged"
+        ],
+        "answer": 2,
+        "explanation": "Equal external inputs and outputs give zero net stock change for the defined boundary. Internal transformations and transfers can still continue.",
+        "hint": "Use net change = inputs − outputs, and keep the system boundary fixed."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-apes-cycle-guide",
+        "title": "Build a nitrogen ledger",
+        "scenario": "Original hypothetical annual field budget, all quantities in kg of nitrogen: initial ecosystem stock 40; fertilizer input 20; deposition input 2; biological fixation input 5; harvest output 12; leaching output 8; gaseous output 3. Treat these as the complete listed external transfers.",
+        "steps": [
+          {
+            "prompt": "What total nitrogen input crosses the boundary?",
+            "choices": [
+              "20 kg",
+              "27 kg",
+              "23 kg",
+              "67 kg"
+            ],
+            "answer": 1,
+            "explanation": "20 + 2 + 5 = 27 kg of nitrogen. The initial stock is not an annual input.",
+            "hint": "Separate the amount already stored from this year’s transfers."
+          },
+          {
+            "prompt": "What total nitrogen output crosses the boundary?",
+            "choices": [
+              "12 kg",
+              "20 kg",
+              "63 kg",
+              "23 kg"
+            ],
+            "answer": 3,
+            "explanation": "12 + 8 + 3 = 23 kg of nitrogen leaves through the listed pathways.",
+            "hint": "Add only transfers leaving the defined ecosystem."
+          },
+          {
+            "prompt": "What is the net change in stock?",
+            "choices": [
+              "+4 kg",
+              "+27 kg",
+              "−4 kg",
+              "+50 kg"
+            ],
+            "answer": 0,
+            "explanation": "Net change is 27 − 23 = +4 kg of nitrogen. Inputs and outputs are not both added to storage.",
+            "hint": "Subtract total outputs from total inputs."
+          },
+          {
+            "prompt": "What is the modeled final stock?",
+            "choices": [
+              "4 kg",
+              "40 kg",
+              "44 kg",
+              "67 kg"
+            ],
+            "answer": 2,
+            "explanation": "Initial stock 40 plus net change 4 gives 44 kg of nitrogen. This is an ecosystem total, not a guarantee about which chemical form or location contains it.",
+            "hint": "Apply the net change to the original stock."
+          }
+        ],
+        "takeaway": "Conservation accounts for the amount of an element. Additional measurements are needed to identify its form, location and biological effects."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-apes-cycle-transfer",
+        "prompt": "Suppose plant uptake moves nitrogen from soil nitrate into plant tissue. Is that an output from the whole ecosystem budget? Could it be an output from a soil-only budget? Explain.",
+        "sampleAnswer": "For a whole ecosystem containing both soil and plants, uptake is an internal transfer, not a loss across the outer boundary. For a soil-only system, the same transfer can be an output from the soil compartment. The atoms have not vanished; the boundary determines how the transfer is recorded.",
+        "checklist": [
+          "Draw or name each boundary.",
+          "Identify the donor and receiver compartments.",
+          "Keep chemical transformation distinct from loss of elemental matter."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-apes-cycle-recall",
+        "prompt": "A different complete annual budget has initial nitrogen stock 30 kg, inputs 9 kg and outputs 14 kg. What is final stock in kilograms? Enter only the number.",
+        "sampleAnswer": "Net change is 9 − 14 = −5 kg, so final stock is 30 − 5 = 25 kg.",
+        "math": true,
+        "acceptedAnswers": [
+          "25"
+        ]
+      }
+    ]
+  },
+  "APES: Populations::3.3 Human population change, demographic transition, and resource demand": {
+    "revision": 1,
+    "objectives": [
+      "Convert per-thousand birth and death rates to counts and percentage change.",
+      "Distinguish natural increase from total growth including migration.",
+      "Explain why a demographic model or doubling-time calculation is conditional."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A population’s change over an interval can be written as births plus immigration minus deaths and emigration. Crude birth and death rates commonly report events per 1,000 people per year. Their difference gives a natural-increase rate on the same per-thousand basis. Divide that difference by 10 to express a percentage, because 10 per 1,000 equals 1 per 100. Natural increase excludes migration; total population growth does not. Specify whether a figure is a rate, a count, or a percentage before combining it with another quantity."
+      },
+      {
+        "type": "text",
+        "text": "Demographic-transition models describe patterns linking changes in mortality and fertility with social, economic and public-health conditions. They are models of historical and possible patterns, not a rule that every society must follow identically. A fall in death rate while birth rate remains high can accelerate natural increase; later changes in fertility can reduce it. Population age structure also matters. A large cohort entering reproductive ages can contribute to population momentum even after fertility changes. A broad pyramid is evidence to interpret alongside actual age-specific rates and migration, not a guarantee that every future count follows one predetermined path."
+      },
+      {
+        "type": "text",
+        "text": "The rule of 70 estimates doubling time as 70 divided by a positive annual growth rate written as a percent. It approximates a constant proportional growth model; it does not apply by dividing by a negative rate to announce a future doubling during decline. Changing fertility, mortality, migration or resource conditions can make a fixed-rate extrapolation unsuitable. Resource demand also depends on consumption and technology, not just population count. Two populations of equal size can have different total demands, and one population’s average can hide unequal use. Explain the actual mechanism and context rather than treating development, culture or individual choices as interchangeable labels."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-apes-demog-predict",
+        "prompt": "Birth rate is 28 and death rate is 8 per 1,000 people per year. What is the natural-increase percentage?",
+        "choices": [
+          "20%",
+          "2%",
+          "0.2%",
+          "36%"
+        ],
+        "answer": 1,
+        "explanation": "The difference is 20 per 1,000, equivalent to 2%. Rates per thousand are not already percentages.",
+        "hint": "Convert the difference to events per 100 people."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-apes-demog-guide",
+        "title": "Reconcile rates and counts",
+        "scenario": "Original hypothetical annual model: initial population 2,000,000; birth rate 28 per 1,000; death rate 8 per 1,000; net migration −10,000 people. Use the initial population as the rate denominator and ignore within-year timing changes.",
+        "steps": [
+          {
+            "prompt": "How many births are modeled?",
+            "choices": [
+              "28,000",
+              "560,000",
+              "56,000",
+              "2,028,000"
+            ],
+            "answer": 2,
+            "explanation": "2,000,000 × 28/1,000 = 56,000 births.",
+            "hint": "A per-thousand rate multiplies population/1,000."
+          },
+          {
+            "prompt": "What is the modeled natural increase in people?",
+            "choices": [
+              "40,000",
+              "20",
+              "16,000",
+              "30,000"
+            ],
+            "answer": 0,
+            "explanation": "Deaths are 2,000,000 × 8/1,000 = 16,000; births minus deaths is 40,000.",
+            "hint": "Natural increase excludes migration."
+          },
+          {
+            "prompt": "After net migration, what is total population change?",
+            "choices": [
+              "50,000",
+              "40,000",
+              "−10,000",
+              "30,000"
+            ],
+            "answer": 3,
+            "explanation": "40,000 + (−10,000) = 30,000 people. A negative net migration term reduces the natural increase.",
+            "hint": "Include the sign of the net migration."
+          },
+          {
+            "prompt": "What total-growth percentage corresponds to that change?",
+            "choices": [
+              "15%",
+              "1.5%",
+              "2%",
+              "0.15%"
+            ],
+            "answer": 1,
+            "explanation": "30,000/2,000,000 × 100 = 1.5%. It differs from the 2% natural-increase percentage.",
+            "hint": "Use the stated initial population as the denominator."
+          }
+        ],
+        "takeaway": "Keep natural increase, migration and total growth visible as separate parts of the same population ledger."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-apes-demog-transfer",
+        "prompt": "The report applies 70/1.5 ≈ 46.7 years and says the population will definitely double at that time. What assumption does the calculation make, and why is the definite prediction too strong?",
+        "sampleAnswer": "The rule approximates constant positive proportional growth at 1.5% per year. Fertility, mortality, age structure, migration and other conditions can change, so the value is a model estimate rather than a guaranteed future event. A single year’s rate does not establish a constant rate for decades.",
+        "checklist": [
+          "State the rate as a percent.",
+          "Name the constant-growth assumption.",
+          "Distinguish an approximate projection from an observed or certain outcome."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-apes-demog-recall",
+        "prompt": "Ignoring migration, crude birth rate is 19 and crude death rate is 9 per 1,000 per year. Using the rule of 70 at the resulting constant natural-increase percentage, what is the approximate doubling time in years? Enter only the number.",
+        "sampleAnswer": "Natural increase is (19 − 9)/10 = 1%. The rule of 70 gives 70/1 = 70 years under the constant-rate assumption.",
+        "math": true,
+        "acceptedAnswers": [
+          "70"
+        ]
+      }
+    ]
+  },
+  "APES: Global Change::9.2 Ocean warming, acidification, ozone depletion, and distinct mechanisms": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish heat uptake, carbonate chemistry and ozone destruction.",
+      "Interpret pH as logarithmic rather than a linear concentration measure.",
+      "Explain why interacting environmental problems still require mechanism-specific solutions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Ocean warming, ocean acidification and stratospheric ozone depletion are different processes even when human activity connects them. Warming involves changes in energy balance and heat storage. Greenhouse gases absorb and emit infrared radiation, affecting how energy leaves the Earth system. The ocean stores substantial excess heat, but heat uptake is not the same operation as adding hydrogen ions through carbonate chemistry. Ozone depletion concerns chemical processes that reduce stratospheric ozone and alter ultraviolet exposure. Do not substitute one causal chain for another merely because each topic involves the atmosphere."
+      },
+      {
+        "type": "text",
+        "text": "When carbon dioxide enters seawater, equilibria among dissolved carbon dioxide, carbonic acid, bicarbonate, hydrogen ions and carbonate ions can change. Increased hydrogen-ion concentration lowers pH and can reduce carbonate-ion availability important to many calcifying organisms. Acidification means movement toward lower pH; water can become more acidic while its pH remains above 7. Effects depend on organism, location and other conditions, so a lowered pH does not supply one universal percentage loss of shell growth. Keep the modeled chemical change separate from a biological response that would require evidence."
+      },
+      {
+        "type": "text",
+        "text": "The relation pH = −log₁₀[H⁺] means that a pH decrease is not an equal percentage decrease in a concentration. If pH falls by 0.2 units, the hydrogen-ion concentration ratio is 10^0.2, approximately 1.585. That is about a 58.5% increase, not a 0.2% increase. Compare ratios before rounding. Chlorine-containing compounds can participate in ozone-destruction chemistry, and some compounds relevant to ozone can also have greenhouse effects; distinct mechanisms do not imply no interaction. Evaluate a proposed solution by identifying the process it changes, its life-cycle consequences and remaining uncertainties. Replacing one chemical with another can address one problem while creating another tradeoff."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-apes-ocean-predict",
+        "prompt": "A hypothetical seawater sample moves from pH 8.2 to 8.0. Which statement is justified about the word acidification?",
+        "choices": [
+          "It cannot apply until pH is below 7",
+          "It means a decrease in pH even though both values remain above 7",
+          "It proves every calcifying species stops growing",
+          "It is another term for stratospheric ozone depletion"
+        ],
+        "answer": 1,
+        "explanation": "Acidification refers to the direction of the pH change, not necessarily crossing the neutral value. Organism responses require additional evidence.",
+        "hint": "Separate a change in pH from whether a sample is classified as acidic or basic."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-apes-ocean-guide",
+        "title": "Use a concentration ratio",
+        "scenario": "Original hypothetical chemical comparison: a sample changes from pH 8.2 to 8.0. Use [H⁺] = 10^(−pH) and 10^0.2 ≈ 1.585. These are teaching values, not measurements claimed for the global ocean.",
+        "steps": [
+          {
+            "prompt": "Which expression gives final [H⁺] divided by initial [H⁺]?",
+            "choices": [
+              "8.0/8.2",
+              "10^(−0.2)",
+              "10^0.2",
+              "0.2/8.2"
+            ],
+            "answer": 2,
+            "explanation": "10^(−8.0)/10^(−8.2) = 10^(0.2). A lower pH corresponds to a larger hydrogen-ion concentration.",
+            "hint": "Subtract exponents when dividing powers with the same base."
+          },
+          {
+            "prompt": "What percentage increase follows from a ratio of 1.585?",
+            "choices": [
+              "About 58.5%",
+              "About 158.5%",
+              "About 0.2%",
+              "A decrease of 58.5%"
+            ],
+            "answer": 0,
+            "explanation": "A ratio of 1.585 is 1 + 0.585, so the increase relative to the initial value is 58.5%.",
+            "hint": "Subtract 1 before converting the ratio to a percentage increase."
+          },
+          {
+            "prompt": "Which mechanism directly explains the acidification process described here?",
+            "choices": [
+              "Only an increase in water temperature",
+              "Only more ultraviolet radiation",
+              "Removal of every greenhouse gas",
+              "Changes in carbonate chemistry following carbon-dioxide uptake"
+            ],
+            "answer": 3,
+            "explanation": "The described chemical chain connects carbon-dioxide uptake to hydrogen ions and carbonate availability. Warming can interact with the system, but it is not interchangeable with this mechanism.",
+            "hint": "Track matter through the chemical explanation."
+          },
+          {
+            "prompt": "Can the pH values alone establish an exact percentage decline in a species’ growth?",
+            "choices": [
+              "Yes, it is the same as the [H⁺] percentage change",
+              "No; a biological response relationship and relevant conditions are also needed",
+              "Yes, because the pH remains above 7",
+              "No, because organisms never respond to pH"
+            ],
+            "answer": 1,
+            "explanation": "The chemical calculation is not a dose-response curve for growth. Biological effects require suitable evidence and conditions.",
+            "hint": "Identify the missing link between a chemical measure and an organism outcome."
+          }
+        ],
+        "takeaway": "Use the correct logarithmic relationship, then stop where the evidence stops. A checked chemical calculation is not a complete ecological prediction."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-apes-ocean-transfer",
+        "prompt": "A replacement refrigerant avoids the original compound’s ozone-depleting mechanism but still has a strong greenhouse effect. Explain why addressing ozone depletion does not by itself demonstrate a complete climate solution.",
+        "sampleAnswer": "Ozone destruction and greenhouse radiative effects involve different mechanisms. Reducing one does not guarantee the replacement has a low climate impact. Evaluate the replacement’s properties, leakage, energy use and other relevant life-cycle conditions rather than treating a single benefit as proof of no tradeoff.",
+        "checklist": [
+          "Identify both mechanisms separately.",
+          "Connect a property of the replacement to the remaining concern.",
+          "Avoid claiming that all substitutes have identical effects."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-apes-ocean-recall",
+        "prompt": "In a hypothetical laboratory solution, pH falls by exactly 1 unit. What is final [H⁺] divided by initial [H⁺]? Enter only the factor.",
+        "sampleAnswer": "A one-unit pH decrease multiplies hydrogen-ion concentration by 10. This is a logarithmic ratio, not a 1% change.",
+        "math": true,
+        "acceptedAnswers": [
+          "10"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Force and Translational Dynamics::2.1 Free-body diagrams and Newton’s second law": {
+    "revision": 1,
+    "objectives": [
+      "Build a force diagram for one explicitly defined object.",
+      "Use acceleration rather than velocity to determine net force.",
+      "Interpret a support reading without changing gravitational weight."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A free-body diagram represents the external forces acting on one chosen object or system. Choose that object before drawing arrows. Name each force by its physical interaction: Earth exerts gravity, a contact surface can exert a normal force, and a string can exert tension. Velocity and acceleration are not additional forces. If a person stands on a scale, the upward contact force from the scale and downward gravitational force act on the person. The person’s force on the scale is the third-law partner of the scale’s force on the person, but it acts on a different object and does not belong on the person’s diagram."
+      },
+      {
+        "type": "text",
+        "text": "Choose a positive direction and write the component form of Newton’s second law. With upward positive, N − mg = ma for a person acted on only by vertical support and gravity. The equation relates the net force to acceleration. An upward velocity does not automatically require an upward net force, and zero velocity at one instant does not imply zero acceleration. A moving elevator with constant velocity has zero acceleration, so the two vertical forces on its passenger balance in this model. During braking, velocity and acceleration can point in opposite directions."
+      },
+      {
+        "type": "text",
+        "text": "A scale reports a support force under its measurement convention. This apparent weight can differ from the gravitational-force magnitude mg, even though the person’s mass and the local gravitational field have not changed. Before solving, predict whether support must be greater than, equal to or less than mg. Then check whether the signed force balance matches that prediction. A negative computed contact force would require revisiting a contact assumption: an ordinary floor can push upward but cannot maintain an arbitrary pulling force on an unattached person. The equation is a model of the stated interactions, not a substitute for checking which interactions are physically possible."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-physics-fbd-predict",
+        "prompt": "A passenger moves upward at constant velocity in an elevator. In the stated vertical-force model, how does the scale force N compare with mg?",
+        "choices": [
+          "N > mg because the passenger is moving up",
+          "N = mg because acceleration is zero",
+          "N = 0 because speed is constant",
+          "N < mg in every moving elevator"
+        ],
+        "answer": 1,
+        "explanation": "Constant velocity means zero acceleration, so N − mg = 0. Motion direction alone does not determine net-force direction.",
+        "hint": "Which motion quantity appears in Newton’s second law?"
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-physics-fbd-guide",
+        "title": "Write the force equation before substituting",
+        "scenario": "A 50 kg passenger stands on an elevator scale. Use g = 10 m/s². The elevator accelerates upward at 2 m/s². Only Earth’s gravity and the scale’s normal force act vertically on the passenger.",
+        "steps": [
+          {
+            "prompt": "Which arrows belong on the passenger’s free-body diagram?",
+            "choices": [
+              "Gravity down and scale normal force up",
+              "Gravity down, normal force up and a separate upward acceleration force",
+              "The passenger’s downward force on the scale only",
+              "Only an upward force because the elevator moves upward"
+            ],
+            "answer": 0,
+            "explanation": "The diagram contains interactions acting on the passenger. Acceleration is the result of net force, not a third interaction.",
+            "hint": "Identify the agent exerting every proposed force."
+          },
+          {
+            "prompt": "With upward positive, which equation is correct?",
+            "choices": [
+              "N + mg = ma",
+              "mg − N = ma with a = +2",
+              "N − mg = ma",
+              "N = mg in every elevator state"
+            ],
+            "answer": 2,
+            "explanation": "The normal force is positive and gravity negative in the upward convention. The specified acceleration is +2 m/s².",
+            "hint": "Assign signs before using numerical magnitudes."
+          },
+          {
+            "prompt": "What gravitational-force magnitude acts on the passenger?",
+            "choices": [
+              "50 N",
+              "100 N",
+              "600 N",
+              "500 N"
+            ],
+            "answer": 3,
+            "explanation": "mg = (50)(10) = 500 N downward. The support force may differ, but the given mass and g have not changed.",
+            "hint": "Do not substitute the scale reading for mg."
+          },
+          {
+            "prompt": "What does the scale read?",
+            "choices": [
+              "400 N",
+              "600 N",
+              "500 N",
+              "100 N"
+            ],
+            "answer": 1,
+            "explanation": "N − 500 = (50)(2) = 100, so N = 600 N. The upward net force is 100 N, not 600 N.",
+            "hint": "Add the required net upward force to the downward weight."
+          }
+        ],
+        "takeaway": "Distinguish each individual force from their sum, and distinguish acceleration from the direction of motion."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-physics-fbd-transfer",
+        "prompt": "The same passenger is moving downward but slowing down at 2 m/s². Under the same assumptions, what scale force is required? Explain why the motion direction does not reverse the result.",
+        "sampleAnswer": "Downward motion that is slowing has upward acceleration. Using upward positive again gives a = +2 m/s² and N = 600 N. The velocity is downward, but its rate of change is upward; Newton’s second law uses that acceleration.",
+        "checklist": [
+          "Identify velocity and acceleration separately.",
+          "Use a consistent sign convention.",
+          "State the scale force and the net force without confusing them."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-physics-fbd-recall",
+        "prompt": "For the same 50 kg passenger with g = 10 m/s², what is the scale reading in newtons while the elevator accelerates downward at 1 m/s²? Enter only the number.",
+        "sampleAnswer": "Choose upward positive: a = −1, so N − 500 = −50 and N = 450 N.",
+        "math": true,
+        "acceptedAnswers": [
+          "450"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Work, Energy, and Power::3.2 Conservative interactions and potential energy": {
+    "revision": 1,
+    "objectives": [
+      "Choose a system and potential-energy reference consistently.",
+      "Connect gravitational, spring and kinetic energy without adding incompatible descriptions.",
+      "Distinguish a turning point from force equilibrium."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Potential energy describes an interaction within a chosen system. For a block–Earth system near Earth’s surface with approximately uniform g, gravitational potential-energy differences can be written mgΔh. The zero height is a reference choice; changing the reference changes reported potential-energy values but not the physical energy change between the same positions. For an ideal Hooke-law spring, elastic potential energy measured from its unstretched state is ½kx². The squared compression or extension is essential: doubling its magnitude multiplies the stored energy by four, not two."
+      },
+      {
+        "type": "text",
+        "text": "Choose which objects and interactions your energy system includes. If the block, Earth and spring are included and dissipative transfers are negligible, their total mechanical energy can be conserved across a motion even while kinetic and potential parts change. A force-only analysis and an energy analysis answer related but different questions. Energy is useful for connecting speed and position without resolving every intermediate acceleration. It does not by itself establish the direction of velocity at a position, and a zero kinetic-energy value does not establish zero net force."
+      },
+      {
+        "type": "text",
+        "text": "Account explicitly for energy transferred out of the mechanical store by friction or other dissipative processes. If an amount is supplied as dissipated energy, subtract it from the mechanical energy available at the final state; do not also apply another subtraction for the same loss under a different name. Total energy is conserved when the wider accounting includes thermal and other transfers, but a selected mechanical-energy sum may decrease. Check units throughout: a spring constant has units N/m, so kx² has units N·m = J. A spring force kx has units N and cannot be inserted into an energy sum as though it were already joules."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-physics-energy-predict",
+        "prompt": "An ideal spring’s compression doubles with k fixed. What happens to its elastic potential energy?",
+        "choices": [
+          "It doubles",
+          "It becomes half as large",
+          "It becomes four times as large",
+          "It stays constant because k is unchanged"
+        ],
+        "answer": 2,
+        "explanation": "U = ½kx², so replacing x by 2x multiplies U by 4. Force and energy have different dependencies on x.",
+        "hint": "Apply the factor to the entire squared displacement."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-physics-energy-guide",
+        "title": "Build one energy ledger",
+        "scenario": "A 2 kg block is released from rest 0.80 m above a horizontal track. It descends without friction and then compresses an ideal spring of constant 200 N/m at the track level. Use g = 10 m/s² and zero gravitational potential energy at track level. Include block, Earth and spring in the system.",
+        "steps": [
+          {
+            "prompt": "What is the initial mechanical energy?",
+            "choices": [
+              "16 J",
+              "8 J",
+              "20 J",
+              "160 J"
+            ],
+            "answer": 0,
+            "explanation": "Initial kinetic and spring energy are zero. Gravitational energy is (2)(10)(0.80) = 16 J.",
+            "hint": "Identify which energy stores are nonzero at release."
+          },
+          {
+            "prompt": "Immediately before contacting the spring, what is the block’s speed?",
+            "choices": [
+              "16 m/s",
+              "8 m/s",
+              "2 m/s",
+              "4 m/s"
+            ],
+            "answer": 3,
+            "explanation": "At track level, ½(2)v² = 16, so v² = 16 and speed is 4 m/s.",
+            "hint": "Use energy to solve a squared-speed relation."
+          },
+          {
+            "prompt": "At maximum compression, what is x?",
+            "choices": [
+              "0.08 m",
+              "0.40 m",
+              "0.80 m",
+              "4.0 m"
+            ],
+            "answer": 1,
+            "explanation": "The block is momentarily at rest, so ½(200)x² = 16. Thus x² = 0.16 and compression magnitude is 0.40 m.",
+            "hint": "Kinetic energy is zero at the turning point, but spring energy is not."
+          },
+          {
+            "prompt": "At that maximum compression, is the block in force equilibrium?",
+            "choices": [
+              "Yes, because its velocity is zero",
+              "Yes, because total energy is conserved",
+              "No; the spring exerts a restoring force",
+              "No; the spring has zero force only at maximum compression"
+            ],
+            "answer": 2,
+            "explanation": "The spring force magnitude is kx = 80 N and points toward reduced compression. Zero instantaneous velocity does not imply zero acceleration.",
+            "hint": "Compare the unstretched position with the turning point."
+          }
+        ],
+        "takeaway": "Use energy to connect states, then use forces when interpreting acceleration or the direction of the next motion."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-physics-energy-transfer",
+        "prompt": "Suppose 7 J of the initial mechanical energy is transferred into thermal energy before maximum spring compression. Find the new compression and explain what “energy conservation” means for this wider accounting.",
+        "sampleAnswer": "The spring receives 16 − 7 = 9 J. Thus 100x² = 9 and x = 0.30 m. The selected mechanical-energy sum has decreased, but the missing 7 J is accounted for as thermal energy rather than destroyed.",
+        "checklist": [
+          "Subtract the loss only once.",
+          "Use spring energy, not spring force.",
+          "Distinguish total energy from mechanical energy."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-physics-energy-recall",
+        "prompt": "A 1 kg block is released from rest by a horizontal ideal spring with k = 100 N/m and initial compression 0.20 m. With no loss, what is its speed in m/s when the spring reaches its unstretched length? Enter only the speed.",
+        "sampleAnswer": "Initial spring energy is ½(100)(0.20)² = 2 J. Set ½(1)v² = 2 to obtain speed 2 m/s.",
+        "math": true,
+        "acceptedAnswers": [
+          "2"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Oscillations::7.2 Energy, phase, and graphs in oscillating systems": {
+    "revision": 1,
+    "objectives": [
+      "Link displacement, velocity, acceleration and energy in an ideal oscillator.",
+      "Use a specified motion direction when choosing a velocity sign.",
+      "Explain amplitude changes without assuming the ideal period changes."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "In ideal simple harmonic motion, the net restoring force is proportional to displacement from equilibrium and points toward equilibrium. For a horizontal mass–spring model, F = −kx and a = −(k/m)x. The negative sign relates directions; it does not mean that acceleration is always a negative number. At positive displacement, acceleration is negative, while at negative displacement, acceleration is positive. At equilibrium, restoring force and acceleration are zero at that instant, but the object can move fastest there. At a turning point, velocity is zero but the restoring force is not."
+      },
+      {
+        "type": "text",
+        "text": "The oscillator’s state requires more than position alone. At one interior position, the object can pass in either direction on different parts of the cycle. An energy calculation can give speed magnitude without identifying the sign of velocity. To choose a sign, use a stated direction or a sufficiently specified initial condition and part of the motion. On a displacement–time graph, velocity is slope; acceleration relates to how that slope changes and, for SHM, is opposite in sign to displacement. Do not match the height of one graph to an unrelated quantity without using these relationships."
+      },
+      {
+        "type": "text",
+        "text": "With no loss, total mechanical energy is ½kA², where A is amplitude. At a position x, spring energy is ½kx² and kinetic energy is the remainder. The fraction in spring energy is x²/A², so the fraction in kinetic energy is 1 − x²/A². Speed is largest at equilibrium, where the ideal spring store is zero relative to its unstretched state. For fixed m and k, angular frequency is √(k/m), independent of amplitude in this ideal model. Changing amplitude changes energy and maximum speed; it does not automatically change the period. Real departures from the linear-force or negligible-loss assumptions require separate analysis."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-physics-shm-predict",
+        "prompt": "An ideal horizontal oscillator is at its maximum positive displacement. Which combination is correct?",
+        "choices": [
+          "Maximum positive velocity and zero force",
+          "Zero velocity and a restoring force toward equilibrium",
+          "Zero velocity and zero acceleration",
+          "Maximum kinetic energy and zero spring energy"
+        ],
+        "answer": 1,
+        "explanation": "At the turning point, velocity is zero, but x = +A gives a nonzero restoring force in the negative direction.",
+        "hint": "Separate the turning point from equilibrium."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-physics-shm-guide",
+        "title": "Read the same state in energy and force models",
+        "scenario": "A 1 kg ideal horizontal mass–spring oscillator has k = 100 N/m and amplitude 0.20 m. It is released from rest at x = +0.20 m. Consider its first pass through x = +0.12 m while moving toward equilibrium.",
+        "steps": [
+          {
+            "prompt": "What is total mechanical energy?",
+            "choices": [
+              "2 J",
+              "20 J",
+              "0.20 J",
+              "1.2 J"
+            ],
+            "answer": 0,
+            "explanation": "E = ½kA² = ½(100)(0.20)² = 2 J.",
+            "hint": "Use amplitude in the total-energy expression."
+          },
+          {
+            "prompt": "What is spring energy at x = +0.12 m?",
+            "choices": [
+              "1.2 J",
+              "2 J",
+              "0.72 J",
+              "0.12 J"
+            ],
+            "answer": 2,
+            "explanation": "U = ½(100)(0.12)² = 0.72 J. Do not substitute x for A in the total energy already set by the release.",
+            "hint": "Square 0.12 before multiplying."
+          },
+          {
+            "prompt": "What is the velocity at the stated pass?",
+            "choices": [
+              "+1.6 m/s",
+              "−1.28 m/s",
+              "0 m/s",
+              "−1.6 m/s"
+            ],
+            "answer": 3,
+            "explanation": "K = 2 − 0.72 = 1.28 J, so speed is √(2K/m) = √2.56 = 1.6 m/s. Motion toward equilibrium from positive x makes velocity negative.",
+            "hint": "Find speed from energy, then use the specified motion direction for its sign."
+          },
+          {
+            "prompt": "What is acceleration at this position?",
+            "choices": [
+              "+12 m/s²",
+              "−12 m/s²",
+              "−1.6 m/s²",
+              "0 m/s²"
+            ],
+            "answer": 1,
+            "explanation": "a = −(k/m)x = −100(0.12) = −12 m/s². Acceleration follows displacement, not the energy-derived speed.",
+            "hint": "Use the restoring-force relation."
+          }
+        ],
+        "takeaway": "Position, velocity and acceleration are related but distinct. One state can be checked through force, graph and energy representations."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-physics-shm-transfer",
+        "prompt": "If amplitude doubles with the same m and k while the ideal SHM model still applies, compare total energy, maximum speed and period. Explain why not all three scale the same way.",
+        "sampleAnswer": "Total energy scales as A² and becomes four times as large. Maximum speed is ωA and doubles because ω = √(k/m) is unchanged. The period 2π/ω is unchanged. These results rely on the linear restoring force and negligible losses; larger amplitude need not preserve those assumptions in every real oscillator.",
+        "checklist": [
+          "Use the correct amplitude dependence for each quantity.",
+          "Keep m and k fixed.",
+          "State the ideal-model condition rather than claiming all oscillators behave this way."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-physics-shm-recall",
+        "prompt": "For an ideal spring oscillator at x = A/2, what fraction of the total mechanical energy is kinetic? Enter a fraction or decimal.",
+        "sampleAnswer": "Spring energy fraction is (x/A)² = (1/2)² = 1/4. The remaining kinetic-energy fraction is 3/4.",
+        "math": true,
+        "acceptedAnswers": [
+          "3/4",
+          "0.75"
+        ]
+      }
+    ]
+  },
+  "Psych: Biological Bases of Behavior::1.2 Neurons, Synapses, and Psychoactive Substances": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish graded inputs from the action potential in an idealized neuron model.",
+      "Trace a chemical synapse without treating every receptor effect as identical.",
+      "Separate a drug’s mechanism from a claim about the original cause of behavior."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A neuron receives and integrates signals rather than passing every incoming event directly onward. Excitatory influences increase the likelihood of firing under the relevant conditions, while inhibitory influences reduce it. Their effects depend on timing, location and membrane properties. A threshold model is useful for learning this distinction, but a simple numerical score is an instructional abstraction, not a complete biological voltage model. In the usual idealized description, an action potential is all-or-none once the axon’s firing threshold is reached. A stronger stimulus does not simply make each action potential proportionally taller; signal strength can instead be reflected in patterns such as firing rate and the neurons recruited."
+      },
+      {
+        "type": "text",
+        "text": "An action potential propagates along an axon through changes in membrane ion conductance. Myelin can support more rapid conduction along myelinated axons, while refractory processes constrain subsequent firing and help support ordinary propagation patterns. At a chemical synapse, arrival of an action potential can lead to neurotransmitter release from the presynaptic terminal. Molecules cross the cleft and bind to appropriate receptors on another cell. The effect depends on the receptor and cellular context, so a transmitter’s name is not a universal synonym for one emotion or for excitation in every situation. Reuptake, enzymatic processes and diffusion can help terminate or alter the signal depending on the transmitter and synapse."
+      },
+      {
+        "type": "text",
+        "text": "An agonist can activate or enhance relevant receptor signaling, while an antagonist can block a receptor-related effect. A reuptake inhibitor changes a different part of the signaling process; it is not simply another name for an agonist. These categories describe mechanisms, not one guaranteed behavioral outcome for every person. Inferring that a condition was caused by a simple transmitter shortage merely because a substance changes that transmitter system is a causal error. Trace what the intervention changes, identify the evidence measured and separate a useful simplified mechanism from a complete explanation of a person’s behavior or health. This lesson is about academic models, not diagnosing or choosing treatments."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-psych-neuron-predict",
+        "prompt": "Under an ideal all-or-none axon model, what does exceeding threshold most directly establish?",
+        "choices": [
+          "Every incoming signal crosses the synapse unchanged",
+          "An action potential occurs; its amplitude is not proportional to how far the input exceeds threshold",
+          "The neuron has no inhibitory inputs",
+          "The organism must experience one particular emotion"
+        ],
+        "answer": 1,
+        "explanation": "Threshold crossing supports firing in the stated model, not a uniquely determined emotion or a proportionally larger action potential.",
+        "hint": "Separate the decision to fire from the size of an individual action potential."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-psych-neuron-guide",
+        "title": "Track one simplified signal pathway",
+        "scenario": "Use an explicitly fictional activation-score model, not millivolt data: simultaneous excitatory influences add 4 and 5 units, an inhibitory influence subtracts 3 units, and firing occurs if the total is at least 10. This deliberately omits real timing and membrane details.",
+        "steps": [
+          {
+            "prompt": "What net score is obtained?",
+            "choices": [
+              "12",
+              "9",
+              "6",
+              "3"
+            ],
+            "answer": 2,
+            "explanation": "4 + 5 − 3 = 6 units. An inhibitory contribution is subtracted in this supplied teaching rule.",
+            "hint": "Apply all three stated contributions."
+          },
+          {
+            "prompt": "Does the model fire at that score?",
+            "choices": [
+              "No; 6 is below the threshold 10",
+              "Yes; any excitatory input guarantees firing",
+              "Yes; the two excitatory inputs are counted as two action potentials",
+              "No; inhibitory input always prevents firing regardless of other values"
+            ],
+            "answer": 0,
+            "explanation": "The net score is below threshold. Neither the presence of excitation nor the presence of inhibition alone determines the outcome.",
+            "hint": "Compare the net total with the stated threshold."
+          },
+          {
+            "prompt": "Replace the 4-unit input by 9 units, holding the other contributions fixed. What follows?",
+            "choices": [
+              "The score is 17 and the action potential doubles in height",
+              "The score is 6 and nothing changes",
+              "The score is 11 but firing is prohibited",
+              "The score is 11 and the supplied model fires"
+            ],
+            "answer": 3,
+            "explanation": "9 + 5 − 3 = 11, which reaches the threshold. All-or-none firing does not imply a proportionally larger action potential.",
+            "hint": "Recompute the total before interpreting firing."
+          },
+          {
+            "prompt": "At a chemical synapse, why can the same transmitter have different effects at different cells?",
+            "choices": [
+              "A transmitter has no physical interactions",
+              "Effects depend on receptor and cellular context",
+              "Every transmitter produces the same response everywhere",
+              "A synapse always converts the transmitter into an emotion directly"
+            ],
+            "answer": 1,
+            "explanation": "Receptor properties and cellular context contribute to the effect. The transmitter’s name alone does not specify every consequence.",
+            "hint": "Identify what receives the chemical signal."
+          }
+        ],
+        "takeaway": "Track integration, threshold, propagation and receptor effects as distinct stages. A simple learning model supports specific reasoning without replacing the full biology."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-psych-neuron-transfer",
+        "prompt": "A student argues, “A substance changes reuptake and behavior changes, so the original behavior must have been caused by too little neurotransmitter.” Identify why the conclusion is stronger than the evidence.",
+        "sampleAnswer": "Changing reuptake can alter signaling, but an intervention’s effect does not by itself establish the original cause. Other neural, learning, social and contextual processes can contribute, and a measured change does not identify one universal deficiency. The claim needs appropriate causal evidence rather than a reversed inference from mechanism to diagnosis.",
+        "checklist": [
+          "Identify the actual intervention mechanism.",
+          "Separate changing a process from proving its original cause.",
+          "Avoid inferring an individual diagnosis or treatment plan."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-psych-neuron-recall",
+        "prompt": "Explain one difference between an antagonist and a reuptake inhibitor in a chemical-signaling model. Do not infer a particular person’s condition from either label.",
+        "sampleAnswer": "An antagonist blocks or reduces a receptor-related effect; a reuptake inhibitor changes the process that removes relevant transmitter from the cleft. Their mechanisms differ, and the resulting behavior depends on the system and conditions rather than following from the label alone.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Cognition::2.3 Encoding, Storage, and the Organization of Memory": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish encoding, storage and retrieval as analytical processes.",
+      "Compare maintenance and elaborative encoding without confusing the study manipulation with the later test.",
+      "Interpret a controlled memory comparison with limits on individual and population claims."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Memory can be analyzed in terms of encoding, storage and retrieval. Encoding concerns how information is processed into a usable representation; storage concerns its retention over time; retrieval concerns accessing it later. A failure on one task does not uniquely identify which process was responsible. Instructions, attention, prior knowledge, test cues and response demands can all affect observed performance. These terms are tools for explaining a mechanism, not proof that a memory exists as an unchanged file waiting in one isolated location in the brain."
+      },
+      {
+        "type": "text",
+        "text": "Maintenance rehearsal repeats material to keep it available, while elaborative approaches connect material to meaning, examples or existing knowledge. Working memory includes temporary maintenance and manipulation during tasks; it is not simply every memory that happens to be recent. A learner doing mental arithmetic may hold digits while updating an intermediate result. Longer-term explicit memory includes episodic events and semantic knowledge; implicit influences include skills and priming that need not require deliberate recollection. These distinctions do not imply that every task uses only one system or that one brain structure alone contains all examples of a memory type."
+      },
+      {
+        "type": "text",
+        "text": "To compare encoding strategies, keep materials, study opportunity and later testing conditions comparable while changing the specified strategy. A delayed test can reveal a difference that immediate performance alone misses. Ask what the learner actually did: attending to letter shape and connecting a word to a meaningful example are different manipulations. A mean difference between groups does not establish that every learner benefited equally, and a successful strategy in one task does not prove it is best for every goal. Retrieval itself can influence later learning, so an additional practice test is an experience to account for rather than a neutral window that never changes memory. Match the explanation to the study design and measured behavior."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-psych-memory-predict",
+        "prompt": "Which activity most directly illustrates elaborative encoding of a new term?",
+        "choices": [
+          "Connecting the term to a meaningful example and prior knowledge",
+          "Counting its letters without considering meaning",
+          "Assuming it will remain unchanged forever",
+          "Calling any recent thought episodic memory"
+        ],
+        "answer": 0,
+        "explanation": "Elaborative encoding connects material to meaning or existing knowledge. Counting letters is a different processing task, not the same mechanism.",
+        "hint": "Describe the information the learner is using, not just the time spent studying."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-psych-memory-guide",
+        "title": "Read the manipulation and the test separately",
+        "scenario": "Original hypothetical experiment: 24 adult volunteers are randomly assigned to study the same 12 unfamiliar words for four minutes. One group creates meaningful examples; the other counts a specified feature of the printed letters. After the same 30-minute interval, all take the same recall test. Illustrative group means are 9 and 6 words, respectively. No variability or significance test is supplied.",
+        "steps": [
+          {
+            "prompt": "What is the manipulated study variable?",
+            "choices": [
+              "The number of words on the later test",
+              "The length of the 30-minute delay",
+              "The encoding activity during the four-minute study period",
+              "Each participant’s lifetime intelligence"
+            ],
+            "answer": 2,
+            "explanation": "The assigned activity differs: creating meanings versus inspecting letter features. Materials, time and later test are held the same in the stated design.",
+            "hint": "Identify what the researchers assign differently."
+          },
+          {
+            "prompt": "How is later memory measured in this scenario?",
+            "choices": [
+              "Whether the participant likes the words",
+              "Number of words recalled on the stated test",
+              "The researcher’s preferred theory",
+              "A diagnosis from one test score"
+            ],
+            "answer": 1,
+            "explanation": "The operational measure is the number of the 12 words recalled after the specified interval. That measure does not capture every possible form of memory.",
+            "hint": "Name the recorded behavior and its timing."
+          },
+          {
+            "prompt": "What is the difference between the two group means?",
+            "choices": [
+              "15 words",
+              "12 words",
+              "1.5 words",
+              "3 words"
+            ],
+            "answer": 3,
+            "explanation": "9 − 6 = 3 words. This is a mean difference, not a claim that each participant’s outcome differs by exactly three.",
+            "hint": "Keep the unit as words recalled."
+          },
+          {
+            "prompt": "Which conclusion is best supported by the described comparison?",
+            "choices": [
+              "Assigned encoding activity can affect this measured recall outcome under these conditions; broader and statistical claims need additional evidence",
+              "Every volunteer in the first group outperformed every other participant",
+              "The means alone establish a p-value",
+              "A volunteer sample from one setting represents all ages and contexts"
+            ],
+            "answer": 0,
+            "explanation": "Random assignment strengthens causal interpretation of the activity contrast. Individual distributions, statistical uncertainty and generalization still require appropriate evidence.",
+            "hint": "Separate assignment, sampling, averages and statistical inference."
+          }
+        ],
+        "takeaway": "Identify the processing manipulation and the outcome separately. A label such as “memory” is not an operational definition by itself."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-psych-memory-transfer",
+        "prompt": "A learner can ride a bicycle smoothly but cannot deliberately recall the first lesson. Explain why those observations need not contradict each other. Avoid diagnosing the person.",
+        "sampleAnswer": "Performance of a practiced skill can draw on procedural or implicit learning, while deliberate recollection of the first lesson asks for an episodic memory. Different tasks can rely on partly different processes, so retained skill does not guarantee access to that particular event. The brief example is not evidence for an individual diagnosis.",
+        "checklist": [
+          "Identify the task difference.",
+          "Apply procedural versus episodic reasoning.",
+          "Do not infer that one successful task proves every kind of memory is intact."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-psych-memory-recall",
+        "prompt": "Describe one study change that would weaken the interpretation of the hypothetical encoding comparison if it differed systematically between groups. Explain the confounding mechanism.",
+        "sampleAnswer": "If the meaningful-example group received twice as much study time, extra exposure could contribute to better recall. The outcome could no longer be attributed solely to the assigned kind of encoding. Other accurate examples include different word difficulty, delay or test cues when the mechanism is explained.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Social Psychology & Personality::4.2 Social Influence, Norms, and Group Decisions": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish conformity, obedience and different reasons for social influence.",
+      "Use contextual evidence to evaluate an explanation without treating one behavior as a complete motive report.",
+      "Explain how group processes can affect decisions without assuming all group work has the same outcome."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Social influence describes ways people’s judgments or behavior change in relation to other people and social contexts. Conformity concerns adjusting toward a group pattern or expectation. Obedience concerns responding to an authority’s instruction. The labels distinguish relationships in the situation; they do not establish that a person lacks agency or that every instruction is harmful. First identify who is influencing whom, whether there is an explicit directive and what behavior changed. A group’s presence alone does not supply every detail needed to infer the mechanism."
+      },
+      {
+        "type": "text",
+        "text": "Normative influence involves concerns such as acceptance, approval or avoiding standing out. Informational influence involves treating others as a source of evidence, often under uncertainty. Public agreement can coexist with private doubt, while a person can also genuinely revise a belief after consulting others. The same visible answer can therefore have different explanations. To discriminate between them, examine context, task ambiguity, privacy of responses, changes across situations and suitable reports or measurements. One observation may be consistent with a mechanism without proving that mechanism was the only cause."
+      },
+      {
+        "type": "text",
+        "text": "Group processes also differ. Group polarization describes a tendency for discussion to move members toward a more extreme version of an initially favored direction under relevant conditions. Groupthink concerns pressures for agreement that impair critical evaluation; it is not simply any incorrect group choice. Social loafing concerns reduced individual effort when contributions are less identifiable, whereas social facilitation can vary with task difficulty and familiarity. Accountability, opportunities for dissent and how information is shared can change outcomes. Avoid replacing analysis with “groups always make people worse” or its opposite. A useful explanation names the process, connects it to the stated situation and acknowledges what further evidence would distinguish an alternative."
+      },
+      {
+        "type": "prediction",
+        "id": "sn-psych-social-predict",
+        "prompt": "A fictional participant publicly echoes a peer group’s answer to avoid standing out while privately retaining a different judgment. Which explanation best fits the stated information?",
+        "choices": [
+          "Informational influence only, because private judgment changed",
+          "Normative influence, because acceptance concerns accompany public agreement",
+          "Obedience necessarily, because every peer is an authority",
+          "No social influence, because private judgment differs"
+        ],
+        "answer": 1,
+        "explanation": "The scenario explicitly supplies concern about standing out and public agreement despite private doubt. Those details fit normative influence.",
+        "hint": "Use the reason and public/private distinction given in the scenario."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sn-psych-social-guide",
+        "title": "Compare similar-looking behavior",
+        "scenario": "Consider four original fictional learning situations. Choose the mechanism most directly supported by each description; do not generalize beyond the stated evidence.",
+        "steps": [
+          {
+            "prompt": "An uncertain student adopts classmates’ estimate because they seem to know how an unfamiliar instrument works. Which mechanism fits?",
+            "choices": [
+              "Normative influence necessarily",
+              "No influence because the task is unfamiliar",
+              "Informational influence",
+              "A fixed personality diagnosis"
+            ],
+            "answer": 2,
+            "explanation": "The student treats other people as evidence under uncertainty. That is the informational account supplied by the description.",
+            "hint": "Ask whether the stated goal is accurate information or social acceptance."
+          },
+          {
+            "prompt": "A person follows an explicit instruction from a recognized task supervisor. Which category is most directly identified?",
+            "choices": [
+              "Obedience",
+              "Group polarization",
+              "Social loafing",
+              "Classical conditioning"
+            ],
+            "answer": 0,
+            "explanation": "An explicit directive from an authority is the defining relation in this scenario. Whether it is wise or ethical is a separate evaluation.",
+            "hint": "Identify who gives the instruction and their role."
+          },
+          {
+            "prompt": "After discussion, members who initially mildly favor a proposal favor it more strongly. Which process is described?",
+            "choices": [
+              "Every group member has lost all judgment",
+              "Negative reinforcement",
+              "Sensory adaptation",
+              "Group polarization"
+            ],
+            "answer": 3,
+            "explanation": "The position becomes more extreme in the initially favored direction. The description does not establish every other group process.",
+            "hint": "Compare the group’s direction before and after discussion."
+          },
+          {
+            "prompt": "A team pressures members not to raise doubts and dismisses contradictory evidence to preserve agreement. Which concern is most directly supported?",
+            "choices": [
+              "Every team decision must be correct",
+              "Groupthink-like pressure impairing critical evaluation",
+              "Only a harmless change in vocabulary",
+              "Proof that no member understands the topic"
+            ],
+            "answer": 1,
+            "explanation": "The evidence concerns suppression of dissent and alternatives. An incorrect decision alone would not be enough, but these process details support the interpretation.",
+            "hint": "Look for how the group treats disagreement and counterevidence."
+          }
+        ],
+        "takeaway": "The explanatory mechanism comes from the relationship and process, not merely from the fact that several people are present."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sn-psych-social-transfer",
+        "prompt": "A researcher sees public agreement with a group but has no private-response measure and no explanation from the participant. Why is it too strong to claim that normative influence is proven? Propose one relevant comparison.",
+        "sampleAnswer": "Public agreement can reflect acceptance concerns, belief in the group’s information, prior agreement or other factors. Compare public with appropriately private responses, vary relevant task uncertainty or collect suitable evidence while considering demand effects. The comparison should target a distinction between mechanisms, not assume motives from the same public answer alone.",
+        "checklist": [
+          "Give at least one plausible alternative.",
+          "Identify a measure or comparison that addresses the mechanism.",
+          "Use “consistent with” rather than claiming one observation proves a unique cause."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sn-psych-social-recall",
+        "prompt": "Explain why conformity and obedience are not synonyms. Give a new harmless classroom example of each and name the relevant relationship.",
+        "sampleAnswer": "Conformity can involve matching classmates’ public study choices without an explicit order; obedience can involve following a teacher’s stated instruction for a classroom task. Peer pattern and authority directive are distinct relationships, even when both change behavior. Examples should specify the context rather than treating every social change as the same mechanism.",
+        "math": false
+      }
+    ]
+  }
+}

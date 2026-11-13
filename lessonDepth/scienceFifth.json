@@ -1,0 +1,1490 @@
+{
+  "CSP: Creative Development::1.3 Planning an original program and explaining an abstraction": {
+    "revision": 1,
+    "objectives": [
+      "Define a testable purpose and decompose a program into connected parts.",
+      "Explain how parameters and lists manage complexity.",
+      "Select boundary tests from the stated specification."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A program plan connects a user’s purpose to observable behavior. Begin with who will use the program, what input they can provide and what output would help them. A feature such as a button is an interface element, not a complete purpose. A useful requirement specifies behavior that can be checked: for example, an activity planner should display only activities whose durations fit the available time. Decomposition divides this larger problem into manageable parts such as collecting input, filtering records and displaying results. These parts can be developed and tested separately, but their interfaces must agree about the data being exchanged."
+      },
+      {
+        "type": "text",
+        "text": "A procedure abstraction gives a name to a meaningful computational operation. Parameters allow the operation to work with different supplied values rather than requiring a separate copy of its instructions for every case. Explain an abstraction by describing its inputs, its behavior and its contribution to the whole program. Merely renaming a long block does not explain why it helps. A list can provide a data abstraction by representing a collection whose size can change. To justify its usefulness, compare a list-based operation with separately named variables and explain how the collection makes processing, updating or extension more manageable. Complexity management is about program organization, not a guarantee that every list operation runs faster."
+      },
+      {
+        "type": "text",
+        "text": "Iteration and testing inform the plan rather than waiting until the program is finished. Choose ordinary cases, boundary cases and cases where no result should be returned. State the intended behavior at a boundary before calling an output correct. A duration equal to an allowed time might be included by one specification and excluded by another. A test failure can reveal a mismatch between implementation and requirement, but passing a few examples cannot prove correctness for every input. Explanations of original practice programs should accurately describe what their code does and acknowledge outside contributions. Practicing these reasoning skills is distinct from submitting work under any official assessment’s rules."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-csp-plan-predict",
+        "prompt": "What output follows the specification?",
+        "choices": [
+          "[10, 20]",
+          "[10]",
+          "[20, 35]"
+        ],
+        "answer": 0,
+        "explanation": "Both 10 and 20 satisfy duration ≤ 20; 35 does not.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-csp-plan-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A fictional planner stores durations [10, 20, 35]. The procedure fitting(durations, limit) returns all durations less than or equal to limit, in their original order. The interface calls fitting(durations, 20).",
+        "steps": [
+          {
+            "prompt": "What output follows the specification?",
+            "choices": [
+              "[20, 35]",
+              "[10, 20]",
+              "[10]"
+            ],
+            "answer": 1,
+            "explanation": "Both 10 and 20 satisfy duration ≤ 20; 35 does not.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "Which input is the most direct boundary test?",
+            "choices": [
+              "Only a much smaller duration",
+              "Only a negative screen size",
+              "A duration exactly equal to the limit"
+            ],
+            "answer": 2,
+            "explanation": "Equality checks whether the implementation follows the inclusive rule.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Why use a limit parameter?",
+            "choices": [
+              "The same procedure can handle different available times",
+              "It prevents every possible error",
+              "It encrypts the list"
+            ],
+            "answer": 0,
+            "explanation": "A parameter changes supplied data without duplicating the algorithm.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What does the list help manage?",
+            "choices": [
+              "The need to define the user’s purpose",
+              "A changing collection processed with one repeated rule",
+              "A guarantee of constant-time execution"
+            ],
+            "answer": 1,
+            "explanation": "The operation can accommodate additional durations without separate variables and separate filtering statements.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "A parameter lets one named operation use different supplied values; a list represents a collection that can be processed and extended without separate variables for every item."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-csp-plan-transfer",
+        "prompt": "A new requirement asks the planner to return activity names instead of durations. Explain which interfaces and tests need reconsideration.",
+        "sampleAnswer": "The records must associate names with durations, the filtering condition must still inspect duration, and the result should contain the corresponding names. The display must accept those names. Recheck equality, ordering, empty results and multiple matches; changing output does not justify silently changing the inclusive time rule.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-csp-plan-recall",
+        "prompt": "How do a procedure parameter and a list abstraction solve different organization problems?",
+        "sampleAnswer": "A parameter lets one named operation use different supplied values; a list represents a collection that can be processed and extended without separate variables for every item.",
+        "math": false
+      }
+    ]
+  },
+  "CSP: Computer Systems & Networks::4.3 DNS, web requests, and layered communication": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish DNS resolution, transport and web requests.",
+      "Locate a failure using the response actually observed.",
+      "Explain what HTTPS protects and what it cannot establish."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A web interaction combines several services with different responsibilities. A domain name is a human-readable identifier, while an IP address supports addressing across an IP network. The Domain Name System, or DNS, provides mappings used to resolve names to addresses. Resolving a name is not the same operation as retrieving a web page. A successful lookup can be followed by a failed connection, and an available web server does not ensure a client can resolve its name. Caching stores previously obtained information for reuse, improving efficiency but introducing the possibility that a stored answer remains temporarily different from a newer mapping."
+      },
+      {
+        "type": "text",
+        "text": "After obtaining an appropriate destination address, a client can send an application-level request. HTTP describes web requests and responses; HTTPS uses HTTP over a secured connection established with TLS. These roles are distinct from IP addressing and from reliable transport. TCP provides ordered, reliable delivery of a byte stream using mechanisms such as acknowledgment and retransmission. Internet routing forwards packets through available network paths, which need not all be identical. A packet being delayed or lost is not automatically a permanent loss of the application data when a reliability mechanism can recover it. Layering lets applications use communication services without reimplementing every lower-level function."
+      },
+      {
+        "type": "text",
+        "text": "Diagnose a failure by locating evidence rather than attributing every problem to the Internet being down. A name-resolution error, a connection failure, an authentication rejection and a server response reporting a missing resource are different observations. A response from the intended server establishes that some communication occurred, but does not establish that the requested resource exists or that the user has access. HTTPS protects data in transit under its security assumptions; it does not guarantee that the site’s content is truthful, that the site operator handles stored data responsibly or that a device is free from malware. Precise claims connect a mechanism to the particular risk it addresses."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-csp-dns-predict",
+        "prompt": "Which service maps the name to an address?",
+        "choices": [
+          "A password manager",
+          "DNS",
+          "HTTP page formatting"
+        ],
+        "answer": 1,
+        "explanation": "DNS handles name resolution; retrieving content is another step.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-csp-dns-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A fictional client resolves study.example to an address, establishes an HTTPS connection and receives a response saying the requested page is missing. A different client reports that it cannot resolve the same name.",
+        "steps": [
+          {
+            "prompt": "Which service maps the name to an address?",
+            "choices": [
+              "HTTP page formatting",
+              "A password manager",
+              "DNS"
+            ],
+            "answer": 2,
+            "explanation": "DNS handles name resolution; retrieving content is another step.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What does the first client’s missing-page response indicate?",
+            "choices": [
+              "A server responded, but the requested resource was not found",
+              "DNS necessarily failed",
+              "No packets could travel"
+            ],
+            "answer": 0,
+            "explanation": "Receiving the application response contradicts a claim that all communication failed.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "What should be investigated first for the second client?",
+            "choices": [
+              "Whether every server file was deleted",
+              "Its name-resolution path and cached records",
+              "The page’s font family"
+            ],
+            "answer": 1,
+            "explanation": "The reported failure occurs at name resolution, before evidence of a page request.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What does HTTPS alone fail to guarantee?",
+            "choices": [
+              "Protection of data in transit under its assumptions",
+              "Use of HTTP requests and responses",
+              "That the page’s claims are accurate"
+            ],
+            "answer": 2,
+            "explanation": "Transport protection is not content fact-checking.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "DNS supplies address information; connection establishment, secured transport, server availability, authorization and the requested resource can still fail afterward."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-csp-dns-transfer",
+        "prompt": "A cached address differs from a recently changed authoritative mapping. Explain why two users can temporarily reach different destinations without either observation proving that DNS has stopped existing.",
+        "sampleAnswer": "Different caches can retain answers obtained at different times under their caching rules. Compare the answers and their freshness, and check which server each client reaches. The discrepancy concerns distributed cached state, not proof that name resolution and page retrieval are identical.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-csp-dns-recall",
+        "prompt": "Why can successful DNS resolution coexist with a failed web request?",
+        "sampleAnswer": "DNS supplies address information; connection establishment, secured transport, server availability, authorization and the requested resource can still fail afterward.",
+        "math": false
+      }
+    ]
+  },
+  "CSP: Impact of Computing::5.2 Personal data, cybersecurity, and responsible disclosure": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish authentication from authorization.",
+      "Match security controls to concrete threats.",
+      "Explain data-minimization and responsible-disclosure limits."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Cybersecurity begins by identifying an asset, a threat and a mechanism that addresses the threat. Personal data may include directly identifying details and combinations of seemingly ordinary records that can identify someone together. Data minimization means collecting and retaining only what is needed for a specified purpose. It reduces exposure but does not prove that all remaining data is anonymous. Removing a name from a location history, for example, does not establish that repeated places and times cannot be linked to a person. Evaluate what an observer can infer from the whole dataset and what additional information may be available."
+      },
+      {
+        "type": "text",
+        "text": "Authentication checks a claimed identity; authorization determines permitted actions after identity is established. A logged-in user should not automatically gain access to every other user’s records. Strong, unique passwords and multi-factor authentication reduce particular account-compromise risks. A second factor should come from a different factor category, such as a possessed device, rather than simply another memorized secret. Phishing attempts manipulate people into revealing information or taking an unsafe action. A realistic-looking logo or an urgent tone is not evidence that a request is legitimate. An independently obtained, trusted route to the service can help verify a suspicious request without following its supplied link."
+      },
+      {
+        "type": "text",
+        "text": "Encryption protects information by transforming it using a cryptographic scheme and keys, but its protection depends on key handling and on where encryption applies. Encryption in transit does not automatically protect data after an authorized endpoint decrypts it. A backup improves recovery from data loss but can itself expose data if access is uncontrolled. Responsible disclosure means reporting a suspected weakness through an appropriate channel with enough information to support correction while avoiding unnecessary exposure or harm. Finding an issue does not grant permission to explore private records, disrupt services or publish sensitive details. Security reasoning should remain tied to authorized actions and concrete protections rather than an assertion that any single tool makes a system perfectly safe."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-csp-security-predict",
+        "prompt": "The report-access flaw primarily concerns what?",
+        "choices": [
+          "The color of the login button",
+          "Compression fidelity",
+          "Authorization"
+        ],
+        "answer": 2,
+        "explanation": "A known identity is receiving records it should not be permitted to access.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-csp-security-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A fictional study site authenticates students, but its server returns any student’s report when an authenticated user changes a report identifier. A message also urges students to enter their password at a look-alike site. No one needs to access additional private reports to describe the suspected flaw.",
+        "steps": [
+          {
+            "prompt": "The report-access flaw primarily concerns what?",
+            "choices": [
+              "Authorization",
+              "The color of the login button",
+              "Compression fidelity"
+            ],
+            "answer": 0,
+            "explanation": "A known identity is receiving records it should not be permitted to access.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What is a safer response to the urgent password message?",
+            "choices": [
+              "Send the password to ask whether the message is real",
+              "Open the service through an independently trusted route",
+              "Trust the logo alone"
+            ],
+            "answer": 1,
+            "explanation": "Independent navigation avoids relying on the suspicious message’s link.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Which pair represents different factor categories?",
+            "choices": [
+              "Two different passwords",
+              "A password and a memorized PIN",
+              "A password and a possessed security device"
+            ],
+            "answer": 2,
+            "explanation": "Knowledge and possession are different categories; two secrets remain knowledge factors.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What is the appropriate next step for the suspected access flaw?",
+            "choices": [
+              "Report minimal evidence through an authorized channel",
+              "Download many private reports to prove scale",
+              "Publish identifiers and report contents"
+            ],
+            "answer": 0,
+            "explanation": "A useful report can describe the access-control concern without expanding unauthorized exposure.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Authentication checks identity; authorization determines which actions or records that identity is allowed to access."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-csp-security-transfer",
+        "prompt": "A site removes names from detailed daily travel records and calls the result anonymous. What must be considered before accepting that claim?",
+        "sampleAnswer": "Unique movement patterns and links to outside information may reidentify individuals. Evaluate granularity, access, retention and realistic linkage risks; deleting one identifier alone does not establish anonymity. Minimize the records and protect their access while assessing those risks.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-csp-security-recall",
+        "prompt": "How do authentication and authorization differ?",
+        "sampleAnswer": "Authentication checks identity; authorization determines which actions or records that identity is allowed to access.",
+        "math": false
+      }
+    ]
+  },
+  "APES: The Living World: Biodiversity::2.3 Species tolerances, adaptation, and conservation decisions": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish survival, reproduction and population persistence.",
+      "Separate acclimation from inherited population adaptation.",
+      "Evaluate connectivity against interacting habitat constraints."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A tolerance range describes environmental conditions under which an organism can survive, grow or reproduce. These outcomes need not have identical limits. An adult may survive a temperature at which reproduction fails, so a short survival observation cannot establish that a population will persist. An optimum is the condition associated with a specified best performance, such as the highest growth rate in a particular experiment. It is not a promise that all individuals prefer exactly that value or that every other environmental variable is irrelevant. Temperature, moisture, oxygen, food and interactions can jointly constrain a population."
+      },
+      {
+        "type": "text",
+        "text": "Acclimation is an individual’s adjustment to changed conditions within its lifetime. Evolutionary adaptation concerns inherited characteristics whose frequencies change across generations through mechanisms including natural selection. Organisms do not evolve a needed trait simply because they try to survive. Selection acts on existing heritable variation when differences affect reproductive success. An observed shift in population location may reflect movement, changing survival or reproduction; it is not automatically evidence of a new genetic adaptation. Explain the level of organization, the timescale and the evidence for heritability before choosing an evolutionary explanation. A species’ realized distribution also reflects dispersal barriers, competition and other constraints beyond its physiological tolerance."
+      },
+      {
+        "type": "text",
+        "text": "Conservation decisions must connect a proposed action to a limiting mechanism. Protecting a migration corridor may help organisms track changing conditions, but a corridor cannot guarantee that suitable destination habitat exists. A reserve boundary that protects adults while excluding breeding habitat may fail to protect the full life cycle. Compare alternatives using explicit objectives and evidence rather than assuming that the largest or most familiar intervention always works. Experiments that change one factor while holding others comparable can clarify tolerance mechanisms; field observations can reveal interacting constraints but may leave causal ambiguity. Uncertainty should guide monitoring and revision rather than justify treating a limited dataset as universal."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-apes-tolerance-predict",
+        "prompt": "Which temperature supports reproduction in this experiment?",
+        "choices": [
+          "18 degrees Celsius",
+          "Every tested temperature",
+          "24 degrees only"
+        ],
+        "answer": 0,
+        "explanation": "Only the stated 18-degree treatment has successful reproduction.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-apes-tolerance-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A hypothetical fish experiment holds food and oxygen comparable. At 12, 18 and 24 degrees Celsius, adult survival is 90%, 95% and 85%, while successful reproduction occurs only at 18 degrees. A separate river contains a barrier between the current population and cooler upstream habitat.",
+        "steps": [
+          {
+            "prompt": "Which temperature supports reproduction in this experiment?",
+            "choices": [
+              "24 degrees only",
+              "18 degrees Celsius",
+              "Every tested temperature"
+            ],
+            "answer": 1,
+            "explanation": "Only the stated 18-degree treatment has successful reproduction.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What does survival at 24 degrees establish?",
+            "choices": [
+              "Guaranteed long-term persistence",
+              "A new inherited adaptation",
+              "Some adults survived the exposure, not that the population can replace itself"
+            ],
+            "answer": 2,
+            "explanation": "Survival and reproduction are different endpoints.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "An individual adjusts its physiology over several days. What is this called?",
+            "choices": [
+              "Acclimation",
+              "Evolution of the whole species in one individual",
+              "Speciation by intention"
+            ],
+            "answer": 0,
+            "explanation": "Within-lifetime adjustment is distinct from inherited population change.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What mechanism could removing the barrier address?",
+            "choices": [
+              "All sources of pollution at once",
+              "Limited movement toward potentially suitable habitat",
+              "A guarantee of reproductive success at every temperature"
+            ],
+            "answer": 1,
+            "explanation": "Connectivity addresses dispersal limits, while destination quality still needs assessment.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Conditions can permit short-term adult survival while preventing growth or reproduction, so population persistence requires evidence about the full life cycle."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-apes-tolerance-transfer",
+        "prompt": "A corridor is opened but the upstream habitat has very low oxygen. Explain why connectivity alone might not restore the population.",
+        "sampleAnswer": "The corridor removes a movement barrier but does not remove the oxygen constraint. Measure survival and reproduction under destination conditions, including interacting temperature and oxygen effects, before concluding that access alone is sufficient.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-apes-tolerance-recall",
+        "prompt": "Why is adult survival alone an incomplete measure of a species’ tolerance?",
+        "sampleAnswer": "Conditions can permit short-term adult survival while preventing growth or reproduction, so population persistence requires evidence about the full life cycle.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Populations::3.2 Survivorship, life histories, and population age structure": {
+    "revision": 1,
+    "objectives": [
+      "Calculate unconditional and conditional cohort survival.",
+      "Distinguish a cohort history from an age-structure snapshot.",
+      "Explain population momentum without claiming an exact forecast."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A survivorship curve follows the fraction of an initial cohort still alive at successive ages. A cohort is a group beginning observation at a shared life stage or time, not the collection of every living individual in a population at one moment. Type I curves have relatively high survival until later life, Type II curves approximate a constant mortality risk across ages and Type III curves show high early mortality among the original cohort. These are idealized patterns, not labels that eliminate variation. A constant mortality risk removes a constant proportion over equal intervals, not necessarily a constant number of individuals."
+      },
+      {
+        "type": "text",
+        "text": "Life-history traits include age at first reproduction, number and size of offspring, parental investment and reproductive frequency. Limited resources create tradeoffs: investing more in each offspring can limit how many can be produced under the same resource budget. Such patterns should not be interpreted as organisms consciously optimizing an entire species’ future. Historical selection, environmental conditions and constraints shape observed strategies. A species may depart from a simple fast-versus-slow comparison on some traits, so describe the actual evidence rather than assigning every trait from a single label. Survivorship and fecundity together determine population consequences; high offspring production does not automatically imply rapid realized growth if juvenile mortality is also high."
+      },
+      {
+        "type": "text",
+        "text": "An age-structure diagram describes how many individuals occupy age groups at a particular time. A large prereproductive group can create population momentum when many individuals later enter reproductive ages, even if fertility declines. The diagram alone does not establish the exact future growth rate: age-specific survival, fertility, migration and sex structure also matter. Distinguish a cohort’s survival history from a snapshot containing multiple cohorts. When comparing counts, track the denominator: survival from birth differs from survival conditional on reaching an intermediate age. Making these distinctions prevents errors such as calling the same population both stable and declining simply because two calculations used different starting groups."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-apes-age-predict",
+        "prompt": "What fraction of the original seedling cohort survives to year two?",
+        "choices": [
+          "20%",
+          "10%",
+          "50%"
+        ],
+        "answer": 1,
+        "explanation": "100 divided by the original 1,000 equals 0.10.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-apes-age-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a hypothetical cohort of 1,000 seedlings, 200 survive the first year and 100 survive to year two. A separate population snapshot shows 600 prereproductive, 300 reproductive and 100 postreproductive individuals. No migration or fertility rates are provided.",
+        "steps": [
+          {
+            "prompt": "What fraction of the original seedling cohort survives to year two?",
+            "choices": [
+              "50%",
+              "20%",
+              "10%"
+            ],
+            "answer": 2,
+            "explanation": "100 divided by the original 1,000 equals 0.10.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What fraction of first-year survivors reaches year two?",
+            "choices": [
+              "50%",
+              "10%",
+              "5%"
+            ],
+            "answer": 0,
+            "explanation": "The conditional denominator is 200, so 100/200 is 0.50.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Which survivorship description is consistent with the large early loss?",
+            "choices": [
+              "No mortality before old age",
+              "Type III-like early mortality",
+              "Proof of Type I survival"
+            ],
+            "answer": 1,
+            "explanation": "Losing 800 of 1,000 in the first interval illustrates high early mortality.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What does the large prereproductive group imply?",
+            "choices": [
+              "An exact future growth rate without more data",
+              "Proof that immigration is zero",
+              "Potential momentum as many individuals enter reproductive ages"
+            ],
+            "answer": 2,
+            "explanation": "Age structure suggests potential but fertility, survival and movement determine the realized outcome.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "A survivorship curve follows survival within a starting cohort across ages; an age-structure snapshot counts different age groups present at one time."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-apes-age-transfer",
+        "prompt": "A student says a constant 20% mortality risk means exactly 20 individuals die each year. Correct the claim using an initial group of 100 with no additions.",
+        "sampleAnswer": "Constant risk means a constant proportion. Twenty die in the first interval, leaving 80; 16 die in the next, leaving 64. Expected counts can be fractional in a model, and observed small populations may vary. Constant risk does not mean constant numerical loss.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-apes-age-recall",
+        "prompt": "How does a survivorship curve differ from an age-structure snapshot?",
+        "sampleAnswer": "A survivorship curve follows survival within a starting cohort across ages; an age-structure snapshot counts different age groups present at one time.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Aquatic and Terrestrial Pollution::8.2 Toxicity, dose response, bioaccumulation, and biomagnification": {
+    "revision": 1,
+    "objectives": [
+      "Separate bioaccumulation from trophic biomagnification.",
+      "Calculate concentration ratios with consistent denominators.",
+      "Interpret LD50 and nonlethal endpoints within study limits."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Toxicity concerns an agent’s capacity to cause harm under specified conditions, while risk also depends on exposure. Dose describes an amount reaching an organism and is often expressed relative to body mass. Exposure route, frequency, duration and life stage can affect an outcome, so an isolated concentration is not a complete risk assessment. A dose-response relationship describes how a measured endpoint changes across doses in a defined study. An LD50 is the dose estimated to kill half the tested organisms under the stated conditions. It is not a safe-exposure limit, a guarantee that lower doses cause no harm or evidence that every species responds identically."
+      },
+      {
+        "type": "text",
+        "text": "Bioaccumulation occurs when an organism takes in a substance faster than it eliminates or transforms it, increasing its internal burden over time. Biomagnification is increasing concentration across trophic levels in a food web. The mechanisms are related but not interchangeable: an individual can accumulate a contaminant without demonstrating a trophic-level pattern. Persistence, uptake, elimination and tissue affinity all influence the pattern. Not every pollutant biomagnifies. To compare trophic samples, use compatible concentration units and relevant tissues; a larger total mass of contaminant in a larger organism is not by itself a higher concentration. Concentration is an amount per unit of material, so its denominator matters."
+      },
+      {
+        "type": "text",
+        "text": "Interpret a toxicity study by identifying the endpoint, comparison group and controlled conditions. Mortality is different from reduced reproduction, altered behavior or impaired development. A study reporting no measured mortality at one dose cannot establish absence of every possible effect. Mixtures may interact, but the direction and magnitude require evidence rather than an assumption that every mixture has the same effect. For field risk decisions, combine hazard information with realistic exposure pathways and consider uncertainty and vulnerable populations. Precautionary reduction of exposure can be justified without pretending that a small experiment supplies a universal threshold. Clear reasoning separates what was measured, what mechanism is plausible and what remains unknown."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-apes-toxicity-predict",
+        "prompt": "What does the trophic concentration pattern illustrate?",
+        "choices": [
+          "Only dilution",
+          "Proof that all pollutants behave this way",
+          "Biomagnification"
+        ],
+        "answer": 2,
+        "explanation": "Concentration increases across the stated trophic levels.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-apes-toxicity-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A hypothetical food-web survey uses the same tissue basis and reports a persistent contaminant at 0.2 mg/kg in producers, 1 mg/kg in small fish and 5 mg/kg in predatory fish. Separately, one tagged fish’s concentration rises during repeated exposure. A laboratory study estimates an LD50 of 20 mg/kg body mass for one species under specified conditions.",
+        "steps": [
+          {
+            "prompt": "What does the trophic concentration pattern illustrate?",
+            "choices": [
+              "Biomagnification",
+              "Only dilution",
+              "Proof that all pollutants behave this way"
+            ],
+            "answer": 0,
+            "explanation": "Concentration increases across the stated trophic levels.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What does the tagged fish’s increasing burden illustrate?",
+            "choices": [
+              "A universal safe dose",
+              "Bioaccumulation",
+              "A comparison across trophic levels by itself"
+            ],
+            "answer": 1,
+            "explanation": "The observation follows accumulation within one individual over time.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "What is the predator-to-producer concentration ratio?",
+            "choices": [
+              "4.8",
+              "0.04",
+              "25"
+            ],
+            "answer": 2,
+            "explanation": "5 divided by 0.2 equals 25; subtracting does not calculate a ratio.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What does the LD50 estimate mean?",
+            "choices": [
+              "About half die at that dose under the study conditions",
+              "All lower doses are safe for every endpoint",
+              "Half of all species are affected identically"
+            ],
+            "answer": 0,
+            "explanation": "The statistic concerns a specific lethal endpoint and test conditions, not a universal safety threshold.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Bioaccumulation concerns a contaminant building up within an organism; biomagnification requires comparing increasing concentrations across trophic levels using compatible measurements."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-apes-toxicity-transfer",
+        "prompt": "A treatment produces no deaths but lowers reproduction compared with a suitable control. Explain why reporting it as harmless would misrepresent the evidence.",
+        "sampleAnswer": "No observed deaths addresses only the mortality endpoint during observation. Reduced reproduction is another harmful effect that may affect population persistence. Report both outcomes and specify species, dose, duration and uncertainty rather than generalizing to every condition.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-apes-toxicity-recall",
+        "prompt": "What evidence distinguishes bioaccumulation from biomagnification?",
+        "sampleAnswer": "Bioaccumulation concerns a contaminant building up within an organism; biomagnification requires comparing increasing concentrations across trophic levels using compatible measurements.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Fluids::8.1 Hydrostatic pressure and force transmission": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish gauge pressure, absolute pressure and net force.",
+      "Apply pressure equality and volume conservation to hydraulic pistons.",
+      "Check hydraulic work against conservation of energy."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Pressure is normal force per unit area, measured in pascals, or newtons per square meter. Force and pressure are different quantities: the same pressure acting over a larger area produces a larger force. In a fluid at rest with approximately constant density, pressure increases with depth according to p = p_surface + ρgh. Depth is measured vertically below the surface, not along a sloping wall. The relationship follows from supporting the weight of fluid above a location. Container shape alone does not change the pressure at a given depth when surface pressure, density and gravitational field strength are the same."
+      },
+      {
+        "type": "text",
+        "text": "Absolute pressure is measured relative to a vacuum; gauge pressure is the difference from a chosen surrounding pressure, often atmospheric pressure. If an open tank has atmospheric pressure at its surface, its gauge pressure at depth h is ρgh, while absolute pressure includes the atmospheric contribution. When calculating a net force on a wall with fluid on one side and air on the other, account for pressure on both sides. Multiplying the inside absolute pressure by area and calling it the net force can double-count an atmospheric contribution that is opposed outside. Also distinguish pressure at a point from average pressure over a tall surface, because depth changes along that surface."
+      },
+      {
+        "type": "text",
+        "text": "Pascal’s principle concerns an applied pressure change transmitted through an enclosed fluid. An ideal hydraulic system can exchange force for displacement: equal pressure increments imply F_small/A_small = F_large/A_large. The large piston can exert a larger force, but incompressibility requires corresponding displaced volumes to match, so the small piston travels farther. This is consistent with energy conservation rather than an energy multiplier. The ideal model neglects losses, fluid compressibility and changes in piston height unless they are explicitly included. Specify these assumptions before applying a simple area ratio. A static fluid model should not be applied without modification to situations dominated by flow, acceleration or substantial density changes."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-physics-pressure-predict",
+        "prompt": "What is the gauge pressure at the tank point?",
+        "choices": [
+          "20,000 Pa",
+          "120,000 Pa",
+          "2,000 Pa"
+        ],
+        "answer": 0,
+        "explanation": "ρgh = 1,000 × 10 × 2 = 20,000 Pa, excluding atmosphere.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-physics-pressure-guide",
+        "title": "Build and test an explanation",
+        "scenario": "Use g = 10 m/s² and water density 1,000 kg/m³. An open tank has atmospheric pressure 100,000 Pa. A point is 2 m below its surface. Separately, ideal same-height hydraulic pistons have areas 0.01 and 0.05 m², with an added 100 N force on the small piston.",
+        "steps": [
+          {
+            "prompt": "What is the gauge pressure at the tank point?",
+            "choices": [
+              "2,000 Pa",
+              "20,000 Pa",
+              "120,000 Pa"
+            ],
+            "answer": 1,
+            "explanation": "ρgh = 1,000 × 10 × 2 = 20,000 Pa, excluding atmosphere.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What is its absolute pressure?",
+            "choices": [
+              "20,000 Pa",
+              "80,000 Pa",
+              "120,000 Pa"
+            ],
+            "answer": 2,
+            "explanation": "Add the 100,000 Pa surface pressure to the 20,000 Pa depth contribution.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "What added force acts at the large hydraulic piston?",
+            "choices": [
+              "500 N",
+              "20 N",
+              "100 N"
+            ],
+            "answer": 0,
+            "explanation": "The area ratio is five, so equal pressure increments give five times the force.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "If the small piston moves 0.10 m, how far does the large piston move?",
+            "choices": [
+              "0.10 m",
+              "0.02 m",
+              "0.50 m"
+            ],
+            "answer": 1,
+            "explanation": "Matching displaced volumes gives 0.01 × 0.10 = 0.05 × displacement.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Absolute pressure includes the reference atmospheric contribution. Net force requires pressures on both sides; equal atmospheric contributions can cancel, leaving a gauge-pressure difference."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-physics-pressure-transfer",
+        "prompt": "A student claims the hydraulic device creates five times the energy because it creates five times the force. Use the stated displacements to evaluate the claim.",
+        "sampleAnswer": "Input work is 100 N × 0.10 m = 10 J. Ideal output work is 500 N × 0.02 m = 10 J. The force increases while displacement decreases; real losses would reduce useful output. Equal piston heights and the stated ideal assumptions are important.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-physics-pressure-recall",
+        "prompt": "Why must gauge and absolute pressure be distinguished in a net-force calculation?",
+        "sampleAnswer": "Absolute pressure includes the reference atmospheric contribution. Net force requires pressures on both sides; equal atmospheric contributions can cancel, leaving a gauge-pressure difference.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Torque and Rotational Dynamics::5.2 Rotational inertia and angular acceleration": {
+    "revision": 1,
+    "objectives": [
+      "Calculate rotational inertia from mass distribution about a specified axis.",
+      "Determine angular acceleration from signed net torque.",
+      "Distinguish angular acceleration from direction of rotation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Rotational inertia measures how a mass distribution resists a change in angular motion about a specified axis. For ideal point masses, I = Σmr², where r is the perpendicular distance to that axis. The squared distance makes position especially important: moving a given mass twice as far from the axis multiplies its contribution by four. Total mass alone therefore does not determine rotational inertia. Always identify the axis before comparing values; a mass arrangement can have different rotational inertia about different axes. The units are kilogram square meters, distinct from the units of torque or angular momentum."
+      },
+      {
+        "type": "text",
+        "text": "For rotation about a fixed axis with constant rotational inertia, the angular form of Newton’s second law is net torque = Iα. Net torque is the signed sum of all external torques about the chosen axis, not merely the torque of the most visible applied force. Torque depends on the lever arm perpendicular to a force, so equal forces can have different turning effects. Choose a positive rotational direction and keep signs consistent. Angular acceleration describes a change in angular velocity, not necessarily the current direction of rotation: a rotating wheel can have acceleration opposite its angular velocity while slowing down."
+      },
+      {
+        "type": "text",
+        "text": "When translating a physical arrangement into equations, separate geometry, inertia and dynamics. First determine perpendicular distances for torque and mass distances for inertia; those distances need not refer to the same object or location. Then find net torque and divide by inertia under the fixed-axis assumptions. If mass moves relative to the axis during motion, the constant-inertia formula may not capture the complete angular-momentum change, so inspect the model before applying it. An idealized point-mass model can be useful, but rods, disks and pulleys may contribute their own inertia when they are not negligible. Stating what has been ignored is part of explaining the result rather than an optional detail."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-physics-inertia-predict",
+        "prompt": "What is the total rotational inertia?",
+        "choices": [
+          "0.5 kg·m²",
+          "1 kg·m²",
+          "2 kg·m²"
+        ],
+        "answer": 1,
+        "explanation": "Two contributions of 2 × 0.5² = 0.5 sum to 1.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-physics-inertia-guide",
+        "title": "Build and test an explanation",
+        "scenario": "Two point masses of 2 kg each are fixed 0.5 m from a frictionless fixed axis on a massless support. A positive applied torque is 3 N·m and an opposing torque is 1 N·m. The geometry remains fixed.",
+        "steps": [
+          {
+            "prompt": "What is the total rotational inertia?",
+            "choices": [
+              "2 kg·m²",
+              "0.5 kg·m²",
+              "1 kg·m²"
+            ],
+            "answer": 2,
+            "explanation": "Two contributions of 2 × 0.5² = 0.5 sum to 1.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What is the net torque?",
+            "choices": [
+              "+2 N·m",
+              "+4 N·m",
+              "+3 N·m"
+            ],
+            "answer": 0,
+            "explanation": "Opposing signs give 3 − 1 = 2.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "What is the angular acceleration?",
+            "choices": [
+              "+4 rad/s²",
+              "+2 rad/s²",
+              "+0.5 rad/s²"
+            ],
+            "answer": 1,
+            "explanation": "α = net torque/I = 2/1.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "In a separate fixed arrangement, both masses are at 1 m and the same net torque acts. What is α?",
+            "choices": [
+              "+2 rad/s²",
+              "+8 rad/s²",
+              "+0.5 rad/s²"
+            ],
+            "answer": 2,
+            "explanation": "The new inertia is 2 × 2 × 1² = 4, so α = 2/4.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Rotational inertia depends on each mass multiplied by its squared distance from the axis, so placing mass farther away increases inertia even when total mass is unchanged."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-physics-inertia-transfer",
+        "prompt": "A wheel has positive angular velocity and negative angular acceleration. Does negative acceleration prove it is currently rotating in the negative direction?",
+        "sampleAnswer": "No. Acceleration describes how angular velocity changes. While velocity remains positive, negative acceleration slows positive rotation. If the acceleration persists long enough, the wheel can stop and then rotate negatively; the time history determines which stage applies.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-physics-inertia-recall",
+        "prompt": "Why can equal total masses have different rotational inertias about the same axis?",
+        "sampleAnswer": "Rotational inertia depends on each mass multiplied by its squared distance from the axis, so placing mass farther away increases inertia even when total mass is unchanged.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Oscillations::7.1 Recognizing simple harmonic motion from the restoring force": {
+    "revision": 1,
+    "objectives": [
+      "Recognize linear restoring force as the defining SHM condition.",
+      "Relate displacement to force, speed and energy.",
+      "Predict amplitude changes within the linear model’s limits."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "An equilibrium position has zero net force, but equilibrium alone does not establish simple harmonic motion. For ideal one-dimensional simple harmonic motion, the net restoring force is proportional to displacement from equilibrium and points in the opposite direction: F = −kx. Newton’s second law then gives a = −(k/m)x. The negative sign represents restoration toward equilibrium, not a requirement that acceleration is always negative. When displacement is negative, the restoring acceleration is positive. A system with a restoring force that is not proportional to displacement may oscillate without being exactly simple harmonic."
+      },
+      {
+        "type": "text",
+        "text": "For an ideal mass–spring oscillator, angular frequency is ω = √(k/m), period is T = 2π√(m/k), and amplitude is the maximum displacement magnitude. Frequency and period describe timing, whereas amplitude describes extent. In this ideal linear model, changing amplitude does not change period. That conclusion depends on the model; real springs can depart from linear behavior at large extensions. At equilibrium the restoring force and acceleration are zero, but speed can be greatest because the object continues moving through that point. At a turning point speed is zero while restoring-force magnitude is greatest. Zero velocity and zero acceleration are therefore different conditions."
+      },
+      {
+        "type": "text",
+        "text": "Energy connects these positions without requiring a full time-dependent solution. With negligible dissipation, spring potential energy is one half kx squared and kinetic energy is one half mv squared. Their sum remains constant, with total energy one half kA squared when the equilibrium position is the spring’s potential-energy minimum. At a turning point the energy is entirely potential in this model; at equilibrium it is kinetic. For a vertical spring, displacement must be measured from the shifted equilibrium when using the simple restoring-force relation. Damping and driving can change amplitude or energy, so an isolated ideal-oscillator argument should not silently include an external motor or substantial friction."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-physics-shm-predict",
+        "prompt": "At x = +0.25 m, what is the restoring force?",
+        "choices": [
+          "+2 N",
+          "−8 N",
+          "−2 N"
+        ],
+        "answer": 2,
+        "explanation": "F = −8 × 0.25 = −2 N toward equilibrium.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-physics-shm-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A horizontal ideal spring has k = 8 N/m and a 2 kg mass. The amplitude is 0.5 m, there is no dissipation, and x is measured from equilibrium.",
+        "steps": [
+          {
+            "prompt": "At x = +0.25 m, what is the restoring force?",
+            "choices": [
+              "−2 N",
+              "+2 N",
+              "−8 N"
+            ],
+            "answer": 0,
+            "explanation": "F = −8 × 0.25 = −2 N toward equilibrium.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "What is the angular frequency?",
+            "choices": [
+              "0.5 rad/s",
+              "2 rad/s",
+              "4 rad/s"
+            ],
+            "answer": 1,
+            "explanation": "√(k/m) = √4 = 2.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "What is the total oscillator energy?",
+            "choices": [
+              "2 J",
+              "0.25 J",
+              "1 J"
+            ],
+            "answer": 2,
+            "explanation": "One half × 8 × 0.5² = 1 J.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What is the speed when the mass passes equilibrium?",
+            "choices": [
+              "1 m/s",
+              "0 m/s",
+              "2 m/s"
+            ],
+            "answer": 0,
+            "explanation": "All 1 J is kinetic: one half × 2 × v² = 1, giving speed 1.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "The restoring force is zero at zero displacement, so acceleration is zero. Conserved energy is then kinetic, allowing maximum speed as the mass passes through equilibrium."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-physics-shm-transfer",
+        "prompt": "The amplitude doubles while k and m remain unchanged within the ideal linear model. Predict the period and total energy changes, and state a limit of the prediction.",
+        "sampleAnswer": "The period remains 2π√(m/k), while total energy increases by four because it depends on amplitude squared. This assumes the spring remains linear and losses remain negligible; a large real extension can violate those assumptions.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-physics-shm-recall",
+        "prompt": "Why is acceleration zero at equilibrium while speed can be largest there?",
+        "sampleAnswer": "The restoring force is zero at zero displacement, so acceleration is zero. Conserved energy is then kinetic, allowing maximum speed as the mass passes through equilibrium.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Cognition::2.1 Perception, Attention, and Context": {
+    "revision": 1,
+    "objectives": [
+      "Separate bottom-up sensory evidence from top-down context.",
+      "Distinguish inattentional blindness from change blindness.",
+      "Design a controlled test of contextual perception."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Sensation concerns detecting physical stimulation, whereas perception concerns organizing and interpreting sensory information. Bottom-up processing builds from features of the incoming signal; top-down processing uses prior knowledge, expectations and context. These are interacting sources of information rather than mutually exclusive activities. Recognizing an unclear letter within a familiar word can be influenced by context, but that influence does not mean the eyes received no physical signal. An interpretation can be useful and still sometimes wrong, especially when the available input is ambiguous. A careful explanation identifies both the sensory evidence and the expectation that influenced its interpretation."
+      },
+      {
+        "type": "text",
+        "text": "Attention selects some information for further processing while other information receives less processing. Inattentional blindness is failing to notice an unexpected stimulus when attention is engaged elsewhere. Change blindness concerns failing to detect a change, often across an interruption or shift. Neither term simply means poor eyesight. A person can look toward a scene without consciously noticing every object in it. Dividing attention across demanding tasks can impair performance, but a particular demonstration does not establish that nobody can perform any pair of tasks together. Task demands, familiarity and measurement matter when interpreting such comparisons."
+      },
+      {
+        "type": "text",
+        "text": "Perceptual organization groups elements using relationships such as proximity, similarity and continuity. Depth information can come from binocular cues, such as retinal disparity, and monocular cues, such as relative size and interposition. The interpretation of a cue depends on assumptions about the scene. Relative size suggests depth when objects are assumed comparable in actual size; a miniature nearby object and a large distant object can challenge that shortcut. Context effects reveal that perception is an inference constrained by evidence, not a perfect photograph of the world. To test an explanation, alter the relevant cue or expectation while keeping other conditions comparable. A change in reports can support the proposed influence without proving that one mechanism explains every perceptual judgment."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-psych-perception-predict",
+        "prompt": "Different interpretations of the same symbol in different contexts most directly show what?",
+        "choices": [
+          "Top-down influence on perception",
+          "No sensory input",
+          "A proof that context never matters"
+        ],
+        "answer": 0,
+        "explanation": "The surrounding information changes the expectation used to interpret the ambiguous signal.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-psych-perception-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In fictional demonstrations, viewers interpret the same ambiguous symbol differently when it appears among letters versus numbers. Another group counts ball passes and misses an unexpected person crossing the scene. A third group fails to notice an object replacement after a brief blank screen.",
+        "steps": [
+          {
+            "prompt": "Different interpretations of the same symbol in different contexts most directly show what?",
+            "choices": [
+              "A proof that context never matters",
+              "Top-down influence on perception",
+              "No sensory input"
+            ],
+            "answer": 1,
+            "explanation": "The surrounding information changes the expectation used to interpret the ambiguous signal.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "Missing the unexpected person while counting passes illustrates what?",
+            "choices": [
+              "A necessary retinal injury",
+              "Conservation",
+              "Inattentional blindness"
+            ],
+            "answer": 2,
+            "explanation": "Attention is occupied by a task while an unexpected event is not consciously noticed.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Missing the replacement across a blank interruption illustrates what?",
+            "choices": [
+              "Change blindness",
+              "Object permanence in infancy",
+              "A guarantee of total memory loss"
+            ],
+            "answer": 0,
+            "explanation": "The measured failure concerns detecting a change across views.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "When does relative image size best support a depth inference?",
+            "choices": [
+              "Only when both eyes are closed",
+              "When actual object sizes are reasonably comparable",
+              "When actual sizes are known to be arbitrary"
+            ],
+            "answer": 1,
+            "explanation": "The cue relies on an assumption about comparable real sizes.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Inattentional blindness concerns missing an unexpected stimulus while attention is engaged elsewhere; change blindness concerns failing to detect a difference between views."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-psych-perception-transfer",
+        "prompt": "Design a fair comparison to test whether a word context affects interpretation of an ambiguous symbol.",
+        "sampleAnswer": "Present the same ambiguous symbol in different controlled contexts, use comparable exposure and response options, and counterbalance presentation order. A shift in interpretations supports a contextual influence; it does not imply that all perception is determined only by expectation.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-psych-perception-recall",
+        "prompt": "How do inattentional blindness and change blindness differ?",
+        "sampleAnswer": "Inattentional blindness concerns missing an unexpected stimulus while attention is engaged elsewhere; change blindness concerns failing to detect a difference between views.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Cognition::2.2 Concepts, Problem Solving, Judgment, and Language": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish availability, representativeness and confirmation bias.",
+      "Identify functional fixedness and evaluate a problem-solving shortcut.",
+      "Use base-rate information rather than resemblance alone."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Concepts organize categories and their relationships, helping people interpret unfamiliar examples without learning each one from scratch. A prototype represents a typical example, but typicality is not the same as a strict category definition. A robin may seem more typical of a bird than a penguin even though both belong to the category. A schema organizes expectations about a situation; those expectations can guide attention and memory while also producing errors. Distinguish a helpful mental organization from proof that every member of a category has identical features. Category judgments depend on the information and rule actually being used."
+      },
+      {
+        "type": "text",
+        "text": "Problem-solving methods differ in their guarantees and demands. An algorithm is a systematic procedure that produces the intended result when applied correctly within its specified domain. A heuristic is a useful shortcut that may reduce effort without guaranteeing success. A mental set applies a previously successful approach even when another approach would fit better. Functional fixedness restricts thinking about an object to its familiar use. Recognizing either obstacle does not mean that past experience is always harmful; the problem is an overly rigid application when the current task differs. Evaluate the strategy relative to the task’s constraints rather than calling all fast answers irrational."
+      },
+      {
+        "type": "text",
+        "text": "Judgment can be influenced by which examples come easily to mind, how closely a case resembles a stereotype and the reference point supplied before an estimate. Availability uses ease of retrieval; representativeness uses similarity and can neglect base rates. Confirmation bias favors searching for or interpreting evidence consistent with an existing belief. These are distinct mechanisms even when they contribute to the same mistaken conclusion. To improve reasoning, specify the relevant population, compare alternatives and seek observations that could contradict the preferred explanation. Language can frame options in different ways, but a framing effect should be demonstrated using otherwise comparable choices. A vivid story or persuasive label does not replace numerical evidence about how common an event is."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-psych-judgment-predict",
+        "prompt": "The vivid-news estimate most directly illustrates what?",
+        "choices": [
+          "Functional fixedness",
+          "Availability heuristic",
+          "Perfect use of population frequencies"
+        ],
+        "answer": 1,
+        "explanation": "Ease of recalling a striking example can influence an estimate of frequency.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-psych-judgment-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In fictional cases, someone estimates accident frequency after seeing a vivid news report. Another person classifies a quiet reader as belonging to a rare occupation without considering how common the alternatives are. A third tests only examples expected to confirm a rule. A problem solver refuses to use an empty container as a support because it is normally used for storage.",
+        "steps": [
+          {
+            "prompt": "The vivid-news estimate most directly illustrates what?",
+            "choices": [
+              "Perfect use of population frequencies",
+              "Functional fixedness",
+              "Availability heuristic"
+            ],
+            "answer": 2,
+            "explanation": "Ease of recalling a striking example can influence an estimate of frequency.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "Ignoring occupation frequencies while matching a stereotype illustrates what?",
+            "choices": [
+              "Representativeness with base-rate neglect",
+              "A systematic guarantee of accuracy",
+              "Sensory adaptation"
+            ],
+            "answer": 0,
+            "explanation": "Similarity is being substituted for the full probability information.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Testing only expected confirming examples illustrates what?",
+            "choices": [
+              "A proof that the rule is true",
+              "Confirmation bias",
+              "Random assignment"
+            ],
+            "answer": 1,
+            "explanation": "The search favors agreement rather than trying informative counterexamples.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "Restricting the container to its usual function illustrates what?",
+            "choices": [
+              "Availability caused by news",
+              "A binocular depth cue",
+              "Functional fixedness"
+            ],
+            "answer": 2,
+            "explanation": "The familiar use blocks consideration of another useful function.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "It reduces search or effort using a shortcut that often works, but its assumptions can fail; an algorithm’s guarantee also applies only when its defined procedure and conditions are satisfied."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-psych-judgment-transfer",
+        "prompt": "A person predicts a rare occupation from a highly matching description. Explain why resemblance alone is insufficient and what additional information is needed.",
+        "sampleAnswer": "Probability depends on how common the occupations are and how likely that description is within each group. A rare category can produce fewer matching people than a common category despite a stronger individual resemblance. Use base rates and conditional evidence rather than the stereotype alone.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-psych-judgment-recall",
+        "prompt": "How can a heuristic help without guaranteeing a correct answer?",
+        "sampleAnswer": "It reduces search or effort using a shortcut that often works, but its assumptions can fail; an algorithm’s guarantee also applies only when its defined procedure and conditions are satisfied.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Mental & Physical Health::5.1 Stress, Coping, and Health Psychology": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish stressors, appraisals and physiological responses.",
+      "Compare problem-focused and emotion-focused coping by controllability.",
+      "Interpret observational stress–health associations cautiously."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Stress involves a process linking demands, appraisal and responses rather than merely the existence of a difficult event. A stressor is a demand or challenge; appraisal concerns its meaning and the resources a person believes are available. The same event can produce different responses in different people or at different times without implying that the event is imaginary. Acute responses can mobilize attention and energy, while prolonged or repeated demands can carry costs. A single sign, such as a fast heartbeat, is not specific evidence of one psychological cause because physical activity and other conditions can produce it too."
+      },
+      {
+        "type": "text",
+        "text": "The sympathetic nervous system contributes to rapid physiological mobilization, while hormonal systems including the hypothalamic–pituitary–adrenal axis contribute to stress responses on different timescales. Cortisol has normal regulatory functions; it should not be described as a substance that is always harmful. Health effects depend on patterns, duration, context and other factors. General adaptation syndrome describes an influential model of alarm, resistance and exhaustion, but the model is not a precise universal timetable for every individual. Psychological stress, sleep, health behaviors and social conditions can interact, making simple one-cause explanations of illness inadequate."
+      },
+      {
+        "type": "text",
+        "text": "Coping strategies can target the stressor or the emotional response. Problem-focused coping attempts to change a manageable demand, such as planning work or seeking clarification. Emotion-focused coping attempts to regulate distress, such as using support or reframing an appraisal. Their usefulness depends partly on controllability and timing, and a strategy can serve more than one function. Seeking help is not automatically avoidance, while temporary distraction is not automatically a complete solution. Health psychology evaluates patterns using evidence: an association between stress reports and illness does not alone show that stress caused every illness. Reverse influence, measurement differences and shared causes must be considered. Responsible teaching explains mechanisms and reasoning without turning classroom examples into diagnoses or individualized treatment instructions."
+      },
+      {
+        "type": "prediction",
+        "id": "s5-psych-stress-predict",
+        "prompt": "What is the assignment deadline in this account?",
+        "choices": [
+          "A complete clinical diagnosis",
+          "Proof of an identical response in every student",
+          "A potential stressor"
+        ],
+        "answer": 2,
+        "explanation": "It is a demand that may be appraised and responded to in different ways.",
+        "hint": "Translate the requirement into an explicit condition."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s5-psych-stress-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a fictional scenario, Sam faces a deadline, breaks the assignment into smaller scheduled tasks and also talks with a trusted friend to manage distress. A survey finds that students reporting higher stress also report worse sleep, but the study does not manipulate either variable.",
+        "steps": [
+          {
+            "prompt": "What is the assignment deadline in this account?",
+            "choices": [
+              "A potential stressor",
+              "A complete clinical diagnosis",
+              "Proof of an identical response in every student"
+            ],
+            "answer": 0,
+            "explanation": "It is a demand that may be appraised and responded to in different ways.",
+            "hint": "Separate the service or mechanism from its possible outcomes."
+          },
+          {
+            "prompt": "Scheduling smaller work tasks primarily illustrates what?",
+            "choices": [
+              "A measure of cortisol",
+              "Problem-focused coping",
+              "Proof that emotions never matter"
+            ],
+            "answer": 1,
+            "explanation": "The action directly changes how Sam manages the controllable demand.",
+            "hint": "Identify which information the observation actually supplies."
+          },
+          {
+            "prompt": "Talking with a friend to regulate distress primarily illustrates what?",
+            "choices": [
+              "Automatic failure to cope",
+              "Evidence of one specific disorder",
+              "Emotion-focused coping"
+            ],
+            "answer": 2,
+            "explanation": "The stated purpose is managing emotion, though support can also provide practical help.",
+            "hint": "Check whether the conclusion exceeds the stated evidence."
+          },
+          {
+            "prompt": "What does the stress–sleep survey alone establish?",
+            "choices": [
+              "An association with possible bidirectional or shared influences",
+              "That stress is the sole cause of poor sleep",
+              "That poor sleep cannot increase stress"
+            ],
+            "answer": 0,
+            "explanation": "The observational design does not isolate direction or eliminate confounding.",
+            "hint": "Translate the requirement into an explicit condition."
+          }
+        ],
+        "takeaway": "Health can affect reported stress, shared conditions can affect both, and measures may be imperfect. The association is evidence of a relationship but does not by itself isolate direction or rule out alternative explanations."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s5-psych-stress-transfer",
+        "prompt": "A student says problem-focused coping is always superior, including for an event that cannot be changed. Evaluate the claim.",
+        "sampleAnswer": "Strategy usefulness depends on controllability and the person’s goals. Practical action can address changeable demands, while emotional regulation and social support may help with an unchangeable event. The categories describe targets, not a universal ranking, and both can be used together.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s5-psych-stress-recall",
+        "prompt": "Why should a stress–health correlation not be read as proof of a single causal pathway?",
+        "sampleAnswer": "Health can affect reported stress, shared conditions can affect both, and measures may be imperfect. The association is evidence of a relationship but does not by itself isolate direction or rule out alternative explanations.",
+        "math": false
+      }
+    ]
+  }
+}

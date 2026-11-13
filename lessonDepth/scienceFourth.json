@@ -1,0 +1,1585 @@
+{
+  "CSP: Data::2.2 Compression and the tradeoff between size and fidelity": {
+    "revision": 1,
+    "objectives": [
+      "Classify compression by whether exact reconstruction is possible.",
+      "Calculate size reduction using the original size as the denominator.",
+      "Choose a representation based on the task’s fidelity requirements."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Compression represents information using a different encoding, often to reduce storage or transmission requirements. Lossless compression permits exact reconstruction of the original data. Lossy compression discards some distinctions so that reconstruction is an approximation. These properties concern recoverability, not whether a file is encrypted, popular or visually appealing. A changed image detail may be acceptable for a thumbnail, while a changed instruction in executable code may make the result unusable. Begin by specifying what must be preserved for the intended task rather than declaring the smallest file automatically best."
+      },
+      {
+        "type": "text",
+        "text": "An encoding can exploit repetition, common patterns or predictable structure, but the counts, dictionaries and headers needed for reconstruction also take space. A run-length scheme might encode a stated run of identical characters as a count and a symbol when its rules are fully defined. Pattern-poor or very short input can expand when overhead outweighs the savings. No ordinary claim that a method compresses a particular file establishes that it shortens every possible input. To evaluate losslessness, ask whether the receiver can recover every original distinction from the encoded representation and the supplied decoding information."
+      },
+      {
+        "type": "text",
+        "text": "A size-reduction percentage divides saved size by original size. A file changing from 1,200 bytes to 300 bytes saves 900 bytes, so reduction is 900/1,200 = 75%. The compressed size is 25% of the original, and the original-to-compressed size ratio is 4; those are three different descriptions. Compression and encryption address different goals: saving space does not establish confidentiality. Repeatedly re-encoding an already lossy reconstruction can also create further changes, whereas copying an existing file bit for bit does not itself introduce another approximation. Describe the operation actually performed instead of attributing every change to the file extension."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-csp-compression-predict",
+        "prompt": "Which property defines a lossless method?",
+        "choices": [
+          "It always produces the smallest imaginable file",
+          "It requires a password",
+          "It permits exact reconstruction of the original data",
+          "It removes every repeated symbol permanently"
+        ],
+        "answer": 2,
+        "explanation": "Exact reconstruction is the defining property. Minimum size and confidentiality are separate claims.",
+        "hint": "Ask what information the decoder can recover."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-csp-compression-guide",
+        "title": "Compare recovery before comparing size",
+        "scenario": "An original file is 1,200 bytes. Method L creates 600 bytes and permits exact recovery of every original bit. Method M creates 300 bytes but replaces some original image-color distinctions with approximations. Ignore all other overhead because these are the final stated file sizes.",
+        "steps": [
+          {
+            "prompt": "How should L be classified?",
+            "choices": [
+              "Lossless",
+              "Lossy because its size changed",
+              "Encryption only",
+              "Neither, because it is not the smallest"
+            ],
+            "answer": 0,
+            "explanation": "L preserves enough information for exact recovery, so it is lossless even though M is smaller.",
+            "hint": "Recovery, not relative file size, determines the category."
+          },
+          {
+            "prompt": "What is L’s percentage size reduction?",
+            "choices": [
+              "600%",
+              "25%",
+              "200%",
+              "50%"
+            ],
+            "answer": 3,
+            "explanation": "It saves 1,200 − 600 = 600 bytes. Dividing by 1,200 gives 0.50, or 50%.",
+            "hint": "Use the original size as the denominator."
+          },
+          {
+            "prompt": "What is M’s percentage size reduction?",
+            "choices": [
+              "25%",
+              "75%",
+              "400%",
+              "300%"
+            ],
+            "answer": 1,
+            "explanation": "It saves 900 of the original 1,200 bytes, giving 75% reduction. Its remaining size is 25%, a different quantity.",
+            "hint": "Distinguish saved fraction from remaining fraction."
+          },
+          {
+            "prompt": "For a task requiring exact restoration of program code, which stated method meets the recovery requirement?",
+            "choices": [
+              "M, solely because it is smaller",
+              "Both, because every compressed file is exact",
+              "L; M’s stated approximation does not meet exact recovery",
+              "Neither, because no file can be compressed"
+            ],
+            "answer": 2,
+            "explanation": "Only L has the stated exact-recovery property. Choosing a method requires matching the fidelity requirement, not optimizing size alone.",
+            "hint": "Apply the task constraint before ranking file sizes."
+          }
+        ],
+        "takeaway": "Compression quality is a relationship between representation, recovery requirements and resource use, not one universal smallest-file rule."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-csp-compression-transfer",
+        "prompt": "A scheme maps two different possible original images to the same stored representation, and the decoder has no other information distinguishing them. Can it reconstruct both originals exactly? Explain.",
+        "sampleAnswer": "No. With the same representation and no additional distinguishing information, the decoder cannot know which original distinctions to restore. It may choose an approximation or one candidate, but it cannot guarantee exact recovery of both. This is an information-loss issue, not a claim that the image is necessarily unusable for every purpose.",
+        "checklist": [
+          "Identify the lost distinction.",
+          "Explain why decoding rules cannot infer absent information automatically.",
+          "Separate exact recovery from usefulness for a specified task."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-csp-compression-recall",
+        "prompt": "An original file has 1,500 bytes and the compressed file has 600 bytes. What is the percentage size reduction? Enter only the numerical percent.",
+        "sampleAnswer": "Saved size is 900 bytes, and 900/1,500 × 100 = 60%. The remaining-size percentage is 40%.",
+        "math": true,
+        "acceptedAnswers": [
+          "60"
+        ]
+      }
+    ]
+  },
+  "CSP: Data::2.3 From raw data to a defensible conclusion": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish observed data from assumptions introduced during cleaning.",
+      "Calculate a documented summary and explain missing-response limitations.",
+      "Identify why a large or de-identified dataset is not automatically representative or anonymous."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Data analysis begins with a question, a defined set of records and meaningful variables. A number without units, a time window or a collection method can be difficult to interpret. Data cleaning may standardize units, identify duplicates, correct known recording errors and decide how to represent missing values. These decisions affect the analysis, so document them rather than silently changing inconvenient records. A blank entry is a record of missing information, not automatically a measurement of zero. Deleting it and replacing it with zero make different assumptions, and neither choice guarantees an unbiased population estimate."
+      },
+      {
+        "type": "text",
+        "text": "A summary must state its denominator. The mean of observed values uses the count of observed measurements; a mean after imputation uses the modified dataset. A correct calculation does not establish that the new assumption matches reality. Missingness can be related to the activity being measured: for example, people with limited access to a survey might also differ on the survey outcome. Repeated records can give one person or event excessive influence, while inconsistent identifiers can split or combine records incorrectly. A postal code is often an identifier rather than a quantity to average, so retaining leading zeros can be meaningful."
+      },
+      {
+        "type": "text",
+        "text": "Large datasets can still have selection bias, poor measurements or incompatible definitions. More records can reduce some random variability without fixing who is absent or how the fields were collected. Combining datasets can generate useful information but can also create privacy risks. Removing direct names does not guarantee that location patterns or other linked attributes cannot identify someone. A visualization highlights selected features; it does not prove causation or repair data quality automatically. A defensible report connects its computed result to the actual sample, describes transformations and states which inference is supported. It keeps an observed association separate from a causal explanation that would require additional design or evidence."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-csp-data-predict",
+        "prompt": "A survey entry for reading minutes is blank. What can be concluded from that field alone?",
+        "choices": [
+          "The respondent read exactly zero minutes",
+          "The respondent read the sample mean",
+          "The value must be the largest reported value",
+          "No reading duration was observed for that entry"
+        ],
+        "answer": 3,
+        "explanation": "Missing information is not a measured zero or a justified imputed value. A cleaning rule adds an assumption that should be documented.",
+        "hint": "Separate absence of a measurement from a measurement of absence."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-csp-data-guide",
+        "title": "Make the transformation explicit",
+        "scenario": "Original hypothetical survey records show reading durations [12, 18, blank, 30] minutes. Compare the observed-value mean with a documented zero-imputation rule; neither is automatically the true mean of all four people.",
+        "steps": [
+          {
+            "prompt": "How many reading durations were actually observed?",
+            "choices": [
+              "4",
+              "3",
+              "2",
+              "60"
+            ],
+            "answer": 1,
+            "explanation": "Three entries are measurements: 12, 18 and 30. The blank is not another observed duration.",
+            "hint": "Count measurements rather than rows."
+          },
+          {
+            "prompt": "What is the mean of the observed values?",
+            "choices": [
+              "15 minutes",
+              "18 minutes",
+              "20 minutes",
+              "60 minutes"
+            ],
+            "answer": 2,
+            "explanation": "The observed sum is 12 + 18 + 30 = 60, and 60/3 = 20 minutes.",
+            "hint": "Use the observed-value count in the denominator."
+          },
+          {
+            "prompt": "What mean results if the blank is replaced with zero?",
+            "choices": [
+              "15 minutes",
+              "20 minutes",
+              "30 minutes",
+              "0 minutes"
+            ],
+            "answer": 0,
+            "explanation": "The modified dataset totals 60 over four values, giving 15 minutes. This is the result of the specified transformation, not a newly observed behavior.",
+            "hint": "Record the added assumption and recompute the denominator."
+          },
+          {
+            "prompt": "Which report best fits the evidence?",
+            "choices": [
+              "The missing respondent certainly read zero minutes",
+              "Every respondent read 20 minutes",
+              "The 15-minute mean is guaranteed unbiased",
+              "The observed mean is 20 minutes, with a missing-response limitation for the full group"
+            ],
+            "answer": 3,
+            "explanation": "This distinguishes the computed observed summary from the incomplete population information. A mean does not describe every individual.",
+            "hint": "Match the claim to what was measured."
+          }
+        ],
+        "takeaway": "Keep the raw observation, cleaning decision, computed summary and inference as separate steps."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-csp-data-transfer",
+        "prompt": "A much larger version of the survey reaches only people with reliable home internet. Why can collecting thousands more such responses still leave an important limitation?",
+        "sampleAnswer": "The collection process can systematically omit people without reliable internet. Increasing the same selected sample does not by itself make that omitted group represented or correct differences related to access. State the target population and investigate who is missing; do not treat a large row count as a guarantee of representativeness.",
+        "checklist": [
+          "Name the selection mechanism.",
+          "Distinguish sample size from representativeness.",
+          "Connect the missing group to the intended inference."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-csp-data-recall",
+        "prompt": "A new survey has measured values 5, 15 and 25 plus two missing entries. What is the mean of the observed values? Enter only the number.",
+        "sampleAnswer": "The measured sum is 45 over three observations, so the observed mean is 15. The two blank entries are not measured zeros.",
+        "math": true,
+        "acceptedAnswers": [
+          "15"
+        ]
+      }
+    ]
+  },
+  "CSP: Impact of Computing::5.3 Bias, intellectual property, and evaluating a computing claim": {
+    "revision": 1,
+    "objectives": [
+      "Inspect subgroup results rather than relying only on an overall metric.",
+      "Separate a demonstrated performance difference from an unsupported explanation of its cause.",
+      "Distinguish access to a work from permission to reuse it."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A computing system can produce systematic differences in outcomes or errors through its data, representation, objective, interface or deployment conditions. Calling the input numerical does not establish neutrality. A feature may correlate with conditions that are unevenly represented, and a model’s training data may not cover its intended use. Overall performance can hide a weaker result in a smaller subgroup or condition. Identify the relevant groups, sample sizes, error types and measurement process before claiming that one headline average captures every user’s experience."
+      },
+      {
+        "type": "text",
+        "text": "A subgroup comparison is evidence to investigate, not proof of one uniquely determined cause. Poor low-light image performance might involve training coverage, sensors, preprocessing, labeling or other conditions. Test a proposed change using suitable held-out examples and inspect whether it improves the intended outcomes without simply shifting errors elsewhere. Equal accuracy is not the only possible concern, and no single fairness metric resolves every value conflict. A good explanation connects a concrete design or data choice to a plausible consequence and states what evidence would distinguish alternative explanations. Consistent execution of instructions does not guarantee that the chosen specification serves people equitably."
+      },
+      {
+        "type": "text",
+        "text": "Legal and ethical evaluation also concerns how material is obtained and reused. A publicly viewable image or code file is accessible, but visibility alone does not specify permission to redistribute, modify or use it in another project. A license can supply permissions and conditions, including attribution or distribution requirements. Open-source software does not mean that no license conditions exist, nor does it guarantee that the code contains no defects. Distinguish a procedure’s technical interface from the terms governing use of its implementation. For actual projects, consult the applicable license and official assessment directions rather than treating a practice example as authority to ignore them. Ethical evaluation also considers privacy, inclusion and foreseeable consequences beyond simply asking whether a program runs."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-csp-bias-predict",
+        "prompt": "A classifier reports high overall accuracy. What is still important to inspect?",
+        "choices": [
+          "Whether relevant conditions or groups have different errors and sample coverage",
+          "Only the color of its interface",
+          "Nothing, because one high average proves universal reliability",
+          "Whether every input was a number"
+        ],
+        "answer": 0,
+        "explanation": "An aggregate metric can hide condition-specific errors, especially when sample sizes differ. A useful evaluation examines the intended contexts and actual evidence.",
+        "hint": "Ask what the average might be combining."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-csp-bias-guide",
+        "title": "Inspect the smaller condition",
+        "scenario": "Original hypothetical evaluation: the same image-classification task has 80 bright-condition examples, 76 classified correctly, and 20 dim-condition examples, 10 classified correctly. Treat these as finite test results, not a universal population guarantee.",
+        "steps": [
+          {
+            "prompt": "What is overall test accuracy?",
+            "choices": [
+              "95%",
+              "50%",
+              "86%",
+              "76%"
+            ],
+            "answer": 2,
+            "explanation": "Correct results total 76 + 10 = 86 out of 100 examples, giving 86%.",
+            "hint": "Combine counts before calculating the overall rate."
+          },
+          {
+            "prompt": "What is accuracy on the dim-condition examples?",
+            "choices": [
+              "10%",
+              "50%",
+              "20%",
+              "86%"
+            ],
+            "answer": 1,
+            "explanation": "10 correct among 20 dim examples gives 50%. Use that condition’s denominator.",
+            "hint": "Do not divide the dim correct count by the full sample."
+          },
+          {
+            "prompt": "Why can the 86% headline obscure a relevant weakness?",
+            "choices": [
+              "The bright group has no examples",
+              "The dim examples must be mislabeled",
+              "A smaller subgroup never matters",
+              "The larger bright-condition group performs at 95% and dominates the combined average"
+            ],
+            "answer": 3,
+            "explanation": "Bright accuracy is 76/80 = 95%, while dim accuracy is 50%. Sample-size weighting can mask the smaller condition’s weakness.",
+            "hint": "Compare both rates and group sizes."
+          },
+          {
+            "prompt": "What does this table establish about the source of the difference?",
+            "choices": [
+              "A performance difference on this test; causes require investigation",
+              "One specific sensor defect is proven",
+              "Every dim image will be misclassified",
+              "Adding numeric inputs guarantees a repair"
+            ],
+            "answer": 0,
+            "explanation": "The table measures outcomes under the stated conditions. It does not isolate training data, sensors or another unique cause.",
+            "hint": "Separate an observed pattern from a tested causal explanation."
+          }
+        ],
+        "takeaway": "Name the demonstrated limitation, then investigate mechanisms. Do not turn one aggregate number or one subgroup contrast into a universal claim."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-csp-bias-transfer",
+        "prompt": "A student finds publicly visible code that appears to solve a task. Explain two different questions they should answer before treating it as a suitable project component.",
+        "sampleAnswer": "One question is technical: does its interface, behavior, preconditions and reliability fit the task? Another is permission-related: what license, attribution and assessment rules govern reuse? Availability and successful execution do not answer every permission or integrity question.",
+        "checklist": [
+          "Separate technical suitability from permission.",
+          "Refer to the actual terms rather than assuming visibility grants every use.",
+          "Do not claim that open source means no conditions."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-csp-bias-recall",
+        "prompt": "In a new fictional test, condition A has 18 correct of 20 examples and condition B has 6 correct of 10. What is overall accuracy as a percent? Enter only the number.",
+        "sampleAnswer": "There are 24 correct results among 30 examples, so overall accuracy is 80%. Averaging 90% and 60% without their different sample sizes would be incorrect.",
+        "math": true,
+        "acceptedAnswers": [
+          "80"
+        ]
+      }
+    ]
+  },
+  "APES: The Living World: Biodiversity::2.2 Disturbance, resilience, succession, and island biogeography": {
+    "revision": 1,
+    "objectives": [
+      "Classify succession from substrate and retained resources rather than disturbance labels alone.",
+      "Connect island area and isolation to distinct immigration and extinction mechanisms.",
+      "Explain why recovery and richness predictions are conditional rather than fixed universal sequences."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A disturbance changes environmental conditions, resources or community structure. Its effects depend on intensity, frequency, spatial extent and what remains afterward. Primary succession develops on a substrate where soil is initially absent in the stated model, while secondary succession occurs where soil and some biological resources remain. A fire is not automatically a complete description of that condition: one fire may leave soil and seed sources, while a different event may remove more of the substrate. Identify the starting state before predicting which processes will matter."
+      },
+      {
+        "type": "text",
+        "text": "Succession includes changes in community composition and ecosystem processes over time. Weathering, organic-matter inputs, dispersal, competition and facilitation can all influence the path. A familiar sequence of pioneer species followed by other plants is a model, not proof that every site reaches one identical final community on a fixed schedule. Continued disturbances, climate, available colonists and land use can change the trajectory. Resilience concerns recovery of specified functions or structures after disturbance; the measured recovery target should be named. Rapid return of green cover does not necessarily establish recovery of the prior species composition, soil properties or carbon storage."
+      },
+      {
+        "type": "text",
+        "text": "Island biogeography separates immigration and local extinction processes. Holding other conditions comparable, an island nearer a source population may receive immigrants more readily, while a larger island may support more habitat and larger populations, reducing some extinction risks. These are mechanisms for expectations, not guarantees for each individual island. Habitat quality, species traits and the surrounding landscape can change outcomes. An area-only equation cannot isolate distance effects when both vary. For a reserve decision, specify whether the goal concerns a particular species, multiple habitats, connectivity or another function rather than using a single richness estimate as a complete definition of conservation success."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-apes-succession-predict",
+        "prompt": "An abandoned field retains soil and a seed bank after farming stops. Which succession category fits the stated starting condition?",
+        "choices": [
+          "Primary, because all changes are primary",
+          "Secondary, because soil and biological resources remain",
+          "Neither, because humans once used the site",
+          "Primary, because trees are not yet present"
+        ],
+        "answer": 1,
+        "explanation": "The retained soil and resources distinguish secondary succession in this scenario. The label comes from conditions, not simply whether the site was disturbed.",
+        "hint": "Identify what remains before deciding the category."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-apes-succession-guide",
+        "title": "Reason from starting conditions",
+        "scenario": "Use four original hypothetical comparisons. Each statement supplies only the conditions needed for the targeted distinction; no exact recovery time or observed species count is implied.",
+        "steps": [
+          {
+            "prompt": "A newly exposed lava surface has no developed soil. Which model applies to initial colonization?",
+            "choices": [
+              "Secondary succession, because lava is dark",
+              "No ecological process can occur",
+              "Primary succession on the stated bare substrate",
+              "A guarantee of a mature forest next year"
+            ],
+            "answer": 2,
+            "explanation": "The absence of developed soil makes this a primary-succession starting condition. The later pathway depends on additional conditions.",
+            "hint": "Focus on substrate, not a promised timeline."
+          },
+          {
+            "prompt": "A windstorm removes many trees but leaves soil, roots and nearby seed sources. What starting resources distinguish it from the lava case?",
+            "choices": [
+              "Retained soil and biological sources can support secondary succession",
+              "No resources remain by definition",
+              "The storm must create volcanic rock",
+              "Only ocean distance matters"
+            ],
+            "answer": 0,
+            "explanation": "The retained substrate and propagules can support recolonization without rebuilding soil from the same bare-rock starting point.",
+            "hint": "List what the scenario says survived."
+          },
+          {
+            "prompt": "Two otherwise comparable islands have equal area, but one is nearer a mainland species pool. Which expectation follows from isolation alone?",
+            "choices": [
+              "The farther island must have zero species",
+              "Both immigration rates must be exactly equal",
+              "Area determines immigration and distance never matters",
+              "The nearer island may receive immigrants more readily"
+            ],
+            "answer": 3,
+            "explanation": "Reduced distance can increase opportunities for dispersal from the stated source. It does not supply an exact richness count.",
+            "hint": "Connect distance to movement of organisms."
+          },
+          {
+            "prompt": "Why can larger area reduce some local-extinction risks, other conditions comparable?",
+            "choices": [
+              "It eliminates every disturbance",
+              "It may support larger populations and more habitat",
+              "It guarantees an infinite resource supply",
+              "It removes the need for immigration"
+            ],
+            "answer": 1,
+            "explanation": "Larger populations and habitat opportunities can reduce some risks, but quality, disturbance and species traits still matter.",
+            "hint": "Identify a mechanism rather than treating area as a guarantee."
+          }
+        ],
+        "takeaway": "Use the mechanism and the stated starting condition. Avoid replacing a conditional ecological model with a universal schedule."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-apes-succession-transfer",
+        "prompt": "Two sites regain similar vegetation cover after disturbance. Why is that not enough to conclude they have recovered the same biodiversity and ecosystem functions?",
+        "sampleAnswer": "Cover measures one structural feature. Species composition, age structure, soil processes, carbon storage, food-web relationships and other functions can differ despite similar cover. Define the recovery target and use suitable observations; one visible metric does not establish every ecological dimension.",
+        "checklist": [
+          "Name at least two dimensions beyond vegetation cover.",
+          "Connect a measurement to a defined recovery target.",
+          "Avoid assuming one inevitable climax endpoint."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-apes-succession-recall",
+        "prompt": "A storm strips soil away and exposes bare rock at one part of a previously forested landscape, while another part retains soil and roots. Explain why the two patches can have different succession starting conditions despite sharing the same disturbance event.",
+        "sampleAnswer": "The bare-rock patch can require primary-succession processes associated with forming a soil-bearing substrate. The patch retaining soil and roots can undergo secondary succession. The relevant distinction is what remains locally, not merely the event’s name or the landscape’s earlier vegetation.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Land and Water Use::5.3 Water withdrawals, irrigation, fisheries, and sustainable management": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish water withdrawal, return flow and consumptive use.",
+      "Calculate a specified irrigation-efficiency change without assuming identical basin-scale savings.",
+      "Apply a resource-stock ledger to a stated fisheries model."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Water withdrawal is water removed from a source for a use. Some withdrawn water can return to a relevant water system; some is consumed from that local accounting through processes such as evapotranspiration or incorporation into products. Consumptive use is therefore not automatically identical to withdrawal. Define the boundary, interval and return-flow destination. A return flow that arrives later, in another basin or with changed quality may not be equivalent to water available to the same downstream user at the same time."
+      },
+      {
+        "type": "text",
+        "text": "Irrigation efficiency measures a stated useful outcome relative to a stated input; the definition must be explicit. In this lesson’s simple model, useful crop consumption divided by withdrawal is the specified efficiency. Improving that ratio can reduce the withdrawal needed to maintain a target crop use, but the basin outcome also depends on how return flows change. Less water leaving an irrigation pipe is not by itself proof of an equal reduction in consumptive use. Crop changes, acreage expansion, timing and water quality can further affect a real comparison. A model should show the ledger instead of labeling every flow not taken up by the crop as permanently lost."
+      },
+      {
+        "type": "text",
+        "text": "Sustainable fisheries also require a boundary and a rate-versus-stock distinction. A standing biomass is an amount; harvest and net biological production over an interval change that amount. A catch that was sustainable under earlier recruitment and habitat conditions can become excessive when those conditions change. Population size alone does not establish a universally safe harvest, and a high catch does not prove a healthy stock. Irrigation, aquatic habitat and fisheries can interact through altered flows, temperature, nutrients or access to spawning areas. Evaluate tradeoffs by linking an intervention to the relevant physical and biological mechanisms, then monitor outcomes rather than promising that one efficiency measure automatically improves every resource condition."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-apes-water-predict",
+        "prompt": "A system withdraws 100 units of water and returns 60 units within the same stated accounting boundary and interval. What is consumptive use in this simple complete ledger?",
+        "choices": [
+          "100 units",
+          "60 units",
+          "160 units",
+          "40 units"
+        ],
+        "answer": 3,
+        "explanation": "Withdrawal minus the specified return flow is 100 − 60 = 40 units. The result depends on the defined boundary and complete-flow assumptions.",
+        "hint": "Separate what is taken from what returns."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-apes-water-guide",
+        "title": "Track both the useful use and the return flow",
+        "scenario": "Original hypothetical daily irrigation model: withdrawal is 100 ML/day, crop consumption is 40 ML/day and all remaining 60 ML/day returns within the same basin and interval. Define efficiency here as crop consumption/withdrawal. A new system supplies the same crop consumption at 80% efficiency; assume all remaining water still returns as stated.",
+        "steps": [
+          {
+            "prompt": "What is the original defined efficiency?",
+            "choices": [
+              "60%",
+              "40%",
+              "100%",
+              "80%"
+            ],
+            "answer": 1,
+            "explanation": "Useful crop consumption is 40 of 100 ML/day, giving 40%. This is the specified model definition, not a claim that every efficiency metric is identical.",
+            "hint": "Use the stated numerator and denominator."
+          },
+          {
+            "prompt": "What withdrawal supplies 40 ML/day at 80% efficiency?",
+            "choices": [
+              "32 ML/day",
+              "80 ML/day",
+              "50 ML/day",
+              "100 ML/day"
+            ],
+            "answer": 2,
+            "explanation": "Withdrawal = useful crop use/efficiency = 40/0.80 = 50 ML/day.",
+            "hint": "Rearrange the ratio before substituting."
+          },
+          {
+            "prompt": "What return flow remains under the complete new ledger?",
+            "choices": [
+              "10 ML/day",
+              "40 ML/day",
+              "50 ML/day",
+              "60 ML/day"
+            ],
+            "answer": 0,
+            "explanation": "Withdrawal 50 minus crop consumption 40 leaves return flow 10 ML/day under the supplied assumptions.",
+            "hint": "Account for the remainder rather than treating it as automatically zero."
+          },
+          {
+            "prompt": "What happens to modeled consumptive use?",
+            "choices": [
+              "It falls by 50 ML/day",
+              "It becomes 10 ML/day",
+              "It doubles",
+              "It remains 40 ML/day"
+            ],
+            "answer": 3,
+            "explanation": "Crop consumption was held fixed. Withdrawals fall by 50 while return flows also fall by 50, so net consumption remains 40 in this particular model.",
+            "hint": "Compare both the input and return-flow changes."
+          }
+        ],
+        "takeaway": "A smaller withdrawal can be valuable, but it is not the same quantity as a reduction in net consumptive use. State what changed and what was held fixed."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-apes-water-transfer",
+        "prompt": "Why should a real basin analysis also ask where, when and in what condition return water becomes available? Explain why the simple ledger cannot answer those questions by itself.",
+        "sampleAnswer": "Return water may enter another location, arrive after a critical demand period or carry different nutrient or salinity conditions. Equal volumes therefore need not supply equal ecological or human benefits. The simple complete ledger isolates amounts; it does not model all timing, geography, water-quality or ecosystem effects.",
+        "checklist": [
+          "Identify at least one return-flow property beyond volume.",
+          "Connect it to an affected use or ecosystem process.",
+          "Keep the ledger result separate from a comprehensive management claim."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-apes-water-recall",
+        "prompt": "A hypothetical fishery begins with 100 metric tons of biomass. Over a specified interval, net biological increase before harvest is 20 metric tons, and harvest is 25 metric tons. Ignoring all other transfers, what is final biomass? Enter only the number of metric tons.",
+        "sampleAnswer": "The complete modeled stock is 100 + 20 − 25 = 95 metric tons. A repeated 25-ton catch would not automatically remain sustainable if biological production changes.",
+        "math": true,
+        "acceptedAnswers": [
+          "95"
+        ]
+      }
+    ]
+  },
+  "APES: Energy Resources and Consumption::6.3 Renewable energy, storage, conservation, and location constraints": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish rated power, energy over time and the timing of demand.",
+      "Account for a stated storage efficiency without creating energy.",
+      "Explain why renewable options depend on location, infrastructure and environmental tradeoffs."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A renewable source can replenish on relevant human timescales, but renewable does not mean that every site has the same resource or that impacts are zero. Solar production depends on sunlight and system conditions; wind depends on useful wind patterns; hydropower depends on suitable water movement and infrastructure; geothermal resources depend on accessible heat and an appropriate system. Name the mechanism and location constraints before comparing technologies. A common unit such as kilowatt-hours helps compare energy, but it does not make habitat effects, material needs or reliability identical."
+      },
+      {
+        "type": "text",
+        "text": "Power is the rate of energy transfer. Multiplying a stated power by operating time gives energy; a rated capacity is not a promise that the system produces at that rate every hour. A daily or annual energy total also does not establish that generation matches demand at each moment. Storage, transmission, complementary sources or flexible demand can help with timing, but they have their own capacities, power limits, losses and environmental considerations. A model that ignores those constraints should state that choice instead of presenting a daily surplus as proof of all-hour supply."
+      },
+      {
+        "type": "text",
+        "text": "Round-trip storage efficiency is useful returned energy divided by the energy sent into the storage cycle under the stated definition. At 80% efficiency, returning 4 kWh requires 5 kWh of input. The difference is accounted for through losses and other energy transfers, not destruction of energy. Distinguish the storage calculation from a battery’s nameplate capacity, because a capacity claim needs its own usable range and operating conditions. Conservation and demand reduction can change how much generation and storage are needed. A comprehensive evaluation considers life-cycle inputs, local ecological effects, availability and the actual service required, rather than treating one technology label as a universal solution."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-apes-storage-predict",
+        "prompt": "A storage cycle returns 80% of its input as useful electrical energy. How much input is needed to return 4 kWh?",
+        "choices": [
+          "3.2 kWh",
+          "4 kWh",
+          "5 kWh",
+          "8 kWh"
+        ],
+        "answer": 2,
+        "explanation": "Input = useful output/efficiency = 4/0.80 = 5 kWh. Multiplying output by efficiency would answer a different question.",
+        "hint": "Rearrange efficiency = output/input."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-apes-storage-guide",
+        "title": "Match a daily energy total to a timing plan",
+        "scenario": "Original hypothetical model: a solar system produces the equivalent of 4 kW for 4 hours, totaling the day’s production. Demand is 6 kWh during direct production and 4 kWh later. Round-trip storage efficiency is 80%. Ignore power limits and all other losses; assume the timing plan is feasible within those simplifications.",
+        "steps": [
+          {
+            "prompt": "What is daily solar energy production?",
+            "choices": [
+              "4 kWh",
+              "16 kWh",
+              "1 kWh",
+              "8 kWh"
+            ],
+            "answer": 1,
+            "explanation": "4 kW × 4 h = 16 kWh. The power rating and operating duration are different quantities.",
+            "hint": "Multiply power by the stated equivalent time."
+          },
+          {
+            "prompt": "How much solar energy must enter storage to return the later 4 kWh?",
+            "choices": [
+              "3.2 kWh",
+              "4 kWh",
+              "8 kWh",
+              "5 kWh"
+            ],
+            "answer": 3,
+            "explanation": "4/0.80 = 5 kWh enters the storage cycle, which returns 4 kWh under the stated efficiency.",
+            "hint": "Use output/input, not input/output, for efficiency."
+          },
+          {
+            "prompt": "How much of the day’s solar production is allocated to direct demand plus storage input?",
+            "choices": [
+              "11 kWh",
+              "10 kWh",
+              "6 kWh",
+              "20 kWh"
+            ],
+            "answer": 0,
+            "explanation": "Direct use is 6 kWh and storage input is 5 kWh, totaling 11 kWh. The later 4 kWh is already the output of that stored input, not an extra solar allocation.",
+            "hint": "Avoid counting stored input and its later output as two independent source inputs."
+          },
+          {
+            "prompt": "How much production remains unallocated in this simplified ledger?",
+            "choices": [
+              "6 kWh",
+              "4 kWh",
+              "5 kWh",
+              "0 kWh"
+            ],
+            "answer": 2,
+            "explanation": "16 − 11 = 5 kWh remains. Whether it can be exported, stored further or curtailed needs additional system information.",
+            "hint": "Subtract the actual direct and storage-input allocations."
+          }
+        ],
+        "takeaway": "Generation totals, storage losses and demand timing belong in the same consistent ledger. A surplus under simplified assumptions is not a complete infrastructure design."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-apes-storage-transfer",
+        "prompt": "A report uses only annual generation exceeding annual demand to guarantee uninterrupted supply. Identify two missing constraints and explain why the annual comparison is insufficient.",
+        "sampleAnswer": "Hourly or seasonal timing, storage energy and power limits, transmission, maintenance and weather variability can matter. An annual surplus can coexist with a shortfall during particular periods. Evaluate whether the system can deliver the required power and energy when and where needed, and account for losses.",
+        "checklist": [
+          "Distinguish energy totals from time-specific delivery.",
+          "Name at least two relevant constraints.",
+          "Avoid claiming an annual surplus is either useless or a complete guarantee."
+        ],
+        "math": false
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-apes-storage-recall",
+        "prompt": "A fictional device produces a constant 3 kW for 6 hours. If 25% of that energy is lost before useful delivery, how many kWh are delivered? Enter only the number.",
+        "sampleAnswer": "Produced energy is 3 × 6 = 18 kWh. Retaining 75% gives 18 × 0.75 = 13.5 kWh.",
+        "math": true,
+        "acceptedAnswers": [
+          "13.5",
+          "27/2"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Energy and Momentum of Rotating Systems::6.1 Rotational kinetic energy and angular work": {
+    "revision": 1,
+    "objectives": [
+      "Relate net torque through angular displacement to rotational work.",
+      "Use rotational kinetic energy to solve for speed rather than adding work directly to angular velocity.",
+      "Check whether a proposed motion would require negative kinetic energy."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A rigid object rotating about a stated fixed axis has rotational kinetic energy K_rot = ½Iω² in the model used here. Rotational inertia I must correspond to that axis, and angular speed ω must use compatible units. The squared speed means a given energy change does not produce a fixed additive change in angular speed. Rotational inertia has units kg·m²; energy has units joules. A numerical coincidence between a torque value and an energy value does not make them the same quantity."
+      },
+      {
+        "type": "text",
+        "text": "For a constant torque component about the axis, work through a signed angular displacement is W = τΔθ. The angle must be expressed in radians when using this standard SI relation. If torque varies, signed area on a torque–angle graph gives work; area on a torque–time graph instead gives angular impulse. Read the horizontal axis before interpreting area. Net rotational work changes rotational kinetic energy under the stated fixed-axis, constant-inertia assumptions. If the problem supplies a net torque, a resisting torque has already been included in that net; do not subtract the same resistance a second time."
+      },
+      {
+        "type": "text",
+        "text": "Positive work increases rotational kinetic energy, while negative work decreases it. A calculation producing negative kinetic energy signals that the proposed motion cannot continue as assumed. An opposing torque can stop the object before a requested forward angular displacement is reached; what happens after stopping requires a new account of motion and torque direction. Energy also needs a consistent system boundary. A rolling object can have both center-of-mass translational energy and rotational energy about its center. Neither component should be omitted, and the same translational contribution should not be counted twice through an incompatible inertia choice. An energy result can determine speed magnitude without by itself specifying the sign of angular velocity."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-physics-rotwork-predict",
+        "prompt": "Which graph area gives rotational work?",
+        "choices": [
+          "Torque versus time",
+          "Torque versus angular displacement",
+          "Angular speed versus time, always",
+          "Rotational inertia versus time"
+        ],
+        "answer": 1,
+        "explanation": "Work connects torque to angular displacement. Torque–time area instead changes angular momentum.",
+        "hint": "Check the units formed by multiplying the axes."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-physics-rotwork-guide",
+        "title": "Update the energy before solving for speed",
+        "scenario": "A fixed-axis flywheel has I = 0.40 kg·m² and initial angular speed 3 rad/s. A constant net torque of 2 N·m acts in the direction of a 4 rad angular displacement. No inertia change occurs.",
+        "steps": [
+          {
+            "prompt": "What is initial rotational kinetic energy?",
+            "choices": [
+              "1.2 J",
+              "3.6 J",
+              "1.8 J",
+              "0.6 J"
+            ],
+            "answer": 2,
+            "explanation": "½(0.40)(3²) = 1.8 J. The angular speed must be squared.",
+            "hint": "Use the kinetic-energy expression, not Iω."
+          },
+          {
+            "prompt": "What net work is done?",
+            "choices": [
+              "8 J",
+              "2 J",
+              "0.5 J",
+              "4 J"
+            ],
+            "answer": 0,
+            "explanation": "W = τΔθ = (2)(4) = 8 J. Radians are the specified angular unit.",
+            "hint": "Multiply torque by angular displacement."
+          },
+          {
+            "prompt": "What is final rotational kinetic energy?",
+            "choices": [
+              "8 J",
+              "6.2 J",
+              "1.8 J",
+              "9.8 J"
+            ],
+            "answer": 3,
+            "explanation": "K_final = K_initial + W_net = 1.8 + 8 = 9.8 J. Work is an energy change, not necessarily the final energy by itself.",
+            "hint": "Retain the energy the flywheel already had."
+          },
+          {
+            "prompt": "What is final angular speed?",
+            "choices": [
+              "9.8 rad/s",
+              "7 rad/s",
+              "11 rad/s",
+              "49 rad/s"
+            ],
+            "answer": 1,
+            "explanation": "½(0.40)ω² = 9.8 gives ω² = 49 and speed 7 rad/s. The value 49 is squared speed.",
+            "hint": "Isolate ω², then take the appropriate speed magnitude."
+          }
+        ],
+        "takeaway": "Use work to change the energy ledger, then solve the squared-speed relationship. Do not add joules directly to radians per second."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-physics-rotwork-transfer",
+        "prompt": "Starting from the original 1.8 J state, suppose a constant 2 N·m torque opposes the initial rotation. Could the wheel continue in its original direction through 2 rad while keeping this simple model? Find the stopping angle first.",
+        "sampleAnswer": "The required negative work over 2 rad would be −4 J, larger in magnitude than the available 1.8 J. The wheel stops after 1.8/2 = 0.9 rad of forward rotation. Continuing the same forward-motion assumption to 2 rad would predict impossible negative kinetic energy. Subsequent reverse motion would need its own signed displacement and work account.",
+        "checklist": [
+          "Compare available kinetic energy with the proposed negative work.",
+          "Calculate the stopping displacement.",
+          "Do not interpret a negative kinetic-energy result as a physical speed."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-physics-rotwork-recall",
+        "prompt": "A fixed-axis object has I = 2 kg·m² and angular speed 4 rad/s. What is rotational kinetic energy in joules? Enter only the number.",
+        "sampleAnswer": "K = ½(2)(4²) = 16 J.",
+        "math": true,
+        "acceptedAnswers": [
+          "16"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Energy and Momentum of Rotating Systems::6.2 Angular momentum and rotational collisions": {
+    "revision": 1,
+    "objectives": [
+      "Choose the system and axis for an angular-momentum comparison.",
+      "Solve a rotational sticking interaction without assuming kinetic energy is conserved.",
+      "Explain the effect of an external angular impulse."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Angular momentum about a stated fixed axis is L = Iω for a rigid body in the applicable model. Its sign follows the chosen rotational direction, while inertia is nonnegative. For a system, include the relevant contributions from all objects before and after an interaction. A ring that initially has zero angular velocity still has rotational inertia and becomes part of the final rotating system when it joins a disk. Omitting it after contact changes the system between equations and can give an incorrect final speed."
+      },
+      {
+        "type": "text",
+        "text": "Conservation of angular momentum follows when the net external torque about the chosen axis is negligible over the interaction. Internal contact forces can exchange angular momentum between the objects without changing the system total. A fixed-axis support may exert forces, but the relevant torque about that axis must be examined rather than assuming that any support makes conservation impossible. Define the axis and justify the external-torque approximation. If a known external angular impulse acts, the correct statement is L_final = L_initial + angular impulse, not an unchanged L."
+      },
+      {
+        "type": "text",
+        "text": "Angular-momentum conservation does not by itself conserve rotational kinetic energy. When two objects begin at different angular speeds and reach a shared speed through slipping contact, rotational kinetic energy can decrease through internal transfers such as heating. Conversely, a person pulling masses inward can increase rotational kinetic energy while preserving angular momentum if external torque is negligible; internal work supplies the energy change. Check the two quantities independently using L = Iω and K = ½Iω². A changing I can be balanced by changing ω without keeping either quantity separately fixed. The comparison concerns an explicitly modeled rotational state; unrelated vertical motion or other energy stores need their own accounting if included."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-physics-angular-predict",
+        "prompt": "A nonrotating ring joins a rotating disk about the same axis with negligible external torque. What is the ring’s role in the final calculation?",
+        "choices": [
+          "It has no role because its initial angular momentum is zero",
+          "It contributes to final rotational inertia even though its initial angular momentum is zero",
+          "It must provide the same initial speed as the disk",
+          "It removes all angular momentum from the system"
+        ],
+        "answer": 1,
+        "explanation": "Zero initial Iω does not mean zero inertia. Once the ring shares the rotation, its inertia affects the final speed.",
+        "hint": "Keep system membership and initial motion as separate facts."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-physics-angular-guide",
+        "title": "Conserve one quantity and test another",
+        "scenario": "A disk of inertia 1.5 kg·m² rotates at +4 rad/s. A coaxial ring of inertia 0.5 kg·m² initially has zero angular speed. They are brought into contact and reach one shared angular speed. Neglect net external torque about the axis and compare only the stated rotational states.",
+        "steps": [
+          {
+            "prompt": "What is the initial system angular momentum?",
+            "choices": [
+              "12 kg·m²/s",
+              "2 kg·m²/s",
+              "6 kg·m²/s",
+              "8 kg·m²/s"
+            ],
+            "answer": 2,
+            "explanation": "L_initial = (1.5)(4) + (0.5)(0) = +6 kg·m²/s.",
+            "hint": "Sum Iω for both initial objects."
+          },
+          {
+            "prompt": "What total inertia rotates at the final shared speed?",
+            "choices": [
+              "2.0 kg·m²",
+              "1.5 kg·m²",
+              "0.5 kg·m²",
+              "6 kg·m²"
+            ],
+            "answer": 0,
+            "explanation": "Both objects are included about the same axis: 1.5 + 0.5 = 2.0 kg·m².",
+            "hint": "Do not omit the ring after it begins to rotate."
+          },
+          {
+            "prompt": "What is the shared angular velocity?",
+            "choices": [
+              "+4 rad/s",
+              "+12 rad/s",
+              "−3 rad/s",
+              "+3 rad/s"
+            ],
+            "answer": 3,
+            "explanation": "Conservation gives (2.0)ω_final = 6, so ω_final = +3 rad/s.",
+            "hint": "Use the conserved system total, not only the disk’s final momentum."
+          },
+          {
+            "prompt": "How does rotational kinetic energy change?",
+            "choices": [
+              "It remains 12 J because angular momentum is conserved",
+              "It decreases from 12 J to 9 J",
+              "It increases from 9 J to 12 J",
+              "It becomes negative"
+            ],
+            "answer": 1,
+            "explanation": "Initial K = ½(1.5)(4²) = 12 J. Final K = ½(2)(3²) = 9 J, a 3 J decrease in the rotational store.",
+            "hint": "Calculate energy independently instead of assuming it shares the conservation rule."
+          }
+        ],
+        "takeaway": "Conserve angular momentum only after defining the system and external torque; evaluate energy with its own ledger."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-physics-angular-transfer",
+        "prompt": "If an additional positive external angular impulse of 1 kg·m²/s acts during the same interaction, what final angular velocity follows? Explain which earlier assumption changed.",
+        "sampleAnswer": "The final angular momentum becomes 6 + 1 = 7 kg·m²/s. With final inertia 2.0 kg·m², angular velocity is +3.5 rad/s. The external-torque impulse is no longer negligible, so equal initial and final angular momentum is not the correct equation.",
+        "checklist": [
+          "Include the signed external impulse.",
+          "Keep the same two-object final inertia.",
+          "Distinguish a modified conservation equation from a failure of mechanics."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-physics-angular-recall",
+        "prompt": "A system initially has I = 1.5 kg·m² and ω = +4 rad/s. With negligible external torque, its inertia changes to 0.75 kg·m². What is its final angular velocity in rad/s? Enter only the number.",
+        "sampleAnswer": "Angular momentum is 1.5 × 4 = 6 kg·m²/s. Thus ω_final = 6/0.75 = +8 rad/s. Its energy need not be unchanged.",
+        "math": true,
+        "acceptedAnswers": [
+          "8"
+        ]
+      }
+    ]
+  },
+  "Physics 1: Fluids::8.3 Continuity and Bernoulli reasoning with explicit assumptions": {
+    "revision": 1,
+    "objectives": [
+      "Apply continuity to cross-sectional area rather than radius alone.",
+      "Use Bernoulli’s equation only with its stated conditions and reference points.",
+      "Distinguish a pressure difference from an absolute pressure."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "For steady flow of an incompressible fluid through a pipe without leaks, volume flow rate Q = Av is the same at each cross section. Area A multiplies the average speed through that section. A smaller area therefore requires a larger speed under those assumptions. Radius is not area: a circular cross section has A = πr², so halving radius quarters area. Keep unit conversions consistent; one square centimeter is 10⁻⁴ square meters, not 10⁻² square meters. Continuity accounts for flow but does not, by itself, provide the pressure difference."
+      },
+      {
+        "type": "text",
+        "text": "Bernoulli’s relation p + ½ρv² + ρgh = constant connects pressure, speed and height along a streamline in the specified ideal model. The fluid is treated as steady and incompressible, with negligible viscous losses and no unaccounted pump work. Every term has pressure units. At equal heights, a speed increase corresponds to a pressure decrease in that model. This does not establish that every faster fluid anywhere has lower pressure than every slower fluid elsewhere. Different streamlines, pumps, elevations or losses can make that comparison inapplicable."
+      },
+      {
+        "type": "text",
+        "text": "Choose two locations and subtract the equations before inserting values. For a horizontal pipe, the height terms cancel and p₂ − p₁ = ½ρ(v₁² − v₂²). Preserve the squared speeds and the sign of the difference. A result of −7.5 kPa is a pressure change, not automatically a negative absolute pressure or a final reading of 7.5 kPa. Add the difference to a supplied reference pressure to obtain the second pressure. In an experiment, compare the model with measured flow, geometry and pressure while noting viscosity, turbulence and instrument limitations. A discrepancy can reflect model assumptions as well as measurement uncertainty."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-physics-flow-predict",
+        "prompt": "The cross-sectional area decreases from 4 cm² to 1 cm² in the stated steady incompressible no-leak model. What is v₂/v₁?",
+        "choices": [
+          "1/4",
+          "2",
+          "4",
+          "16"
+        ],
+        "answer": 2,
+        "explanation": "Continuity gives A₁v₁ = A₂v₂, so v₂/v₁ = A₁/A₂ = 4. The supplied quantities are areas, not radii.",
+        "hint": "Use the actual cross-sectional quantities given."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-physics-flow-guide",
+        "title": "Find speed, then pressure change",
+        "scenario": "An ideal horizontal pipe carries water of density 1,000 kg/m³. Area changes from 4 cm² at point 1 to 1 cm² at point 2. At point 1, speed is 1 m/s and absolute pressure is 200 kPa. Assume the stated Bernoulli conditions with no pump or additional loss.",
+        "steps": [
+          {
+            "prompt": "What is speed at point 2?",
+            "choices": [
+              "4 m/s",
+              "0.25 m/s",
+              "2 m/s",
+              "16 m/s"
+            ],
+            "answer": 0,
+            "explanation": "Area ratio is 4, so speed rises from 1 to 4 m/s to preserve Av.",
+            "hint": "Apply continuity before using the energy relation."
+          },
+          {
+            "prompt": "What is v₁² − v₂²?",
+            "choices": [
+              "3 m²/s²",
+              "−3 m²/s²",
+              "17 m²/s²",
+              "−15 m²/s²"
+            ],
+            "answer": 3,
+            "explanation": "1² − 4² = 1 − 16 = −15 m²/s². The speed difference itself is not the squared-speed difference.",
+            "hint": "Square each speed before subtracting."
+          },
+          {
+            "prompt": "What is p₂ − p₁?",
+            "choices": [
+              "+7,500 Pa",
+              "−7,500 Pa",
+              "−15 Pa",
+              "−200,000 Pa"
+            ],
+            "answer": 1,
+            "explanation": "½(1,000)(−15) = −7,500 Pa, or −7.5 kPa.",
+            "hint": "Use matching units and keep the sign."
+          },
+          {
+            "prompt": "What absolute pressure is predicted at point 2?",
+            "choices": [
+              "7.5 kPa",
+              "−7.5 kPa",
+              "192.5 kPa",
+              "207.5 kPa"
+            ],
+            "answer": 2,
+            "explanation": "p₂ = 200 kPa − 7.5 kPa = 192.5 kPa. The pressure difference is not the final pressure.",
+            "hint": "Combine the change with the supplied reference pressure."
+          }
+        ],
+        "takeaway": "Continuity and Bernoulli answer different parts of the problem. Check their assumptions, units and reference quantities separately."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-physics-flow-transfer",
+        "prompt": "If point 2 were 1 m higher while the same speeds were maintained, use g = 10 m/s² to find the additional pressure decrease in this ideal model. Why would a pump between the points require extra accounting?",
+        "sampleAnswer": "The height term adds ρgΔh = (1,000)(10)(1) = 10,000 Pa of required pressure decrease, beyond the 7,500 Pa associated with speed. Under those stated conditions p₂ would be 182.5 kPa. A pump supplies energy, so the original no-pump constant-energy relation would need a pump-work contribution rather than an unchanged substitution.",
+        "checklist": [
+          "Include the height change with its direction.",
+          "Keep Pa and kPa consistent.",
+          "Identify which ideal-model assumption a pump changes."
+        ],
+        "math": true
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-physics-flow-recall",
+        "prompt": "A steady incompressible flow has cross-sectional area 0.001 m² and average speed 2 m/s. What is volume flow rate in m³/s? Enter only the number.",
+        "sampleAnswer": "Q = Av = (0.001)(2) = 0.002 m³/s.",
+        "math": true,
+        "acceptedAnswers": [
+          "0.002",
+          "1/500"
+        ]
+      }
+    ]
+  },
+  "Psych: Development & Learning::3.2 Cognitive Development and Language Acquisition": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish assimilation from accommodation using changes in a mental category.",
+      "Explain what a developmental task can and cannot show.",
+      "Identify scaffolding and the zone of proximal development."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Cognitive development concerns changes in thinking, knowledge and the strategies people use to solve problems. In Piaget’s account, a schema is an organized framework for interpreting experience. Assimilation incorporates an experience into an existing schema; accommodation changes a schema when it does not adequately fit the experience. These processes can operate together. A child who calls a horse a dog may initially use an existing animal category. Learning features that distinguish horses from dogs can lead the child to revise that category. The important evidence is the change in the organizing rule, not whether the first answer sounded unusual to an adult."
+      },
+      {
+        "type": "text",
+        "text": "Object permanence is understanding that an object continues to exist when it is out of view. Conservation is understanding that a quantity can remain unchanged despite a change in appearance, such as water being poured into a differently shaped container. These are distinct concepts: finding a hidden toy does not by itself demonstrate conservation. Piaget proposed broad developmental stages, but a single task should not be treated as an exact clock for every child. Language demands, attention, memory, inhibition, familiarity and culture can affect observed performance. A researcher must specify the task and consider alternative explanations before interpreting a response as evidence about a general ability."
+      },
+      {
+        "type": "text",
+        "text": "Vygotsky emphasized learning through social interaction and culturally available tools. The zone of proximal development describes tasks a learner cannot yet complete independently but can complete with appropriate support. Scaffolding is temporary, responsive assistance: a teacher might model one step, ask a focused question and gradually withdraw help as competence grows. Doing every step for the learner does not show independent mastery. Language development also involves several systems, including sound distinctions, word meanings and rules for combining words. A child’s overregularization, such as applying a regular past-tense ending to an irregular verb, can reveal active rule use rather than mere imitation. Interpreting development requires attention to the particular process and evidence rather than a universal assumption that all abilities advance together."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-psych-cognitive-predict",
+        "prompt": "A child changes an animal category after noticing that horses differ from dogs. Which process is most directly illustrated?",
+        "choices": [
+          "Accommodation",
+          "Conservation",
+          "A fixed personality trait",
+          "Object permanence"
+        ],
+        "answer": 0,
+        "explanation": "The organizing schema changes to fit new information.",
+        "hint": "Look for a revision of the category."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-psych-cognitive-guide",
+        "title": "Follow the evidence through the example",
+        "scenario": "In this fictional learning sequence, a child searches under a cloth for a hidden toy, calls a newly seen horse a dog, then learns distinguishing features and creates a separate horse category. Later, an adult models a puzzle strategy and reduces assistance as the child becomes more capable.",
+        "steps": [
+          {
+            "prompt": "What does searching for the hidden toy most directly suggest?",
+            "choices": [
+              "Conservation of liquid volume",
+              "Object permanence",
+              "A complete language system",
+              "A specific attachment classification"
+            ],
+            "answer": 1,
+            "explanation": "Searching for the unseen object is consistent with understanding that it still exists.",
+            "hint": "Which concept concerns existence when out of sight?"
+          },
+          {
+            "prompt": "Calling the horse a dog initially illustrates which process?",
+            "choices": [
+              "Accommodation of the category",
+              "Conservation",
+              "Assimilation into an existing category",
+              "A diagnosis of language impairment"
+            ],
+            "answer": 2,
+            "explanation": "The child applies an existing dog schema to the new animal.",
+            "hint": "Has the category changed yet?"
+          },
+          {
+            "prompt": "Creating a distinct horse category best illustrates what?",
+            "choices": [
+              "Accommodation",
+              "Negative reinforcement",
+              "Object permanence",
+              "Sensory adaptation"
+            ],
+            "answer": 0,
+            "explanation": "The schema is revised to accommodate information that did not fit.",
+            "hint": "The organizing framework now changes."
+          },
+          {
+            "prompt": "Modeling a strategy and gradually withdrawing help best illustrates what?",
+            "choices": [
+              "Permanent dependence on an adult",
+              "Evidence that all stages occur at fixed ages",
+              "Punishment",
+              "Scaffolding"
+            ],
+            "answer": 3,
+            "explanation": "The assistance responds to current competence and fades as the learner takes responsibility.",
+            "hint": "Focus on temporary support and increasing independence."
+          }
+        ],
+        "takeaway": "Name the psychological process supported by the evidence, and distinguish that interpretation from claims the observation cannot establish."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-psych-cognitive-transfer",
+        "prompt": "A child fails a conservation question when it uses complex wording but succeeds when the same quantities are described simply. Explain what this comparison suggests and what it does not settle.",
+        "sampleAnswer": "Language demands may have affected the first performance, so that failure alone is weak evidence that the child lacks all understanding of quantity. The comparison does not prove that every developmental theory is false or that the child will succeed on all conservation tasks. Matched quantities, consistent instructions and repeated observations would clarify the interpretation.",
+        "checklist": [
+          "Identify language demands as an alternative explanation.",
+          "Separate task performance from a universal ability claim.",
+          "Propose a controlled comparison or additional evidence."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-psych-cognitive-recall",
+        "prompt": "How does scaffolding differ from completing a task for a learner, and how does it relate to the zone of proximal development?",
+        "sampleAnswer": "Scaffolding supplies temporary, adjustable support for a task the learner cannot yet complete alone but can complete with help. Support should fade as competence grows; an adult completing all the work does not demonstrate the learner’s independent mastery.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Development & Learning::3.3 Attachment, Social Development, and Identity": {
+    "revision": 1,
+    "objectives": [
+      "Explain secure-base behavior without treating one observation as a diagnosis.",
+      "Distinguish parenting dimensions from claims of universal causation.",
+      "Separate identity constructs and recognize limits of inference."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Attachment is an enduring emotional bond that develops through interactions with caregivers. A secure base supports exploration while providing a source of comfort when the child is distressed. Observing a child explore, seek comfort and resume exploration can illustrate this function. However, one brief observation is not a complete assessment of an attachment pattern, and attachment is not a guarantee of a fixed future personality. Researchers examine patterns in appropriate contexts and consider developmental history. A child’s temporary distress in an unfamiliar situation also does not establish that a caregiver has behaved badly. Description of a behavior should come before interpretation of its possible meaning."
+      },
+      {
+        "type": "text",
+        "text": "Parenting styles summarize patterns along dimensions such as responsiveness or warmth and demandingness or control. Authoritative parenting combines warmth with clear, responsive expectations. Authoritarian parenting emphasizes high control with relatively low responsiveness. Permissive parenting combines warmth with few demands; uninvolved parenting involves relatively low levels of both. These are simplified descriptive categories, not a complete account of any family. Associations between parenting patterns and outcomes do not automatically isolate a single causal direction. A child’s temperament can influence caregiver responses, while resources, stress, cultural expectations and other relationships can affect both parenting and development. The meaning and consequences of a behavior also depend on the broader context."
+      },
+      {
+        "type": "text",
+        "text": "Social development includes changing relationships, social understanding and a developing sense of self. Identity exploration and commitments can vary across domains and over time; a temporary uncertainty does not by itself establish a disorder. Sex characteristics, gender identity, gender expression and sexual orientation describe different constructs. Clothing or appearance alone cannot establish a person’s internal identity, orientation, abilities or interests. A careful psychological explanation uses the construct actually measured rather than assuming that one visible feature reveals every aspect of a person. Across attachment, parenting and identity, the same reasoning rule applies: distinguish an observed pattern from an unsupported judgment about an individual’s entire life."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-psych-attachment-predict",
+        "prompt": "Which claim is best supported by a correlation between a parenting pattern and an outcome?",
+        "choices": [
+          "The parenting pattern is the only cause",
+          "The child cannot influence caregiver behavior",
+          "The variables are associated in the studied sample",
+          "The result applies identically in every culture"
+        ],
+        "answer": 2,
+        "explanation": "Correlation establishes association, not a unique causal explanation or universal scope.",
+        "hint": "Separate a relationship from an isolated cause."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-psych-attachment-guide",
+        "title": "Follow the evidence through the example",
+        "scenario": "In fictional observations, Caregiver A responds warmly and explains consistent boundaries. Caregiver B insists on strict obedience and offers little responsiveness. A child in another setting explores, returns for comfort after a startling noise and then resumes exploration. An observational study reports an association between parenting patterns and adjustment.",
+        "steps": [
+          {
+            "prompt": "Which description best matches Caregiver A?",
+            "choices": [
+              "Authoritarian",
+              "Authoritative",
+              "Uninvolved",
+              "Permissive because any warmth removes demands"
+            ],
+            "answer": 1,
+            "explanation": "Warm responsiveness and clear expectations together fit the authoritative description.",
+            "hint": "Evaluate both warmth and demandingness."
+          },
+          {
+            "prompt": "Which description best matches Caregiver B?",
+            "choices": [
+              "Permissive",
+              "Authoritative",
+              "Authoritarian",
+              "Uninvolved because control is high"
+            ],
+            "answer": 2,
+            "explanation": "High control paired with low responsiveness fits the authoritarian description.",
+            "hint": "High control does not mean low involvement on every dimension."
+          },
+          {
+            "prompt": "What is the most careful interpretation of the child’s exploration and comfort seeking?",
+            "choices": [
+              "It illustrates secure-base use but does not alone establish a full attachment classification",
+              "It proves a fixed adult personality",
+              "It establishes the child’s gender identity",
+              "It proves separation will never be distressing"
+            ],
+            "answer": 0,
+            "explanation": "The sequence illustrates a caregiver’s secure-base function while remaining limited evidence.",
+            "hint": "Distinguish illustration from a comprehensive assessment."
+          },
+          {
+            "prompt": "What would the observational association alone justify?",
+            "choices": [
+              "A universal parenting recipe",
+              "Proof that children never affect parents",
+              "A diagnosis for every family in the sample",
+              "An association that may involve confounding and bidirectional influences"
+            ],
+            "answer": 3,
+            "explanation": "Without an identifying design, alternative causes and child-to-parent influences remain possible.",
+            "hint": "What did the study actually manipulate?"
+          }
+        ],
+        "takeaway": "Name the psychological process supported by the evidence, and distinguish that interpretation from claims the observation cannot establish."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-psych-attachment-transfer",
+        "prompt": "A school observer tries to infer a student’s gender identity, sexual orientation and academic strengths from clothing. Explain the problem and propose a more respectful and valid approach.",
+        "sampleAnswer": "Gender expression does not establish gender identity, sexual orientation or academic abilities. Those are distinct constructs. Use relevant evidence for academic strengths and allow the student to describe personal identity when appropriate, without forcing disclosure or assuming appearance supplies an answer.",
+        "checklist": [
+          "Distinguish expression, identity, orientation and abilities.",
+          "Reject an inference from appearance alone.",
+          "Use relevant evidence and respect voluntary disclosure."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-psych-attachment-recall",
+        "prompt": "Why might a parenting–outcome correlation reflect more than a one-way effect of the caregiver on the child?",
+        "sampleAnswer": "Child temperament and behavior can influence caregiver responses. Cultural context, stress and resources can also influence both parenting and outcomes, so association alone does not isolate a one-way causal effect.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Social Psychology & Personality::4.4 Personality Perspectives and Assessment": {
+    "revision": 1,
+    "objectives": [
+      "Interpret personality traits as dimensions rather than guarantees.",
+      "Distinguish task-specific self-efficacy from global self-esteem.",
+      "Evaluate assessment reliability, validity and response bias."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Personality refers to relatively enduring patterns of thinking, feeling and behavior, but an enduring tendency does not mean identical behavior in every situation. Trait approaches describe variation along dimensions. The Big Five summarize openness to experience, conscientiousness, extraversion, agreeableness and neuroticism. A comparatively high conscientiousness score suggests a tendency toward organization and dependability; it does not prove that the person is always organized. Dimensions are not rigid boxes dividing people into a few natural kinds. Context, current goals, fatigue and opportunities can influence how a tendency appears. A prediction should therefore specify both the trait evidence and the situation in which behavior is being considered."
+      },
+      {
+        "type": "text",
+        "text": "Social-cognitive approaches examine interactions among personal factors, behavior and the environment. In reciprocal determinism, beliefs may affect practice, practice may change the feedback a person receives and that feedback may alter beliefs. Reciprocal does not require every influence to be equally strong at every moment. Self-efficacy is a belief about one’s ability to perform a particular task, such as solving chemistry problems. Self-esteem is a broader evaluation of personal worth. A student can feel capable in chemistry but uncertain about public speaking without a contradiction. Psychodynamic perspectives emphasize unconscious processes and earlier experience, while humanistic perspectives emphasize growth, meaning and self-concept. Naming a perspective is not itself evidence that every claim associated with it is established."
+      },
+      {
+        "type": "text",
+        "text": "Personality assessment requires attention to both measurement and interpretation. Reliability concerns consistency; validity concerns whether evidence supports the intended interpretation and use. A questionnaire can be consistent yet fail to measure the construct it claims to assess. Self-report responses can reflect social desirability, misunderstanding or limited self-knowledge, so responses should not be treated as unfiltered access to every aspect of personality. Projective tasks use ambiguous material, but their interpretation requires evidence of reliability and validity for the specific use rather than assuming hidden meanings are automatically revealed. No single informal score should be used to diagnose a disorder or guarantee a person’s future behavior. Good assessment combines relevant evidence with clear limits on the conclusions drawn."
+      },
+      {
+        "type": "prediction",
+        "id": "sf-psych-personality-predict",
+        "prompt": "A student expects success in chemistry but doubts their public-speaking skill. Which interpretation fits best?",
+        "choices": [
+          "Their self-efficacy can differ across tasks",
+          "Their personality measurements must be invalid",
+          "They cannot have a stable sense of worth",
+          "They have two mutually exclusive personalities"
+        ],
+        "answer": 0,
+        "explanation": "Self-efficacy concerns perceived capability for particular activities.",
+        "hint": "Separate task-specific competence beliefs from global worth."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "sf-psych-personality-guide",
+        "title": "Follow the evidence through the example",
+        "scenario": "In this fictional example, Mira scores relatively high on conscientiousness, feels capable in chemistry but nervous about speeches, and practices more after encouraging feedback. More practice improves her performance and changes the feedback she receives. A questionnaire gives similar scores a week apart, but researchers have not yet checked whether those scores support its claimed interpretation.",
+        "steps": [
+          {
+            "prompt": "What does Mira’s conscientiousness score support?",
+            "choices": [
+              "She will never miss a deadline",
+              "A tendency toward organization, with behavior also affected by circumstances",
+              "A diagnosis of anxiety",
+              "Proof that all personality is inherited"
+            ],
+            "answer": 1,
+            "explanation": "A dimensional trait supports a tendency, not an exception-free behavioral guarantee.",
+            "hint": "A trait is a probabilistic pattern."
+          },
+          {
+            "prompt": "How should the different chemistry and speaking beliefs be understood?",
+            "choices": [
+              "A change in sex characteristics",
+              "A necessary drop in global self-esteem",
+              "Different task-specific self-efficacy beliefs",
+              "Proof of unconscious conflict"
+            ],
+            "answer": 2,
+            "explanation": "Capability beliefs can vary across activities without contradiction.",
+            "hint": "Identify the construct about performing a particular task."
+          },
+          {
+            "prompt": "The feedback–belief–practice cycle best illustrates what?",
+            "choices": [
+              "Reciprocal influences among person, behavior and environment",
+              "A guarantee that environment is irrelevant",
+              "A fixed trait category",
+              "Random assignment"
+            ],
+            "answer": 0,
+            "explanation": "Feedback is environmental input, beliefs are personal factors and practice is behavior; they influence one another.",
+            "hint": "Map each part of the cycle to a different factor."
+          },
+          {
+            "prompt": "What does score consistency a week apart establish by itself?",
+            "choices": [
+              "Validity for every use",
+              "Absence of social desirability",
+              "A complete clinical diagnosis",
+              "Some test–retest reliability evidence, not sufficient validity evidence"
+            ],
+            "answer": 3,
+            "explanation": "Consistency supports one reliability claim; evidence for the intended meaning and use is still required.",
+            "hint": "Can a measurement be consistently wrong?"
+          }
+        ],
+        "takeaway": "Name the psychological process supported by the evidence, and distinguish that interpretation from claims the observation cannot establish."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "sf-psych-personality-transfer",
+        "prompt": "A highly consistent questionnaire claims it can predict who will lead effectively in every setting. Explain why consistency alone cannot establish this claim and what evidence would be useful.",
+        "sampleAnswer": "Consistency supports reliability but does not establish validity for universal leadership prediction. Researchers would need defined leadership outcomes, relevant samples, evidence relating scores to those outcomes and tests across settings. Situations and opportunities affect behavior, so a broad guarantee exceeds what an ordinary trait score can justify.",
+        "checklist": [
+          "Distinguish reliability from validity.",
+          "Specify evidence linked to the intended outcome and setting.",
+          "Recognize person–situation limits on universal prediction."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "sf-psych-personality-recall",
+        "prompt": "Explain the difference between a personality dimension and a rigid category, then distinguish self-efficacy from self-esteem.",
+        "sampleAnswer": "A dimension permits degrees of a trait rather than placing everyone in exclusive types. Self-efficacy concerns perceived ability for a particular task, whereas self-esteem concerns a broader evaluation of personal worth.",
+        "math": false
+      }
+    ]
+  }
+}

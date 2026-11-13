@@ -1,0 +1,925 @@
+{
+  "Calc AB: Limits & Continuity::1.1 Limits from expressions and tables": {
+    "revision": 1,
+    "objectives": [
+      "Separate a limit from the value assigned at the target input.",
+      "Explain what a table suggests and what it cannot prove.",
+      "Use bounding functions to justify a limit without evaluating an oscillating factor."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "A limit is a claim about every sufficiently nearby input in the function’s domain, not merely the few inputs shown in a table. A table can suggest a result or reveal disagreement between two sides, but a finite list cannot establish all nearby behavior. Algebraic simplification can identify a simpler expression that agrees with the original on a punctured neighborhood. Graphs add another representation, but a plotted pixel is also not a proof. The Squeeze Theorem supplies a useful logical tool: if one function stays between two others near the target, and both bounding functions approach the same value, then the middle function approaches that value too. State both the inequality and the common bounding limit. An oscillating factor need not have a limit by itself when a shrinking factor controls the product."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "graph",
+        "title": "Compare the shrinking bounds near the origin; zoom to inspect the middle curve",
+        "equations": [
+          "y=x^2",
+          "y=-x^2",
+          "y=x^2\\cos\\left(\\frac{1}{x}\\right)"
+        ]
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-calc-ab-limits-squeeze-guided",
+        "title": "Work through the representation",
+        "scenario": "Let f(x)=(x²−1)/(x−1) for x ≠ 1, with f(1)=7. Separately, let g(x)=x² cos(1/x) for x ≠ 0. Compare nearby behavior with values at the target, then justify the limit of g.",
+        "steps": [
+          {
+            "prompt": "What do f(0.99)=1.99 and f(1.01)=2.01 suggest about the limit as x approaches 1?",
+            "choices": [
+              "The limit is 7 because f(1)=7",
+              "The limit is 2",
+              "The limit does not exist because f is redefined",
+              "The two table values alone prove the limit is exactly 2"
+            ],
+            "answer": 1,
+            "explanation": "Both values suggest an approach to 2. They are evidence, not a complete proof; we still need a justification covering all sufficiently nearby inputs."
+          },
+          {
+            "prompt": "Which calculation justifies that limit?",
+            "choices": [
+              "Replace every f-value with f(1)",
+              "Substitute 1 into the unsimplified quotient and call 0/0 zero",
+              "For x ≠ 1, factor and simplify f(x) to x+1, whose limit is 2",
+              "Use only the average of the two displayed table values"
+            ],
+            "answer": 2,
+            "explanation": "The factorization x²−1=(x−1)(x+1) gives agreement with x+1 at every input except 1. The limiting behavior is therefore the same as that continuous expression."
+          },
+          {
+            "prompt": "Which inequality is valid for every nonzero x near zero?",
+            "choices": [
+              "−x² ≤ x² cos(1/x) ≤ x²",
+              "0 ≤ x² cos(1/x) ≤ x²",
+              "−1 ≤ x² cos(1/x) ≤ 1 is enough to conclude its limit is zero",
+              "x² ≤ x² cos(1/x) ≤ 2x²"
+            ],
+            "answer": 0,
+            "explanation": "Because −1 ≤ cos(1/x) ≤ 1 and x² is nonnegative, multiplication preserves the inequality directions. The middle expression can be negative, so a zero lower bound would be wrong."
+          },
+          {
+            "prompt": "What does the Squeeze Theorem establish?",
+            "choices": [
+              "cos(1/x) has limit 0",
+              "g(x) has no limit because its factor oscillates",
+              "The value g(0) must already exist",
+              "The limit of g(x) as x approaches 0 is 0"
+            ],
+            "answer": 3,
+            "explanation": "Both −x² and x² approach 0. Their trapped middle function also approaches 0 even though cos(1/x) itself oscillates without a limit."
+          },
+          {
+            "prompt": "If 0<|x|<0.1, what upper bound is guaranteed for |g(x)|?",
+            "choices": [
+              "1",
+              "0.1",
+              "Strictly less than 0.01",
+              "Exactly 0.01 for every such x"
+            ],
+            "answer": 2,
+            "explanation": "The bound |g(x)| ≤ x² gives |g(x)|<0.01 when |x|<0.1. This is a concrete accuracy guarantee, not an assertion that g takes the bound at every input."
+          }
+        ],
+        "takeaway": "A point value can be changed without changing a limit. Bounding an oscillating product can prove a limit that substitution or a short table cannot establish."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "Use the two examples to compare proof strategies. The quotient example is settled by an algebraic identity valid off the target; it does not require the original function to be continuous at the target. The oscillating example is settled by inequalities valid at all nonzero nearby inputs; attempting to evaluate cos(1/x) at zero would not help. Defining g(0)=0 repairs g into a continuous function at zero because its assigned value then agrees with the limit. Defining g(0)=5 would leave the same limit but create a removable discontinuity. These distinctions extend to piecewise graphs: compare the left-hand and right-hand behavior first, then compare any common limit with the point value. A very narrow viewing window or a long table can be useful for exploration, but the final justification should name the relation that makes the conclusion valid. Formal epsilon–delta proofs are not needed for this activity; the explicit numerical bound shows the underlying idea in a concrete way."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-calc-ab-limits-squeeze-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "Would changing f(1) from 7 to 2 change the limit, the continuity, both, or neither? Explain the same question for defining g(0)=5 rather than g(0)=0.",
+        "sampleAnswer": "Changing f(1) to 2 does not change its limit, which is already 2, but it makes f continuous at 1. For g, either assigned value leaves the limit equal to 0. Choosing g(0)=0 gives continuity; choosing g(0)=5 does not. Nearby behavior and the isolated point value must be evaluated separately.",
+        "checklist": [
+          "Identify the limiting value independently of the assigned point.",
+          "Use the definition of continuity as agreement between value and limit.",
+          "Avoid claiming that a point redefinition alters nearby outputs."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-calc-ab-limits-squeeze-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "For g(x)=x² cos(1/x), enter the limiting value as x approaches 0.",
+        "acceptedAnswers": [
+          "0"
+        ],
+        "sampleAnswer": "The inequalities −x² ≤ g(x) ≤ x² have bounding limits 0, so the Squeeze Theorem gives limit 0."
+      }
+    ]
+  },
+  "Calc AB: Differentiation: Composite, Implicit & Inverse Functions::3.1 Chain rule and inverse functions": {
+    "revision": 1,
+    "objectives": [
+      "Derive an inverse-trigonometric derivative using a restricted inverse range.",
+      "Apply the chain rule without losing the inner derivative.",
+      "Use a second derivative to distinguish a minimum from an inflection point."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "An inverse function reverses inputs and outputs only after the original function has been made one-to-one on a suitable domain. For y=arcsin(x), the chosen output interval is [−π/2,π/2]. On its interior, sin(y)=x and cos(y) is positive. Differentiating implicitly gives cos(y)y′=1; the identity cos²(y)=1−sin²(y) then gives y′=1/√(1−x²) for −1<x<1. The positive square-root branch comes from the inverse range, not from a rule that square roots can be assigned either sign at will. Similarly, the derivative of arccos(x) is the negative of that expression on (−1,1), while the derivative of arctan(x) is 1/(1+x²) for every real input. Composite inputs still require the chain rule."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-calc-ab-inverse-trig-higher-guided",
+        "title": "Work through the representation",
+        "scenario": "Analyze h(x)=arcsin(x²). Find its real domain, first derivative, and behavior near x=0.",
+        "steps": [
+          {
+            "prompt": "What is the real domain of h?",
+            "choices": [
+              "All real numbers",
+              "Only 0≤x≤1",
+              "−1≤x≤1",
+              "Only −1<x<1"
+            ],
+            "answer": 2,
+            "explanation": "The input to arcsin must lie between −1 and 1. Since x²≥0, the restriction is x²≤1, giving the closed domain [−1,1]."
+          },
+          {
+            "prompt": "Which first derivative is valid for −1<x<1?",
+            "choices": [
+              "2x/√(1−x⁴)",
+              "1/√(1−x⁴)",
+              "2x/√(1−x²)",
+              "arccos(x²)"
+            ],
+            "answer": 0,
+            "explanation": "Use the inverse-sine derivative evaluated at x², then multiply by the derivative 2x of the inner function. Squaring the inner argument gives x⁴ in the denominator."
+          },
+          {
+            "prompt": "What sign does h′ have on either side of zero?",
+            "choices": [
+              "Positive on both sides",
+              "Negative on both sides",
+              "Positive on the left and negative on the right",
+              "Negative on the left and positive on the right"
+            ],
+            "answer": 3,
+            "explanation": "The denominator is positive in the open domain. The sign comes from 2x, so h decreases before zero and increases after zero."
+          },
+          {
+            "prompt": "What does that sign change establish about h(0)?",
+            "choices": [
+              "It is an inflection point solely because h′(0)=0",
+              "It is a local minimum, with h(0)=0",
+              "It is a local maximum, with h(0)=π/2",
+              "It is undefined"
+            ],
+            "answer": 1,
+            "explanation": "A derivative changing from negative to positive establishes a local minimum. Here h(0)=arcsin(0)=0. A zero first derivative alone would not classify an inflection point."
+          },
+          {
+            "prompt": "Differentiating again gives h″(x)=2(1+x⁴)/(1−x⁴)^(3/2). What is h″(0)?",
+            "choices": [
+              "0",
+              "−2",
+              "2",
+              "It does not exist"
+            ],
+            "answer": 2,
+            "explanation": "Substituting zero gives 2. In fact the second derivative is positive throughout (−1,1), so there is no concavity change at zero."
+          }
+        ],
+        "takeaway": "Inverse branches determine derivative signs, the chain rule contributes the inner factor, and higher derivatives answer a different question from first-derivative critical points."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "To find h″, view h′ as 2x(1−x⁴)^(−1/2). The product rule gives 2(1−x⁴)^(−1/2)+4x⁴(1−x⁴)^(−3/2). Combining over a common denominator gives 2(1+x⁴)/(1−x⁴)^(3/2). This is a useful place to check structure rather than only algebra: h is an even function, h′ is odd, and h″ is even, matching the formulas. At x=±1, h is defined, but the interior derivative formula becomes unbounded as the endpoint is approached. A closed real domain does not guarantee finite derivatives at its endpoints. Branch restrictions also explain why arcsin(sin(2π/3)) is π/3 rather than 2π/3: an inverse-sine output must lie in its chosen range. When using inverse-trig derivatives in larger products or quotients, identify the full nested argument before differentiating. A memorized derivative with a missing inner factor produces the wrong rate even when the outer inverse formula is correct."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-calc-ab-inverse-trig-higher-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "A learner says that h has an inflection point at zero because h′(0)=0. Explain why this conclusion is unsupported and classify the point correctly.",
+        "sampleAnswer": "A zero first derivative identifies a critical point, not an inflection point. Here h′ changes from negative to positive, so zero is a local minimum. The second derivative is positive on both sides of zero, so the concavity does not change and the point is not an inflection point.",
+        "checklist": [
+          "Separate the first-derivative and second-derivative roles.",
+          "Use a sign change to classify the minimum.",
+          "Require a concavity change for an inflection point."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-calc-ab-inverse-trig-higher-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "Let q(x)=arctan(2x). Enter q′(0).",
+        "acceptedAnswers": [
+          "2"
+        ],
+        "sampleAnswer": "q′(x)=2/(1+4x²) by the chain rule, so q′(0)=2."
+      }
+    ]
+  },
+  "Calc BC: Limits & Continuity::1.1 Limits from expressions and tables": {
+    "revision": 1,
+    "objectives": [
+      "Separate a limit from the value assigned at the target input.",
+      "Explain what a table suggests and what it cannot prove.",
+      "Use bounding functions to justify a limit without evaluating an oscillating factor."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "A limit is a claim about every sufficiently nearby input in the function’s domain, not merely the few inputs shown in a table. A table can suggest a result or reveal disagreement between two sides, but a finite list cannot establish all nearby behavior. Algebraic simplification can identify a simpler expression that agrees with the original on a punctured neighborhood. Graphs add another representation, but a plotted pixel is also not a proof. The Squeeze Theorem supplies a useful logical tool: if one function stays between two others near the target, and both bounding functions approach the same value, then the middle function approaches that value too. State both the inequality and the common bounding limit. An oscillating factor need not have a limit by itself when a shrinking factor controls the product."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "graph",
+        "title": "Compare the shrinking bounds near the origin; zoom to inspect the middle curve",
+        "equations": [
+          "y=x^2",
+          "y=-x^2",
+          "y=x^2\\cos\\left(\\frac{1}{x}\\right)"
+        ]
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-calc-bc-limits-squeeze-guided",
+        "title": "Work through the representation",
+        "scenario": "Let f(x)=(x²−1)/(x−1) for x ≠ 1, with f(1)=7. Separately, let g(x)=x² cos(1/x) for x ≠ 0. Compare nearby behavior with values at the target, then justify the limit of g.",
+        "steps": [
+          {
+            "prompt": "What do f(0.99)=1.99 and f(1.01)=2.01 suggest about the limit as x approaches 1?",
+            "choices": [
+              "The limit is 7 because f(1)=7",
+              "The limit is 2",
+              "The limit does not exist because f is redefined",
+              "The two table values alone prove the limit is exactly 2"
+            ],
+            "answer": 1,
+            "explanation": "Both values suggest an approach to 2. They are evidence, not a complete proof; we still need a justification covering all sufficiently nearby inputs."
+          },
+          {
+            "prompt": "Which calculation justifies that limit?",
+            "choices": [
+              "Replace every f-value with f(1)",
+              "Substitute 1 into the unsimplified quotient and call 0/0 zero",
+              "For x ≠ 1, factor and simplify f(x) to x+1, whose limit is 2",
+              "Use only the average of the two displayed table values"
+            ],
+            "answer": 2,
+            "explanation": "The factorization x²−1=(x−1)(x+1) gives agreement with x+1 at every input except 1. The limiting behavior is therefore the same as that continuous expression."
+          },
+          {
+            "prompt": "Which inequality is valid for every nonzero x near zero?",
+            "choices": [
+              "−x² ≤ x² cos(1/x) ≤ x²",
+              "0 ≤ x² cos(1/x) ≤ x²",
+              "−1 ≤ x² cos(1/x) ≤ 1 is enough to conclude its limit is zero",
+              "x² ≤ x² cos(1/x) ≤ 2x²"
+            ],
+            "answer": 0,
+            "explanation": "Because −1 ≤ cos(1/x) ≤ 1 and x² is nonnegative, multiplication preserves the inequality directions. The middle expression can be negative, so a zero lower bound would be wrong."
+          },
+          {
+            "prompt": "What does the Squeeze Theorem establish?",
+            "choices": [
+              "cos(1/x) has limit 0",
+              "g(x) has no limit because its factor oscillates",
+              "The value g(0) must already exist",
+              "The limit of g(x) as x approaches 0 is 0"
+            ],
+            "answer": 3,
+            "explanation": "Both −x² and x² approach 0. Their trapped middle function also approaches 0 even though cos(1/x) itself oscillates without a limit."
+          },
+          {
+            "prompt": "If 0<|x|<0.1, what upper bound is guaranteed for |g(x)|?",
+            "choices": [
+              "1",
+              "0.1",
+              "Strictly less than 0.01",
+              "Exactly 0.01 for every such x"
+            ],
+            "answer": 2,
+            "explanation": "The bound |g(x)| ≤ x² gives |g(x)|<0.01 when |x|<0.1. This is a concrete accuracy guarantee, not an assertion that g takes the bound at every input."
+          }
+        ],
+        "takeaway": "A point value can be changed without changing a limit. Bounding an oscillating product can prove a limit that substitution or a short table cannot establish."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "Use the two examples to compare proof strategies. The quotient example is settled by an algebraic identity valid off the target; it does not require the original function to be continuous at the target. The oscillating example is settled by inequalities valid at all nonzero nearby inputs; attempting to evaluate cos(1/x) at zero would not help. Defining g(0)=0 repairs g into a continuous function at zero because its assigned value then agrees with the limit. Defining g(0)=5 would leave the same limit but create a removable discontinuity. These distinctions extend to piecewise graphs: compare the left-hand and right-hand behavior first, then compare any common limit with the point value. A very narrow viewing window or a long table can be useful for exploration, but the final justification should name the relation that makes the conclusion valid. Formal epsilon–delta proofs are not needed for this activity; the explicit numerical bound shows the underlying idea in a concrete way."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-calc-bc-limits-squeeze-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "Would changing f(1) from 7 to 2 change the limit, the continuity, both, or neither? Explain the same question for defining g(0)=5 rather than g(0)=0.",
+        "sampleAnswer": "Changing f(1) to 2 does not change its limit, which is already 2, but it makes f continuous at 1. For g, either assigned value leaves the limit equal to 0. Choosing g(0)=0 gives continuity; choosing g(0)=5 does not. Nearby behavior and the isolated point value must be evaluated separately.",
+        "checklist": [
+          "Identify the limiting value independently of the assigned point.",
+          "Use the definition of continuity as agreement between value and limit.",
+          "Avoid claiming that a point redefinition alters nearby outputs."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-calc-bc-limits-squeeze-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "For g(x)=x² cos(1/x), enter the limiting value as x approaches 0.",
+        "acceptedAnswers": [
+          "0"
+        ],
+        "sampleAnswer": "The inequalities −x² ≤ g(x) ≤ x² have bounding limits 0, so the Squeeze Theorem gives limit 0."
+      }
+    ]
+  },
+  "Calc BC: Differentiation: Composite, Implicit & Inverse Functions::3.1 Chain rule and inverse functions": {
+    "revision": 1,
+    "objectives": [
+      "Derive an inverse-trigonometric derivative using a restricted inverse range.",
+      "Apply the chain rule without losing the inner derivative.",
+      "Use a second derivative to distinguish a minimum from an inflection point."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "An inverse function reverses inputs and outputs only after the original function has been made one-to-one on a suitable domain. For y=arcsin(x), the chosen output interval is [−π/2,π/2]. On its interior, sin(y)=x and cos(y) is positive. Differentiating implicitly gives cos(y)y′=1; the identity cos²(y)=1−sin²(y) then gives y′=1/√(1−x²) for −1<x<1. The positive square-root branch comes from the inverse range, not from a rule that square roots can be assigned either sign at will. Similarly, the derivative of arccos(x) is the negative of that expression on (−1,1), while the derivative of arctan(x) is 1/(1+x²) for every real input. Composite inputs still require the chain rule."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-calc-bc-inverse-trig-higher-guided",
+        "title": "Work through the representation",
+        "scenario": "Analyze h(x)=arcsin(x²). Find its real domain, first derivative, and behavior near x=0.",
+        "steps": [
+          {
+            "prompt": "What is the real domain of h?",
+            "choices": [
+              "All real numbers",
+              "Only 0≤x≤1",
+              "−1≤x≤1",
+              "Only −1<x<1"
+            ],
+            "answer": 2,
+            "explanation": "The input to arcsin must lie between −1 and 1. Since x²≥0, the restriction is x²≤1, giving the closed domain [−1,1]."
+          },
+          {
+            "prompt": "Which first derivative is valid for −1<x<1?",
+            "choices": [
+              "2x/√(1−x⁴)",
+              "1/√(1−x⁴)",
+              "2x/√(1−x²)",
+              "arccos(x²)"
+            ],
+            "answer": 0,
+            "explanation": "Use the inverse-sine derivative evaluated at x², then multiply by the derivative 2x of the inner function. Squaring the inner argument gives x⁴ in the denominator."
+          },
+          {
+            "prompt": "What sign does h′ have on either side of zero?",
+            "choices": [
+              "Positive on both sides",
+              "Negative on both sides",
+              "Positive on the left and negative on the right",
+              "Negative on the left and positive on the right"
+            ],
+            "answer": 3,
+            "explanation": "The denominator is positive in the open domain. The sign comes from 2x, so h decreases before zero and increases after zero."
+          },
+          {
+            "prompt": "What does that sign change establish about h(0)?",
+            "choices": [
+              "It is an inflection point solely because h′(0)=0",
+              "It is a local minimum, with h(0)=0",
+              "It is a local maximum, with h(0)=π/2",
+              "It is undefined"
+            ],
+            "answer": 1,
+            "explanation": "A derivative changing from negative to positive establishes a local minimum. Here h(0)=arcsin(0)=0. A zero first derivative alone would not classify an inflection point."
+          },
+          {
+            "prompt": "Differentiating again gives h″(x)=2(1+x⁴)/(1−x⁴)^(3/2). What is h″(0)?",
+            "choices": [
+              "0",
+              "−2",
+              "2",
+              "It does not exist"
+            ],
+            "answer": 2,
+            "explanation": "Substituting zero gives 2. In fact the second derivative is positive throughout (−1,1), so there is no concavity change at zero."
+          }
+        ],
+        "takeaway": "Inverse branches determine derivative signs, the chain rule contributes the inner factor, and higher derivatives answer a different question from first-derivative critical points."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "To find h″, view h′ as 2x(1−x⁴)^(−1/2). The product rule gives 2(1−x⁴)^(−1/2)+4x⁴(1−x⁴)^(−3/2). Combining over a common denominator gives 2(1+x⁴)/(1−x⁴)^(3/2). This is a useful place to check structure rather than only algebra: h is an even function, h′ is odd, and h″ is even, matching the formulas. At x=±1, h is defined, but the interior derivative formula becomes unbounded as the endpoint is approached. A closed real domain does not guarantee finite derivatives at its endpoints. Branch restrictions also explain why arcsin(sin(2π/3)) is π/3 rather than 2π/3: an inverse-sine output must lie in its chosen range. When using inverse-trig derivatives in larger products or quotients, identify the full nested argument before differentiating. A memorized derivative with a missing inner factor produces the wrong rate even when the outer inverse formula is correct."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-calc-bc-inverse-trig-higher-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "A learner says that h has an inflection point at zero because h′(0)=0. Explain why this conclusion is unsupported and classify the point correctly.",
+        "sampleAnswer": "A zero first derivative identifies a critical point, not an inflection point. Here h′ changes from negative to positive, so zero is a local minimum. The second derivative is positive on both sides of zero, so the concavity does not change and the point is not an inflection point.",
+        "checklist": [
+          "Separate the first-derivative and second-derivative roles.",
+          "Use a sign change to classify the minimum.",
+          "Require a concavity change for an inflection point."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-calc-bc-inverse-trig-higher-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "Let q(x)=arctan(2x). Enter q′(0).",
+        "acceptedAnswers": [
+          "2"
+        ],
+        "sampleAnswer": "q′(x)=2/(1+4x²) by the chain rule, so q′(0)=2."
+      }
+    ]
+  },
+  "Precalc: Trigonometric and Polar Functions::3.3 Sinusoidal models, polar coordinates, and equivalent representations": {
+    "revision": 1,
+    "objectives": [
+      "Interpret a changing polar radius without using calculus.",
+      "Calculate radial average rate per radian.",
+      "Distinguish radial change from Cartesian coordinate change and Cartesian slope."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "A polar function r=f(θ) connects angle with directed radius. For a positive radius, r measures distance from the pole; a negative radius places the point in the opposite direction. The average radial rate from angle α to angle β is [f(β)−f(α)]/(β−α), with radius units per radian when radians are used. It is not the Cartesian slope Δy/Δx. To compare those quantities, first convert the relevant polar points using x=r cosθ and y=r sinθ. A radius can increase while x decreases because the direction of the ray is also changing. No derivative formula is needed to analyze finite changes: evaluate the radii, use the correct angular interval, and identify which output quantity the question asks about. Radians belong to the input scale; changing to degrees changes the numerical rate per input unit."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "graph",
+        "title": "Compare the polar curve with its positive radius; changing angle is part of the motion",
+        "equations": [
+          "r=2+\\sin\\left(\\theta\\right)"
+        ]
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-precalc-polar-rates-guided",
+        "title": "Work through the representation",
+        "scenario": "For r(θ)=2+sinθ, examine angles from 0 to π. The radius stays positive, ranging from 1 to 3 over a full period.",
+        "steps": [
+          {
+            "prompt": "What are the radii at θ=0, π/2, and π?",
+            "choices": [
+              "2,3,2",
+              "0,1,0",
+              "2,2,2",
+              "1,2,3"
+            ],
+            "answer": 0,
+            "explanation": "Use sine values 0,1,0. Add the vertical shift 2 to get radii 2,3,2."
+          },
+          {
+            "prompt": "What is the average radial rate from θ=0 to θ=π/2?",
+            "choices": [
+              "1",
+              "π/2",
+              "2/π",
+              "3/2"
+            ],
+            "answer": 2,
+            "explanation": "The radius increases by 1 over an angular interval of π/2 radians. The rate is 1/(π/2)=2/π radius units per radian."
+          },
+          {
+            "prompt": "Which Cartesian endpoint pair corresponds to these same angles?",
+            "choices": [
+              "(0,2) and (3,0)",
+              "(2,0) and (0,3)",
+              "(2,2) and (3,3)",
+              "(0,0) and (π/2,3)"
+            ],
+            "answer": 1,
+            "explanation": "At angle 0, x=2 cos0=2 and y=0. At π/2, x=0 and y=3. The polar input angle is not the Cartesian x-coordinate."
+          },
+          {
+            "prompt": "What is the Cartesian secant slope between those two points?",
+            "choices": [
+              "2/π",
+              "3/2",
+              "−2/3",
+              "−3/2"
+            ],
+            "answer": 3,
+            "explanation": "Δy/Δx=(3−0)/(0−2)=−3/2. This is negative even though the radius increased, because the x-coordinate decreased."
+          },
+          {
+            "prompt": "The average radial rate over 0≤θ≤π is zero. What does that mean?",
+            "choices": [
+              "The radius stayed constant",
+              "The particle did not move",
+              "The endpoint radii agree, but the radius changed in between",
+              "The curve is a circle centered at the pole"
+            ],
+            "answer": 2,
+            "explanation": "The radius is 2 at both endpoints but reaches 3 at π/2. Zero net radial change does not mean constant radius or zero Cartesian motion."
+          }
+        ],
+        "takeaway": "Always name the output: radius, x-coordinate, y-coordinate, or Cartesian slope. Their finite changes answer different questions."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "On [0,π/2], sine increases and the radius grows; on [π/2,π], sine decreases and the radius shrinks. The second half has average radial rate −2/π, matching the magnitude and reversing the sign of the first half. The Cartesian point at θ=π is (−2,0), so the endpoints of the whole interval have equal radius but are different locations. A graph of r against θ is therefore not the same graph as the resulting polar curve in the xy-plane. For negative radii, even distance from the pole must be interpreted as |r| rather than r. This model avoids that complication because 2+sinθ is always positive. In a contextual model, justify whether the whole angular interval represents a meaningful physical motion and whether repeated angles correspond to revisiting a location. The same ideas transfer to modeling the changing reach of a rotating sensor or a boundary described from a central reference point."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-precalc-polar-rates-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "Explain how the radius can have zero average change from 0 to π while the Cartesian point moves from (2,0) to (−2,0). Identify what the polar input controls.",
+        "sampleAnswer": "The endpoint radii both equal 2, so their difference is zero. The angle changes by π radians, reversing the direction of the ray, so the Cartesian endpoints differ. The radius also rises to 3 between them. The input controls direction as well as selecting a radius from the function.",
+        "checklist": [
+          "Compare endpoint radii, not just Cartesian locations.",
+          "Mention the changing angle and direction of the ray.",
+          "Do not conclude that zero net change means no intermediate variation."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-precalc-polar-rates-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "For r(θ)=2+sinθ, enter the maximum radius over 0≤θ≤π.",
+        "acceptedAnswers": [
+          "3"
+        ],
+        "sampleAnswer": "Sine reaches 1 at π/2, so the maximum radius is 2+1=3."
+      }
+    ]
+  },
+  "Stats: Inference for Categorical Data: Proportions::3.1 Sampling distributions and confidence intervals for one proportion": {
+    "revision": 1,
+    "objectives": [
+      "Check the assumptions for a one-proportion interval and test separately.",
+      "Choose the correct standard error for each task.",
+      "Interpret confidence and a p-value without reversing their conditional statements."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "The same sample can support several calculations, but each method needs its own setup. A one-proportion confidence interval estimates an unknown population proportion using p-hat and its estimated standard error √[p-hat(1−p-hat)/n]. A one-proportion z test instead asks how surprising the sample would be under a specified null proportion p₀, so its standard error is √[p₀(1−p₀)/n]. The large-count check likewise uses observed counts for the usual interval and null expected counts for the test. For sampling without replacement, the 10% condition supports approximating the draws as independent; it does not make the dependence disappear exactly. A random sampling design supports generalization to the frame population, but it does not guarantee that a particular sample has no sampling error or that nonresponse cannot introduce bias."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-stats-interval-test-conditions-guided",
+        "title": "Work through the representation",
+        "scenario": "A hypothetical simple random sample of 100 adults from a frame of 5,000 adults has 60 who support a proposal. Assume every selected adult responds and the question measures support accurately. Estimate support and test H₀:p=0.50 against Hₐ:p≠0.50.",
+        "steps": [
+          {
+            "prompt": "Which large counts are relevant for the usual interval?",
+            "choices": [
+              "50 successes and 50 failures under H₀",
+              "60 observed supporters and 40 observed nonsupporters",
+              "5,000 adults in the frame",
+              "Only the 60 supporters"
+            ],
+            "answer": 1,
+            "explanation": "The interval estimates p using p-hat=0.60, so its observed success/failure counts are 60 and 40. Both exceed 10."
+          },
+          {
+            "prompt": "Which standard error belongs in the 95% confidence interval?",
+            "choices": [
+              "√(0.50·0.50/100)=0.05",
+              "0.60/100",
+              "√(0.60·0.40/100)≈0.04899",
+              "√(0.60·0.40)=0.4899"
+            ],
+            "answer": 2,
+            "explanation": "Use the estimated proportion for interval uncertainty. Dividing the variance term by n is essential."
+          },
+          {
+            "prompt": "What is the resulting approximate 95% interval using z*=1.96?",
+            "choices": [
+              "(0.504,0.696)",
+              "(0.55,0.65)",
+              "(0.60,0.95)",
+              "(0.452,0.748)"
+            ],
+            "answer": 0,
+            "explanation": "The margin is 1.96·0.04899≈0.09602. Add and subtract it from 0.60 to obtain about (0.504,0.696)."
+          },
+          {
+            "prompt": "For the test of p₀=0.50, what is z?",
+            "choices": [
+              "1.96",
+              "About 2.041",
+              "0.10",
+              "2"
+            ],
+            "answer": 3,
+            "explanation": "The null standard error is √(0.50·0.50/100)=0.05. Thus z=(0.60−0.50)/0.05=2. The interval standard error is not used in this null calculation."
+          },
+          {
+            "prompt": "The two-sided p-value is about 0.0455. Which interpretation is correct?",
+            "choices": [
+              "There is a 4.55% probability that H₀ is true",
+              "Under p=0.50, a sample proportion at least this far from 0.50 has probability about 0.0455 under the normal approximation",
+              "There is a 95.45% probability that every adult supports the proposal",
+              "Exactly 4.55% of adults changed their opinions"
+            ],
+            "answer": 1,
+            "explanation": "A p-value is a probability of data at least as incompatible with the null as observed, conditional on that null model. It is not a probability assigned to the hypothesis itself."
+          }
+        ],
+        "takeaway": "An interval estimates an unknown proportion; a test evaluates a stated null model. Match the standard error and count check to the task."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "Changing the null value can change whether the normal test is defensible. If the same sample were used to test p₀=0.98, the null expected failures would be 100(0.02)=2, so the usual large-count condition would fail, even though the observed counts 60 and 40 are large enough for the displayed interval procedure. Do not transfer a condition check from one calculation to another without checking which model it refers to. Confidence interpretation is also a repeated-method statement: under the sampling assumptions, about 95% of intervals constructed this way would cover the fixed population proportion. It does not mean a fixed parameter has a 95% chance of wandering into one interval after the data are collected. Finally, evidence that a proportion differs from a null value is not automatically practical importance. Decide what difference matters in the policy context, and keep the frame population and potential sources of bias visible in the conclusion."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-stats-interval-test-conditions-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "Would a large observed success count make the normal z test of p₀=0.98 valid here? Explain using the appropriate expected failure count, then distinguish this issue from the confidence interval’s count check.",
+        "sampleAnswer": "No. For the null test, expected failures are 100(1−0.98)=2, below 10, so the usual normal z approximation does not meet the stated condition. The displayed interval uses observed counts 60 and 40, which do satisfy its separate large-count check. A method must be justified under its own model.",
+        "checklist": [
+          "Use null expected counts for the hypothesis test.",
+          "Compute the failure count 2.",
+          "Distinguish the interval’s observed-count check."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-stats-interval-test-conditions-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "For the test of p₀=0.50 with n=100, enter the null standard error as an exact decimal or fraction.",
+        "acceptedAnswers": [
+          "0.05",
+          "1/20"
+        ],
+        "sampleAnswer": "√(0.50·0.50/100)=√0.0025=0.05=1/20."
+      }
+    ]
+  },
+  "Stats: Inference for Quantitative Data: Means::4.3 Independent two-sample means, uncertainty, and interpretation": {
+    "revision": 1,
+    "objectives": [
+      "Choose an independent two-sample analysis from the data-collection design.",
+      "Combine the two estimated mean variances correctly.",
+      "Use a t critical value when population standard deviations are unknown."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the missing connection"
+      },
+      {
+        "type": "text",
+        "text": "Before choosing a formula, ask how observations were collected. Independent samples represent separate groups without a built-in one-to-one pairing. Matched measurements from the same individuals require analyzing within-pair differences instead. For independent sample means with unknown population standard deviations, estimate the variance of the difference by s₁²/n₁+s₂²/n₂, then take the square root. The two standard deviations are not added directly, and the two sample sizes do not simply become one combined sample size. Welch’s two-sample t procedure allows different population variances and uses degrees of freedom calculated from both samples. A smaller of n₁−1 and n₂−1 can give a conservative classroom choice, but the pooled df n₁+n₂−2 belongs to an additional equal-variance model, not an automatic rule. Check the shape and data quality of each group before relying on the t approximation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Make a prediction, then justify it"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-stats-welch-design-guided",
+        "title": "Work through the representation",
+        "scenario": "Two independent simple random samples measure commute time in minutes. City A: n₁=16, mean 42, s₁=4. City B: n₂=25, mean 39, s₂=5. Assume each frame is much larger than ten times its sample size and both sample distributions show no strong skew or extreme outliers. Use a Welch 95% t critical value of approximately 2.027.",
+        "steps": [
+          {
+            "prompt": "What parameter is being estimated?",
+            "choices": [
+              "The mean paired difference for the same 16 adults",
+              "The difference μA−μB between the two population mean commute times",
+              "The difference between the sample standard deviations",
+              "The correlation between city and commute"
+            ],
+            "answer": 1,
+            "explanation": "The samples are independent groups with no matched identities. The parameter is a difference of population means, and its point estimate is 42−39=3 minutes."
+          },
+          {
+            "prompt": "Which expression gives the estimated variance of the difference?",
+            "choices": [
+              "4+5",
+              "(16+25)/(4²+5²)",
+              "4²/16+5²/25=2",
+              "(4+5)²/(16+25)"
+            ],
+            "answer": 2,
+            "explanation": "Each mean contributes its estimated variance: 16/16=1 and 25/25=1. Add them to get estimated variance 2 minutes squared."
+          },
+          {
+            "prompt": "What standard error follows?",
+            "choices": [
+              "√2 minutes",
+              "2 minutes squared",
+              "9 minutes",
+              "1/2 minute"
+            ],
+            "answer": 0,
+            "explanation": "Take the square root of the estimated variance. The standard error is √2≈1.4142 minutes, in the same units as the difference of means."
+          },
+          {
+            "prompt": "Which interval uses the supplied t critical value correctly?",
+            "choices": [
+              "3±1.96·2",
+              "3±2.027·2",
+              "42±2.027·√2",
+              "3±2.027·√2"
+            ],
+            "answer": 3,
+            "explanation": "Use point estimate ± t*·SE. The result is approximately 3±2.867, or (0.133,5.867) minutes."
+          },
+          {
+            "prompt": "What conclusion follows within the stated sampling assumptions?",
+            "choices": [
+              "City A causes every person’s commute to be longer",
+              "The two population means are exactly equal",
+              "The interval supports a positive population mean difference, while individual commutes still vary",
+              "There is a 95% probability that a randomly chosen City A adult has a longer commute"
+            ],
+            "answer": 2,
+            "explanation": "The whole interval for μA−μB is positive. It estimates a difference in population means, not a difference guaranteed for every pair of individuals or a causal effect of moving cities."
+          }
+        ],
+        "takeaway": "The design identifies the parameter and method. Variances of independent sample means add, and the resulting uncertainty is measured with a t procedure."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect the representations"
+      },
+      {
+        "type": "text",
+        "text": "The exact estimated standard error is √2, not the rounded 1.41. Keeping that precision gives a margin of approximately 2.8666 minutes with the supplied critical value. Welch degrees of freedom for these summaries are approximately 36.923, so the supplied t value is consistent with using both estimated variances. If instead the data were before-and-after commutes for the same adults, the two group summaries alone would not describe the variability of within-person differences; pairing information would be essential. You cannot choose between paired and independent methods by selecting whichever gives a smaller interval. Likewise, checking that n₁+n₂ is fairly large does not replace inspecting a small group with strong outliers. A clear report names the two target populations, states the direction A minus B, gives units, and records the design limitations. The practical importance of an average difference of a few minutes depends on the decision, even when an interval excludes zero."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-stats-welch-design-reflection",
+        "title": "Explain the connection",
+        "math": true,
+        "prompt": "Why would this two-sample calculation not automatically be valid if the 16 observations were each a before-and-after measurement on the same people? What new statistic would be needed?",
+        "sampleAnswer": "The two measurements within each person would be dependent. Analyze one set of paired differences and use its mean, standard deviation, and number of pairs. Separate before and after standard deviations are not a substitute for the standard deviation of those differences.",
+        "checklist": [
+          "Use the data-collection design to choose the method.",
+          "Identify dependence within pairs.",
+          "Request the standard deviation of paired differences rather than inventing independence."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the method"
+      },
+      {
+        "type": "recall",
+        "id": "depth-stats-welch-design-recall",
+        "math": true,
+        "title": "Try a fresh value",
+        "prompt": "For independent samples with s₁=4,n₁=64 and s₂=5,n₂=100, enter the estimated variance of the difference of sample means, before taking its square root.",
+        "acceptedAnswers": [
+          "0.5",
+          "1/2"
+        ],
+        "sampleAnswer": "4²/64+5²/100=16/64+25/100=1/4+1/4=1/2. The standard error would be √(1/2)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,1550 @@
+{
+  "APUSH: 1491–1607::1.1 Native North America before European Colonization": {
+    "revision": 1,
+    "objectives": [
+      "Compare Indigenous societies using a specific geographic and institutional dimension.",
+      "Explain how environments and human choices interacted without treating geography as destiny.",
+      "Distinguish a regional example from a claim about every Indigenous society."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Begin with people, places and political choices"
+      },
+      {
+        "type": "text",
+        "text": "North America before sustained European colonization was not an empty landscape or a single culture. Communities spoke different languages, organized authority in different ways and maintained changing relationships with neighbors. Begin by locating a region and identifying the period. Terms such as Indigenous peoples name many distinct societies rather than one population acting together. A useful historical account recognizes agriculture, hunting, fishing, trade, diplomacy and environmental management as activities people combined and adapted, not stages on a universal ladder of development."
+      },
+      {
+        "type": "text",
+        "text": "Environment creates opportunities and constraints, but it does not dictate one inevitable social arrangement. Water availability, growing seasons, animal populations and transport routes can influence choices about food, settlement and exchange. People can also change environments through cultivation, burning, irrigation and other practices. Explain a relationship with a mechanism: an irrigation system can support cultivation by managing scarce water. It does not follow that every community in a dry region had identical institutions or that people lacked alternatives."
+      },
+      {
+        "type": "text",
+        "text": "Regional comparison requires a common dimension. For food production, compare how communities combined resources and labor. For political organization, compare how decisions were made or how settlements related to one another. Do not compare one society’s farming method with another’s supposed intelligence or assign modern national borders to earlier political identities. A network can link distinct communities without eliminating their sovereignty or cultural differences. Trade goods, settlement patterns and material remains can offer evidence, but their interpretation requires attention to context and limits."
+      },
+      {
+        "type": "text",
+        "text": "Keep chronology visible. A society can change its settlement, livelihood or alliances before and after European arrival. Later practices should not automatically be projected backward into 1491. Likewise, a European observer’s description records an encounter from a perspective rather than providing an unbiased account of an entire continent. When using an original instructional model, distinguish the mechanism it demonstrates from a claim that it reproduces every historical detail. The goal is a specific, supported comparison that treats Indigenous people as historical actors rather than as background to someone else’s expansion."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-indigenous-regional-diversity-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified regional summaries, not historical quotations. A: some Pueblo communities in the Southwest used settled agriculture and water-management practices adapted to local conditions. B: communities along parts of the Northwest Coast relied heavily on fishing and other coastal resources and developed varied settlements and exchange relationships. These examples describe selected adaptations, not every community in either region or an unchanged way of life across centuries.",
+        "steps": [
+          {
+            "prompt": "Which comparison uses a shared dimension?",
+            "choices": [
+              "How communities obtained and organized food resources",
+              "Which population was naturally more intelligent",
+              "Whether one society had the modern name of a state",
+              "Which group appeared first in a European travel book"
+            ],
+            "answer": 0,
+            "explanation": "Food resources and their organization can be compared using evidence about both settings. Ranking intelligence is neither the supplied dimension nor a supported historical explanation.",
+            "hint": "Choose a question the summaries provide evidence to answer for both regions."
+          },
+          {
+            "prompt": "What mechanism makes water management relevant in A?",
+            "choices": [
+              "It proves that every dry region had identical governments.",
+              "It can help organize water access for cultivation under local conditions.",
+              "It shows that geography removes all human choice.",
+              "It means nobody traded with neighboring communities."
+            ],
+            "answer": 1,
+            "explanation": "The explanation connects a practice to a material condition. It does not turn that relationship into a universal rule about government or culture.",
+            "hint": "Explain what the practice helps people do."
+          },
+          {
+            "prompt": "Which conclusion exceeds the summaries?",
+            "choices": [
+              "Some communities used different resource strategies.",
+              "The examples concern different regional settings.",
+              "Every Indigenous community fit one of these two descriptions without change over time.",
+              "Food resources can matter to settlement decisions."
+            ],
+            "answer": 2,
+            "explanation": "The sources are selected examples. They cannot establish an exhaustive, fixed classification of all societies.",
+            "hint": "Look for a universal claim where the evidence explicitly gives limited examples."
+          },
+          {
+            "prompt": "What should you ask before using a later observer’s account to describe 1491?",
+            "choices": [
+              "Whether its title is long",
+              "Whether the observer preferred one color",
+              "Whether the book was printed in an expensive edition",
+              "When, where and for what purpose the account was produced, and whether its evidence supports that earlier period"
+            ],
+            "answer": 3,
+            "explanation": "Date, place, purpose and evidentiary reach affect the inference. Later descriptions cannot automatically be applied to earlier contexts.",
+            "hint": "Check the relationship between the source’s context and the claim’s time and place."
+          }
+        ],
+        "takeaway": "The Southwest example connects water management to cultivation, while the coastal example connects access to fisheries with resource use and settlement. A strong comparison explains those relationships without claiming that environment determined every institution or that each region contained only one culture. More evidence would be needed for a claim about political organization or change across centuries."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-indigenous-regional-diversity-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare two regional adaptations on one shared dimension. Explain a mechanism and one limit on what the selected evidence can establish.",
+        "sampleAnswer": "The Southwest example connects water management to cultivation, while the coastal example connects access to fisheries with resource use and settlement. A strong comparison explains those relationships without claiming that environment determined every institution or that each region contained only one culture. More evidence would be needed for a claim about political organization or change across centuries.",
+        "checklist": [
+          "Compare the same dimension in both settings.",
+          "Connect an environmental condition and a human practice through a mechanism.",
+          "Avoid universal or timeless claims about distinct peoples."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-indigenous-regional-diversity-recall",
+        "prompt": "Why is an environmental influence not the same as environmental determinism?",
+        "sampleAnswer": "An influence helps explain opportunities and constraints. Determinism treats those conditions as fixing one inevitable outcome. Historical actors make choices, adapt practices and change environments within particular relationships and resources.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1754–1800::3.2 Constitutional Design and Ratification": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish weaknesses under the Articles from choices made in the Constitution.",
+      "Explain a Federalist and an Anti-Federalist concern through an institutional mechanism.",
+      "Separate ratification arguments from proof that a political system eliminated conflict or protected everyone equally."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare the proposed remedy with the problem it addressed"
+      },
+      {
+        "type": "text",
+        "text": "The Articles of Confederation created a union whose national government relied heavily on state cooperation. Congress faced difficulties obtaining revenue and coordinating responses to problems across states. The absence of a separate national executive and federal court structure of the later kind limited implementation. A historical explanation should identify the particular power or institutional arrangement, then connect it to a problem. Simply saying the Articles were weak does not explain why a creditor, merchant, farmer or political leader might seek change."
+      },
+      {
+        "type": "text",
+        "text": "The Constitution created a different national structure with legislative, executive and judicial branches and stronger national powers. Congress received authority to tax and regulate interstate commerce, while the executive and courts provided means of carrying out and interpreting law. These changes did not remove states or make every national action unlimited. Federalism and separated powers created both capacity and constraints. A remedy for one weakness could therefore introduce another concern about concentrated authority, representation or distance from the people."
+      },
+      {
+        "type": "text",
+        "text": "Federalist arguments defended the proposed design through mechanisms such as an extended republic, divided institutions and competing interests. Anti-Federalists questioned whether a large, powerful national system would remain accountable or protect liberty. Do not reduce the disagreement to one side favoring freedom and the other opposing it. Both could claim to defend republican government while disagreeing about which arrangements best protected it. Explain the chain from an institutional feature to its expected effect, and recognize that a prediction in an advocacy document is not itself proof of the outcome."
+      },
+      {
+        "type": "text",
+        "text": "Ratification occurred through special state conventions rather than a direct nationwide popular vote. The debate contributed to demands for explicit rights protections, and the Bill of Rights followed. Keep that sequence distinct from the claim that the original Constitution already included the first ten amendments. The compromises also protected slavery and reflected exclusions from formal political participation. Evaluating constitutional design requires specifying whose interests and which outcomes are under consideration, rather than assuming that “We the People” meant equal participation by every person at the founding."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-ratification-powers-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original instructional paraphrases of competing ratification arguments, not quotations. A: a supporter argues that a large republic can include many competing interests, making it harder for one faction to dominate. B: a critic argues that a distant national legislature and broad powers may reduce accountability and endanger local liberty. Supplied institutional fact: the proposed Constitution grants Congress national taxing and interstate-commerce powers that the Articles had not provided in the same form.",
+        "steps": [
+          {
+            "prompt": "Which explanation connects the new taxing power to a problem under the Articles?",
+            "choices": [
+              "It guarantees that every tax is fair.",
+              "It removes the existence of states.",
+              "It gives the national government a more direct revenue source instead of relying only on state contributions.",
+              "It makes all debt disappear immediately."
+            ],
+            "answer": 2,
+            "explanation": "The new power changes how revenue can be obtained. Its fairness, use and effects remain separate questions.",
+            "hint": "Identify the mechanism for obtaining funds, not a guaranteed result."
+          },
+          {
+            "prompt": "What is the main difference between A and B?",
+            "choices": [
+              "Whether liberty is worth protecting",
+              "How the scale and powers of the proposed republic could affect the protection of liberty and accountability",
+              "Whether the Atlantic Ocean exists",
+              "Whether both arguments were written after the Civil War"
+            ],
+            "answer": 1,
+            "explanation": "The sides can share a broad value while disagreeing about institutional means and predicted effects.",
+            "hint": "Compare what each argument predicts about the same design features."
+          },
+          {
+            "prompt": "What does argument A establish directly?",
+            "choices": [
+              "Every faction actually lost all influence after ratification.",
+              "No person was excluded from political participation.",
+              "The Constitution required no later amendments.",
+              "A supporter offered a mechanism by which an extended republic might limit domination."
+            ],
+            "answer": 3,
+            "explanation": "The source supplies an argument and prediction. Testing outcomes requires evidence beyond the advocacy statement itself.",
+            "hint": "Separate a defense of a design from evidence about how it later worked."
+          },
+          {
+            "prompt": "Which timeline statement is accurate?",
+            "choices": [
+              "Ratification debates preceded the addition of the Bill of Rights.",
+              "The Bill of Rights was already part of the Articles of Confederation.",
+              "The Civil War occurred before the Constitution was proposed.",
+              "Ratification was a single direct national popular vote."
+            ],
+            "answer": 0,
+            "explanation": "The first ten amendments followed the Constitution and its ratification debates. The adoption process used state conventions, not one nationwide popular ballot.",
+            "hint": "Keep the Constitution’s adoption and later amendments in their proper sequence."
+          }
+        ],
+        "takeaway": "A stronger national taxing power could address unreliable revenue, while critics could fear that broad national authority would become distant from local accountability. A comparison should explain both mechanisms and recognize institutions that constrained national power. The ratification debate does not prove equal inclusion for every group, and a prediction about liberty is not the same as evidence of its realization."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-ratification-powers-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare a specific constitutional remedy with one concern it generated. Explain the mechanism on each side and qualify any claim about whose liberty or participation was protected.",
+        "sampleAnswer": "A stronger national taxing power could address unreliable revenue, while critics could fear that broad national authority would become distant from local accountability. A comparison should explain both mechanisms and recognize institutions that constrained national power. The ratification debate does not prove equal inclusion for every group, and a prediction about liberty is not the same as evidence of its realization.",
+        "checklist": [
+          "Name a specific institutional feature.",
+          "Explain the problem addressed and the concern raised.",
+          "Distinguish an advocacy claim from an outcome and specify whose interests are evaluated."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-ratification-powers-recall",
+        "prompt": "Why can two arguments share a commitment to republican liberty while disagreeing sharply about constitutional design?",
+        "sampleAnswer": "They may predict different effects from the same institutional feature. One can see a large republic or stronger national powers as a safeguard, while another sees risks of distance, consolidation or reduced accountability.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1844–1877::5.1 Expansion and the Sectional Crisis": {
+    "revision": 1,
+    "objectives": [
+      "Connect territorial expansion to disputes over slavery, representation and federal authority.",
+      "Distinguish a proposed political solution from evidence that it resolved the conflict.",
+      "Explain how the Kansas-Nebraska Act changed an earlier arrangement and intensified political conflict."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Trace how territorial acquisition became an institutional crisis"
+      },
+      {
+        "type": "text",
+        "text": "Territorial expansion made slavery’s future an urgent national question because new territories could become states and alter political power. The issue was not only whether a particular settler personally held enslaved people. It concerned law, labor, property claims, racial hierarchy, representation and the authority to decide the institution’s future. Begin with the place and date of an acquisition or proposal, then identify which institution could act and why participants believed the decision mattered beyond that territory."
+      },
+      {
+        "type": "text",
+        "text": "The Mexican-American War and the territories acquired after it intensified these questions. The Wilmot Proviso proposed excluding slavery from territory gained from Mexico but did not become law. The distinction between a proposal and an enacted measure is essential: a defeated proposal can still reveal political divisions and help organize debate. Free-soil opposition to slavery’s expansion also did not necessarily imply support for equal rights for Black people. Explain a political position with its actual scope rather than reading later commitments into it."
+      },
+      {
+        "type": "text",
+        "text": "The Compromise of 1850 combined measures that addressed different constituencies and disputes, including California’s admission as a free state and a stronger fugitive-slave law. A compromise is a negotiated arrangement, not proof that all sides accepted its consequences or that underlying conflicts disappeared. Enforcement of fugitive-slave requirements brought the institution’s coercion into Northern political and legal life. To explain escalation, connect particular provisions to responses by officials, activists, enslaved people and other participants."
+      },
+      {
+        "type": "text",
+        "text": "The Kansas-Nebraska Act of 1854 used popular sovereignty in territories where the earlier Missouri Compromise restriction had barred slavery. The resulting conflict and disputes over who could legitimately decide the question contributed to violence and party realignment. Popular sovereignty named a proposed decision rule; it did not guarantee a peaceful or universally accepted process. The Dred Scott decision later further inflamed disagreement about federal authority and citizenship. Treat court decisions, legislation and political mobilization as interacting developments rather than a sequence in which one event mechanically caused every later outcome."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-territorial-slavery-crisis-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original historical summaries, not quotations. A: the Wilmot Proviso proposes excluding slavery from territory acquired from Mexico but is not enacted. B: the Compromise of 1850 includes a stronger fugitive-slave law. C: the Kansas-Nebraska Act of 1854 applies popular sovereignty in territories affected by an earlier congressional restriction on slavery. Selected responses include resistance to fugitive-slave enforcement, conflict in Kansas and changing party coalitions.",
+        "steps": [
+          {
+            "prompt": "What can A show even though the proposal did not become law?",
+            "choices": [
+              "An enacted ban already operating throughout all new territories",
+              "A political position and division over slavery’s expansion",
+              "The immediate abolition of slavery in existing states",
+              "The end of all sectional disagreement"
+            ],
+            "answer": 1,
+            "explanation": "A proposal can reveal demands and organize political conflict without establishing an enacted legal outcome.",
+            "hint": "Separate what participants advocated from what institutions enacted."
+          },
+          {
+            "prompt": "Which mechanism links B to conflict beyond slaveholding states?",
+            "choices": [
+              "It makes slavery a purely private matter without public institutions.",
+              "It ends the need for enforcement.",
+              "Fugitive-slave enforcement can involve officials and communities outside the places where people were enslaved.",
+              "It gives every person equal citizenship."
+            ],
+            "answer": 2,
+            "explanation": "Enforcement obligations and resistance make national institutions and Northern communities part of the conflict. The law’s effects are not confined to plantation production.",
+            "hint": "Follow where a legal requirement must be carried out."
+          },
+          {
+            "prompt": "Why is popular sovereignty not proof that the dispute was peacefully settled?",
+            "choices": [
+              "A decision rule can be contested in its electorate, procedures and outcomes.",
+              "A decision rule means nobody votes.",
+              "Every political actor must accept the same result.",
+              "It automatically removes prior disagreements about rights."
+            ],
+            "answer": 0,
+            "explanation": "Naming who should decide does not eliminate conflict about eligibility, coercion, legitimacy or the decision itself.",
+            "hint": "Distinguish the proposed method from evidence that participants accepted its operation."
+          },
+          {
+            "prompt": "Which explanation best connects these developments?",
+            "choices": [
+              "Every proposal immediately became law.",
+              "One compromise eliminated every source of conflict.",
+              "All participants supported identical rights and institutions.",
+              "Expansion repeatedly forced institutional decisions about slavery, while proposed solutions generated new disputes and mobilization."
+            ],
+            "answer": 3,
+            "explanation": "The explanation identifies the recurring problem and interaction between institutions and actors without reducing the period to an inevitable single-cause chain.",
+            "hint": "Look for an account of mechanisms and responses across more than one event."
+          }
+        ],
+        "takeaway": "The Compromise of 1850 attempted to resolve several disputes together, but its fugitive-slave provision created enforcement conflicts and resistance beyond slaveholding states. Alternatively, popular sovereignty in Kansas-Nebraska offered a decision rule while overturning an earlier restriction and leaving procedures and legitimacy contested. A strong explanation specifies the provision and response instead of saying simply that compromise failed."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-territorial-slavery-crisis-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Choose one measure in the source set and explain how it attempted to address a territorial dispute and how its proposal or enforcement could intensify conflict. Distinguish legal change from political response.",
+        "sampleAnswer": "The Compromise of 1850 attempted to resolve several disputes together, but its fugitive-slave provision created enforcement conflicts and resistance beyond slaveholding states. Alternatively, popular sovereignty in Kansas-Nebraska offered a decision rule while overturning an earlier restriction and leaving procedures and legitimacy contested. A strong explanation specifies the provision and response instead of saying simply that compromise failed.",
+        "checklist": [
+          "Identify whether the measure was proposed or enacted.",
+          "Explain how a particular provision affected authority, participation or enforcement.",
+          "Connect a response without claiming that every participant had the same goal."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-territorial-slavery-crisis-recall",
+        "prompt": "Why is it a historical error to treat a compromise or decision rule as proof that a conflict ended?",
+        "sampleAnswer": "An institutional arrangement records a chosen or proposed mechanism. Whether it resolved the conflict depends on acceptance, implementation and later responses, which require separate evidence.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Networks of Exchange::2.1 Commerce, credit and the Silk Roads": {
+    "revision": 1,
+    "objectives": [
+      "Explain how security, infrastructure and commercial practices could alter exchange.",
+      "Distinguish Mongol conquest from the later conditions affecting movement across parts of Eurasia.",
+      "Use a merchant account as bounded evidence rather than proof of equal prosperity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Connect political integration to exchange without erasing conquest"
+      },
+      {
+        "type": "text",
+        "text": "The Silk Roads were a set of interconnected routes and local exchanges, not one road traveled end to end by every merchant. Goods could change hands many times. Long-distance trade therefore depended on practical problems: how to protect cargo, obtain food and shelter, arrange credit, manage taxes and find people who would accept goods or payment. A commercial institution matters when it changes one of these costs or risks. Explain that mechanism rather than merely listing a technology or a city."
+      },
+      {
+        "type": "text",
+        "text": "The Mongol conquests of the thirteenth century caused enormous destruction and altered political relationships across Eurasia. Related ruling houses later governed extensive territories and maintained connections that could facilitate some travel, diplomacy and commerce. Do not turn this into a story of either unbroken chaos or universal peaceful exchange. Conquest and commercial integration can be part of the same history while imposing very different experiences on different populations. Dates, regions and particular policies matter."
+      },
+      {
+        "type": "text",
+        "text": "Protection of routes, systems for communication and the movement of specialists could help connect distant places. Merchant communities and existing financial practices also mattered. Credit and bills of exchange could reduce the need to carry money over every stage, while caravanserai could provide services along land routes. These measures did not make geography, local conflict or taxation disappear. A route becoming more usable for one group does not prove that everyone living along it gained equally or that every journey was safe."
+      },
+      {
+        "type": "text",
+        "text": "Connections carried more than commercial goods. People, ideas, techniques and pathogens also moved, sometimes through overlapping networks. A claim about the effects of exchange needs evidence suited to the effect: a travel account can illuminate an observer’s experiences, while demographic or archaeological evidence may answer other questions. Source purpose, location and scope remain important. A merchant praising protection might reveal what that person valued, but the account alone cannot establish the experience of conquered communities or the health consequences of greater connectivity."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-mongol-network-change-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original model accounts for instruction, not historical quotations. Source A: a merchant describes finding shelter, information and other traders at a caravanserai. Source B: an official in a simplified Mongol-ruled setting describes protecting a route to support movement and revenue. Source C: a community account describes violence during conquest. The three accounts are invented to distinguish mechanisms and perspectives; they are not attributed to real people.",
+        "steps": [
+          {
+            "prompt": "What mechanism is illustrated by A?",
+            "choices": [
+              "Shelter and information can reduce some logistical costs and risks of travel.",
+              "Every merchant travels the entire Silk Road.",
+              "Caravanserai remove the need for goods or customers.",
+              "Commercial services prevent every disease."
+            ],
+            "answer": 0,
+            "explanation": "The account identifies concrete services. Their relevance does not establish universal safety or eliminate other conditions of trade.",
+            "hint": "Explain what the institution helps a traveler do."
+          },
+          {
+            "prompt": "How can B and C both be relevant to the same broader history?",
+            "choices": [
+              "One must be false because a state cannot ever both conquer and facilitate exchange.",
+              "Conquest could be destructive while some later policies supported movement; effects varied by time and population.",
+              "Commercial revenue means no violence occurred.",
+              "Violence means no trade could ever resume."
+            ],
+            "answer": 1,
+            "explanation": "The accounts concern different processes and perspectives. A nuanced explanation can connect them without collapsing one into the other.",
+            "hint": "Separate the stages and ask whose experience each account describes."
+          },
+          {
+            "prompt": "Which conclusion exceeds Source B alone?",
+            "choices": [
+              "The official presents route protection as useful.",
+              "Revenue can be an official priority.",
+              "Every person under Mongol rule experienced equal peace and prosperity.",
+              "Political institutions can affect movement."
+            ],
+            "answer": 2,
+            "explanation": "An official model account does not establish universal outcomes across a vast and changing political space.",
+            "hint": "Check whether the source covers the whole population and period claimed."
+          },
+          {
+            "prompt": "Which evidence would best investigate a different consequence of increased connectivity?",
+            "choices": [
+              "An unrelated modern menu",
+              "The official’s title alone",
+              "A second copy of the same claim without new evidence",
+              "Dated evidence of disease spread or demographic change, evaluated with other possible causes"
+            ],
+            "answer": 3,
+            "explanation": "Health and population evidence can test a different consequence. Connectivity may matter, but the analysis still needs chronology, geography and competing explanations.",
+            "hint": "Match the evidence to the particular outcome you want to explain."
+          }
+        ],
+        "takeaway": "Route protection could reduce some risks, while caravanserai or credit arrangements could address logistical and financial obstacles. These mechanisms can support trade without demonstrating equal gains. Communities affected by conquest, taxation, coercion or disease could bear costs that a merchant’s favorable account does not measure. A strong explanation keeps the actors, setting and effects specific."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-mongol-network-change-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain one way political institutions and one way commercial institutions could support exchange. Then qualify a claim that increased exchange benefited everyone.",
+        "sampleAnswer": "Route protection could reduce some risks, while caravanserai or credit arrangements could address logistical and financial obstacles. These mechanisms can support trade without demonstrating equal gains. Communities affected by conquest, taxation, coercion or disease could bear costs that a merchant’s favorable account does not measure. A strong explanation keeps the actors, setting and effects specific.",
+        "checklist": [
+          "Explain an institutional mechanism rather than only naming it.",
+          "Distinguish political and commercial contributions.",
+          "Identify an affected group or consequence that limits a universal-benefit claim."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-mongol-network-change-recall",
+        "prompt": "Why can an account of safer travel be useful evidence without proving a whole empire was peaceful?",
+        "sampleAnswer": "It can describe one observer’s experience or one official goal in a particular place and time. A claim about all regions, populations and periods requires broader and different evidence.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Land-Based Empires::3.1 Military power and imperial administration": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish conquest, revenue collection, recruitment and legitimacy.",
+      "Compare imperial institutions through an explicit mechanism.",
+      "Explain a tradeoff in reliance on officials, military elites or local intermediaries."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Military capacity is not the same as governing a territory"
+      },
+      {
+        "type": "text",
+        "text": "An empire must do more than win a battle. Rulers need resources, information, personnel and cooperation to maintain authority over territory. Military technology can affect conquest, but it does not by itself collect revenue, recruit officials or make a dynasty legitimate. Start an explanation by naming the governing task and the institution used to address it. This prevents the label gunpowder empire from replacing analysis of very different political systems."
+      },
+      {
+        "type": "text",
+        "text": "Ottoman rulers used military and administrative institutions that included the devshirme system in particular periods. Selected Christian boys were taken into state service and trained for roles that could include military or administrative positions. This was coercive recruitment, not a universal voluntary career opportunity or the experience of every subject. Explaining the institution requires connecting recruitment and training to service under central authority while acknowledging coercion and historical variation."
+      },
+      {
+        "type": "text",
+        "text": "Other empires used different combinations of officials and local elites. In Mughal South Asia, revenue arrangements could rely on intermediaries and negotiated relationships; in Qing rule, the dynasty combined institutions inherited or adapted from earlier Chinese government with arrangements suited to different territories and populations. These examples do not mean every official acted identically or every region was administered in the same way. A comparison should hold a task such as recruitment or revenue constant and then explain the mechanism in each setting."
+      },
+      {
+        "type": "text",
+        "text": "Delegation creates a tradeoff. Local intermediaries may possess knowledge, networks and resources that make collection or enforcement less costly for the center. The same resources can give them bargaining power or opportunities to pursue their own interests. Directly expanding central administration can change that relationship but can also require money and provoke resistance. A royal decree can announce a rule without proving uniform implementation. Evidence about appointments, revenue, conflict and local responses helps evaluate how far authority actually reached."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-imperial-administration-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified administrative models, not imperial quotations. A: a center recruits and trains personnel for service under its authority. B: a center relies on established local elites to gather revenue and maintain cooperation. C: a decree announces that every province follows the same policy. A and B are model arrangements used for comparison; C is a fictional claim whose implementation has not been demonstrated.",
+        "steps": [
+          {
+            "prompt": "Which governing task is most directly addressed by A?",
+            "choices": [
+              "Eliminating the need for taxes",
+              "Recruiting personnel connected to central service",
+              "Proving every population has equal citizenship",
+              "Choosing a future modern national border"
+            ],
+            "answer": 1,
+            "explanation": "The arrangement concerns where officials or servants of the center come from and how they are trained. Its consequences still require context.",
+            "hint": "Identify the institution’s immediate administrative function."
+          },
+          {
+            "prompt": "What is a plausible advantage and limit of B?",
+            "choices": [
+              "Local knowledge can help collection, while local elites may retain independent leverage.",
+              "Every intermediary becomes perfectly loyal.",
+              "Delegation eliminates all state expenses.",
+              "The center can never obtain any revenue."
+            ],
+            "answer": 0,
+            "explanation": "The same local resources that make intermediaries useful can also give them bargaining power. That is a mechanism and tradeoff, not a universal prediction.",
+            "hint": "Ask what the intermediary brings and what power it retains."
+          },
+          {
+            "prompt": "Why is C insufficient to establish uniform administration?",
+            "choices": [
+              "A decree never has any meaning.",
+              "Every province must resist.",
+              "An announced rule is not the same as evidence about implementation across regions.",
+              "Only a military weapon can establish a fact."
+            ],
+            "answer": 2,
+            "explanation": "A decree can show an official goal or claim. Records of practice are needed to evaluate whether and how it operated.",
+            "hint": "Separate the source’s assertion from the outcome it asserts."
+          },
+          {
+            "prompt": "Which comparison is strongest?",
+            "choices": [
+              "All empires used identical institutions because some possessed firearms.",
+              "The empire with a shorter name always governed more effectively.",
+              "Recruitment cannot be compared with recruitment.",
+              "Compare how two empires obtained personnel or revenue, using specific institutions and their constraints."
+            ],
+            "answer": 3,
+            "explanation": "The comparison keeps a dimension constant and explains concrete mechanisms rather than allowing a broad label to stand in for evidence.",
+            "hint": "Choose a shared task and preserve differences in how it was performed."
+          }
+        ],
+        "takeaway": "Central recruitment can tie personnel to the ruler and provide training, but it can be costly or coercive and does not guarantee loyalty. Local intermediaries can supply knowledge and cooperation while retaining leverage that limits central control. A sound comparison identifies the task and supports claims with particular institutions and evidence rather than ranking whole empires through one label."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-imperial-administration-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare a centralized recruitment arrangement with reliance on local intermediaries. Explain one possible benefit and one constraint of each, without treating either as always superior.",
+        "sampleAnswer": "Central recruitment can tie personnel to the ruler and provide training, but it can be costly or coercive and does not guarantee loyalty. Local intermediaries can supply knowledge and cooperation while retaining leverage that limits central control. A sound comparison identifies the task and supports claims with particular institutions and evidence rather than ranking whole empires through one label.",
+        "checklist": [
+          "Compare the same governing task.",
+          "State an explicit mechanism for each arrangement.",
+          "Recognize coercion, resource costs or limits of implementation where relevant."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-imperial-administration-recall",
+        "prompt": "Why does superior military capacity not automatically establish effective administration?",
+        "sampleAnswer": "Military force can help conquer or deter resistance, but governing also requires revenue, personnel, information and cooperation. Those tasks need institutions and evidence of how they operate.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Cold War & Decolonization::8.1 Superpower rivalry and local agency": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a superpower’s strategic rationale from a local actor’s goals.",
+      "Explain how aid and alliances can create leverage in more than one direction.",
+      "Compare official claims with evidence about action and local responses."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Connect superpower rivalry to local objectives"
+      },
+      {
+        "type": "text",
+        "text": "The Cold War involved competition between the United States and the Soviet Union, but it cannot be explained only as two capitals directing a passive world. The superpowers pursued security, influence and ideological goals through alliances, aid, arms and other tools. Local governments and movements also pursued objectives shaped by occupation, colonial rule, inequality, political divisions and state building. Identify the actor and its goal before explaining how outside involvement altered its opportunities or constraints."
+      },
+      {
+        "type": "text",
+        "text": "A proxy conflict connects local fighting with external resources and strategic rivalry. A sponsor may provide weapons or money to prevent a rival from gaining influence. A local partner may accept support to pursue national, regional or domestic goals that do not perfectly match the sponsor’s priorities. Dependence on assistance can constrain local choices, but local knowledge, legitimacy or the sponsor’s fear of losing influence can also create bargaining leverage. Support does not prove complete obedience, and ideological sympathy does not explain every decision."
+      },
+      {
+        "type": "text",
+        "text": "The Korean and Vietnam wars combined local histories and divisions with wider international competition. An explanation of Vietnam that mentions only containment misses anticolonial struggle and Vietnamese political goals. An explanation that mentions only nationalism misses external resources, strategic fears and military involvement. The task is not to add two lists; connect a particular local objective with a particular outside action and show how the interaction affected the conflict. Different participants within the same society can also disagree."
+      },
+      {
+        "type": "text",
+        "text": "An official statement describing intervention as a defense of freedom is evidence of a public rationale. It does not by itself establish how every local population experienced the policy, whether every action matched the claim or why all participants acted. Likewise, a local movement’s stated program does not prove uniform support. Compare sources by audience, purpose, context and the actions they can document. A strong explanation allows both international pressure and local agency while keeping claims proportional to the evidence."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-cold-war-local-agency-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional model situation, not a description of a specific government. A superpower gives military aid to a local government because officials fear a rival’s expanding influence. The local government accepts aid to strengthen its position against domestic opponents and regain disputed territory. Its leaders reject one request from the sponsor when they believe it conflicts with their territorial goal. A public statement from the sponsor calls the aid a defense of freedom.",
+        "steps": [
+          {
+            "prompt": "Which statement best distinguishes the actors’ goals?",
+            "choices": [
+              "Both necessarily have identical priorities because aid is exchanged.",
+              "Only the superpower can have a goal.",
+              "The sponsor emphasizes strategic influence, while the local leaders also pursue domestic and territorial objectives.",
+              "The local government has no political agency."
+            ],
+            "answer": 2,
+            "explanation": "The model supplies different but interacting goals. Shared action does not require identical motives.",
+            "hint": "Identify what each actor wants from the relationship."
+          },
+          {
+            "prompt": "What does the rejected request show most directly?",
+            "choices": [
+              "The local government has no dependence on aid.",
+              "The alliance is fictional, so no reasoning is possible.",
+              "Every local actor can always ignore a sponsor without cost.",
+              "Acceptance of support does not establish complete obedience in every decision."
+            ],
+            "answer": 3,
+            "explanation": "The rejection demonstrates a limit on the claim of complete control. It does not establish that dependence or risks are absent.",
+            "hint": "Choose a bounded conclusion rather than replacing one absolute with another."
+          },
+          {
+            "prompt": "What does the sponsor’s public statement establish directly?",
+            "choices": [
+              "The public rationale presented by that source",
+              "The views of every person in the recipient society",
+              "The absence of coercion in every action",
+              "The full motives of all participants"
+            ],
+            "answer": 0,
+            "explanation": "A statement gives evidence of what its producer claimed for an audience. Broader conclusions need evidence about behavior and other perspectives.",
+            "hint": "Separate a claim’s existence from proof of everything it asserts."
+          },
+          {
+            "prompt": "Which explanation best connects local and international factors?",
+            "choices": [
+              "Local history is irrelevant whenever a superpower sends aid.",
+              "Strategic rivalry supplies resources and pressures that local leaders use while pursuing their own objectives.",
+              "A local objective proves outside aid had no effect.",
+              "Ideology mechanically explains every military decision."
+            ],
+            "answer": 1,
+            "explanation": "The explanation identifies interaction: resources and constraints meet local goals and choices. It avoids erasing either level.",
+            "hint": "Explain what the outside relationship changes about a local actor’s possibilities."
+          }
+        ],
+        "takeaway": "A response about Vietnam can connect anticolonial and national political goals with outside assistance or intervention shaped by containment and rival influence. The evidence should show how resources and pressures affected choices without assuming every movement followed instructions from a sponsor. A different case is valid if its actors, chronology and mechanism are accurate. Merely naming two countries does not explain the interaction."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-cold-war-local-agency-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Apply the distinction to a historically accurate Cold War case you have studied. Identify one local goal, one outside action and a mechanism connecting them. Explain one limit on a simple puppet-state description.",
+        "sampleAnswer": "A response about Vietnam can connect anticolonial and national political goals with outside assistance or intervention shaped by containment and rival influence. The evidence should show how resources and pressures affected choices without assuming every movement followed instructions from a sponsor. A different case is valid if its actors, chronology and mechanism are accurate. Merely naming two countries does not explain the interaction.",
+        "checklist": [
+          "Use a specific and accurate case.",
+          "Connect local goals and an outside action through a mechanism.",
+          "State a bounded conclusion about agency or dependence."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-cold-war-local-agency-recall",
+        "prompt": "Why does receiving aid not, by itself, prove that a local actor had no agency?",
+        "sampleAnswer": "Aid can create dependence and pressure, but the actor may still pursue distinct goals, bargain or resist particular demands. The extent of control must be evaluated through decisions and relationships, not inferred from assistance alone.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Audience, Claims, and Evidence::2.1 Audience values, credibility, and persuasive choices": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish an intended audience from every possible reader.",
+      "Connect evidence, tone and arrangement to stated audience values or constraints.",
+      "Explain a plausible rhetorical effect without claiming every reader will respond identically."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Infer audience needs from evidence, not from a stereotype"
+      },
+      {
+        "type": "text",
+        "text": "A rhetorical audience is not simply anyone who happens to encounter a text. Identify whom the writer addresses, what that audience can do and which concerns the text recognizes. A city council, a volunteer group and a technical committee can all read about the same issue while facing different decisions. Use direct address, the requested action, vocabulary and supplied context as evidence. Do not assign beliefs to an audience merely because of its age, occupation or political label."
+      },
+      {
+        "type": "text",
+        "text": "A writer can demonstrate awareness of audience constraints through selection and sequence. An argument to a budget committee might acknowledge cost before presenting a proposal. That acknowledgment can make the recommendation appear responsive to the committee’s task; it does not prove every member is persuaded. An argument to volunteers might emphasize participation and shared effort. The difference is a strategic response to a situation, not a universal rule that officials care only about money or volunteers never care about evidence."
+      },
+      {
+        "type": "text",
+        "text": "Credibility can be developed through relevant experience, accurate information, fair treatment of limitations and a tone suited to the occasion. A title or institutional affiliation alone does not make every claim correct. Likewise, acknowledging an objection does not automatically establish sincerity. Explain what a choice offers the audience: a reason to view the writer as informed, a way to evaluate a tradeoff or a connection to an acknowledged value. Keep the inference tied to the text rather than claiming access to the writer’s private intentions."
+      },
+      {
+        "type": "text",
+        "text": "Compare alternative versions against an explicit purpose. A more emotional sentence is not always stronger, and a longer technical explanation is not always more credible. Ask whether the detail helps the intended audience make the decision the writer seeks. A good analysis can recognize both an advantage and a risk in a choice, such as using specialized language that signals expertise but may exclude readers without that background. The goal is a supported explanation of function, not a ranking of styles without context."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-audience-constraint-choices-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional statement to a council budget committee: “You must decide whether this town can maintain another public building. I will not ask you to ignore that responsibility. The unused station already has working utilities, and our proposal uses volunteer staffing for the first month. Before approving a permanent program, authorize a short trial with a published cost report.” Supplied context: the writer seeks permission to test a community study space, not immediate permanent funding.",
+        "steps": [
+          {
+            "prompt": "Which audience constraint does the opening explicitly acknowledge?",
+            "choices": [
+              "The committee must evaluate the town’s capacity to maintain another building.",
+              "Every reader dislikes public spaces.",
+              "All volunteers oppose financial reporting.",
+              "The committee lacks any responsibility."
+            ],
+            "answer": 0,
+            "explanation": "The opening identifies a specific institutional decision and cost concern. It does not justify a stereotype about every official or reader.",
+            "hint": "Use the stated task rather than an assumed attitude."
+          },
+          {
+            "prompt": "What function does “I will not ask you to ignore that responsibility” most plausibly serve?",
+            "choices": [
+              "It proves all committee members already agree.",
+              "It guarantees the program will cost nothing.",
+              "It presents the writer as responsive to the audience’s stated duty before making the request.",
+              "It removes the need for evidence."
+            ],
+            "answer": 2,
+            "explanation": "The acknowledgment can frame the proposal as compatible with the committee’s responsibility. Persuasion remains a possible effect, not an established result.",
+            "hint": "Connect the sentence to the concern named immediately before it."
+          },
+          {
+            "prompt": "Which recommendation best matches the writer’s actual purpose?",
+            "choices": [
+              "Approve permanent funding without review.",
+              "Authorize a limited trial and evaluate the reported costs.",
+              "Ignore the building’s condition.",
+              "Cancel every other public program."
+            ],
+            "answer": 1,
+            "explanation": "The text requests a trial with a cost report, not unconditional permanent adoption. Preserving that scope matters to the analysis.",
+            "hint": "Identify the specific action requested in the final sentence."
+          },
+          {
+            "prompt": "Which analytical claim is best supported?",
+            "choices": [
+              "The tone forces every official to vote yes.",
+              "Volunteers never create any resource demands.",
+              "The writer proves the town has unlimited funds.",
+              "The sequence acknowledges a constraint, offers practical details and ends with a limited request suited to that constraint."
+            ],
+            "answer": 3,
+            "explanation": "This claim connects arrangement to the stated audience and purpose without inventing certainty or universal reaction.",
+            "hint": "Trace the progression of the paragraph and explain its role."
+          }
+        ],
+        "takeaway": "A revision might emphasize the specific opportunity to help staff a one-month trial while retaining the cost report and limits on permanent approval. The explanation should connect the change to the volunteers’ possible role, not assume all volunteers share one motive. It should not invent guaranteed success, new funding or duties absent from the fact set."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-audience-constraint-choices-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Rewrite the request for a volunteer group considering whether to help staff the trial. Preserve the supplied facts and explain one change in emphasis appropriate to the new audience.",
+        "sampleAnswer": "A revision might emphasize the specific opportunity to help staff a one-month trial while retaining the cost report and limits on permanent approval. The explanation should connect the change to the volunteers’ possible role, not assume all volunteers share one motive. It should not invent guaranteed success, new funding or duties absent from the fact set.",
+        "checklist": [
+          "Preserve the proposal’s factual scope.",
+          "Connect a changed emphasis to the new audience’s stated role.",
+          "Avoid stereotypes and guaranteed reader reactions."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-audience-constraint-choices-recall",
+        "prompt": "Why is saying “this persuades the audience” weaker than explaining how a choice responds to a stated concern?",
+        "sampleAnswer": "Persuasion is an outcome that the text alone may not establish. Explaining the choice’s mechanism shows how it could serve the purpose and identifies the evidence supporting that interpretation.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Reasoning and Organization::3.1 Paragraph functions, arrangement, and transitions": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a paragraph’s topic from its argumentative function.",
+      "Explain how a sequence of claims and evidence contributes to a line of reasoning.",
+      "Choose a transition that accurately represents the relationship rather than manufacturing one."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Map what each paragraph does before choosing a transition"
+      },
+      {
+        "type": "text",
+        "text": "A topic tells you what a paragraph concerns. A function describes what that paragraph contributes to the larger argument: defining a problem, supplying evidence, acknowledging a limitation, testing an objection or proposing a response. Two paragraphs on the same subject can perform different functions. Read the surrounding argument before assigning a role, and support the role with a specific sentence or relationship. “It discusses transport” is less explanatory than “it qualifies the proposal by identifying a funding limit.”"
+      },
+      {
+        "type": "text",
+        "text": "A line of reasoning connects subclaims so that they support an overarching position. The sequence can be chronological, comparative, problem-solution, cause-effect or another arrangement suited to the purpose. No single pattern is required for all arguments. Evaluate whether a reader can follow why each move belongs and how it changes the conclusion. Some arguments have several defensible orders; a sequencing activity should not pretend one is uniquely correct unless the text supplies a dependency or a stated revision goal."
+      },
+      {
+        "type": "text",
+        "text": "Transitions signal relationships such as contrast, continuation, consequence or qualification. They cannot create a causal connection that the evidence does not support. Replacing and with therefore changes the claim about how the ideas relate. A transition such as however can mark a limit without refuting the entire preceding point. Choose the relation first, then the wording. This keeps a polished sentence from concealing a logical gap."
+      },
+      {
+        "type": "text",
+        "text": "Paragraph unity and coherence also differ. Unity asks whether material contributes to the paragraph’s controlling idea; coherence asks whether the connections among ideas are understandable. A sentence can be relevant to a broad topic but need a clearer link to the particular subclaim. Before deleting it, consider the draft’s purpose and what additional context would make the relation clear. Revision should explain a choice rather than applying a blanket rule that every paragraph must have the same length, sentence count or evidence order."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-paragraph-function-relations-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Complete original fictional three-paragraph argument. Paragraph 1: “A late bus would allow students leaving evening activities to reach the central station. The current last departure occurs before those activities end.” Paragraph 2: “A two-evening trial recorded passengers on the added trip, but the trial cannot establish demand in every season.” Paragraph 3: “Because the trial is promising but limited, the town should test the service for another month and publish both ridership and cost records.” The numbers and event are a hypothetical teaching situation; no claim about a real trial is made.",
+        "steps": [
+          {
+            "prompt": "What function does Paragraph 1 perform most directly?",
+            "choices": [
+              "It proves the cost is zero.",
+              "It identifies an access problem and the proposed service’s relevance.",
+              "It reports a year of outcomes.",
+              "It rejects every possible transport alternative."
+            ],
+            "answer": 1,
+            "explanation": "The paragraph establishes a mismatch between departure time and evening activities. That supplies a reason the proposal could matter.",
+            "hint": "Ask what the argument gains from this paragraph, not merely its topic."
+          },
+          {
+            "prompt": "What does Paragraph 2 add to the line of reasoning?",
+            "choices": [
+              "It supplies preliminary support while limiting how far that support can be generalized.",
+              "It proves no students use transport.",
+              "It guarantees year-round demand.",
+              "It shifts to an unrelated topic."
+            ],
+            "answer": 0,
+            "explanation": "The paragraph both supports investigation and qualifies the inference. Those two functions can coexist in one move.",
+            "hint": "Attend to the word but and the specific limit it introduces."
+          },
+          {
+            "prompt": "Which relationship best describes Paragraph 3’s use of the earlier material?",
+            "choices": [
+              "It discards every earlier observation.",
+              "It treats preliminary evidence as a completed guarantee.",
+              "It converts promising but limited evidence into a bounded next-step recommendation.",
+              "It proves a town can never evaluate costs."
+            ],
+            "answer": 2,
+            "explanation": "The recommendation preserves the access rationale and preliminary use while making further evidence part of the proposal.",
+            "hint": "Trace how both the positive observation and its limitation affect the recommendation."
+          },
+          {
+            "prompt": "If a writer connects the limited trial to a claim that the service is guaranteed to succeed, what is the main problem?",
+            "choices": [
+              "The sentence contains a transition.",
+              "The paragraphs have different lengths.",
+              "The writer used the word service twice.",
+              "The inference exceeds the evidence; a causal or conclusive transition cannot repair that gap."
+            ],
+            "answer": 3,
+            "explanation": "The issue is the relationship claimed, not a mechanical style rule. More confident wording does not make the evidence more conclusive.",
+            "hint": "Separate logical support from surface fluency."
+          }
+        ],
+        "takeaway": "A writer could add a paragraph defining the costs the next trial would record and why those measurements matter to the decision. It would develop the evaluation plan rather than assert that the service already pays for itself. A strong explanation connects the addition to the audience’s stated concern and the argument’s limited evidence."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-paragraph-function-relations-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Propose one change that would strengthen this argument for an audience concerned about public spending. Explain the paragraph function of your proposed addition without inventing a result.",
+        "sampleAnswer": "A writer could add a paragraph defining the costs the next trial would record and why those measurements matter to the decision. It would develop the evaluation plan rather than assert that the service already pays for itself. A strong explanation connects the addition to the audience’s stated concern and the argument’s limited evidence.",
+        "checklist": [
+          "Name the function of the addition.",
+          "Connect it to the stated audience and existing reasoning.",
+          "Do not add a guaranteed outcome or an invented measurement."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-paragraph-function-relations-recall",
+        "prompt": "How does a transition differ from the logical relationship it signals?",
+        "sampleAnswer": "The relationship concerns how the ideas actually connect. A transition labels that connection for the reader; it cannot supply missing evidence or turn sequence into proven causation.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Sustained Analysis and Synthesis::8.3 Strengthening an argument through evidence and commentary": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a quoted detail, commentary about its function and an external factual claim.",
+      "Develop a supported interpretation without relying on a fixed sentence ratio.",
+      "Qualify an analysis when the source does not establish a claimed social outcome."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain the choice without turning imagery into proof"
+      },
+      {
+        "type": "text",
+        "text": "Evidence in rhetorical analysis is a precise feature of the supplied text: wording, an example, a comparison, a sentence pattern or an arrangement of ideas. Commentary explains how that feature contributes to meaning and purpose in the rhetorical situation. Repeating the detail in different words is not enough, but adding a device name is not enough either. Identify the connection the argument needs and explain it with reference to the text."
+      },
+      {
+        "type": "text",
+        "text": "A textual image can establish how a speaker represents a subject without proving an external claim about the world. Describing an old building as a memory can frame its value; it does not by itself measure residents’ opinions, prove displacement or establish the outcome of a redevelopment project. The interpretation should distinguish what the text invites readers to consider from what independent evidence would be needed to verify. This boundary keeps a vivid explanation from becoming an unsupported empirical claim."
+      },
+      {
+        "type": "text",
+        "text": "Commentary length depends on the reasoning needed. There is no reliable rule that every quotation requires exactly two sentences or that a short quotation is always superior. Select enough language to preserve context and make the relevant choice visible, then explain its function without repetition. A longer quotation can be justified when the relationship across its parts is the evidence; a short one can be useful when one word does the work. The purpose determines the choice."
+      },
+      {
+        "type": "text",
+        "text": "A developed analysis can also consider a tension. A speaker may acknowledge an economic benefit while asking the audience to weigh a cultural value. Explaining that relationship can be more precise than labeling the entire passage positive or negative. Do not assume every listener reacts identically or that the writer secretly intends something the text does not support. A strong interpretation names the audience and requested action, uses particular details and states the effect as plausible reasoning rather than guaranteed persuasion."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-commentary-evidence-boundary-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Complete original fictional statement to a town planning committee: “The new glass hall may bring visitors and revenue. Yet the old brick station is more than an unused room: its worn doorstep has carried generations of departures and returns. Before we erase that doorway, ask whether the new hall can include a place for the town’s memory.” The writer asks the committee to consider preservation within redevelopment. The passage supplies no survey, financial projection or record of the project’s actual effects.",
+        "steps": [
+          {
+            "prompt": "Which detail most directly acknowledges a benefit of redevelopment?",
+            "choices": [
+              "The new hall may bring visitors and revenue.",
+              "The doorstep is worn.",
+              "The passage mentions a committee.",
+              "The doorway appears twice."
+            ],
+            "answer": 0,
+            "explanation": "The opening explicitly grants a possible benefit, marked by may. It does not establish a measured or guaranteed financial result.",
+            "hint": "Look for the statement that grants a positive possibility before the turn."
+          },
+          {
+            "prompt": "Which commentary best explains the doorstep image?",
+            "choices": [
+              "It proves every resident opposes development.",
+              "It presents the old station as connected to shared experience, supporting a request to include memory in the plan.",
+              "It establishes a statistically significant fall in tourism.",
+              "It shows the writer believes buildings never change."
+            ],
+            "answer": 1,
+            "explanation": "The explanation connects the image to the preservation request. It remains an interpretation of representation rather than invented evidence about public opinion or economic effects.",
+            "hint": "Link the particular image to the action requested at the end."
+          },
+          {
+            "prompt": "Which claim requires evidence beyond the passage?",
+            "choices": [
+              "The writer uses a contrast between possible revenue and memory.",
+              "The passage addresses a planning decision.",
+              "The project has already displaced most residents.",
+              "The writer asks whether preservation can be included."
+            ],
+            "answer": 2,
+            "explanation": "The passage supplies no record of displacement or implementation. An external outcome cannot be established by imagery alone.",
+            "hint": "Distinguish what the speaker represents from what has actually happened."
+          },
+          {
+            "prompt": "What revision would most improve weak commentary saying only “the author uses imagery”?",
+            "choices": [
+              "Add an unsupported survey number.",
+              "Repeat the same sentence twice to meet a quota.",
+              "Name three more devices without explaining them.",
+              "Identify the doorstep detail and explain how it frames preservation as part of the committee’s decision."
+            ],
+            "answer": 3,
+            "explanation": "The repair supplies a mechanism connecting evidence, interpretation, audience and purpose. It does not rely on decorative labels or sentence counts.",
+            "hint": "Ask what the image helps the writer make relevant to this audience."
+          }
+        ],
+        "takeaway": "The opening grants a possible economic benefit, which lets the later doorstep image broaden the committee’s criteria rather than simply reject redevelopment. The contrast frames memory as something the plan should consider. This analysis can explain the passage’s choices, but it cannot prove actual revenues, displacement or unanimous public reaction because those outcomes are not supplied."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-commentary-evidence-boundary-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Write a short analysis of how the opening acknowledgment and later image work together. Include one limitation on what the passage can establish.",
+        "sampleAnswer": "The opening grants a possible economic benefit, which lets the later doorstep image broaden the committee’s criteria rather than simply reject redevelopment. The contrast frames memory as something the plan should consider. This analysis can explain the passage’s choices, but it cannot prove actual revenues, displacement or unanimous public reaction because those outcomes are not supplied.",
+        "checklist": [
+          "Use at least two precise details and explain their relationship.",
+          "Connect the choices to the stated audience and request.",
+          "Separate rhetorical interpretation from an external empirical claim."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-commentary-evidence-boundary-recall",
+        "prompt": "Why does naming a device not complete the commentary?",
+        "sampleAnswer": "A device label identifies a feature. Commentary must explain how that particular feature contributes to meaning or purpose in this situation and support the connection with the text.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: Foundations of American Democracy::1.7 Relationship Between the States and the Federal Government": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish national, state and shared responsibilities without confusing levels and branches.",
+      "Explain how a grant’s design can influence state choices.",
+      "Compare categorical conditions and broader discretion without treating either as unlimited power."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Separate the source of authority from the terms of funding"
+      },
+      {
+        "type": "text",
+        "text": "Federalism divides authority between national and state governments. Separation of powers divides authority among legislative, executive and judicial branches. A policy can involve both arrangements at once: Congress may authorize a national program, an agency may administer it and a state may implement activities using its own institutions. Name the level and the branch separately before explaining the relationship. Calling an action federal does not establish which branch made it or what constitutional authority supports it."
+      },
+      {
+        "type": "text",
+        "text": "National powers include expressly granted authorities and appropriate means of carrying them out; states retain substantial responsibilities, including many police-power functions concerning health, safety and welfare. Some responsibilities overlap. A comparison should identify the particular policy, legal basis and institutions rather than assume a perfect division into separate spheres or a fixed equal share of power. The same issue, such as transport or education, can involve several levels in different roles."
+      },
+      {
+        "type": "text",
+        "text": "Grants transfer money with a design that affects incentives and discretion. A narrowly specified program can direct resources toward a particular purpose and require eligible recipients to follow stated conditions. A broader grant can leave more decisions about methods or priorities to the recipient within its legal terms. The difference concerns who chooses what, not whether any limits exist. Receiving money does not by itself give the national government unlimited control over every state activity, and a state’s preference does not automatically invalidate every funding condition."
+      },
+      {
+        "type": "text",
+        "text": "Evaluate a funding arrangement by tracing the mechanism. A matching requirement can change the cost of participation for a state; a reporting rule can provide information for accountability; a restriction on eligible uses can shape the activities selected. These are possible effects, not proof that every recipient responds identically or that the program succeeds. Constitutional and statutory limits still matter, and detailed real disputes require more than a short label. For course analysis, distinguish a stated condition, a recipient’s choice and evidence about implementation or results."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-federalism-grant-design-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional grant comparison. Program A offers national funds for replacing specified drinking-water pipes, requires states to supply part of the project cost and permits spending only on the defined replacement work. Program B offers funds for a broader set of local water-system improvements, allowing recipients to choose among several listed eligible projects. Both programs have legal conditions and reporting requirements. The example does not decide every possible constitutional question about grants.",
+        "steps": [
+          {
+            "prompt": "Which difference is most directly supplied?",
+            "choices": [
+              "Program B has no conditions at all.",
+              "Program A restricts the eligible purpose more narrowly, while B permits a wider choice among listed uses.",
+              "A state becomes a national agency when it accepts any money.",
+              "Both programs prove that all water policies are identical."
+            ],
+            "answer": 1,
+            "explanation": "The programs differ in the range of eligible decisions, not in the existence versus complete absence of limits.",
+            "hint": "Compare what each recipient is allowed to choose."
+          },
+          {
+            "prompt": "How could Program A’s required state contribution affect participation?",
+            "choices": [
+              "It makes every state equally able to participate regardless of resources.",
+              "It abolishes every national condition.",
+              "It changes the recipient’s cost of taking part and may affect its decision.",
+              "It proves the water system has already improved."
+            ],
+            "answer": 2,
+            "explanation": "A matching obligation changes incentives and resource demands. Its actual effect depends on state circumstances and choices.",
+            "hint": "Trace the condition to the decision it could influence."
+          },
+          {
+            "prompt": "Which statement correctly distinguishes levels from branches?",
+            "choices": [
+              "National versus state concerns levels; Congress versus an executive agency concerns branches or institutional roles within a level.",
+              "A governor is a separate level between national and state government.",
+              "Federalism means the president, Congress and courts are states.",
+              "All state actions are judicial actions."
+            ],
+            "answer": 0,
+            "explanation": "The two dimensions answer different questions and can both matter in the same policy process.",
+            "hint": "Ask where authority sits, then which institution exercises it."
+          },
+          {
+            "prompt": "What evidence would best evaluate a claim that either program improved water access?",
+            "choices": [
+              "The program’s name alone",
+              "A list of the officials’ favorite speeches",
+              "The grant announcement without implementation data",
+              "Relevant before-and-after service measures, participation and implementation evidence, assessed with other changes"
+            ],
+            "answer": 3,
+            "explanation": "A program’s purpose and conditions do not establish its result. Outcome evidence must match the claim and account for limitations.",
+            "hint": "Choose evidence about what was actually delivered and for whom."
+          }
+        ],
+        "takeaway": "Broader discretion could allow recipients to select projects suited to different local needs, but it can also produce variation in priorities or make cross-state comparisons harder. Measures of eligible participation, service reliability or access could help evaluate outcomes if interpreted with local conditions and other changes. The argument should connect discretion to a mechanism instead of treating local or national control as automatically superior."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-federalism-grant-design-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain a potential benefit and a potential constraint of broader state discretion in Program B. Name one measure that could help evaluate the result without assuming every state makes the same choice.",
+        "sampleAnswer": "Broader discretion could allow recipients to select projects suited to different local needs, but it can also produce variation in priorities or make cross-state comparisons harder. Measures of eligible participation, service reliability or access could help evaluate outcomes if interpreted with local conditions and other changes. The argument should connect discretion to a mechanism instead of treating local or national control as automatically superior.",
+        "checklist": [
+          "Identify which decisions are left to the recipient.",
+          "Explain a possible advantage and constraint.",
+          "Choose an outcome measure relevant to the stated goal."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-federalism-grant-design-recall",
+        "prompt": "Why does a broader grant not mean that the recipient has unlimited discretion?",
+        "sampleAnswer": "The recipient still operates within the program’s legal conditions and eligible purposes. Broader choice concerns the range of permitted decisions, not the disappearance of every restriction.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: Interactions Among Branches::2.12 Bureaucratic Discretion and Rulemaking": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish Congress’s statutory choice from an agency’s implementation decision.",
+      "Explain discretion as a bounded choice rather than permission to ignore law.",
+      "Compare rulemaking, enforcement and oversight using specific actions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Find the delegated choice and the boundary around it"
+      },
+      {
+        "type": "text",
+        "text": "A statute can set a goal and delegate responsibility for implementation without specifying every administrative detail. Congress may do this because programs require expertise, repeated decisions and adaptation to circumstances. An executive agency then works within the authority and limits the law provides. Distinguish the legislative decision to authorize a program from an agency’s choice about carrying it out. An agency’s ability to fill in details does not mean it becomes a second Congress with unlimited lawmaking power."
+      },
+      {
+        "type": "text",
+        "text": "Discretion is the room for choice within a legally relevant framework. A law might permit an agency to choose among specified standards or prioritize enforcement using stated criteria. Identify the allowed range and the choice made. The same action can be discretionary in one statutory setting and outside authority in another. A useful response explains the connection between the source of authority, the decision and its boundary rather than using the word bureaucratic as a complete explanation."
+      },
+      {
+        "type": "text",
+        "text": "Rulemaking develops general regulations that implement statutory authority. Enforcement applies relevant rules to conduct or cases. Many rulemaking processes provide opportunities for notice and public comment, though procedures and exceptions vary; do not turn one classroom example into a universal checklist. Public comments can provide information and arguments without making the process a direct referendum. Agency expertise can be relevant while legal interpretation and review remain distinct institutional responsibilities."
+      },
+      {
+        "type": "text",
+        "text": "Accountability can involve authorizing legislation, appropriations, oversight, executive supervision and judicial review within constitutional and statutory limits. A congressional hearing can obtain information or create political pressure, but it does not by itself rewrite every legal rule. A court can evaluate an agency’s legal authority; the fact that an agency employs specialists does not automatically settle that question. To analyze a scenario, identify the actor, the delegated decision, the procedure or action and the particular check. Then explain what the check can accomplish and what would require a separate institutional step."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-delegation-rulemaking-limits-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional statute and administrative choices. Congress creates an equipment-inspection program and expressly directs Agency X to set a reporting deadline between 20 and 30 days after an inspection. The agency proposes a 25-day deadline and requests public comments about administrative burdens. Later, an official suggests a 40-day deadline without a change in the law. The numbers are invented for this bounded authority exercise.",
+        "steps": [
+          {
+            "prompt": "What part of the 25-day decision illustrates discretion?",
+            "choices": [
+              "The agency may ignore every part of the statute.",
+              "The agency selects a value within the range Congress expressly delegated.",
+              "The agency changes the membership of Congress.",
+              "The reporting program no longer has legal authority."
+            ],
+            "answer": 1,
+            "explanation": "The law supplies both an allowed choice and its boundary. Choosing 25 days fits the stated interval.",
+            "hint": "Identify what the statute leaves open and what it fixes."
+          },
+          {
+            "prompt": "Why does the 40-day suggestion raise a different issue under the supplied statute?",
+            "choices": [
+              "It is necessarily identical to 25 days.",
+              "It proves no agency can ever make a rule.",
+              "It falls outside the expressly stated delegated range unless a relevant legal change supplies authority.",
+              "It automatically becomes a constitutional amendment."
+            ],
+            "answer": 2,
+            "explanation": "The model statute limits the deadline to 20 through 30 days. Expertise or preference does not erase that stated boundary.",
+            "hint": "Compare the proposed value with the actual scope of delegation."
+          },
+          {
+            "prompt": "What can public comments contribute in the described process?",
+            "choices": [
+              "Information and arguments about burdens and implementation for the agency to consider",
+              "A direct popular vote that automatically replaces the statute",
+              "An unlimited power to select any deadline",
+              "Proof that every commenter represents the whole population"
+            ],
+            "answer": 0,
+            "explanation": "Comments can inform the administrative decision. They do not, in this model, convert rulemaking into a referendum or rewrite the statutory limit.",
+            "hint": "Separate consultation from who possesses the legal decision authority."
+          },
+          {
+            "prompt": "Which action best fits congressional oversight rather than agency rulemaking?",
+            "choices": [
+              "An inspector applies the reporting rule to a particular case.",
+              "Agency X proposes the deadline.",
+              "A regulated organization submits a comment.",
+              "A congressional committee asks agency officials to explain the decision and its implementation."
+            ],
+            "answer": 3,
+            "explanation": "The committee seeks information and accountability. Changing statutory authority or funding would require the relevant additional institutional process.",
+            "hint": "Identify the actor and the immediate purpose of the action."
+          }
+        ],
+        "takeaway": "A congressional hearing could question officials and gather evidence about burdens or the agency’s interpretation, but the hearing alone would not amend the statutory 20-to-30-day range. Congress could pursue a statutory change through legislation if it wanted a different range. Alternatively, legal review could examine whether an action fits the authority supplied. A strong answer specifies the mechanism and avoids treating oversight as automatic cancellation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-delegation-rulemaking-limits-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how one accountability mechanism could address concerns about the deadline. State both what that mechanism can do and what would require an additional institutional step.",
+        "sampleAnswer": "A congressional hearing could question officials and gather evidence about burdens or the agency’s interpretation, but the hearing alone would not amend the statutory 20-to-30-day range. Congress could pursue a statutory change through legislation if it wanted a different range. Alternatively, legal review could examine whether an action fits the authority supplied. A strong answer specifies the mechanism and avoids treating oversight as automatic cancellation.",
+        "checklist": [
+          "Identify the responsible institution and action.",
+          "Connect the check to a specific concern.",
+          "Distinguish information, pressure, legislation and legal review."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-delegation-rulemaking-limits-recall",
+        "prompt": "How does bounded discretion differ from a power to disregard a statute?",
+        "sampleAnswer": "Bounded discretion allows a choice within authorized objectives, procedures or limits. Disregarding the statute claims a freedom the delegation does not supply. The range of lawful choice depends on the particular legal framework.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "US Gov: Political Participation::5.8 Electing a President": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish popular votes, allocation rules and electoral votes.",
+      "Calculate a majority in an explicitly simplified model and explain its limits.",
+      "Explain why national popular-vote totals do not alone determine the Electoral College result."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Count electors, then distinguish the popular-vote claim"
+      },
+      {
+        "type": "text",
+        "text": "Presidential elections involve more than one kind of count. Voters participate in state and District of Columbia processes that determine electors under the applicable rules. The Electoral College vote formally selects the president through the constitutional system. A state’s electoral allocation is not recalculated from that election’s turnout. The actual allocation combines its House representation and two Senate seats, with the District of Columbia receiving electors under the Twenty-Third Amendment."
+      },
+      {
+        "type": "text",
+        "text": "A majority is more than half of the relevant electoral votes; a plurality is merely more than another candidate receives. In the standard full Electoral College of 538, a majority is 270. If no candidate receives the required majority, the constitutional process for a contingent election applies; the national popular-vote winner does not automatically take the office instead. For a classroom model with a different stated total, calculate that model’s majority rather than importing 270 into it."
+      },
+      {
+        "type": "text",
+        "text": "Most states use a statewide winner-take-all allocation, while Maine and Nebraska use a different district-based method. State which rule an example supplies before calculating. Under a winner-take-all model, a narrow popular-vote victory in one unit can yield all of that unit’s electors, while larger margins elsewhere do not add extra electors. That mechanism allows an electoral winner to differ from the winner of the combined popular vote. It does not imply that every election must have such a difference."
+      },
+      {
+        "type": "text",
+        "text": "Analyze strategic incentives through the allocation rule and the competitiveness of particular contests. A campaign might focus on places where a small change in votes could affect electoral allocation, but campaign decisions also depend on resources, expectations and turnout. Do not infer an individual voter’s preferences from a whole state’s label or assume every state has equal political competition. A useful data response identifies the count, computes the relevant threshold and explains the mechanism linking state results to the national electoral outcome. Simplified models illustrate that mechanism; they are not a replacement for the real allocation rules."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "gov-electoral-allocation-model-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Complete fictional four-unit model, not an actual U.S. election or real state allocation. All four units use the stated winner-take-all rule, and each has 1,000 popular votes cast. Unit 1: 10 electors; Candidate A receives 510 votes and B receives 490. Unit 2: 8 electors; A receives 400 and B receives 600. Unit 3: 6 electors; A receives 510 and B receives 490. Unit 4: 4 electors; A receives 400 and B receives 600. There are 28 electors in this model, so 15 is a majority.",
+        "steps": [
+          {
+            "prompt": "How many model electoral votes does A receive?",
+            "choices": [
+              "14",
+              "12",
+              "16",
+              "28"
+            ],
+            "answer": 2,
+            "explanation": "A wins Units 1 and 3, receiving 10 plus 6 electors under the supplied rule. The popular margin does not change those allocations.",
+            "hint": "Identify each unit’s winner before adding its electors."
+          },
+          {
+            "prompt": "Does A receive a model electoral majority?",
+            "choices": [
+              "No, because A must reach 270 in this four-unit model.",
+              "Yes, because 16 exceeds half of the model’s 28 electoral votes.",
+              "No, because A does not win every unit.",
+              "Yes, because any plurality is always a majority."
+            ],
+            "answer": 1,
+            "explanation": "The model threshold is 15, and A has 16. The full real-world total is not the denominator in this explicitly different model.",
+            "hint": "Use the total relevant to the exercise and distinguish majority from plurality."
+          },
+          {
+            "prompt": "What are the combined popular-vote totals?",
+            "choices": [
+              "A has 2,180 and B has 1,820.",
+              "Both have exactly 2,000.",
+              "A has 16 and B has 12 popular votes.",
+              "A has 1,820 and B has 2,180."
+            ],
+            "answer": 3,
+            "explanation": "A’s votes total 510+400+510+400=1,820; B’s total is 490+600+490+600=2,180. These are popular votes, not electors.",
+            "hint": "Add the same type of quantity across all four units."
+          },
+          {
+            "prompt": "Which explanation accounts for the different winners of the two counts?",
+            "choices": [
+              "The stated winner-take-all allocations translate unit victories into electors, so the distribution of votes matters as well as their combined total.",
+              "The model secretly gives each popular vote 270 electors.",
+              "Popular votes are never counted in any election.",
+              "Every unit must have identical electors because turnout is equal."
+            ],
+            "answer": 0,
+            "explanation": "The exercise makes the allocation mechanism explicit. Equal turnout does not, under the supplied model, make the electoral allocations identical.",
+            "hint": "Connect the rule to the geographic distribution instead of treating the two totals as the same measure."
+          }
+        ],
+        "takeaway": "A campaign could consider whether additional support might change a narrow unit’s winner and therefore its electoral allocation. That incentive depends on the winner-take-all rule and the unit’s electors, not simply the size of a national popular-vote margin. The fictional model cannot establish any real state’s allocation, turnout or actual competitiveness. A real analysis must use the relevant rules and evidence."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "gov-electoral-allocation-model-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain how a campaign might evaluate a closely divided unit under this model. State one conclusion about a real U.S. election that the simplified data cannot establish.",
+        "sampleAnswer": "A campaign could consider whether additional support might change a narrow unit’s winner and therefore its electoral allocation. That incentive depends on the winner-take-all rule and the unit’s electors, not simply the size of a national popular-vote margin. The fictional model cannot establish any real state’s allocation, turnout or actual competitiveness. A real analysis must use the relevant rules and evidence.",
+        "checklist": [
+          "Identify the allocation mechanism and competitiveness.",
+          "Distinguish popular votes from electoral votes.",
+          "State a limitation of the fictional four-unit model."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "gov-electoral-allocation-model-recall",
+        "prompt": "Why are a plurality and a majority different, and why must the denominator be explicit?",
+        "sampleAnswer": "A plurality is the largest share among competitors, while a majority exceeds half of the relevant total. The required number depends on that total: 15 in the 28-elector teaching model, rather than the full standard Electoral College threshold.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  }
+}

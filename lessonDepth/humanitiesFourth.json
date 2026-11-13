@@ -1,0 +1,1534 @@
+{
+  "APUSH: 1491–1607::1.2 Atlantic Expansion and the Columbian Exchange": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish biological transfer, commercial exchange and coerced movement.",
+      "Explain how disease, conquest and labor demands interacted rather than treating one factor as a complete cause.",
+      "Evaluate different consequences for particular populations and environments."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Trace a transfer, then explain its unequal consequences"
+      },
+      {
+        "type": "text",
+        "text": "The Columbian Exchange describes the movement of plants, animals, pathogens and people associated with sustained Atlantic connections after 1492. The term identifies a process, not an equal bargain or a single transaction. A crop can be transferred through cultivation, trade or colonization, while a pathogen can move without anyone intending the resulting epidemic. Forced migration also belongs in the history. Begin by identifying what moved, from where to where, through which connections and with what consequences."
+      },
+      {
+        "type": "text",
+        "text": "Transfers changed environments and livelihoods. American crops such as maize and potatoes expanded food possibilities in parts of Afro-Eurasia. Animals introduced to the Americas, including horses and livestock, changed mobility, land use and some relationships among communities. These developments did not have one uniform effect or erase Indigenous choices. A new resource could be adopted and adapted while also intensifying competition over land. Explaining a transfer requires a mechanism between the new organism and a particular environmental or social change."
+      },
+      {
+        "type": "text",
+        "text": "Epidemics caused catastrophic losses among many Indigenous populations with limited prior exposure to introduced pathogens. Disease interacted with warfare, displacement, coerced work and disrupted food production. Do not convert that interaction into a claim that disease automatically produced European control everywhere. Colonial authorities made choices about violence and extraction, while Indigenous peoples resisted, negotiated, migrated and formed alliances. Demographic loss and military conquest are related processes whose timing and local circumstances need to be explained."
+      },
+      {
+        "type": "text",
+        "text": "Atlantic plantation production expanded demand for coerced labor, and European colonizers increasingly drew on the forced transport and enslavement of Africans. This was not a neutral movement of workers in search of opportunity. Institutions, merchants, governments and slaveholders organized exploitation, while enslaved people preserved relationships and resisted within severe constraints. A comparison of consequences should state the group, place and period. Increased production or trade in one record does not measure freedom, health or well-being for the people who bore the work and disruption."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-exchange-interacting-effects-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical summaries written for instruction. A: potatoes originating in the Americas became an important crop in parts of Europe. B: introduced pathogens caused severe Indigenous population losses while conquest, displacement and labor demands disrupted communities. C: Atlantic plantation expansion increased demand for enslaved labor and the forced transport of Africans. The summaries identify selected processes, not an assertion that every region experienced the same sequence.",
+        "steps": [
+          {
+            "prompt": "Which question most directly turns A from a label into a causal explanation?",
+            "choices": [
+              "What is the longest word in the sentence?",
+              "How did adopting the crop affect food production or diets in a particular setting?",
+              "Did every person eat the same meal?",
+              "Was every effect identical across the world?"
+            ],
+            "answer": 1,
+            "explanation": "A causal explanation connects the transfer to a specific change through a mechanism. It does not assume universal diets or outcomes.",
+            "hint": "Ask what changed after adoption and how the crop contributed."
+          },
+          {
+            "prompt": "Which explanation best represents B?",
+            "choices": [
+              "Disease alone automatically caused every colonial victory.",
+              "Colonial policies had no role in demographic disruption.",
+              "Epidemics interacted with violence, displacement and labor conditions, with effects shaped by local circumstances.",
+              "Every epidemic was deliberately planned in every location."
+            ],
+            "answer": 2,
+            "explanation": "The summary identifies interacting processes. Neither a disease-only account nor an unsupported universal claim about intention fits it.",
+            "hint": "Preserve the separate roles of pathogens and human decisions."
+          },
+          {
+            "prompt": "Why does C need to be distinguished from voluntary labor migration?",
+            "choices": [
+              "It describes forced transport and enslavement under coercive institutions.",
+              "It concerns movement across water.",
+              "It involved more than one continent.",
+              "It occurred after 1492."
+            ],
+            "answer": 0,
+            "explanation": "Coercion and enslaved status distinguish the process, not simply distance or geography. A shared movement category should not hide different power relationships.",
+            "hint": "Identify who controlled the movement and the conditions of labor."
+          },
+          {
+            "prompt": "Which claim would require more evidence than increasing plantation output alone?",
+            "choices": [
+              "More goods were produced in the measured setting.",
+              "Production can be connected to labor institutions.",
+              "Colonial trade involved resources and markets.",
+              "Every person involved became freer and healthier."
+            ],
+            "answer": 3,
+            "explanation": "An output measure does not establish distribution, freedom or health. Those outcomes require evidence about the affected populations.",
+            "hint": "Separate production from the other outcomes the claim adds."
+          }
+        ],
+        "takeaway": "A crop transfer could expand food possibilities in one setting, while epidemic disease and colonial disruption caused devastating losses in another. Plantation expansion could increase production while relying on forced labor and restricting the freedom of enslaved people. A strong explanation names a mechanism and an affected population rather than giving the whole exchange one undifferentiated verdict."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-exchange-interacting-effects-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain one consequence of a biological transfer and one consequence of a coerced labor system. Identify an interaction or a difference that prevents treating the Columbian Exchange as uniformly beneficial.",
+        "sampleAnswer": "A crop transfer could expand food possibilities in one setting, while epidemic disease and colonial disruption caused devastating losses in another. Plantation expansion could increase production while relying on forced labor and restricting the freedom of enslaved people. A strong explanation names a mechanism and an affected population rather than giving the whole exchange one undifferentiated verdict.",
+        "checklist": [
+          "Identify what moved and the relevant setting.",
+          "Explain a mechanism connecting transfer or institution to consequence.",
+          "Distinguish coercion, output and well-being rather than assuming they change together."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-exchange-interacting-effects-recall",
+        "prompt": "Why is the word exchange not evidence that every participant consented or benefited equally?",
+        "sampleAnswer": "The term describes connected transfers. Those transfers included coercion, disease and unequal power as well as adopted crops and commercial activity; consent and consequences must be evaluated separately.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1607–1754::2.1 Regional Colonies and Atlantic Economies": {
+    "revision": 1,
+    "objectives": [
+      "Connect crop and commercial possibilities with labor and settlement choices.",
+      "Compare colonial regions on a shared dimension without making each region uniform.",
+      "Explain how Atlantic networks linked regions with different local economies."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare colonial regions through resources, labor and institutions"
+      },
+      {
+        "type": "text",
+        "text": "Regional labels are tools for comparison, not descriptions of identical colonies or households. In British North America, environmental conditions, access to land and waterways, migration, institutions and Atlantic markets influenced settlement and production. Begin with a particular question: what was produced, which labor arrangements were used or how communities exercised authority? Keep that dimension constant when comparing places. A climate difference can help explain a crop choice without determining every political or social outcome."
+      },
+      {
+        "type": "text",
+        "text": "In parts of New England, mixed farming, fishing, shipping and commerce developed alongside towns and local institutions. Puritan religious goals shaped some early settlements, but religious practice and political participation varied across places and time. Do not infer universal equality from a town meeting or a shared religious vocabulary. Access to land, gender, property rules and other exclusions shaped whose voice counted. Local institutions and Atlantic commerce could coexist rather than fitting a simple religious-versus-economic division."
+      },
+      {
+        "type": "text",
+        "text": "The Chesapeake became closely connected to tobacco production for Atlantic markets. Plantation expansion shaped demand for land and labor, with indentured servitude and increasingly racialized hereditary slavery important in different proportions over time. Distinguish a bounded term of service from enslaved status, and explain how laws and economic interests reinforced one another. Middle-colony agriculture, ports and commercial networks offered another configuration, often with more religious diversity, but diversity did not make legal status, wealth or power equal."
+      },
+      {
+        "type": "text",
+        "text": "These regions were not isolated. Merchants, ships, credit, food and goods connected them to one another, the Caribbean, Europe and Africa. Slavery and the slave trade affected the wider Atlantic economy, not only colonies with the largest plantation sectors. A useful comparison identifies both a difference in local production and a connection through exchange or institutions. Evidence about one port or one estate should not be made to establish every resident’s experience. To evaluate a regional claim, use specific examples and specify the period rather than projecting a later pattern backward across the whole colonial era."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-regional-economy-comparison-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified regional models. A: a coastal New England town combines small farms with fishing, shipping and trade. B: a Chesapeake plantation produces tobacco for Atlantic markets using coerced and contract labor arrangements that change over time. C: a middle-colony port connects grain-producing areas with commercial networks. These models summarize selected features; they do not describe every community or exclude slavery from any wider regional economy.",
+        "steps": [
+          {
+            "prompt": "Which comparison uses the same dimension in A and B?",
+            "choices": [
+              "How each obtains and markets economic resources",
+              "Whether one region is morally simple",
+              "Which place has the better modern state flag",
+              "Whether people in one region have no institutions"
+            ],
+            "answer": 0,
+            "explanation": "Production and exchange provide a common dimension. The examples can then support specific differences and connections.",
+            "hint": "Compare the same kind of activity in both settings."
+          },
+          {
+            "prompt": "What mechanism connects tobacco exports with plantation expansion?",
+            "choices": [
+              "Export demand removes every choice made by colonists.",
+              "A market for the crop can increase incentives to obtain land and organize labor for production.",
+              "Tobacco automatically creates equal rights.",
+              "Plantations operate without institutions."
+            ],
+            "answer": 1,
+            "explanation": "Demand can influence incentives, while land acquisition and labor organization depend on institutions and choices. The connection is not an inevitable universal law.",
+            "hint": "Explain what producers seek and what resources production requires."
+          },
+          {
+            "prompt": "Which conclusion does a New England town meeting not establish by itself?",
+            "choices": [
+              "A form of local decision-making exists.",
+              "Participation can be studied through its rules.",
+              "Every resident has equal political participation and power.",
+              "Local institutions can matter to colonial society."
+            ],
+            "answer": 2,
+            "explanation": "An institution’s existence is not evidence of universal inclusion. Participation rules and practical power must be examined.",
+            "hint": "Separate the decision forum from who is allowed and able to influence it."
+          },
+          {
+            "prompt": "Which statement best connects the regions?",
+            "choices": [
+              "Different local products prove no trade occurs between them.",
+              "Only one colony can be part of an Atlantic network.",
+              "Regional labels eliminate change over time.",
+              "Different local economies can remain linked through shipping, markets, finance and coerced labor systems."
+            ],
+            "answer": 3,
+            "explanation": "Local variation and network integration are compatible. A sound comparison can identify both rather than choosing one as the whole story.",
+            "hint": "Distinguish a local economic pattern from its wider connections."
+          }
+        ],
+        "takeaway": "A comparison might contrast a coastal mixed economy with tobacco export production while examining labor arrangements or participation rules in each setting. Shipping and markets can link both to the Atlantic economy. The answer should recognize variation within regions and avoid assuming that religious diversity, town government or commercial growth established equal rights for every resident."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-regional-economy-comparison-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare two colonial regions on one economic dimension and one institutional dimension. Explain one Atlantic connection and one limit on the regional generalization.",
+        "sampleAnswer": "A comparison might contrast a coastal mixed economy with tobacco export production while examining labor arrangements or participation rules in each setting. Shipping and markets can link both to the Atlantic economy. The answer should recognize variation within regions and avoid assuming that religious diversity, town government or commercial growth established equal rights for every resident.",
+        "checklist": [
+          "Keep the comparison dimensions consistent.",
+          "Explain a specific mechanism or institution.",
+          "Include a connection and a qualification rather than treating regions as isolated stereotypes."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-regional-economy-comparison-recall",
+        "prompt": "Why can two regions have different economic patterns while both depend on the same wider network?",
+        "sampleAnswer": "A network links places performing different roles through transport, exchange, finance and labor relationships. Integration does not require every place to produce the same goods or organize communities identically.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1800–1848::4.3 Revivals, Reform, and Antislavery": {
+    "revision": 1,
+    "objectives": [
+      "Explain how religious revival and voluntary associations could support reform.",
+      "Distinguish reform goals and strategies rather than treating all movements as identical.",
+      "Evaluate a claim about expanded rights with evidence about participants, institutions and exclusions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Connect a reform ideal to an organization and a strategy"
+      },
+      {
+        "type": "text",
+        "text": "Reform begins with a claim that a practice or institution should change, but an ideal does not implement itself. Identify the problem reformers named, the authority they invoked and the action they pursued. During the early nineteenth century, religious revival, expanding print networks and voluntary associations could help people build communities of action. The Second Great Awakening’s emphasis on conversion and moral responsibility encouraged some reformers to connect personal transformation with social change. It did not make every religious person support the same reform or eliminate religious defenses of existing hierarchies."
+      },
+      {
+        "type": "text",
+        "text": "Temperance, educational reform, antislavery and women’s rights could share organizational methods while seeking different outcomes. Lectures, petitions, newspapers, fundraising and associations could circulate arguments and mobilize support. Explain the mechanism: a newspaper can connect dispersed readers and repeat a claim, while a petition can demonstrate organized demands to an institution. Using the same method does not establish identical membership, ideology or success. A movement can also contain disagreements over pace, tactics and the scope of its goal."
+      },
+      {
+        "type": "text",
+        "text": "Abolitionists challenged slavery through moral arguments, accounts of enslavement, political action and resistance. Black activists were central participants, not merely examples used by white reformers. Arguments for immediate abolition differed from proposals that accepted gradual change or promoted colonization abroad. Opposition to slavery’s expansion did not always mean commitment to equal rights. When reading a source, preserve the author’s actual position and examine whose experience or interests it includes. A personal account can provide powerful evidence without representing every enslaved person’s experience."
+      },
+      {
+        "type": "text",
+        "text": "Women’s participation in reform also exposed limits on public authority and legal rights. The Seneca Falls convention in 1848 made claims about equality and women’s rights, including suffrage, while disagreements and exclusions persisted within reform coalitions. A strong comparison can connect rhetoric of equal rights with particular institutional demands and then test how broadly that equality was applied. Do not infer that a rights declaration immediately changed every law or that using religious language made a movement politically uniform. Evaluate action, response and outcome as connected but distinct stages."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-reform-coalitions-limits-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original model reform statements, not historical quotations. A: a temperance association asks supporters to circulate petitions and pledge to avoid alcohol. B: an abolitionist association demands an end to slavery and publishes accounts explaining its violence. C: a women’s rights meeting argues that equality requires changes in legal and political rights. The statements illustrate different goals and shared methods without attributing invented words to historical people.",
+        "steps": [
+          {
+            "prompt": "Which comparison best distinguishes a goal from a strategy?",
+            "choices": [
+              "A newspaper is always a final legal victory.",
+              "Ending slavery is a goal; publishing accounts is one strategy used to pursue it.",
+              "A petition and equality mean exactly the same thing.",
+              "A declaration automatically enforces itself."
+            ],
+            "answer": 1,
+            "explanation": "The goal concerns the change sought; the strategy concerns an action intended to help produce that change. Their relationship needs explanation.",
+            "hint": "Ask what participants want and what they do to pursue it."
+          },
+          {
+            "prompt": "How could voluntary associations help reformers act?",
+            "choices": [
+              "They make every supporter agree on every issue.",
+              "They remove the need for resources or communication.",
+              "They can coordinate participation, circulate arguments and collect resources.",
+              "They guarantee immediate legislation."
+            ],
+            "answer": 2,
+            "explanation": "Associations can supply organizational capacity. They do not guarantee uniformity, resources without effort or a particular result.",
+            "hint": "Trace how a group changes the practical ability to act."
+          },
+          {
+            "prompt": "Which inference from C would exceed a rights declaration alone?",
+            "choices": [
+              "Participants make an argument for change.",
+              "Political rights are part of their stated concern.",
+              "The declaration can be studied as a source.",
+              "Every law and social practice immediately becomes equal after the meeting."
+            ],
+            "answer": 3,
+            "explanation": "A statement of rights is evidence of a claim and demand. Implementation and broader outcomes require separate evidence.",
+            "hint": "Separate the demand from the change it seeks."
+          },
+          {
+            "prompt": "Which explanation best connects religious revival with reform?",
+            "choices": [
+              "Ideas about moral responsibility could support some reform efforts, while religious communities and reformers still differed.",
+              "Every religious participant supported immediate abolition.",
+              "All reform was unrelated to ideas.",
+              "Every reform movement sought the same law."
+            ],
+            "answer": 0,
+            "explanation": "The explanation gives a possible intellectual and organizational connection without treating diverse people as a uniform bloc.",
+            "hint": "Use a mechanism and a qualification together."
+          }
+        ],
+        "takeaway": "Temperance and abolition groups could both use petitions or print, but reducing alcohol use and ending slavery were different goals involving different institutions and measures of change. Evidence of publications or membership could show mobilization without establishing either final outcome. A stronger evaluation connects a movement’s stated demand to laws, practices or participation while recognizing exclusions and internal disagreements."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-reform-coalitions-limits-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare two reform movements through one shared strategy and one difference in goals or scope. Explain how that difference affects the evidence needed to evaluate success.",
+        "sampleAnswer": "Temperance and abolition groups could both use petitions or print, but reducing alcohol use and ending slavery were different goals involving different institutions and measures of change. Evidence of publications or membership could show mobilization without establishing either final outcome. A stronger evaluation connects a movement’s stated demand to laws, practices or participation while recognizing exclusions and internal disagreements.",
+        "checklist": [
+          "Identify a strategy and explain how it could operate.",
+          "State a meaningful difference in goals or inclusion.",
+          "Match an outcome claim with relevant evidence rather than treating activity as automatic success."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-reform-coalitions-limits-recall",
+        "prompt": "Why does a shared reform method not prove that two movements had the same purpose or participants?",
+        "sampleAnswer": "Tools such as petitions and print can be used for different demands by different coalitions. The source’s goals, membership, institutional targets and proposed scope must be examined separately.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "APUSH: 1945–1980::8.3 Affluence, Great Society, and Political Distrust": {
+    "revision": 1,
+    "objectives": [
+      "Explain how public policy helped shape private prosperity and unequal access.",
+      "Distinguish New Deal and Great Society initiatives by setting and program purpose.",
+      "Connect the 1970s economic and political challenges without assigning every outcome to one cause."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Distinguish national growth, access and confidence in institutions"
+      },
+      {
+        "type": "text",
+        "text": "Postwar prosperity involved growth in production, consumption, education and homeownership, but national averages do not show who gained access. Public policy shaped private opportunities through veterans’ benefits, housing finance, infrastructure and other institutions. An account that treats prosperity as entirely private initiative misses those connections. An account that treats a formally available benefit as equally accessible misses how administration, discrimination, wealth and local circumstances affected its use."
+      },
+      {
+        "type": "text",
+        "text": "The GI Bill supported education and other opportunities for veterans. Federal housing policies and highway construction also contributed to suburban growth. Formal eligibility did not eliminate discrimination in lending, housing markets or local administration. Homeownership can affect wealth over time because equity and property values can be transferred or used to support later opportunities. Explain the mechanism linking an initial barrier to later consequences rather than assuming that one unequal decision ends with that immediate transaction."
+      },
+      {
+        "type": "text",
+        "text": "The Great Society developed in a different economic and political setting from the Depression-era New Deal. Medicare and Medicaid expanded public involvement in health coverage through different programs; they should not be treated as interchangeable names for one universal benefit. Antipoverty and education initiatives also reflected efforts to address persistent disadvantage amid relative national affluence. Evaluating these programs requires a criterion such as access, coverage, cost or inequality and evidence about the relevant population. A program’s stated aim is not proof that every problem disappeared."
+      },
+      {
+        "type": "text",
+        "text": "By the 1970s, inflation, unemployment, energy shocks and changing industrial conditions challenged expectations about steady improvement. Stagflation names the troubling combination of inflation and weak economic conditions; it is not a complete explanation of its own causes. Watergate and disclosures of government misconduct raised distinct questions about authority, accountability and trust. Economic disappointment and political scandal could interact in public attitudes without being the same event or having a single cause. Specify the mechanism and chronology when explaining distrust, and avoid treating every voter’s response as identical."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apush-prosperity-distribution-state-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical summaries for instruction. A: veterans’ benefits, housing finance and highways support postwar education, homeownership and suburban growth. B: discrimination in lending, housing and administration limits access for many Black veterans and other excluded groups. C: Great Society programs expand national involvement in health coverage and other social policy. D: the 1970s combine economic challenges with political scandals and changing expectations. These summaries separate policy, access and attitudes rather than measuring every household’s experience.",
+        "steps": [
+          {
+            "prompt": "What does comparing A and B show most directly?",
+            "choices": [
+              "Public policy never affects private choices.",
+              "A formal opportunity can expand while access and gains remain unequal.",
+              "Every benefit reaches every eligible person identically.",
+              "Discrimination has no consequences after one year."
+            ],
+            "answer": 1,
+            "explanation": "The policy and its distribution are distinct but connected questions. Expanded opportunities do not establish equal realization.",
+            "hint": "Ask what the rule makes possible and what affects actual use."
+          },
+          {
+            "prompt": "Which mechanism links housing access to longer-term inequality?",
+            "choices": [
+              "A house can never change in value.",
+              "Every borrower has the same resources.",
+              "Homeownership can affect equity and resources available for later generations or opportunities.",
+              "A national average proves equal neighborhood conditions."
+            ],
+            "answer": 2,
+            "explanation": "The mechanism explains how an initial difference can have continuing effects. Its size and distribution still need evidence.",
+            "hint": "Follow the possible consequences beyond the first purchase."
+          },
+          {
+            "prompt": "Which comparison of the New Deal and Great Society is strongest?",
+            "choices": [
+              "Both labels describe identical programs created in the same conditions.",
+              "Neither involved the national government.",
+              "The Great Society immediately ended every form of poverty.",
+              "Both expanded national responsibilities, but their settings, programs and particular purposes differed."
+            ],
+            "answer": 3,
+            "explanation": "The comparison identifies a similarity without erasing different contexts and instruments. Specific programs provide the evidence for the distinction.",
+            "hint": "Use a shared dimension while preserving differences in setting and mechanism."
+          },
+          {
+            "prompt": "Which explanation avoids conflating the 1970s challenges?",
+            "choices": [
+              "Economic pressures and government misconduct could both affect trust through different processes, with responses varying among groups.",
+              "Watergate alone caused every change in global energy prices.",
+              "Inflation and a political scandal are identical measures.",
+              "Every voter responded to the same events in the same way."
+            ],
+            "answer": 0,
+            "explanation": "The explanation separates processes while allowing interaction. It does not treat a period label as a single universal cause.",
+            "hint": "Name the different mechanisms rather than assigning all outcomes to one event."
+          }
+        ],
+        "takeaway": "Rising homeownership or output can support a claim about expansion while leaving questions about access and distribution unresolved. Evidence about lending practices, neighborhood access and program administration helps evaluate who could participate. A strong response states both criteria and uses relevant evidence for each rather than allowing a national average or a formal eligibility rule to stand in for every group’s experience."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "apush-prosperity-distribution-state-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Evaluate one postwar development using two distinct criteria, such as economic growth and equal access. Explain why the same evidence may not answer both questions.",
+        "sampleAnswer": "Rising homeownership or output can support a claim about expansion while leaving questions about access and distribution unresolved. Evidence about lending practices, neighborhood access and program administration helps evaluate who could participate. A strong response states both criteria and uses relevant evidence for each rather than allowing a national average or a formal eligibility rule to stand in for every group’s experience.",
+        "checklist": [
+          "Name the development and two evaluation criteria.",
+          "Explain a relevant mechanism for each criterion.",
+          "Distinguish national aggregates, formal rules and practical access."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "apush-prosperity-distribution-state-recall",
+        "prompt": "Why does a national average not establish equal participation in prosperity?",
+        "sampleAnswer": "An average combines different experiences. The distribution of resources, access and outcomes can remain unequal even while the aggregate grows, so group-specific and institutional evidence is needed.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: The Global Tapestry::1.3 Africa and the Americas in comparison": {
+    "revision": 1,
+    "objectives": [
+      "Explain how different forms of exchange, tribute and labor could support authority.",
+      "Compare a shared governing task across two specific societies.",
+      "Distinguish an institutional similarity from a claim that societies were identical."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare institutions without ranking whole continents"
+      },
+      {
+        "type": "text",
+        "text": "Africa and the Americas contained many different political and social arrangements before sustained Atlantic connections. Some states controlled extensive territories, while other communities organized authority through smaller or less centralized institutions. A comparison should name societies, places and dates rather than make a continent act as one person. “Centralized” describes a relationship of authority, not an automatic measure of intelligence, value or historical achievement. It also does not mean a ruler controlled every locality without negotiation."
+      },
+      {
+        "type": "text",
+        "text": "Mali’s rulers benefited from connections to trans-Saharan exchange, including gold and other goods. Control of routes, access to commerce and revenue could strengthen a ruling center. Mansa Musa’s pilgrimage in the fourteenth century also linked wealth, religious identity and international reputation. These mechanisms are related but distinct: possessing resources, obtaining revenue and presenting legitimacy are not the same task. A famous journey cannot by itself establish how every community experienced rule or how all local commerce operated."
+      },
+      {
+        "type": "text",
+        "text": "In the Americas, large states used institutions suited to their particular settings. Mexica rulers drew tribute from subject communities, while Inca expansion in the fifteenth century used administrative structures, roads and labor obligations to mobilize resources across varied environments. The absence of an identical institution does not mean the absence of exchange or organization. Inca labor obligations should not be treated as legally identical to later Atlantic racial chattel slavery or every colonial labor draft. Compare what a system required, how resources were organized and who held authority."
+      },
+      {
+        "type": "text",
+        "text": "Shared tasks can reveal both similarities and differences. A ruler who obtains revenue through commerce and a ruler who organizes tribute or labor both need resources, but the mechanism and relationship to communities differ. Roads, intermediaries, religious practices and elite relationships can connect distant places while leaving room for resistance and variation. A strong comparison explains one common dimension and a meaningful distinction, then acknowledges the evidence’s limits. Do not assume all African states relied on one trade or all American societies used one imperial model."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-africa-americas-comparison-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Selected historical summaries for comparison. A: Mali’s rulers benefit from trans-Saharan commercial connections and resources associated with gold-producing regions. B: Inca rulers mobilize labor and use roads and administrative arrangements across varied Andean environments during expansion in the fifteenth century. C: subject communities in the Mexica imperial system provide tribute. These are particular institutions, not complete descriptions of Africa or the Americas.",
+        "steps": [
+          {
+            "prompt": "Which shared dimension makes A and B directly comparable?",
+            "choices": [
+              "The modern language of every resident",
+              "How rulers obtain and organize resources",
+              "Which continent has one uniform culture",
+              "Whether every society uses the same money"
+            ],
+            "answer": 1,
+            "explanation": "Both summaries concern the resources available to a ruling center. Their mechanisms can then be compared without assuming identity.",
+            "hint": "Find the governing task both examples address."
+          },
+          {
+            "prompt": "Which explanation identifies a mechanism in B?",
+            "choices": [
+              "Roads guarantee that every community welcomes rule.",
+              "Labor obligations mean the system is identical to every later form of slavery.",
+              "Infrastructure and organized obligations can help move people and resources across varied terrain.",
+              "A large territory needs no administration."
+            ],
+            "answer": 2,
+            "explanation": "The explanation connects institutions to coordination. It does not erase coercion, resistance or distinctions among labor systems.",
+            "hint": "Explain what the institution enables and avoid making it a universal guarantee."
+          },
+          {
+            "prompt": "What does Mansa Musa’s pilgrimage most directly illustrate in this teaching context?",
+            "choices": [
+              "A connection among wealth, religious identity and wider reputation",
+              "Proof that every household in Mali is wealthy",
+              "Proof that no commerce occurs outside royal control",
+              "The absence of connections beyond Mali"
+            ],
+            "answer": 0,
+            "explanation": "A particular ruler’s journey can illuminate legitimation and connections. It cannot establish equal wealth or total control.",
+            "hint": "Keep the inference at the level supported by the event."
+          },
+          {
+            "prompt": "Which conclusion should the comparison reject?",
+            "choices": [
+              "Different states need resources.",
+              "Institutions can serve related functions through different mechanisms.",
+              "Local evidence can qualify a general claim.",
+              "One imperial example establishes how every society on an entire continent was organized."
+            ],
+            "answer": 3,
+            "explanation": "A regional or state example cannot represent all communities across a continent and period. Specificity is necessary for a valid comparison.",
+            "hint": "Compare the scale of the evidence with the scale of the conclusion."
+          }
+        ],
+        "takeaway": "Mali’s commercial connections and Inca labor administration could both help rulers mobilize resources, but they operated through different institutions and geographic settings. A comparison can explain revenue and coordination without claiming identical subjects’ experiences or treating either example as the model for a whole continent. Other specific comparisons are valid when supported accurately."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-africa-americas-comparison-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare resource mobilization in two specific societies from this unit. Explain one functional similarity, one institutional difference and one limit on your generalization.",
+        "sampleAnswer": "Mali’s commercial connections and Inca labor administration could both help rulers mobilize resources, but they operated through different institutions and geographic settings. A comparison can explain revenue and coordination without claiming identical subjects’ experiences or treating either example as the model for a whole continent. Other specific comparisons are valid when supported accurately.",
+        "checklist": [
+          "Name particular societies and keep the period clear.",
+          "Use one shared dimension and explain each mechanism.",
+          "State a limitation rather than ranking continents through a stereotype."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-africa-americas-comparison-recall",
+        "prompt": "Why is sharing a governing task not the same as sharing an identical institution?",
+        "sampleAnswer": "Different societies can address the same need, such as obtaining resources, through commerce, tribute, labor or other arrangements. Similar function makes comparison possible while differences in authority and implementation remain important.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Transoceanic Interconnections::4.1 Navigation and maritime expansion": {
+    "revision": 1,
+    "objectives": [
+      "Explain how navigational knowledge and ship technology supported maritime expansion.",
+      "Distinguish a technological capacity from a political or commercial motive.",
+      "Compare a trading-post arrangement with territorial rule without assuming uniform control."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Combine navigation with resources, motives and local relationships"
+      },
+      {
+        "type": "text",
+        "text": "Maritime expansion after about 1450 combined knowledge, ships, resources and political choices. A navigation tool can help a voyage, but it does not explain why a ruler or merchant finances it or how a port is controlled afterward. Begin by separating capacity, motive and institution. Capacity concerns what participants can do; motive concerns what they seek; institutions organize authority and exchange. A strong explanation connects those categories through a mechanism instead of treating “better ships” as a complete cause."
+      },
+      {
+        "type": "text",
+        "text": "Compass use, astronomical knowledge, improved maps and sailing practices drew on exchanges across several societies. Europeans adapted and combined knowledge rather than inventing every useful tool at one moment. Ocean winds and currents shaped routes, and voyages required supplies, finance, experienced crews and information. A ship’s ability to travel farther did not remove uncertainty or guarantee a profitable return. Existing African and Asian commercial networks remained important settings in which newcomers bargained, competed and used force."
+      },
+      {
+        "type": "text",
+        "text": "Portuguese activity in the Indian Ocean included fortified trading posts and attempts to influence maritime commerce through naval power and fees. This differed from uniformly conquering and administering every interior territory or replacing all local merchants. Atlantic colonial ventures could develop different forms of settlement, conquest and labor organization. Even within one empire, institutions varied by location and objective. A comparison should ask what was controlled, by which means and with what dependence on local allies or intermediaries."
+      },
+      {
+        "type": "text",
+        "text": "Commercial aims, religious ambitions and rivalry among rulers could reinforce one another without being identical. Joint-stock financing and other arrangements spread some financial risk and connected private investment to state-supported ventures. A royal monopoly claim or charter is evidence of an intended authority, not proof that it operated perfectly. To evaluate expansion, compare statements of purpose with evidence of voyages, trade, coercion and local responses. Preserve the agency of people already living and trading in the regions rather than making them passive spaces on a European map."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-maritime-technology-power-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original simplified model sources. A: investors finance a voyage using existing navigational knowledge and a vessel suited to an ocean route. B: a ruler grants a company exclusive trading privileges in a specified area. C: a fortified coastal post uses armed ships to demand fees, while local and regional merchants continue trading through several routes. These fictional arrangements illustrate mechanisms; they are not quotations from a historical charter or account.",
+        "steps": [
+          {
+            "prompt": "What does A most directly illustrate?",
+            "choices": [
+              "A combination of technical capacity and financial organization",
+              "Proof that the voyage has no risk",
+              "A motive shared by every person in the world",
+              "The disappearance of all existing routes"
+            ],
+            "answer": 0,
+            "explanation": "The scenario supplies a vessel, knowledge and financing. Profit, safety and broader motives are separate questions.",
+            "hint": "Identify the resources and knowledge that make the venture possible."
+          },
+          {
+            "prompt": "What does B establish directly?",
+            "choices": [
+              "Every trader obeys the company forever.",
+              "A political authority claims to grant a particular privilege.",
+              "Every local society loses all political institutions.",
+              "The company has already earned a profit."
+            ],
+            "answer": 1,
+            "explanation": "A grant records an asserted legal arrangement. Evidence about enforcement and outcomes is needed to go further.",
+            "hint": "Separate an announced authority from its implementation."
+          },
+          {
+            "prompt": "Which inference best fits C?",
+            "choices": [
+              "The post controls every inland household.",
+              "No local merchant has any agency.",
+              "Naval coercion can influence commerce without proving total control over every network.",
+              "All trade begins only when the post is built."
+            ],
+            "answer": 2,
+            "explanation": "The scenario explicitly preserves other merchants and routes. Influence and comprehensive control are not equivalent.",
+            "hint": "Use the supplied limits on the post’s reach."
+          },
+          {
+            "prompt": "Which causal explanation is strongest?",
+            "choices": [
+              "One invention automatically creates a uniform global empire.",
+              "Technology, motive and institution are interchangeable terms.",
+              "Geography stops mattering once a ship has a compass.",
+              "Expansion can arise through the interaction of navigational capacity, finance, political aims and local relationships."
+            ],
+            "answer": 3,
+            "explanation": "The explanation connects relevant factors and leaves room for different outcomes. It does not make one tool a universal sufficient cause.",
+            "hint": "Explain how the factors work together rather than choosing one label as everything."
+          }
+        ],
+        "takeaway": "A trading post can seek leverage over ports, fees or particular exchanges without administering every inland community. Territorial colonization can involve settlement, land claims and more extensive institutional control. Both can depend on force, resources and local relationships, but their reach and arrangements differ. The comparison should use a specific setting and not equate a charter’s claims with complete enforcement."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-maritime-technology-power-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare a maritime trading-post strategy with a territorial colonial strategy. Identify one difference in the form of control and one condition or relationship that affects each.",
+        "sampleAnswer": "A trading post can seek leverage over ports, fees or particular exchanges without administering every inland community. Territorial colonization can involve settlement, land claims and more extensive institutional control. Both can depend on force, resources and local relationships, but their reach and arrangements differ. The comparison should use a specific setting and not equate a charter’s claims with complete enforcement.",
+        "checklist": [
+          "Distinguish the object and means of control.",
+          "Explain a relevant resource or local relationship.",
+          "Avoid assuming uniform implementation across all locations."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-maritime-technology-power-recall",
+        "prompt": "Why is navigational capacity not a sufficient explanation of imperial expansion?",
+        "sampleAnswer": "A capability helps make movement possible, but financing, goals, political institutions, force and local responses shape whether and how a venture develops. Capacity and outcome need to be connected through those mechanisms.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Consequences of Industrialization::6.2 Resistance, reform and new political movements": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish armed resistance, negotiated adaptation and state reform.",
+      "Explain why rejecting foreign control can coexist with adopting selected foreign techniques.",
+      "Evaluate an outcome against a specific goal rather than labeling every response simply successful or unsuccessful."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Compare responses by strategy, conditions and outcome"
+      },
+      {
+        "type": "text",
+        "text": "Societies facing imperial pressure did not choose between only complete acceptance and one uniform rebellion. Responses could include armed resistance, diplomacy, religious mobilization, political organization and institutional reform. Identify who is acting and what goal the action serves. A ruler’s strategy can differ from a local community’s or an emerging political movement’s, even within the same territory. Explaining a response requires the resources, relationships and constraints that made a strategy possible."
+      },
+      {
+        "type": "text",
+        "text": "The Indian rebellion of 1857 involved multiple grievances and participants under East India Company rule. Military triggers interacted with political, religious, economic and social tensions; one cause should not replace the others. The rebellion’s defeat and the shift to direct British Crown rule did not mean that local participants had no agency or that later opposition disappeared. Distinguish the immediate outcome of a particular struggle from every longer-term consequence of resistance."
+      },
+      {
+        "type": "text",
+        "text": "Reform could be pursued as a strategy for strengthening autonomy. Meiji leaders in Japan reorganized institutions and promoted military and industrial capacity, drawing on selected practices from abroad. Adopting a technique did not require abandoning every local objective or accepting foreign political domination. Ottoman reform efforts also sought to reorganize administration and strengthen the state under changing pressures. These were not identical projects, and reforms could generate internal opposition or uneven effects on different groups."
+      },
+      {
+        "type": "text",
+        "text": "Comparison needs a shared criterion. If the question concerns preserving sovereignty, examine external control and the capacity to negotiate or resist. If it concerns political participation, examine who gains a voice or faces coercion. Military strengthening does not by itself establish greater equality, and an unsuccessful revolt can still affect later institutions or political organization. Source claims about modernization or liberation should be compared with actions and consequences. Avoid ranking whole societies as willing or unwilling to change; explain the actors, strategies and conditions in a specific case."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-resistance-reform-paths-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Historical summaries for comparison. A: the rebellion of 1857 challenges East India Company rule through armed action involving varied participants and grievances; its defeat is followed by direct British Crown rule. B: Meiji leaders reorganize institutions and build military and industrial capacity using selected techniques from abroad. C: an original fictional reform proclamation promises that new administrative rules will strengthen the state, but no implementation evidence accompanies it.",
+        "steps": [
+          {
+            "prompt": "What distinction is important when interpreting A?",
+            "choices": [
+              "Immediate defeat of a rebellion is not proof that resistance had no agency or later consequences.",
+              "Every participant necessarily had one identical motive.",
+              "The rebellion occurred after India’s 1947 independence.",
+              "A military event cannot have a political context."
+            ],
+            "answer": 0,
+            "explanation": "The outcome of one struggle should not be expanded into a claim about every participant or all later history. Its causes and consequences need separate explanation.",
+            "hint": "Keep the time scale and the actors in view."
+          },
+          {
+            "prompt": "Why is B not automatically an example of accepting foreign domination?",
+            "choices": [
+              "Any imported technique proves total submission.",
+              "A state can adopt selected methods to pursue its own capacity and autonomy.",
+              "Reform removes every local political goal.",
+              "Military technology has no connection to state power."
+            ],
+            "answer": 1,
+            "explanation": "Adoption and subordination are different relationships. The actor’s purposes and institutional control matter.",
+            "hint": "Separate borrowing a method from surrendering political authority."
+          },
+          {
+            "prompt": "What can C show directly?",
+            "choices": [
+              "Every official applies the reform identically.",
+              "Every subject benefits equally.",
+              "The proclamation presents an official goal and justification.",
+              "The state has already solved all financial problems."
+            ],
+            "answer": 2,
+            "explanation": "A proclamation is evidence of an announced purpose. Implementation and results require additional sources.",
+            "hint": "Distinguish the promise from the outcome it describes."
+          },
+          {
+            "prompt": "Which evaluation is strongest?",
+            "choices": [
+              "Every response has one universal success measure.",
+              "A larger army proves equal participation.",
+              "Defeat proves no historical change occurred.",
+              "Define the goal, then evaluate the strategy and consequences with relevant evidence and a stated time scale."
+            ],
+            "answer": 3,
+            "explanation": "Success is meaningful only relative to an outcome and evidence. The same process can have different implications for autonomy, equality or institutional capacity.",
+            "hint": "Ask successful at what, for whom and over which period?"
+          }
+        ],
+        "takeaway": "An armed response can directly challenge an imposed authority, while a reform program can seek greater capacity to resist external pressure or govern internally. The comparison might evaluate sovereignty, institutional capacity or participation, but it must use evidence relevant to that criterion. Adopting foreign techniques does not by itself prove submission, and military success does not establish equal benefits for all groups."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-resistance-reform-paths-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Compare an armed response with a reform response to imperial pressure. Explain a mechanism for each and evaluate one outcome using an explicit criterion.",
+        "sampleAnswer": "An armed response can directly challenge an imposed authority, while a reform program can seek greater capacity to resist external pressure or govern internally. The comparison might evaluate sovereignty, institutional capacity or participation, but it must use evidence relevant to that criterion. Adopting foreign techniques does not by itself prove submission, and military success does not establish equal benefits for all groups.",
+        "checklist": [
+          "Identify specific actors, goals and strategies.",
+          "Explain the mechanism rather than only naming resistance or reform.",
+          "State the evaluation criterion and recognize a relevant limitation."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-resistance-reform-paths-recall",
+        "prompt": "Why can the same reform increase state capacity while producing unequal social effects?",
+        "sampleAnswer": "Capacity concerns what institutions can organize or enforce. The distribution of rights, resources and burdens is a different question, so stronger institutions do not automatically mean equal participation or welfare.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "World Hist: Globalization::9.1 Technology, production and unequal integration": {
+    "revision": 1,
+    "objectives": [
+      "Connect transport and communication to distributed production through a mechanism.",
+      "Distinguish economic integration from the disappearance of state authority.",
+      "Evaluate gains and vulnerabilities for different participants rather than using aggregate output as a universal welfare measure."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Explain globalization through coordination and rules"
+      },
+      {
+        "type": "text",
+        "text": "Globalization intensifies connections among production, finance, communication and consumption, but the concept needs mechanisms. Container transport can simplify transfers among ships, rail and trucks. Digital communication can help coordinate design, orders and delivery across borders. These changes can reduce some costs without making geography irrelevant: ports, energy, skills, infrastructure and distance still matter. Identify the stage of production affected and explain how coordination changes rather than merely saying technology connects the world."
+      },
+      {
+        "type": "text",
+        "text": "A production network can place design, component manufacture, assembly and sales in different countries. Firms make choices shaped by skills, costs, suppliers, markets and public policy. A country’s participation in one stage does not establish that all firms or workers receive the same benefits. New employment and investment can coexist with vulnerability to contract shifts, difficult working conditions or unequal bargaining power. A comparison should distinguish total output, wages, security and distribution instead of treating them as one measure."
+      },
+      {
+        "type": "text",
+        "text": "States remain important through trade agreements, infrastructure, education, labor rules, border controls and industrial policy. International institutions also have different roles: the World Trade Organization provides a framework for trade agreements and disputes, the International Monetary Fund addresses monetary and financial issues, and the World Bank supports development financing. These are not one world government controlling every decision. Market-oriented reforms and state-led strategies have varied across settings, and political choices help determine how integration is organized."
+      },
+      {
+        "type": "text",
+        "text": "Networks can create both opportunities and dependencies. A firm can gain access to a distant supplier while becoming exposed to disruptions at a port or changes in another state’s policy. Workers can gain employment while facing the risk that a contract moves elsewhere. To evaluate a claim, specify whose outcome and which period are being measured. A rising trade share can establish increasing economic integration without proving improved health, equal wages or environmental protection. Those claims require their own evidence and may lead to different judgments about the same process."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "world-production-networks-governance-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original fictional production model. A firm designs a product in Country A, buys components from Country B, assembles them in Country C and sells the result in several markets. Container shipping and electronic scheduling help coordinate deliveries. A port disruption delays components, and an assembly worker worries that the next contract may move. Governments in all three countries still set relevant rules and support infrastructure. The model illustrates relationships, not a claim about a real firm or measured research finding.",
+        "steps": [
+          {
+            "prompt": "What mechanism connects electronic scheduling to the network?",
+            "choices": [
+              "It makes national rules disappear.",
+              "It can help coordinate orders and deliveries across separated stages.",
+              "It guarantees that no shipment is ever delayed.",
+              "It gives every worker identical wages."
+            ],
+            "answer": 1,
+            "explanation": "Coordination is the relevant mechanism. It can reduce some costs while other constraints and risks remain.",
+            "hint": "Identify what the information helps participants organize."
+          },
+          {
+            "prompt": "What does the port disruption illustrate?",
+            "choices": [
+              "Connected production creates no vulnerabilities.",
+              "Geography no longer matters.",
+              "Dependence on linked stages can transmit a disruption to participants elsewhere.",
+              "Every participant controls the whole network."
+            ],
+            "answer": 2,
+            "explanation": "Interdependence can connect delays as well as opportunities. A disruption at one stage can affect others without proving every network fails.",
+            "hint": "Follow how a missing component affects a later stage."
+          },
+          {
+            "prompt": "Which statement accurately treats the role of states?",
+            "choices": [
+              "They can shape integration through rules, infrastructure and other policies rather than vanishing from the economy.",
+              "They have no authority whenever trade occurs.",
+              "They are identical to private firms.",
+              "They all pursue the same policy in every period."
+            ],
+            "answer": 0,
+            "explanation": "The model explicitly retains state institutions. Their policies influence how networks operate and who can participate.",
+            "hint": "Separate cross-border coordination from the absence of government."
+          },
+          {
+            "prompt": "Which evidence would be needed to evaluate whether workers benefit?",
+            "choices": [
+              "The number of countries in the firm’s address list alone",
+              "A slogan saying global is better",
+              "The fact that the product has a modern design",
+              "Relevant evidence about wages, conditions, job access and security for particular workers"
+            ],
+            "answer": 3,
+            "explanation": "Worker benefit is a distributional and social claim. Network presence or aggregate output does not establish it by itself.",
+            "hint": "Match the evidence to the group and outcome named in the question."
+          }
+        ],
+        "takeaway": "A network can provide access to specialized suppliers and markets while exposing participants to delays or contract changes elsewhere. Transport infrastructure, labor rules or trade policy can affect costs and bargaining conditions. Evaluation needs specific evidence about the outcome and group being considered; a higher total output alone does not show equal gains or secure employment for every worker."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "world-production-networks-governance-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "Explain one opportunity and one vulnerability created by a distributed production network. Identify a public policy or institution that could affect the balance and state what evidence would help evaluate its effect.",
+        "sampleAnswer": "A network can provide access to specialized suppliers and markets while exposing participants to delays or contract changes elsewhere. Transport infrastructure, labor rules or trade policy can affect costs and bargaining conditions. Evaluation needs specific evidence about the outcome and group being considered; a higher total output alone does not show equal gains or secure employment for every worker.",
+        "checklist": [
+          "Connect each effect to a network mechanism.",
+          "Identify a relevant policy or institutional role.",
+          "Specify whose outcome and what evidence would test the claim."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "world-production-networks-governance-recall",
+        "prompt": "Why can greater economic integration coexist with significant state action?",
+        "sampleAnswer": "Integration concerns cross-border connections. States can shape those connections through rules, agreements and investment, so expanding networks do not require the disappearance of political institutions.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Situation and Purpose::1.2 Claims, defensible theses, and rhetorical reading": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a topic, an observation and a defensible interpretation.",
+      "Connect a rhetorical-analysis thesis to choices, audience and purpose.",
+      "Qualify a claim without making it empty."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build a claim that answers the actual task"
+      },
+      {
+        "type": "text",
+        "text": "A topic identifies what a text concerns; a thesis states an interpretation or position that requires support. School transportation is a topic. The editorial mentions buses is an observation. The writer presents reliable transportation as a shared responsibility to persuade families to support a later bus is an interpretation: a reader can test it against the language and organization of the editorial. Defensible does not mean beyond disagreement. It means that the text or available evidence can support the particular claim you make."
+      },
+      {
+        "type": "text",
+        "text": "Read the task before choosing the claim. An argument asks you to defend a position on an issue. Rhetorical analysis asks you to explain how a writer develops a message for an audience in a situation. A student may agree completely with an editorial yet offer a weak analysis by discussing only whether the proposed policy is good. Conversely, naming a device such as repetition does not establish what it accomplishes. Connect a concrete choice to an audience concern and the message the writer wants that audience to accept."
+      },
+      {
+        "type": "text",
+        "text": "A useful thesis controls scope. If a passage addresses families deciding whether to volunteer, do not claim that it persuades every resident or proves a national trend. Words such as invites, reframes and challenges can identify an action without pretending to measure its effect on actual readers. You may explain how language positions an audience to respond; you usually cannot establish that all readers responded as intended. Distinguish the writer’s strategy from evidence of reception."
+      },
+      {
+        "type": "text",
+        "text": "Draft the thesis after locating two or three connected details. Then test whether each promised idea can lead to a paragraph of evidence and commentary. A thesis need not list exactly three devices, appear in a single prescribed sentence or use impressive terminology. It should answer the question and establish a coherent direction. Qualification is useful when it identifies conditions or limits. Saying everything is complicated avoids a position; explaining that a proposal may help students with late activities while leaving morning access unresolved makes the position more precise."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-thesis-task-scope-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original school-newspaper editorial addressed to families: “A club meeting ends at five; the last regular bus leaves at four. We ask students to join the life of this school, then make participation depend on a parent leaving work. A late bus would not solve every transportation problem. It would make our invitation more honest. At Thursday’s meeting, ask the board to fund one trial route.” Task: analyze how the writer develops an appeal to families.",
+        "steps": [
+          {
+            "prompt": "Which statement is a defensible rhetorical-analysis thesis?",
+            "choices": [
+              "Late buses are the only fair transportation policy.",
+              "The writer contrasts the school’s invitation with its transportation schedule to frame a trial route as a matter of consistency for families.",
+              "The passage contains six sentences."
+            ],
+            "answer": 1,
+            "explanation": "The claim interprets a concrete contrast, identifies its function and stays within the audience and proposal.",
+            "hint": "Explain what a choice does, not only what the topic is."
+          },
+          {
+            "prompt": "Which detail best supports the contrast in that thesis?",
+            "choices": [
+              "The meeting is on Thursday.",
+              "The editorial uses the word bus.",
+              "The club ends at five while the regular bus leaves at four."
+            ],
+            "answer": 2,
+            "explanation": "The conflicting times make the invitation to participate difficult to fulfill for students who depend on the bus.",
+            "hint": "Locate the mismatch the writer develops."
+          },
+          {
+            "prompt": "Which commentary explains the connection?",
+            "choices": [
+              "By connecting participation to parents leaving work, the writer presents the schedule as a family burden rather than a student’s lack of interest.",
+              "The writer uses words, which makes the passage persuasive.",
+              "Every family now supports the route."
+            ],
+            "answer": 0,
+            "explanation": "This explains how a detail reframes responsibility without inventing an audience response.",
+            "hint": "Separate a strategic appeal from measured success."
+          },
+          {
+            "prompt": "Which qualification belongs in the interpretation?",
+            "choices": [
+              "The writer guarantees that every route will succeed.",
+              "The concession limits the proposal to a trial route rather than a solution to every transportation problem.",
+              "The writer has no position because a limitation appears."
+            ],
+            "answer": 1,
+            "explanation": "The limitation makes the requested action bounded while preserving a clear position.",
+            "hint": "A concession can narrow a proposal without abandoning it."
+          }
+        ],
+        "takeaway": "A defensible thesis would explain how the writer limits the promise while framing a specific action for residents. I would need a second actual detail, such as a contrast between current hours and work schedules, before claiming that strategy. The concession supports a bounded appeal, not proof that every resident will attend."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-thesis-task-scope-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A writer urges residents to attend a library meeting and acknowledges that extended hours will not help every household. Explain how you would build a defensible analytical thesis from that concession and a second concrete choice. Do not invent a second choice: state what evidence you would need.",
+        "sampleAnswer": "A defensible thesis would explain how the writer limits the promise while framing a specific action for residents. I would need a second actual detail, such as a contrast between current hours and work schedules, before claiming that strategy. The concession supports a bounded appeal, not proof that every resident will attend.",
+        "checklist": [
+          "Identify the analytical task and intended audience.",
+          "Connect a specific choice to the message.",
+          "Separate a plausible effect from a verified reader response."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-thesis-task-scope-recall",
+        "prompt": "How does an analytical thesis differ from a topic and a policy opinion?",
+        "sampleAnswer": "A topic names the subject. A policy opinion takes a position on what should happen. An analytical thesis interprets how particular choices develop a writer’s message for an audience and can be supported with textual evidence.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Audience, Claims, and Evidence::2.2 Qualifying claims and evaluating evidence quality": {
+    "revision": 1,
+    "objectives": [
+      "Evaluate relevance, collection method and scope before using evidence.",
+      "Distinguish a reported preference from proof of an outcome.",
+      "Write a qualification that preserves a useful claim."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Ask what the evidence can actually establish"
+      },
+      {
+        "type": "text",
+        "text": "Evidence quality depends partly on the claim it is asked to support. A personal account may vividly establish one person’s experience but cannot by itself estimate how frequently that experience occurs. A count may describe a group accurately while saying little about people outside that group. Before calling a source strong or weak, name the inference you want to draw. Then ask whether the source’s information, method and scope are appropriate for that inference."
+      },
+      {
+        "type": "text",
+        "text": "Relevance is the first test. A survey asking whether students want later library hours measures a reported preference among respondents. It does not directly measure whether students would attend, whether attendance would improve learning or whether the school can staff the hours. Those questions require different evidence. Moving from a preference to an outcome without explaining the missing connection makes the reasoning fragile even when the reported number is accurate."
+      },
+      {
+        "type": "text",
+        "text": "Selection matters because the people represented may differ from the people named in the claim. Responses from a library club can tell us what participating club respondents said. Students who never visit the library may face different barriers or have different priorities. A large response count does not automatically repair a selection problem. Similarly, an author’s interest in an issue does not automatically make every fact false. Examine how information was gathered, whether the method is explained and what independent information could confirm or challenge the conclusion."
+      },
+      {
+        "type": "text",
+        "text": "Qualification should match these limits. Instead of dismissing a source entirely, use it for the narrower point it supports: the responses suggest interest among these club members and justify investigating broader demand. Explain what remains uncertain and identify the next relevant evidence, such as a clearly described survey reaching students beyond the club or attendance records from a limited trial. A strong argument can combine different kinds of evidence because they answer different questions. Commentary should make those roles visible rather than stacking sources as if several citations automatically prove a causal claim."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-evidence-fit-qualification-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Instructional hypothetical, not a real study. A library-club newsletter reports: “Of 100 club members who chose to answer our online poll, 80 said they wanted the library open until six.” The newsletter does not describe other students or actual evening attendance. A draft argues: “Eighty percent of all students will study at school every evening if we extend the hours.”",
+        "steps": [
+          {
+            "prompt": "What is directly supported?",
+            "choices": [
+              "Eighty of the 100 responding club members reported wanting later hours.",
+              "Eighty percent of all students will attend nightly.",
+              "Later hours cause higher grades."
+            ],
+            "answer": 0,
+            "explanation": "The count describes the respondents and their stated preference, not the entire school or a future behavior.",
+            "hint": "Keep the population and measured response exact."
+          },
+          {
+            "prompt": "Which gap most directly challenges the phrase all students?",
+            "choices": [
+              "The poll is written in a newsletter.",
+              "The poll includes self-selected club respondents rather than a described sample of the whole student body.",
+              "The number 100 cannot be used in an argument."
+            ],
+            "answer": 1,
+            "explanation": "The selection method limits how far the response can be generalized. Publication format alone does not decide the issue.",
+            "hint": "Ask who had a chance to be represented."
+          },
+          {
+            "prompt": "Which revision uses the source responsibly?",
+            "choices": [
+              "The poll proves extended hours are essential for everyone.",
+              "The poll is worthless because club members care about libraries.",
+              "The poll suggests interest among responding club members, but broader demand and likely attendance remain uncertain."
+            ],
+            "answer": 2,
+            "explanation": "This retains the source’s useful information while stating the limits on population and behavior.",
+            "hint": "Narrow the claim to match the evidence."
+          },
+          {
+            "prompt": "Which additional evidence best addresses likely use?",
+            "choices": [
+              "A second copy of the same newsletter.",
+              "Attendance records from a clearly described after-school trial, interpreted alongside access and staffing conditions.",
+              "A more dramatic adjective in the thesis."
+            ],
+            "answer": 1,
+            "explanation": "Observed trial attendance is closer to use than preference, though conditions still affect transfer to a longer program.",
+            "hint": "Match the next source to the unresolved question."
+          }
+        ],
+        "takeaway": "Comments can describe participants’ reported experiences and suggest possible mechanisms such as clearer explanations. They do not isolate the program’s effect on grades because participation and other support may differ. A comparison that accounts for students’ starting performance and relevant differences, with transparent limits, would address improvement more directly."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-evidence-fit-qualification-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A school wants to infer that a tutoring program improves grades from enthusiastic participant comments. Explain what the comments can support, what causal conclusion remains unproven and what further comparison would help.",
+        "sampleAnswer": "Comments can describe participants’ reported experiences and suggest possible mechanisms such as clearer explanations. They do not isolate the program’s effect on grades because participation and other support may differ. A comparison that accounts for students’ starting performance and relevant differences, with transparent limits, would address improvement more directly.",
+        "checklist": [
+          "Name what was actually measured.",
+          "Identify a selection or comparison limit.",
+          "Propose evidence suited to the remaining claim."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-evidence-fit-qualification-recall",
+        "prompt": "Why can accurate evidence still fail to support a claim?",
+        "sampleAnswer": "The information may concern a narrower population, a different outcome or an association rather than the causal relationship claimed. Accuracy of a detail does not remove the need to justify the inference from that detail.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Rhetorical Choices and Style::4.3 Revision for precise style and effective emphasis": {
+    "revision": 1,
+    "objectives": [
+      "Replace vague language with supported detail.",
+      "Choose sentence structure to guide emphasis for an audience.",
+      "Avoid turning stylistic confidence into unsupported certainty."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Revise emphasis while preserving the facts"
+      },
+      {
+        "type": "text",
+        "text": "Revision for style begins with meaning. Identify the facts, the claim and the audience’s immediate need before changing individual words. A more impressive verb is not an improvement if it invents a cause or changes the strength of the evidence. Precision means that the reader can tell who did what, when and with what known consequence. It does not mean filling every sentence with technical vocabulary or removing every qualification."
+      },
+      {
+        "type": "text",
+        "text": "Sentence structure directs attention. A sentence often establishes familiar information first and places an important development where readers can recognize its significance. Short sentences can emphasize a decision or consequence; longer sentences can show a relationship or qualification. Variation is useful when it serves the argument. Neither length nor active voice is automatically superior. Active voice can clarify responsibility when the actor is known. Passive voice can keep attention on the affected object or avoid inventing an unknown actor. Judge the choice by purpose and clarity."
+      },
+      {
+        "type": "text",
+        "text": "Specificity must remain grounded in available evidence. If a delivery arrived on Tuesday rather than Monday, state the delay. Do not call it sabotage or claim it caused a decline in reading unless evidence establishes those conclusions. Likewise, replacing may contribute with caused is a substantive change, not merely a stronger style. Preserve uncertainty when it is part of the meaning. An effective revision can sound confident by making a limited claim clearly rather than pretending to know more."
+      },
+      {
+        "type": "text",
+        "text": "Read a revised paragraph as a sequence of decisions. Does the first sentence orient the intended audience? Does each detail advance the claim? Are pronouns connected to clear nouns? Does the final emphasis lead naturally to the requested action? Remove repeated material when it adds no function, but retain repetition that deliberately connects ideas or helps readers follow an important distinction. After revising, compare the new version with the original evidence. Every added causal link, numerical claim and evaluative label should have support. Style and reasoning improve together when clarity makes the actual relationship easier to examine."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-style-truth-emphasis-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Original instructional fact sheet: A book delivery was scheduled for Monday. It arrived Tuesday. Staff moved the reading event from Tuesday to Wednesday so they could prepare the books. The record does not explain why delivery was late. Draft notice to families: “Things went badly and careless people ruined the event. There was a situation with books. Something will happen Wednesday.”",
+        "steps": [
+          {
+            "prompt": "Which opening is precise and supported?",
+            "choices": [
+              "Careless drivers destroyed our reading program.",
+              "The book delivery arrived Tuesday rather than Monday, so staff moved the reading event to Wednesday to prepare the books.",
+              "A shocking disaster made reading impossible."
+            ],
+            "answer": 1,
+            "explanation": "The revision names the known delay and documented decision without inventing blame or cancellation.",
+            "hint": "Use the fact sheet as the boundary for every assertion."
+          },
+          {
+            "prompt": "Why is careless people an unsuitable revision target?",
+            "choices": [
+              "All adjectives are prohibited.",
+              "Families never care about responsibility.",
+              "The record supplies no cause or evidence of carelessness."
+            ],
+            "answer": 2,
+            "explanation": "The problem is an unsupported judgment, not a universal rule against descriptive words.",
+            "hint": "Distinguish known action from inferred motive."
+          },
+          {
+            "prompt": "When could passive voice be useful here?",
+            "choices": [
+              "The delivery was delayed can focus on the shipment when the cause or responsible actor is unknown.",
+              "Passive voice always makes statements more truthful.",
+              "Passive voice proves staff caused the delay."
+            ],
+            "answer": 0,
+            "explanation": "Passive structure can avoid an invented actor, though it still needs enough detail for readers.",
+            "hint": "Choose voice according to known information and audience need."
+          },
+          {
+            "prompt": "Which ending best serves families?",
+            "choices": [
+              "Many things are occurring in various ways.",
+              "The reading event will now take place Wednesday.",
+              "Everyone must admire our excellent response."
+            ],
+            "answer": 1,
+            "explanation": "The ending gives the audience the practical change clearly and places it at the point of emphasis.",
+            "hint": "Ask what readers need to do with the notice."
+          }
+        ],
+        "takeaway": "Name the closed entrance, state that it is being inspected and give a verified alternative route if one is available. Say that a reopening time has not been announced. Put the action readers can take before optional background. Direct wording does not require an unsupported promise or a claim that the entrance is unsafe."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-style-truth-emphasis-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "A campus notice says an entrance is closed for inspection; the reopening time is not yet known. Explain how to make the notice direct and useful without inventing a reopening promise or an inspection result.",
+        "sampleAnswer": "Name the closed entrance, state that it is being inspected and give a verified alternative route if one is available. Say that a reopening time has not been announced. Put the action readers can take before optional background. Direct wording does not require an unsupported promise or a claim that the entrance is unsafe.",
+        "checklist": [
+          "Preserve the known facts and uncertainty.",
+          "Explain an emphasis or ordering choice.",
+          "Give audience-relevant information only when supplied."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-style-truth-emphasis-recall",
+        "prompt": "What separates precise revision from simply making prose sound stronger?",
+        "sampleAnswer": "Precise revision clarifies actors, actions and relationships that the evidence supports. Stronger-sounding prose may instead add certainty, blame or causation. Compare every substantive change with the evidence and the audience’s needs.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  },
+  "AP Lang: Independent Composition and Revision::9.1 Planning timed synthesis, rhetorical-analysis, and argument essays": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish synthesis, rhetorical analysis and argument before outlining.",
+      "Select evidence by its role in a line of reasoning.",
+      "Allocate drafting and checking time flexibly rather than following a rigid formula."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Plan for the kind of reasoning the prompt requires"
+      },
+      {
+        "type": "text",
+        "text": "Timed writing begins with task recognition. Synthesis asks you to develop your position through a conversation among supplied sources. Rhetorical analysis asks you to explain how a particular writer’s choices develop a message in a rhetorical situation. Argument asks you to defend a position with relevant evidence you select from your knowledge and experience. These tasks share claims, evidence and commentary, but the evidence has a different role in each. Planning the wrong task can produce fluent paragraphs that never answer the question."
+      },
+      {
+        "type": "text",
+        "text": "For synthesis, mark each source’s useful claim, perspective and limit. Group sources by a point your argument needs to establish, not simply by the order they appear. Two sources may agree on a concern yet disagree about an appropriate response. Explain that relationship. Follow the supplied prompt’s source requirements; merely naming sources is not the same as using their evidence to support reasoning. A source summary can help preparation, but your essay needs an organizing position rather than one paragraph mechanically reporting each source."
+      },
+      {
+        "type": "text",
+        "text": "For rhetorical analysis, identify speaker, audience, purpose and circumstances from the supplied material before selecting choices. Trace how details work together: a concession may make a later request seem bounded, while a contrast may reframe responsibility. Plan commentary that connects words or organization to the message for that audience. For argument, choose examples whose relevant details you actually know and explain how they support your claim. An invented statistic or a famous name without an explained connection weakens rather than strengthens the reasoning."
+      },
+      {
+        "type": "text",
+        "text": "A useful outline records a provisional claim, the function of each major point, evidence for that point and the inference connecting them. It can also note a qualification or counterargument where it changes the reasoning. Keep it short enough to leave time for drafting and review. No fixed paragraph count or universal minute-by-minute schedule guarantees quality. During review, prioritize a missing claim, unsupported causal link or misunderstood source before polishing an already clear adjective. Practice can reveal how much planning and checking time you need, but the plan should remain responsive to the actual passage, prompt and available evidence."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Work with the evidence"
+      },
+      {
+        "type": "guidedExample",
+        "id": "lang-planning-distinct-tasks-guided",
+        "title": "Decide, explain, then check",
+        "scenario": "Three original practice tasks, shortened for planning rather than full exam essays. A: Develop a position on whether a town should prioritize street trees, using supplied sources. Source 1 says shade can make a walking route more comfortable. Source 2 says planting requires ongoing maintenance and space. B: Analyze this appeal to residents: “A sapling is not instant shade. Still, the route our children walk next decade begins with the choices we make this spring. Ask the council to include planting and maintenance together.” C: Argue whether communities should prioritize long-term benefits when immediate needs compete. No source requirement is supplied for C.",
+        "steps": [
+          {
+            "prompt": "Which plan fits task A?",
+            "choices": [
+              "Summarize Source 1, then Source 2, without taking a position.",
+              "Argue for planting where walking needs and maintenance capacity justify it, using both sources to develop the condition.",
+              "Analyze only the metaphor in the appeal for task B."
+            ],
+            "answer": 1,
+            "explanation": "The plan develops a position through a relationship between the sources rather than replacing argument with summaries.",
+            "hint": "Synthesis needs your organizing claim and a role for source evidence."
+          },
+          {
+            "prompt": "Which claim fits task B?",
+            "choices": [
+              "The writer concedes the delay before benefits and contrasts present choices with future walking conditions to motivate a bounded planning request.",
+              "Every town must plant trees immediately.",
+              "The source proves all children prefer walking."
+            ],
+            "answer": 0,
+            "explanation": "It explains choices and purpose in the supplied appeal without changing the task into a policy argument or inventing preferences.",
+            "hint": "Explain how the writer develops the request."
+          },
+          {
+            "prompt": "What evidence strategy fits task C?",
+            "choices": [
+              "Invent a survey to make the position sound authoritative.",
+              "Copy the rhetorical-analysis thesis regardless of the question.",
+              "Choose a specific, accurately known example and explain how its tradeoff supports a qualified position."
+            ],
+            "answer": 2,
+            "explanation": "Argument needs relevant and explained evidence, not fabricated research or an answer to another task.",
+            "hint": "An example matters because of the reasoning it supports."
+          },
+          {
+            "prompt": "A draft repeats sources but never explains their connection. What should review prioritize?",
+            "choices": [
+              "Replacing every short word with a longer one.",
+              "Adding commentary that shows how the evidence supports the writer’s claim and qualification.",
+              "Adding an unrelated fourth paragraph."
+            ],
+            "answer": 1,
+            "explanation": "The substantive gap is the inference between evidence and position; surface polish cannot supply it.",
+            "hint": "Repair the missing reasoning before polishing style."
+          }
+        ],
+        "takeaway": "Repair the unsupported source claim first because it affects the argument’s foundation. In synthesis, narrow the claim to what the source establishes and explain its role. In rhetorical analysis, replace invented effects with analysis grounded in the passage. In argument, replace an unsupported factual assertion with accurate evidence and commentary. Then shorten repetition if time remains."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer and qualify the reasoning"
+      },
+      {
+        "type": "reflection",
+        "id": "lang-planning-distinct-tasks-transfer",
+        "title": "Apply the method in a new setting",
+        "prompt": "You have limited review time and notice two problems: a slightly repetitive introduction and a body paragraph that claims a source proves something it never measured. Which should you repair first, and how would your choice differ across essay tasks?",
+        "sampleAnswer": "Repair the unsupported source claim first because it affects the argument’s foundation. In synthesis, narrow the claim to what the source establishes and explain its role. In rhetorical analysis, replace invented effects with analysis grounded in the passage. In argument, replace an unsupported factual assertion with accurate evidence and commentary. Then shorten repetition if time remains.",
+        "checklist": [
+          "Identify the task before choosing evidence.",
+          "Explain the higher-priority reasoning repair.",
+          "Keep evidence and claims aligned."
+        ],
+        "hint": "Identify the precise claim, connect a relevant detail to it, and state a limit on the inference."
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve the important distinction"
+      },
+      {
+        "type": "recall",
+        "id": "lang-planning-distinct-tasks-recall",
+        "prompt": "What should a useful timed-writing outline record besides a thesis?",
+        "sampleAnswer": "Record each major point’s function, relevant evidence and the inference connecting it to the claim, plus any qualification that changes the reasoning. Adapt this to supplied-source relationships, rhetorical choices or independently selected examples according to the task.",
+        "checklist": [
+          "Name the relevant ideas accurately.",
+          "Explain the mechanism rather than only listing names.",
+          "Keep the conclusion within the evidence or scenario."
+        ]
+      }
+    ]
+  }
+}

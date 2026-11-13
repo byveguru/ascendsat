@@ -1,0 +1,1539 @@
+{
+  "Calc AB: Differentiation: Definition & Fundamental Properties::2.1 Derivative as a limit and a rate": {
+    "revision": 1,
+    "objectives": [
+      "Derive a derivative using a difference quotient.",
+      "Construct a tangent line from both slope and point.",
+      "Distinguish continuity from differentiability at a corner."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An average rate compares two distinct inputs. For a function f, the quotient [f(a+h)−f(a)]/h is the secant slope from input a to input a+h, provided h is nonzero and both outputs exist. The derivative f′(a) asks whether these secant slopes approach one finite value as h approaches zero from both sides. The variable h approaches zero; it is not set equal to zero in the original quotient. Algebraic cancellation is justified only after a common factor has been identified. If the limit exists, it describes a local rate or tangent slope at input a. If x measures seconds and f(x) measures meters, the derivative has units of meters per second. Dividing f(a) by a is generally a different calculation and does not produce the derivative.\n\nKeep the derivative value f′(a) separate from the derivative function f′(x). A formula for f′ gives rates at many inputs; substituting a chooses one of them. A tangent line also needs a point on the original graph. Use y=f(a)+f′(a)(x−a), which ensures that the line goes through (a,f(a)); the slope alone does not determine its vertical position. Finally, a continuous graph need not have a finite derivative everywhere. A corner can have different left and right limiting slopes, while a vertical tangent can have unbounded slopes. Differentiability implies continuity, but the reverse implication fails. A short table or a smooth-looking screen image is evidence for exploration, not a substitute for checking the relevant limit or algebraic structure. These distinctions let you explain a rate rather than merely quote a differentiation rule."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-derivative-limit-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use f(x)=x²+3x. Derive its derivative at a general input a, then find the tangent line at a=2. Compare this smooth example with c(x)=|x−1| at x=1.",
+        "steps": [
+          {
+            "prompt": "What is f(a+h)−f(a) after expansion?",
+            "choices": [
+              "h(2a+3)+h²",
+              "2a+3+h",
+              "a²+3a",
+              "h²+3a"
+            ],
+            "answer": 0,
+            "explanation": "Expand (a+h)²+3(a+h), then subtract a²+3a. The remaining terms are 2ah+h²+3h, which factor as h(2a+3)+h²."
+          },
+          {
+            "prompt": "For h ≠ 0, which simplified difference quotient is correct?",
+            "choices": [
+              "2a+3",
+              "2a+3+h",
+              "2a+3+h²",
+              "a+h"
+            ],
+            "answer": 1,
+            "explanation": "Divide the whole numerator h(2a+3+h) by h. The simplified quotient still depends on h until its limit is taken."
+          },
+          {
+            "prompt": "What is the derivative value at a=2?",
+            "choices": [
+              "5",
+              "10",
+              "7",
+              "3"
+            ],
+            "answer": 2,
+            "explanation": "The quotient tends to 2a+3, so f′(2)=2(2)+3=7. The function value f(2)=10 is a different number."
+          },
+          {
+            "prompt": "Which line is tangent at x=2?",
+            "choices": [
+              "y=7x",
+              "y=10x+7",
+              "y=7x+10",
+              "y=10+7(x−2)"
+            ],
+            "answer": 3,
+            "explanation": "The tangent must have slope 7 and pass through (2,10). The point-slope expression satisfies both requirements; it is equivalent to y=7x−4."
+          },
+          {
+            "prompt": "Why is c(x)=|x−1| not differentiable at 1?",
+            "choices": [
+              "The left slope is −1 and the right slope is 1",
+              "The function is not continuous there",
+              "Its value is zero",
+              "Every absolute-value function is nowhere differentiable"
+            ],
+            "answer": 0,
+            "explanation": "The two one-sided difference-quotient limits disagree. The graph is continuous at 1, so this is a counterexample to continuity implying differentiability."
+          }
+        ],
+        "takeaway": "A derivative is a limiting rate. Its value, the function value, and the tangent-line equation play different roles."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For the quadratic, the tangent-line error can be found exactly rather than guessed from a drawing. At input 2+h, the function is 10+7h+h², while the tangent line gives 10+7h. Their difference is h², which is nonnegative. Thus this tangent lies below the quadratic, with equality only at the contact point. Over the forward interval from 2 to 2.1, the secant slope is 7.1; over the backward interval from 2 to 1.9, its difference quotient is 6.9. Both approach 7 as the interval shrinks. This connects the algebraic limit with numerical estimates and with the geometric tangent. The exact nonnegative error is special information supplied by this quadratic model; do not assume every tangent is an underestimate for every function. Concavity provides the appropriate comparison when that later tool is available."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-derivative-limit-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses f(2)/2=5 as the tangent slope. Explain what quantities were divided and why the difference quotient gives a different answer.",
+        "sampleAnswer": "The ratio f(2)/2 compares the graph point with the origin as if the origin were the relevant second point. It is not the limit of nearby secant slopes at input 2. The correct quotient uses f(2+h)−f(2) and h, and its limit is 7.",
+        "checklist": [
+          "Identify the missing subtraction of the nearby function values.",
+          "Explain the shrinking input interval.",
+          "State the correct derivative without confusing it with f(2)."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-derivative-limit-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For f(x)=x²+3x, enter f′(3).",
+        "acceptedAnswers": [
+          "9"
+        ],
+        "sampleAnswer": "The derivative function is f′(x)=2x+3, so f′(3)=9."
+      }
+    ]
+  },
+  "Calc AB: Differentiation: Composite, Implicit & Inverse Functions::3.2 Implicit differentiation": {
+    "revision": 1,
+    "objectives": [
+      "Differentiate an implicit relation using product and chain rules.",
+      "Verify a point before evaluating a slope.",
+      "Derive a second implicit derivative while retaining y as a function of x."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An implicit equation describes a relation between x and y without necessarily solving globally for one variable. A closed curve may have two y-values for the same x, yet each regular local branch can still have a tangent. When differentiating with respect to x, treat y as a function of x on the branch being studied. Thus the derivative of y² is 2y y′. The product xy contributes y+x y′, because both factors can change. Collect every term containing y′ before solving for it; substituting an instant-specific numerical y too early would incorrectly turn a changing quantity into a constant.\n\nA formula for y′ is meaningful at a proposed point only if that point lies on the original relation. First substitute the coordinates into the original equation. Then check the denominator of the derivative expression. A nonzero denominator allows a finite slope calculation. A zero denominator with a nonzero numerator can correspond to a vertical tangent at a regular point. If both vanish, the formula alone does not classify the point: local branch structure or another argument is needed. Do not label every zero denominator a vertical tangent without checking.\n\nHigher implicit derivatives use the same principles again. Differentiate y′ terms as functions of x, keep y″ wherever the product or chain rule creates it, and only substitute a point after the general derivative relation has been established. A second derivative measures how the slope changes with x; it is not the square of the first derivative. Organized notation is especially useful when several appearances of y′ occur, because a missed product-rule term can change both the sign and the size of the resulting curvature."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-implicit-higher-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Analyze the curve x²+xy+y²=7 at the point (1,2). Find y′ and then y″ at that point.",
+        "steps": [
+          {
+            "prompt": "Does (1,2) lie on the original curve?",
+            "choices": [
+              "No, because 1+2 is not 7",
+              "Yes, because 1+2+4=7",
+              "Yes, because every point defines a slope",
+              "No, because the relation has two variables"
+            ],
+            "answer": 1,
+            "explanation": "Substitute into all three terms: 1²+(1)(2)+2²=1+2+4=7. Point membership must be checked before interpreting a derivative at those coordinates."
+          },
+          {
+            "prompt": "Which differentiated equation is correct?",
+            "choices": [
+              "2x+y+xy′+2yy′=0",
+              "2x+y+2y=0",
+              "2x+xy′+2y′=0",
+              "2x+y′+2y=7"
+            ],
+            "answer": 0,
+            "explanation": "The derivative of xy is y+xy′ and the derivative of y² is 2yy′. The derivative of the constant 7 is zero."
+          },
+          {
+            "prompt": "What is the slope at (1,2)?",
+            "choices": [
+              "−5/4",
+              "4/5",
+              "−4/5",
+              "−2"
+            ],
+            "answer": 2,
+            "explanation": "Collect (x+2y)y′=−(2x+y). At the point, this gives y′=−4/5, with a nonzero denominator 5."
+          },
+          {
+            "prompt": "After differentiating again, which equation is correct?",
+            "choices": [
+              "2+2(y′)²=0",
+              "(x+2y)y″=−2",
+              "2+2y′+(x+2y)y″=0",
+              "2+2y′+2(y′)²+(x+2y)y″=0"
+            ],
+            "answer": 3,
+            "explanation": "Differentiate 2x+y+xy′+2yy′. Apply the product rule separately to the two terms containing products, giving 2+y′+y′+xy″+2(y′)²+2yy″=0."
+          },
+          {
+            "prompt": "What is y″ at (1,2)?",
+            "choices": [
+              "−42/125",
+              "42/25",
+              "−4/5",
+              "16/25"
+            ],
+            "answer": 0,
+            "explanation": "Substitute y′=−4/5: the numerator 2+2y′+2(y′)² is 2−8/5+32/25=42/25. Divide its negative by x+2y=5 to get −42/125."
+          }
+        ],
+        "takeaway": "Retain the dependence of y on x through every differentiation, and verify both the original point and the derivative denominator."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The same relation illustrates why a derivative formula is local rather than a global declaration that y is one function of x everywhere. Vertical-tangent candidates satisfy x+2y=0. Substituting x=−2y into the curve gives 3y²=7. At those points, the numerator 2x+y=−3y is nonzero, so the tangent is vertical. The only point where both partial derivatives 2x+y and x+2y vanish is the origin, which is not on this curve. This additional analysis justifies the classification here; a different implicit relation could have a singular point requiring more care. At (2,1), the same curve has slope −5/4, showing that the coordinates must be substituted consistently rather than copied from a symmetric-looking earlier calculation."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-implicit-higher-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Why would substituting y=2 into x²+xy+y²=7 before differentiating fail to find the tangent to the curve at (1,2)?",
+        "sampleAnswer": "It would treat y as constant while x changes, replacing the curve by an equation along a horizontal line. The local branch generally has changing y. Differentiating first retains y′ terms, after which evaluating the specified point is legitimate.",
+        "checklist": [
+          "Treat y as a local function of x.",
+          "Identify the lost product/chain-rule terms.",
+          "Differentiate before substituting the coordinates."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-implicit-higher-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For the same curve, enter y′ at (2,1).",
+        "acceptedAnswers": [
+          "-5/4"
+        ],
+        "sampleAnswer": "The point satisfies 4+2+1=7, and y′=−(2x+y)/(x+2y)=−5/4."
+      }
+    ]
+  },
+  "Calc AB: Differential Equations::7.1 Slope fields and separable equations": {
+    "revision": 1,
+    "objectives": [
+      "Read qualitative slopes from a differential equation.",
+      "Solve a separable equation without losing an equilibrium solution.",
+      "Apply an initial condition and verify the resulting function."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A differential equation gives a rule for a derivative. It does not initially identify one particular solution curve. At a point (x,y), an equation y′=F(x,y) prescribes the slope of a short tangent segment. Reading these slopes before solving can reveal where solutions rise, fall, or remain horizontal. For example, if F(x,y) factors, determine the sign of each factor and locate rows or columns where the slope is zero. A slope field records these local directions, not the function values of a unique solution. An initial condition selects a curve through a specified point when the equation and local conditions support such a solution.\n\nA separable equation can be rearranged into one expression involving y and dy and another involving x and dx. This manipulation is useful, but division can silently exclude solutions. In y′=x(y−1), dividing by y−1 assumes y is not identically 1. Check y=1 directly in the original equation before dividing. That constant function is an equilibrium solution, since both its derivative and the right-hand side are zero.\n\nAfter integrating, retain a constant and apply the initial condition. A logarithm such as ln|y−1| allows either sign of y−1 on the interval under consideration. When exponentiating, absorb the sign into a new nonzero constant rather than pretending every solution is above 1. Reintroduce the separately checked equilibrium when describing the full solution family. Finally, verify a proposed particular solution by differentiating it and checking both the derivative equation and the initial value. A function that satisfies only one of those requirements is not a solution to the stated initial-value problem."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-separable-equilibrium-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Solve y′=x(y−1) with y(0)=3. First predict the slopes relative to the line y=1, then find and verify a formula.",
+        "steps": [
+          {
+            "prompt": "Which horizontal line gives an equilibrium solution?",
+            "choices": [
+              "y=0",
+              "y=3",
+              "y=1",
+              "x=0"
+            ],
+            "answer": 2,
+            "explanation": "If y=1 for every x, then y′=0 and x(y−1)=0. The vertical line x=0 has zero prescribed slopes along it but is not a solution function y(x)."
+          },
+          {
+            "prompt": "For a non-equilibrium solution, which separation is valid?",
+            "choices": [
+              "dy/dx=x−1",
+              "dy/(y−1)=x dx",
+              "(y−1)dy=dx/x",
+              "dy/y=(x−1)dx"
+            ],
+            "answer": 1,
+            "explanation": "Divide by y−1 only on a branch where it is nonzero, and multiply by dx. Keep the excluded equilibrium solution in mind."
+          },
+          {
+            "prompt": "Which general expression follows from integration?",
+            "choices": [
+              "y=1+C e^(x²/2)",
+              "y=C e^x",
+              "y=1+C x²/2",
+              "y=C+ln|x|"
+            ],
+            "answer": 0,
+            "explanation": "Integrating gives ln|y−1|=x²/2+K, so y−1=C e^(x²/2). The sign and exponential constant are represented by C."
+          },
+          {
+            "prompt": "Which constant satisfies the initial condition?",
+            "choices": [
+              "C=3",
+              "C=1",
+              "C=0",
+              "C=2"
+            ],
+            "answer": 3,
+            "explanation": "At x=0, the formula gives 3=1+C. Hence C=2 and y=1+2e^(x²/2), which also preserves the initial value."
+          },
+          {
+            "prompt": "What does the formula imply for x>0?",
+            "choices": [
+              "The solution is below 1 and decreasing",
+              "The solution is above 1 and increasing",
+              "The solution crosses y=1",
+              "The solution is constant"
+            ],
+            "answer": 1,
+            "explanation": "The exponential is positive, so y−1=2e^(x²/2)>0. With x>0, the equation gives a positive derivative. It cannot cross the equilibrium line in this solution."
+          }
+        ],
+        "takeaway": "A complete solution includes the equilibrium check, separation, integration constant, initial condition, and verification."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For this particular solution, y(0)=3 is the global minimum: e^(x²/2) is at least 1 for every real x. The derivative is negative when x<0 and positive when x>0, consistent with decreasing toward the initial point and increasing afterward. If the initial value were below 1, then C would be negative and the derivative signs would reverse. This is why discarding the absolute value during logarithmic integration can remove an entire family of solutions. The formula is defined for every real x, but other separable equations may impose finite interval boundaries because of denominators, logarithm arguments, or blow-up. Determine the interval containing the initial input rather than assuming every symbolic expression works globally. Direct verification is a powerful final check: differentiating 1+2e^(x²/2) gives 2x e^(x²/2), exactly x times the quantity y−1."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-separable-equilibrium-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner divides by y−1 and concludes that y=1 is not a solution because ln|y−1| would be undefined. Explain the mistake.",
+        "sampleAnswer": "The logarithmic calculation applied only after excluding y=1 during division. It cannot decide whether the excluded function solves the original equation. Checking y=1 directly gives y′=0 and x(y−1)=0, so the equilibrium is valid even though it was absent from the separated branch.",
+        "checklist": [
+          "Identify the division that excluded a case.",
+          "Return to the original equation.",
+          "Check both sides for the constant function."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-separable-equilibrium-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For y=1+C e^(x²/2), enter C when the initial condition is y(0)=5.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "At x=0, e^0=1, so 5=1+C and C=4."
+      }
+    ]
+  },
+  "Calc BC: Infinite Sequences & Series::10.1 Sequences, series and convergence tests": {
+    "revision": 1,
+    "objectives": [
+      "Choose a convergence test from the term structure.",
+      "Construct a valid comparison with a known convergent series.",
+      "Check all hypotheses before applying the integral test."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An infinite series is studied through the limit of its partial sums. A necessary condition for convergence is that the terms tend to zero, but this condition is not sufficient: the harmonic series is the standard counterexample. Before applying a more specialized test, inspect the term limit, signs, and dominant algebraic behavior. Naming a test without a valid comparison or verified hypotheses does not justify a conclusion.\n\nFor a direct comparison of nonnegative terms, an upper bound by a convergent series establishes convergence. A lower bound by a divergent nonnegative series establishes divergence. Reversing either direction gives no such conclusion. Compare expressions for all sufficiently large indices; a finite number of initial terms cannot alter convergence. In a limit comparison, a finite positive limit of a_n/b_n transfers the convergence behavior of one nonnegative series to the other. A limit of zero or infinity needs the appropriate one-sided reasoning rather than the automatic two-way statement.\n\nThe integral test uses a continuous, positive, decreasing function whose integer values match the series terms beyond an initial index. The corresponding improper integral and the series either both converge or both diverge. They do not generally have equal numerical values. Monotonicity also allows bounds for the tail of a convergent positive series: after summing through index N, the remaining tail is bounded above by the integral from N to infinity and below by the integral from N+1 to infinity. This connects a convergence proof with an actual approximation guarantee. Check whether a required tolerance is strict, and round a required integer number of terms in the direction that preserves the guarantee."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-comparison-integral-tests-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Determine whether Σ(n+1)/(n³+2), starting at n=1, converges. Then analyze Σ1/[n(ln n)²], starting at n=2.",
+        "steps": [
+          {
+            "prompt": "Why does the limit of the first series term being zero not finish the problem?",
+            "choices": [
+              "Every series with positive terms diverges",
+              "A zero term limit is necessary but not sufficient for convergence",
+              "The limit test proves convergence whenever it is zero",
+              "The terms are not real"
+            ],
+            "answer": 1,
+            "explanation": "The harmonic series has terms tending to zero and still diverges. Another valid test is needed."
+          },
+          {
+            "prompt": "Which useful direct comparison holds for n≥1?",
+            "choices": [
+              "(n+1)/(n³+2) ≥ 2/n",
+              "(n+1)/(n³+2) ≤ 1/n⁴",
+              "0<(n+1)/(n³+2) ≤ 2/n²",
+              "The term equals 2/n²"
+            ],
+            "answer": 2,
+            "explanation": "Use n+1≤2n and n³+2≥n³ to obtain an upper bound 2n/n³=2/n². The comparison p-series has exponent 2 and converges."
+          },
+          {
+            "prompt": "For the logarithmic series, what must be checked before invoking the integral test?",
+            "choices": [
+              "Only that its terms approach zero",
+              "Only that its first term is positive",
+              "That the integral and sum are exactly equal",
+              "Positivity, continuity, and decreasing behavior of 1/[x(ln x)²] for x≥2"
+            ],
+            "answer": 3,
+            "explanation": "The integral test needs all three properties beyond the starting index. Here ln x is positive for x≥2, and the derivative is negative there."
+          },
+          {
+            "prompt": "What is ∫ from 2 to infinity of 1/[x(ln x)²] dx?",
+            "choices": [
+              "1/ln 2",
+              "ln 2",
+              "Infinity",
+              "The exact value of the series"
+            ],
+            "answer": 0,
+            "explanation": "Use u=ln x to obtain ∫ from ln2 to infinity of u^(−2)du=1/ln2. It is finite, so the series converges, but the series sum is not asserted to equal that integral."
+          },
+          {
+            "prompt": "If the series is summed through N, which bound certifies its remaining tail?",
+            "choices": [
+              "R_N=1/ln N exactly",
+              "0<R_N≤1/ln N",
+              "R_N≥N",
+              "R_N=0 because the series converges"
+            ],
+            "answer": 1,
+            "explanation": "The decreasing positive integrand bounds the tail by ∫ from N to infinity, which equals 1/ln N. Convergence does not mean a finite partial sum has zero error."
+          }
+        ],
+        "takeaway": "Test selection follows term structure and hypotheses. An integral used for comparison is not automatically the exact series sum."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The rational series also admits a limit comparison: dividing by 1/n² gives n²(n+1)/(n³+2), whose limit is 1. Because this is positive and finite, the first series shares the convergence of Σ1/n². This second method confirms the direct comparison without requiring an exact sum. For the logarithmic series, an error target can be surprisingly expensive even though convergence is proved. To guarantee R_N<1/2 using the upper bound, require 1/ln N<1/2, so N>e². The smallest integer certified by that bound is 8. The bound is conservative; it is a guarantee, not a claim that the actual remainder equals 1/ln N. Integral-test tail bounds require the same eventual positivity and decrease as the convergence argument, so do not reuse them blindly for oscillating or alternating terms."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-comparison-integral-tests-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner computes the improper integral and reports that the logarithmic series sums exactly to 1/ln2. Explain what the integral test actually established.",
+        "sampleAnswer": "The test established that the series converges because the related integral is finite. It did not equate a sum of rectangles with the continuous area. For a decreasing function, the sum and integral provide inequalities that can bound the sum or its tail, not an automatic equality.",
+        "checklist": [
+          "Distinguish convergence from exact summation.",
+          "Explain the rectangle-versus-area comparison.",
+          "Use bounds rather than equating the two quantities."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-comparison-integral-tests-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the smallest integer N for which the bound 1/ln N guarantees a remaining tail strictly less than 1/2.",
+        "acceptedAnswers": [
+          "8"
+        ],
+        "sampleAnswer": "The inequality requires ln N>2, hence N>e²≈7.389. The smallest qualifying integer is 8."
+      }
+    ]
+  },
+  "Calc BC: Infinite Sequences & Series::10.3 Taylor polynomials and error bounds": {
+    "revision": 1,
+    "objectives": [
+      "Construct Taylor coefficients from derivatives rather than copying their values.",
+      "Determine approximation direction from an alternating remainder.",
+      "Choose polynomial degree from a justified error target."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A Taylor polynomial about a matches selected derivatives of a function at that center. Its coefficient of (x−a)^k is f^(k)(a)/k!, not simply f^(k)(a). Matching a value and several derivatives makes the polynomial useful near the center, but it does not mean a finite polynomial equals the original function on an interval. A Maclaurin polynomial is the special case a=0. Keep the center visible when evaluating or transforming a polynomial.\n\nAn approximation should be accompanied by an error justification when accuracy is requested. For an alternating series with positive term magnitudes decreasing to zero, truncating after N terms produces an error whose magnitude is no larger than the next omitted term. Its sign follows the first omitted term, so an odd or even truncation can give an overestimate or underestimate depending on the series. Check the alternating-test hypotheses at the actual input, not merely the appearance of minus signs in a formal expression.\n\nA Lagrange bound is another tool: bound the magnitude of the next derivative throughout the segment between the center and evaluation input. A single derivative value at the center is not enough. Choose a bound that is valid even if it is not the sharpest possible. When solving for a required degree, distinguish degree from number of displayed nonzero terms; they coincide for some series and differ for series containing only odd or even powers. Also distinguish an actual approximation error from an upper bound. A conservative bound may demand more terms than the actual error needs, but meeting the bound is what certifies the requested accuracy without knowing the exact answer."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-taylor-accuracy-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Use the Maclaurin series ln(1+x)=x−x²/2+x³/3−x⁴/4+⋯ at x=0.2. Build its cubic polynomial, evaluate it, and certify an error target.",
+        "steps": [
+          {
+            "prompt": "Since f‴(0)=2 for f(x)=ln(1+x), what is the coefficient of x³?",
+            "choices": [
+              "2",
+              "1/3",
+              "1/6",
+              "3"
+            ],
+            "answer": 1,
+            "explanation": "Divide the third derivative by 3!=6. Thus the coefficient is 2/6=1/3; the derivative value alone is not the coefficient."
+          },
+          {
+            "prompt": "What is P₃(0.2)?",
+            "choices": [
+              "0.18",
+              "0.2",
+              "0.1826666667 approximately",
+              "0.1832"
+            ],
+            "answer": 2,
+            "explanation": "Substitute the input into each term of the cubic: 0.2−0.2²/2+0.2³/3=0.2−0.02+0.0026666667≈0.1826666667. The alternating signs matter."
+          },
+          {
+            "prompt": "Which next-term bound is valid here?",
+            "choices": [
+              "0.2⁴/4=0.0004",
+              "0.2³/3",
+              "0.2⁴",
+              "The error is exactly zero"
+            ],
+            "answer": 0,
+            "explanation": "At x=0.2, the positive magnitudes 0.2^n/n decrease to zero. The first omitted term has magnitude 0.2⁴/4=0.0004."
+          },
+          {
+            "prompt": "Is the cubic approximation above or below ln(1.2)?",
+            "choices": [
+              "Below, because the next term is negative",
+              "Neither direction can be inferred under the verified conditions",
+              "Exactly equal",
+              "Above, because the first omitted term is negative"
+            ],
+            "answer": 3,
+            "explanation": "The true series continues by subtracting the next term, with the alternating remainder having that sign. Therefore the cubic partial sum is an overestimate."
+          },
+          {
+            "prompt": "What is the smallest degree N whose next-term bound at 0.2 is strictly below 0.00001?",
+            "choices": [
+              "4",
+              "5",
+              "6",
+              "3"
+            ],
+            "answer": 2,
+            "explanation": "For N=5 the bound is 0.2⁶/6≈0.0000106667, still too large. For N=6 it is 0.2⁷/7≈0.00000182857, so degree 6 is the first certified choice."
+          }
+        ],
+        "takeaway": "The derivative value determines a coefficient only after division by a factorial. A numerical approximation becomes a guarantee only after its error bound is checked."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The logarithm example also connects representation with convergence. The series has radius 1. At x=1, it becomes the alternating harmonic series and converges to ln2; at x=−1, it becomes a negative harmonic series and diverges. Thus endpoint decisions cannot be copied from the radius alone. Within the open interval, integrating the geometric expansion of 1/(1+x) supplies the logarithmic series, while derivative values provide a second construction of its coefficients. At x=0.2, the actual error of the cubic is about 0.00034511, smaller than the verified bound 0.0004. The smaller actual error is a check after evaluation, not the justification that was available before knowing ln1.2. When reporting a required degree, state that it is the smallest degree certified by the chosen bound rather than claiming no lower-degree approximation could happen to be accurate enough."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-taylor-accuracy-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Why is f‴(0)=2 not the coefficient of x³, and why is the next-term bound not necessarily the actual error?",
+        "sampleAnswer": "The Taylor formula divides f‴(0) by 3!, giving 1/3. The alternating-series theorem provides an upper bound for the remainder magnitude; the later terms partly offset each other, so the actual error may be strictly smaller than the first omitted magnitude.",
+        "checklist": [
+          "Include the factorial in the coefficient.",
+          "Identify the bound as a guarantee rather than an equality.",
+          "Use the verified alternating conditions."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-taylor-accuracy-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "At x=0.1, enter the smallest polynomial degree N certified by 0.1^(N+1)/(N+1)<0.00001.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "Degree 3 gives 0.1⁴/4=0.000025, which is too large. Degree 4 gives 0.1⁵/5=0.000002, below the target."
+      }
+    ]
+  },
+  "Calc BC: Applications of Integration::8.3 Improper integrals and arc length": {
+    "revision": 1,
+    "objectives": [
+      "Define an integral with an interior singularity by separate limits.",
+      "Reject cancellation of divergent pieces.",
+      "Distinguish a function’s area integral from its arc-length integral."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An ordinary definite integral treats a bounded interval without an unbounded integrand. If an integrand becomes unbounded at an endpoint or inside the interval, the corresponding improper integral is defined by limits. For a singularity at an interior point c, split the interval at c and evaluate each one-sided improper integral separately. The original improper integral converges only when both pieces converge to finite values. Divergence on one side cannot be canceled by divergence on the other, because its definition requires independent one-sided limits.\n\nThis rule matters when an antiderivative can be written on separate intervals but is not valid for a single ordinary Fundamental Theorem evaluation across the singularity. A symmetric truncation may produce a finite value while the actual improper integral diverges. Such a symmetric limit answers a different question and must not be mislabeled as convergence of the improper integral. Inspect the interval and all denominator zeros before substituting endpoints.\n\nAn unbounded integrand does not automatically force divergence. For example, x^(−p) near zero has a finite integral when p<1, even though it is unbounded for positive p. At infinity, the condition reverses: the integral of x^(−p) converges when p>1. Those statements come from evaluating the appropriate limits, not merely recognizing a power.\n\nArc length is a separate geometric quantity. For a sufficiently regular graph y=f(x), its length is ∫√(1+[f′(x)]²)dx. The area under f and the length along its graph use different integrands and different units. If the length integrand has a singular endpoint, it also needs a limit analysis; a drawing that appears short or smooth does not replace that analysis."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-improper-limits-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Analyze ∫ from −1 to 1 of 1/x dx. Then compare it with a convergent endpoint singularity and a straightforward arc-length calculation.",
+        "steps": [
+          {
+            "prompt": "Why can the integral not be evaluated as one ordinary endpoint subtraction?",
+            "choices": [
+              "The integrand is negative everywhere",
+              "There is no antiderivative on any interval",
+              "The integrand is unbounded at the interior point 0",
+              "The endpoints are equal in magnitude"
+            ],
+            "answer": 2,
+            "explanation": "The domain excludes zero and 1/x is unbounded there. Split at zero and require both one-sided improper integrals to converge."
+          },
+          {
+            "prompt": "What happens to ∫ from −1 to −ε of 1/x dx as ε decreases to zero?",
+            "choices": [
+              "It approaches zero",
+              "It approaches negative infinity",
+              "It approaches positive infinity",
+              "It equals ln2"
+            ],
+            "answer": 1,
+            "explanation": "The antiderivative on the negative side is ln|x|. Evaluation gives ln ε−ln1=ln ε, which tends to negative infinity."
+          },
+          {
+            "prompt": "Does the symmetric cancellation with the right-hand integral make the improper integral converge?",
+            "choices": [
+              "No; each one-sided integral must converge separately",
+              "Yes; positive and negative infinities always cancel",
+              "Yes; the integrand is odd",
+              "Only if a calculator returns zero"
+            ],
+            "answer": 0,
+            "explanation": "The right side diverges to positive infinity and the left side to negative infinity. Neither is finite, so the improper integral diverges despite symmetric truncated cancellation."
+          },
+          {
+            "prompt": "What is ∫ from 0 to 1 of x^(−1/2) dx, interpreted improperly?",
+            "choices": [
+              "It diverges because the integrand is unbounded",
+              "1",
+              "0",
+              "2"
+            ],
+            "answer": 3,
+            "explanation": "Use the limit of [2√x] from ε to 1. It approaches 2 as ε decreases to zero. Unboundedness alone does not decide convergence."
+          },
+          {
+            "prompt": "For y=(2/3)x^(3/2) on [0,3], which arc-length integrand is correct?",
+            "choices": [
+              "(2/3)x^(3/2)",
+              "√(1+x)",
+              "1+x",
+              "x"
+            ],
+            "answer": 1,
+            "explanation": "The derivative is √x, so √(1+[f′]²)=√(1+x). Its integral from 0 to 3 is 14/3 length units, not an area."
+          }
+        ],
+        "takeaway": "Check singularities before applying the Fundamental Theorem. Separate divergent pieces cannot be canceled into an ordinary improper integral."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "A symmetric truncation of the first example gives ∫ from −1 to −ε plus ∫ from ε to 1 equal to zero for every positive ε. Its limit is therefore zero, but this construction forces the two approaches to occur at the same rate. The improper-integral definition allows independent one-sided limits and does not impose that coupling. This explains the apparent contradiction without changing either calculation. For arc length in the final example, integrate √(1+x): an antiderivative is (2/3)(1+x)^(3/2). Evaluating from 0 to 3 gives (2/3)(8−1)=14/3. The result exceeds the straight-line distance between the graph’s endpoints, as expected for a curved path. A convergent improper area and a finite path length should each be justified using their own integrand; neither one automatically proves the other."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-improper-limits-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A calculator returns zero for a symmetric numerical evaluation of ∫ from −1 to 1 of 1/x. Explain why that output is insufficient to claim improper convergence.",
+        "sampleAnswer": "The computation may be canceling symmetric samples or taking a coupled symmetric limit. The improper integral requires separate finite one-sided limits at zero. The left piece tends to negative infinity and the right piece to positive infinity, so it diverges.",
+        "checklist": [
+          "Identify the interior singularity.",
+          "Require two independent finite limits.",
+          "Distinguish symmetric cancellation from the stated integral definition."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-improper-limits-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For y=(2/3)x^(3/2), enter the exact arc length from x=0 to x=8.",
+        "acceptedAnswers": [
+          "52/3"
+        ],
+        "sampleAnswer": "The length is ∫₀⁸√(1+x)dx=(2/3)[9^(3/2)−1]=(2/3)(27−1)=52/3."
+      }
+    ]
+  },
+  "Precalc: Polynomial and Rational Functions::1.3 Rational functions, restrictions, asymptotes, and inverses": {
+    "revision": 1,
+    "objectives": [
+      "Preserve excluded inputs when simplifying a rational expression.",
+      "Separate holes from vertical asymptotes.",
+      "Construct an inverse domain from the actual range of the original function."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A rational function is a quotient of polynomials with an original domain determined by its denominator. Factoring can reveal useful equivalent formulas, but cancellation does not restore an input excluded by the original quotient. Record the excluded inputs first, then simplify only where the canceled factors are nonzero. A canceled denominator factor may leave a hole, while a remaining denominator zero can produce a vertical asymptote. The multiplicities in both numerator and denominator matter; merely noticing one common factor is not enough if a denominator factor remains after cancellation.\n\nNear a vertical asymptote, check the sign of the remaining factors on each side. The two branches may approach opposite infinities or the same infinity depending on those signs and powers. A horizontal asymptote describes end behavior, not a rule that the graph can never cross a horizontal line. Compare leading degrees or rewrite a function as a constant plus a remainder to identify its asymptotic behavior accurately.\n\nAn inverse function exchanges the original input and output roles. Its domain is the original function’s range, including any output that becomes unavailable because of an excluded input. For a one-to-one fractional linear function, removing one input can remove its unique corresponding output. An inverse formula may therefore require more exclusions than the denominator alone suggests. Find the formula by interchanging variables and solving, but verify both compositions on the appropriate domains. A formula without its domain is an incomplete description of the inverse relation. These details explain why two algebraically identical-looking simplified expressions can represent different functions when their original domain restrictions differ."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-rational-hole-inverse-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let f(x)=(x²−4)/(x²−x−2). Analyze its original domain, its graph features, and its inverse.",
+        "steps": [
+          {
+            "prompt": "Which inputs are excluded by the original denominator?",
+            "choices": [
+              "Only 2",
+              "Only −1",
+              "−2 and 2",
+              "−1 and 2"
+            ],
+            "answer": 3,
+            "explanation": "Factor x²−x−2=(x−2)(x+1). Both 2 and −1 make the original denominator zero and are excluded before any simplification."
+          },
+          {
+            "prompt": "Which simplified expression agrees with the original on its domain?",
+            "choices": [
+              "(x+2)/(x+1), with x≠−1 and x≠2",
+              "x+2, on every real input",
+              "(x−2)/(x+1), with x≠−1",
+              "(x+2)/(x−2), with x≠2"
+            ],
+            "answer": 0,
+            "explanation": "Factor x²−4=(x−2)(x+2), then cancel x−2 only for x≠2. The original exclusions remain."
+          },
+          {
+            "prompt": "What feature occurs at x=2?",
+            "choices": [
+              "A vertical asymptote",
+              "A hole at output 4/3",
+              "An ordinary defined point at output 4/3",
+              "A zero"
+            ],
+            "answer": 1,
+            "explanation": "The simplified formula approaches (2+2)/(2+1)=4/3, but the original function is undefined at 2. The missing point is a hole."
+          },
+          {
+            "prompt": "Which inverse formula is obtained from u=(x+2)/(x+1)?",
+            "choices": [
+              "(u+2)/(u+1)",
+              "1/u",
+              "(2−u)/(u−1)",
+              "(u−2)/(u−1)"
+            ],
+            "answer": 2,
+            "explanation": "Multiply u(x+1)=x+2, collect x(u−1)=2−u, and solve x=(2−u)/(u−1). Each algebraic step keeps the input and output roles explicit."
+          },
+          {
+            "prompt": "Which inputs must be excluded from the inverse domain?",
+            "choices": [
+              "Only 1",
+              "Only 4/3",
+              "Only −1 and 2",
+              "1 and 4/3"
+            ],
+            "answer": 3,
+            "explanation": "The original range excludes 1, and the original hole removes the unique output 4/3 as well. Both values must be excluded from the inverse input domain."
+          }
+        ],
+        "takeaway": "Cancellation preserves nearby values but not an excluded point. The inverse domain comes from the full original range, not just its new denominator."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Rewrite the simplified formula as 1+1/(x+1). This makes the horizontal asymptote y=1 and vertical asymptote x=−1 visible. As x approaches −1 from the left, 1/(x+1) tends to negative infinity; from the right, it tends to positive infinity. The output 1 is never attained because 1/(x+1) cannot be zero. Apart from the removed input 2, this fractional linear relation is one-to-one, so removing 2 also removes its only output 4/3. The inverse formula evaluated at 4/3 would return 2, which is precisely the input the original function does not allow. That calculation is a consistency check on the range restriction, not permission to fill the hole. In a modeling problem, further contextual restrictions could shrink the domain and range again; handle those restrictions before using an inverse to make a prediction."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-rational-hole-inverse-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says that only u=1 is excluded from the inverse because it is the only zero of the inverse denominator. Explain why u=4/3 must also be excluded.",
+        "sampleAnswer": "The inverse must accept only outputs that the original function actually attains. Output 4/3 would come uniquely from original input 2, but that input is excluded. The inverse formula returning 2 does not repair the original missing point.",
+        "checklist": [
+          "Use the original range as the inverse domain.",
+          "Track the original excluded input 2.",
+          "Explain the missing output 4/3 rather than relying only on a denominator."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-rational-hole-inverse-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the output value missing at the hole of the original function.",
+        "acceptedAnswers": [
+          "4/3"
+        ],
+        "sampleAnswer": "The canceled expression approaches (2+2)/(2+1)=4/3 at x=2, so the original graph omits that point."
+      }
+    ]
+  },
+  "Precalc: Trigonometric and Polar Functions::3.1 Radians, the unit circle, and periodic function graphs": {
+    "revision": 1,
+    "objectives": [
+      "Connect radians and time scale to a periodic model.",
+      "Determine period, midline, range, and initial orientation.",
+      "List all contextual solution times instead of only a principal inverse value."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Radian measure describes an angle by the ratio of arc length to radius, so a complete rotation corresponds to 2π radians. In a periodic time model, the trigonometric argument converts a time input into an angle. For f(t)=D+A cos(B(t−C)), the vertical midline is D, the amplitude is |A|, and the period is 2π/|B| when B is nonzero. The phase reference C helps locate a familiar point, but a negative amplitude may reverse a maximum into a minimum. Check the function’s value at a known starting input rather than memorizing a sketch pattern.\n\nPeriod describes the input distance needed to repeat a complete cycle. It is not the same as the coefficient B, and a peak-to-trough interval is half a period for a simple sinusoid. Keep the input units attached: if t is measured in hours, the period is in hours, while B converts hours to a radian argument. A model can be expressed in more than one equivalent sine or cosine form, so different-looking phase shifts do not automatically imply different functions. Compare a few exact inputs or use identities.\n\nWhen solving a periodic equation, an inverse trigonometric function returns only one angle in a chosen restricted range. The original periodic function may reach the target at another angle within the same cycle and again in later cycles. First solve for all relevant angles in one cycle, then translate them back to the original input variable and impose the contextual interval. Verify endpoints separately when an interval includes or excludes a full-period boundary. This method avoids both missing valid times and listing times outside the stated model domain."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-periodic-branches-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A hypothetical periodic quantity is modeled by f(t)=4−3cos(πt/6) for 0≤t≤24, with t measured in hours. Find its key features and all times when f(t)=5.5.",
+        "steps": [
+          {
+            "prompt": "What are the midline and amplitude?",
+            "choices": [
+              "Midline 3; amplitude 4",
+              "Midline 4; amplitude −3",
+              "Midline 4; amplitude 3",
+              "Midline 1; amplitude 7"
+            ],
+            "answer": 2,
+            "explanation": "The vertical shift is 4. Amplitude is the positive magnitude of −3, so it is 3; the negative coefficient reverses the cosine orientation."
+          },
+          {
+            "prompt": "What is the period?",
+            "choices": [
+              "12 hours",
+              "6 hours",
+              "π/6 hours",
+              "24 hours"
+            ],
+            "answer": 0,
+            "explanation": "Divide 2π by π/6 to obtain 12. The interval [0,24] therefore contains two complete cycles."
+          },
+          {
+            "prompt": "At t=0, what is the function value and position within the cycle?",
+            "choices": [
+              "7, a maximum",
+              "4, the midline",
+              "0, a zero",
+              "1, a minimum"
+            ],
+            "answer": 3,
+            "explanation": "Since cos0=1, f(0)=4−3=1. The negative cosine coefficient means the model starts at a minimum."
+          },
+          {
+            "prompt": "Which cosine equation follows from f(t)=5.5?",
+            "choices": [
+              "cos(πt/6)=1/2",
+              "cos(πt/6)=−1/2",
+              "cos(πt/6)=−3/2",
+              "cos(πt/6)=5.5"
+            ],
+            "answer": 1,
+            "explanation": "Subtract the midline value 4 from both sides, then divide by the coefficient −3: 1.5/(−3)=−1/2."
+          },
+          {
+            "prompt": "Which list gives every solution in 0≤t≤24?",
+            "choices": [
+              "4 and 16 only",
+              "8 and 20 only",
+              "4,8,16,20",
+              "2,10,14,22"
+            ],
+            "answer": 2,
+            "explanation": "In each cycle the angles are 2π/3 and 4π/3. Converting with t=6θ/π gives 4 and 8, then adding the 12-hour period gives 16 and 20."
+          }
+        ],
+        "takeaway": "The coefficient converts input units into radians. A principal inverse angle is only one part of a periodic solution set."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The same model can be written as 4+3cos[(π/6)(t−6)], because shifting the cosine argument by π reverses its sign. It can also be written as 4+3sin[(π/6)(t−3)]. These forms identify a maximum at t=6 or an upward midline crossing at t=3, while the original negative-cosine form makes the starting minimum easiest to read. Each form has the same range [1,7] and period 12. If the frequency coefficient doubles, the period halves; that does not change the vertical midline or amplitude. In a real application, a periodic mathematical extension does not establish that a physical process continues forever. Interpret the model only over the stated contextual interval, and check whether empirical observations support the assumed regularity. Here the quantity and data are hypothetical teaching examples, so the conclusions describe the model rather than a measured natural phenomenon."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-periodic-branches-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses arccos(−1/2)=2π/3 and reports only t=4. Explain the two different sources of additional solutions.",
+        "sampleAnswer": "Cosine reaches −1/2 at both 2π/3 and 4π/3 within one cycle, producing t=4 and t=8. The 12-hour periodicity creates another copy of each solution in the second cycle, t=16 and t=20.",
+        "checklist": [
+          "Include both one-cycle cosine branches.",
+          "Translate from angle to hours.",
+          "Apply the contextual interval and repeated period."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-periodic-branches-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "If the coefficient π/6 is replaced by π/3 with the other parameters unchanged, enter the new period in hours.",
+        "acceptedAnswers": [
+          "6"
+        ],
+        "sampleAnswer": "The period is 2π/(π/3)=6 hours."
+      }
+    ]
+  },
+  "Precalc: Exponential and Logarithmic Functions::2.3 Exponential and logarithmic modeling from data and semi-log plots": {
+    "revision": 1,
+    "objectives": [
+      "Recover a per-unit growth factor from unequally named time steps.",
+      "Connect an exponential model with a linear logged representation.",
+      "Separate fitting observed data from validating a forecast."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A positive exponential model y=A b^t has a constant multiplicative factor over equal input intervals. The interval length matters: over a gap h, the output ratio is b^h, not necessarily b. Use the known input spacing before extracting a per-unit factor. The initial value A is the output at t=0 for this unshifted form, and b must be positive. A vertical shift would change the raw-output ratio method; logarithms of y only linearize the unshifted positive model.\n\nTaking natural logarithms gives ln y=ln A+t ln b. Thus a plot of ln y against the original input t is a straight line for exact exponential data, with slope ln b and intercept ln A. The logged response is not the same quantity as the original response. Convert the fitted parameters back using A=e^(intercept) and b=e^(slope). A two-unit output ratio of 4 corresponds to b=2, while a slope of ln4 per two input units also corresponds to ln2 per unit.\n\nA model that fits a few given points exactly is not automatically the unique possible model of an unknown real process. A polynomial can interpolate the same finite set, and future data may reveal limitations. State the model class being assumed, use additional observations to compare predictions, and examine the meaning of residuals. A residual measured in y-units differs from a residual on a logged scale. Fitting on one scale optimizes discrepancies on that scale according to the chosen procedure; do not infer the fitting criterion from a software button’s name alone. Finally, logarithmic analysis requires positive response values. Zero, negative, or offset data need a different justified setup rather than a forced logarithm."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-semilog-model-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "An exact hypothetical table has (t,y)=(0,3),(2,12),(4,48). Assume an unshifted exponential model and compare it with a straight-line model through the first two points.",
+        "steps": [
+          {
+            "prompt": "What is the multiplicative factor over each two-unit input gap?",
+            "choices": [
+              "2",
+              "4",
+              "6",
+              "9"
+            ],
+            "answer": 1,
+            "explanation": "The ratios are 12/3=4 and 48/12=4. Each ratio spans two input units."
+          },
+          {
+            "prompt": "What is the per-unit exponential factor b?",
+            "choices": [
+              "4",
+              "1/2",
+              "2",
+              "8"
+            ],
+            "answer": 2,
+            "explanation": "Solve b²=4 with b>0, giving b=2. The model is y=3·2^t; its initial value is 3 and its one-unit multiplier is 2."
+          },
+          {
+            "prompt": "What is the slope when ln y is plotted against t?",
+            "choices": [
+              "ln2",
+              "2",
+              "ln4",
+              "4"
+            ],
+            "answer": 0,
+            "explanation": "The logged form is ln y=ln3+t ln2. Its slope per one input unit is ln2."
+          },
+          {
+            "prompt": "The straight line through (0,3) and (2,12) predicts what output at t=4?",
+            "choices": [
+              "48",
+              "12",
+              "24",
+              "21"
+            ],
+            "answer": 3,
+            "explanation": "Its slope is (12−3)/2=4.5, so the prediction is 3+4.5(4)=21. This fails to match the third exact point."
+          },
+          {
+            "prompt": "What does the exponential fit establish about an unknown real process?",
+            "choices": [
+              "Every future observation must follow it",
+              "It fits these three points under the assumed model class; additional evidence is needed for forecasts",
+              "No other mathematical function can fit the points",
+              "The data prove a causal growth mechanism"
+            ],
+            "answer": 1,
+            "explanation": "Agreement with a finite table establishes a fit, not uniqueness of all possible models, future accuracy, or a causal explanation."
+          }
+        ],
+        "takeaway": "Keep the input interval and the response scale visible. Recover parameters from the logged line, then validate the model’s use."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "At t=3, the exponential model predicts 24 while the straight line predicts 16.5, so a new observation there could help distinguish the candidates. If the measured output at t=4 were 47 instead of 48, the raw residual against the exponential prediction would be −1 response unit. Its logged residual would be ln47−ln48, a different numerical quantity on a different scale. Neither should be substituted for the other without explanation. The model can also be written y=3e^((ln2)t); the continuous rate constant is ln2, whereas the per-unit multiplicative factor is 2 and the signed per-unit percent change is 100%. Those are compatible descriptions, not interchangeable parameter values. A forecast remains conditional on the model and its meaningful domain; a high in-sample fit alone cannot certify a long-range prediction."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-semilog-model-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says that the factor 4 means y=3·4^t. Explain which part of the table that model misreads and check it at t=2.",
+        "sampleAnswer": "The ratio 4 occurs over a two-unit gap, so it equals b². The per-unit base is 2. The incorrect model gives y(2)=3·16=48, while the table gives 12; the correct model gives 3·2²=12.",
+        "checklist": [
+          "Use the two-unit input spacing.",
+          "Recover the positive square root for the per-unit factor.",
+          "Check a proposed model against an actual table point."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-semilog-model-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For the fitted model y=3·2^t, enter the exact predicted output at t=3.",
+        "acceptedAnswers": [
+          "24"
+        ],
+        "sampleAnswer": "Substitute t=3: y=3·8=24."
+      }
+    ]
+  },
+  "Stats: Exploring One-Variable Data and Collecting Data::1.2 Sampling methods, bias, and scope of inference": {
+    "revision": 1,
+    "objectives": [
+      "Define the target population, sampling frame, and observational unit.",
+      "Construct a coherent proportional stratified sample.",
+      "Distinguish a population estimate from a causal claim."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A sampling plan begins with an investigative question that anticipates variability among individuals. Name the target population, the time period, and the observational unit before choosing numbers. A sampling frame is the list or mechanism from which the actual sample can be selected. If the frame omits a group in the target population, random selection within the incomplete list does not repair that undercoverage. Likewise, choosing individual visits when the question is about distinct people can overrepresent frequent visitors.\n\nA simple random sample of a fixed size gives every possible sample of that size the same selection probability. A stratified design divides the population into nonoverlapping groups and uses a probability sample within each group. In a proportional allocation, each stratum’s sample share matches its population share. Stratification can improve precision when individuals within a stratum are relatively similar on the response and stratum means differ, but the design is not automatically superior for every variable. If the sampling fractions differ across strata, combine estimates using population weights rather than an unweighted average of stratum means.\n\nRandom sampling supports inference about the frame population under the design assumptions; it does not guarantee perfect representation in the one realized sample. Nonresponse, inaccurate answers, and leading wording can still distort the result. Random assignment answers another question: which treatment each experimental unit receives. An observational comparison between existing groups is not converted into a causal experiment by taking a random sample. A clear conclusion therefore separates the population to which an estimate can generalize from the causal effect that the design cannot identify. These distinctions are part of constructing a defensible study, not optional caveats added after the arithmetic."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-sampling-frame-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A school has exactly 1,000 students in two programs: 400 in Program A and 600 in Program B. Estimate mean daily reading minutes for all 1,000 students during a specified week using a proportional stratified sample of 50 distinct students.",
+        "steps": [
+          {
+            "prompt": "What is the observational unit?",
+            "choices": [
+              "A reading minute",
+              "A program",
+              "A distinct student",
+              "A week copied 50 times"
+            ],
+            "answer": 2,
+            "explanation": "The response is measured for individual students. The programs form strata, not the observational units."
+          },
+          {
+            "prompt": "Which proportional allocation is correct?",
+            "choices": [
+              "20 from A and 30 from B",
+              "25 from each program",
+              "40 from A and 10 from B",
+              "50 from whichever program responds first"
+            ],
+            "answer": 0,
+            "explanation": "Program A contains 40% and B 60% of the students. Apply those shares to 50 to obtain 20 and 30."
+          },
+          {
+            "prompt": "Which selection procedure implements the intended design?",
+            "choices": [
+              "Take the first 20 and 30 names alphabetically",
+              "Ask only volunteers from each program",
+              "Alternate treatment labels in one class",
+              "Randomly select distinct identifiers within each complete program list"
+            ],
+            "answer": 3,
+            "explanation": "Use a chance selection mechanism separately within both strata and avoid duplicate students. Alphabetical or voluntary selection is not an SRS."
+          },
+          {
+            "prompt": "If estimated stratum means are 18 and 28 minutes, what is the population-weighted estimate?",
+            "choices": [
+              "23 minutes",
+              "24 minutes",
+              "46 minutes",
+              "25 minutes"
+            ],
+            "answer": 1,
+            "explanation": "Use 0.4(18)+0.6(28)=7.2+16.8=24 minutes. The weights describe the target population, not an arbitrary equal split."
+          },
+          {
+            "prompt": "Does this observational design establish that Program B causes more reading?",
+            "choices": [
+              "Yes, because the sample was random",
+              "Yes, because 28 exceeds 18",
+              "No; program participation was not randomly assigned",
+              "No population estimate is possible from any sample"
+            ],
+            "answer": 2,
+            "explanation": "Random sampling supports an estimate for this school’s students. It does not isolate a causal program effect; other differences between programs may explain an association."
+          }
+        ],
+        "takeaway": "Select individuals using a coherent frame, weight strata for the target population, and keep sampling separate from treatment assignment."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Suppose a second researcher samples 25 students from each program. This can be a legitimate disproportionate stratified design, but averaging the two sample means equally estimates an equal-weight mixture of programs rather than the school’s 40%–60% population composition. Using the same hypothetical stratum means, the unweighted average is 23 while the population-weighted estimate remains 24. A design can be random without equal individual inclusion probabilities, provided the probabilities and analysis are handled correctly. If many selected students do not respond, neither weighting choice automatically eliminates nonresponse bias; follow-up and an assessment of who is missing are needed. Protect student privacy and collect only the information necessary for the question. The difference between a sampling frame, the selected sample, and the responding sample should remain visible in the report."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-sampling-frame-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "If 25 students are sampled from each program, why should the stratum means not automatically receive equal weights when estimating the school-wide mean?",
+        "sampleAnswer": "The target population is 40% Program A and 60% Program B. Equal sample counts do not change those population shares. Use weights 0.4 and 0.6 for the school-wide estimate, while accounting for the actual sampling design when assessing uncertainty.",
+        "checklist": [
+          "State the population composition.",
+          "Distinguish sample allocation from target weights.",
+          "Retain a design-based interpretation."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-sampling-frame-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For a proportional sample of 80 students from the same population, enter the number selected from Program A.",
+        "acceptedAnswers": [
+          "32"
+        ],
+        "sampleAnswer": "Program A’s share is 400/1000=0.4, so the proportional allocation is 0.4·80=32."
+      }
+    ]
+  },
+  "Stats: Probability, Random Variables, and Probability Distributions::2.2 Discrete random variables and binomial models": {
+    "revision": 1,
+    "objectives": [
+      "Construct and summarize a discrete probability distribution.",
+      "Check the assumptions defining a binomial model.",
+      "Translate exactly, at most, and at least into distinct probability events."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A random variable assigns a numerical value to the outcome of a chance process. A discrete probability distribution lists its possible values and their probabilities. Each probability must lie between zero and one, and the probabilities must sum to one. The expected value is the probability-weighted mean of all possible outcomes. It may be a value that never occurs in a single trial, because it summarizes long-run averages rather than predicting one individual result. The most probable outcome and the expected value answer different questions.\n\nThe variance weights squared deviations from the expected value; the standard deviation is its square root and returns to the random variable’s units. A linear transformation of one random variable changes its mean and spread in different ways: adding a constant shifts the mean without changing standard deviation, while multiplying by a factor scales standard deviation by the factor’s absolute value. Do not add a constant to a standard deviation simply because it appears in every transformed outcome.\n\nA binomial random variable counts successes in a fixed number of modeled independent trials with two outcomes and a constant success probability. Define success explicitly; it need not mean a desirable result. Independent sampling with replacement is one way to support the model. Sampling without replacement is dependent; a small sampling fraction can make a binomial approximation useful but does not create exact independence. The parameter n counts trials and p gives the success probability on each trial. The count can take only integer values from zero through n. For exactly k successes, the combination factor counts their possible arrangements. For at least one success, the complement of zero successes is often simpler. These event descriptions must be translated before pressing a calculator function."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-discrete-binomial-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "First consider X with values 0,1,2 and probabilities 0.5,0.3,0.2. Then let Y count successes in six independent trials, each with success probability 0.25.",
+        "steps": [
+          {
+            "prompt": "What is E(X)?",
+            "choices": [
+              "0.5",
+              "0.7",
+              "1",
+              "2"
+            ],
+            "answer": 1,
+            "explanation": "Compute 0(0.5)+1(0.3)+2(0.2)=0.7. This is a long-run average, even though X never equals 0.7 in one trial."
+          },
+          {
+            "prompt": "Which condition is essential for the stated binomial model of Y?",
+            "choices": [
+              "The observed number of successes must equal the mean",
+              "Every trial must give the same outcome",
+              "The success probability changes after each trial",
+              "Trials are modeled as independent with the same success probability"
+            ],
+            "answer": 3,
+            "explanation": "The fixed six trials must satisfy the independent, constant-probability binary setup. Success counts vary around their mean."
+          },
+          {
+            "prompt": "Which expression gives P(Y=2)?",
+            "choices": [
+              "C(6,2)(0.25)²(0.75)⁴",
+              "(0.25)²",
+              "1−(0.75)⁶",
+              "C(6,2)(0.25)⁴(0.75)²"
+            ],
+            "answer": 0,
+            "explanation": "Choose the two success positions, then multiply the probabilities for two successes and four failures. This is exactly two, not at least two."
+          },
+          {
+            "prompt": "What is P(Y≥1)?",
+            "choices": [
+              "(0.25)⁶",
+              "(0.75)⁶",
+              "1−(0.75)⁶",
+              "1−(0.25)⁶"
+            ],
+            "answer": 2,
+            "explanation": "The only excluded outcome is zero successes, which requires all six failures. Its probability is 0.75⁶, so take the complement."
+          },
+          {
+            "prompt": "Which statement correctly interprets E(Y)=1.5?",
+            "choices": [
+              "Every set of six trials contains exactly 1.5 successes",
+              "Across many repetitions of the six-trial process, the average success count approaches 1.5",
+              "The probability of one success is 1.5",
+              "At least two successes must occur"
+            ],
+            "answer": 1,
+            "explanation": "An expected count can be noninteger. It is a long-run weighted average, not a possible count forced on each repetition."
+          }
+        ],
+        "takeaway": "Model assumptions define the distribution; event wording defines which probabilities to combine. Expected value is not a guaranteed outcome."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For the first distribution, E(X²)=0²(0.5)+1²(0.3)+2²(0.2)=1.1. Thus Var(X)=1.1−0.7²=0.61 and SD(X)=√0.61. If a scoring rule gives Z=10+2X, its mean is 11.4 and its standard deviation is 2√0.61; the added ten points do not change spread. For the binomial example, P(Y=2)=0.296630859375, while P(Y≥1)=0.822021484375. These are different events, so a numerical answer must be checked against the stated wording. The count’s mean is np=1.5 and variance np(1−p)=1.125 under the independent binomial model. A finite-population sampling context could require a different exact model even if the same values n and p are written down; a probability formula is only as applicable as its assumptions."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-discrete-binomial-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why X can have expected value 0.7 even though its only possible individual values are 0,1,2. Then identify which summary describes the most probable individual outcome.",
+        "sampleAnswer": "Expected value averages outcomes using their probabilities, so it need not be an attainable single value. Here 0(0.5)+1(0.3)+2(0.2)=0.7. The most probable individual outcome is the mode, which is 0 because it has probability 0.5.",
+        "checklist": [
+          "Use probability weights in the mean.",
+          "Separate a repeated-process average from a single outcome.",
+          "Name the mode for the most probable value."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-discrete-binomial-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For six independent trials with success probability 0.25, enter the expected success count.",
+        "acceptedAnswers": [
+          "1.5",
+          "3/2"
+        ],
+        "sampleAnswer": "The binomial mean is np=6(0.25)=1.5=3/2."
+      }
+    ]
+  },
+  "Stats: Inference for Quantitative Data: Means::4.2 Paired designs and inference for a mean difference": {
+    "revision": 1,
+    "objectives": [
+      "Define the signed paired difference before computing summaries.",
+      "Use the number and variability of differences in a one-sample t procedure.",
+      "Separate evidence of a mean change from evidence of a causal treatment effect."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Paired data arise when two measurements belong to the same individual or when a design deliberately matches two units. The association inside each pair is part of the design and cannot be discarded by treating all measurements as independent. Define a signed difference before calculating: before minus after and after minus before describe opposite parameters. A positive mean difference only has meaning after that convention and its units are stated.\n\nAnalyze the resulting list of differences as one sample. If there are n pairs, there are n differences, not 2n independent observations. Their sample mean estimates the population mean difference, and their sample standard deviation measures variation among those differences. Use s_d/√n for the estimated standard error and n−1 degrees of freedom in the usual one-sample t procedure. Separate before and after standard deviations are not sufficient to reconstruct the standard deviation of paired differences without information about their relationship. Pairing does not guarantee positive correlation or improved precision in every setting; useful matching aims to remove irrelevant between-unit variation.\n\nFor a small sample, the t model needs a defensible distributional assumption and checks for strong skew or extreme outliers in the differences, not merely in each raw measurement group. A roughly symmetric five-point sample alone cannot prove that its underlying population is normal. Random sampling supports generalization to the sampled population. Randomizing treatment order or using an appropriate randomized comparison is a separate requirement for a strong causal claim. A before-and-after increase may reflect practice, time trends, or another concurrent change. A complete report includes the direction of subtraction, the parameter, the conditions, an uncertainty calculation, and a conclusion limited to what the study design can establish."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-paired-design-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Five randomly sampled adults perform the same timed task before and after a workshop. Before times are 15,16,18,20,23 seconds; after times are 14,14,15,16,18 seconds in the same participant order. Define d=Before−After. Assume the population of differences is approximately normal and the sample shows no extreme outlier.",
+        "steps": [
+          {
+            "prompt": "Which difference list should be analyzed?",
+            "choices": [
+              "1,2,3,4,5 seconds",
+              "The ten original times as one sample",
+              "−1,−2,−3,−4,−5 seconds",
+              "The five sums of before and after times"
+            ],
+            "answer": 0,
+            "explanation": "Subtract within each participant using the stated convention. Positive values mean the after time was shorter."
+          },
+          {
+            "prompt": "What are the sample mean difference and number of differences?",
+            "choices": [
+              "Mean 3, n=10",
+              "Mean 6, n=5",
+              "Mean 3, n=5",
+              "Mean 1.5, n=10"
+            ],
+            "answer": 2,
+            "explanation": "The five differences sum to 15, so their mean is 3 seconds. The sample size for the paired analysis is five pairs."
+          },
+          {
+            "prompt": "What is the sample standard deviation of the differences?",
+            "choices": [
+              "√2",
+              "√2.5",
+              "2.5",
+              "5"
+            ],
+            "answer": 1,
+            "explanation": "Squared deviations from the mean 3 are 4,1,0,1,4, summing to 10. Divide by n−1=4 to get sample variance 2.5, then take the square root."
+          },
+          {
+            "prompt": "For H₀:μ_d=0, what are the t statistic and df?",
+            "choices": [
+              "t=3, df=9",
+              "t=3/√2.5, df=4",
+              "t=6, df=5",
+              "t=3√2, df=4"
+            ],
+            "answer": 3,
+            "explanation": "The standard error is √2.5/√5=√0.5. Therefore t=3/√0.5=3√2≈4.243, with df=4. The denominator measures uncertainty in the mean difference, not individual differences."
+          },
+          {
+            "prompt": "Does evidence of a positive mean difference prove that the workshop caused the reduction?",
+            "choices": [
+              "Yes, because the mean difference is positive",
+              "No; there is no randomized comparison isolating the workshop from practice or other time effects",
+              "Yes, because the participants were randomly sampled",
+              "No statistical inference is possible from paired data"
+            ],
+            "answer": 1,
+            "explanation": "Random sampling and paired analysis support a statement about mean change under their assumptions. They do not by themselves rule out alternative causes of that change."
+          }
+        ],
+        "takeaway": "Pair first, choose the subtraction direction, and analyze the differences with their own variability and sample size."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Using a 95% t critical value of approximately 2.776 for df=4 gives a margin 2.776√0.5≈1.963 seconds. The interval for the population mean Before−After difference is approximately (1.037,4.963) seconds under the stated assumptions. It estimates the mean change, not a range containing 95% of individual changes. Reversing the subtraction convention changes the interval to approximately (−4.963,−1.037) for After−Before; it does not change the substantive conclusion that after times tend to be lower. The one-sided t p-value for a positive difference is about 0.0066, but this numerical evidence cannot fix the missing randomized comparison. In a stronger study, a control condition or randomized treatment order would help distinguish a workshop effect from repeated-task familiarity. With only five pairs, inspect and report the assumptions carefully rather than relying on a large-sample slogan."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-paired-design-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner calls the study an independent two-sample experiment with n=10 and concludes that the workshop caused the improvement. Identify the two separate design mistakes.",
+        "sampleAnswer": "The observations are paired by participant, so there are five differences rather than ten independent observations. Also, the before-and-after design lacks a randomized comparison that isolates the workshop from practice or time effects. Correct statistical calculation of change does not itself establish causation.",
+        "checklist": [
+          "Use five paired differences.",
+          "Distinguish random sampling from random treatment assignment.",
+          "Limit the causal conclusion even when a p-value is small."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-paired-design-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "If the difference convention is reversed to After−Before, enter the sample mean difference in seconds.",
+        "acceptedAnswers": [
+          "-3"
+        ],
+        "sampleAnswer": "Each difference changes sign, so the mean changes from 3 to −3 seconds."
+      }
+    ]
+  }
+}

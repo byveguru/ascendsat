@@ -1,0 +1,999 @@
+{
+  "CSP: Data::2.1 Bits, number representation, and digital media": {
+    "revision": 1,
+    "objectives": [
+      "Interpret binary place values and distinguish a value from its representation.",
+      "Count the distinct patterns available from a fixed number of bits.",
+      "Explain overflow and representation limits without assuming every encoding is unsigned."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "A bit has two possible states. A sequence of n bits has 2^n distinct patterns because each position independently contributes two choices. In an unsigned binary integer, place values from right to left are 1,2,4,8, and continuing powers of two. The pattern 10110 represents 16+4+2=22. Leading zeros can preserve a fixed field width without changing that unsigned value. The same pattern might represent a color component, a character code, or another quantity under a different encoding; bits alone do not identify their meaning."
+      },
+      {
+        "type": "text",
+        "text": "For n unsigned bits, zero is one of the representable values, so the maximum is 2^n−1 rather than 2^n. Adding one more bit doubles the number of patterns, not merely adding two patterns. A fixed-width representation may be unable to store a calculation’s mathematical result. The system’s specified behavior determines whether it reports an error, wraps, saturates, or handles the result another way. Do not assume a particular overflow behavior when none is stated. Signed and fractional encodings use their bits differently, so this unsigned range rule must not be applied indiscriminately."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "One unsigned 5-bit pattern",
+          "columns": [
+            "Place value",
+            "16",
+            "8",
+            "4",
+            "2",
+            "1"
+          ],
+          "rows": [
+            [
+              "Stored bit",
+              "1",
+              "0",
+              "1",
+              "1",
+              "0"
+            ]
+          ],
+          "note": "Each 1 includes its place value in the unsigned integer; each 0 contributes zero."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "csp-binary-capacity-guided",
+        "scenario": "A fictional sensor stores a nonnegative integer reading using exactly 5 unsigned bits. It stores ordinary base-2 place values and does not define any overflow behavior.",
+        "steps": [
+          {
+            "prompt": "How many distinct patterns are available?",
+            "choices": [
+              "5",
+              "25",
+              "32"
+            ],
+            "answer": 2,
+            "explanation": "There are 2^5=32 possible bit patterns."
+          },
+          {
+            "prompt": "What is the largest representable reading?",
+            "choices": [
+              "31",
+              "32",
+              "30"
+            ],
+            "answer": 0,
+            "explanation": "The values run from 0 through 31. Binary 11111 equals 16+8+4+2+1=31."
+          },
+          {
+            "prompt": "What decimal value does 10110 represent?",
+            "choices": [
+              "21",
+              "22",
+              "26"
+            ],
+            "answer": 1,
+            "explanation": "The 1 bits occupy the 16,4, and 2 places: 16+4+2=22."
+          },
+          {
+            "prompt": "What can you conclude if the mathematical result is 35?",
+            "choices": [
+              "It must wrap to 3",
+              "It must become zero",
+              "It is outside the specified range; the handling is not stated"
+            ],
+            "answer": 2,
+            "explanation": "Five unsigned bits cannot represent 35. Wrapping is possible in some systems but was not specified here."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "Adding a sixth bit creates 64 patterns and an unsigned range of 0 through 63. That can solve this particular capacity problem without improving the sensor’s physical accuracy. Representation range, resolution, and measurement accuracy are separate ideas. If an encoding maps integer codes to measurement steps, the step size must be supplied before converting a code into physical units. For example, storing a reading at 0.5-unit steps changes the interpretation of each integer code without changing the number of underlying bit patterns."
+      },
+      {
+        "type": "reflection",
+        "id": "csp-binary-capacity-transfer",
+        "prompt": "Why does doubling the number of possible codes not prove the sensor’s measurements are twice as accurate?",
+        "sampleAnswer": "Code capacity describes available representations. Measurement accuracy depends on the sensing process and calibration. More codes can support a wider range or finer resolution under an encoding, but they do not guarantee that physical readings are closer to a reference.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "How many distinct patterns are available with 7 bits? Enter the number.",
+        "acceptedAnswers": [
+          "128"
+        ],
+        "sampleAnswer": "Each additional bit doubles the patterns: 2^7=128. The maximum unsigned value would be 127, which is a different question.",
+        "id": "csp-binary-capacity-recall"
+      }
+    ]
+  },
+  "CSP: Computer Systems & Networks::4.1 The internet, packets, and fault-tolerant routing": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a packet, a route, and a complete application message.",
+      "Explain redundancy using alternative paths rather than a guarantee of uninterrupted service.",
+      "Separate routing from encryption and application-level reconstruction."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "A network connects devices through communication links and intermediate devices. A message can be divided into packets containing data and relevant addressing or control information. Packets can follow different routes and need not arrive in their original order. Protocols specify how systems exchange and interpret these units. Routing chooses paths through the network; reliable delivery and reassembly involve additional protocol behavior. The internet’s network of networks supports many applications and is not identical to the World Wide Web."
+      },
+      {
+        "type": "text",
+        "text": "Redundancy means that more than one usable path or component can provide a function. Alternative routes can let communication continue when one link fails, but only if a complete usable path remains and the protocols and devices can use it. A graph with several links can still have a single bottleneck connecting two regions. Fault tolerance is therefore a property to examine under stated failures, not a promise that all failures are harmless. Encryption protects information under a cryptographic scheme; it does not itself create a missing network route."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "map",
+          "title": "Original four-device network schematic",
+          "regions": [
+            {
+              "id": "A",
+              "label": "A",
+              "x": 8,
+              "y": 50
+            },
+            {
+              "id": "B",
+              "label": "B",
+              "x": 48,
+              "y": 10
+            },
+            {
+              "id": "C",
+              "label": "C",
+              "x": 48,
+              "y": 90
+            },
+            {
+              "id": "D",
+              "label": "D",
+              "x": 92,
+              "y": 50
+            }
+          ],
+          "connections": [
+            {
+              "from": "A",
+              "to": "B",
+              "label": "working link"
+            },
+            {
+              "from": "B",
+              "to": "D",
+              "label": "working link"
+            },
+            {
+              "from": "A",
+              "to": "C",
+              "label": "working link"
+            },
+            {
+              "from": "C",
+              "to": "D",
+              "label": "working link"
+            }
+          ],
+          "note": "All listed links are bidirectional. No direct A–D or B–C link exists.",
+          "directed": false
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "csp-packets-paths-guided",
+        "scenario": "Original undirected network: links are A–B, B–D, A–C, and C–D. A message must travel from A to D. Assume every listed link initially works, there are no other links, and devices can use either available path.",
+        "steps": [
+          {
+            "prompt": "Which pair describes two distinct routes from A to D?",
+            "choices": [
+              "A–B–D and A–C–D",
+              "A–D and B–C",
+              "A–B and C–D"
+            ],
+            "answer": 0,
+            "explanation": "Both listed sequences start at A, end at D, and use working links. A–D and B–C are not links in this graph."
+          },
+          {
+            "prompt": "If B–D fails, can a complete route remain?",
+            "choices": [
+              "No, any single failure stops every network",
+              "Yes, A–C–D remains",
+              "Only if the message is encrypted"
+            ],
+            "answer": 1,
+            "explanation": "The C route does not use B–D. Encryption is separate from whether a path exists."
+          },
+          {
+            "prompt": "If both A–B and A–C fail, what follows?",
+            "choices": [
+              "D receives every packet faster",
+              "A can use a direct A–D link",
+              "A has no working link to the rest of this specified network"
+            ],
+            "answer": 2,
+            "explanation": "Both of A’s available incident links have failed. The graph supplies no alternative connection."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "A network diagram establishes possible connectivity, not a measured transfer speed. More links may improve resilience, but bandwidth, congestion, latency, and routing decisions affect performance. Similarly, dividing a message into packets does not guarantee that every packet arrives. A reliable transport mechanism can detect missing data and request retransmission, whereas an application might prioritize low delay and tolerate some loss. Keep the claims at the right layer: the existence of a route, protection of the content, and reconstruction of the message answer different questions."
+      },
+      {
+        "type": "reflection",
+        "id": "csp-packets-paths-transfer",
+        "prompt": "A student says that adding encryption will restore delivery after both links leaving A fail. Explain the category error.",
+        "sampleAnswer": "Encryption changes how message content is protected; it does not add a communication link. With no working connection from A, this graph has no route for the encrypted packets either. Restoring connectivity requires a working path, while content protection is a separate requirement.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "prediction",
+        "prompt": "Which change most directly improves resilience to a failure of A–B in the original network?",
+        "choices": [
+          "Keeping the independent A–C–D path usable",
+          "Changing the text color of the message",
+          "Calling every packet a webpage"
+        ],
+        "answer": 0,
+        "explanation": "The independent path can preserve connectivity when A–B fails. The other changes do not create or preserve a network route.",
+        "id": "csp-packets-paths-recall"
+      }
+    ]
+  },
+  "Physics 1: Kinematics::1.3 Projectile motion and independent components": {
+    "revision": 1,
+    "objectives": [
+      "Apply a shared flight time to separate horizontal and vertical equations.",
+      "State the negligible-drag and uniform-gravity assumptions.",
+      "Distinguish velocity components from speed."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "In the standard near-Earth projectile model, ignore air resistance and treat gravitational acceleration as constant and vertically downward. Horizontal acceleration is then zero while vertical acceleration is −g when upward is positive. The horizontal and vertical components follow separate equations but describe the same object at the same time. A horizontal launch has initial vertical velocity zero, not zero vertical acceleration. Gravity begins changing the vertical velocity immediately."
+      },
+      {
+        "type": "text",
+        "text": "Choose an origin and signs before substituting. With a horizontal launch, vertical displacement is Δy=−(1/2)gt² and horizontal displacement is Δx=v₀x t. Velocity is a vector; speed is its magnitude √(vx²+vy²). Constant horizontal velocity does not mean constant total speed because the vertical component changes. These relations require the stated idealizations and a time interval before the projectile contacts another surface."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Positions under the stated ideal model",
+          "columns": [
+            "Time (s)",
+            "Horizontal x (m)",
+            "Height above ground (m)"
+          ],
+          "rows": [
+            [
+              "0",
+              "0",
+              "20"
+            ],
+            [
+              "1",
+              "6",
+              "15"
+            ],
+            [
+              "2",
+              "12",
+              "0"
+            ]
+          ],
+          "note": "Original calculated positions. Equal time steps give equal horizontal displacement while the vertical motion accelerates."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "physics-projectile-components-guided",
+        "scenario": "A ball leaves a horizontal platform 20 meters above level ground at 6 m/s horizontally. Use g=10 m/s² and ignore drag. Set its launch point at y=0, with upward positive.",
+        "steps": [
+          {
+            "prompt": "Which vertical equation finds the landing time?",
+            "choices": [
+              "−20=−5t²",
+              "20=6t",
+              "−20=−10t"
+            ],
+            "answer": 0,
+            "explanation": "The initial vertical velocity is zero. The ground is 20 meters below the origin, so −20=0t−(1/2)(10)t²."
+          },
+          {
+            "prompt": "What is the positive flight time?",
+            "choices": [
+              "4 seconds",
+              "2 seconds",
+              "√2 seconds"
+            ],
+            "answer": 1,
+            "explanation": "The equation gives t²=4. The physical time after launch is t=2 seconds."
+          },
+          {
+            "prompt": "How far horizontally does it travel?",
+            "choices": [
+              "20 meters",
+              "6 meters",
+              "12 meters"
+            ],
+            "answer": 2,
+            "explanation": "Horizontal velocity stays 6 m/s, so Δx=6(2)=12 meters."
+          },
+          {
+            "prompt": "What is the vertical velocity just before landing?",
+            "choices": [
+              "−20 m/s",
+              "−10 m/s",
+              "0 m/s"
+            ],
+            "answer": 0,
+            "explanation": "vy=0−gt=−10(2)=−20 m/s. This is a component, not the total speed."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "The final speed is √(6²+20²)=√436, about 20.88 m/s. If the horizontal launch speed doubled under the same assumptions, the flight time would stay 2 seconds while the range doubled to 24 meters. The final speed would not double, because the vertical component would remain −20 m/s. Releasing another ball from rest at the same height at the same instant would give the same landing time in this ideal model. Air resistance or different vertical launch velocities would require a different comparison."
+      },
+      {
+        "type": "reflection",
+        "id": "physics-projectile-components-transfer",
+        "prompt": "Explain why doubling horizontal launch speed does not halve the time to hit the ground in this setup.",
+        "sampleAnswer": "The vertical equation contains the height, initial vertical velocity, and g, all unchanged by the horizontal-speed change. It therefore gives the same 2-second flight time. Horizontal motion covers more distance during that time rather than changing the vertical fall.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "For the same height and ideal assumptions, enter the horizontal range in meters if launch speed is 9 m/s.",
+        "acceptedAnswers": [
+          "18"
+        ],
+        "sampleAnswer": "Flight time remains 2 seconds. Range is (9 m/s)(2 s)=18 meters.",
+        "id": "physics-projectile-components-recall"
+      }
+    ]
+  },
+  "Physics 1: Linear Momentum::4.2 Collisions and choosing a system": {
+    "revision": 1,
+    "objectives": [
+      "Choose a system and check external impulse before conserving momentum.",
+      "Distinguish conserved momentum from kinetic energy.",
+      "Interpret the sign and magnitude of a shared final velocity."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "Momentum is the vector quantity p=mv. For a chosen system, its change in total momentum equals the net external impulse over the time interval. During a short collision on a level track, external horizontal impulse may be negligible even when large contact forces act between the carts. Those internal forces transfer momentum within the system and cancel in the total accounting. Momentum conservation is therefore conditional on the selected system and interval, not a rule that each object keeps its own momentum."
+      },
+      {
+        "type": "text",
+        "text": "If objects stick together, their shared final velocity follows from total initial momentum divided by total mass. Such a collision is perfectly inelastic. Total kinetic energy is generally not conserved: some is transferred into internal energy, deformation, vibration, or sound. Total energy accounting remains possible, but “kinetic energy” is a narrower quantity. Choose one positive direction and retain negative velocities for motion in the opposite direction."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "guidedExample",
+        "id": "physics-collision-system-guided",
+        "scenario": "On a level track, a 2 kg cart moving right at 3 m/s collides with a stationary 1 kg cart. They stick together. Treat external horizontal impulse during the collision as negligible and take rightward as positive.",
+        "steps": [
+          {
+            "prompt": "What is total initial momentum?",
+            "choices": [
+              "3 kg·m/s",
+              "6 kg·m/s",
+              "9 kg·m/s"
+            ],
+            "answer": 1,
+            "explanation": "Add vector momenta: 2(3)+1(0)=6 kg·m/s."
+          },
+          {
+            "prompt": "What shared final velocity follows?",
+            "choices": [
+              "2 m/s rightward",
+              "3 m/s rightward",
+              "6 m/s rightward"
+            ],
+            "answer": 0,
+            "explanation": "The combined mass is 3 kg, so 3v=6 and v=2 m/s."
+          },
+          {
+            "prompt": "Compare initial and final kinetic energies.",
+            "choices": [
+              "Both are 9 J",
+              "Initial 6 J, final 9 J",
+              "Initial 9 J, final 6 J"
+            ],
+            "answer": 2,
+            "explanation": "Initially K=(1/2)(2)(3²)=9 J. Finally K=(1/2)(3)(2²)=6 J. Three joules leave the translational kinetic-energy account."
+          },
+          {
+            "prompt": "Which statement explains the energy difference?",
+            "choices": [
+              "Total energy is destroyed",
+              "Energy is transferred to forms outside translational kinetic energy",
+              "Momentum must therefore be lost too"
+            ],
+            "answer": 1,
+            "explanation": "The kinetic-energy decrease does not violate total energy conservation or the separate momentum relation under the stated impulse condition."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "Change the stationary cart to one moving left at 3 m/s. The system’s initial momentum becomes 2(3)+1(−3)=3 kg·m/s, so the joined carts move right at 1 m/s. Both initial speeds are 3 m/s, yet their momenta do not cancel because their masses differ. Now consider changing the system to the 2 kg cart alone: the collision force from the other cart is external to that smaller system, and its individual momentum changes. The same event can have different internal/external classifications under different system boundaries."
+      },
+      {
+        "type": "reflection",
+        "id": "physics-collision-system-transfer",
+        "prompt": "Why is it valid to conserve the two-cart system’s horizontal momentum while the first cart slows down? Identify the force that changes category when the system boundary changes.",
+        "sampleAnswer": "The contact force between carts is internal to the two-cart system, so it transfers momentum without changing the system total under negligible external horizontal impulse. For the first cart alone, that contact force is external and supplies the impulse that slows it. Individual momentum need not be conserved.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "If the 1 kg cart initially moves left at 3 m/s and the carts stick, enter the shared final velocity in m/s using rightward positive.",
+        "acceptedAnswers": [
+          "1"
+        ],
+        "sampleAnswer": "Total initial momentum is 6−3=3 kg·m/s. Divide by the combined 3 kg to obtain +1 m/s.",
+        "id": "physics-collision-system-recall"
+      }
+    ]
+  },
+  "APES: The Living World: Ecosystems::1.1 Food webs, productivity, and energy transfer": {
+    "revision": 1,
+    "objectives": [
+      "Separate gross primary production, producer respiration, and net primary production.",
+      "Track energy flow without treating a rough transfer efficiency as a universal law.",
+      "Distinguish energy accounting from matter cycling."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "Producers capture energy and store some of it in organic compounds. Gross primary productivity is the total rate of that energy fixation. Producers also use energy through cellular respiration. Net primary productivity subtracts producer respiration from gross primary productivity. Keep the quantities in compatible units, such as kilojoules per square meter per year, and use the same area and interval. Net production represents new producer biomass energy available for growth and potentially to consumers or decomposers."
+      },
+      {
+        "type": "text",
+        "text": "Energy moves through a food web and is progressively dissipated as heat through metabolism. Matter can be transferred and cycled among organisms and environmental reservoirs, but usable energy is not recycled around the food web in the same way. Trophic transfer efficiency varies by system and definition. A stated 10% efficiency can support a model calculation; it should not be treated as a physical law that every ecosystem must exactly follow. Not all producer biomass is eaten by the next consumer level, and not all eaten material becomes new consumer biomass."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "stimulus",
+        "stimulus": {
+          "type": "table",
+          "title": "Original energy-accounting assumptions",
+          "columns": [
+            "Quantity",
+            "Specified value"
+          ],
+          "rows": [
+            [
+              "Producer GPP",
+              "20,000 kJ/m²/year"
+            ],
+            [
+              "Producer respiration",
+              "12,000 kJ/m²/year"
+            ],
+            [
+              "Herbivore transfer",
+              "10% of producer NPP"
+            ],
+            [
+              "Predator transfer",
+              "15% of herbivore production"
+            ]
+          ],
+          "note": "These are assumptions for this hypothetical model, not universal trophic efficiencies."
+        }
+      },
+      {
+        "type": "guidedExample",
+        "id": "apes-productivity-accounting-guided",
+        "scenario": "Original hypothetical annual energy accounting for one area: producer GPP is 20,000 kJ/m²/year and producer respiration is 12,000 kJ/m²/year. For this model only, herbivore production is 10% of NPP, and predator production is 15% of herbivore production.",
+        "steps": [
+          {
+            "prompt": "What is producer NPP?",
+            "choices": [
+              "32,000 kJ/m²/year",
+              "12,000 kJ/m²/year",
+              "8,000 kJ/m²/year"
+            ],
+            "answer": 2,
+            "explanation": "Subtract producer respiration from GPP: 20,000−12,000=8,000 kJ/m²/year."
+          },
+          {
+            "prompt": "What is modeled herbivore production?",
+            "choices": [
+              "800 kJ/m²/year",
+              "2,000 kJ/m²/year",
+              "8,000 kJ/m²/year"
+            ],
+            "answer": 0,
+            "explanation": "The specified transfer is 10% of NPP, so 0.10(8,000)=800."
+          },
+          {
+            "prompt": "What is modeled predator production?",
+            "choices": [
+              "80 kJ/m²/year",
+              "120 kJ/m²/year",
+              "1,200 kJ/m²/year"
+            ],
+            "answer": 1,
+            "explanation": "Use the stated 15% of herbivore production: 0.15(800)=120, not 10% by habit."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "This accounting does not tell you the exact mass or number of organisms. Converting energy production into biomass mass requires an appropriate energy-per-mass relationship, and population counts require still more information about organism size and dynamics. A low predator production value is consistent with energetic constraints but does not by itself predict every trophic-level population. The model also does not provide community respiration by all consumers and decomposers. Do not substitute producer respiration into a different ecosystem-wide balance without defining that balance."
+      },
+      {
+        "type": "reflection",
+        "id": "apes-productivity-accounting-transfer",
+        "prompt": "Explain why “predators must number exactly 15% as many as herbivores” does not follow from the 15% production-transfer assumption.",
+        "sampleAnswer": "The assumption relates rates of energy production, not counts of individuals. Predator and herbivore organisms can differ in body size, energy use, and turnover. The energy ratio alone does not supply a population-number ratio.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "recall",
+        "math": true,
+        "prompt": "If GPP stays 20,000 and producer respiration rises to 14,000 in the same units, enter NPP.",
+        "acceptedAnswers": [
+          "6000"
+        ],
+        "sampleAnswer": "NPP=20,000−14,000=6,000 kJ/m²/year. The respiration being subtracted is producer respiration.",
+        "id": "apes-productivity-accounting-recall"
+      }
+    ]
+  },
+  "APES: Aquatic and Terrestrial Pollution::8.1 Nutrient loading, eutrophication, oxygen demand, and wastewater": {
+    "revision": 1,
+    "objectives": [
+      "Trace a nutrient-to-oxygen mechanism instead of equating all algae with immediate hypoxia.",
+      "Distinguish photosynthesis, respiration, and decomposition.",
+      "Evaluate an intervention by the pathway it changes and the evidence supplied."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "Nutrients such as nitrogen and phosphorus can limit primary production. Adding a limiting nutrient can stimulate growth of algae or other producers, depending on light, temperature, mixing, and other conditions. Eutrophication describes nutrient enrichment and its associated ecological changes. The amount of nutrient entering a water body is a load; its concentration depends on water volume and transport as well as that load. A single concentration measurement is not a complete annual loading estimate."
+      },
+      {
+        "type": "text",
+        "text": "Photosynthesis can produce oxygen in light, while respiration consumes oxygen. When organic material is decomposed, microbial activity can increase oxygen demand. Reduced mixing can limit oxygen replenishment in deeper water. Low dissolved oxygen can therefore occur after a bloom or in particular layers or times of day rather than as an unavoidable instantaneous result of every increase in algae. Dissolved oxygen depends on several processes, so explain the chain and conditions instead of treating nutrient presence as a diagnosis from one number."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "guidedExample",
+        "id": "apes-eutrophication-mechanism-guided",
+        "scenario": "Original hypothetical observations: after nutrient runoff, a lake develops more algal biomass. Later, much of that biomass dies. In a poorly mixed deeper layer, microbial decomposition increases while dissolved oxygen falls. No measurements of toxic algal compounds are supplied.",
+        "steps": [
+          {
+            "prompt": "Which link most directly explains oxygen demand after biomass death?",
+            "choices": [
+              "Increased microbial decomposition and respiration",
+              "Nutrients chemically turn into fish",
+              "All photosynthesis necessarily stops forever"
+            ],
+            "answer": 0,
+            "explanation": "Microbial decomposition uses organic material and can consume oxygen through respiration. The other statements are not supported mechanisms."
+          },
+          {
+            "prompt": "Why does poor mixing matter?",
+            "choices": [
+              "It guarantees identical oxygen at every depth",
+              "It can limit oxygen replenishment in the deeper layer",
+              "It removes every nutrient immediately"
+            ],
+            "answer": 1,
+            "explanation": "Limited exchange can reduce the supply of oxygen to the layer where demand is occurring."
+          },
+          {
+            "prompt": "What claim is not established by these observations?",
+            "choices": [
+              "Oxygen fell in the measured deep layer",
+              "Biomass death supplied organic material for decomposition",
+              "A specific algal toxin caused the observed oxygen decline"
+            ],
+            "answer": 2,
+            "explanation": "No toxin measurements are supplied, and oxygen-demand reasoning does not identify a toxin."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "An intervention can target the nutrient source, transport pathway, or in-water condition. Reducing fertilizer loss or improving nutrient removal from wastewater can reduce inputs. A vegetated buffer may retain some runoff-associated material under appropriate conditions, but its effectiveness depends on flow, design, soils, maintenance, and the nutrient form. Aeration can affect oxygen conditions without eliminating the original nutrient source. To evaluate success, specify the outcome and sampling design: nutrient load, bloom frequency, and deep-water oxygen are related but distinct measures."
+      },
+      {
+        "type": "reflection",
+        "id": "apes-eutrophication-mechanism-transfer",
+        "prompt": "A lake manager raises oxygen by aeration. Explain why that result alone does not show that watershed nutrient inputs have been solved.",
+        "sampleAnswer": "Aeration can add or redistribute oxygen within the lake while nutrient runoff continues. The measured oxygen outcome addresses one part of the pathway. Evidence about nutrient inputs, biomass patterns, and conditions over time is needed to judge whether the source problem changed.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "prediction",
+        "prompt": "Which study most directly evaluates whether a runoff-reduction program lowers nutrient input?",
+        "choices": [
+          "Comparing nutrient loads before and after while accounting for flow and relevant comparison conditions",
+          "Measuring only a fish’s length once",
+          "Counting aerators without measuring water or nutrient movement"
+        ],
+        "answer": 0,
+        "explanation": "A load measure connects nutrient amount to water transport over time. Flow and comparison conditions help distinguish the program from other changes.",
+        "id": "apes-eutrophication-mechanism-recall"
+      }
+    ]
+  },
+  "Psych: Development & Learning::3.4 Classical Conditioning and Learned Associations": {
+    "revision": 1,
+    "objectives": [
+      "Classify stimuli and responses using the timeline of learning.",
+      "Distinguish classical association from a consequence that changes a behavior.",
+      "Explain extinction and recovery without assuming the original learning is simply erased."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "Classical conditioning concerns learning a predictive relationship between stimuli. An unconditioned stimulus elicits an unconditioned response without the particular pairing being studied. A previously neutral stimulus can become a conditioned stimulus after relevant pairings, and it can then elicit a conditioned response. The labels depend on the role in the learning procedure, not merely on whether something is a sound or a movement. Identify what happened before learning and what followed the pairings."
+      },
+      {
+        "type": "text",
+        "text": "A conditioned response need not be an exact copy of the unconditioned response. Extinction occurs when the conditioned stimulus is repeatedly presented without the expected unconditioned stimulus and the conditioned response decreases. Spontaneous recovery is a return of an extinguished conditioned response after a rest period. These patterns caution against treating extinction as guaranteed permanent erasure. Generalization concerns responses to similar stimuli, while discrimination concerns learning a relevant difference."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "guidedExample",
+        "id": "psych-classical-association-guided",
+        "scenario": "Hypothetical learning demonstration: food initially elicits salivation, while a tone does not. The tone is repeatedly followed by food. Later the tone alone elicits salivation. This hypothetical sequence isolates the stimulus relationship.",
+        "steps": [
+          {
+            "prompt": "Before the pairings, food is what?",
+            "choices": [
+              "A conditioned response",
+              "An unconditioned stimulus",
+              "A neutral response"
+            ],
+            "answer": 1,
+            "explanation": "Food elicits the response without the particular tone-food learning procedure, so it is the unconditioned stimulus here."
+          },
+          {
+            "prompt": "After learning, the tone’s role is what?",
+            "choices": [
+              "A conditioned stimulus",
+              "An unconditioned response",
+              "A punishment"
+            ],
+            "answer": 0,
+            "explanation": "The tone now predicts food through the pairing history and elicits the conditioned response."
+          },
+          {
+            "prompt": "If tone-only presentations reduce salivation, which process is illustrated?",
+            "choices": [
+              "Acquisition",
+              "Generalization",
+              "Extinction"
+            ],
+            "answer": 2,
+            "explanation": "The expected food no longer follows the tone, and the conditioned response decreases. This is not evidence that every trace of learning is permanently erased."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "In operant conditioning, a consequence changes the future frequency of a behavior; in the classical procedure here, a tone predicts food regardless of a newly required action. This distinction is more useful than a rigid rule that every classical response is involuntary and every operant behavior is voluntary. Ask whether the procedure makes the outcome depend on a behavior or pairs one event with another. Real situations can involve both types of learning, so identify the particular relationship being explained."
+      },
+      {
+        "type": "reflection",
+        "id": "psych-classical-association-transfer",
+        "prompt": "Compare the tone-food pairing with giving a reward only after a learner presses a button. What contingency distinguishes them?",
+        "sampleAnswer": "In the tone-food example, food follows the tone without requiring a button press. In the second procedure, the reward depends on a behavior and can change its future frequency. The relevant distinction is the predictive stimulus relationship versus the behavior-consequence contingency.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "prediction",
+        "prompt": "After extinction and a rest period, a reduced salivation response briefly returns to the tone. Which label best fits?",
+        "choices": [
+          "Permanent elimination of learning",
+          "Spontaneous recovery",
+          "Negative punishment"
+        ],
+        "answer": 1,
+        "explanation": "A return after a pause following extinction illustrates spontaneous recovery. No removal of a stimulus to reduce a behavior is described.",
+        "id": "psych-classical-association-recall"
+      }
+    ]
+  },
+  "Psych: Cognition::2.4 Retrieval, Forgetting, and Reconstructive Memory": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish a failure to retrieve from proof that information was never stored.",
+      "Explain interference using the direction of its effect.",
+      "Evaluate reconstructive memory claims without treating confidence as an accuracy measure."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the model from its parts"
+      },
+      {
+        "type": "text",
+        "text": "Retrieval brings information into current use. Failure on one recall attempt does not by itself show that encoding never occurred or that the information is permanently unavailable. Cues, context, task demands, and interference can affect performance. Free recall, cued recall, and recognition give different kinds of support and therefore are not interchangeable measures. A fair comparison keeps the task and relevant conditions clear."
+      },
+      {
+        "type": "text",
+        "text": "Proactive interference occurs when earlier learning interferes with retrieval or learning of newer information. Retroactive interference occurs when newer learning interferes with older information. Describe which memory is being tested and which learning is interfering before choosing the label. Reconstructive memory means that recollection can combine stored information with expectations, later suggestions, or source confusion. It does not imply that all memories are false or that confidence is never related to accuracy; confidence alone is insufficient to establish the accuracy of a particular recollection."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and test the reasoning"
+      },
+      {
+        "type": "guidedExample",
+        "id": "psych-memory-evidence-guided",
+        "scenario": "Original hypothetical study: one group learns List A, then List B, then recalls List A. A comparison group learns List A and completes a matched nonverbal activity before the same recall task. Suppose the List B group recalls fewer List A items. Assignment is random and other study conditions are held comparable.",
+        "steps": [
+          {
+            "prompt": "Which information is tested at the end?",
+            "choices": [
+              "List B",
+              "List A",
+              "Only the nonverbal activity"
+            ],
+            "answer": 1,
+            "explanation": "The outcome is recall of the earlier List A, not performance on the later list."
+          },
+          {
+            "prompt": "Which interference label fits newer List B affecting older List A?",
+            "choices": [
+              "Retroactive interference",
+              "Proactive interference",
+              "Classical extinction"
+            ],
+            "answer": 0,
+            "explanation": "The newer learning interferes with earlier material. Reversing the tested list would change which directional label is appropriate."
+          },
+          {
+            "prompt": "What conclusion is most defensible?",
+            "choices": [
+              "Every List A memory was permanently erased",
+              "List B never had any relationship to the task",
+              "The results support an interference effect on this recall outcome under the stated conditions"
+            ],
+            "answer": 2,
+            "explanation": "The comparison supports an effect on performance. It does not establish permanent erasure or every underlying memory mechanism."
+          }
+        ]
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer to a changed situation"
+      },
+      {
+        "type": "text",
+        "text": "A follow-up recognition task could reveal information not produced during free recall, but it would also change the retrieval support. Better recognition than recall does not contradict a recall difficulty; it shows that the measurement task matters. For reconstructive memory, a useful study can compare groups receiving different later suggestions and then test source attribution or reported details. Distinguish observing an error from identifying its cause: alternative explanations and the procedure’s controls still matter."
+      },
+      {
+        "type": "reflection",
+        "id": "psych-memory-evidence-transfer",
+        "prompt": "Why would accurate recognition of some List A words after poor free recall weaken a claim that all of List A was permanently erased?",
+        "sampleAnswer": "Recognition supplies cues that free recall did not. Successful recognition of some items indicates that at least some information remains accessible under a different retrieval condition. It does not prove that every original detail is intact or that recall and recognition measure exactly the same performance.",
+        "checklist": [
+          "Name the relevant mechanism or model.",
+          "Use the given evidence rather than an unstated assumption.",
+          "Explain what changes and what does not."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Apply it without the trace"
+      },
+      {
+        "type": "prediction",
+        "prompt": "An old password makes a person repeatedly enter it while trying to recall a newly learned password. Which direction of interference is described?",
+        "choices": [
+          "Retroactive: new blocks old",
+          "No learning is involved",
+          "Proactive: old interferes with new"
+        ],
+        "answer": 2,
+        "explanation": "The earlier password interferes with using the newer one, so the direction is proactive.",
+        "id": "psych-memory-evidence-recall"
+      }
+    ]
+  }
+}

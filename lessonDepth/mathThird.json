@@ -1,0 +1,1542 @@
+{
+  "Calc AB: Limits & Continuity::1.2 Continuity and the Intermediate Value Theorem": {
+    "revision": 1,
+    "objectives": [
+      "Check continuity using a value and two-sided limit.",
+      "Apply the Intermediate Value Theorem with its hypotheses.",
+      "Distinguish existence, uniqueness, and a numerical approximation."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Continuity at an input a requires three statements: f(a) is defined, the two-sided limit of f(x) as x approaches a exists, and that limit equals f(a). Checking only the function value misses the nearby behavior. Checking only a limit misses a possible hole or a reassigned value. For a piecewise formula, first evaluate the left-hand and right-hand limits using the formulas that apply on the appropriate sides. Then compare the common limit, if one exists, with the formula or explicit value assigned at a. A jump cannot be repaired by changing a single point, because its two one-sided limits disagree. A removable discontinuity can be repaired by assigning the missing common limit.\n\nThe Intermediate Value Theorem concerns a function continuous on an entire closed interval [a,b]. Every number between f(a) and f(b) is achieved somewhere in that interval. If the target lies strictly between the endpoint values, an achieving input lies strictly between the endpoints. A sign change is the special case where the target output is zero. The conclusion asserts existence, not the number of solutions or a formula for them. Without continuity, a function can jump across the target and never attain it.\n\nSeparate three jobs in a root problem. First, establish existence using continuity and bracketing. Second, establish uniqueness if requested, perhaps by proving the function is strictly increasing. Third, approximate the root with a stated method and error interval. Repeatedly bisecting an interval that brackets a continuous root preserves an existence guarantee while shrinking uncertainty. A rounded calculator output alone supplies neither the continuity argument nor a uniqueness proof. Always identify the function and interval explicitly so that a reader can check the theorem's hypotheses."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-continuity-ivt-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let g(x)=x³+x−1. Establish a unique zero in (0,1), then use bisection. Separately consider r(x)=(x²−1)/(x−1) for x≠1, with r(1)=k.",
+        "steps": [
+          {
+            "prompt": "Why may IVT be used for g on [0,1]?",
+            "choices": [
+              "All polynomials are continuous on every real interval",
+              "A sign change always suffices without continuity",
+              "The graph has been drawn",
+              "Every function is continuous on a closed interval"
+            ],
+            "answer": 0,
+            "explanation": "The expression is a polynomial, so it is continuous at every point of the closed interval. This supplies the required hypothesis."
+          },
+          {
+            "prompt": "Which endpoint values bracket zero?",
+            "choices": [
+              "g(0)=1 and g(1)=−1",
+              "g(0)=−1 and g(1)=1",
+              "Both endpoints equal zero",
+              "g(0)=0 and g(1)=1"
+            ],
+            "answer": 1,
+            "explanation": "Substitution gives g(0)=−1 and g(1)=1. Zero lies strictly between these outputs, so some interior input has output zero."
+          },
+          {
+            "prompt": "What additional fact proves uniqueness?",
+            "choices": [
+              "The endpoint values have opposite signs",
+              "The interval is short",
+              "g′(x)=3x²+1>0 for every x",
+              "The function is continuous"
+            ],
+            "answer": 2,
+            "explanation": "A positive derivative makes g strictly increasing. Two distinct zeros would contradict strict increase, so the IVT zero is unique."
+          },
+          {
+            "prompt": "After testing 0.5 and then 0.75, which bracket remains?",
+            "choices": [
+              "[0,0.5]",
+              "[0.75,1]",
+              "[0,0.75]",
+              "[0.5,0.75]"
+            ],
+            "answer": 3,
+            "explanation": "Here g(0.5)=−0.375 and g(0.75)=0.171875. Continuity and the opposite signs preserve a root between those two test inputs."
+          },
+          {
+            "prompt": "Which k makes r continuous at 1?",
+            "choices": [
+              "2",
+              "0",
+              "1",
+              "No value can work"
+            ],
+            "answer": 0,
+            "explanation": "For x≠1, factor and cancel to get r(x)=x+1. Its limit at 1 is 2, so the assigned value must be 2."
+          }
+        ],
+        "takeaway": "Use continuity to prove attainment, monotonicity to prove uniqueness, and bracketing to control approximation error."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The rational example has an important domain distinction: cancellation gives an equivalent expression only away from the excluded input. Assigning k=2 creates a continuous extension; it does not retroactively make the original quotient defined at 1. Compare this removable case with s(x)=−1 for x<0 and s(x)=1 for x≥0. On [−1,1], its endpoint values surround zero, but it never equals zero because it is not continuous at 0. IVT is a sufficient condition, not a rule that every discontinuous function misses intermediate values. For g, the bracket [0.5,0.75] has width 0.25; its midpoint 0.625 is at most 0.125 from the root, even before another function evaluation. Each further bisection halves this guaranteed bound. A derivative can provide uniqueness here, but some strictly increasing functions have a zero derivative at isolated inputs, so positivity everywhere is sufficient rather than necessary."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-continuity-ivt-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says that g has exactly one root because IVT applies. Repair the reasoning and state what the midpoint of [0.5,0.75] guarantees.",
+        "sampleAnswer": "IVT proves at least one root. Strict increase, justified by g′(x)=3x²+1>0, proves at most one. The midpoint 0.625 is within half the bracket width, 0.125, of the unique root.",
+        "checklist": [
+          "State the existence conclusion separately.",
+          "Supply a uniqueness argument.",
+          "Use half the bracket width for midpoint error."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-continuity-ivt-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "The root remains in [0.5,0.75]. Enter the guaranteed maximum error when its midpoint is used.",
+        "acceptedAnswers": [
+          "0.125",
+          "1/8"
+        ],
+        "sampleAnswer": "Half the bracket width is (0.75−0.5)/2=0.125."
+      }
+    ]
+  },
+  "Calc AB: Contextual Applications of Differentiation::4.1 Motion: position, velocity and acceleration": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish position, velocity, acceleration, and speed.",
+      "Use a sign chart to decide when speed increases.",
+      "Calculate displacement and distance across a direction change."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Position tells where an object is relative to a chosen origin. For one-dimensional motion, velocity is the derivative of position and gives both signed direction and instantaneous rate. Acceleration is the derivative of velocity. The units change with each derivative: if position is in meters and time is in seconds, velocity is in meters per second and acceleration is in meters per second squared. Negative position does not mean negative velocity; an object left of the origin can move to the right. Negative acceleration does not automatically mean slowing down; it means velocity is decreasing as a signed quantity.\n\nSpeed is the magnitude of velocity, |v(t)|. Away from a zero of velocity, speed increases when velocity and acceleration have the same sign and decreases when their signs differ. If both are negative, the velocity becomes more negative and the magnitude grows. Use a sign chart split at zeros of velocity and acceleration rather than judging a graph by whether it lies above the axis. At an instant with zero velocity, determine the nearby signs before deciding whether there is a direction change. A zero of velocity without a sign change is a stop without reversal.\n\nDisplacement is final position minus initial position, equivalently the signed integral of velocity. Total distance accumulates nonnegative travel and equals the integral of |v|. When velocity changes sign, split the interval at those times and add the magnitudes of the signed integrals. Initial position matters for the final location, but it cancels from displacement and distance. A complete solution identifies the physical quantity, handles units, and distinguishes an interval of motion from an isolated instant. These distinctions prevent the common error of reporting a negative distance or treating an integral of acceleration as distance."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-motion-signs-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A particle has v(t)=t²−4t+3 meters per second for 0≤t≤4 and initial position x(0)=2 meters. Analyze its direction, changing speed, displacement, and total distance.",
+        "steps": [
+          {
+            "prompt": "When is the particle moving in the negative direction?",
+            "choices": [
+              "0<t<1",
+              "1<t<3",
+              "3<t<4",
+              "Throughout the interval"
+            ],
+            "answer": 1,
+            "explanation": "Factor v(t)=(t−1)(t−3). Between 1 and 3 the factors have opposite signs, so velocity is negative."
+          },
+          {
+            "prompt": "On which intervals is speed increasing?",
+            "choices": [
+              "(0,1) and (2,3)",
+              "Only (1,2)",
+              "(1,2) and (3,4)",
+              "Throughout (0,4)"
+            ],
+            "answer": 2,
+            "explanation": "Acceleration is a(t)=2t−4. Velocity and acceleration are both negative on (1,2) and both positive on (3,4)."
+          },
+          {
+            "prompt": "What is the displacement from t=0 to t=4?",
+            "choices": [
+              "4",
+              "0",
+              "−4/3",
+              "4/3"
+            ],
+            "answer": 3,
+            "explanation": "An antiderivative is F(t)=t³/3−2t²+3t. Evaluate the final value minus the initial value: F(4)−F(0)=64/3−32+12=4/3 meters. This is signed displacement."
+          },
+          {
+            "prompt": "What is the total distance traveled?",
+            "choices": [
+              "4",
+              "4/3",
+              "8/3",
+              "16/3"
+            ],
+            "answer": 0,
+            "explanation": "The signed integrals on [0,1], [1,3], and [3,4] are 4/3, −4/3, and 4/3. Their magnitudes sum to 4 meters."
+          },
+          {
+            "prompt": "What is the final position x(4)?",
+            "choices": [
+              "4/3",
+              "10/3",
+              "4",
+              "−2/3"
+            ],
+            "answer": 1,
+            "explanation": "Add the displacement to the initial position: x(4)=2+4/3=10/3 meters. Distance does not determine final signed position."
+          }
+        ],
+        "takeaway": "A speed claim needs both velocity and acceleration signs; distance needs absolute accumulation, while position needs the initial value."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "At t=2, acceleration is zero while velocity is −1. The particle is still moving to the left, and its speed switches from increasing to decreasing. At t=1 and t=3, velocity changes sign, so the particle reverses direction. The speed |t²−4t+3| has corners at these simple zeros even though the position function is smooth. This shows why differentiating speed without checking where velocity is zero can hide important behavior. On an interval where v<0, the derivative of speed is −a; where v>0, it is a. A translation of the position origin would change x(0) and x(4) by the same amount while leaving velocity, acceleration, displacement, and distance unchanged. Extending the motion past t=4 would require a new interval analysis rather than assuming the same sign pattern indefinitely."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-motion-signs-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Compare t=0.5 with t=1.5. At both times acceleration is negative; explain why the first time corresponds to decreasing speed and the second to increasing speed.",
+        "sampleAnswer": "At 0.5 the velocity is positive and acceleration is negative, so the magnitude of velocity decreases. At 1.5 both velocity and acceleration are negative, so the velocity becomes more negative and its magnitude increases.",
+        "checklist": [
+          "Identify the sign of velocity at each time.",
+          "Identify the acceleration sign.",
+          "Explain the magnitude rather than only the signed value."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-motion-signs-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "With the same velocity on [0,4], change the initial position to 5 meters. Enter the final position.",
+        "acceptedAnswers": [
+          "19/3"
+        ],
+        "sampleAnswer": "The displacement remains 4/3, so the final position is 5+4/3=19/3 meters."
+      }
+    ]
+  },
+  "Calc AB: Applications of Integration::8.2 Volume, displacement and distance": {
+    "revision": 1,
+    "objectives": [
+      "Build a volume integral from cross-sectional area.",
+      "Distinguish disk, washer, and known-cross-section models.",
+      "Explain why axis position determines the radii."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A volume integral adds thin slices. Begin with the geometry of one representative slice: its area A(x) multiplied by a small thickness Δx approximates a small volume. Summing and taking a limit gives V=∫A(x) dx across the solid's extent. Area is measured in square units, thickness in length units, and volume in cubic units. A sketch should identify the integration variable, the direction of slicing, and the boundaries of each slice. The formula follows from that geometry rather than from a memorized keyword.\n\nFor a solid of revolution sliced perpendicular to its axis, a filled circular slice has area πR². A washer has area π(R²−r²), where R is the outer radius and r is the inner radius. Each radius is a nonnegative distance from the axis to a boundary curve. It is not automatically the function value. If the axis is shifted, compute distances from the shifted axis explicitly. Subtracting radii and then squaring, π(R−r)², usually describes a different area because it ignores the full annulus. Before integrating, verify that the proposed outer radius is at least the inner radius throughout the interval.\n\nSolids with known cross sections need not be formed by rotation. If each slice is a square with side s(x), use A(x)=s(x)². For an equilateral triangle with side s, use A=√3 s²/4. In both settings, the base region determines a length, and the stated cross-sectional shape converts that length into area. If curves intersect inside the interval or exchange which is farther from the axis, split the integral. Always interpret the bounds as the actual extent of the solid rather than arbitrary algebraic roots."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-ab-volume-slices-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "The region between y=x and y=x² for 0≤x≤1 is rotated about y=−1. Build the washer integral. Then compare the solid whose perpendicular cross sections are squares on the same vertical base segments.",
+        "steps": [
+          {
+            "prompt": "Which curve is above the other on [0,1]?",
+            "choices": [
+              "x² is above x",
+              "They have no ordering",
+              "x is at least x²",
+              "Both are negative"
+            ],
+            "answer": 2,
+            "explanation": "Since x−x²=x(1−x)≥0 on this interval, the upper boundary is y=x and the lower boundary is y=x²."
+          },
+          {
+            "prompt": "What are the radii about y=−1?",
+            "choices": [
+              "R=x and r=x²",
+              "R=x−1 and r=x²−1",
+              "R=x−x² and r=0",
+              "R=x+1 and r=x²+1"
+            ],
+            "answer": 3,
+            "explanation": "Both curves lie above the axis. Their vertical distances from −1 are x+1 and x²+1, with the first distance larger."
+          },
+          {
+            "prompt": "Which washer area is correct?",
+            "choices": [
+              "π[(x+1)²−(x²+1)²]",
+              "π(x−x²)²",
+              "π[(x−1)²−(x²−1)²]",
+              "π(x+x²+2)²"
+            ],
+            "answer": 0,
+            "explanation": "Subtract the area of the inner circle from the area of the outer circle. Squaring only the difference would lose the annular geometry."
+          },
+          {
+            "prompt": "What is the volume of revolution?",
+            "choices": [
+              "π/30",
+              "7π/15",
+              "π/3",
+              "2π/15"
+            ],
+            "answer": 1,
+            "explanation": "The difference of squares expands to 2x−x²−x⁴. Integrating from 0 to 1 gives 1−1/3−1/5=7/15, then multiply by π."
+          },
+          {
+            "prompt": "What is the volume with square cross sections instead?",
+            "choices": [
+              "7/15",
+              "1/6",
+              "1/30",
+              "π/30"
+            ],
+            "answer": 2,
+            "explanation": "Each square side is x−x². Integrate x²−2x³+x⁴ from 0 to 1: 1/3−1/2+1/5=1/30 cubic units."
+          }
+        ],
+        "takeaway": "Choose the slice area from the geometry, then integrate. A shifted axis changes radii, while a changed slice shape changes the area formula."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Moving the rotation axis farther below the region increases the volume even though the vertical gap between the curves is unchanged. About y=−c with c≥0, the difference of squared radii is (x+c)²−(x²+c)²=x²−x⁴+2c(x−x²). The volume is π(2/15+c/3). This linear dependence on c reveals why using only the gap x−x² cannot describe a washer. At c=0 the volume is 2π/15; at c=1 it is 7π/15. If an axis passes through the region, the inner radius may become zero and the farther boundary may switch, so this below-the-region formula cannot simply be continued to arbitrary negative c. The square-cross-section solid is a separate construction and does not acquire a factor π."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-ab-volume-slices-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says rotating about y=−1 and y=−2 gives the same volume because the gap between the curves is unchanged. Explain the missing geometric feature.",
+        "sampleAnswer": "The gap is unchanged but both radii increase, enlarging the annulus. Its area is π(R²−r²), which depends on both the gap and the sum of the radii. Using c=2 gives volume π(2/15+2/3)=4π/5, larger than 7π/15.",
+        "checklist": [
+          "Define radii as distances to the axis.",
+          "Use the difference of squared radii.",
+          "Explain why an unchanged gap is insufficient."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-ab-volume-slices-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For rotation about y=−2, enter V/π.",
+        "acceptedAnswers": [
+          "4/5",
+          "0.8"
+        ],
+        "sampleAnswer": "The general coefficient is 2/15+c/3. With c=2 this equals 12/15=4/5."
+      }
+    ]
+  },
+  "Calc BC: Integration & Accumulation of Change::6.3 Integration by parts and partial fractions": {
+    "revision": 1,
+    "objectives": [
+      "Select integration by parts from product structure.",
+      "Decompose a rational function before integrating.",
+      "Verify an antiderivative and retain logarithmic domain information."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "An antiderivative reverses differentiation, so integration methods should be tied to derivative rules. Integration by parts reverses the product rule. From (uv)′=u′v+uv′, obtain ∫u dv=uv−∫v du. The choice of u and dv matters: choose a derivative of u and an antiderivative of dv that make the remaining integral simpler. Write these choices explicitly, including the differential. A minus sign belongs to the formula and should not disappear when the original integrand is positive. For a definite integral, either evaluate the boundary term at both endpoints and keep definite bounds on the remaining integral, or find an antiderivative first and evaluate it afterward.\n\nPartial fractions is an algebraic preparation for integrating rational functions. First compare numerator and denominator degrees; if the numerator degree is at least the denominator degree, divide before decomposing the proper fraction. Factor the denominator and assign enough terms to represent every factor and its multiplicity. Distinct linear factors need constant numerators. A repeated linear factor requires terms for each positive power up to its multiplicity. An irreducible quadratic needs a linear numerator. Clear denominators to create a polynomial identity, then solve for coefficients.\n\nAfter decomposition, integrate the simpler terms using their actual structures. A term 1/(x−a) produces ln|x−a| on an interval that does not cross a. The absolute value allows negative arguments of the original linear factor while keeping the logarithm real. A squared denominator instead gives a power antiderivative, so not every fraction produces a logarithm. Finally, differentiate the completed expression to check signs and coefficients. For definite rational integrals, inspect singularities before evaluating an antiderivative across an interval."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-parts-fractions-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Compute ∫ from 0 to 1 of x e^x dx using parts. Separately decompose and integrate (3x+5)/[(x+1)(x+2)] on x>−1.",
+        "steps": [
+          {
+            "prompt": "Which choice makes integration by parts simpler?",
+            "choices": [
+              "u=x and dv=e^x dx",
+              "u=e^x and dv=x dx",
+              "u=x e^x and dv=dx",
+              "u=1/x and dv=e^x dx"
+            ],
+            "answer": 0,
+            "explanation": "With u=x, differentiation gives du=dx, and integrating dv gives v=e^x. The remaining integral is simply ∫e^x dx."
+          },
+          {
+            "prompt": "What is the definite integral ∫₀¹x e^x dx?",
+            "choices": [
+              "e−1",
+              "1",
+              "e",
+              "0"
+            ],
+            "answer": 1,
+            "explanation": "The antiderivative is x e^x−e^x. At 1 it is zero and at 0 it is −1, so their difference is 1."
+          },
+          {
+            "prompt": "Which polynomial identity determines A and B?",
+            "choices": [
+              "3x+5=A+B",
+              "3x+5=A(x+1)+B(x+2)",
+              "3x+5=A(x+2)+B(x+1)",
+              "3x+5=AB(x+1)(x+2)"
+            ],
+            "answer": 2,
+            "explanation": "Writing A/(x+1)+B/(x+2) and clearing denominators gives A(x+2)+B(x+1). The numerator must match for every permitted input."
+          },
+          {
+            "prompt": "Which coefficients solve that identity?",
+            "choices": [
+              "A=1 and B=2",
+              "A=3 and B=5",
+              "A=−2 and B=5",
+              "A=2 and B=1"
+            ],
+            "answer": 3,
+            "explanation": "Equating coefficients gives A+B=3 and 2A+B=5. Subtraction gives A=2, and then B=1."
+          },
+          {
+            "prompt": "Which antiderivative follows?",
+            "choices": [
+              "2ln|x+1|+ln|x+2|+C",
+              "ln|3x+5|+C",
+              "2/(x+1)+1/(x+2)+C",
+              "3ln|x²+3x+2|+C"
+            ],
+            "answer": 0,
+            "explanation": "Integrate the two reciprocal linear terms separately. Differentiating these logarithms reproduces 2/(x+1)+1/(x+2), the original rational expression."
+          }
+        ],
+        "takeaway": "Use a derivative rule to choose the integration method, perform the algebra explicitly, and verify the final antiderivative."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The two examples illustrate different transformations. Parts trades one product integral for a simpler integral, whereas partial fractions rewrites a rational function exactly before calculus begins. For repeated factors such as (x+1)²(x+2), omitting B/(x+1)² can make the proposed decomposition incapable of matching the numerator. An improper rational expression such as x²/(x+1) must first be written x−1+1/(x+1). The domain also affects definite integration: the rational example has singularities at −2 and −1. Its logarithmic antiderivative is valid separately on the intervals divided by those points, but evaluating endpoint values across a singularity is not a valid shortcut for an improper integral. On [0,1], however, the function is continuous, and its definite integral is 2ln2+ln3−ln2=ln6. The constant of integration disappears only when endpoint values are subtracted."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-parts-fractions-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why substituting u=(x+1)(x+2) does not immediately solve the rational integral, and why evaluating its logarithmic antiderivative across −1 would require additional work.",
+        "sampleAnswer": "The derivative of the denominator is 2x+3, not a constant multiple of 3x+5, so direct substitution does not match the whole numerator. The singularity at −1 splits the domain; a definite integral crossing it must be defined through separate one-sided limits.",
+        "checklist": [
+          "Compare the numerator with the proposed substitution derivative.",
+          "Identify the singularity.",
+          "Use separate limits for an improper integral."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-parts-fractions-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For ∫₀¹x e^x dx, enter its exact value.",
+        "acceptedAnswers": [
+          "1"
+        ],
+        "sampleAnswer": "Integration by parts gives [x e^x−e^x]₀¹=0−(−1)=1."
+      }
+    ]
+  },
+  "Calc BC: Differential Equations::7.3 Logistic growth": {
+    "revision": 1,
+    "objectives": [
+      "Interpret carrying capacity and proportional growth rate.",
+      "Use a logistic differential equation to predict growth and concavity.",
+      "Apply an initial condition to a logistic formula."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Exponential growth assumes a constant relative growth rate: P′/P is constant when P is positive. A logistic model changes that assumption by letting relative growth decrease linearly with population. In the equation P′=rP(1−P/K), r is a positive rate parameter and K is a positive carrying capacity. The factor P represents the current population, while 1−P/K reduces growth as the population approaches K. Carrying capacity is a model equilibrium, not a claim that every real system obeys a fixed environmental limit. Interpret the equation only over inputs and population values meaningful for the situation.\n\nBefore solving, inspect the signs. P=0 and P=K are equilibrium solutions. For 0<P<K, both factors are positive, so population increases. For P>K, the limiting factor is negative, so population decreases toward K. Relative growth P′/P=r(1−P/K) is largest for small positive populations, but absolute growth P′ is a quadratic in P and is largest at P=K/2. These are different quantities. A population can still be growing while its growth rate is decreasing.\n\nConcavity follows by differentiating with respect to time: P″=rP′(1−2P/K). On an increasing branch below K, the curve is concave up below K/2 and concave down above K/2. The inflection population is therefore half the carrying capacity, provided the branch actually passes through it. If an increasing trajectory starts above K/2 and time is restricted to t≥0, it never reaches the model-wide maximum later; its largest forward-time growth rate occurs initially. A positive logistic solution can be written P(t)=K/[1+A e^(−rt)], where the initial value determines A. Check that the denominator and the selected time domain are valid. Substituting t=0 is usually the cleanest way to identify A, and substitution into the differential equation verifies the formula."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-logistic-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Consider P′=0.4P(1−P/100) with P(0)=20. Use the differential equation and the form P(t)=100/[1+A e^(−0.4t)] to analyze this model.",
+        "steps": [
+          {
+            "prompt": "What are the carrying capacity and equilibria?",
+            "choices": [
+              "K=0.4; equilibria 0 and 0.4",
+              "K=100; equilibria 0 and 100",
+              "K=20; equilibria 20 and 100",
+              "K=100; only equilibrium 100"
+            ],
+            "answer": 1,
+            "explanation": "The limiting factor vanishes at P=100, and the leading population factor also vanishes at P=0. Both constant functions solve the equation."
+          },
+          {
+            "prompt": "What is the initial absolute growth rate?",
+            "choices": [
+              "0.08",
+              "8",
+              "6.4",
+              "32"
+            ],
+            "answer": 2,
+            "explanation": "Substitute the initial population P=20 into the differential equation to evaluate its initial rate: 0.4(20)(1−20/100)=8(0.8)=6.4 population units per unit time."
+          },
+          {
+            "prompt": "Which A satisfies the initial condition?",
+            "choices": [
+              "1/4",
+              "5",
+              "20",
+              "4"
+            ],
+            "answer": 3,
+            "explanation": "At time zero the exponential equals 1, giving 20=100/(1+A). Therefore 1+A=5 and A=4."
+          },
+          {
+            "prompt": "At which population is the absolute growth rate largest?",
+            "choices": [
+              "50",
+              "20",
+              "100",
+              "0"
+            ],
+            "answer": 0,
+            "explanation": "The product 0.4P(1−P/100) is a downward-opening quadratic with zeros 0 and 100. Its maximum occurs halfway between them, at 50."
+          },
+          {
+            "prompt": "When does this branch reach that population?",
+            "choices": [
+              "ln2/0.4",
+              "ln4/0.4",
+              "4/0.4",
+              "ln5/0.4"
+            ],
+            "answer": 1,
+            "explanation": "Set the solution formula equal to half capacity: 50=100/(1+4e^(−0.4t)). Then 4e^(−0.4t)=1, so t=ln4/0.4, about 3.466 time units."
+          }
+        ],
+        "takeaway": "Carrying capacity, fastest absolute growth, and relative growth are distinct features that can be read from the logistic equation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For this initial value the population rises from 20 toward 100 without reaching 100 at a finite time. Its concavity changes at P=50, where the absolute growth rate equals 0.4(50)(0.5)=10. The relative growth rate at P=20 is 0.32, while at P=50 it is 0.20. Thus the relative rate decreases even during the early period when absolute growth accelerates. If the initial population were 120 instead, A=100/120−1=−1/6. The forward-time solution would decrease toward 100 and would not pass through 50, so one cannot claim every logistic solution has an observed inflection at half capacity. Equilibrium solutions also need direct treatment when a separation derivation divides by P or K−P. Neither should be discarded because the divided expression was undefined. These distinctions keep an algebraic logistic formula connected to the differential equation and the chosen branch."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-logistic-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner says growth is fastest at the initial population because relative growth is highest there. Explain which rate is being compared and give the maximum absolute rate.",
+        "sampleAnswer": "Relative growth divides P′ by P and decreases along this branch. Absolute growth is P′ itself and rises until P=50, then falls. Its maximum is 0.4(50)(1−50/100)=10 population units per unit time.",
+        "checklist": [
+          "Distinguish P′ from P′/P.",
+          "Locate the quadratic maximum at half capacity.",
+          "Include the numerical maximum and units."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-logistic-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For this equation, enter the largest possible absolute growth rate on 0≤P≤100.",
+        "acceptedAnswers": [
+          "10"
+        ],
+        "sampleAnswer": "At P=50, P′=0.4·50·0.5=10."
+      }
+    ]
+  },
+  "Calc BC: Parametric, Polar & Vector Functions::9.1 Parametric derivatives": {
+    "revision": 1,
+    "objectives": [
+      "Convert parameter derivatives into a geometric slope.",
+      "Compute a second derivative with respect to x.",
+      "Check horizontal, vertical, and degenerate tangent candidates."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A parametric curve specifies x and y as functions of a common parameter t. The parameter may represent time, but it need not equal a horizontal coordinate. The point on the curve is (x(t),y(t)), and the derivative vector (x′(t),y′(t)) describes its local direction of traversal. When x′(t) is nonzero, the chain rule gives dy/dx=y′(t)/x′(t). Dividing in this order matters. The quotient is a slope measured in vertical units per horizontal unit, not the speed along the curve. Speed, when t is time and the coordinate units agree, is √[(x′)²+(y′)²].\n\nTo find the second derivative with respect to x, first differentiate dy/dx with respect to t and then divide by x′ again. Thus d²y/dx²=[d/dt(dy/dx)]/x′. Differentiating the slope once with respect to t alone measures change per parameter unit, not change per horizontal unit. The distinction can reverse a concavity conclusion on a branch where x decreases as t increases.\n\nA horizontal tangent candidate requires y′=0 and x′≠0. A vertical tangent candidate requires x′=0 and y′≠0. If both derivatives vanish, neither simple test applies; inspect limits, an equivalent local representation, or higher-order behavior. Also find the actual point and verify that the parameter lies in the allowed interval. Different parameter values can describe the same geometric point with different tangent directions, so a point need not identify a unique branch. State the parameter as well as the coordinates when the curve intersects itself. A local slope calculation describes one regular branch, not automatically the entire traced curve. These checks prevent an undefined quotient from being mistaken for evidence that no tangent exists."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-bc-parametric-slopes-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Let x(t)=t²−1 and y(t)=t³−3t for −2≤t≤2. Find tangent directions and concavity on its regular branches.",
+        "steps": [
+          {
+            "prompt": "What is dy/dx for t≠0?",
+            "choices": [
+              "2t/(3t²−3)",
+              "3t²−3",
+              "(3t²−3)/(2t)",
+              "(3t−3)/2"
+            ],
+            "answer": 2,
+            "explanation": "Differentiate both coordinates with respect to t, obtaining x′=2t and y′=3t²−3. Their quotient gives the slope where 2t≠0."
+          },
+          {
+            "prompt": "Which parameters give horizontal tangents?",
+            "choices": [
+              "t=0 only",
+              "t=±√3",
+              "Every parameter",
+              "t=−1 and t=1"
+            ],
+            "answer": 3,
+            "explanation": "The numerator vanishes at t=±1 and the denominator is nonzero there. The associated points are (0,2) and (0,−2)."
+          },
+          {
+            "prompt": "What occurs at t=0?",
+            "choices": [
+              "A vertical tangent at (−1,0)",
+              "A horizontal tangent at (−1,0)",
+              "No tangent because the point is missing",
+              "A stationary point with both derivatives zero"
+            ],
+            "answer": 0,
+            "explanation": "At zero, x′=0 but y′=−3, so the velocity vector is vertical and nonzero. The point is (−1,0)."
+          },
+          {
+            "prompt": "What is d²y/dx² when t≠0?",
+            "choices": [
+              "(3/2)(1+1/t²)",
+              "3(t²+1)/(4t³)",
+              "3/(2t)",
+              "(3t²−3)/(4t²)"
+            ],
+            "answer": 1,
+            "explanation": "Rewrite the slope as (3/2)(t−1/t), differentiate to (3/2)(1+1/t²), then divide by x′=2t."
+          },
+          {
+            "prompt": "What does the second derivative imply at t=−1?",
+            "choices": [
+              "The branch is concave up",
+              "The curve has a vertical tangent",
+              "The branch is concave down",
+              "Concavity cannot be determined because y′=0"
+            ],
+            "answer": 2,
+            "explanation": "Substitution gives 3(2)/(4(−1))=−3/2. A negative second derivative means this local graph of y against x is concave down."
+          }
+        ],
+        "takeaway": "A parameter derivative and an x derivative are different operations. Use the chain rule at each conversion and check tangent candidates geometrically."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The two parameters t=±√3 both give the point (2,0), which is a self-intersection. Their slopes are 6/(2√3)=√3 and 6/(−2√3)=−√3. The same point therefore carries two tangent lines, one for each branch. The formula for the second derivative is positive for t>0 and negative for t<0 because its numerator is always positive and the denominator has the sign of t. At t=0 the curve has a vertical tangent, so a single differentiable y-as-a-function-of-x description does not cover both adjoining branches. A reparameterization can change how fast a point traverses the curve without changing its geometric slope, provided the reparameterization is regular. This explains why the derivative vector depends on parameter speed while the quotient y′/x′ cancels a common nonzero factor."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-bc-parametric-slopes-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why differentiating dy/dx with respect to t gives the wrong concavity conclusion at t=−1 if the final division is omitted.",
+        "sampleAnswer": "The t derivative of the slope is positive there, but x′=−2: x decreases as t increases. Converting the rate to change per x unit requires division by −2, giving the negative second derivative −3/2.",
+        "checklist": [
+          "Identify the derivative variable.",
+          "Use x′=−2 at t=−1.",
+          "Explain the negative sign after conversion."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-bc-parametric-slopes-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "At t=1, enter d²y/dx².",
+        "acceptedAnswers": [
+          "3/2",
+          "1.5"
+        ],
+        "sampleAnswer": "The formula gives 3(1²+1)/(4·1³)=6/4=3/2."
+      }
+    ]
+  },
+  "Precalc: Polynomial and Rational Functions::1.2 Zeros, multiplicity, transformations, and equivalent forms": {
+    "revision": 1,
+    "objectives": [
+      "Read multiplicity and end behavior from factored form.",
+      "Distinguish a transformation from a change in zeros.",
+      "Use equivalent forms without losing structural information."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A polynomial can be written in different equivalent forms, and each form emphasizes different features. Expanded form reveals degree and leading coefficient. Factored form reveals zeros and their multiplicities. A shifted form such as a(x−h)²+k makes a vertex transformation visible. Equivalent forms describe the same function at every real input, so any feature inferred from one form must agree with the others. Expanding correctly is useful for verification, but expanding too early can hide the structure needed for a graph or sign analysis.\n\nA real zero has multiplicity m when its factor (x−r) occurs to the power m and the remaining factors are nonzero at r. Near that zero, the sign behavior depends on whether m is even or odd. An even power does not change sign across r, so the graph touches the axis without crossing. An odd power changes sign, so the graph crosses. Multiplicity greater than one produces flattening near the zero, but a sketch should also respect the signs of the other factors. A crossing does not imply that the graph is increasing, and a touching point is not necessarily above the axis.\n\nThe total degree and leading coefficient control end behavior. An even-degree polynomial has matching directions at its two ends; a negative leading coefficient sends both ends downward. The zeros and end behavior constrain a graph, but they do not give every turning point without additional analysis. For transformations, distinguish replacing x by x−h, which shifts inputs, from adding k outside, which shifts outputs. Multiplying by a negative constant reflects outputs across the horizontal axis and leaves the zeros unchanged. Adding a nonzero output constant generally changes the zeros, so they must be solved again."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-polynomial-forms-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Analyze f(x)=−2(x+1)²(x−2)³. Then compare g(x)=f(x−3)+4. Use factors, signs, and transformation rules without expanding the full polynomial.",
+        "steps": [
+          {
+            "prompt": "What are the degree and leading coefficient of f?",
+            "choices": [
+              "Degree 5 and leading coefficient −2",
+              "Degree 6 and leading coefficient −2",
+              "Degree 5 and leading coefficient 2",
+              "Degree 3 and leading coefficient −2"
+            ],
+            "answer": 0,
+            "explanation": "The factor degrees add: 2+3=5. Their leading coefficients multiply with −2, so the leading term is −2x⁵."
+          },
+          {
+            "prompt": "What happens at x=−1?",
+            "choices": [
+              "The graph crosses with multiplicity 1",
+              "The graph touches without crossing, with multiplicity 2",
+              "The graph is undefined",
+              "The graph crosses with multiplicity 3"
+            ],
+            "answer": 1,
+            "explanation": "The squared factor has even multiplicity, and the remaining factor is nonzero at −1. The local sign therefore does not change."
+          },
+          {
+            "prompt": "What is f(0), and what does it show about the middle interval?",
+            "choices": [
+              "−16, so the graph is below the axis",
+              "0, so there is another zero",
+              "16, so f is positive on (−1,2)",
+              "8, so f is always positive"
+            ],
+            "answer": 2,
+            "explanation": "Substitution gives −2(1)²(−2)³=16. With no zeros inside (−1,2), continuity keeps the sign positive throughout that interval."
+          },
+          {
+            "prompt": "How does g move the graph of f?",
+            "choices": [
+              "Left 3 and down 4",
+              "Right 3 and down 4",
+              "Left 3 and up 4",
+              "Right 3 and up 4"
+            ],
+            "answer": 3,
+            "explanation": "Replacing x by x−3 shifts each input coordinate right by 3. Adding 4 shifts every output upward by 4."
+          },
+          {
+            "prompt": "What is g(3)?",
+            "choices": [
+              "20",
+              "16",
+              "4",
+              "0"
+            ],
+            "answer": 0,
+            "explanation": "At x=3 the input to f is zero, so g(3)=f(0)+4=16+4=20. Evaluate the inner transformation first."
+          }
+        ],
+        "takeaway": "Choose the polynomial form that exposes the requested feature, and apply input and output transformations in their correct roles."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "Because f has odd degree and negative leading coefficient, its left end rises and its right end falls. It is positive on both sides of −1 near the zero and becomes negative after crossing 2. The transformed images of the old zero points are (2,4) and (5,4), not zeros of g: the upward shift changes their outputs from 0 to 4. To find a zero of g, one must solve f(x−3)=−4 rather than simply shift the old zero inputs. The polynomial −f instead preserves both zeros and their multiplicities while reversing every nonzero sign. More generally, graph features tied to input locations respond differently to horizontal shifts, vertical shifts, and output reflection. A useful verification is to track one known point through the transformation and independently substitute its new input into the formula. Agreement checks the direction and order of the shifts without requiring a full expanded polynomial."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-polynomial-forms-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner lists x=2 and x=5 as the zeros of g. Explain why those inputs are useful but do not solve the new zero equation.",
+        "sampleAnswer": "They are the old zero inputs shifted right by 3. At those inputs f(x−3)=0, but adding 4 makes g=4. Zeros of g require f(x−3)=−4, so a vertical shift changes the zero equation.",
+        "checklist": [
+          "Track the old zero points.",
+          "Include the added output value.",
+          "Write the correct new zero equation."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-polynomial-forms-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the output of g at x=5.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "Since f(5−3)=f(2)=0, g(5)=0+4=4."
+      }
+    ]
+  },
+  "Precalc: Trigonometric and Polar Functions::3.2 Trigonometric equations, identities, and inverse restrictions": {
+    "revision": 1,
+    "objectives": [
+      "Solve a trigonometric equation over a stated interval.",
+      "Use identities while tracking all branches.",
+      "Interpret inverse trigonometric functions through restricted ranges."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A trigonometric equation can have infinitely many solutions because sine and cosine repeat. A complete answer therefore depends on the stated input domain. On one cycle, locate all matching unit-circle positions; on an unrestricted domain, include a periodic family. If an equation contains 2x or a shifted angle, solve for that full angle first and then convert back to x, keeping the transformed interval in view. Otherwise it is easy to miss solutions or include an endpoint that was excluded.\n\nAlgebraic operations require the same care as in other equations. Factoring preserves separate possibilities: if a product is zero, each factor may provide solutions. Dividing by a trigonometric expression can discard every solution at which that expression is zero. Squaring may introduce extra possibilities because it loses a sign, so check candidate values in the original equation. Identities such as sin²x+cos²x=1 allow equivalent rewrites, but an identity involving a quotient is valid only where its denominator is nonzero. A candidate outside that domain is not repaired by later cancellation.\n\nAn inverse trigonometric function returns a single angle by restricting the original trigonometric function to a one-to-one interval. The principal range for arcsin is [−π/2,π/2], for arccos it is [0,π], and for arctan it is (−π/2,π/2). Thus arcsin(sin x) need not equal x if x lies outside the principal range. In contrast, sin(arcsin u)=u for u in [−1,1]. Distinguish an inverse function from a reciprocal: arcsin x is an angle, while 1/sin x is a reciprocal output. Units matter as well; a radian interval must not be mixed with degree-mode calculator results."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-trig-restrictions-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Solve 2sin²x−sin x−1=0 on 0≤x<2π, and evaluate arcsin(sin(5π/6)). Explain every branch and inverse restriction.",
+        "steps": [
+          {
+            "prompt": "Which factorization is correct?",
+            "choices": [
+              "(2sin x−1)(sin x+1)",
+              "(sin x−1)(sin x−1)",
+              "(2sin x+1)(sin x−1)",
+              "2sin x(sin x−1)"
+            ],
+            "answer": 2,
+            "explanation": "Writing u=sin x gives 2u²−u−1=(2u+1)(u−1). Expanding the factors checks both the middle term and the constant."
+          },
+          {
+            "prompt": "Which sine values solve the factored equation?",
+            "choices": [
+              "1/2 and −1",
+              "0 and 1",
+              "−1/2 and −1",
+              "−1/2 and 1"
+            ],
+            "answer": 3,
+            "explanation": "Set each factor equal to zero: 2sin x+1=0 gives −1/2, and sin x−1=0 gives 1. Both lie in the sine range."
+          },
+          {
+            "prompt": "What is the complete solution set on [0,2π)?",
+            "choices": [
+              "π/2, 7π/6, 11π/6",
+              "π/6, 5π/6, 3π/2",
+              "π/2 and 7π/6 only",
+              "π/2 and 2π"
+            ],
+            "answer": 0,
+            "explanation": "Sine equals 1 at π/2 and equals −1/2 in quadrants III and IV at 7π/6 and 11π/6. None is an excluded endpoint."
+          },
+          {
+            "prompt": "What is arcsin(sin(5π/6))?",
+            "choices": [
+              "5π/6",
+              "π/6",
+              "−π/6",
+              "7π/6"
+            ],
+            "answer": 1,
+            "explanation": "The inner sine is 1/2. Arcsin returns the unique angle with that sine in [−π/2,π/2], which is π/6."
+          },
+          {
+            "prompt": "Why should one not divide the original equation by sin x−1?",
+            "choices": [
+              "It changes radians into degrees",
+              "That factor is never zero",
+              "It would discard the valid branch sin x=1",
+              "It creates a new period"
+            ],
+            "answer": 2,
+            "explanation": "The divisor is zero at the legitimate solution x=π/2. Dividing by it without separately checking that case removes a solution."
+          }
+        ],
+        "takeaway": "Preserve algebraic branches, use the full unit-circle interval, and enforce principal ranges when evaluating inverse functions."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The equation is quadratic in sin x, not in x. Solving the quadratic gives possible outputs of sine; translating those outputs into angles is a separate step. On all real inputs, the three families are x=π/2+2kπ, x=7π/6+2kπ, and x=11π/6+2kπ for integers k. For the inverse example, 5π/6 and π/6 share the same sine but belong to different parts of the circle; the principal range chooses π/6. A geometric way to evaluate arccos(cos(7π/4)) is to locate the angle in [0,π] having cosine √2/2, which is π/4. Blindly cancelling an inverse and its original function would produce a value outside the allowed range. Conversely, applying cosine to arccos u really does return u for every u in [−1,1]. State which composition is being used before applying an identity."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-trig-restrictions-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "Explain why arcsin(sin(5π/6)) differs from 5π/6 while sin(arcsin(1/2)) equals 1/2.",
+        "sampleAnswer": "The first composition must return a principal angle in [−π/2,π/2], so it returns π/6. The second starts with an allowed sine output, and sine of its principal inverse angle returns that original output 1/2.",
+        "checklist": [
+          "State the principal range.",
+          "Distinguish angle inputs from sine outputs.",
+          "Evaluate the two compositions separately."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-trig-restrictions-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter arcsin(sin(5π/6)) as a multiple of π; enter only the coefficient.",
+        "acceptedAnswers": [
+          "1/6"
+        ],
+        "sampleAnswer": "The principal angle is π/6, so its coefficient of π is 1/6."
+      }
+    ]
+  },
+  "Precalc: Functions Involving Parameters, Vectors, and Matrices::4.1 Parametric functions and interpreting motion": {
+    "revision": 1,
+    "objectives": [
+      "Interpret two coordinate functions with one shared parameter.",
+      "Eliminate a parameter without losing the original domain.",
+      "Distinguish a geometric path from its orientation and timing."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "This lesson is Unit 4 enrichment rather than part of the assessed AP Precalculus exam content. A parametric description supplies two coordinate functions x(t) and y(t) over a stated parameter domain. Each allowed t produces one point (x(t),y(t)). The shared parameter ties the coordinates together; choosing x from one parameter value and y from another generally creates a point that is not on the path. A table of ordered parameter values can reveal where the path begins, where it ends, and how it is traversed. The parameter may represent time, but the same mathematical structure can encode a purely geometric curve.\n\nEliminating the parameter can produce a Cartesian equation, but that equation may describe more points than the original parametric domain allows. If x=1+2t and 0≤t≤3, solving t=(x−1)/2 also requires 1≤x≤7. Include that restriction when replacing t in y. Squaring or choosing a square root may similarly merge branches or introduce points. Check equivalence in both directions: every allowed parameter should produce a point satisfying the Cartesian equation, and every claimed Cartesian point should correspond to an allowed parameter.\n\nA Cartesian equation usually describes a set of points without recording traversal direction or timing. Reversing the parameter can produce the same path in the opposite direction. A nonlinear change of parameter can preserve the path while changing how successive parameter increments distribute along it. Equal time intervals need not produce equal distances. To compare motion without calculus, compute coordinate changes and Euclidean distances over equal parameter intervals, carefully distinguishing average travel from instantaneous speed. A plotted curve alone cannot establish timing; retain the formulas and domain when interpreting a motion model."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-precalc-parametric-enrichment-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "For 0≤t≤3, let x(t)=1+2t and y(t)=(t−1)². Describe the path, its restrictions, and the effect of replacing t with 3−s for 0≤s≤3.",
+        "steps": [
+          {
+            "prompt": "What point corresponds to t=0?",
+            "choices": [
+              "(1,1)",
+              "(0,1)",
+              "(1,0)",
+              "(−1,1)"
+            ],
+            "answer": 0,
+            "explanation": "Substitute the same parameter into both coordinates: x(0)=1 and y(0)=(−1)²=1. This is the starting point."
+          },
+          {
+            "prompt": "Which Cartesian description is equivalent?",
+            "choices": [
+              "y=(x−1)² for all real x",
+              "y=(x−3)²/4 with 1≤x≤7",
+              "y=(x−3)²/4 for all real x",
+              "y=x²/4 with 0≤x≤3"
+            ],
+            "answer": 1,
+            "explanation": "From x=1+2t, obtain t=(x−1)/2 and t−1=(x−3)/2. The original parameter interval restricts x to [1,7]."
+          },
+          {
+            "prompt": "At what parameter does the path reach its lowest y value?",
+            "choices": [
+              "t=0",
+              "t=3",
+              "t=1",
+              "t=2"
+            ],
+            "answer": 2,
+            "explanation": "The square (t−1)² is nonnegative and equals zero at t=1, an allowed input. The corresponding point is (3,0)."
+          },
+          {
+            "prompt": "What happens under t=3−s?",
+            "choices": [
+              "The path shifts right by 3",
+              "The domain becomes all real numbers",
+              "The curve becomes a line",
+              "The same path is traversed from (7,4) toward (1,1)"
+            ],
+            "answer": 3,
+            "explanation": "As s rises from 0 to 3, t decreases from 3 to 0. The allowed t values are unchanged as a set, but their order reverses."
+          },
+          {
+            "prompt": "What is the straight-line distance from the t=0 point to the t=1 point?",
+            "choices": [
+              "√5",
+              "3",
+              "√13",
+              "2"
+            ],
+            "answer": 0,
+            "explanation": "The two points are (1,1) and (3,0), so the displacement components are 2 and −1. Their Euclidean length is √(4+1)=√5."
+          }
+        ],
+        "takeaway": "A Cartesian equation, domain, orientation, and timing carry different information. Preserve each feature required by the situation."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The straight-line distance between two recorded positions is not generally the distance traveled along a curved path. From t=0 to t=1 the curve bends, so √5 is a chord length rather than an exact path length. Likewise, comparing the points at t=1 and t=2 gives a second chord length √5, while t=2 to t=3 gives √13. Equal parameter steps therefore do not even produce equal chord lengths here. Replacing t with 3−s reverses orientation, but replacing it with s² on 0≤s≤√3 preserves the original range 0≤t≤3 and orientation while changing timing. The equation y=(x−3)²/4 does not reveal either change. A parameterization can also trace a curve more than once; for trigonometric coordinate functions, the parameter interval is essential for distinguishing a single circuit from repeated traversal."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-precalc-parametric-enrichment-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner eliminates t and draws the entire parabola, then claims that the resulting picture shows how fast the point moves. Explain the two losses of information.",
+        "sampleAnswer": "The original domain permits only 1≤x≤7, so the rest of the parabola is extraneous. The Cartesian set does not record which parameter value produces each point or the order of traversal, so it does not establish timing or speed.",
+        "checklist": [
+          "Carry the parameter domain into x restrictions.",
+          "Separate a point set from traversal order.",
+          "Explain why timing requires parameter information."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-precalc-parametric-enrichment-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For the original parameterization, enter x when t=2.",
+        "acceptedAnswers": [
+          "5"
+        ],
+        "sampleAnswer": "Substitution gives x(2)=1+2·2=5."
+      }
+    ]
+  },
+  "Stats: Inference for Categorical Data: Proportions::3.2 Tests for one proportion, significance, and errors": {
+    "revision": 1,
+    "objectives": [
+      "State hypotheses about a population proportion.",
+      "Use null-based standard error and check test conditions.",
+      "Interpret a p-value without confusing it with a hypothesis probability."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "A significance test begins with a population parameter and a specific claim. For one binary outcome, p denotes the population proportion of successes and p-hat denotes the observed sample proportion. The null hypothesis gives a particular parameter value p₀; the alternative states the direction of the departure of interest. Choose a one-sided or two-sided alternative from the question before inspecting whether the sample happens to favor one direction. Hypotheses are statements about p, not about the already observed p-hat. Define what counts as a success and which population the parameter describes.\n\nA one-proportion z test asks how unusual the observed sample proportion would be if the null model were true. Its standardized statistic is z=(p-hat−p₀)/√[p₀(1−p₀)/n]. The denominator uses the null value because the test evaluates a hypothetical sampling distribution under that claim. This differs from the usual confidence-interval standard error, which estimates uncertainty using p-hat. Check the source of randomness, the independence of observations, and the large-counts condition using np₀ and n(1−p₀). For sampling without replacement, the sample should not exceed 10% of the population when using the usual independence approximation.\n\nThe p-value is a conditional probability of a statistic at least as extreme as observed in the direction of the alternative, assuming the null model. It is not the probability that the null hypothesis is true, and it does not measure the practical size of the effect. Compare it with a significance level selected for the decision. Rejecting the null supplies statistical evidence for the alternative; failing to reject means the data do not supply sufficient evidence at that level. It does not prove that the null value is exactly correct."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-one-proportion-test-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A simple random sample of 100 students from a school population of 2,000 finds 60 prefer option A. Test H₀:p=0.50 against Hₐ:p>0.50 at α=0.05. This is a constructed teaching example.",
+        "steps": [
+          {
+            "prompt": "What does p represent?",
+            "choices": [
+              "The observed 60/100 only",
+              "The population proportion of the school who prefer option A",
+              "The probability that H₀ is true",
+              "The significance level"
+            ],
+            "answer": 1,
+            "explanation": "The parameter describes the full school population. The observed sample proportion 0.60 is an estimate and enters the statistic, not the hypotheses."
+          },
+          {
+            "prompt": "Which large-counts check belongs to this test?",
+            "choices": [
+              "60 and 40 only",
+              "100 and 2,000",
+              "np₀=50 and n(1−p₀)=50",
+              "p₀ and 1−p₀ must each exceed 10"
+            ],
+            "answer": 2,
+            "explanation": "Under H₀, the expected success and failure counts are 50 and 50. Both exceed 10; the sample is also only 5% of the population."
+          },
+          {
+            "prompt": "What is the null-based standard error?",
+            "choices": [
+              "0.6",
+              "0.24",
+              "0.049",
+              "0.05"
+            ],
+            "answer": 3,
+            "explanation": "Use √[0.5(0.5)/100]=√0.0025=0.05. The null model, rather than the sample estimate, determines this test denominator."
+          },
+          {
+            "prompt": "What are z and the one-sided p-value?",
+            "choices": [
+              "z=2 and p≈0.0228",
+              "z=2 and p≈0.0455",
+              "z=0.1 and p≈0.4602",
+              "z=−2 and p≈0.9772"
+            ],
+            "answer": 0,
+            "explanation": "The observed difference is 0.60−0.50=0.10, or two null standard errors. The alternative asks for the upper normal tail beyond z=2."
+          },
+          {
+            "prompt": "Which conclusion is justified at α=0.05?",
+            "choices": [
+              "Prove that 60% of all students prefer A",
+              "Reject H₀; there is evidence that more than half prefer A",
+              "Accept H₀ because 0.0228 is small",
+              "Conclude the null has probability 0.0228"
+            ],
+            "answer": 1,
+            "explanation": "Because the upper-tail p-value is below 0.05, reject the null. State the evidence in terms of the population proportion and the one-sided alternative."
+          }
+        ],
+        "takeaway": "A test compares data with a specified null sampling model; its p-value is conditional evidence, not a probability assigned to the hypothesis."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "If the planned alternative had been p≠0.50, the same z statistic would lead to a two-sided p-value near 0.0455. The doubling reflects a different definition of extremeness, not a change in the data. At α=0.01 neither planned alternative would reject. A Type I error in the original one-sided test would mean concluding that more than half prefer A when the population proportion is actually 0.50. A Type II error would mean failing to find sufficient evidence when the true proportion is greater than 0.50. The significance level controls the long-run Type I error rate under the model, whereas power depends on the true alternative value, sample size, variability, and decision rule. Finally, statistical significance does not establish why preferences differ or whether a ten-percentage-point estimate would be important for a particular decision."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-one-proportion-test-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner reports that the p-value means there is a 2.28% chance that exactly half of all students prefer A. Replace that statement with a correct conditional interpretation.",
+        "sampleAnswer": "If the population proportion were 0.50 and the sampling model applied, the probability of a sample proportion at least 0.60 from a sample of 100 would be approximately 0.0228 under the normal approximation. This does not give the probability that H₀ is true.",
+        "checklist": [
+          "Condition on the null population proportion.",
+          "Describe a result at least as extreme in the planned direction.",
+          "Avoid assigning probability to the null hypothesis."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-one-proportion-test-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "For this test, enter the z statistic.",
+        "acceptedAnswers": [
+          "2"
+        ],
+        "sampleAnswer": "The statistic is (0.60−0.50)/0.05=2."
+      }
+    ]
+  },
+  "Stats: Inference for Categorical Data: Proportions::3.3 Comparing two proportions with estimates and tests": {
+    "revision": 1,
+    "objectives": [
+      "Define the order of a population-proportion difference.",
+      "Distinguish pooled test and unpooled interval standard errors.",
+      "Interpret a confidence interval in context without a causal overclaim."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Comparing two binary outcomes starts by defining two populations, what counts as success, and the order of subtraction. The parameter p₁−p₂ represents a difference in population proportions, while p-hat₁−p-hat₂ is its sample estimate. A positive result favors group 1 only because that order was chosen. Reversing the order changes the signs of the estimate and interval endpoints but does not change the underlying evidence. Independent groups require different reasoning from paired binary outcomes measured on the same individuals, so identify the design before selecting a method.\n\nFor a confidence interval for p₁−p₂, estimate each group's variability separately. The standard error is √[p-hat₁(1−p-hat₁)/n₁+p-hat₂(1−p-hat₂)/n₂]. A usual normal interval adds and subtracts a critical normal value times this unpooled standard error. Its success-failure checks use each group's observed counts. Sampling randomness and independence must be justified for both groups, including the 10% condition for each finite population when sampling without replacement.\n\nFor the common test H₀:p₁−p₂=0, the null asserts one shared success proportion. Estimate that common value by pooling successes over total observations: p-hat_c=(x₁+x₂)/(n₁+n₂). The test standard error then uses p-hat_c(1−p-hat_c)(1/n₁+1/n₂). Pooling is tied to the equality null; it is not a universal rule for every comparison or every confidence interval. Expected success and failure counts under that pooled null should support the normal approximation. Check these counts separately for each group rather than only checking their combined total. Finally, distinguish inference about an association or population difference from a causal effect. Random samples support generalization, while random assignment is the design feature that supports causal comparison under the experiment's conditions."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-two-proportions-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "Independent simple random samples give 60 successes among 100 members of population 1 and 40 among 100 members of population 2. Assume both populations contain at least 2,000 members. Compare p₁−p₂ with a 95% interval and an equality test.",
+        "steps": [
+          {
+            "prompt": "What is the sample difference in the chosen order?",
+            "choices": [
+              "−0.20",
+              "0.50",
+              "0.20",
+              "20"
+            ],
+            "answer": 2,
+            "explanation": "The two sample proportions are 0.60 and 0.40. Their difference is 0.20, equivalent to twenty percentage points rather than twenty proportion units."
+          },
+          {
+            "prompt": "What is the unpooled interval standard error?",
+            "choices": [
+              "0.50",
+              "√0.005",
+              "0.048",
+              "√0.0048"
+            ],
+            "answer": 3,
+            "explanation": "The two variance estimates are 0.6(0.4)/100 and 0.4(0.6)/100. Their sum is 0.0048, and the standard error is its square root."
+          },
+          {
+            "prompt": "Which 95% interval uses z*=1.96?",
+            "choices": [
+              "Approximately (0.0642,0.3358)",
+              "Approximately (0.152,0.248)",
+              "Approximately (−0.3358,−0.0642)",
+              "Approximately (0.004,0.396)"
+            ],
+            "answer": 0,
+            "explanation": "Compute 0.20±1.96√0.0048. The margin is about 0.1358, leaving a positive interval from about 0.0642 to 0.3358."
+          },
+          {
+            "prompt": "What pooled estimate is used for H₀:p₁=p₂?",
+            "choices": [
+              "0.20",
+              "0.50",
+              "0.60",
+              "0.40"
+            ],
+            "answer": 1,
+            "explanation": "Pooling combines successes and sample sizes: (60+40)/(100+100)=100/200=0.50. It estimates the common proportion under the equality null."
+          },
+          {
+            "prompt": "What is the equality-test z statistic?",
+            "choices": [
+              "0.20/√0.0048",
+              "0.20/0.50",
+              "0.20/√0.005≈2.828",
+              "0.20/0.005=40"
+            ],
+            "answer": 2,
+            "explanation": "The pooled variance is 0.5(0.5)(1/100+1/100)=0.005. Divide the observed difference by its square root, not by the variance itself."
+          }
+        ],
+        "takeaway": "Keep group order fixed and choose the standard error from the inference task: unpooled for an interval, pooled for the equal-proportions null."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "The two-sided normal p-value for the equality test is approximately 0.00468. The 95% interval excludes zero, agreeing with rejection at a 5% level in this example, though the interval and test standard errors are not numerically identical. If the group labels are reversed, the interval becomes approximately (−0.3358,−0.0642), and the test statistic becomes −2.828; the two-sided p-value remains the same. One should not report that the true difference has a 95% probability of lying in this particular computed interval. Rather, the interval method captures the fixed population difference in about 95% of repeated samples under its assumptions. Because the example uses independent random samples rather than random assignment, it supports a population difference but does not establish that membership in one group causes a higher success rate. Unmeasured differences between the populations could explain an observed association."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-two-proportions-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses the pooled standard error for the confidence interval and says group 1 causes more successes. Explain the two separate corrections.",
+        "sampleAnswer": "The interval estimates two potentially different proportions and uses separate sample estimates of their variability. The pooled value belongs to the equality-null test. Random sampling alone also does not establish causality; group membership was not randomly assigned.",
+        "checklist": [
+          "Connect pooling to the equality null.",
+          "Use the unpooled interval variability.",
+          "Distinguish random sampling from random assignment."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-two-proportions-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the pooled proportion used for the equality test.",
+        "acceptedAnswers": [
+          "0.5",
+          "1/2"
+        ],
+        "sampleAnswer": "The pooled proportion is (60+40)/(100+100)=0.50."
+      }
+    ]
+  },
+  "Stats: Inference for Quantitative Data: Means::4.1 One-sample t intervals and tests with conditions": {
+    "revision": 1,
+    "objectives": [
+      "Estimate a mean with sample standard deviation and t procedures.",
+      "Check small-sample conditions rather than relying on a mechanical cutoff.",
+      "Interpret a confidence interval and a directional mean test."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Understand the structure first"
+      },
+      {
+        "type": "text",
+        "text": "Inference for a population mean μ requires a distinction between the variability of individual observations and the uncertainty in a sample mean. The sample standard deviation s measures spread among observations. The estimated standard error s/√n measures how much a sample mean typically varies across independent samples. These quantities have the same units as the original measurement but different interpretations. When the population standard deviation is unknown, a standardized mean uses the sample standard deviation and follows a t model under suitable conditions, with n−1 degrees of freedom for a one-sample procedure.\n\nCheck the design first. Observations should come from an appropriate random sample or randomization process, and independence must be plausible. For sampling without replacement, the usual 10% condition supports the independence approximation. Check distribution shape as well. With a small sample, strong skewness or outliers can make a t procedure unreliable; a tiny sample cannot establish normality from its appearance alone. A roughly symmetric sample without obvious outliers is useful evidence, but substantive knowledge about the population and the sampling process remains important. Increasing sample size improves robustness; it does not fix biased sampling or dependence.\n\nA confidence interval has the form x-bar±t* s/√n. The critical value depends on both confidence level and degrees of freedom. A one-sample test of H₀:μ=μ₀ uses t=(x-bar−μ₀)/(s/√n), with the alternative determining which tail or tails count as extreme. The test denominator does not use μ₀ to estimate variability; it uses the sample standard deviation because the population spread is unknown. State results in the original units and population context. Neither a small p-value nor an interval excluding a benchmark automatically establishes practical importance or a causal explanation."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Predict and build the solution"
+      },
+      {
+        "type": "guidedExample",
+        "id": "depth-next-stats-one-sample-t-guided",
+        "title": "Make each decision explicitly",
+        "scenario": "A constructed random sample of five measurements is 8, 9, 10, 11, 12 units from a large population. Assume the population distribution is approximately normal. Build a 95% interval using t*=2.776 and test H₀:μ=8 against Hₐ:μ>8.",
+        "steps": [
+          {
+            "prompt": "What are the sample mean and sample variance?",
+            "choices": [
+              "Mean 10 and variance 2",
+              "Mean 10 and variance 2.5",
+              "Mean 9 and variance 2.5",
+              "Mean 10 and variance 10"
+            ],
+            "answer": 1,
+            "explanation": "The deviations from 10 are −2,−1,0,1,2, whose squared sum is 10. Sample variance divides by n−1=4, giving 2.5."
+          },
+          {
+            "prompt": "What is the standard error of the mean?",
+            "choices": [
+              "√2.5",
+              "2.5/5",
+              "√0.5",
+              "0.5"
+            ],
+            "answer": 2,
+            "explanation": "Divide the sample standard deviation √2.5 by √5. This equals √(2.5/5)=√0.5, not the sample variance or individual spread."
+          },
+          {
+            "prompt": "What is the approximate 95% interval?",
+            "choices": [
+              "(8,12)",
+              "(9.293,10.707)",
+              "(6.074,13.926)",
+              "(8.037,11.963)"
+            ],
+            "answer": 3,
+            "explanation": "The margin is 2.776√0.5≈1.963. Adding and subtracting it from the mean 10 gives the stated interval in measurement units."
+          },
+          {
+            "prompt": "What are the test statistic and degrees of freedom?",
+            "choices": [
+              "t=2√2≈2.828 and df=4",
+              "t=4 and df=5",
+              "t=2 and df=4",
+              "t=2√2 and df=5"
+            ],
+            "answer": 0,
+            "explanation": "The observed mean is 2 units above the null value, and its standard error is √0.5. Thus t=2/√0.5=2√2, with n−1=4 degrees of freedom."
+          },
+          {
+            "prompt": "What condition needs special care with only five observations?",
+            "choices": [
+              "The sample mean must equal the null",
+              "Approximate population normality without severe outliers or skewness",
+              "The sample standard deviation must equal one",
+              "Five observations automatically ensure robustness"
+            ],
+            "answer": 1,
+            "explanation": "A small sample does not provide a strong central-limit approximation. The stated approximate-normal population assumption is important, and severe outliers would be concerning."
+          }
+        ],
+        "takeaway": "The t method estimates uncertainty in a mean using sample spread, with degrees of freedom and design conditions that must be justified."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Transfer the reasoning"
+      },
+      {
+        "type": "text",
+        "text": "For the test, the one-sided t₄ tail beyond 2√2 is approximately 0.02371. It is smaller than 0.05, so the example provides evidence that the population mean exceeds 8 under the stated assumptions. The 95% two-sided interval also excludes 8 here, but one should not generally equate a one-sided 5% test with a two-sided 95% interval: the matching central interval for that directional decision is 90%, or an appropriate one-sided bound. If every measurement were increased by 100, the sample mean and both interval endpoints would increase by 100, while s and the standard error would remain unchanged. Testing the translated benchmark 108 would then produce the same t statistic. If instead measurement units were rescaled, the mean, spread, and benchmark must all be rescaled consistently; the dimensionless t statistic would again remain unchanged. These invariances provide useful checks on formulas and interpretations."
+      },
+      {
+        "type": "reflection",
+        "id": "depth-next-stats-one-sample-t-reflect",
+        "title": "Explain the key distinction",
+        "math": true,
+        "prompt": "A learner uses s rather than s/√n in the denominator and interprets the interval as containing 95% of individual measurements. Explain both errors.",
+        "sampleAnswer": "The denominator must describe uncertainty in the sample mean, so it is s/√n. A confidence interval estimates the population mean; it is not an interval designed to contain 95% of individual observations. Individual spread and mean uncertainty are different quantities.",
+        "checklist": [
+          "Distinguish spread from standard error.",
+          "Identify the target population parameter.",
+          "Avoid a claim about the fraction of individual observations."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "depth-next-stats-one-sample-t-recall",
+        "title": "Try a changed value",
+        "math": true,
+        "prompt": "Enter the degrees of freedom for this one-sample t procedure.",
+        "acceptedAnswers": [
+          "4"
+        ],
+        "sampleAnswer": "A one-sample procedure with n=5 uses n−1=4 degrees of freedom."
+      }
+    ]
+  }
+}

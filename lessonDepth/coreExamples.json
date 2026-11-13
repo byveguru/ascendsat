@@ -1,0 +1,584 @@
+{
+  "Algebra::Linear Equations": {
+    "revision": 1,
+    "objectives": [
+      "Translate a starting amount and a per-unit change into an equation.",
+      "Check an algebraic solution against the original situation.",
+      "Distinguish solving for an input from interpreting a coefficient."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "A variable represents a quantity that can vary; its unit matters. In C = 12 + 3h, C is a cost in dollars and h is hours. The 12 is a fixed charge, while 3 has units dollars per hour. Multiplication converts hours into dollars before addition. To solve an equation, preserve equality by applying the same operation to both sides. Undo addition before multiplication because the expression was formed by multiplying h first and then adding 12. A solution is an input that makes the original equality true. It is not automatically a reasonable input for the situation: negative hours or a fractional number of indivisible items may violate the context."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-linear-guided",
+        "scenario": "An equipment rental costs 12 dollars plus 3 dollars per hour. A customer has exactly 30 dollars to spend. Let h be the rental duration in hours.",
+        "steps": [
+          {
+            "prompt": "Which equation represents using the entire budget?",
+            "choices": [
+              "30 = 3 + 12h",
+              "h = 12 + 3(30)",
+              "30 = 12 + 3h"
+            ],
+            "answer": 2,
+            "explanation": "The total budget equals the fixed charge plus the hourly charge multiplied by hours."
+          },
+          {
+            "prompt": "After subtracting 12 from both sides, what remains?",
+            "choices": [
+              "18 = h",
+              "18 = 3h",
+              "42 = 3h"
+            ],
+            "answer": 1,
+            "explanation": "Subtracting the same fixed charge on both sides leaves 18 dollars available for the hourly part."
+          },
+          {
+            "prompt": "What duration satisfies the original equation?",
+            "choices": [
+              "6 hours",
+              "18 hours",
+              "10 hours"
+            ],
+            "answer": 0,
+            "explanation": "Divide 18 = 3h by 3. Substitution gives 12 + 3(6) = 30, which checks the result."
+          }
+        ],
+        "takeaway": "Distinguish solving for an input from interpreting a coefficient."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "An equation identifies an exact boundary; an inequality describes a set of possibilities. With the same rental price and a budget of at most 30 dollars, write 12 + 3h ≤ 30. Solving gives h ≤ 6, but the contextual domain also requires h ≥ 0. If the shop bills only whole hours, the possible billed durations are whole numbers from 0 through 6. If it bills continuously, every real duration in that interval is allowed. Do not add a whole-number restriction merely because the problem uses dollars; apply restrictions to the quantity actually being counted."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-linear-transfer",
+        "prompt": "The fixed fee rises to 15 dollars while the hourly rate remains 3 dollars. Explain how the maximum duration changes with the same 30 dollars budget.",
+        "sampleAnswer": "The new boundary is 15 + 3h = 30, so h = 5 hours. The extra 3 dollars fixed fee consumes the cost of one hour, reducing the maximum from six hours to five.",
+        "checklist": [
+          "State the new equation.",
+          "Explain why the hourly rate stays unchanged.",
+          "Check 15 + 3(5) = 30."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "sat-linear-retrieve",
+        "prompt": "In C = 8 + 4h, what does 4 represent?",
+        "choices": [
+          "The total cost for four hours",
+          "A fixed 4 dollars charge",
+          "The increase in dollars for each additional hour"
+        ],
+        "answer": 2,
+        "explanation": "The coefficient of h is the rate: four dollars per hour."
+      }
+    ]
+  },
+  "Information and Ideas::Inferences": {
+    "revision": 1,
+    "objectives": [
+      "Separate observations from explanations.",
+      "Choose a conclusion that the passage supports without an extra assumption.",
+      "Use qualified language when the evidence is limited."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "An inference is a conclusion supported by stated details even when the author does not say it directly. Begin by identifying what the passage actually reports. Next ask which proposed conclusion must be consistent with those details and needs the fewest additional assumptions. A plausible explanation is not necessarily a supported one: a change could have multiple causes. Notice scope words such as some, all, may, and must. A small or local observation rarely establishes a universal rule. The strongest answer is often precise and limited rather than dramatic."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "sat-inference-guided",
+        "scenario": "Original passage: A museum moved a pottery display from a rear gallery to its entrance hall. In the following month, more visitors stopped at the display than in the previous month. The museum did not record how long visitors stayed or whether attendance changed.",
+        "steps": [
+          {
+            "prompt": "Which fact was actually recorded?",
+            "choices": [
+              "Visitors learned more about pottery",
+              "More visitors stopped at the display after the move",
+              "Every visitor preferred the entrance hall"
+            ],
+            "answer": 1,
+            "explanation": "Only the count of visitors stopping at the display is reported. Preference and learning were not measured."
+          },
+          {
+            "prompt": "Which conclusion stays within that evidence?",
+            "choices": [
+              "The display attracted more stops in the month after relocation",
+              "The relocation alone caused the increase",
+              "The display became the museum’s most popular exhibit"
+            ],
+            "answer": 0,
+            "explanation": "The timing and increase are supported. The passage does not isolate the cause or compare every exhibit."
+          },
+          {
+            "prompt": "What missing information would help compare engagement more carefully?",
+            "choices": [
+              "The name of the architect",
+              "The year the museum first opened",
+              "Total attendance and time spent at the display in each month"
+            ],
+            "answer": 2,
+            "explanation": "Attendance helps distinguish increased opportunity from increased stopping rate; time spent provides another engagement measure."
+          }
+        ],
+        "takeaway": "Use qualified language when the evidence is limited."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "An alternative explanation does not prove the initial explanation false. Higher attendance might explain the increased number of stops, but we cannot assume attendance actually rose. Distinguish three claims: an observation occurred, one event caused it, and a result would generalize elsewhere. Each successive claim usually needs more evidence. A passage can support the first while leaving the others unresolved. When two texts disagree, determine whether they contest the observation, the explanation, or the scope of the conclusion."
+      },
+      {
+        "type": "reflection",
+        "id": "sat-inference-transfer",
+        "prompt": "A student concludes that moving any display to an entrance will increase learning. Identify two unsupported jumps.",
+        "sampleAnswer": "The passage concerns one pottery display, not every display. It measures stops, not learning. It also does not establish that location alone caused the increase.",
+        "checklist": [
+          "Identify the change from one case to a universal claim.",
+          "Distinguish the measured outcome from learning.",
+          "Avoid inventing an alternative as a proven fact."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "sat-inference-retrieve",
+        "prompt": "Which phrase most accurately describes the evidence?",
+        "choices": [
+          "Proof that attendance was unchanged",
+          "Consistent with a benefit from relocation, without proving causation",
+          "Proof that all entrance displays are educationally superior"
+        ],
+        "answer": 1,
+        "explanation": "The observation is compatible with a relocation benefit, but the missing comparison information prevents a causal conclusion."
+      }
+    ]
+  },
+  "Conventions of Standard English::Lesson 1 — Sentence Structure and Punctuation": {
+    "revision": 1,
+    "objectives": [
+      "Identify independent and dependent clauses.",
+      "Select punctuation based on clause structure.",
+      "Explain when two grammatical options express different relationships."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "An independent clause contains a subject and a finite verb and can stand as a sentence. A dependent clause may contain both but begins with a subordinating word such as although or because that makes it incomplete on its own. A semicolon normally joins two closely related independent clauses. A comma alone cannot do that job. A comma plus a coordinating conjunction can join them: for, and, nor, but, or, yet, so. A colon after an independent clause introduces an explanation, example, or list; the material after it need not be another independent clause. Choose meaning as well as grammatical correctness."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-boundaries-guided",
+        "scenario": "Original sentence: The restoration team documented each crack ___ the photographs later guided the repairs.",
+        "steps": [
+          {
+            "prompt": "Can the words before the blank stand alone?",
+            "choices": [
+              "Yes: the team documented each crack",
+              "No: documented is not a verb",
+              "No: every sentence needs an object after the blank"
+            ],
+            "answer": 0,
+            "explanation": "The subject is the restoration team and the finite verb is documented. Each crack is the object."
+          },
+          {
+            "prompt": "Which option joins the clauses correctly?",
+            "choices": [
+              ", ",
+              " although ",
+              "; "
+            ],
+            "answer": 2,
+            "explanation": "Both sides are independent clauses. A semicolon joins them without creating a comma splice. The although option changes the second clause into a subordinate one but leaves the meaning awkward and adds an unsupported contrast."
+          },
+          {
+            "prompt": "Which alternative also forms a grammatical sentence?",
+            "choices": [
+              " and, ",
+              ", and ",
+              ", however "
+            ],
+            "answer": 1,
+            "explanation": "A comma plus and can coordinate the independent clauses. However is a conjunctive adverb, not a coordinating conjunction; a comma alone before it is insufficient."
+          }
+        ],
+        "takeaway": "Explain when two grammatical options express different relationships."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "Punctuation choices can both be grammatical yet change emphasis. “The team kept one record: a dated photograph of each crack” uses a colon because the second part identifies the record. Replacing that colon with a semicolon would fail: “a dated photograph of each crack” is a noun phrase, not an independent clause. Do not count words or pause aloud to decide where punctuation belongs. Mark the clause boundaries and then check what relationship the author needs."
+      },
+      {
+        "type": "reflection",
+        "id": "act-boundaries-transfer",
+        "prompt": "Explain why a colon works in “The curator requested one item: the original inventory,” while a semicolon does not.",
+        "sampleAnswer": "The curator requested one item is an independent clause. The original inventory names that item, so a colon introduces the specification. The words after it lack a finite verb and are not an independent clause, so a semicolon would not join two independent clauses.",
+        "checklist": [
+          "Identify the independent clause.",
+          "Identify the noun phrase after the colon.",
+          "Explain the function rather than a spoken pause."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "act-boundaries-retrieve",
+        "prompt": "Which revision is grammatical?",
+        "choices": [
+          "The labels faded; the ink remained legible.",
+          "Although the labels faded; the ink remained legible.",
+          "The labels faded, the ink remained legible."
+        ],
+        "answer": 0,
+        "explanation": "The first joins two independent clauses with a semicolon. Although makes the opening dependent; a comma should follow that introductory clause instead."
+      }
+    ]
+  },
+  "Number & Quantity::Lesson 1 — Number Properties, Fractions, Decimals, and Percents": {
+    "revision": 1,
+    "objectives": [
+      "Identify the base of a percent change.",
+      "Convert a percent into a multiplicative factor.",
+      "Explain why equal percent increases and decreases do not cancel."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "Percent means per hundred. A 20% change is 0.20 times a specified base, not automatically 20 units. To increase a quantity by 20%, multiply by 1.20; to decrease it by 20%, multiply by 0.80. A sequence of changes uses a new base at each step. Fractions and decimals express the same ratios: 20% = 20/100 = 1/5 = 0.20. Keep exact factors through the calculation and round at the end if the question requests rounding."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-percent-guided",
+        "scenario": "A jacket originally costs 80 dollars. Its price increases by 25%, and the increased price is then discounted by 20%.",
+        "steps": [
+          {
+            "prompt": "What is the price after the increase?",
+            "choices": [
+              "105 dollars",
+              "60 dollars",
+              "100 dollars"
+            ],
+            "answer": 2,
+            "explanation": "A 25% increase multiplies 80 by 1.25, giving 100."
+          },
+          {
+            "prompt": "What is the base of the 20% discount?",
+            "choices": [
+              "25 dollars, the numerical increase percentage",
+              "100 dollars, the price at the time of the discount",
+              "80 dollars, the original price"
+            ],
+            "answer": 1,
+            "explanation": "The wording says the increased price is discounted, so the new base is 100."
+          },
+          {
+            "prompt": "What is the final price?",
+            "choices": [
+              "80 dollars",
+              "84 dollars",
+              "75 dollars"
+            ],
+            "answer": 0,
+            "explanation": "Multiply 100 by 0.80 to obtain 80. Here 1.25 × 0.80 = 1, so these unequal percentage changes happen to reverse each other."
+          }
+        ],
+        "takeaway": "Explain why equal percent increases and decreases do not cancel."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "To reverse a percent change, divide by its multiplier. After a 25% increase, the reverse multiplier is 1/1.25 = 0.80, a 20% decrease. An increase and decrease of the same positive percent produce a net decrease because (1+r)(1−r) = 1−r². For example, up 10% and down 10% gives 1.10 × 0.90 = 0.99, a 1% net decrease. This reasoning applies only when the changes act successively on the updated amount."
+      },
+      {
+        "type": "reflection",
+        "id": "act-percent-transfer",
+        "prompt": "A quantity decreases by 20%. What percent increase restores it? Explain with a starting value of 100.",
+        "sampleAnswer": "After a 20% decrease, 100 becomes 80. Restoring 20 units requires an increase of 20/80 = 0.25 = 25%. The restoration uses 80 as its base.",
+        "checklist": [
+          "Use the reduced amount as the new base.",
+          "Distinguish units restored from percent restored.",
+          "Verify 80 × 1.25 = 100."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "act-percent-retrieve",
+        "prompt": "A price goes up 10% and then down 10%. What is its net change?",
+        "choices": [
+          "No change",
+          "A 1% increase",
+          "A 1% decrease"
+        ],
+        "answer": 2,
+        "explanation": "The multiplier is 1.10 × 0.90 = 0.99, leaving 99% of the original price."
+      }
+    ]
+  },
+  "Key Ideas & Details::Lesson 4A — Inference Questions": {
+    "revision": 1,
+    "objectives": [
+      "Anchor an inference to specific passage details.",
+      "Distinguish a character’s actions from an unsupported motive.",
+      "Evaluate the strength of a conclusion."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "Reading inference questions ask you to connect details, not supply a new story. First paraphrase the relevant lines. Identify what the narrator can know and what a character actually does. Then test an answer against the whole passage: it should fit the details without contradicting another line or adding an unnecessary motive. Words such as always, never, and certainly require unusually strong evidence. A character’s hesitation can support uncertainty, but it cannot establish exactly what the character fears unless the passage supplies that connection."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-reading-inference-guided",
+        "scenario": "Original passage: Mara reached the station early. She checked the departure board twice, then unfolded the letter again. When the train arrived, she remained on the bench until the final boarding announcement. Only then did she put the letter away and stand.",
+        "steps": [
+          {
+            "prompt": "Which action is explicitly stated?",
+            "choices": [
+              "Mara tore up the letter",
+              "Mara waited until the final boarding announcement before standing",
+              "Mara missed the train"
+            ],
+            "answer": 1,
+            "explanation": "The final sentence describes her putting the letter away and standing at the last announcement."
+          },
+          {
+            "prompt": "Which inference has the strongest support?",
+            "choices": [
+              "Mara appears hesitant about boarding",
+              "Mara dislikes every form of travel",
+              "The letter orders Mara to stay home"
+            ],
+            "answer": 0,
+            "explanation": "Her repeated checking and delay support hesitation. The text does not give the letter’s contents or a universal dislike of travel."
+          },
+          {
+            "prompt": "Which added sentence would most directly establish a reason for her hesitation?",
+            "choices": [
+              "The bench was painted green.",
+              "The train had six carriages.",
+              "The letter offered her a job in the city she was about to leave."
+            ],
+            "answer": 2,
+            "explanation": "The job offer would supply a concrete competing reason to remain. The other details do not explain her decision."
+          }
+        ],
+        "takeaway": "Evaluate the strength of a conclusion."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "Distinguish uncertainty about an action from uncertainty about a motive. We can infer reluctance from delayed boarding while remaining uncertain about its cause. On a paired-passage question, one author’s explanation does not automatically become a fact accepted by the other author. Attribute each claim before combining them. A supported synthesis can note agreement about an observation while preserving disagreement about why it happened."
+      },
+      {
+        "type": "reflection",
+        "id": "act-reading-inference-transfer",
+        "prompt": "Why would “Mara is waiting for someone she loves” be weaker than “Mara appears hesitant to board”?",
+        "sampleAnswer": "The delay supports hesitation, but no person, meeting, or romantic relationship is mentioned. The first answer adds a specific cause that the passage does not establish.",
+        "checklist": [
+          "Cite the delay as evidence.",
+          "Identify the added assumption.",
+          "Keep the supported conclusion appropriately limited."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "act-reading-inference-retrieve",
+        "prompt": "Which word best preserves the strength of the inference?",
+        "choices": [
+          "always avoids trains",
+          "appears hesitant",
+          "is certainly terrified"
+        ],
+        "answer": 1,
+        "explanation": "Appears hesitant reflects the observable delay without overstating the emotion or generalizing beyond the scene."
+      }
+    ]
+  },
+  "Research Summaries::Lesson 3 — Research Summaries": {
+    "revision": 1,
+    "objectives": [
+      "Identify the changed variable and measured outcome.",
+      "Compare trials while holding other conditions constant.",
+      "Separate a result from a causal or universal claim."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundation"
+      },
+      {
+        "type": "text",
+        "text": "An investigation describes a procedure for producing evidence. The independent variable is intentionally changed; the dependent variable is measured. Controlled conditions are kept comparable so that they do not systematically explain the result. Repeated trials help reveal variability, while a larger number of measurements does not repair a systematically confounded design. A control group is a comparison condition; it is distinct from controlled variables. In a research-summary passage, map each experiment to its question, changed factor, measured outcome, and important controls before comparing conclusions."
+      }
+    ],
+    "guided": [
+      {
+        "type": "heading",
+        "text": "Reason through an example"
+      },
+      {
+        "type": "guidedExample",
+        "id": "act-science-design-guided",
+        "scenario": "Original hypothetical investigation: Identical plant seedlings were randomly assigned to three light-duration groups. All received the same soil, water, temperature, and lamp intensity. After 14 days, mean height increases were 2 cm with 4 hours of light per day, 5 cm with 8 hours, and 5 cm with 12 hours. Each group contained 10 seedlings.",
+        "steps": [
+          {
+            "prompt": "What was intentionally changed?",
+            "choices": [
+              "Daily light duration",
+              "Mean height increase",
+              "Soil type"
+            ],
+            "answer": 0,
+            "explanation": "The groups differed in daily hours of light. Height increase was measured, while soil type was held constant."
+          },
+          {
+            "prompt": "Which comparison supports a benefit of 8 hours over 4 hours under these conditions?",
+            "choices": [
+              "Both groups used the same soil, so their growth must be equal",
+              "The 12-hour group had the largest mean",
+              "Mean growth was 5 cm versus 2 cm"
+            ],
+            "answer": 2,
+            "explanation": "The observed mean difference is 3 cm. The 12-hour mean was equal to the 8-hour mean, not larger."
+          },
+          {
+            "prompt": "Which conclusion goes beyond the reported evidence?",
+            "choices": [
+              "The 4-hour group had less mean growth than the 8-hour group",
+              "Every plant species grows best with exactly 8 hours of light",
+              "The 8- and 12-hour groups had equal reported means"
+            ],
+            "answer": 1,
+            "explanation": "One species, setting, and 14-day outcome do not establish a universal optimum. No results for intermediate durations or other outcomes are given."
+          }
+        ],
+        "takeaway": "Separate a result from a causal or universal claim."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Take the idea further"
+      },
+      {
+        "type": "text",
+        "text": "Equal means do not prove that individual responses were identical or that there is no effect. The summary lacks the spread of measurements, so it cannot establish how much the groups overlap or whether the observed difference is large relative to variability. Random assignment strengthens a causal interpretation within the experiment, provided the procedure is implemented appropriately. Generalizing to other species, environments, or time periods requires additional evidence. Also distinguish association from mechanism: a growth change alone does not reveal the biological process that produced it."
+      },
+      {
+        "type": "reflection",
+        "id": "act-science-design-transfer",
+        "prompt": "A follow-up gives one group more light and more fertilizer. Explain why a growth increase would not isolate the effect of light.",
+        "sampleAnswer": "Both light and fertilizer change together. Either could contribute to growth, so their separate effects cannot be identified from that comparison. Hold fertilizer constant when comparing light levels, or use a design that varies both factors in separate combinations.",
+        "checklist": [
+          "Name both changed factors.",
+          "Explain the confounding.",
+          "Propose a comparison that separates the effects."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "prediction",
+        "id": "act-science-design-retrieve",
+        "prompt": "What additional report would best help assess variation within each group?",
+        "choices": [
+          "The individual growth measurements or a measure of spread",
+          "Only the total number of leaves across all groups",
+          "The brand name of the ruler alone"
+        ],
+        "answer": 0,
+        "explanation": "Individual values or a spread measure reveal variability hidden by the group means."
+      }
+    ]
+  }
+}

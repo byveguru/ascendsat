@@ -1,0 +1,1490 @@
+{
+  "CSP: Algorithms & Programming::3.6 Combining algorithms and evaluating a model": {
+    "revision": 1,
+    "objectives": [
+      "Trace a filtering, aggregation and threshold pipeline.",
+      "Distinguish verifying code from validating a model.",
+      "Evaluate selection effects and sensitivity to assumptions."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "An algorithm can combine smaller operations into a pipeline. For example, a program may filter observations, calculate a statistic and then compare that statistic with a decision threshold. Each stage has a contract: the type and meaning of its input, the transformation it performs and the meaning of its output. A locally correct procedure can still contribute to a wrong overall result when stages disagree about units, ordering or missing data. Trace one small, fully specified input through every stage before making a general claim. This reveals whether an error concerns the algorithm, the supplied data or an assumption about what the output represents."
+      },
+      {
+        "type": "text",
+        "text": "A computational model is a simplified representation of a system used to explore behavior. Its variables and rules encode assumptions rather than reproducing every feature of reality. A model can be internally implemented correctly but still poorly represent its intended real situation. Verification asks whether the implementation follows the specified rules; validation considers whether those rules and outputs are useful for the intended purpose. The distinction matters when a plausible-looking output is treated as evidence that the simulation is accurate. Compare predictions with relevant observations, identify omitted factors and examine behavior under boundary conditions rather than relying on visual realism."
+      },
+      {
+        "type": "text",
+        "text": "Simulation output also depends on input choices and, when included, randomness. Repeated random trials can reveal variation, but repetition does not remove systematic error from an unrealistic assumption. A sensitivity test changes one input or rule while keeping others comparable to determine how much the conclusion depends on it. If a recommendation reverses after a small plausible change, report that fragility. Evaluate an algorithm’s efficiency separately from the validity of the modeled mechanism: a faster implementation can calculate an unhelpful model more quickly. A responsible conclusion states which question the model addresses, which conditions were tested and which claims remain outside its scope."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-csp-model-predict",
+        "prompt": "What list remains after filtering?",
+        "choices": [
+          "[10, 14, 18]",
+          "[14, 18]",
+          "[8, 10, 14, 18]"
+        ],
+        "answer": 0,
+        "explanation": "The rule includes 10 because it says at least 10.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-csp-model-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A fictional program filters hourly arrival counts to retain values at least 10, averages the retained counts and recommends extra service if that average exceeds 14. For input [8, 10, 14, 18], it is intended to model busy-hour demand only, not average demand across all hours.",
+        "steps": [
+          {
+            "prompt": "What list remains after filtering?",
+            "choices": [
+              "[14, 18]",
+              "[8, 10, 14, 18]",
+              "[10, 14, 18]"
+            ],
+            "answer": 2,
+            "explanation": "The rule includes 10 because it says at least 10.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What is the retained mean?",
+            "choices": [
+              "42",
+              "14",
+              "12.5"
+            ],
+            "answer": 1,
+            "explanation": "The retained sum is 42 across three observations, giving 14.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "Does the program recommend extra service?",
+            "choices": [
+              "No, because 14 does not exceed 14",
+              "Yes, because equality satisfies exceeds",
+              "Yes, because all original values qualify"
+            ],
+            "answer": 0,
+            "explanation": "The strict threshold excludes equality.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What would using that mean as the average for all hours overlook?",
+            "choices": [
+              "The fact that arithmetic is impossible",
+              "Proof that every arrival count was fabricated",
+              "Filtering intentionally removed a lower-count hour"
+            ],
+            "answer": 2,
+            "explanation": "The unfiltered mean is 50/4 = 12.5; the retained mean describes a selected subset.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Verification checks whether code follows the stated model; validation checks whether that model usefully represents the real system for its intended purpose."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-csp-model-transfer",
+        "prompt": "The implementation matches the written rules, but the recommendation fails in a neighborhood where arrival timing is highly clustered. Is this necessarily a coding error?",
+        "sampleAnswer": "No. Matching the stated rules supports verification, while omitted timing patterns may make the model unsuitable for that setting. Compare predictions with relevant observations and test alternative timing assumptions. Repeating the same incomplete rules does not automatically solve the representation problem.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-csp-model-recall",
+        "prompt": "Why are implementation verification and model validation different?",
+        "sampleAnswer": "Verification checks whether code follows the stated model; validation checks whether that model usefully represents the real system for its intended purpose.",
+        "math": false
+      }
+    ]
+  },
+  "CSP: Impact of Computing::5.1 Computing innovations, access, and stakeholder tradeoffs": {
+    "revision": 1,
+    "objectives": [
+      "Identify stakeholders and task-specific access barriers.",
+      "Compare access improvements with feedback and privacy tradeoffs.",
+      "Recognize enrollment selection and subgroup differences."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A computing innovation includes a computer or program as an essential part of how it functions. To analyze an innovation, identify the input data, the transformation performed and the output or action produced. Then distinguish the intended purpose from its actual effects. An innovation can help one group while creating costs for another, and a benefit does not eliminate the need to examine those costs. Stakeholders include users, people whose data is collected, workers, operators and people indirectly affected. A stakeholder analysis should describe a concrete mechanism rather than attaching the words positive or negative to a product without explanation."
+      },
+      {
+        "type": "text",
+        "text": "The digital divide includes differences in access, affordability, reliability, skills and the ability to use technology effectively. Owning a device does not guarantee adequate connectivity or accessible design. A required high-bandwidth video interaction can exclude someone with limited service even when a basic text interface would work. Disability access, language, available time and privacy constraints can also affect participation. Evaluate the particular task and resource requirements instead of assuming that a national ownership percentage measures every relevant barrier. Some improvements address one barrier while leaving another unchanged, so specify who becomes better served and under which conditions."
+      },
+      {
+        "type": "text",
+        "text": "Comparing design alternatives requires explicit criteria. A system might reduce travel time while collecting more location data; an offline option might broaden access but delay synchronization. Quantify a stated metric where possible and keep distributional effects visible rather than hiding them behind one overall average. An intervention that improves average completion can still leave a smaller group unable to participate. Evidence from a voluntary pilot may not represent people who could not enroll. A defensible recommendation explains the tradeoff, identifies uncertainty and proposes a way to monitor the consequences. Calling an innovation modern or efficient is not itself evidence that its benefits are equitably distributed."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-csp-access-predict",
+        "prompt": "Which barrier does the text-and-download design directly address?",
+        "choices": [
+          "All privacy concerns automatically",
+          "Intermittent or limited connectivity",
+          "Every possible language barrier"
+        ],
+        "answer": 1,
+        "explanation": "Lower-bandwidth, asynchronous materials reduce dependence on a stable live connection.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-csp-access-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A hypothetical school tool offers live video tutoring requiring stable high-bandwidth service. A text-and-download alternative works with intermittent connections but provides delayed feedback. In a voluntary pilot, 80 of 100 participants complete the video course; students unable to connect are not included in that count.",
+        "steps": [
+          {
+            "prompt": "Which barrier does the text-and-download design directly address?",
+            "choices": [
+              "Intermittent or limited connectivity",
+              "Every possible language barrier",
+              "All privacy concerns automatically"
+            ],
+            "answer": 0,
+            "explanation": "Lower-bandwidth, asynchronous materials reduce dependence on a stable live connection.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What tradeoff is explicitly stated?",
+            "choices": [
+              "Guaranteed better learning for everyone",
+              "No need for devices",
+              "Broader connectivity access versus delayed feedback"
+            ],
+            "answer": 2,
+            "explanation": "The alternative reduces one access requirement but changes feedback timing.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What does 80% completion describe?",
+            "choices": [
+              "The share with no access barriers",
+              "Completion among the 100 enrolled pilot participants",
+              "Completion among all students who might need tutoring"
+            ],
+            "answer": 1,
+            "explanation": "The denominator excludes people who could not enroll or connect.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What would strengthen the access evaluation?",
+            "choices": [
+              "Include people who faced enrollment and connectivity barriers",
+              "Count only the fastest completers",
+              "Treat device ownership as the only measure"
+            ],
+            "answer": 0,
+            "explanation": "Evidence should represent the groups affected by the access constraint.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Effective participation also depends on connectivity, affordability, accessible design, skills and task-specific requirements; owning a device establishes only one part of access."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-csp-access-transfer",
+        "prompt": "A rollout raises overall completion but lowers participation among students using assistive technology. How should the result influence the recommendation?",
+        "sampleAnswer": "Report both aggregate improvement and the affected subgroup’s reduced participation. Investigate the interface barrier, compare accessible alternatives and monitor participation after changes. An overall average does not resolve a distributional access problem.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-csp-access-recall",
+        "prompt": "Why does a device-ownership statistic not fully measure the digital divide?",
+        "sampleAnswer": "Effective participation also depends on connectivity, affordability, accessible design, skills and task-specific requirements; owning a device establishes only one part of access.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Earth Systems and Resources::4.3 Climate patterns, seasons, and El Niño–Southern Oscillation": {
+    "revision": 1,
+    "objectives": [
+      "Explain seasons using tilt, solar angle and daylight.",
+      "Connect ENSO ocean–atmosphere changes to upwelling.",
+      "Separate local weather from climate and ENSO evidence."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Weather describes atmospheric conditions over relatively short periods, while climate describes longer-term distributions and patterns. A cold day does not alone refute a warming trend, and a hot day alone does not establish the magnitude of long-term change. Compare equivalent timescales, locations and measured quantities. Earth’s axial tilt is the principal reason for seasons: as Earth orbits the Sun, the hemispheres alternate in their orientation toward incoming sunlight. A hemisphere tilted toward the Sun generally receives a higher solar angle and longer daylight. Earth–Sun distance is not the cause of opposite seasons in the two hemispheres."
+      },
+      {
+        "type": "text",
+        "text": "Solar angle affects how incoming energy is distributed over area. The same beam spread across a larger surface delivers less energy per unit area, all else equal. Day length also changes the daily energy received. These mechanisms do not imply that the warmest day must occur exactly at a solstice, because land, water and air store and transfer energy. The climate of a location also depends on elevation, ocean influence, circulation and other factors. Latitude alone cannot specify every feature of climate, even though it helps explain broad patterns in available solar energy."
+      },
+      {
+        "type": "text",
+        "text": "El Niño–Southern Oscillation involves linked changes in tropical Pacific ocean and atmospheric conditions. In typical conditions, trade winds help drive warm surface water westward and support upwelling of cooler water in parts of the eastern equatorial Pacific. During El Niño, weakened trade winds and altered ocean conditions can reduce that eastern upwelling and shift patterns of convection. La Niña generally involves strengthened contrasts relative to typical conditions. These descriptions identify a broad coupled pattern, not a guarantee of identical weather in every distant region. Effects vary by location, season and event. Explain a possible consequence through the relevant mechanism, such as nutrient supply, rather than treating an ENSO label as a universal forecast."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-apes-seasons-predict",
+        "prompt": "Why is June generally the Northern Hemisphere’s warmer season?",
+        "choices": [
+          "Earth is necessarily closest to the Sun then",
+          "The Southern Hemisphere also tilts toward the Sun simultaneously",
+          "Higher solar angle and longer daylight from axial tilt"
+        ],
+        "answer": 2,
+        "explanation": "Tilt changes solar angle and day length in opposite ways across hemispheres.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-apes-seasons-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a simplified comparison, the Northern Hemisphere tilts toward the Sun in June. A tropical Pacific event weakens the usual trade winds and reduces eastern equatorial upwelling. No region-specific rainfall forecast is supplied.",
+        "steps": [
+          {
+            "prompt": "Why is June generally the Northern Hemisphere’s warmer season?",
+            "choices": [
+              "The Southern Hemisphere also tilts toward the Sun simultaneously",
+              "Higher solar angle and longer daylight from axial tilt",
+              "Earth is necessarily closest to the Sun then"
+            ],
+            "answer": 1,
+            "explanation": "Tilt changes solar angle and day length in opposite ways across hemispheres.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "Which coupled pattern matches the weakened trades and reduced eastern upwelling?",
+            "choices": [
+              "El Niño-like conditions",
+              "A guarantee of snow everywhere",
+              "Stronger typical upwelling by definition"
+            ],
+            "answer": 0,
+            "explanation": "The stated changes are characteristic of El Niño relative to typical equatorial Pacific conditions.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What direct ecological mechanism could reduced upwelling affect?",
+            "choices": [
+              "The definition of Earth’s axial tilt",
+              "The existence of all ocean food webs",
+              "Delivery of nutrient-rich deeper water to surface producers"
+            ],
+            "answer": 2,
+            "explanation": "Upwelling supplies nutrients that can support surface productivity.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What cannot be concluded from the event description alone?",
+            "choices": [
+              "That altered upwelling can affect nutrient delivery",
+              "Exact rainfall in every distant city",
+              "That ocean and atmospheric conditions are linked"
+            ],
+            "answer": 1,
+            "explanation": "Teleconnected outcomes depend on location, season and event details.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Earth’s axial tilt makes one hemisphere receive generally higher solar angles and longer days while the other receives lower angles and shorter days; distance from the Sun is shared by both."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-apes-seasons-transfer",
+        "prompt": "A student says a warm winter week proves both a long-term climate trend and a particular ENSO phase. Explain what additional evidence is required.",
+        "sampleAnswer": "A week is short-term weather. A climate trend requires comparable observations over longer periods, and ENSO classification requires evidence about the tropical Pacific ocean–atmosphere pattern. One local anomaly cannot uniquely identify either mechanism.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-apes-seasons-recall",
+        "prompt": "Why do the hemispheres have opposite seasons?",
+        "sampleAnswer": "Earth’s axial tilt makes one hemisphere receive generally higher solar angles and longer days while the other receives lower angles and shorter days; distance from the Sun is shared by both.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Global Change::9.1 Greenhouse gases, radiative balance, feedbacks, and climate evidence": {
+    "revision": 1,
+    "objectives": [
+      "Calculate a simplified radiative energy imbalance.",
+      "Distinguish forcing from reinforcing and opposing feedbacks.",
+      "Compare climate evidence at compatible scales."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Earth’s energy balance compares incoming solar energy with energy returned to space. Some incoming sunlight is reflected; the rest is absorbed and can warm the climate system. Earth emits infrared radiation, whose interaction with greenhouse gases affects how efficiently energy escapes. The greenhouse effect is not the same mechanism as stratospheric ozone depletion. Adding a greenhouse gas can alter radiative balance, but the resulting temperature response also depends on feedbacks and the time required for the ocean and other parts of the system to adjust. Distinguish an energy-flow imbalance from the temperature change that develops over time."
+      },
+      {
+        "type": "text",
+        "text": "Albedo is the fraction of incoming radiation reflected by a surface or system. A higher albedo means less absorption under otherwise comparable incoming radiation. A feedback responds to an initial change and then amplifies or opposes that change. When warming reduces reflective ice cover and exposes darker surfaces, increased absorption can reinforce warming: that is a positive feedback. Positive means reinforcing, not beneficial. A negative feedback opposes an initial change, such as an increase in outgoing thermal emission as temperature rises under the relevant physical relationship. A forcing initiates or maintains a change, while a feedback is a response within the system; naming them requires identifying the causal sequence."
+      },
+      {
+        "type": "text",
+        "text": "Climate evidence comes from multiple measurements with different strengths and uncertainties. Instrumental records, ocean heat measurements, ice observations and paleoclimate proxies do not all measure exactly the same quantity. A proxy must be related to the climate variable it is used to infer, with attention to calibration and other influences. Compare trends on compatible timescales and distinguish local variation from global summaries. An explanation of a trend should be assessed against physical mechanisms and the broader evidence, not inferred from a single correlation alone. Uncertainty about the exact size of a response does not imply that every proposed mechanism is equally supported or that nothing can be concluded."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-apes-radiation-predict",
+        "prompt": "How much incoming energy is initially absorbed?",
+        "choices": [
+          "70 units",
+          "30 units",
+          "100 units"
+        ],
+        "answer": 0,
+        "explanation": "Absorbed energy is incoming minus reflected: 100 − 30.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-apes-radiation-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a deliberately simplified energy model, 100 energy units arrive each interval, 30 are reflected and 70 are absorbed. Initially 70 units leave as thermal radiation. A change initially reduces outgoing thermal radiation to 68 while incoming and reflected amounts remain fixed.",
+        "steps": [
+          {
+            "prompt": "How much incoming energy is initially absorbed?",
+            "choices": [
+              "30 units",
+              "100 units",
+              "70 units"
+            ],
+            "answer": 2,
+            "explanation": "Absorbed energy is incoming minus reflected: 100 − 30.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What is the initial net gain after outgoing energy falls to 68?",
+            "choices": [
+              "68 units",
+              "2 units per interval",
+              "−2 units"
+            ],
+            "answer": 1,
+            "explanation": "Absorption remains 70 and loss is 68, so net storage increases by 2.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "If subsequent ice loss reduces reflection, what kind of warming feedback can result?",
+            "choices": [
+              "Positive, because it reinforces the initial warming",
+              "Negative because ice loss is undesirable",
+              "No feedback because reflection never affects absorption"
+            ],
+            "answer": 0,
+            "explanation": "Reduced reflection increases absorption under the stated comparable conditions.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "Which claim confuses different mechanisms?",
+            "choices": [
+              "Positive feedback means reinforcement",
+              "Energy imbalance can precede full temperature adjustment",
+              "Greenhouse warming is identical to ozone depletion"
+            ],
+            "answer": 2,
+            "explanation": "Greenhouse-gas infrared effects and ozone depletion are distinct mechanisms.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "A positive feedback reinforces the initial change; a negative feedback opposes it. The sign describes the direction of the response, not whether its consequences are desirable."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-apes-radiation-transfer",
+        "prompt": "An observer presents one unusually cold location as proof that a global average trend is impossible. Explain the scale mismatch.",
+        "sampleAnswer": "A local observation and a global average summarize different spatial scales, and a short anomaly differs from a long-term trend. Local cold conditions can coexist with a rising global average. Compare representative, compatible records and investigate mechanisms rather than treating one location as the entire system.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-apes-radiation-recall",
+        "prompt": "What makes a feedback positive rather than negative?",
+        "sampleAnswer": "A positive feedback reinforces the initial change; a negative feedback opposes it. The sign describes the direction of the response, not whether its consequences are desirable.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Land and Water Use::5.1 Agriculture, soil conservation, and food-system tradeoffs": {
+    "revision": 1,
+    "objectives": [
+      "Connect soil-management practices to erosion mechanisms.",
+      "Separate yield per area from total food production.",
+      "Interpret measured agricultural tradeoffs without universal claims."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Soil is a system of mineral particles, organic matter, water, air and living organisms. Texture describes relative proportions of sand, silt and clay, while structure concerns how particles form aggregates. These properties influence infiltration, drainage, aeration and water retention, but no one texture automatically maximizes every agricultural outcome. Water available to plants is not identical to all water present in soil. Organic matter and roots can affect structure and nutrient cycling, connecting management to both productivity and erosion. Distinguish the movement of water into soil from its later movement through or over the landscape."
+      },
+      {
+        "type": "text",
+        "text": "Erosion removes and transports soil through agents such as water and wind. Leaving soil bare can increase exposure, while cover crops, contour farming, terracing and windbreaks target different mechanisms. Contour practices can slow downslope runoff; terraces shorten or reshape slopes; vegetation can intercept rainfall and stabilize soil. A management practice should be matched to the site rather than treated as a universal cure. Reduced tillage can preserve cover and structure, but effects on weeds, equipment and other inputs also need evaluation. Replacing one practice may shift costs rather than eliminate them, so compare outcomes using a clearly defined boundary."
+      },
+      {
+        "type": "text",
+        "text": "Fertilizer can increase growth when a nutrient is limiting, but excess application can increase losses to water or air. Integrated pest management combines monitoring and multiple strategies, using intervention thresholds rather than assuming every observed pest requires the largest pesticide application. Resistance can evolve when heritable variants survive control and contribute disproportionately to later generations; individual pests do not intentionally develop needed mutations. Food-system comparisons should distinguish yield per hectare from total production and from environmental impact per unit of food. A higher yield does not alone reveal total fertilizer loss, habitat effects or the distribution of benefits. Use explicit units and examine the mechanism linking an intervention to the intended outcome."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-apes-soil-predict",
+        "prompt": "What is the percentage reduction in measured soil loss?",
+        "choices": [
+          "300%",
+          "75%",
+          "25%"
+        ],
+        "answer": 1,
+        "explanation": "Loss decreases by 6 from an original 8, so 6/8 = 75%.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-apes-soil-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a hypothetical field comparison, both plots are 2 hectares. A bare-soil plot loses 8 tonnes of soil in a storm; a covered plot loses 2 tonnes. Yields are 4 tonnes of grain per hectare on the bare plot and 3.5 on the covered plot. Other impacts are not measured.",
+        "steps": [
+          {
+            "prompt": "What is the percentage reduction in measured soil loss?",
+            "choices": [
+              "75%",
+              "25%",
+              "300%"
+            ],
+            "answer": 0,
+            "explanation": "Loss decreases by 6 from an original 8, so 6/8 = 75%.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What is total grain production on the covered plot?",
+            "choices": [
+              "3.5 tonnes",
+              "1.75 tonnes",
+              "7 tonnes"
+            ],
+            "answer": 2,
+            "explanation": "3.5 tonnes per hectare × 2 hectares = 7 tonnes.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What mechanism can cover directly address?",
+            "choices": [
+              "Every source of greenhouse gases",
+              "Exposure to rainfall impact and runoff-driven erosion",
+              "All pesticide resistance automatically"
+            ],
+            "answer": 1,
+            "explanation": "Vegetation and residue can protect the surface and alter runoff.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What conclusion is justified by the stated measurements?",
+            "choices": [
+              "The covered plot had less soil loss and lower yield in this comparison",
+              "The covered system has lower impact in every category",
+              "Cover always reduces yield everywhere"
+            ],
+            "answer": 0,
+            "explanation": "The evidence supports the measured tradeoff, not a universal result or unmeasured impacts.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Yield is production per unit area; total production also depends on the area cultivated. Comparing yields alone can hide differences in land use and overall output."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-apes-soil-transfer",
+        "prompt": "A farmer sees fewer pests after repeated spraying but more resistant survivors in later generations. Explain why increasing the same spray indefinitely may not solve the underlying issue.",
+        "sampleAnswer": "Selection can increase the frequency of heritable resistance when survivors reproduce. Monitoring, biological or cultural controls and appropriately varied tactics can address the selection problem. The observation does not mean individual pests chose to mutate, and efficacy and impacts still need evaluation.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-apes-soil-recall",
+        "prompt": "Why must yield per hectare be distinguished from total production?",
+        "sampleAnswer": "Yield is production per unit area; total production also depends on the area cultivated. Comparing yields alone can hide differences in land use and overall output.",
+        "math": false
+      }
+    ]
+  },
+  "APES: Energy Resources and Consumption::6.2 Fossil fuels, nuclear energy, and life-cycle tradeoffs": {
+    "revision": 1,
+    "objectives": [
+      "Compare electrical efficiency at a common delivered output.",
+      "Distinguish fission from combustion and operating from life-cycle impacts.",
+      "Evaluate how increased demand can offset input savings."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Energy-resource comparisons should begin with a common functional output, such as a stated amount of delivered electricity. Coal, oil and natural gas are fossil fuels whose combustion releases energy and produces carbon dioxide along with other emissions depending on fuel and controls. Nuclear fission releases energy by changes in atomic nuclei rather than chemical combustion. A power plant’s operational emissions are only part of its life cycle: extraction, processing, construction, transport, waste management and decommissioning can also matter. Saying a technology has no direct combustion at the generator is not equivalent to saying every stage has zero environmental impact."
+      },
+      {
+        "type": "text",
+        "text": "Efficiency is useful output divided by energy input under a specified system boundary. A thermal plant can reject considerable heat even when its useful electrical output is valuable. Fuel energy and electrical energy must be expressed in compatible units before calculating efficiency. Increasing efficiency for the same delivered output reduces required input within the stated model, but total consumption can still rise if demand increases. A power value describes a rate of energy transfer, while an energy value accumulates that rate over time. Confusing a plant’s rated power with daily energy generation can produce large errors even before environmental comparisons begin."
+      },
+      {
+        "type": "text",
+        "text": "Tradeoffs vary across fuel pathways and locations. Fossil-fuel extraction can affect land and water, combustion can contribute to air pollution and greenhouse-gas emissions, and fuel supply can involve additional releases. Nuclear energy requires management of radioactive materials, cooling and long-term wastes; routine operation and accident risk are distinct questions. A defensible comparison states which impacts are measured and which remain uncertain. Waste mass alone does not characterize hazard without composition, activity, exposure pathway and containment. No one metric, including carbon emissions or fuel volume, automatically determines every social and ecological consequence. Use consistent output, explicit boundaries and transparent assumptions to compare alternatives."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-apes-energy-predict",
+        "prompt": "What is the original electrical efficiency?",
+        "choices": [
+          "60%",
+          "250%",
+          "40%"
+        ],
+        "answer": 2,
+        "explanation": "Useful electrical output divided by input is 200/500 = 0.40.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-apes-energy-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a hypothetical model, a thermal plant receives 500 MJ of fuel energy and delivers 200 MJ of electricity; the remaining 300 MJ leaves as rejected heat. An improved design is 50% efficient. Compare designs at the same 200 MJ delivered electrical output and ignore other energy flows.",
+        "steps": [
+          {
+            "prompt": "What is the original electrical efficiency?",
+            "choices": [
+              "250%",
+              "40%",
+              "60%"
+            ],
+            "answer": 1,
+            "explanation": "Useful electrical output divided by input is 200/500 = 0.40.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What input does the improved design require?",
+            "choices": [
+              "400 MJ",
+              "100 MJ",
+              "500 MJ"
+            ],
+            "answer": 0,
+            "explanation": "Input = useful output/efficiency = 200/0.50.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What is the input reduction for that same output?",
+            "choices": [
+              "50 MJ, or 50%",
+              "200 MJ, or 40%",
+              "100 MJ, or 20%"
+            ],
+            "answer": 2,
+            "explanation": "Input falls from 500 to 400, a decrease of 100/500.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "Which statement about nuclear generation is accurate?",
+            "choices": [
+              "Waste mass alone establishes complete risk",
+              "No direct fossil-fuel combustion in fission does not imply zero life-cycle impact",
+              "Fission is the same reaction as burning coal"
+            ],
+            "answer": 1,
+            "explanation": "The reaction mechanism and the system boundary must both be specified.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "A common output prevents a smaller service level from masquerading as a cleaner technology and makes input requirements and impacts comparable within stated life-cycle boundaries."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-apes-energy-transfer",
+        "prompt": "After an efficiency improvement, electrical demand doubles. Can total fuel input still increase? Use the stated efficiencies to explain.",
+        "sampleAnswer": "Yes. At 50% efficiency, 400 MJ of electrical output requires 800 MJ input, more than the old 500 MJ for 200 MJ output. Efficiency per unit output improves while total demand changes; the conclusions concern different denominators.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-apes-energy-recall",
+        "prompt": "Why should energy technologies be compared per common delivered output?",
+        "sampleAnswer": "A common output prevents a smaller service level from masquerading as a cleaner technology and makes input requirements and impacts comparable within stated life-cycle boundaries.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Linear Momentum::4.1 Momentum, impulse, and force-time graphs": {
+    "revision": 1,
+    "objectives": [
+      "Calculate signed impulse from a force–time graph.",
+      "Combine initial momentum with impulse to find final velocity.",
+      "Distinguish average force, peak force and stopping duration."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Linear momentum is a vector defined as mass multiplied by velocity. In one dimension, choosing a positive direction lets signs represent vector direction. Speed alone is insufficient: two equal masses moving at equal speeds in opposite directions have opposite momenta. Impulse is the integral of net force over time and equals the change in momentum for the system. The area under a force–time graph represents impulse, with areas below the time axis contributing negative values. Its units, newton seconds, are equivalent to kilogram meters per second. A large force over a short interval and a smaller force over a longer interval can produce the same impulse."
+      },
+      {
+        "type": "text",
+        "text": "A graph’s shape matters when calculating area. A rectangular pulse has area force times duration, while a triangular pulse has half base times height. Average force is impulse divided by the duration of the stated interval; it is not necessarily the peak force. The time interval must match the area being averaged. Do not add an initial momentum to a force value: first calculate impulse, then use final momentum = initial momentum + impulse. For constant mass, convert the final momentum back to velocity only after including its sign. A negative impulse need not make final velocity negative if the initial positive momentum is sufficiently large."
+      },
+      {
+        "type": "text",
+        "text": "The force in the impulse–momentum relationship is the net external force for the chosen system. If a sensor measures only one interaction, other forces may contribute impulse too. Approximate neglect of gravity during a short horizontal collision requires a justified direction and timescale, not a rule that gravity disappears whenever a collision occurs. When comparing protective designs, increasing stopping time for a fixed momentum change reduces average force magnitude, but that does not independently fix the peak shape. Explain what is held constant and whether the comparison concerns average or peak force before using the result to assess a design."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-physics-impulse-predict",
+        "prompt": "What is the initial momentum?",
+        "choices": [
+          "+6 kg·m/s",
+          "+1.5 kg·m/s",
+          "−6 kg·m/s"
+        ],
+        "answer": 0,
+        "explanation": "Momentum is 2 × +3 = +6.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-physics-impulse-guide",
+        "title": "Build and test an explanation",
+        "scenario": "Take right as positive. A 2 kg cart initially moves at +3 m/s. Its net horizontal force follows a triangular pulse below the time axis, with duration 2 s and peak −4 N, starting and ending at zero. Mass is constant.",
+        "steps": [
+          {
+            "prompt": "What is the initial momentum?",
+            "choices": [
+              "+1.5 kg·m/s",
+              "−6 kg·m/s",
+              "+6 kg·m/s"
+            ],
+            "answer": 2,
+            "explanation": "Momentum is 2 × +3 = +6.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What is the net impulse?",
+            "choices": [
+              "+4 N·s",
+              "−4 N·s",
+              "−8 N·s"
+            ],
+            "answer": 1,
+            "explanation": "The signed triangular area is −(1/2) × 2 × 4 = −4.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What is the final velocity?",
+            "choices": [
+              "+1 m/s",
+              "−2 m/s",
+              "+5 m/s"
+            ],
+            "answer": 0,
+            "explanation": "Final momentum is 6 − 4 = +2, so velocity is +2/2 = +1.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What is the average net force during the pulse?",
+            "choices": [
+              "−4 N",
+              "+2 N",
+              "−2 N"
+            ],
+            "answer": 2,
+            "explanation": "Average force is impulse/duration = −4/2 = −2 N, not the peak.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Impulse changes momentum rather than replacing it. If initial positive momentum exceeds the magnitude of negative impulse, final momentum remains positive."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-physics-impulse-transfer",
+        "prompt": "Two designs stop the same cart from the same initial speed. One doubles stopping time. What can be concluded about average force, and what cannot be concluded about the exact peak?",
+        "sampleAnswer": "The momentum change is the same, so doubling the interval halves average force magnitude. Peak force depends on the force–time shape and cannot be determined from duration and impulse alone without additional assumptions.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-physics-impulse-recall",
+        "prompt": "Why can a negative impulse leave an object moving positively?",
+        "sampleAnswer": "Impulse changes momentum rather than replacing it. If initial positive momentum exceeds the magnitude of negative impulse, final momentum remains positive.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Work, Energy, and Power::3.1 Work and the kinetic-energy theorem": {
+    "revision": 1,
+    "objectives": [
+      "Calculate signed work for applied and opposing forces.",
+      "Use net work to determine kinetic-energy change.",
+      "Distinguish force–position work from force–time impulse."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Work measures energy transferred by a force through displacement. For a constant force, W = Fd cos θ, where θ is the angle between force and displacement. A force perpendicular to displacement does no work over that displacement even if it is large. Positive work adds kinetic energy through the net-work relationship, while negative work removes it. Work is a scalar with a sign; it is not the same as a force vector. Choose the object or system and the interval before calculating, because a force can do different work over different motions and a single force’s work need not equal net work."
+      },
+      {
+        "type": "text",
+        "text": "The work–kinetic-energy theorem states that net work on an object equals its change in kinetic energy, K = one half mv squared. Net work includes all contributing forces on that object. If the work of friction has already been included in a stated net-work value, subtracting friction again double counts it. A negative net work does not imply negative kinetic energy; it indicates a decrease from the initial nonnegative value. If a proposed stopping calculation demands more kinetic-energy removal than is initially available along the assumed forward motion, reconsider the allowed displacement and what happens when the object stops."
+      },
+      {
+        "type": "text",
+        "text": "For a position-dependent force in one dimension, work corresponds to signed area under the force–position graph. This is a different graph from force versus time, whose area gives impulse. Axes determine what a graphical area means. Energy reasoning can determine speed after a displacement without directly finding the elapsed time, but speed does not provide the direction of motion by itself. Identify direction from the physical history or other information. Friction can transfer mechanical energy into internal energy; a decrease in an object’s kinetic energy does not mean total energy has vanished. Consistent system boundaries keep transfers and stored energy from being counted twice."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-physics-work-predict",
+        "prompt": "What is the initial kinetic energy?",
+        "choices": [
+          "18 J",
+          "9 J",
+          "6 J"
+        ],
+        "answer": 1,
+        "explanation": "One half × 2 × 3² = 9.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-physics-work-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A 2 kg block starts at speed 3 m/s and moves 2 m to the right. A constant 5 N force acts right, kinetic friction is 2 N left, and vertical forces are perpendicular to motion. These forces remain as stated during the interval.",
+        "steps": [
+          {
+            "prompt": "What is the initial kinetic energy?",
+            "choices": [
+              "9 J",
+              "6 J",
+              "18 J"
+            ],
+            "answer": 0,
+            "explanation": "One half × 2 × 3² = 9.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What work does the applied force do?",
+            "choices": [
+              "−10 J",
+              "+5 J",
+              "+10 J"
+            ],
+            "answer": 2,
+            "explanation": "Its direction matches displacement, so work is 5 × 2.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What is the net work?",
+            "choices": [
+              "−4 J",
+              "+6 J",
+              "+14 J"
+            ],
+            "answer": 1,
+            "explanation": "Friction does −4 J, so net work is 10 − 4 = 6; vertical forces do zero work.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What is the final kinetic energy?",
+            "choices": [
+              "15 J",
+              "3 J",
+              "6 J"
+            ],
+            "answer": 0,
+            "explanation": "Final kinetic energy equals initial 9 plus net work 6.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Work depends on the component along displacement. A perpendicular force can change velocity direction without changing kinetic energy, as in ideal uniform circular motion."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-physics-work-transfer",
+        "prompt": "A student calculates the final energy as initial energy plus net work minus friction work again. Explain the error and distinguish the relevant graph areas.",
+        "sampleAnswer": "Net work already includes friction, so subtracting it again double counts that transfer. Force–position area is work; force–time area is impulse. Neither can be substituted merely because both graphs show a force.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-physics-work-recall",
+        "prompt": "Why does a perpendicular force do zero work while still potentially changing motion?",
+        "sampleAnswer": "Work depends on the component along displacement. A perpendicular force can change velocity direction without changing kinetic energy, as in ideal uniform circular motion.",
+        "math": false
+      }
+    ]
+  },
+  "Physics 1: Oscillations::7.3 Pendulums, experimental linearization, and model limits": {
+    "revision": 1,
+    "objectives": [
+      "Apply the small-angle pendulum period model.",
+      "Infer gravitational field strength from a linearized graph.",
+      "Identify timing variation, length offsets and model limits."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "A simple pendulum model treats a compact bob as a point mass attached to a light, inextensible string, with negligible air resistance and a fixed support. Near equilibrium, the tangential component of gravity provides a restoring effect. For small angular displacements measured in radians, sin θ is approximately θ, leading to approximately simple harmonic motion. The familiar period T = 2π√(L/g) depends on length and gravitational field strength under these assumptions, not on bob mass. A pendulum is not exactly linear at every amplitude, so the small-angle condition is part of the model rather than a decorative phrase."
+      },
+      {
+        "type": "text",
+        "text": "Experimental linearization changes variables so a predicted relationship can be tested with a straight line. Squaring the period relation gives T² = (4π²/g)L. A plot of T² vertically against length horizontally should therefore have slope 4π²/g in the ideal model. The axes and units are essential: the slope has units seconds squared per meter, and plotting length against T² would give the reciprocal slope. A fit can be approximately linear without proving every assumption correct. Compare residual patterns, measurement uncertainty and the inferred parameter with the intended model rather than relying only on whether a line can be drawn."
+      },
+      {
+        "type": "text",
+        "text": "Measuring many oscillations and dividing elapsed time by the number of complete cycles can reduce the relative effect of reaction-time uncertainty. Count complete returns to the same phase, not every crossing through equilibrium as a whole cycle. Measure length from pivot to the bob’s center of mass for the simple-pendulum approximation, not merely the visible string segment. Repeated trials help estimate variation but cannot automatically remove a systematic length offset. If large amplitudes produce departures from the small-angle model, the correct response is to examine the approximation rather than redefine gravity until every point agrees. State the experimental range where the simplified model is supported."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-physics-pendulum-predict",
+        "prompt": "What is the period of the 1 m pendulum?",
+        "choices": [
+          "20 s",
+          "0.5 s",
+          "2 s"
+        ],
+        "answer": 2,
+        "explanation": "Period is elapsed time divided by ten complete cycles.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-physics-pendulum-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A hypothetical small-angle pendulum takes 20 s for 10 complete cycles at length 1 m. A second measurement at length 0.25 m gives period 1 s. A fit of T² versus L has slope 4 s²/m. Use π² approximately equal to 10 for the parameter calculation.",
+        "steps": [
+          {
+            "prompt": "What is the period of the 1 m pendulum?",
+            "choices": [
+              "0.5 s",
+              "2 s",
+              "20 s"
+            ],
+            "answer": 1,
+            "explanation": "Period is elapsed time divided by ten complete cycles.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What are the two T² values?",
+            "choices": [
+              "4 s² and 1 s²",
+              "2 s² and 1 s²",
+              "400 s² and 1 s²"
+            ],
+            "answer": 0,
+            "explanation": "Square each period, not the elapsed time for all cycles.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What gravitational field strength follows from the slope?",
+            "choices": [
+              "40 m/s²",
+              "2.5 m/s²",
+              "10 m/s²"
+            ],
+            "answer": 2,
+            "explanation": "g = 4π²/slope ≈ 40/4 = 10.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What happens to ideal period when length is quadrupled?",
+            "choices": [
+              "It halves",
+              "It doubles",
+              "It quadruples"
+            ],
+            "answer": 1,
+            "explanation": "Period depends on the square root of length under the small-angle model.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "The model predicts a straight-line relation with slope 4π²/g, allowing a check of the length dependence and an estimate of g when axes and assumptions are correct."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-physics-pendulum-transfer",
+        "prompt": "A student gets a straight-line fit but measures length to the top of a large bob instead of its center. Why can repeated timing alone fail to correct the inferred gravity?",
+        "sampleAnswer": "The length measurement has a systematic offset that repeated timing does not remove. The fit may remain approximately linear while slope or intercept interpretations are biased. Correct the geometric definition and assess uncertainty and model assumptions, including whether the bob is compact and the angle small.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-physics-pendulum-recall",
+        "prompt": "Why is T² versus L a useful plot for a small-angle pendulum?",
+        "sampleAnswer": "The model predicts a straight-line relation with slope 4π²/g, allowing a check of the length dependence and an estimate of g when axes and assumptions are correct.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Biological Bases of Behavior::1.1 Studying Behavior, Heredity, and Environment": {
+    "revision": 1,
+    "objectives": [
+      "Interpret heritability as a population-variation statistic.",
+      "Distinguish gene–environment interaction from genetic determinism.",
+      "Separate assignment, sampling and observational inference."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Behavior and psychological traits develop through interactions among biological characteristics and environments. A genetic influence does not imply that a trait is fixed, and an environmental influence does not imply that biology is irrelevant. Genotype concerns genetic makeup, while phenotype concerns expressed characteristics shaped through development and context. Gene–environment interaction means that the effect associated with an environment can depend on genetic differences, or vice versa. The claim concerns patterns of influence; it does not require imagining a separate gene for every complex behavior. Most complex psychological traits involve many influences rather than a single simple switch."
+      },
+      {
+        "type": "text",
+        "text": "Heritability describes the proportion of variation in a measured trait statistically associated with genetic variation in a particular population under particular conditions. It is not the percentage of one person’s trait caused by genes. A highly heritable trait can still change when environmental conditions change, and a heritability estimate from one population need not apply to another. Restricted environmental variation can change the relative contribution of observed genetic variation to differences. Twin and adoption designs help examine patterns of resemblance, but their interpretation depends on assumptions about environments, placement and relevant confounding factors. Resemblance alone does not reveal the complete developmental mechanism."
+      },
+      {
+        "type": "text",
+        "text": "Research reasoning also distinguishes correlation from experimental control. Random assignment to conditions can support causal inference about the manipulated factor when the design is appropriate; random sampling concerns representation of a population and serves a different purpose. Some questions cannot ethically be studied by assigning harmful exposures, so researchers use converging evidence from observational designs and other sources. Informed consent, appropriate assent when required, confidentiality and protection from unnecessary harm are not obstacles to ignore when seeking an answer. A sound explanation states what the evidence supports, identifies design assumptions and avoids translating population statistics into judgments about an individual’s potential."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-psych-heritability-predict",
+        "prompt": "What does 0.60 heritability describe?",
+        "choices": [
+          "A population-specific proportion of observed variation associated with genetic variation",
+          "60% of one person’s trait is genetically produced",
+          "A guarantee that the trait cannot change"
+        ],
+        "answer": 0,
+        "explanation": "The statistic concerns variation among people in specified conditions, not pieces of an individual.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-psych-heritability-guide",
+        "title": "Build and test an explanation",
+        "scenario": "In a fictional population, a trait has an estimated heritability of 0.60 under the study’s conditions. A researcher also compares twins’ resemblance and considers a separate experiment that randomly assigns a harmless study strategy, not genetic makeup.",
+        "steps": [
+          {
+            "prompt": "What does 0.60 heritability describe?",
+            "choices": [
+              "60% of one person’s trait is genetically produced",
+              "A guarantee that the trait cannot change",
+              "A population-specific proportion of observed variation associated with genetic variation"
+            ],
+            "answer": 2,
+            "explanation": "The statistic concerns variation among people in specified conditions, not pieces of an individual.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "Could an environmental change shift the population mean?",
+            "choices": [
+              "Only if all genes disappear",
+              "Yes, high heritability does not rule out environmental change",
+              "No, because the number exceeds one half"
+            ],
+            "answer": 1,
+            "explanation": "Heritability of differences under one environment does not establish immutability of the mean.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What does random assignment of the study strategy primarily support?",
+            "choices": [
+              "Causal comparison of that manipulated strategy",
+              "Automatic representation of every population",
+              "A manipulation of participants’ genes"
+            ],
+            "answer": 0,
+            "explanation": "Assignment helps make groups comparable for a treatment contrast; it is not the same as sampling.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What must a twin comparison consider?",
+            "choices": [
+              "That identical resemblance proves only genes matter",
+              "That ethics cease to apply",
+              "Assumptions about environmental similarities and other confounds"
+            ],
+            "answer": 2,
+            "explanation": "Resemblance patterns inform inference only under relevant design assumptions.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Random assignment allocates participants to conditions to support causal comparison; random sampling selects people from a population to support representativeness. One does not automatically provide the other."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-psych-heritability-transfer",
+        "prompt": "Two populations have different environments and different heritability estimates. Explain why the difference does not establish that one population has more genetically determined individuals.",
+        "sampleAnswer": "Heritability summarizes variation and its sources within each studied population. Different environmental variability and measurement conditions can alter estimates. It does not partition individuals into genetic and environmental percentages or rank their capacity to change.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-psych-heritability-recall",
+        "prompt": "How do random assignment and random sampling differ?",
+        "sampleAnswer": "Random assignment allocates participants to conditions to support causal comparison; random sampling selects people from a population to support representativeness. One does not automatically provide the other.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Biological Bases of Behavior::1.4 Sleep, Circadian Rhythms, and Consciousness": {
+    "revision": 1,
+    "objectives": [
+      "Distinguish circadian timing from homeostatic sleep pressure.",
+      "Identify N3 and limits of inferring REM from dreams.",
+      "Evaluate sleep measurements and observational associations."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Circadian rhythms are approximately daily patterns in physiological functioning, coordinated by biological timing systems and influenced by environmental cues such as light. A circadian signal is not identical to sleep pressure, which generally builds with time awake and changes through sleep. These processes can interact: someone may feel alert late in the day despite having been awake for many hours, or have difficulty sleeping at a biologically misaligned time despite fatigue. The suprachiasmatic nucleus plays a central coordinating role in circadian timing, while melatonin is associated with signaling biological night. Neither should be treated as a complete single-switch explanation of all sleep behavior."
+      },
+      {
+        "type": "text",
+        "text": "Sleep includes recurring non-REM and REM stages rather than one uniform state. Non-REM stages differ in characteristic activity, with deep slow-wave sleep especially associated with N3. REM sleep involves a characteristic pattern of brain activity, rapid eye movements and typically reduced skeletal-muscle tone. Dreaming is not restricted exclusively to REM, so remembering a dream does not by itself identify the stage in which it occurred. Stage proportions and cycles vary across a night and across development; a simplified diagram is not an exact clock for every person. Measuring sleep requires evidence suited to the question rather than assuming that time in bed equals time asleep."
+      },
+      {
+        "type": "text",
+        "text": "Sleep supports multiple functions related to health, attention and memory, but a classroom comparison should avoid claiming that one night determines every later outcome. Observational associations between sleep duration and performance can reflect shared influences such as stress or schedules. Experiments can isolate some effects of manipulated sleep opportunities, subject to ethical protections and limits on generalization. Circadian misalignment, insufficient opportunity and a sleep disorder are different possibilities and cannot be distinguished by one tired morning. Educational examples describe processes rather than diagnose individuals. Evaluate the measured variable, the comparison condition and the timescale before drawing a conclusion about sleep and consciousness."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-psych-sleep-predict",
+        "prompt": "The traveler’s mismatch most directly concerns what?",
+        "choices": [
+          "The absence of any sleep pressure",
+          "Circadian misalignment",
+          "Proof of a permanent disorder"
+        ],
+        "answer": 1,
+        "explanation": "The attempted sleep time conflicts with internal biological timing.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-psych-sleep-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A fictional traveler crosses time zones and tries to sleep when their internal timing still favors wakefulness. In a sleep laboratory, recordings identify slow-wave N3 sleep and later REM sleep. A separate survey links shorter reported sleep with lower test performance without assigning sleep duration.",
+        "steps": [
+          {
+            "prompt": "The traveler’s mismatch most directly concerns what?",
+            "choices": [
+              "Circadian misalignment",
+              "Proof of a permanent disorder",
+              "The absence of any sleep pressure"
+            ],
+            "answer": 0,
+            "explanation": "The attempted sleep time conflicts with internal biological timing.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "Which stage is associated with deep slow-wave sleep?",
+            "choices": [
+              "REM by definition",
+              "Wakefulness only",
+              "N3"
+            ],
+            "answer": 2,
+            "explanation": "N3 is the deep non-REM stage in the stated classification.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What does a remembered dream prove about sleep stage?",
+            "choices": [
+              "It proves no sleep occurred",
+              "It does not by itself prove the dream occurred in REM",
+              "It necessarily proves REM"
+            ],
+            "answer": 1,
+            "explanation": "Dream reports are not exclusive to REM.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What can the survey establish by itself?",
+            "choices": [
+              "An association, not an isolated causal effect of sleep duration",
+              "That duration is the only cause of scores",
+              "That stress cannot influence either variable"
+            ],
+            "answer": 0,
+            "explanation": "The observational comparison leaves alternative explanations open.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Circadian timing coordinates approximately daily patterns and responds to cues such as light; homeostatic sleep pressure changes with time awake and sleep. Their interaction helps explain why fatigue and readiness for sleep need not match perfectly."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-psych-sleep-transfer",
+        "prompt": "A student spends eight hours in bed and says this proves eight hours of sleep and a normal stage pattern. Evaluate the reasoning.",
+        "sampleAnswer": "Time in bed includes possible wake periods and does not identify sleep stages. Appropriate measurement would need to assess actual sleep and relevant stage indicators. One duration report cannot establish the entire architecture or diagnose its normality.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-psych-sleep-recall",
+        "prompt": "How does circadian timing differ from homeostatic sleep pressure?",
+        "sampleAnswer": "Circadian timing coordinates approximately daily patterns and responds to cues such as light; homeostatic sleep pressure changes with time awake and sleep. Their interaction helps explain why fatigue and readiness for sleep need not match perfectly.",
+        "math": false
+      }
+    ]
+  },
+  "Psych: Mental & Physical Health::5.5 Treatment Research, Approaches, and Well-Being": {
+    "revision": 1,
+    "objectives": [
+      "Compare treatment improvement with an appropriate control.",
+      "Distinguish percentage-point differences and causal inference.",
+      "Evaluate attrition, functioning, harms and follow-up."
+    ],
+    "foundations": [
+      {
+        "type": "heading",
+        "text": "Build the foundations"
+      },
+      {
+        "type": "text",
+        "text": "Psychological treatment research asks whether an intervention improves defined outcomes for a specified group, compared with an appropriate alternative. Improvement after treatment alone does not isolate the treatment’s effect because symptoms can fluctuate, expectations can matter and other circumstances can change. Random assignment can help make treatment groups comparable, while suitable comparison conditions clarify which component is being tested. A waitlist, an attention control and an established treatment address different questions. Ethical requirements and participants’ needs influence which comparisons are appropriate. The design should be described accurately rather than treating every study labeled clinical as identical evidence."
+      },
+      {
+        "type": "text",
+        "text": "Treatment approaches differ in their targets and techniques. Behavioral approaches can change learned patterns through procedures such as exposure or reinforcement-based practice. Cognitive approaches examine interpretations and beliefs; cognitive-behavioral approaches often combine cognitive and behavioral methods. Psychodynamic approaches explore patterns associated with earlier experience and unconscious processes, while humanistic approaches emphasize understanding, acceptance and personal growth. Biomedical interventions target biological processes, and decisions about medication involve qualified clinical assessment and monitoring. Recognizing an approach does not establish that it is optimal for every person or that a brief educational activity is equivalent to receiving treatment."
+      },
+      {
+        "type": "text",
+        "text": "Outcomes can include symptom severity, functioning, quality of life and adverse effects. Statistical improvement in a group average does not mean every participant benefits equally or that a difference is meaningful in daily life. Check baseline comparability, attrition, measurement quality and follow-up duration. If many participants leave and only successful completers are counted, the reported result can be misleading. Efficacy under controlled conditions and effectiveness in routine settings are related but distinct questions. A responsible conclusion specifies the population, comparison, outcome and uncertainty. Teaching about well-being should support understanding of evidence without diagnosing a reader or prescribing a treatment from a short fictional scenario."
+      },
+      {
+        "type": "prediction",
+        "id": "s6-psych-treatment-predict",
+        "prompt": "What is the treatment group’s improvement proportion?",
+        "choices": [
+          "40%",
+          "20%",
+          "60%"
+        ],
+        "answer": 2,
+        "explanation": "60 out of 100 assigned participants improved.",
+        "hint": "Identify the relevant input, denominator or mechanism."
+      }
+    ],
+    "guided": [
+      {
+        "type": "guidedExample",
+        "id": "s6-psych-treatment-guide",
+        "title": "Build and test an explanation",
+        "scenario": "A hypothetical study randomly assigns 100 volunteers to a treatment and 100 to an attention-control condition. Improvement is reported for 60 of the 100 assigned treatment participants and 40 of the 100 assigned controls. Outcome definitions and follow-up times are the same; these numbers are fictional and are not evidence for any real treatment.",
+        "steps": [
+          {
+            "prompt": "What is the treatment group’s improvement proportion?",
+            "choices": [
+              "20%",
+              "60%",
+              "40%"
+            ],
+            "answer": 1,
+            "explanation": "60 out of 100 assigned participants improved.",
+            "hint": "Keep the reference group and stated comparison fixed."
+          },
+          {
+            "prompt": "What is the absolute difference in improvement proportions?",
+            "choices": [
+              "20 percentage points",
+              "20% of the control rate",
+              "60 percentage points"
+            ],
+            "answer": 0,
+            "explanation": "60% minus 40% equals 20 percentage points, distinct from a relative percentage change.",
+            "hint": "Distinguish the observation from a broader unsupported claim."
+          },
+          {
+            "prompt": "What does random assignment strengthen?",
+            "choices": [
+              "Automatic representation of all patients",
+              "A guarantee every participant improves",
+              "The causal comparison between assigned conditions"
+            ],
+            "answer": 2,
+            "explanation": "Assignment helps balance alternative influences, while representativeness remains a separate question.",
+            "hint": "Check which assumption would be needed for the stronger conclusion."
+          },
+          {
+            "prompt": "What additional outcome would help evaluate the intervention?",
+            "choices": [
+              "A claim that follow-up never matters",
+              "Functioning, adverse effects and persistence of benefits",
+              "Only the most successful participant’s story"
+            ],
+            "answer": 1,
+            "explanation": "Benefit must be considered alongside meaningful outcomes, harms and duration.",
+            "hint": "Identify the relevant input, denominator or mechanism."
+          }
+        ],
+        "takeaway": "Symptoms can change naturally, expectations and other experiences can contribute, and regression toward typical levels can occur. An appropriate comparison and design help isolate the intervention’s contribution."
+      }
+    ],
+    "advanced": [
+      {
+        "type": "heading",
+        "text": "Connect and transfer"
+      },
+      {
+        "type": "reflection",
+        "id": "s6-psych-treatment-transfer",
+        "prompt": "The investigators exclude every person who leaves treatment early and report only improvement among completers. Explain the concern and a useful additional analysis.",
+        "sampleAnswer": "Leaving treatment may be related to lack of benefit or adverse effects, so completer-only results can exaggerate benefit. Report attrition and reasons, compare groups and analyze outcomes by initial assignment with appropriate handling and transparency about missing data. No missing-data method removes every uncertainty automatically.",
+        "checklist": [
+          "State the relevant mechanism or relationship.",
+          "Use the conditions and evidence in the scenario.",
+          "Explain a limitation or a consequence of changing an assumption."
+        ]
+      }
+    ],
+    "retrieval": [
+      {
+        "type": "heading",
+        "text": "Retrieve without the worked steps"
+      },
+      {
+        "type": "recall",
+        "id": "s6-psych-treatment-recall",
+        "prompt": "Why does improvement after treatment alone fail to establish that treatment caused the improvement?",
+        "sampleAnswer": "Symptoms can change naturally, expectations and other experiences can contribute, and regression toward typical levels can occur. An appropriate comparison and design help isolate the intervention’s contribution.",
+        "math": false
+      }
+    ]
+  }
+}
