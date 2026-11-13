@@ -837,8 +837,13 @@
       const signedAs = document.getElementById('signed-as');
       if (data.signedInAs) {
         signedAs.hidden = false;
-        signedAs.innerHTML = `Signed in as ${data.signedInAs}. <button type="button" id="signout">Sign out</button>`;
-        document.getElementById('signout').addEventListener('click', signOut);
+        signedAs.textContent = `Signed in as ${data.signedInAs}. `;
+        const signoutBtn = document.createElement('button');
+        signoutBtn.type = 'button';
+        signoutBtn.id = 'signout';
+        signoutBtn.textContent = 'Sign out';
+        signedAs.append(signoutBtn);
+        signoutBtn.addEventListener('click', signOut);
       }
 
       if (!data.found) return show('status-none');
@@ -1842,8 +1847,14 @@
     function unlock(info) {
       gate.hidden = true;
       consent.hidden = false;
-      document.getElementById('student-strip').innerHTML =
-        `<strong>${info.studentFirstName}</strong><span>${info.school}</span>`;
+      // textContent, never innerHTML: these two values are supplied by the student.
+      const strip = document.getElementById('student-strip');
+      strip.textContent = '';
+      const stripName = document.createElement('strong');
+      stripName.textContent = info.studentFirstName;
+      const stripSchool = document.createElement('span');
+      stripSchool.textContent = info.school;
+      strip.append(stripName, stripSchool);
       if (info.parentEmail) document.getElementById('guardian_email').value = info.parentEmail;
       if (info.parentName) document.getElementById('guardian_name').value = info.parentName;
     }

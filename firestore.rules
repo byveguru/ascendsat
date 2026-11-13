@@ -101,7 +101,9 @@ service cloud.firestore {
     // awardedScores docs below use for XP.
     match /masteryEvents/{userId}/events/{eventId} {
       allow read: if isOwner(userId);
-      allow create: if isOwner(userId) && request.resource.data.verifiedBy != "server";
+      // .get(..., null): the client never sends `verifiedBy`, and reading a
+      // missing field directly errors (which denies the write).
+      allow create: if isOwner(userId) && request.resource.data.get("verifiedBy", null) != "server";
       allow update, delete: if false;
     }
 
